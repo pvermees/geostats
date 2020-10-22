@@ -97,3 +97,21 @@ save(forams,file='package/data/forams.rda',version=2)
 
 pop <- read.csv('population.csv')
 save(pop,file='package/data/pop.rda',version=2)
+
+raster2dat <- function(fname){
+    library(raster)
+    dat <- raster(fname)
+    mat <- t(apply(as.matrix(dat), 2, rev))
+    mat[mat<128] <- 1
+    mat[mat>=128] <- 0
+    mat
+}
+
+fractures <- raster2dat('fractures.tif')
+save(fractures,file='package/data/fractures.rda',version=2)
+
+Corsica <- raster2dat('Corsica.tif')
+save(Corsica,file='package/data/Corsica.rda',version=2)
+
+Britain <- raster2dat('Britain.tif')
+save(Britain,file='package/data/Britain.rda',version=2)

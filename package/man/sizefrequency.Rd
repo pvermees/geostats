@@ -14,15 +14,17 @@ sizefrequency(dat, n = 10, log = TRUE)
 \item{log}{logical. If \code{TRUE}, uses a log spacing for the
 sizes at which the frequencies are evaluated}
 }
+\value{
+a data frame with two columns \code{size} and
+    \code{frequency}
+}
 \description{
 calculate the number of items exceeding a certain size
 }
 \examples{
 data(Finland,package='geostats')
 sf <- sizefrequency(Finland$area)
-size <- sf[,'size']
-freq <- sf[,'frequency']
-plot(size,freq,log='xy')
-fit <- lm(log(freq) ~ log(size))
+plot(frequency~size,data=sf,log='xy')
+fit <- lm(log(frequency) ~ log(size),data=sf)
 lines(x=size,y=exp(predict(fit)))
 }

@@ -140,3 +140,45 @@ NULL
 #' data(pop,package='geostats')
 #' plot(pop)
 NULL
+
+#' Britain
+#'
+#' a 512 x 512 pixel image of the British coast line
+#' 
+#' @name Britain
+#' @docType data
+#' @keywords data
+#' @examples
+#' data(Britain,package='geostats')
+#' p <- par(mfrow=c(1,2))
+#' image(Britain)
+#' fractaldim(Britain)
+NULL
+
+#' Corsica
+#'
+#' a 512 x 512 pixel image of the river network on Corsica
+#' 
+#' @name Corsica
+#' @docType data
+#' @keywords data
+#' @examples
+#' data(Corsica,package='geostats')
+#' p <- par(mfrow=c(1,2))
+#' image(Corsica)
+#' fractaldim(Corsica)
+NULL
+
+#' fractures
+#'
+#' a 512 x 512 pixel image of a fracture network
+#' 
+#' @name fractures
+#' @docType data
+#' @keywords data
+#' @examples
+#' data(fractures,package='geostats')
+#' p <- par(mfrow=c(1,2))
+#' image(fractures)
+#' fractaldim(fractures)
+NULL

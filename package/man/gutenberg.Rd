@@ -4,14 +4,20 @@
 \alias{gutenberg}
 \title{create a Gutenberg-Richter plot}
 \usage{
-gutenberg(mag, n = 10, ...)
+gutenberg(m, n = 10, ...)
 }
 \arguments{
-\item{mag}{a vector of earthquake magnitudes}
+\item{m}{a vector of earthquake magnitudes}
 
 \item{n}{the number of magnitudes to evaluate}
 
-\item{...}{optional arguments to the generic \code{points} function.}
+\item{...}{optional arguments to the generic \code{points}
+function.}
+}
+\value{
+the output of \code{lm} with earthquake magnitude as the
+    independent variable (\code{mag}) and the logarithm (base 10)
+    of the frequency as the dependent variable (\code{lfreq}).
 }
 \description{
 calculate a semi-log plot with earthquake magnitude on

@@ -201,24 +201,29 @@ countQuakes <- function(qdat,minmag,from,to){
 #' @description calculate a semi-log plot with earthquake magnitude on
 #'     the horizontal axis,and the cumulative number of earthquakes
 #'     exceeding any given magnitude on the vertical axis.
-#' @param mag a vector of earthquake magnitudes
+#' @param m a vector of earthquake magnitudes
 #' @param n the number of magnitudes to evaluate
-#' @param ... optional arguments to the generic \code{points} function.
+#' @param ... optional arguments to the generic \code{points}
+#'     function.
+#' @return the output of \code{lm} with earthquake magnitude as the
+#'     independent variable (\code{mag}) and the logarithm (base 10)
+#'     of the frequency as the dependent variable (\code{lfreq}).
 #' @examples
 #' data(declustered,package='geostats')
 #' gutenberg(declustered$mag)
 #' @export
-gutenberg <- function(mag,n=10,...){
-    sf <- sizefrequency(mag,n=n,log=FALSE)
-    X <- sf[,'size']
-    Y <- log10(sf[,'frequency']/length(mag))
-    plot(x=X,y=Y,type='n',bty='n',xlab='magnitude',
+gutenberg <- function(m,n=10,...){
+    sf <- sizefrequency(m,n=n,log=FALSE)
+    mag <- sf[,'size']
+    lfreq <- log10(sf[,'frequency']/length(m))
+    plot(mag,lfreq,bty='n',xlab='magnitude',
          ylab=expression('log'[10]*'[N/N'[o]*']'))
-    fit <- lm(Y ~ X)
-    lines(X,fit$coef[1]+fit$coef[2]*X)
-    points(x=X,y=Y,...)
+    fit <- lm(lfreq ~ mag)
+    abline(fit)
+    points(mag,lfreq,...)
     legend('topright',paste0('y = ',signif(fit$coef[1],3),
                              signif(fit$coef[2],3),' x'),bty='n')
+    invisible(fit)
 }
 
 #' @title calculate the size-frequency distribution of things
@@ -227,13 +232,13 @@ gutenberg <- function(mag,n=10,...){
 #' @param n the number of sizes to evaluate
 #' @param log logical. If \code{TRUE}, uses a log spacing for the
 #'     sizes at which the frequencies are evaluated
+#' @return a data frame with two columns \code{size} and
+#'     \code{frequency}
 #' @examples
 #' data(Finland,package='geostats')
 #' sf <- sizefrequency(Finland$area)
-#' size <- sf[,'size']
-#' freq <- sf[,'frequency']
-#' plot(size,freq,log='xy')
-#' fit <- lm(log(freq) ~ log(size))
+#' plot(frequency~size,data=sf,log='xy')
+#' fit <- lm(log(frequency) ~ log(size),data=sf)
 #' lines(x=size,y=exp(predict(fit)))
 #' @export
 sizefrequency <- function(dat,n=10,log=TRUE){
@@ -247,7 +252,78 @@ sizefrequency <- function(dat,n=10,log=TRUE){
         freq[i] <- sum(d>size[i])
     }
     if (log) size <- exp(size)
-    out <- cbind(size,freq)
-    colnames(out) <- c('size','frequency')
-    out
+    data.frame(size=size,frequency=freq)
+}
+
+#' @title 3-magnet pendulum experiment
+#' @description simulate the 3-magnet pendulum experiment
+#' @details start a pendulumn at a specified position and with a start
+#'     velocity.
+#' @param startpos 2-element vecotor with the initial position
+#' @param startvel 2-element vector with the initial velocity
+#' @param src n x 2 matrix with the positions of the magnets
+#' @param plot logical. If \code{TRUE}, generates a plot with the
+#'     trajectory of the pendulum.
+#' @return the end position of the pendulum
+#' @examples
+#' par(mfrow=c(1,2))
+#' pendulum(startpos=c(2,2))
+#' pendulum(startpos=c(1.9,2))
+#' @export
+pendulum <- function(startpos=c(-2,2),startvel=c(0,0),
+                     src=rbind(c(0,0),c(.5,sqrt(.75)),c(1,0)),plot=TRUE){
+    niter <- 10000
+    pos <- matrix(0,niter,2)
+    vel <- matrix(0,niter,2)
+    acc <- matrix(0,niter,2)
+    pos[1,] <- startpos
+    pos[2,] <- startpos
+    vel[1,] <- startvel
+    vel[2,] <- startvel
+    kf <- 1
+    friction <- .2
+    m_fHeight <- .2
+    src[,1] <- src[,1] - 0.5
+    src[,2] <- src[,2] - 1 + 0.5/cos(30*pi/180)
+    dt <- .02
+    for (i in 3:niter){
+        pos[i,1] <- pos[i-1,1] + vel[i-1,1]*dt +
+            ((2/3)*acc[i-1,1] - (1/6)*acc[i-2,1]) * dt^2
+        pos[i,2] <- pos[i-1,2] + vel[i-1,2]*dt +
+            ((2/3)*acc[i-1,2] - (1/6)*acc[i-2,2]) * dt^2
+        D <- Inf
+        for (j in 1:nrow(src)){
+            r <- pos[i,] - src[j,];
+            d <- sqrt( r[1]^2 + r[2]^2 + m_fHeight^2 )
+            if (d<D){
+                best <- j
+                D <- d
+            }
+            if (FALSE){
+                acc[i,1] <- acc[i,1] - kf*r[1]
+                acc[i,2] <- acc[i,2] - kf*r[2]
+            } else {
+                acc[i,1] <- acc[i,1] - kf*r[1]/d^3
+                acc[i,2] <- acc[i,2] - kf*r[2]/d^3
+            }
+        }
+        acc[i,1] <- acc[i,1] - vel[i-1,1]*friction
+        acc[i,2] <- acc[i,2] - vel[i-1,2]*friction
+        vel[i,1] <- vel[i-1,1] +
+            ( (1/3)*acc[i,1] + (5/6)*acc[i-1,1] - (1/6)*acc[i-2,1] )*dt
+        vel[i,2] <- vel[i-1,2] +
+            ( (1/3)*acc[i,2] + (5/6)*acc[i-1,2] - (1/6)*acc[i-2,2] )*dt
+        if (sum(abs(vel[i,]))<.001){
+            break
+        }
+    }
+    if (plot){
+        p <- par(mar=rep(0,4))
+        plot(c(-2,2),c(-2,2),type='n',bty='n',ann=FALSE,xaxt='n',yaxt='n')
+        lines(pos[1:i,])
+        points(src,pch=21,bg='white',cex=2.5,lwd=2)
+        text(src,labels=1:3)
+        par(p)
+    }
+    invisible(best)
 }
