@@ -42,7 +42,8 @@ declustered <- data.frame(
     lon = dqdat$Longitude,
     mag = dqdat$Mwe
 )
-save(declustered,file='package/data/declustered.rda',version=2)
+save(declustered,file='package/data/declustered.rda',
+     version=2,compression_level=9)
 
 dat <- read.csv('Finland.csv',header=TRUE)
 Finland <- data.frame(
@@ -52,10 +53,12 @@ Finland <- data.frame(
     lon = dat$Pour_long,
     elevation = dat$Elevation
 )
-save(Finland,file='package/data/Finland.rda',version=2)
+save(Finland,file='package/data/Finland.rda',
+     version=2,compression_level=9)
 
+set.seed(1)
 dz <- provenance::read.distributional('DZages.csv',check.names=FALSE)$x
-DZ <- lapply(subset(dz,subset=names(dz)%in%c("L", "Y", "3", "5", "8")),jitter)
+DZ <- lapply(dz,jitter)
 save(DZ,file="package/data/DZ.rda",version=2)
 
 RbSrGenerator <- function(n){
@@ -108,10 +111,34 @@ raster2dat <- function(fname){
 }
 
 fractures <- raster2dat('fractures.tif')
-save(fractures,file='package/data/fractures.rda',version=2)
+save(fractures,file='package/data/fractures.rda',
+     version=2,compression_level=9)
 
 Corsica <- raster2dat('Corsica.tif')
 save(Corsica,file='package/data/Corsica.rda',version=2)
 
 Britain <- raster2dat('Britain.tif')
 save(Britain,file='package/data/Britain.rda',version=2)
+
+ACNK <- read.csv('ACNK.csv',header=TRUE,row.names=1,check.names=FALSE)
+save(ACNK,file='package/data/ACNK.rda',version=2)
+
+major <- read.csv('Major.csv',header=TRUE,row.names=1,check.names=FALSE)
+save(major,file='package/data/major.rda',version=2)
+
+AFM <- read.csv('AFM.csv',header=TRUE,check.names=FALSE)
+save(AFM,file='package/data/AFM.rda',version=2)
+
+dat <- read.delim('training.txt',header=TRUE,sep='\t',check.names=FALSE)
+training <- na.omit(dat[,c(1,5:7,10:14)])
+colnames(training) <- c('affinity','SiO2','TiO2','Al2O3','CaO',
+                     'MgO','MnO','K2O','Na2O')
+rownames(training) <- 1:nrow(training)
+save(training,file='package/data/training.rda',version=2)
+
+dat <- read.delim('test.txt',header=TRUE,sep='\t',check.names=FALSE)
+test <- na.omit(dat[,c(1,5:7,10:14)])
+colnames(test) <- c('affinity','SiO2','TiO2','Al2O3','CaO',
+                    'MgO','MnO','K2O','Na2O')
+rownames(test) <- 1:nrow(test)
+save(test,file='package/data/test.rda',version=2)

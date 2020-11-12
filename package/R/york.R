@@ -115,18 +115,33 @@ get.york.xy <- function(dat,a,b){
     out
 }
 
-ellipse <- function(x,y,covmat,alpha=0.05,n=50){
-    nn <- 50
+#' @title ellipse
+#' @description compute the x-y coordinates of an error ellipse
+#' @param mean two-element vector with the centre of the ellipse
+#' @param cov the \code{2 x 2} covariance matrix of \code{x} and \code{y}
+#' @param alpha confidence level of the confidence ellipse
+#' @param n the number of points at which the ellipse is evaluated
+#' @examples
+#' X <- rnorm(100,mean=100,sd=1)
+#' Y <- rnorm(100,mean=100,sd=1)
+#' Z <- rnorm(100,mean=100,sd=5)
+#' dat <- cbind(X/Z,Y/Z)
+#' plot(dat)
+#' ell <- ellipse(mean=colMeans(dat),cov=cov(dat))
+#' polygon(ell)
+#' @export
+ellipse <- function(mean,cov,alpha=0.05,n=50){
+    mu <- as.numeric(mean)
     cutoff <- stats::qchisq(1-alpha,2)
-    e <- eigen(covmat)
+    e <- eigen(cov)
     a <- sqrt(cutoff*abs(e$values[1])) # major axis
     b <- sqrt(cutoff*abs(e$values[2])) # minor axis
     v <- e$vectors[,1] # largest eigenvector
     beta <- atan(v[2]/v[1]) # rotation angle of the ellipse
-    theta <- seq(0, 2 * pi, length=nn)
-    out <- matrix(0,nrow=nn,ncol=2)
-    out[,1] <- x + a * cos(theta) * cos(beta) - b * sin(theta) * sin(beta)
-    out[,2] <- y + a * cos(theta) * sin(beta) + b * sin(theta) * cos(beta)
+    theta <- seq(0, 2 * pi, length=n)
+    out <- matrix(0,nrow=n,ncol=2)
+    out[,1] <- mu[1] + a * cos(theta) * cos(beta) - b * sin(theta) * sin(beta)
+    out[,2] <- mu[2] + a * cos(theta) * sin(beta) + b * sin(theta) * cos(beta)
     colnames(out) <- c('x','y')
     out
 }
@@ -158,7 +173,7 @@ scatterplot <- function(xy,alpha=0.05,show.numbers=FALSE,
     for (i in 1:ns){
         if (!any(is.na(xy[i,]))){
             covmat <- cor2cov2(xy[i,'sX'],xy[i,'sY'],xy[i,'rXY'])
-            ell <- ellipse(xy[i,'X'],xy[i,'Y'],covmat,alpha=alpha)
+            ell <- ellipse(mean=xy[i,c('X','Y')],cov=covmat,alpha=alpha)
             graphics::polygon(ell,col=fill,border=stroke)
             if (show.numbers) graphics::text(xy[i,'X'],xy[i,'Y'],i)
             else graphics::points(xy[i,'X'],xy[i,'Y'],pch=19,cex=cex)

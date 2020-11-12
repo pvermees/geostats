@@ -58,9 +58,9 @@ cantor <- function(n=5,plot=FALSE,add=FALSE,Y=0,
         yy <- matrix(Y,nrow(xx),ncol(xx))
         i <- seq(from=1,to=ncol(xx),by=2)
         if (add){
-            matlines(xx[,i],yy[,i],lty=lty,col=col,...)
+            graphics::matlines(xx[,i],yy[,i],lty=lty,col=col,...)
         } else {
-            matplot(xx[,i],yy[,i],type='l',lty=lty,col=col,...)
+            graphics::matplot(xx[,i],yy[,i],type='l',lty=lty,col=col,...)
         }
     }
     invisible(x)
@@ -89,7 +89,7 @@ koch <- function(n=4,plot=TRUE,res=512){
         if (n == 0){
             m[i(y1,res=res),i(x1,res=res)] <- 1
             m[i(y5,res=res),i(x5,res=res)] <- 1
-            if (plot) lines(x=c(y1,y5),y=c(x1,x5))
+            if (plot) graphics::lines(x=c(y1,y5),y=c(x1,x5))
         } else {
             deltaX = x5 - x1
             deltaY = y5 - y1
@@ -106,7 +106,8 @@ koch <- function(n=4,plot=TRUE,res=512){
         }
         m
     }
-    if (plot) plot(c(0,100),c(0,100),type='n',axes=FALSE,xlab='',ylab='')
+    if (plot) graphics::plot(c(0,100),c(0,100),type='n',
+                             axes=FALSE,xlab='',ylab='')
     height <- 100*3/4
     width <- 100
     xStart <- width/2 - height/2
@@ -122,8 +123,6 @@ koch <- function(n=4,plot=TRUE,res=512){
 #'     in a matrix of 0s and 1s.
 #' @param mat a square square matrix of 0s and 1s. Must be a power of 2.
 #' @param size the size (pixels per side) of the boxes. Should be a power of 2.
-#' @param plot logical. If \code{TRUE}, plots the results on a log-log
-#'     scale.
 #' @examples
 #' g <- sierpinski(n=5)
 #' boxcount(mat=g,size=16)
@@ -162,16 +161,16 @@ fractaldim <- function(mat,plot=TRUE,...){
     for(i in 1:length(size)){
         nboxes[i] <- boxcount(mat=mat,size=size[i])
     }
-    fit <- lm(log(nboxes) ~ log(size))
+    fit <- stats::lm(log(nboxes) ~ log(size))
     if (plot){
-        plot(log(nboxes) ~ log(size),type='n',
-             bty='n',xlab='ln[size of boxes]',
-             ylab=expression('ln[number of boxes]'))
-        abline(fit)
-        points(log(nboxes) ~ log(size),...)
-        legend('topright',bty='n',
-               legend=paste0('y = ',signif(fit$coef[1],3),
-                             signif(fit$coef[2],3),' x'))
+        graphics::plot(log(nboxes) ~ log(size),type='n',
+                       bty='n',xlab='ln[size of boxes]',
+                       ylab=expression('ln[number of boxes]'))
+        graphics::abline(fit)
+        graphics::points(log(nboxes) ~ log(size),...)
+        graphics::legend('topright',bty='n',
+                         legend=paste0('y = ',signif(fit$coef[1],3),
+                                       signif(fit$coef[2],3),' x'))
     }
     invisible(fit)
 }
@@ -190,9 +189,9 @@ fractaldim <- function(mat,plot=TRUE,...){
 #' table(quakesperyear)
 #' @export
 countQuakes <- function(qdat,minmag,from,to){
-    bigenough <- (declustered$mag >= minmag)
-    youngenough <- (declustered$year >= from)
-    oldenough <- (declustered$year <= to)
+    bigenough <- (qdat$mag >= minmag)
+    youngenough <- (qdat$year >= from)
+    oldenough <- (qdat$year <= to)
     goodenough <- (bigenough & youngenough & oldenough)
     table(qdat$year[goodenough])
 }
@@ -216,13 +215,13 @@ gutenberg <- function(m,n=10,...){
     sf <- sizefrequency(m,n=n,log=FALSE)
     mag <- sf[,'size']
     lfreq <- log10(sf[,'frequency']/length(m))
-    plot(mag,lfreq,bty='n',xlab='magnitude',
-         ylab=expression('log'[10]*'[N/N'[o]*']'))
-    fit <- lm(lfreq ~ mag)
-    abline(fit)
-    points(mag,lfreq,...)
-    legend('topright',paste0('y = ',signif(fit$coef[1],3),
-                             signif(fit$coef[2],3),' x'),bty='n')
+    graphics::plot(mag,lfreq,bty='n',xlab='magnitude',
+                   ylab=expression('log'[10]*'[N/N'[o]*']'))
+    fit <- stats::lm(lfreq ~ mag)
+    graphics::abline(fit)
+    graphics::points(mag,lfreq,...)
+    graphics::legend('topright',paste0('y = ',signif(fit$coef[1],3),
+                                       signif(fit$coef[2],3),' x'),bty='n')
     invisible(fit)
 }
 
@@ -239,13 +238,13 @@ gutenberg <- function(m,n=10,...){
 #' sf <- sizefrequency(Finland$area)
 #' plot(frequency~size,data=sf,log='xy')
 #' fit <- lm(log(frequency) ~ log(size),data=sf)
-#' lines(x=size,y=exp(predict(fit)))
+#' lines(x=sf$size,y=exp(predict(fit)))
 #' @export
 sizefrequency <- function(dat,n=10,log=TRUE){
     if (log) d <- log(dat)
     else d <- dat
-    m <- quantile(d,0.01)
-    M <- quantile(d,0.99)
+    m <- stats::quantile(d,0.01)
+    M <- stats::quantile(d,0.99)
     size <- seq(from=m,to=M,length.out=n)
     freq <- rep(0,n)
     for (i in 1:n){
@@ -318,12 +317,13 @@ pendulum <- function(startpos=c(-2,2),startvel=c(0,0),
         }
     }
     if (plot){
-        p <- par(mar=rep(0,4))
-        plot(c(-2,2),c(-2,2),type='n',bty='n',ann=FALSE,xaxt='n',yaxt='n')
-        lines(pos[1:i,])
-        points(src,pch=21,bg='white',cex=2.5,lwd=2)
-        text(src,labels=1:3)
-        par(p)
+        p <- graphics::par(mar=rep(0,4))
+        graphics::plot(c(-2,2),c(-2,2),type='n',bty='n',
+                       ann=FALSE,xaxt='n',yaxt='n')
+        graphics::lines(pos[1:i,])
+        graphics::points(src,pch=21,bg='white',cex=2.5,lwd=2)
+        graphics::text(src,labels=1:3)
+        graphics::par(p)
     }
     invisible(best)
 }

@@ -9,6 +9,6 @@
 }
 \examples{
 data(porosity,package='geostats')
-plot(density(logit(clasts)))
+plot(density(logit(porosity)))
 }
 \keyword{data}

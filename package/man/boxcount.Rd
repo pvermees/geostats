@@ -10,9 +10,6 @@ boxcount(mat, size)
 \item{mat}{a square square matrix of 0s and 1s. Must be a power of 2.}
 
 \item{size}{the size (pixels per side) of the boxes. Should be a power of 2.}
-
-\item{plot}{logical. If \code{TRUE}, plots the results on a log-log
-scale.}
 }
 \description{
 count the number of boxes needed to cover all the 1s

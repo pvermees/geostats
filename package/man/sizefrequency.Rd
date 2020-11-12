@@ -26,5 +26,5 @@ data(Finland,package='geostats')
 sf <- sizefrequency(Finland$area)
 plot(frequency~size,data=sf,log='xy')
 fit <- lm(log(frequency) ~ log(size),data=sf)
-lines(x=size,y=exp(predict(fit)))
+lines(x=sf$size,y=exp(predict(fit)))
 }

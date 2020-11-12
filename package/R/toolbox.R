@@ -22,7 +22,7 @@ Mode <- function(x,categorical=FALSE){
         uni <- unique(x)
         out <- uni[which.max(tabulate(match(x, uni)))]
     } else {
-        dens <- density(x)
+        dens <- stats::density(x)
         out <- dens$x[which.max(dens$y)]
     }
     out
@@ -37,7 +37,7 @@ Mode <- function(x,categorical=FALSE){
 #' skew(porosity)
 #' @export
 skew <- function(x){
-    mean((x-mean(x))^3)/(length(x)*sd(x)^3)
+    mean((x-mean(x))^3)/(length(x)*stats::sd(x)^3)
 }
 
 #' @title generate bivariate random data
@@ -60,7 +60,7 @@ randy <- function(pop=1,n=250){
         mu <- c(0.5,0.5)
         angle <- seq(0,2*pi,length.out=50)
         radius <- 0.5
-        rangle <- runif(n,min=0,max=2*pi)
+        rangle <- stats::runif(n,min=0,max=2*pi)
         rx <- mu[1] + radius*cos(rangle)
         ry <- mu[2] + radius*sin(rangle)
     } else if (pop == 2){ # the arrow is made of three segments
@@ -70,7 +70,7 @@ randy <- function(pop=1,n=250){
         psegment2 <- 0.25/(sqrt(2)*(M-m)+0.5) # one half of the head
         cutoff1 <- psegment1
         cutoff2 <- psegment1 + psegment2
-        rnum <- runif(n)
+        rnum <- stats::runif(n)
         fromtail <- (rnum < cutoff1)
         fromhead1 <- (rnum >= cutoff1 & rnum < cutoff2)
         fromhead2 <- (rnum > cutoff2)
@@ -85,15 +85,15 @@ randy <- function(pop=1,n=250){
     } else if (pop == 3){
         x <- c(0,1,1,0,0)
         y <- c(0,0,1,1,0)
-        rx <- runif(n,min=min(x),max=max(x))
-        ry <- runif(n,min=min(y),max=max(y))
+        rx <- stats::runif(n,min=min(x),max=max(x))
+        ry <- stats::runif(n,min=min(y),max=max(y))
     } else if (pop == 4){
         mu <- c(0.5,0.5)
         angle <- seq(0,2*pi,length.out=50)
         theta <- -pi/4
         a <- 0.2
         b <- 0.66
-        rangle <- runif(n,min=0,max=2*pi)
+        rangle <- stats::runif(n,min=0,max=2*pi)
         rx <- mu[1] + a*cos(rangle)*cos(theta) - b*sin(rangle)*sin(theta)
         ry <- mu[2] + a*cos(rangle)*sin(theta) + b*sin(rangle)*cos(theta)
     }

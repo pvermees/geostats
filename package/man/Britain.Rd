@@ -3,7 +3,7 @@
 \docType{data}
 \name{Britain}
 \alias{Britain}
-\title{Britain}
+\title{British coast}
 \description{
 a 512 x 512 pixel image of the British coast line
 }

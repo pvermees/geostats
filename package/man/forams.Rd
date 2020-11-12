@@ -11,7 +11,7 @@ Planktic foraminifera counts in surface sediments in the Atlantic ocean.
 data(forams,package='geostats')
 abundant <- forams[,c('quinqueloba','pachyderma','incompta',
                       'glutinata','bulloides')]
-other <- rowSums(forams[,c('uvula','scitula','falconensis')])
+other <- rowSums(forams[,c('uvula','scitula')])
 dat <- cbind(abundant,other)
 chisq.test(dat)
 }

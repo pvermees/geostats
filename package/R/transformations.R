@@ -35,7 +35,7 @@ logit.density <- function(x,inverse=TRUE,...){
         out <- x
         out$x <- logit(x$x,inverse=inverse,...)
         dx <- diff(out$x)
-        out$y <- x$y/c(dx,tail(dx,1))
+        out$y <- x$y/c(dx,utils::tail(dx,1))
     } else {
         stop('Cannot apply the logit transformation to negative values.')
     }
@@ -60,6 +60,74 @@ exp.density <- function(x){
     out <- x
     out$x <- exp(x$x)
     dx <- diff(out$x)
-    out$y <- x$y/c(dx,tail(dx,1))
+    out$y <- x$y/c(dx,utils::tail(dx,1))
     out    
+}
+
+#' @title centred logratio transformation
+#' @description maps compositional data from an n-dimensional simplex
+#'     to an n-dimensional Euclidean space with Aitchison's centred
+#'     logratio transformation
+#' @param dat an \code{n x m} matrix
+#' @param inverse if \code{TRUE}, applies the inverse clr tranformation
+#' @return an \code{n x m} matrix
+#' @examples
+#' xyz <- rbind(c(0.03,99.88,0.09),
+#'              c(70.54,25.95,3.51),
+#'              c(72.14,26.54,1.32))
+#' colnames(xyz) <- c('a','b','c')
+#' rownames(xyz) <- 1:3
+#' pc <- prcomp(clr(xyz))
+#' biplot(pc)
+#' @export
+clr <- function(dat,inverse=FALSE){
+    if (class(dat)%in%c('matrix','data.frame')){
+        d <- dat
+    } else {
+        d <- matrix(dat,nrow=1)
+    }
+    if (inverse){
+        edat <- exp(d)
+        sdat <- rowSums(edat)
+        out <- apply(edat,MARGIN=2,FUN='/',sdat)
+    } else {
+        lg <- rowMeans(log(d))
+        out <- apply(log(d),MARGIN=2,FUN='-',lg)
+    }
+    as.matrix(out)
+}
+
+#' @title additive logratio transformation
+#' @description maps compositional data from an n-dimensional simplex
+#'     to an (n-1)-dimensional Euclidean space with Aitchison's
+#'     additive logratio transformation
+#' @param dat an \code{n x m} matrix
+#' @param inverse if \code{TRUE}, applies the inverse alr
+#'     tranformation
+#' @return if \code{inverse=FALSE}, returns an \code{(n-1) x m} matrix
+#'     of logratios; otherwise returns an \code{(n+1) x m} matrix of
+#'     compositional data whose columns add up to 1.
+#' @examples
+#' xyz <- rbind(c(0.03,99.88,0.09),
+#'              c(70.54,25.95,3.51),
+#'              c(72.14,26.54,1.32))
+#' colnames(xyz) <- c('a','b','c')
+#' rownames(xyz) <- 1:3
+#' pc <- prcomp(alr(xyz))
+#' biplot(pc)
+#' @export
+alr <- function(dat,inverse=FALSE){
+    if (class(dat)%in%c('matrix','data.frame')){
+        d <- dat
+    } else {
+        d <- matrix(dat,nrow=1)
+    }
+    if (inverse){
+        num <- cbind(1,exp(d))
+        den <- 1+rowSums(exp(d),na.rm=TRUE)
+        out <- num/den        
+    } else {
+        out <- log(d[,-1])-log(d[,1])
+    }
+    as.matrix(out)
 }

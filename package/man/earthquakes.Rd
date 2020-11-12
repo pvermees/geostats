@@ -7,7 +7,7 @@
 \description{
 dataset of 20000 earthquakes between 2017 and 2000, downloaded from
 the USGS earthquake database
-(\link{https://earthquake.usgs.gov/earthquakes/search/}).
+(\url{https://earthquake.usgs.gov/earthquakes/search/}).
 }
 \examples{
 data(earthquakes,package='geostats')

@@ -14,7 +14,7 @@ NULL
 #'
 #' 20 clast size measurements, in cm
 #' 
-#' @name pH
+#' @name clasts
 #' @docType data
 #' @keywords data
 #' @examples
@@ -32,7 +32,7 @@ NULL
 #' @keywords data
 #' @examples
 #' data(porosity,package='geostats')
-#' plot(density(logit(clasts)))
+#' plot(density(logit(porosity)))
 NULL
 
 #' detrital zircon U-Pb data
@@ -82,7 +82,7 @@ NULL
 #'
 #' dataset of 20000 earthquakes between 2017 and 2000, downloaded from
 #' the USGS earthquake database
-#' (\link{https://earthquake.usgs.gov/earthquakes/search/}).
+#' (\url{https://earthquake.usgs.gov/earthquakes/search/}).
 #' 
 #' @name earthquakes
 #' @docType data
@@ -124,7 +124,7 @@ NULL
 #' data(forams,package='geostats')
 #' abundant <- forams[,c('quinqueloba','pachyderma','incompta',
 #'                       'glutinata','bulloides')]
-#' other <- rowSums(forams[,c('uvula','scitula','falconensis')])
+#' other <- rowSums(forams[,c('uvula','scitula')])
 #' dat <- cbind(abundant,other)
 #' chisq.test(dat)
 NULL
@@ -141,7 +141,7 @@ NULL
 #' plot(pop)
 NULL
 
-#' Britain
+#' British coast
 #'
 #' a 512 x 512 pixel image of the British coast line
 #' 
@@ -155,7 +155,7 @@ NULL
 #' fractaldim(Britain)
 NULL
 
-#' Corsica
+#' rivers on Corsica
 #'
 #' a 512 x 512 pixel image of the river network on Corsica
 #' 
@@ -181,4 +181,68 @@ NULL
 #' p <- par(mfrow=c(1,2))
 #' image(fractures)
 #' fractaldim(fractures)
+NULL
+
+#' A-CN-K compositions
+#'
+#' Synthetic A (Al2O3), CN (CaO+Na2O), K (K2O) data table
+#' 
+#' @name ACNK
+#' @docType data
+#' @keywords data
+#' @examples
+#' data(ACNK,package='geostats')
+#' ternary(ACNK,type='p',labels=c(expression('Al'[2]*'O'[3]),
+#'                                expression('CaO+Na'[2]*'O'),
+#'                                expression('K'[2]*'O')))
+NULL
+
+#' composition of Namib dune sand
+#'
+#' major element compositions of 16 Namib sand samples
+#' 
+#' @name major
+#' @docType data
+#' @keywords data
+#' @examples
+#' data(major,package='geostats')
+#' comp <- clr(major)
+#' pc <- prcomp(comp)
+#' biplot(pc)
+NULL
+
+#' composition of oceanic basalts
+#'
+#' major element compositions of 227 island arc basalts (IAB), 221 mid
+#' oceanic ridge basalts (MORB) and 198 ocean island basalts
+#' (OIB). This dataset can be used to train supervised learning
+#' algorithms.
+#' 
+#' @name training
+#' @docType data
+#' @keywords data
+#' @examples
+#' library(MASS)
+#' data(training,package='geostats')
+#' qd <- qda(affinity ~ ., data=training)
+#' pr <- predict(qd)
+#' table(training$affinity,pr$class)
+NULL
+
+#' composition of oceanic basalts
+#'
+#' major element compositions of 64 island arc basalts (IAB), 23 mid
+#' oceanic ridge basalts (MORB) and 60 ocean island basalts
+#' (OIB). This dataset can be used to test supervised learning
+#' algorithms.
+#' 
+#' @name test
+#' @docType data
+#' @keywords data
+#' @examples
+#' library(MASS)
+#' data(training,package='geostats')
+#' qd <- qda(affinity ~ ., data=training)
+#' pr <- predict(qd,newdata=test[,-1])
+#' table(test$affinity,pr$class)
 NULL
