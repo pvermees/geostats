@@ -1,0 +1,419 @@
+\chapter{Probability}
+\label{ch:probability}
+
+Probability is a numerical description of how likely it is for an
+event to occur or how likely it is for a proposition to be true.  In
+the context of a sampling experiment, the probability of an outcome
+$A$ can be defined as:
+
+\begin{equation}
+P(A) = \frac{\mbox{the number of ways }A\mbox{ can occur}}
+{\mbox{the total number of outcomes}}
+\end{equation}
+
+For example, the probability of tossing an unbiased coin and observing
+a head ($H$) is
+
+\[
+\frac{
+  \{H\}
+}{
+  \{H\}\{T\}
+} = \frac{1}{2} = 0.5
+\]
+
+The probability of tossing the same coin three times and obtaining two
+heads and one tail ($T$) is:
+
+\begin{equation}
+  P\!\left(2\times{H} \cap 1\times{T}\right) =
+  \frac{
+    \{THH\}\{HTH\}\{HHT\}
+  }{
+    \{HHH\}\{THH\}\{HTH\}\{HHT\}\{TTH\}\{THT\}\{HTT\}\{TTT\}
+  } = \frac{3}{8}
+  \label{eq:2H1T}
+\end{equation}
+
+\noindent where $\cap$ stands for `and' in the sense of ``the
+intersection of two sets of outcomes''. Similarly, the probability of
+throwing two dice and obtaining a two (\raisebox{-2pt}{\Cube{2}}) and
+a six (\raisebox{-2pt}{\Cube{6}}) is:
+  
+\begin{equation}
+  P\!\left(1\times{\mbox{\raisebox{-2pt}{\Cube{2}}}} \cap
+  1\times\mbox{\raisebox{-2pt}{\Cube{6}}}\right) =
+  \frac{
+    \mbox{
+      \big\{\raisebox{-2pt}{\Cube{2} \Cube{6}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{2}}\big\}
+    }
+  }{
+    \begin{array}{c}
+      \mbox{
+        \big\{\raisebox{-2pt}{\Cube{1} \Cube{1}}\big\}\big\{\raisebox{-2pt}{\Cube{2} \Cube{1}}\big\}\big\{\raisebox{-2pt}{\Cube{3} \Cube{1}}\big\}\big\{\raisebox{-2pt}{\Cube{4} \Cube{1}}\big\}\big\{\raisebox{-2pt}{\Cube{5} \Cube{1}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{1}}\big\}
+      }\\
+      \mbox{
+        \big\{\raisebox{-2pt}{\Cube{1} \Cube{2}}\big\}\big\{\raisebox{-2pt}{\Cube{2} \Cube{2}}\big\}\big\{\raisebox{-2pt}{\Cube{3} \Cube{2}}\big\}\big\{\raisebox{-2pt}{\Cube{4} \Cube{2}}\big\}\big\{\raisebox{-2pt}{\Cube{5} \Cube{2}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{2}}\big\}
+      }\\
+      \mbox{
+        \big\{\raisebox{-2pt}{\Cube{1} \Cube{3}}\big\}\big\{\raisebox{-2pt}{\Cube{2} \Cube{3}}\big\}\big\{\raisebox{-2pt}{\Cube{3} \Cube{3}}\big\}\big\{\raisebox{-2pt}{\Cube{4} \Cube{3}}\big\}\big\{\raisebox{-2pt}{\Cube{5} \Cube{3}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{3}}\big\}
+      }\\
+      \mbox{
+        \big\{\raisebox{-2pt}{\Cube{1} \Cube{4}}\big\}\big\{\raisebox{-2pt}{\Cube{2} \Cube{4}}\big\}\big\{\raisebox{-2pt}{\Cube{3} \Cube{4}}\big\}\big\{\raisebox{-2pt}{\Cube{4} \Cube{4}}\big\}\big\{\raisebox{-2pt}{\Cube{5} \Cube{4}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{4}}\big\}
+      }\\
+      \mbox{
+        \big\{\raisebox{-2pt}{\Cube{1} \Cube{5}}\big\}\big\{\raisebox{-2pt}{\Cube{2} \Cube{5}}\big\}\big\{\raisebox{-2pt}{\Cube{3} \Cube{5}}\big\}\big\{\raisebox{-2pt}{\Cube{4} \Cube{5}}\big\}\big\{\raisebox{-2pt}{\Cube{5} \Cube{5}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{5}}\big\}
+      }\\
+      \mbox{
+        \big\{\raisebox{-2pt}{\Cube{1} \Cube{6}}\big\}\big\{\raisebox{-2pt}{\Cube{2} \Cube{6}}\big\}\big\{\raisebox{-2pt}{\Cube{3} \Cube{6}}\big\}\big\{\raisebox{-2pt}{\Cube{4} \Cube{6}}\big\}\big\{\raisebox{-2pt}{\Cube{5} \Cube{6}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{6}}\big\}
+      }
+    \end{array}
+  } = \frac{2}{36} = \frac{1}{18}
+  \label{eq:1116}
+\end{equation}
+
+The \textbf{multiplicative rule of
+  probability}\label{page:multiplication} dictates that the
+probability of two combined (independent) experiments is given by the
+product of their respective probabilities. Thus, if one were to carry
+out a coin tossing \emph{and} a dice throwing experiment, then the
+probability of obtaining two heads and one tail for the first
+experiment \emph{and} throwing a two and a six in the second
+experiment is:
+
+\[
+P\left(\left\{2\times{H} \cap 1\times{T}\right\} \cap
+\left\{1\times\mbox{\raisebox{-2pt}{\Cube{2}}} \cap
+1\times\mbox{\raisebox{-2pt}{\Cube{6}}}\right\}\right) =
+\frac{3}{8}\frac{1}{16} = \frac{3}{128} = 0.023
+\]
+
+The \textbf{additive rule of probability}\label{page:addition}
+dictates that the probability of observing either of two multually
+exclusive outcomes is given by the sum of their respective
+probabilities. Thus, if one were to carry out a coin tossing and a
+dice throwing experiment, then the probability of obtaining two heads
+and one tail for the first experiment \emph{or} throwing a two and a
+six in the second experiment is:
+
+\[
+P\left(\left\{2\times{H} \cap 1\times{T}\right\} \cup
+\left\{1\times\mbox{\raisebox{-2pt}{\Cube{2}}} \cap
+1\times\mbox{\raisebox{-2pt}{\Cube{6}}}\right\}\right) =
+\frac{3}{8} + \frac{1}{16} = \frac{7}{16} = 0.4375
+\]
+
+\section{Permutations}
+\label{sec:permutations}
+
+A permutation is an ordered arrangement of objects. These objects can
+be selected in one of two ways:
+
+\begin{enumerate}
+\item{\bf sampling with replacement.} Consider an urn with $n$ balls
+  that are numbered 1 through $n$. Draw a ball from the urn and write
+  down its number. There are $n$ possible outcomes for this
+  experiment.  Then place the ball back in the urn, thoroughly mix the
+  balls and draw a second one. Write down its number. There are $n$
+  possible outcomes for the second experiment. Using the
+  multiplicative rule of probability, there are $(n\times{n})$
+  possible outcomes for the two numbers. Repeat until you have drawn
+  $k$ balls (where $k \leq n$). Then the number of possible
+  combinations of numbers is
+  \begin{equation}
+  \overset{k \mbox{~times}}{\overbrace{n\times{n}\times{\ldots}\times{n}}} = n^k
+  \end{equation}
+  
+\item{\bf sampling without replacement.} Consider the same urn as
+  before and draw a first number. Like before, there are $n$ possible
+  outcomes.  However this time we do not put the ball back into the
+  urn. With the first ball removed, draw a second number. This time
+  there are only $(n - 1)$ possible outcomes. Thus, the total number
+  of combinations for the first two numbers is $n \times (n-1)$. Continuing
+  the experiment until you have drawn $k$ balls yields 
+  \begin{equation}
+  n\times(n-1)\times(n-2)\times{\ldots}\times(n-k+1) = \frac{n!}{(n-k)!}
+  \end{equation}
+  possible combinations, where `!' is the factorial operator.
+
+\end{enumerate}
+
+Let us apply these two formulas to a classical statistical problem:
+``\textit{what is the probability that two students in a classroom of
+  $r$ celebrate their birthdays on the same day?}''. The solution is
+as follows.
+
+\begin{enumerate}
+\item There are ($n=$) 365 possible days on which the first person might
+  celebrate their birthday.
+\item There are 365 possible days on which the second person might
+  celebrate their birthday, but only 364 of these do not overlap with
+  the first person's birthday.
+\item There are another 365 possible days on which the third person
+  might celebrate their birthday, but only 363 of these do not overlap
+  with the birthdays of the first two people.
+\item For $k$ people, there are $365^k$ possible combinations of
+  birthdays (sampling with replacement), but only
+  $365\times{364}\times{\ldots}(k+1) = 365!/(365-k)!$ of these combinations
+  do not overlap (sampling without replacement).
+\item Therefore, the probability that two people's birthdays do
+  not overlap is given by
+  \[
+  P(\mbox{no overlapping birthdays}) = \frac{365!}{(365-k)!365^k}
+  \]
+\item And the probability that at least two people's birthdays
+  overlap is
+  \[
+  P(>1~\mbox{overlapping birthdays}) = 1 - \frac{365!}{(365-k)!365^k}
+  \]  
+\end{enumerate}
+
+If $k = 23$, then $P(>1~\mbox{overlapping birthdays}) = 0.507$. In
+other words, there is a greater than 50\% chance that at least two
+students will share the same birthday in a classroom of 23.
+
+\section{Combinations}
+\label{sec:combinations}
+
+Section~\ref{sec:permutations} showed that there are $n^k$ unique
+possible ways to select $k$ objects from a collection of $n$ with
+replacement. For example, there are $2^3=8$ ways for three coins to
+land:
+
+\[\{HHH\}\{THH\}\{HTH\}\{HHT\}\{TTH\}\{THT\}\{HTT\}\{TTT\}\]
+
+\noindent and there are $6^2=36$ ways for two dice to land:
+
+\[
+\begin{array}{c}
+\mbox{ \big\{\raisebox{-2pt}{\Cube{1}
+    \Cube{1}}\big\}\big\{\raisebox{-2pt}{\Cube{2}
+    \Cube{1}}\big\}\big\{\raisebox{-2pt}{\Cube{3}
+    \Cube{1}}\big\}\big\{\raisebox{-2pt}{\Cube{4}
+    \Cube{1}}\big\}\big\{\raisebox{-2pt}{\Cube{5}
+    \Cube{1}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{1}}\big\}
+}\\ \mbox{ \big\{\raisebox{-2pt}{\Cube{1}
+    \Cube{2}}\big\}\big\{\raisebox{-2pt}{\Cube{2}
+    \Cube{2}}\big\}\big\{\raisebox{-2pt}{\Cube{3}
+    \Cube{2}}\big\}\big\{\raisebox{-2pt}{\Cube{4}
+    \Cube{2}}\big\}\big\{\raisebox{-2pt}{\Cube{5}
+    \Cube{2}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{2}}\big\}
+}\\ \mbox{ \big\{\raisebox{-2pt}{\Cube{1}
+    \Cube{3}}\big\}\big\{\raisebox{-2pt}{\Cube{2}
+    \Cube{3}}\big\}\big\{\raisebox{-2pt}{\Cube{3}
+    \Cube{3}}\big\}\big\{\raisebox{-2pt}{\Cube{4}
+    \Cube{3}}\big\}\big\{\raisebox{-2pt}{\Cube{5}
+    \Cube{3}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{3}}\big\}
+}\\ \mbox{ \big\{\raisebox{-2pt}{\Cube{1}
+    \Cube{4}}\big\}\big\{\raisebox{-2pt}{\Cube{2}
+    \Cube{4}}\big\}\big\{\raisebox{-2pt}{\Cube{3}
+    \Cube{4}}\big\}\big\{\raisebox{-2pt}{\Cube{4}
+    \Cube{4}}\big\}\big\{\raisebox{-2pt}{\Cube{5}
+    \Cube{4}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{4}}\big\}
+}\\ \mbox{ \big\{\raisebox{-2pt}{\Cube{1}
+    \Cube{5}}\big\}\big\{\raisebox{-2pt}{\Cube{2}
+    \Cube{5}}\big\}\big\{\raisebox{-2pt}{\Cube{3}
+    \Cube{5}}\big\}\big\{\raisebox{-2pt}{\Cube{4}
+    \Cube{5}}\big\}\big\{\raisebox{-2pt}{\Cube{5}
+    \Cube{5}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{5}}\big\}
+}\\ \mbox{ \big\{\raisebox{-2pt}{\Cube{1}
+    \Cube{6}}\big\}\big\{\raisebox{-2pt}{\Cube{2}
+    \Cube{6}}\big\}\big\{\raisebox{-2pt}{\Cube{3}
+    \Cube{6}}\big\}\big\{\raisebox{-2pt}{\Cube{4}
+    \Cube{6}}\big\}\big\{\raisebox{-2pt}{\Cube{5}
+    \Cube{6}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{6}}\big\}
+}
+\end{array}\]
+    
+Note that these are the denumenators of the two examples that were
+given in the introductory paragraph of this chapter. Also note that
+the collection of outcomes contains quite a few duplicate values.  For
+the coin example, these fall into two groups of three duplicates:
+\[\{\{HTT\}\{THT\}\{HHT\}\} \mbox{~and~} \{\{THH\}\{HTH\}\{TTH\}\}\]
+
+For the dice, there are fifteen groups of duplicate pairs:
+\[
+\begin{array}{l}
+  \big\{
+  \big\{\raisebox{-2pt}{\Cube{1} \Cube{2}}\big\}
+  \big\{\raisebox{-2pt}{\Cube{2} \Cube{1}}\big\}
+  \big\}
+  \big\{
+  \big\{\raisebox{-2pt}{\Cube{1} \Cube{3}}\big\}
+  \big\{\raisebox{-2pt}{\Cube{3} \Cube{1}}\big\}
+  \big\}
+  \big\{
+  \big\{\raisebox{-2pt}{\Cube{1} \Cube{4}}\big\}
+  \big\{\raisebox{-2pt}{\Cube{4} \Cube{1}}\big\}
+  \big\}
+  \big\{
+  \big\{\raisebox{-2pt}{\Cube{1} \Cube{5}}\big\}
+  \big\{\raisebox{-2pt}{\Cube{5} \Cube{1}}\big\}
+  \big\}
+  \big\{
+  \big\{\raisebox{-2pt}{\Cube{1} \Cube{6}}\big\}
+  \big\{\raisebox{-2pt}{\Cube{6} \Cube{1}}\big\}
+  \big\}\\
+  \big\{
+  \big\{\raisebox{-2pt}{\Cube{2} \Cube{3}}\big\}
+  \big\{\raisebox{-2pt}{\Cube{3} \Cube{2}}\big\}
+  \big\}
+  \big\{
+  \big\{\raisebox{-2pt}{\Cube{2} \Cube{4}}\big\}
+  \big\{\raisebox{-2pt}{\Cube{4} \Cube{2}}\big\}
+  \big\}
+  \big\{
+  \big\{\raisebox{-2pt}{\Cube{2} \Cube{5}}\big\}
+  \big\{\raisebox{-2pt}{\Cube{5} \Cube{2}}\big\}
+  \big\}
+  \big\{
+  \big\{\raisebox{-2pt}{\Cube{2} \Cube{6}}\big\}
+  \big\{\raisebox{-2pt}{\Cube{6} \Cube{2}}\big\}
+  \big\}
+  \big\{
+  \big\{\raisebox{-2pt}{\Cube{3} \Cube{4}}\big\}
+  \big\{\raisebox{-2pt}{\Cube{4} \Cube{3}}\big\}
+  \big\}\\
+  \big\{
+  \big\{\raisebox{-2pt}{\Cube{3} \Cube{5}}\big\}
+  \big\{\raisebox{-2pt}{\Cube{5} \Cube{3}}\big\}
+  \big\}
+  \big\{
+  \big\{\raisebox{-2pt}{\Cube{3} \Cube{6}}\big\}
+  \big\{\raisebox{-2pt}{\Cube{6} \Cube{3}}\big\}
+  \big\}
+  \big\{
+  \big\{\raisebox{-2pt}{\Cube{4} \Cube{5}}\big\}
+  \big\{\raisebox{-2pt}{\Cube{5} \Cube{4}}\big\}
+  \big\}
+  \big\{
+  \big\{\raisebox{-2pt}{\Cube{4} \Cube{6}}\big\}
+  \big\{\raisebox{-2pt}{\Cube{6} \Cube{4}}\big\}
+  \big\}
+  \big\{
+  \big\{\raisebox{-2pt}{\Cube{5} \Cube{6}}\big\}
+  \big\{\raisebox{-2pt}{\Cube{6} \Cube{5}}\big\}
+  \big\}
+\end{array}
+\]
+
+Suppose that we don't care in which order the objects (coins, dice)
+appear. How many different \textbf{unordered} samples are possible?
+
+\begin{center}
+  (\# ordered samples) =
+  (\# unordered samples) $\times$ (\# ways to order the samples)
+\end{center}
+
+There are $n!/(n-k)!$ ways to select $k$ objects from a collection of
+$n$, and there are $k!$ ways to order these $k$ objects. Therefore
+
+\[
+\mbox{
+  (\# unordered samples)} =
+\frac{\mbox{(\# ordered samples)}}{\mbox{(\# ways to order the samples)}
+} =
+\frac{n!}{(n-k)!k!}
+\]
+
+The formula on the right hand side of this equation gives the number
+of combinations of $k$ elements among a collection of $n$.  This
+formula is also known as the \textbf{binomial coefficient} and is
+often written as $\binom{n}{k}$ (pronounce ``n choose k''):
+
+\begin{equation}
+  \binom{n}{k} = \frac{n!}{(n-k)!k!}
+  \label{eq:nchoosek}
+\end{equation}
+
+Revisiting the two examples at the start of this chapter, the number
+of ways to arrange two heads among three coins is
+\[
+\binom{3}{2} = \frac{3!}{1!2!} = \frac{6}{2} = 3
+\]
+
+\noindent which is the numerator of Equation~\ref{eq:2H1T}; and the
+number of combinations of one $\raisebox{-2pt}{\Cube{1}}$ and one
+$\raisebox{-2pt}{\Cube{6}}$ is
+\[
+\binom{1}{2} = \frac{2!}{1!1!} = 2
+\]
+
+\noindent which is the numerator of Equation~\ref{eq:1116}.
+
+\section{Conditional probability}
+\label{sec:conditionalprobability}
+
+So far we have assumed that all experiments (coin tosses, throws of a
+dice) were done \emph{independently}, so that the outcome of one
+experiment did not affect that of the other. However this is not
+always the case in geology. Sometimes one event depends on another
+one. We can capture this phenomenon with the following definition:
+\begin{equation}
+P(A|B) = \mbox{``The conditional probability of}~A~\mbox{given}~B\mbox{''}
+\end{equation}
+
+Let $P(A)$ be the probability that a sedimentary deposit contains
+\emph{ammonite} fossils.  And let $P(B)$ be the proportion of our
+field area that is covered by sedimentary rocks of \emph{Bajocian} age
+(170.3 -- 168.3~Ma). Then $P(A|B)$ is the probability that a given
+Bajocian deposit contains ammonite fossils. Conversely, $P(B|A)$ is
+the probability that an ammonite fossil came from a Bajocian
+deposit.\\
+
+The \textbf{multiplication law} dictates that:
+
+\begin{equation}
+  P({A}\cap{B}) = P(A|B) P(B) = P(B|A) P(A) = P({B}\cap{A})
+  \label{eq:PA&B}
+\end{equation}
+
+Suppose that 70\% of our field area is covered by Bajocian deposits
+($P(B)=0.7$), and that 20\% of those Bajocian deposits contain
+ammonite fossils ($P(A|B)=0.2$). Then there is a 14\%
+($=0.7\times{0.2}$) chance that the field area contains Bajocian
+ammonites.\\
+
+The \textbf{law of total probability} prescribes that, given $n$
+mutually exclusive scenarios $B_i$ (for $1\leq{i}\leq{n}$):
+\begin{equation}
+  P(A) = \sum\limits_{i=1}^{n} P(A|B_i) P(B_i)
+  \label{eq:totalprob}
+\end{equation}
+
+Consider a river whose catchment contains 70\% Bajocian deposits
+($P(B_1)=0.8$) and 30\% \emph{Bathonian}\footnote{the Bathonian
+  immediately overlies the Bajocian and is dated 168.3 -- 166.1~Ma}
+deposits ($P(B_2)=0.2$). Recall that the Bajocian is 20\% likely to
+contain ammonite fossils ($P(A|B_1)=0.2$), and suppose that the
+Bathonian is 50\% likely to contain such fossils ($P(A|B_2)=0.5$).
+How likely is it that the river catchment contains ammonites? Using
+Equation~\ref{eq:totalprob}:
+\[
+P(A) = P(A|B_1) P(B_1) + P(A|B_2) P(B_2) =
+0.2 \times 0.7 + 0.5 \times 0.3 = 0.29
+\]
+
+Equation~\ref{eq:PA&B} can be rearranged to form \textbf{Bayes' Rule}:
+\begin{equation}
+  P(B|A) = \frac{P(A|B) P(B)}{P(A)}
+  \label{eq:Bayes}
+\end{equation}
+
+\noindent or, combining Equation~\ref{eq:Bayes} with
+Equation~\ref{eq:totalprob}:
+\begin{equation}
+  P(B_j|A) = \frac{P(A|B_j) P(B_j)}{\sum\limits_{i=1}^{n}P(A|B_i) P(B_i)}
+  \label{eq:totalBayes}
+\end{equation}
+
+Suppose that we have found an ammonite fossil in the river bed.  What
+is its likely age? Using Equation~\ref{eq:totalBayes}, the probability
+that the unknown fossil is Bajocian ($B_1$) is given by:
+\[
+  P(B_1|A) = \frac{P(A|B_1) P(B_1)}{P(A|B_1) P(B_1) + P(A|B_2) P(B_2)} = 
+   \frac{0.2 \times 0.7}{0.2 \times 0.7 + 0.5 \times 0.3} = 0.48
+\]
+
+Thus there is a 48\% chance that the fossil is Bajocian, and a 52\%
+chance that it is Bathonian.

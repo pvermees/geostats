@@ -73,9 +73,9 @@ ksdist <- function(dat){
     for (i in 1:ns){
         for (j in 1:ns){
             if (i!=j){
-                out[i,j] <- ks.test(dat[[i]],dat[[j]])$statistic
+                out[i,j] <- stats::ks.test(dat[[i]],dat[[j]])$statistic
             }
         }
     }
-    as.dist(out)
+    stats::as.dist(out)
 }

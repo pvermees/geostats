@@ -1,0 +1,119 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Plotting data}{}% 2
+\BOOKMARK [1][-]{section.2.1}{Categorical data}{chapter.2}% 3
+\BOOKMARK [1][-]{section.2.2}{Count data}{chapter.2}% 4
+\BOOKMARK [1][-]{section.2.3}{Continuous data}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.4}{Data transformations}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.5}{Multivariate distributions}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.6}{Empirical cumulative distribution fuctions}{chapter.2}% 8
+\BOOKMARK [0][-]{chapter.3}{Summary statistics}{}% 9
+\BOOKMARK [1][-]{section.3.1}{Location}{chapter.3}% 10
+\BOOKMARK [1][-]{section.3.2}{Dispersion}{chapter.3}% 11
+\BOOKMARK [1][-]{section.3.3}{Shape}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.4}{Box-and-whisker plots}{chapter.3}% 13
+\BOOKMARK [0][-]{chapter.4}{Probability}{}% 14
+\BOOKMARK [1][-]{section.4.1}{Permutations}{chapter.4}% 15
+\BOOKMARK [1][-]{section.4.2}{Combinations}{chapter.4}% 16
+\BOOKMARK [1][-]{section.4.3}{Conditional probability}{chapter.4}% 17
+\BOOKMARK [0][-]{chapter.5}{The binomial distribution}{}% 18
+\BOOKMARK [1][-]{section.5.1}{Parameter estimation}{chapter.5}% 19
+\BOOKMARK [1][-]{section.5.2}{Hypothesis tests}{chapter.5}% 20
+\BOOKMARK [1][-]{section.5.3}{Statistical power}{chapter.5}% 21
+\BOOKMARK [1][-]{section.5.4}{Type-I and type-II errors}{chapter.5}% 22
+\BOOKMARK [1][-]{section.5.5}{Pitfalls of statistical hypothesis testing}{chapter.5}% 23
+\BOOKMARK [1][-]{section.5.6}{Confidence intervals}{chapter.5}% 24
+\BOOKMARK [0][-]{chapter.6}{The Poisson distribution}{}% 25
+\BOOKMARK [1][-]{section.6.1}{Probability mass function}{chapter.6}% 26
+\BOOKMARK [1][-]{section.6.2}{Parameter estimation}{chapter.6}% 27
+\BOOKMARK [1][-]{section.6.3}{Hypothesis tests}{chapter.6}% 28
+\BOOKMARK [1][-]{section.6.4}{Multiple testing}{chapter.6}% 29
+\BOOKMARK [1][-]{section.6.5}{Confidence intervals}{chapter.6}% 30
+\BOOKMARK [0][-]{chapter.7}{The normal distribution}{}% 31
+\BOOKMARK [1][-]{section.7.1}{The Central Limit Theorem}{chapter.7}% 32
+\BOOKMARK [1][-]{section.7.2}{The multivariate normal distribution}{chapter.7}% 33
+\BOOKMARK [1][-]{section.7.3}{Properties}{chapter.7}% 34
+\BOOKMARK [1][-]{section.7.4}{Parameter estimation}{chapter.7}% 35
+\BOOKMARK [0][-]{chapter.8}{Error propagation}{}% 36
+\BOOKMARK [1][-]{section.8.1}{Linear approximation}{chapter.8}% 37
+\BOOKMARK [1][-]{section.8.2}{Examples}{chapter.8}% 38
+\BOOKMARK [1][-]{section.8.3}{Standard deviation vs. standard error}{chapter.8}% 39
+\BOOKMARK [1][-]{section.8.4}{Fisher Information}{chapter.8}% 40
+\BOOKMARK [0][-]{chapter.9}{Comparing distributions}{}% 41
+\BOOKMARK [1][-]{section.9.1}{Q-Q plots}{chapter.9}% 42
+\BOOKMARK [1][-]{section.9.2}{The t-test}{chapter.9}% 43
+\BOOKMARK [1][-]{section.9.3}{Confidence intervals}{chapter.9}% 44
+\BOOKMARK [1][-]{section.9.4}{The 2-test}{chapter.9}% 45
+\BOOKMARK [1][-]{section.9.5}{Comparing two or more samples}{chapter.9}% 46
+\BOOKMARK [1][-]{section.9.6}{Cherry picking \(Type-I errors revisited\)}{chapter.9}% 47
+\BOOKMARK [1][-]{section.9.7}{Effect size \(Type-II errors revisited\)}{chapter.9}% 48
+\BOOKMARK [1][-]{section.9.8}{Non-parametric tests}{chapter.9}% 49
+\BOOKMARK [0][-]{chapter.10}{Regression}{}% 50
+\BOOKMARK [1][-]{section.10.1}{The correlation coefficient}{chapter.10}% 51
+\BOOKMARK [1][-]{section.10.2}{Least Squares}{chapter.10}% 52
+\BOOKMARK [1][-]{section.10.3}{Maximum Likelihood}{chapter.10}% 53
+\BOOKMARK [1][-]{section.10.4}{Common mistakes}{chapter.10}% 54
+\BOOKMARK [1][-]{section.10.5}{Weighted regression}{chapter.10}% 55
+\BOOKMARK [0][-]{chapter.11}{Fractals and chaos}{}% 56
+\BOOKMARK [1][-]{section.11.1}{Power law distributions}{chapter.11}% 57
+\BOOKMARK [1][-]{section.11.2}{How long is the coast of Britain?}{chapter.11}% 58
+\BOOKMARK [1][-]{section.11.3}{Fractals}{chapter.11}% 59
+\BOOKMARK [1][-]{section.11.4}{Chaos}{chapter.11}% 60
+\BOOKMARK [0][-]{chapter.12}{Unsupervised learning}{}% 61
+\BOOKMARK [1][-]{section.12.1}{Principal Component Analysis}{chapter.12}% 62
+\BOOKMARK [1][-]{section.12.2}{Multidimensional Scaling}{chapter.12}% 63
+\BOOKMARK [1][-]{section.12.3}{K-means clustering}{chapter.12}% 64
+\BOOKMARK [1][-]{section.12.4}{Hierarchical clustering}{chapter.12}% 65
+\BOOKMARK [0][-]{chapter.13}{Supervised learning}{}% 66
+\BOOKMARK [1][-]{section.13.1}{Discriminant Analysis}{chapter.13}% 67
+\BOOKMARK [1][-]{section.13.2}{Decision trees}{chapter.13}% 68
+\BOOKMARK [0][-]{chapter.14}{Compositional data}{}% 69
+\BOOKMARK [1][-]{section.14.1}{Ratio data}{chapter.14}% 70
+\BOOKMARK [1][-]{section.14.2}{Logratio transformations}{chapter.14}% 71
+\BOOKMARK [1][-]{section.14.3}{PCA of compositional data}{chapter.14}% 72
+\BOOKMARK [1][-]{section.14.4}{LDA of compositional data}{chapter.14}% 73
+\BOOKMARK [1][-]{section.14.5}{Logratio processes}{chapter.14}% 74
+\BOOKMARK [0][-]{chapter.15}{An introduction to R}{}% 75
+\BOOKMARK [1][-]{section.15.1}{The basics}{chapter.15}% 76
+\BOOKMARK [1][-]{section.15.2}{Plotting data}{chapter.15}% 77
+\BOOKMARK [1][-]{section.15.3}{Summary Statistics}{chapter.15}% 78
+\BOOKMARK [1][-]{section.15.4}{Probability}{chapter.15}% 79
+\BOOKMARK [1][-]{section.15.5}{The binomial distribution}{chapter.15}% 80
+\BOOKMARK [1][-]{section.15.6}{The Poisson distribution}{chapter.15}% 81
+\BOOKMARK [1][-]{section.15.7}{The normal distribution}{chapter.15}% 82
+\BOOKMARK [1][-]{section.15.8}{Error propagation}{chapter.15}% 83
+\BOOKMARK [1][-]{section.15.9}{Comparing distributions}{chapter.15}% 84
+\BOOKMARK [1][-]{section.15.10}{Regression}{chapter.15}% 85
+\BOOKMARK [1][-]{section.15.11}{Fractals and chaos}{chapter.15}% 86
+\BOOKMARK [1][-]{section.15.12}{Unsupervised learning}{chapter.15}% 87
+\BOOKMARK [1][-]{section.15.13}{Supervised learning}{chapter.15}% 88
+\BOOKMARK [1][-]{section.15.14}{Compositional data}{chapter.15}% 89
+\BOOKMARK [0][-]{chapter.16}{Exercises}{}% 90
+\BOOKMARK [1][-]{section.16.1}{The basics}{chapter.16}% 91
+\BOOKMARK [1][-]{section.16.2}{Plotting data}{chapter.16}% 92
+\BOOKMARK [1][-]{section.16.3}{Summary statistics}{chapter.16}% 93
+\BOOKMARK [1][-]{section.16.4}{Probability}{chapter.16}% 94
+\BOOKMARK [1][-]{section.16.5}{The binomial distribution}{chapter.16}% 95
+\BOOKMARK [1][-]{section.16.6}{The Poisson distribution}{chapter.16}% 96
+\BOOKMARK [1][-]{section.16.7}{The normal distribution}{chapter.16}% 97
+\BOOKMARK [1][-]{section.16.8}{Error propagation}{chapter.16}% 98
+\BOOKMARK [1][-]{section.16.9}{Comparing distributions}{chapter.16}% 99
+\BOOKMARK [1][-]{section.16.10}{Regression}{chapter.16}% 100
+\BOOKMARK [1][-]{section.16.11}{Fractals and chaos}{chapter.16}% 101
+\BOOKMARK [1][-]{section.16.12}{Unsupervised learning}{chapter.16}% 102
+\BOOKMARK [1][-]{section.16.13}{Supervised learning}{chapter.16}% 103
+\BOOKMARK [1][-]{section.16.14}{Compositional data}{chapter.16}% 104
+\BOOKMARK [0][-]{chapter.17}{Solutions}{}% 105
+\BOOKMARK [1][-]{section.17.1}{The basics}{chapter.17}% 106
+\BOOKMARK [1][-]{section.17.2}{Plotting data}{chapter.17}% 107
+\BOOKMARK [1][-]{section.17.3}{Summary statistics}{chapter.17}% 108
+\BOOKMARK [1][-]{section.17.4}{Probability}{chapter.17}% 109
+\BOOKMARK [1][-]{section.17.5}{The binomial distribution}{chapter.17}% 110
+\BOOKMARK [1][-]{section.17.6}{The Poisson distribution}{chapter.17}% 111
+\BOOKMARK [1][-]{section.17.7}{The normal distribution}{chapter.17}% 112
+\BOOKMARK [1][-]{section.17.8}{Error propagation}{chapter.17}% 113
+\BOOKMARK [1][-]{section.17.9}{Comparing distributions}{chapter.17}% 114
+\BOOKMARK [1][-]{section.17.10}{Regression}{chapter.17}% 115
+\BOOKMARK [1][-]{section.17.11}{Fractals and chaos}{chapter.17}% 116
+\BOOKMARK [1][-]{section.17.12}{Unsupervised learning}{chapter.17}% 117
+\BOOKMARK [1][-]{section.17.13}{Supervised learning}{chapter.17}% 118
+\BOOKMARK [1][-]{section.17.14}{Compositional data}{chapter.17}% 119

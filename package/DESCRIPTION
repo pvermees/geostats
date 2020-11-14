@@ -1,12 +1,13 @@
 Package: geostats
 Title: An Introduction to Statistics for Geoscientists
 Version: 1.0
-Date: 2020-11-03
+Date: 2020-11-14
 Authors@R: person("Pieter", "Vermeesch", , "p.vermeesch@ucl.ac.uk", role = c("aut", "cre"))
-Description: Provides lecture notes, example datasets and code for the introductory statistics module for geoscientists at University College London (UCL). Includes functionality for compositional data, spatial data, fractals and chaos.
+Description: Provides example datasets and code for the introductory statistics module for geoscientists at University College London (UCL). Includes functionality for compositional data, spatial data, fractals and chaos.
 Author: Pieter Vermeesch [aut, cre]
 Maintainer: Pieter Vermeesch <p.vermeesch@ucl.ac.uk>
 Depends: R (>= 3.5.0)
+Imports: MASS
 License: GPL-3
 LazyData: true
 RoxygenNote: 7.1.1

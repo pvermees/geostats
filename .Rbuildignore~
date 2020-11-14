@@ -1,0 +1,10 @@
+node_modules
+test
+package.json
+package-lock.json
+\.vscode
+\.git
+Dockerfile
+.*\.tar\.gz
+Rplots.pdf
+devel

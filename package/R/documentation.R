@@ -242,7 +242,21 @@ NULL
 #' @examples
 #' library(MASS)
 #' data(training,package='geostats')
+#' data(test,package='geostats')
 #' qd <- qda(affinity ~ ., data=training)
 #' pr <- predict(qd,newdata=test[,-1])
 #' table(test$affinity,pr$class)
+NULL
+
+#' A-F-M data
+#'
+#' (Na2O + K2O) - FeO - MgO compositions of 630 calc-alkali basalts
+#' from the Cascade Mountains and 474 tholeiitic basalts from Iceland.
+#' 
+#' @name AFM
+#' @docType data
+#' @keywords data
+#' @examples
+#' data(AFM,package='geostats')
+#' ternary(AFM[,-1])
 NULL

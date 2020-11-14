@@ -13,6 +13,7 @@ algorithms.
 \examples{
 library(MASS)
 data(training,package='geostats')
+data(test,package='geostats')
 qd <- qda(affinity ~ ., data=training)
 pr <- predict(qd,newdata=test[,-1])
 table(test$affinity,pr$class)

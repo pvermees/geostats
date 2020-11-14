@@ -1,0 +1,20 @@
+setwd('/home/pvermees/Dropbox/Stats/slides')
+
+cairo(file='binom10HT.pdf',width=4,height=4)
+bpdf <- dbinom(0:3,size=3,p=0.5)
+names(bpdf) <- 0:3
+barplot(bpdf,col='NA')
+dev.off()
+
+cairo(file='poisquakes.pdf',width=4,height=4)
+ppdf <- dpois(0:20,lambda=5.43)
+names(ppdf) <- 0:20
+barplot(ppdf,col='NA')
+dev.off()
+
+cairo(file='clasts.pdf',width=4,height=3)
+pars()
+clasts <- c(10,5,6,20)
+names(clasts) <- c('granite','basalt','gneiss','quartzite')
+barplot(clasts,col='white')
+dev.off()

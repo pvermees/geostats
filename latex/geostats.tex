@@ -1,0 +1,116 @@
+\documentclass[11pt]{book}
+
+\newif\ifpdf
+\pdftrue
+
+% to compile html file, set \pdffalse on the previous line copy
+% latex/notes.tex as html/index.tex run htlatex index.tex
+% "html,2,next" at the terminal run ./fixes.sh to fix possible unicode
+% errors and update index.css
+
+%\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage[colorlinks=true,linktocpage=true]{hyperref}
+\usepackage[misc]{ifsym}
+\usepackage{upquote,amsmath,natbib,graphicx,fullpage}
+\usepackage[skip=4pt]{caption}
+\usepackage{enumitem}
+\setlist{itemsep=0pt}
+
+\usepackage{fancyvrb}
+\newenvironment{console}
+               {\VerbatimEnvironment\begin{Verbatim}[frame=single,framerule=0.4mm]}
+               {\end{Verbatim}}
+
+\DefineVerbatimEnvironment{script}
+                          {Verbatim}
+                          {frame=single,numbers=left,framerule=0.4mm}
+
+\renewcommand{\labelitemi}{--}
+\newcommand{\tgap}{\hspace{1pt}}
+\newcommand{\gap}{\hspace{4pt}}
+
+\makeatletter
+\def\bbordermatrix#1{\begingroup \m@th
+  \@tempdima 4.75\p@
+  \setbox\z@\vbox{%
+    \def\cr{\crcr\noalign{\kern2\p@\global\let\cr\endline}}%
+    \ialign{$##$\hfil\kern2\p@\kern\@tempdima&\thinspace\hfil$##$\hfil
+      &&\quad\hfil$##$\hfil\crcr
+      \omit\strut\hfil\crcr\noalign{\kern-\baselineskip}%
+      #1\crcr\omit\strut\cr}}%
+  \setbox\tw@\vbox{\unvcopy\z@\global\setbox\@ne\lastbox}%
+  \setbox\tw@\hbox{\unhbox\@ne\unskip\global\setbox\@ne\lastbox}%
+  \setbox\tw@\hbox{$\kern\wd\@ne\kern-\@tempdima\left[\kern-\wd\@ne
+    \global\setbox\@ne\vbox{\box\@ne\kern2\p@}%
+    \vcenter{\kern-\ht\@ne\unvbox\z@\kern-\baselineskip}\,\right]$}%
+  \null\;\vbox{\kern\ht\@ne\box\tw@}\endgroup}
+\makeatother
+
+\raggedbottom
+
+\begin{document}
+\begin{titlepage}
+  
+  \parbox[t]{0.93\textwidth}{
+    \parbox[t]{0.91\textwidth}{
+      \raggedleft
+      \fontsize{50pt}{80pt}
+      \vspace{0.7cm}
+      \Huge
+      Statistics for geoscientists\\
+      
+      \vspace{0.7cm}
+    }
+  }
+  
+  \vfill	
+  \parbox[t]{0.93\textwidth}{
+    \raggedleft
+    \large
+        {\Large Prof. Pieter Vermeesch}\\[4pt]
+        Department of Earth Sciences\\
+        University College London\\[4pt]
+        \texttt{p.vermeesch@ucl.ac.uk}\\
+	
+        \hfill\rule{0.2\linewidth}{1pt}
+}
+	
+\end{titlepage}
+
+\tableofcontents
+
+\input{introduction.tex}
+
+\input{plotting.tex}
+
+\input{summary-statistics.tex}
+
+\input{probability.tex}
+
+\input{binomial.tex}
+
+\input{poisson.tex}
+
+\input{normal.tex}
+
+\input{errorprop.tex}
+
+\input{comparingdistributions.tex}
+
+\input{regression.tex}
+
+\input{fractals.tex}
+
+\input{unsupervised.tex}
+
+\input{supervised.tex}
+
+\input{compositional.tex}
+
+\input{R.tex}
+
+\input{exercises.tex}
+
+\input{solutions.tex}
+
+\end{document}
