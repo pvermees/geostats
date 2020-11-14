@@ -5,7 +5,7 @@ statistics module for geoscientists at University College London
 (UCL).
 
 The notes can be found
-[here](https://github.com/pvermees/geostats/latex/geostats.pdf)
+[here](https://github.com/pvermees/geostats/blob/main/latex/geostats.pdf)
 
 ## installation
 
