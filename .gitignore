@@ -10,7 +10,3 @@
 # Output files from R CMD check
 *.Rcheck/
 **/*.Rcheck/
-
-# PDF documentation
-*.pdf
-**/*.pdf
