@@ -373,14 +373,14 @@ legend('topleft',lty=c(2,4,3),bg='white',
 dev.off()
 
 skewness <- function(x){
-    mean((x-mean(x))^3)/(length(x)*sd(x)^3)
+    mean((x-mean(x))^3)/sd(x)^3
 }
 covid <- read.csv('covid.csv',header=TRUE,check.names=FALSE)
 age <- (covid[,'to']+covid[,'from'] )/2
 meanage <- sum(age*covid[,'death rate'])/sum(covid[,'death rate'])
 stdage <- sqrt(sum(covid[,'death rate']*(age-meanage)^2)/sum(covid[,'death rate']))
 skewage <- sum(covid[,'death rate']*(age-meanage)^3)/
-    (stdage*sum(covid[,'death rate']))
+    (sum(covid[,'death rate'])*stdage^3)
 cairo(file='../../figures/skewness.pdf',width=7,height=2)
 pars(mar=c(2.5,2.3,1,0.2),mfrow=c(1,3))
 plot(density(pH),main='',xlab='pH',bty='n',zero.line=FALSE)
@@ -602,7 +602,7 @@ binomcdf(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
          xlim=c(-1,6),col='gray60',plotp=FALSE,plotk=FALSE)
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
          xlim=c(-1,6),add=TRUE,plotp=FALSE,plotk=FALSE)
-b <- pbinom(qbinom(0.05,5,2/3),5,2/5)
+b <- pbinom(qbinom(0.05,5,2/3)-1,5,2/5)
 lines(c(-1,6),rep(b,2),lty=2)
 axis(side=1,at=0:5); mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
 axis(side=2)
@@ -612,7 +612,7 @@ binomcdf(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
          xlim=c(-1,6),col='gray60',plotp=FALSE,plotk=FALSE)
 binomcdf(nn=5,kk=2,H0=2/3,Ha=1/5,nsides=1,showax=FALSE,
          xlim=c(-1,6),add=TRUE,plotp=FALSE,plotk=FALSE)
-b <- pbinom(qbinom(0.05,5,2/3),5,1/5)
+b <- pbinom(qbinom(0.05,5,2/3)-1,5,1/5)
 lines(c(-1,6),rep(b,2),lty=2)
 axis(side=1,at=0:5)
 mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
@@ -621,7 +621,7 @@ binomcdf(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
          xlim=c(-1,6),col='gray60',plotp=FALSE,plotk=FALSE)
 binomcdf(nn=5,kk=2,H0=2/3,Ha=0,nsides=1,plotk=FALSE,
          showax=FALSE,xlim=c(-1,6),plotp=FALSE,add=TRUE)
-b <- pbinom(qbinom(0.05,5,2/3),5,0)
+b <- pbinom(qbinom(0.05,5,2/3)-1,5,0)
 lines(c(-1,16),rep(b,2),lty=2)
 axis(side=1,at=0:5)
 mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
@@ -659,7 +659,7 @@ binomcdf(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
          xlim=c(-1,6),col='gray60',plotp=FALSE,plotk=FALSE)
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
          xlim=c(-1,6),add=TRUE,plotp=FALSE,plotk=FALSE)
-b <- pbinom(qbinom(0.05,5,2/3),5,2/5)
+b <- pbinom(qbinom(0.05,5,2/3)-1,5,2/5)
 lines(c(-1,6),rep(b,2),lty=2)
 axis(side=1,at=0:5); mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
 axis(side=2)
@@ -669,7 +669,7 @@ binomcdf(nn=15,kk=6,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
          xlim=c(-1,16),col='gray60',plotp=FALSE,plotk=FALSE)
 binomcdf(nn=15,kk=6,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
          xlim=c(-1,16),add=TRUE,plotp=FALSE,plotk=FALSE)
-b <- pbinom(qbinom(0.05,15,2/3),15,2/5)
+b <- pbinom(qbinom(0.05,15,2/3)-1,15,2/5)
 lines(c(-1,16),rep(b,2),lty=2)
 axis(side=1,at=seq(from=0,to=15,by=5))
 mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
@@ -678,7 +678,7 @@ binomcdf(nn=30,kk=12,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
          xlim=c(-1,31),col='gray60',plotp=FALSE,plotk=FALSE)
 binomcdf(nn=30,kk=12,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
          xlim=c(-1,31),add=TRUE,plotp=FALSE,plotk=FALSE)
-b <- pbinom(qbinom(0.05,30,2/3),30,2/5)
+b <- pbinom(qbinom(0.05,30,2/3)-1,30,2/5)
 lines(c(-1,31),rep(b,2),lty=2)
 axis(side=1,at=seq(from=0,to=30,by=5))
 mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
@@ -1110,7 +1110,7 @@ CLT(2,dat=faithful[,'eruptions'],xlab='total duration (min)')
 dev.off()
 
 cairo(file='../../figures/CLTfaithful3.pdf',width=3,height=2)
-pars()
+pars(mar=c(2.5,2.3,0.5,0.3))
 CLT(3,dat=faithful[,'eruptions'],xlab='total duration (min)')
 dev.off()
 
@@ -3975,8 +3975,58 @@ dev.off()
 
 cairo(file='../../figures/testPCA.pdf',width=4,height=4)
 pars(mar=c(2.5,2.5,1.5,1.5))
+data(test,package='geostats')
 lrdat <- clr(test[,-1])
 pc <- prcomp(lrdat)
 biplot(pc,col=c('grey60','black'),xlabs=test[,1],
        xlim=c(-0.31,0.2),ylim=c(-0.15,0.37))
+dev.off()
+
+cairo(file='../../slides/locationdispersionshape.pdf',width=4,height=2)
+pars(mfrow=c(2,3),mgp=c(1.2,0.5,0))
+x <- seq(from=-10,to=10,length.out=200)
+y1 <- dnorm(x,mean=-2,sd=1)
+y2 <- dnorm(x,mean=2,sd=1)
+y3 <- dnorm(x,mean=0,sd=1)
+y5 <- dlnorm(x,meanlog=1,sdlog=1/2)
+y4 <- dnorm(x,mean=0,sd=2)
+y6 <- dlnorm(x,meanlog=1,sdlog=1/2)
+plot(x,y1,type='l',bty='n',ylim=c(0,0.5),ylab=expression('y'[1]))
+plot(x,y3,type='l',bty='n',ylim=c(0,0.5),ylab=expression('y'[3]))
+plot(x[100:200],y5[100:200],type='l',bty='n',ylim=c(0,0.5),
+     ylab=expression('y'[5]),xlab='x')
+plot(x,y2,type='l',bty='n',ylim=c(0,0.5),ylab=expression('y'[2]))
+plot(x,y4,type='l',bty='n',ylim=c(0,0.5),ylab=expression('y'[4]))
+plot(20-x[100:200],y6[100:200],type='l',bty='n',ylim=c(0,0.5),
+     ylab=expression('y'[6]),xlab='x')
+dev.off()
+
+cairo(file='../../slides/birthdays.pdf',width=6,height=4)
+pars()
+k <- 1:100
+lp <- lfactorial(365) - lfactorial(365-k) - k*log(365)
+P <- 1 - exp(lp)
+plot(k,P,type='l')
+dev.off()
+
+cairo(file='../../slides/uniform.pdf',width=6,height=2)
+pars(mfrow=c(1,2),mar=c(2.5,2.3,1.0,0.2))
+plot(c(-2,-1,-1,1,1,2),y=c(0,0,1,1,0,0),type='l',xlab='x',ylab='f',axes=FALSE)
+if (TRUE){
+    axis(side=1,at=c(-2,-1,1,2),labels=c('','a','b',''))
+} else {
+    axis(side=1,at=c(-2,-1,0.1,0.5,1,2),labels=c('','a','c','d','b',''))
+    polygon(c(0.1,0.1,0.5,0.5,0.1),c(0,1,1,0,0),col='black')
+}
+axis(side=2,at=c(0,1),labels=c(0,'1/(b-a)'))
+plot(c(-2,-1,1,2),y=c(0,0,1,1),type='l',xlab='x',ylab='F',bty='n',axes=FALSE)
+axis(side=1,at=c(-2,-1,1,2),labels=c('','a','b',''))
+axis(side=2)
+dev.off()
+
+cairo(file='../../slides/averageheight.pdf',width=5,height=3)
+pars(mgp=c(1.1,0.5,0))
+x <- 10^seq(from=0,to=9.69897,length.out=100)
+y <- 10/sqrt(x)
+plot(x,y,type='l',xlab='N',ylab=expression("s["*bar(h)*"]"),log='x',bty='n')
 dev.off()

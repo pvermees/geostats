@@ -19,7 +19,7 @@ sierpinski <- function(n=5){
         Z <- cbind(X,0*X,X)
         X <- rbind(Y,Z,Y)
     }
-    return(X)
+    X
 }
 
 #' @title Cantor set
@@ -115,7 +115,7 @@ koch <- function(n=4,plot=TRUE,res=512){
     m <- recurse(n=n,x1=xStart+dx,y1=height-dx,x5=xStart+height-dx,y5=height-dx)
     m <- recurse(n=n,x1=xStart+height-dx,y1=height-dx,x5=xStart+height/2,y5=dx,m=m)
     m <- recurse(n=n,x1=xStart+height/2,y1=dx,x5=xStart+dx,y5=height-dx,m=m)
-    m
+    invisible(m)
 }
 
 #' @title box counting

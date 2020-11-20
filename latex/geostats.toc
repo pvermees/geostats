@@ -27,7 +27,7 @@
 \contentsline {section}{\numberline {6.2}Parameter estimation}{50}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Hypothesis tests}{51}{section.6.3}%
 \contentsline {section}{\numberline {6.4}Multiple testing}{52}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Confidence intervals}{52}{section.6.5}%
+\contentsline {section}{\numberline {6.5}Confidence intervals}{53}{section.6.5}%
 \contentsline {chapter}{\numberline {7}The normal distribution}{55}{chapter.7}%
 \contentsline {section}{\numberline {7.1}The Central Limit Theorem}{56}{section.7.1}%
 \contentsline {section}{\numberline {7.2}The multivariate normal distribution}{58}{section.7.2}%

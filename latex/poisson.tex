@@ -126,7 +126,7 @@ $P(k\leq{2})$ & 0.0547 & 0.0913 & 0.112 & 0.118 & 0.121 & 0.1234 & 0.124 & 0.124
 
 The Poisson distribution expresses the probability of a given number
 of events occurring in a fixed interval of time or space if these
-events occur with a \textbf{constant mean rate} and
+events occur with a \textbf{constant mean rate} and are
 \textbf{independent} of the time since the last event. Examples of
 Poisson variables include the number of
 
@@ -225,7 +225,7 @@ way as for binomial variables (section~\ref{sec:binomH}). For example:
     
     \vspace{1em}
     
-    $p>{3.5}$
+    $\lambda>{3.5}$
   \end{minipage}
   \begin{minipage}{.2\textwidth}
   \end{minipage}\\
@@ -234,7 +234,7 @@ way as for binomial variables (section~\ref{sec:binomH}). For example:
   `successes'.  Suppose that we have observed $k=9$ successes.
 
 \item The null distribution of the test statistic is a Poisson
-  distribution with $\lambda={3.5}$:\\
+  distribution with $\lambda={3.5}$:
   
   \begin{tabular}{c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c}
     k & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & \textit{9} & 10 \\ \hline
@@ -259,10 +259,13 @@ way as for binomial variables (section~\ref{sec:binomH}). For example:
     \textbf{0.003} \\
   \end{tabular}
 
-\item\label{it:poisl351sided} The rejection region is $W =
+\item\label{it:poisl351sided} The rejection region is $R =
   \{8,9,10,\ldots,\infty\}$, which includes our observation $k=9$,
   and the p-value is 0.010, which is less than $\alpha$. Therefore,
   our null hypothesis is rejected.
+
+\item Equivalently, the p-value is $0.010<\alpha$, which again leads
+  to the rejection of $H_\circ$.
 
 \end{enumerate}
 

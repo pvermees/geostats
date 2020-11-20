@@ -166,14 +166,14 @@ case.
 \section{Hypothesis tests}
 \label{sec:binomH}
 
-Let us continue with our gold prospecting example. Given that only one
-of the five prospectors found gold, our best estime for the abundance
-of gold-bearing claims in the prospecting area is $\hat{p} = 2/5$
-(40\%). However the introductory paragraph to this chapter mentioned
-that geological evidence suggests that 2/3 (67\%) of the claims should
-contain gold. Can the discrepancy between the predicted and the
-observed number of successes by attributed to bad luck, or does it
-mean that the geological estimates were wrong? To answer this
+Let us continue with our gold prospecting example. Given that only two
+of the five prospectors found gold, our best estimate for the
+abundance of gold-bearing claims in the prospecting area is $\hat{p} =
+2/5$ (40\%). However the introductory paragraph to this chapter
+mentioned that geological evidence suggests that 2/3 (67\%) of the
+claims should contain gold. Can the discrepancy between the predicted
+and the observed number of successes by attributed to bad luck, or
+does it mean that the geological estimates were wrong? To answer this
 question, we follow the following sequence of steps:
 
 \begin{enumerate}
@@ -267,9 +267,7 @@ question, we follow the following sequence of steps:
   
 \end{enumerate}
 
-The above hypothesis test is called a \textbf{one-sided} hypothesis
-test, because $H_\circ$ and $H_a$ are asymmetric. Displaying the
-rejection region graphically:\\
+Displaying the rejection region graphically:\\
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
   \includegraphics[width=\textwidth]{../figures/1sidedbinomialrejection5.pdf}\\
@@ -279,13 +277,14 @@ rejection region graphically:\\
     with $p=2/3$ and $n=5$. The rejection region is marked in black on
     a).  The horizontal dotted line in b) shows the $\alpha=0.05$
     cutoff mark. The horizontal dashed line in b) marks the p-value
-    for $k=2$, which is greater than 0.05. Therefore, the one-sided
-    null hypothesis cannot be rejected.}
+    for $k=2$, which is greater than 0.05. Therefore, the null
+    hypothesis cannot be rejected.}
   \label{fig:1sidedbinomialrejection5}
 \end{minipage}
 
-Alternatively, we can also formulate a \textbf{two-sided} hypothesis
-test:
+The above hypothesis test is called a \textbf{one-sided} hypothesis
+test, because $H_\circ$ and $H_a$ are asymmetric.  Alternatively, we
+can also formulate a \textbf{two-sided} hypothesis test:
 
 \begin{enumerate}
 
@@ -707,14 +706,14 @@ contrast this outcome with a second type of hypothesis:
 \end{enumerate}
 
 What have we learned from this experiment? Not much. We certainly did
-not prove that Earth's core consists of perovskite. There are lots of
-other minerals that are stable at lower mantle pressures. The only
-thing that we can say is that the null hypothesis has survived to live
-another day. The scientific method is strikingly similar to the way in
-which a statistical hypothesis test is carried out. A null hypothesis,
-like a scientific hypothesis, cannot be proven. It can only be
-disproved. Rejection of a null hypothesis is the best outcome, because
-it is the only outcome that teaches us something new.\\
+not prove that Earth's lower mantle consists of perovskite. There are
+lots of other minerals that are stable at lower mantle pressures. The
+only thing that we can say is that the null hypothesis has survived to
+live another day. The scientific method is strikingly similar to the
+way in which a statistical hypothesis test is carried out. A null
+hypothesis, like a scientific hypothesis, cannot be proven. It can
+only be disproved. Rejection of a null hypothesis is the best outcome,
+because it is the only outcome that teaches us something new.\\
 
 It may seem natural to use the statistical approach to test scientific
 hypotheses. However doing so is not without dangers. To explain these
@@ -875,8 +874,8 @@ yields a different confidence interval, namely:
 
 What happens if we increase the sample size from $n=5$ to $n=30$, and
 the number of successful claims from $k=2$ to $k=12$?  Then the
-maximum likelihood remains $\hat{p}=2/5$ as in our first example, but
-the 95\% confidence interval narrows down to
+maximum likelihood estimate remains $\hat{p}=2/5$ as in our first
+example, but the 95\% confidence interval narrows down to
 
 \[
 \mbox{C.I.}(p|k=12,n=30) = [0.23, 0.59]

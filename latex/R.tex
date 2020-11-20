@@ -438,9 +438,9 @@ for (i in 1:np){
 \item Creating a histogram of clast counts (Figure~\ref{fig:clasts}):
 
 \begin{script}
-clasts <- c(10,5,6,20)
-names(clasts) <- c('granite','basalt','gneiss','quartzite')
-barplot(clasts,col='white')
+counts <- c(10,5,6,20)
+names(counts) <- c('granite','basalt','gneiss','quartzite')
+barplot(counts,col='white')
 \end{script}
 
 The \texttt{geostats} package includes a number of datasets, such as
@@ -604,8 +604,8 @@ fraction of pH values that are less than 4.5:
   calculate the mode\footnote{There does exist a \texttt{mode}
     function but it does something different.\label{fn:mode}} so we
   have to write our own.  For categorical data, the mode is the most
-  frequent occurring value. Using the declustered earthquake counts of
-  Figure~\ref{fig:quakecounts} as an example:
+  frequently occurring value. Using the declustered earthquake counts
+  of Figure~\ref{fig:quakecounts} as an example:
 
 \begin{script}
 data(declustered,package='geostats')
@@ -635,7 +635,7 @@ write a function for that as well, based on Equation~\ref{eq:skew}:
 
 \begin{script}[firstnumber=7]
 skew <- function(x){
-  mean((x-mean(x))^3)/(length(x)*sd(x)^3)
+  mean((x-mean(x))^3)/sd(x)^3
 }
 \end{script}
 
@@ -678,7 +678,7 @@ the natural logarithm of the factorial:
 \noindent which means that $1000!=e^{1792.332}$. 
 
 \item Similarly, the combinations $\binom{n}{k}$ of small numbers can
-  be calculated with \texttt{nchoosek(n,k)}:
+  be calculated with \texttt{choose(n,k)}:
 
 \begin{console}
 > choose(n=10,k=2)
@@ -687,7 +687,7 @@ the natural logarithm of the factorial:
 [1] Inf
 \end{console}
 
-\noindent and for large numbers with \texttt{lchoosek(n,k)}:
+\noindent and for large numbers with \texttt{lchoose(n,k)}:
 
 \begin{console}
 > lchoose(n=10000,k=2000)
