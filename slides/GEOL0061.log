@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.4.25)  20 NOV 2020 18:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.9.16)  25 NOV 2020 15:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -227,7 +227,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 79--80
 Here is how much of TeX's memory you used:
  1535 strings out of 481239
  21085 string characters out of 5920377
- 269856 words of memory out of 5000000
+ 269854 words of memory out of 5000000
  16851 multiletter control sequences out of 15000+600000
  533100 words of font info for 27 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -240,7 +240,7 @@ sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on GEOL0061.pdf (2 pages, 86097 bytes).
+Output written on GEOL0061.pdf (2 pages, 86477 bytes).
 PDF statistics:
  43 PDF objects out of 1000 (max. 8388607)
  30 compressed objects within 1 object stream

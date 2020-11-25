@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.4.25)  25 NOV 2020 10:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.9.16)  25 NOV 2020 17:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2447,7 +2447,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [100 <../figures/tr.pdf>] [101 <../figures/tryRbSr.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 432--437
+Underfull \hbox (badness 10000) in paragraph at lines 431--436
 
  []
 
@@ -2455,20 +2455,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 432--437
 <../figures/envelope.pdf, id=2502, 216.81pt x 216.81pt>
 File: ../figures/envelope.pdf Graphic file (type pdf)
 <use ../figures/envelope.pdf>
-Package pdftex.def Info: ../figures/envelope.pdf  used on input line 466.
+Package pdftex.def Info: ../figures/envelope.pdf  used on input line 465.
 (pdftex.def)             Requested size: 155.02pt x 155.0279pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 466--467
+Underfull \hbox (badness 10000) in paragraph at lines 465--466
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 475.
+(caption)                particular \caption on input line 474.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 465--478
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 464--477
 [] [] 
  []
 
@@ -2476,11 +2476,11 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 465--478
 File: ../figures/prediction-interval.pdf Graphic file (type pdf)
 <use ../figures/prediction-interval.pdf>
 Package pdftex.def Info: ../figures/prediction-interval.pdf  used on input line
- 499.
+ 498.
 (pdftex.def)             Requested size: 469.75502pt x 156.59268pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 504.
+(caption)                particular \caption on input line 503.
 See the caption package documentation for explanation.
 
 [103 <../figures/envelope.pdf>]
@@ -2488,16 +2488,16 @@ See the caption package documentation for explanation.
 File: ../figures/regression-p-hacking.pdf Graphic file (type pdf)
 <use ../figures/regression-p-hacking.pdf>
 Package pdftex.def Info: ../figures/regression-p-hacking.pdf  used on input lin
-e 524.
+e 523.
 (pdftex.def)             Requested size: 442.75502pt x 221.37706pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 528.
+(caption)                particular \caption on input line 527.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (0.37506pt too wide) in paragraph at lines 523--531
+Overfull \hbox (0.37506pt too wide) in paragraph at lines 522--530
 [] 
  []
 
@@ -2510,31 +2510,31 @@ ion: multiple pdfs with page group included in a single page
 File: ../figures/regression-outlier.pdf Graphic file (type pdf)
 <use ../figures/regression-outlier.pdf>
 Package pdftex.def Info: ../figures/regression-outlier.pdf  used on input line 
-539.
+538.
 (pdftex.def)             Requested size: 140.92793pt x 140.93474pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 549.
+(caption)                particular \caption on input line 548.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.80838pt too wide) in paragraph at lines 538--552
+Overfull \hbox (2.80838pt too wide) in paragraph at lines 537--551
 [] [] 
  []
 
 <../figures/spurious.pdf, id=2552, 650.43pt x 129.48375pt>
 File: ../figures/spurious.pdf Graphic file (type pdf)
 <use ../figures/spurious.pdf>
-Package pdftex.def Info: ../figures/spurious.pdf  used on input line 560.
+Package pdftex.def Info: ../figures/spurious.pdf  used on input line 559.
 (pdftex.def)             Requested size: 442.75502pt x 88.14261pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 567.
+(caption)                particular \caption on input line 566.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (0.37506pt too wide) in paragraph at lines 559--570
+Overfull \hbox (0.37506pt too wide) in paragraph at lines 558--569
 [] 
  []
 
@@ -2543,49 +2543,49 @@ Overfull \hbox (0.37506pt too wide) in paragraph at lines 559--570
 pdfTeX warning: pdflatex (file ../figures/spurious.pdf): PDF inclusion: multipl
 e pdfs with page group included in a single page
 >]
-Underfull \hbox (badness 10000) in paragraph at lines 708--716
+Underfull \hbox (badness 10000) in paragraph at lines 707--715
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 738.
+(caption)                particular \caption on input line 737.
 See the caption package documentation for explanation.
 
 [106]
 <../figures/errorfit.pdf, id=2600, 252.945pt x 252.945pt>
 File: ../figures/errorfit.pdf Graphic file (type pdf)
 <use ../figures/errorfit.pdf>
-Package pdftex.def Info: ../figures/errorfit.pdf  used on input line 746.
+Package pdftex.def Info: ../figures/errorfit.pdf  used on input line 745.
 (pdftex.def)             Requested size: 164.41711pt x 164.42001pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 760.
+(caption)                particular \caption on input line 759.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 745--763
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 744--762
 [] [] 
  []
 
 <../figures/yorkfit.pdf, id=2606, 505.89pt x 252.945pt>
 File: ../figures/yorkfit.pdf Graphic file (type pdf)
 <use ../figures/yorkfit.pdf>
-Package pdftex.def Info: ../figures/yorkfit.pdf  used on input line 805.
+Package pdftex.def Info: ../figures/yorkfit.pdf  used on input line 804.
 (pdftex.def)             Requested size: 305.33789pt x 152.67131pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 815.
+(caption)                particular \caption on input line 814.
 See the caption package documentation for explanation.
 
 )
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 804--101
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 803--101
 [] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 804--101
+Underfull \hbox (badness 10000) in paragraph at lines 803--101
 
  []
 
@@ -4572,7 +4572,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 116.
 Here is how much of TeX's memory you used:
  11009 strings out of 481239
  176357 string characters out of 5920377
- 482404 words of memory out of 5000000
+ 482402 words of memory out of 5000000
  24835 multiletter control sequences out of 15000+600000
  548262 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -4605,7 +4605,7 @@ nts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on geostats.pdf (218 pages, 2879219 bytes).
+Output written on geostats.pdf (218 pages, 2879187 bytes).
 PDF statistics:
  4775 PDF objects out of 5155 (max. 8388607)
  3874 compressed objects within 39 object streams

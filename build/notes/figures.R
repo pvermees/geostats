@@ -2182,7 +2182,7 @@ m <- rbind(
     c(1,4+((2*nc+1):(3*nc)),3),
     c(1,rep(4,nc),3)
 )
-pars(mar=rep(0,4))
+pars(mar=rep(0,4),mgp=c(1.4,0.5,0))
 layout(m,widths=c(0.03,rep(0.97/nc,nc),0.001),
        heights=c(0.02,rep(0.9/nr,nr),0.08))#, layout.show(n=nr*nc+3)
 set.seed(5)
