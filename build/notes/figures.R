@@ -3,7 +3,7 @@ graphics.off()
 setwd('~/Documents/Programming/R/geostats/build/notes/')
 source('helper.R')
 
-pars <- function(mar=c(2.5,2.3,0.5,0.2),mgp=c(1.5,0.5,0),mfrow=c(1,1)){
+pars <- function(mar=c(2.5,2.3,0.5,0.25),mgp=c(1.5,0.5,0),mfrow=c(1,1)){
     par(list(mar=mar,mgp=mgp,mfrow=mfrow))
 }
 
@@ -1579,10 +1579,12 @@ qqfaithful(n=3,'../../figures/qqfaithful3.pdf')
 qqfaithful(n=10,'../../figures/qqfaithful10.pdf')
 
 cairo(file='../../figures/qqfaithful12.pdf',width=3,height=2.5)
-pars(mar=c(2.5,2.5,0.5,0.2))
+pars(mar=c(2.5,2.5,0.5,0.25))
 xy1 <- plotSums(n=100,ns=200,pop=1,plot=FALSE)
 xy2 <- plotSums(n=100,ns=200,pop=2,plot=FALSE)
-qqplot(xy1[,1],xy2[,1],xlab=expression('X'[1]),ylab=expression('X'[2]))
+qqplot(xy1[,1],xy2[,1],
+       xlab=expression('x'[1]*'=sum(X'[1]*')'),
+       ylab=expression('x'[2]*'=sum(X'[2]*')'))
 dev.off()
 
 qtiles <- c(0.01,0.025,0.05,0.1,0.25,0.5,0.75,0.9,0.95,0.975,0.99)
@@ -1703,17 +1705,17 @@ pp <- dpois(0:25,lambda=mean(nquakes))
 obs <- c(sum(quaketab[1:2]),quaketab[3:9],sum(quaketab[10:12]))
 pred <- c(sum(pp[1:3]),pp[4:10],sum(pp[11:20]))
 p <- pred/sum(pred)
-X <- chisq.test(obs,p=p)
 o <- obs/sum(obs)
-#sqrt(sum((o-p)^2/p))
+X <- chisq.test(obs,p=p)
+w <- sqrt(sum((o-p)^2/p))
 
 # signif(qchisq(qtiles,df=5),2)
 
 cairo(file='../../figures/chi2.pdf',width=6,height=3)
 pars(mfrow=c(1,2))
 x <- seq(from=0,to=25,length.out=100)
-y <- dchisq(x,df=length(obs)-1)
-xmax <- qchisq(0.95,df=X$parameter)
+y <- dchisq(x,df=X$parameter-1)
+xmax <- qchisq(0.95,df=X$parameter-1)
 plot(x,y,type='l',bty='n',xlab=expression(chi^2),ylab='')
 legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,-.6))
 mtext(expression('f['*chi^2*']'),side=2,line=1.1)
@@ -1721,12 +1723,14 @@ utail <- x>xmax
 polygon(c(x[utail][1],x[utail],tail(x[utail],1)),
         c(0,y[utail],0),col='black')
 lines(rep(X$statistic,2),range(y),lty=2)
-y <- pchisq(x,df=X$parameter)
+y <- pchisq(x,df=X$parameter-1)
 plot(x,y,type='l',bty='n',xlab=expression(chi^2),ylab='')
 legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(2,-.6))
 mtext(expression('F['*chi^2*']'),side=2,line=1.1)
 lines(rep(X$statistic,2),range(y),lty=2)
 lines(range(x),rep(0.95,2),lty=3)
+pval <- pchisq(X$statistic,df=X$parameter-1)
+lines(range(x),rep(pval,2),lty=2)
 dev.off()
 
 zirctab <- table(nzirc)
@@ -1823,6 +1827,8 @@ legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(2,-1.2),xpd=NA)
 mtext(expression('F['*chi^2*']'),side=2,line=1.1)
 lines(rep(X$statistic,2),range(y),lty=2)
 lines(range(x),rep(0.95,2),lty=3)
+pval <- pchisq(X$statistic,df=3)
+lines(range(x),rep(pval,2),lty=2)
 dev.off()
 
 # signif(qchisq(qtiles,df=6),3)
@@ -1861,6 +1867,7 @@ plot(xx,yy,type='s',bty='n',xaxt='n',xlab='x',ylab='F(x)')
 lines(rep(26,2),range(yy),lty=2)
 lines(range(xx),rep(0.025,2),lty=3)
 lines(range(xx),rep(0.975,2),lty=3)
+lines(range(xx),rep(pwilcox(25-9,n=5,m=4),2),lty=2)
 axis(side=1,at=ticks)
 dev.off()
 
@@ -1935,11 +1942,12 @@ mtext('D',side=1,line=1.5)
 mtext('f(D)',side=2,line=1.5)
 bd <- b[1,1]+ks$statistic*(b[nrow(b),1]-b[1,1])/diff(range(ticks))
 lines(rep(bd,2),range(dens[toplot],2),lty=2)
-legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,-1.2),xpd=NA)
+legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,1.2),xpd=NA)
 plot(d[-1],p[-length(p)],type='l',xlim=range(ticks),bty='n',xlab='x',ylab='F(x)')
-legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(2,-1.2),xpd=NA)
+legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(2,1.2),xpd=NA)
 lines(rep(ks$statistic,2),c(0,1),lty=2)
 lines(range(d[-1]),rep(0.95,2),lty=3)
+lines(range(d[-1]),rep(1,2),lty=2)
 lookup <- function(q,D,P){
     rej <- which(P>q)
     D[min(rej)]

@@ -79,11 +79,12 @@ one sample with another. For example:
   \includegraphics[width=\textwidth]{../figures/qqfaithful12.pdf}\\
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
-  \captionof{figure}{ Q-Q plot comparing datasets $X_1$ and $X_2$ of
+  \captionof{figure}{ Q-Q plot comparing datasets
+    $x_1=\mbox{sum}(X_1)$ and $x_2=\mbox{sum}(X_2)$ of
     Figure~\ref{fig:rand2sum}. Even though the two datasets have
-    markedly different means ($\bar{X}_1=50.0$ and $\bar{X}_2=59.9$)
-    and slightly different standard deviations ($s[X_1]=3.3$ and
-    $s[X_2]=3.1$), the quantiles of the two datasets plot along a
+    markedly different means ($\bar{x}_1=50.0$ and $\bar{x}_2=59.9$)
+    and slightly different standard deviations ($s[x_1]=3.3$ and
+    $s[x_2]=3.1$), the quantiles of the two datasets plot along a
     straight line. This means that their distributions are identical
     in shape.  }
   \label{fig:qqfaithful12}
@@ -116,7 +117,7 @@ distribution with mean $\mu$ and standard deviation $\sigma/\sqrt{n}$
 the parameter
 
 \begin{equation}
-  z = \frac{x-\mu}{\sigma/\sqrt{n}}
+  z = \frac{\bar{x}-\mu}{\sigma/\sqrt{n}}
   \label{eq:z}
 \end{equation}
 
@@ -127,7 +128,7 @@ estimated by the sample standard deviation $s[x]$. We can then
 replace Equation~\ref{eq:z} with a new parameter
 
 \begin{equation}
-  t = \frac{x-\mu}{s[x]/\sqrt{n}}
+  t = \frac{\bar{x}-\mu}{s[x]/\sqrt{n}}
   \label{eq:t}
 \end{equation}
 
@@ -231,11 +232,12 @@ is a graphical representation of this test:
   \label{fig:1samplettest}
 \end{minipage}
 
-The comparison between a sample (coin densities) and a particular
-value (19.30~g/cm\textsuperscript{3}) is called a \textbf{one sample
-  t-test}. If we want to compare the densities of two samples, then
-that would require a \textbf{two sample t-test}. For example, consider
-the following two collections of coins:
+The comparison between the mean of a sample (coin densities) and a
+particular value (19.30~g/cm\textsuperscript{3}) is called a
+\textbf{one sample t-test}. If we want to compare the mean densities
+of two samples, then that would require a \textbf{two sample
+  t-test}. For example, consider the following two collections of
+coins:
 
 \begin{center}
 \begin{tabular}{c|ccccc}
@@ -248,10 +250,10 @@ the following two collections of coins:
 \end{tabular}
 \end{center}
 
-The average densities of collection~1 and 2 are 19.275~g/cm$^3$ and
-19.325~g/cm$^3$, respectively. If we assume that the two collections
+The average densities of collection~1 and 2 are 19.164~g/cm$^3$ and
+19.275~g/cm$^3$, respectively. If we assume that the two collections
 have the \textit{same variance}, then we can test whether the
-difference between the two means is significant or not. 
+difference between the two means is significant or not.
 
 \begin{enumerate}
 \item  Formulate two hypotheses:\\
@@ -282,8 +284,8 @@ difference between the two means is significant or not.
     \label{eq:t2}
   \end{equation}
 
-  \noindent where $\bar{x}_1 = 19.275$, $n_1 = 5$, $\bar{x}_2 =
-  19.325$, $n_2 = 4$, and $s_p$ is the \emph{pooled} standard
+  \noindent where $\bar{x}_1 = 19.164$, $n_1 = 5$, $\bar{x}_2 =
+  19.275$, $n_2 = 4$, and $s_p$ is the \emph{pooled} standard
   deviation:
 
   \begin{equation}
@@ -492,8 +494,8 @@ Equation~\ref{eq:tci} simplifies to approximately
     CDFs (b) of two normal distributions whose means (vertical dotted
     lines) are offset by 2 standard errors from the sample average
     (vertical dashed line).  They mark a 95\% confidence interval for
-    $\bar{x}$. However this simple procedure only works if sample size
-    is large enough for the Central Limit Theorem to apply.}
+    $\mu$. However this simple procedure only works if sample size is
+    large enough for the Central Limit Theorem to apply.}
   \label{fig:normconf}
 \end{minipage}
 
@@ -582,7 +584,7 @@ distribution with $n-2$ degrees of freedom, where one degree of
 freedom has been removed because we forced
 $\sum_{i=1}^nE_i=\sum_{i=1}^nO_i$, and another degree of freedom was
 subtracted because we used the data to estimate $\lambda$ when
-predicting the predicted counts.\\
+predicting the expected counts.\\
 
 Applying the $\chi^2$-test to the earthquake data:
 
@@ -590,10 +592,10 @@ Applying the $\chi^2$-test to the earthquake data:
 \item  Formulate two hypotheses:
 
   $H_\circ$ (\textbf{null hypothesis}):
-  the zircon data follow a Poisson distribution
+  the earthquake data follow a Poisson distribution
 
   $H_a$ (\textbf{alternative hypothesis}):
-  the zircon data do not follow a Poisson distribution
+  the earthquake data do not follow a Poisson distribution
   
 \item Calculate the $\chi^2$-statistic using Equation~\ref{eq:chi2}:
 
@@ -878,7 +880,7 @@ be extremely unlikely to happen by chance.
 \label{sec:effectsize}
 
 Let us carry out a similar experiment to
-section~\ref{sec:contingency}, but instead of counting a few 37
+section~\ref{sec:contingency}, but instead of counting a few
 sedimentary clasts by hand, we task a machine to classify $\sim$10,000
 grains of sand by image recognition:
 
@@ -1073,9 +1075,9 @@ about the data:
     histogram. This makes it well suited for discrete distributions
     such as the binomial and Poisson distribution. However it is less
     well adapted to continuous distributions such as the normal
-    distribution. Each bin in the histogram requires a sufficient
-    number of counts for the $\chi^2$-assumption to be valid. This
-    requirement may not be fulfilled for small samples.
+    distribution. Furthermore, each bin in the histogram requires a
+    sufficient number of counts for the $\chi^2$-assumption to be
+    valid. This requirement may not be fulfilled for small samples.
 \end{itemize}
 
 These limitations can be avoided with \textbf{non-parametric tests},
@@ -1170,11 +1172,22 @@ example of table~\ref{tab:2setcoins}:
 \begin{enumerate}
 \item  Formulate two hypotheses:
 
-  $H_\circ$ (\textbf{null hypothesis}):
-  samples 1 and 2 were drawn from the same distribution
-
-  $H_a$ (\textbf{alternative hypothesis}):
-  samples 1 and 2 were drawn from different distributions
+  \noindent\begin{minipage}{.4\textwidth}
+    $H_\circ$ (\textbf{null hypothesis})
+    
+    \vspace{1em}
+    
+    $H_a$ (\textbf{alternative hypothesis}):
+  \end{minipage}
+  \begin{minipage}{.2\textwidth}
+  \end{minipage}
+  \begin{minipage}{.4\textwidth}
+    median(sample 1) = median(sample 2)
+    
+    \vspace{1em}
+    
+    median(sample 1) $\neq$ median(sample 2)
+  \end{minipage}
   
 \item To calculate the test statistic, merge the two samples and rank
   them:
@@ -1210,7 +1223,7 @@ example of table~\ref{tab:2setcoins}:
       $P(w\leq{W})$ & 0.01 & 0.025 & 0.05 & 0.1 & 0.25 &
       0.5 & 0.75 & 0.9 & \emph{0.95} & 0.975 & 0.99 \\
       $P(w\geq{W})$ & 0.99 & 0.975 & 0.95 & 0.9 & 0.75 & 0.5 &
-      0.25 & 0.1 & \emph{0.05} & 0.025 & 0.010
+      0.25 & 0.1 & \emph{0.05} & 0.025 & 0.01
     \end{tabular}
   \end{center}
 
@@ -1228,11 +1241,11 @@ example of table~\ref{tab:2setcoins}:
       $P(w\leq{W})$ & \textbf{0.01} & 0.025 & 0.05 & 0.1 & 0.25 &
       0.5 & 0.75 & 0.9 & \emph{0.95} & 0.975 & 0.99 \\
       $P(w\geq{W})$ & 0.99 & 0.975 & 0.95 & 0.9 & 0.75 & 0.5 &
-      0.25 & 0.1 & \emph{0.05} & 0.025 & \textbf{0.010}
+      0.25 & 0.1 & \emph{0.05} & 0.025 & \textbf{0.01}
     \end{tabular}
   \end{center}
 
-  The rejection region consists of all $W\leq{11}$ and $W\geq{27}$.
+  The rejection region consists of $W={10}$ and $W>{27}$.
 
 \item The observed value of $W=26$ falls outside the rejection region,
   and so we cannot reject $H_\circ$.
@@ -1266,7 +1279,7 @@ x = \{x_1,x_2,\ldots,x_n\} \mbox{~and~} y = \{y_1,y_2,\ldots,y_m\}
 
 \noindent the Kolmogorov-Smirnov statistic is defined as the maximum
 vertical distance between the ECDFs (section~\ref{sec:ECDF}) of the
-two age distributions:
+two samples:
 \begin{equation}
   D = \underset{z}{\mbox{max}} |F_x(z) - F_y(z)|
   \label{eq:KS}
@@ -1342,7 +1355,7 @@ The hypothesis test then proceeds as always:
     \end{tabular}
   \end{center}
 
-  The rejection region consists of all $D\leq{0.174}$.
+  The rejection region consists of all $D>{0.174}$.
 
 \item The observed value of $D=0.301$ falls inside this region, so
   $H_\circ$ is rejected.

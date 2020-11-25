@@ -1062,8 +1062,8 @@ plot(lam,loglik,type='l',xlab=expression(lambda),ylab='LL')
 
 \item We can find the maximum likelihood estimate for $\lambda$ using
   \texttt{R}'s general purpose \texttt{optim} function\footnote{An
-    alternative (and easier) function is \texttt{optim} but this does
-    not compute the Hessian matrix.}, using \texttt{par=1} as an
+    alternative (and easier) function is \texttt{optimise} but this
+    does not compute the Hessian matrix.}, using \texttt{par=1} as an
   initial guess for $\lambda$:
 
 \begin{script}[firstnumber=11]
