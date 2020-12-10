@@ -119,8 +119,10 @@ clr <- function(dat,inverse=FALSE){
 alr <- function(dat,inverse=FALSE){
     if (class(dat)%in%c('matrix','data.frame')){
         d <- dat
+        cnames <- colnames(dat)
     } else {
         d <- matrix(dat,nrow=1)
+        cnames <- names(dat)
     }
     if (inverse){
         num <- cbind(1,exp(d))
@@ -129,5 +131,25 @@ alr <- function(dat,inverse=FALSE){
     } else {
         out <- log(d[,-1])-log(d[,1])
     }
+    if (!is.null(cnames))
+        colnames(out) <- LRlabels(cnames,inverse=inverse)
     as.matrix(out)
+}
+
+LRlabels <- function(cnames,inverse){
+    if (inverse){
+        vars <- strsplit(cnames, split="\\[|\\/|\\]")
+        nv <- length(vars)
+        if (length(vars[[1]])>2){
+            out <- vars[[1]][3]
+            for (i in 1:nv){
+                out[i+1] <- vars[[i]][2]
+            }
+        } else {
+            out <- c(NA,cnames)
+        }
+    } else {
+        out <- paste0('log[',cnames[-1],'/',cnames[1],']')
+    }
+    out
 }

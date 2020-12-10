@@ -260,3 +260,16 @@ NULL
 #' data(AFM,package='geostats')
 #' ternary(AFM[,-1])
 NULL
+
+#' directions of glacial striations
+#'
+#' directions (in degrees) of 30 glacial striation measurements from
+#' Madagascar.
+#' 
+#' @name striations
+#' @docType data
+#' @keywords data
+#' @examples
+#' data(striations,package='geostats')
+#' circle.plot(striations,degrees=TRUE)
+NULL

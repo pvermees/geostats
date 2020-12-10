@@ -196,7 +196,7 @@ it to a hypothesis test anyway:
         c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
       $t$ & \textbf{-3.10} & \textbf{-2.40} & -1.90 & -1.40 & -0.72 &
       0 & 0.72 & 1.40 & 1.90 & \textbf{2.40} &
-      \textbf{3.10} & \textbf{\emph{10.24}}\\
+      \textbf{3.10} & \textbf{\emph{13.98}}\\
       $P(t\leq{T})$ & \textbf{0.01} & \textbf{0.025} & 0.05 & 0.1 & 0.25 &
       0.5 & 0.75 & 0.9 & 0.95 & 0.975 & 0.99 & \emph{0.9999958}\\
       $P(t\geq{T})$ & 0.99 & 0.975 & 0.95 & 0.9 & 0.75 & 0.5 &
@@ -236,7 +236,8 @@ is the methods of least squares.
 \label{sec:leastsquares}
 
 As the name suggests, the least squares criterion quantifies the
-misfit of the fit to the data as the sum of the squared residuals:
+misfit of the line through the data as the sum of the squared
+residuals:
 
 \begin{equation}
 ss \equiv \sum_{i=1}^{n} \epsilon_i^2 = \sum_{i=1}^{n} (\beta_0 + \beta_1 x_i - y_i)^2
@@ -354,7 +355,7 @@ likelihood estimation algorithm of Section~\ref{sec:normalparameters}
 and Equation~\ref{eq:Lnorm}
 
 \begin{equation}
-  \mathcal{L}(\beta_0,\beta_1,\sigma|\epsilon_1,\ldots,\epsilon_n) =
+  \mathcal{L}(\beta_0,\beta_1,\sigma|\{x_1,y_1\},\ldots,\{x_n,y_n\}) =
   \prod\limits_{i=1}^{n}\frac{1}{\sigma\sqrt{2\pi}}
   \exp\!\left[-\frac{\epsilon_i^2}{2\sigma^2}\right]
   \label{eq:Lregression}
@@ -601,7 +602,7 @@ of $w/y$ and $x/z$ is given by:
   \label{eq:spurious}
 \end{equation}
 
-Substituting $y$ for $w$ and $z$ for $y$ in
+Substituting $z$ for $y$ and $y$ for $w$ in
 Equation~\ref{eq:spurious}, and considering that $\rho_{z,z}=1$, we
 can show that:
 

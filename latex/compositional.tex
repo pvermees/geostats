@@ -85,12 +85,12 @@ reciprocal of the means of $B/A$!
 The solution to the ratio averaging conundrum is to take logarithms:
 
 \begin{center}
-  \begin{tabular}{c|cccccccccc|c}
-    & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & mean \\ \hline
+  \begin{tabular}{c|cccccccccc}
+    & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \hline
     $\ln[A/B]$ & 0.25 & 0.75 & -0.18 & 0.86 & -1.30 &
-    0.59 & 0.27 & -0.41 & 0.50 & -2.50 & -0.12 \\
+    0.59 & 0.27 & -0.41 & 0.50 & -2.50 \\
     $\ln[B/A]$ & -0.25 & -0.75 & 0.18 & -0.86 & 1.30 &
-    -0.59 & -0.27 & 0.41 & -0.50 & 2.50 & 0.12 \\
+    -0.59 & -0.27 & 0.41 & -0.50 & 2.50 \\
   \end{tabular}
 \end{center}
 
@@ -379,8 +379,8 @@ Plot the data on a ternary diagram:
 \end{minipage}
 
 Subjecting the data to a logratio transformation maps the
-${3}\times{3}$ table of compositional data onto a ${3}\times{2}$ table
-of logratios:
+${3}\times{3}$ table of compositions onto a ${3}\times{2}$ table of
+logratios:
 \begin{equation}
   X\textsubscript{a} =
   \bbordermatrix{ & \ln(a/c) & \ln(b/c) \cr
@@ -526,12 +526,12 @@ Table~\ref{tab:Major}:
   \captionof{figure}{Compositional biplot of the major element
     concentration data of Table~\ref{tab:Major}, with the samples
     shown in grey and the vector loadings in black. Samples that plot
-    close together (such as N1 and N4) have similar compositions. The
+    close together (such as N1 and N14) have similar compositions. The
     arrows indicate that sample N8 is enriched in MnO relative to
     sample T8.  The arrows for MgO and CaO plot in the same direction,
     suggesting that these two oxides are correlated. The arrow for
     K\textsubscript{2}O points in the opposite direction, suggesting
-    that this oxide anticorrelated with MgO and CaO.  The
+    that this oxide is anticorrelated with MgO and CaO.  The
     \textbf{link} between K\textsubscript{2}O and MgO is perpendicular
     to the link between TiO\textsubscript{2} and
     P\textsubscript{2}O\textsubscript{5}, suggesting that the
@@ -580,9 +580,9 @@ Plotting the same data in logratio space:
   \captionof{figure}{The additive logratio transformation liberates
     the A--F--M data from the confines of the ternary diagram and maps
     them to a Euclidean dataspace in which logratios are free to take
-    any value from $-\infty$ to $+\infty$. In this space, the ln(M/A)
-    vs. ln(F/A) values of the tholeiitic and calc-alkali rock suites
-    are clustered into two discrete clouds of roughly equal size that
+    any value from $-\infty$ to $+\infty$. In this space, the ln(M/F)
+    vs. ln(A/F) values of the tholeiitic and calc-alkali rock suites
+    are clustered into two distinct clouds of roughly equal size that
     have all the hallmarks of bivariate normal distributions with a
     shared covariance matrix. Thus the transformed data seems well
     suited for linear discriminant analysis.\\}

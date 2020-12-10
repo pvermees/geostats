@@ -114,9 +114,9 @@ LDA can also be used to reduce the dimensionality of a dataset, in a
 similar way to PCA. Recall that, in Section~\ref{sec:PCA}, we used a
 simple toy example to show how PCA can be used to project a
 two-dimensional dataset onto a one dimensional line. We can use the
-same approach to illustrate how LDA can achieve the same effect to
-achieve a different aim. Consider a mixed dataset of two bivariate
-normal distributions:\\
+same approach to illustrate how LDA can achieve the same effect with a
+different aim. Consider a mixed dataset of two bivariate normal
+distributions:\\
 
 \noindent\includegraphics[width=\linewidth]{../figures/PCAvsLDA.pdf}
 \begingroup \captionof{figure}{a) an equal mixture of two bivariate
@@ -208,9 +208,9 @@ assumption is invalid:
 \end{minipage}
 \begin{minipage}[t][][t]{.65\textwidth}
   \captionof{figure}{Synthetic dataset of bivariate data that belong
-    to two classes. The grey circles are split into two data
+    to two classes. The black circles are split into two data
     clouds. The white circles form a `c'-shape surrounding one of the
-    modes of the grey population. Discriminant analysis is unable to
+    modes of the black population. Discriminant analysis is unable to
     deal with this situation.\\}
   \label{fig:CARTdata}
 \end{minipage}
@@ -345,7 +345,7 @@ bivariate example dataset:
   \label{fig:cvCART}
 \end{minipage}
 
-For our bivariate example, this exercise produces a tree with four
+For our bivariate example, this procedure produces a tree with four
 splits and five terminal nodes:
 
 \noindent\begin{minipage}[t][][b]{.7\textwidth}

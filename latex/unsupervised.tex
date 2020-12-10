@@ -6,10 +6,10 @@ visualising simple datasets of one or two dimensions. However many
 Earth Science datasets span multiple dimensions. For example, a
 geochemist may have measured the concentration of 20 elements in 50
 samples; or a palaeoecologist may have counted the relative abundances
-of 15 species at 50 sites. This chapter will introduce some tools that
+of 15 species at 30 sites. This chapter will introduce some tools that
 can help us see some structure in such `big' datasets without any
-prior knowledge of clusters, groupings or trends in the dataset.  This
-is called unsupervised learning, as opposed to the supervised learning
+prior knowledge of clusters, groupings or trends.  This is called
+unsupervised learning, as opposed to the supervised learning
 algorithms that will be introduced in Chapter~\ref{ch:supervised}.
 
 \section{Principal Component Analysis}
@@ -127,10 +127,10 @@ decomposition:
 \begin{minipage}[t][][t]{.75\textwidth}
   \captionof{figure}{PCA decomposition of
     Figure~\ref{fig:PCA2Ddata}. The data $X$ are shown as numbers, $C$
-    as a yellow square, and $1_{2,1}C \pm L$ as a cross. The first
-    principal direction (running from the upper left to the lower
-    right) has been stretched by a factor of $(3.67/0.71) = 5.2$ w.r.t
-    the second principal direction, which runs perpendicular to it.\\}
+    as a square, and $1_{2,1}C \pm L$ as a cross. The first principal
+    direction (running from the upper left to the lower right) has
+    been stretched by a factor of $(3.67/0.71) = 5.2$ w.r.t the second
+    principal direction, which runs perpendicular to it.\\}
   \label{fig:PCA2D1}
 \end{minipage}
 
@@ -190,22 +190,22 @@ built-in datasets:
 \begingroup
 \noindent\begin{minipage}[t][][b]{.55\textwidth}
 \begin{tabular}{l|cccc}
-      & Murder & Assault & UrbanPop & Rape \\ \hline
-Alabama    &  13.2  & 236  & 58 & 21.2 \\
-Alaska     &  10.0  & 263  & 48 & 44.5 \\
-Arizona    &   8.1  & 294  & 80 & 31.0 \\
-Arkansas    &  8.8  & 190  & 50 & 19.5 \\
-California  &  9.0  & 276  & 91 & 40.6 \\
-Colorado    &  7.9  & 204  & 78 & 38.7 \\
+      & Murder & Assault & Rape & UrbanPop \\ \hline
+Alabama    &  13.2  & 236  & 21.2 & 58 \\
+Alaska     &  10.0  & 263  & 44.5 & 48 \\
+Arizona    &   8.1  & 294  & 31.0 & 80 \\
+Arkansas    &  8.8  & 190  & 19.5 & 50 \\
+California  &  9.0  & 276  & 40.6 & 91 \\
+Colorado    &  7.9  & 204  & 38.7 & 78 \\
 $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ \\
-Wisconsin  & 2.6 & 53  & 66 & 10.8 \\
-Wyoming    & 6.8 & 161 & 60 & 15.6
+Wisconsin  & 2.6 & 53  & 10.8 & 66 \\
+Wyoming    & 6.8 & 161 & 15.6 & 60 
 \end{tabular}
 \end{minipage}
 \begin{minipage}[t][][t]{.45\textwidth}
   \captionof{table}{\texttt{USArrests} is a dataset that is built into
     the \texttt{R} programming environment. It contains crime
-    statistics (in arrests per 100,000 residents) for assault, murder,
+    statistics (in arrests per 100,000 residents) for murder, assault
     and rape in each of the 50 US states in 1973. Also given is the
     percentage of the population living in urban areas. Thus,
     \texttt{USArrests} is a four-column table that cannot readily be
@@ -238,9 +238,9 @@ Arizona \& New York, etc.)  have similar crime and urbanisation
 statistics.  States that plot at opposite ends of the diagram (such as
 Mississipi \& California, or North Dakota \& Florida) have contrasting
 crime and urbanisation statistics.  The vectors for murder, assault
-and rape are all point in approximately the same direction, towards
-the left hand side of the diagram. This tells us that the crimes are
-all correlated with each other. So states that have a lot of assaults
+and rape all point in approximately the same direction, towards the
+left hand side of the diagram. This tells us that the crimes are all
+correlated with each other. So states that have a lot of assaults
 (such as Florida), also have a lot of rape and murder. States that
 plot on the right hand side of the diagram (such as North Dakota),
 have low crime statistics in all categories.  The vector with the
@@ -453,7 +453,7 @@ the requirements for MDS analysis:
 \section{K-means clustering}
 \label{sec:kmeans}
 
-K-means cluster is an unsupervised learning algorithm that tries to
+K-means clustering is an unsupervised learning algorithm that tries to
 group data based on their similarity. As the name suggests, the method
 requires that we pre-specify the number of clusters ($k$) to be found
 in the dataset. We will introduce this algorithm using a simple

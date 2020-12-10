@@ -2055,11 +2055,13 @@ utail <- (x>qt(0.975,df=df))
 polygon(c(x[utail][1],x[utail],tail(x[utail],1)),c(0,y[utail],0),col='black')
 Y <- pt(x,df=df)
 plot(x,Y,type='l',bty='n',xlab='t',ylab='F(t)')
-legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(1,1))
+legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(1.5,1))
 lines(rep(tt,2),range(Y),lty=2)
 lines(range(x),rep(pt(tt,df=df),2),lty=2)
 lines(range(x),rep(0.025,2),lty=3)
 lines(range(x),rep(0.975,2),lty=3)
+lines(rep(-x[utail][1],2),c(0,1),lty=3)
+lines(rep(x[utail][1],2),c(0,1),lty=3)
 dev.off()
 
 cairo(file='../../figures/RbSr.pdf',width=3,height=3)
@@ -2146,7 +2148,7 @@ X <- RbSr['RbSr',]
 Y <- RbSr['SrSr',]
 pars(mar=c(2.5,2.8,0.0,0.0))
 envelope(X=X,Y=Y,xlab=expression('x = '^87*'Rb/'^86*'Sr'),
-         ylab=expression('x = '^87*'Sr/'^86*'Sr'),
+         ylab=expression('y = '^87*'Sr/'^86*'Sr'),
          xlim=c(0,10),ylim=c(0.65,0.87),pch=21,bg='white',cex=0.8)
 dev.off()
 
@@ -2951,7 +2953,7 @@ PCA2D <- function(X,fig=1){
         lines(pc$x[,'PC1'],rep(2,3))
         points(pc$x[,'PC1'],rep(2,3),pch=21,bg='white')
         text(pc$x[,'PC1'],rep(2,3),labels=1:3,pos=c(1,1,3))
-        text(min(pc$x[,'PC1']),2,labels='PC1',pos=2)
+        text(min(pc$x[,'PC1']),2,labels='PC1',pos=2,xpd=NA)
         # plot the 2nd PC scores as a 1D configuration:
         lines(pc$x[,'PC2'],rep(3,3))
         points(pc$x[,'PC2'],rep(3,3),pch=21,bg='white')
@@ -2959,7 +2961,7 @@ PCA2D <- function(X,fig=1){
         text(min(pc$x[,'PC2']),3,labels='PC2',pos=2)
     }
     if (fig==3){ # plot both PCA scores and the loadings in the 3rd panel:
-        biplot(pc)
+        biplot(pc,col='black')
     }
     if (fig==4){ # plot the weights of the PCs in the 4th panel:
         w <- pc$sdev^2
@@ -2976,17 +2978,17 @@ PCA2D(X=X,fig=1)
 dev.off()
 
 cairo(file='../../figures/PCA2D2.pdf',width=2.5,height=1.5)
-pars()
+pars(mar=c(1.5,1.6,0.5,0.25))
 PCA2D(X=X,fig=2)
 dev.off()
 
 cairo(file='../../figures/PCA2D3.pdf',width=2.5,height=2.5)
-pars()
+pars(mar=c(2.4,2.3,1.5,1.5))
 PCA2D(X=X,fig=3)
 dev.off()
 
 cairo(file='../../figures/USArrests.pdf',width=5,height=5)
-pars()
+pars(mar=c(2.5,2.5,1.5,1.5))
 pc <- prcomp(USArrests, scale=TRUE)
 biplot(pc,col=c('gray50','black'),xlim=c(-0.3,0.33))
 dev.off()
@@ -3011,7 +3013,7 @@ plot(MASS::Shepard(d=ED,x=conf$points),pch=19,cex=0.7,
 dev.off()
 
 cairo(file='../../figures/DZmds.pdf',width=4,height=3)
-pars(mar=c(2.5,2.5,0,0))
+pars(mar=c(2.5,2.5,0,0.5))
 library(IsoplotR)
 set.seed(1)
 dz <- provenance::read.distributional('DZages.csv',check.names=FALSE)$x
@@ -3856,9 +3858,9 @@ Xc <- cbind(log(xyz[,'a']/g),log(xyz[,'b']/g),log(xyz[,'c']/g))
 colnames(Xc) <- c('','','')
 pc <- prcomp(Xc)
 biplot(pc,arrow.len=0.08,asp=0.9,col=c('gray50','black'))
-text(x=0,y=-1,labels='c',col='red',cex=1.1)
-text(x=-4,y=0,labels='a',col='red',cex=1.1)
-text(x=4,y=0,labels='b',col='red',cex=1.1)
+text(x=0,y=-1,labels='c',col='black',cex=1.1)
+text(x=-4,y=0,labels='b',col='black',cex=1.1)
+text(x=4,y=0,labels='a',col='black',cex=1.1)
 dev.off()
 
 cairo(file='../../figures/majorPCA.pdf',width=4,height=4)
@@ -3990,6 +3992,200 @@ biplot(pc,col=c('grey60','black'),xlabs=test[,1],
        xlim=c(-0.31,0.2),ylim=c(-0.15,0.37))
 dev.off()
 
+pebbles <- c(44,51,79,65,27,31,4,355,22,352,287,
+             7,287,339,0,276,342,355,334,296,7,
+             17,351,349,37,339,40,324,325,334)
+
+plot.circ <- function(angles,degrees=FALSE,tl=0.1,...){
+    plot(x=c(-1,1),y=c(-1,1),type='n',axes=FALSE,
+         ann=FALSE,asp=1,bty='n')
+    symbols(0,0,circles=1,add=TRUE,inches=FALSE)
+    ticks.circ(angles,degrees=degrees,tl=tl,...)
+    lines(c(0,0),c(1,1+tl))
+    lines(c(0,0),-c(1,1+tl))
+    lines(c(1,1+tl),c(0,0))
+    lines(-c(1,1+tl),c(0,0))
+    text(0,1+tl,labels='0',pos=3,xpd=NA,offset=0.1)
+    text(1+tl,0,labels='90',pos=4,xpd=NA,offset=0.1)
+    text(0,-1-tl,labels='180',pos=1,xpd=NA,offset=0.15)
+    text(-1-tl,0,labels='270',pos=2,xpd=NA,offset=0.1)
+}
+
+ticks.circ <- function(angles,degrees=FALSE,tl=0.1,...){
+    if (degrees) rads <- angles*pi/180
+    else rads <- angles
+    x1 <- sin(rads)
+    y1 <- cos(rads)
+    x2 <- x1*(1-tl)
+    y2 <- y1*(1-tl)
+    matlines(x=rbind(x1,x2),y=rbind(y1,y2),
+             lty=1,col='black',...)
+}
+
+points.circ <- function(angles,degrees=FALSE,tl=0.1,...){
+    if (degrees) rads <- angles*pi/180
+    else rads <- angles
+    points(x=sin(rads),y=cos(rads),...)
+}
+
+addarrow <- function(xy0=c(0,0),a=0,plot=TRUE){
+    x1 <- xy0[1] + cos(a*pi/180)
+    y1 <- xy0[2] + sin(a*pi/180)
+    if (plot)
+        arrows(x0=xy0[1],y0=xy0[2],x1=x1,y1=y1,length=0.1)
+    invisible(c(x1,y1))
+}
+
+cairo(file='../../figures/circle1.pdf',width=2,height=2)
+pars(mar=c(0,1.5,0,1.1))
+plot.circ(pebbles,degrees=TRUE)
+dev.off()
+
+cairo(file='../../figures/circle2.pdf',width=2,height=2)
+pars(mar=c(0,1.5,0,1.1))
+plot.circ(pebbles,degrees=TRUE)
+addarrow(a=90-mean(pebbles))
+dev.off()
+
+cairo(file='../../figures/circle3.pdf',width=2,height=2)
+pars(mar=c(0,1.5,0,1.1))
+rad <- pebbles*pi/180 # convert to radians
+ss <- sum(sin(rad))
+# sum of the sines
+sc <- sum(cos(rad))
+# sum of the cosines
+md <- atan(ss/sc)
+# mean direction
+deg <- md*180/pi
+# convert radians to degrees
+plot.circ(pebbles,degrees=TRUE)
+addarrow(a=90-deg)
+dev.off()
+
+cairo(file='../../figures/vectorsum.pdf',width=5,height=2.5)
+pars(mar=rep(0,4))
+plot(x=c(-1,3.5),y=c(-1,1),type='n',axes=FALSE,ann=FALSE,bty='n',asp=1)
+symbols(0,0,circles=1,add=TRUE,inches=FALSE,xpd=NA)
+xy1 <- addarrow(a=45)
+xy2 <- addarrow(a=30)
+xy3 <- addarrow(a=0)
+xy4 <- addarrow(a=-30)
+xy5 <- addarrow(xy0=xy4,a=0)
+xy6 <- addarrow(xy0=xy5,a=30)
+xy7 <- addarrow(xy0=xy6,a=45)
+lines(x=c(xy3[1],xy5[1]),y=c(xy3[2],xy5[2]),lty=3)
+lines(x=c(0,xy5[1]),y=c(0,xy5[2]),lty=3)
+lines(x=c(xy2[1],xy6[1]),y=c(xy2[2],xy6[2]),lty=3)
+lines(x=c(0,xy6[1]),y=c(0,xy6[2]),lty=3)
+lines(x=c(xy1[1],xy7[1]),y=c(xy1[2],xy7[2]),lty=3)
+arrows(x0=0,x1=xy7[1],y0=0,y1=xy7[2],lty=2,lwd=1,length=0)
+arrows(x0=0,x1=xy7[1]/4,y0=0,y1=xy7[2]/4,
+       lty=1,lwd=2,col='black',length=0.1)
+text(xy7[1]/4,xy7[2]/4,labels=expression(bar(R)),pos=3,offset=0.2)
+a <- seq(from=0,to=atan(xy7[2]/xy7[1]),length.out=10)
+x <- 1.05*cos(a)
+y <- 1.05*sin(a)
+lines(x,y)
+text(x[4],y[4],labels=expression(bar(theta)),font=5,pos=4,offset=0.1)
+dev.off()
+
+cairo(file='../../figures/lowconcentration.pdf',width=2,height=2)
+pars(mar=rep(0,4))
+plot(x=c(-1,1),y=c(-1,1),type='n',axes=FALSE,ann=FALSE,bty='n',asp=1)
+symbols(0,0,circles=1,add=TRUE,inches=FALSE,xpd=NA)
+xy1 <- addarrow(a=230)
+xy2 <- addarrow(a=30)
+xy3 <- addarrow(a=0)
+xy4 <- addarrow(a=-170)
+xy5 <- addarrow(xy0=xy4,a=0,plot=FALSE)
+xy6 <- addarrow(xy0=xy5,a=30,plot=FALSE)
+xy7 <- addarrow(xy0=xy6,a=230,plot=FALSE)
+arrows(x0=0,x1=xy7[1]/4,y0=0,y1=xy7[2]/4,lty=1,lwd=2,col='black',length=0.1)
+text(xy7[1]/4,xy7[2]/4,labels=expression(bar(R)),pos=1,offset=0.3)
+dev.off()
+
+vonMises <- function(angle,mu=0,kappa=1){
+    num <- exp(kappa*cos(angle-mu))
+    den <- 2*pi*besselI(kappa,nu=0)
+    num/den
+}
+
+cairo(file='../../figures/vonMises.pdf',width=8,height=2)
+pars(mar=rep(0,4))
+plot(x=c(-1,11),y=c(-1.1,1.1),type='n',axes=FALSE,ann=FALSE,bty='n',asp=1)
+a <- seq(from=-pi,to=pi,length.out=200)
+d <- vonMises(angle=a,mu=pi/2,kappa=0)
+x0 <- 0
+symbols(x=x0,y=0,circles=1,add=TRUE,inches=FALSE,xpd=NA,fg='grey50')
+text(x=x0,y=0,labels=expression(kappa*'=0'))
+lines(x=x0+(1+d)*cos(a),y=(1+d)*sin(a),xpd=NA)
+d <- vonMises(angle=a,mu=-pi/2,kappa=1)
+x0 <- 3
+symbols(x=x0,y=0,circles=1,add=TRUE,inches=FALSE,xpd=NA,fg='grey50')
+text(x=x0,y=0,labels=expression(mu*'='*pi*','~kappa*'=1'))
+lines(x=x0+(1+d)*cos(a),y=(1+d)*sin(a),xpd=NA)
+d <- vonMises(angle=a,mu=pi/4,kappa=2)
+x0 <- 6
+symbols(x=x0,y=0,circles=1,add=TRUE,inches=FALSE,xpd=NA,fg='grey50')
+text(x=x0,y=0,labels=expression(mu*'='*pi*'/4,'~kappa*'=2'))
+lines(x=x0+(1+d)*cos(a),y=(1+d)*sin(a),xpd=NA)
+d <- vonMises(angle=a,mu=0,kappa=10)
+x0 <- 9
+symbols(x=x0,y=0,circles=1,add=TRUE,inches=FALSE,xpd=NA,fg='grey50')
+text(x=x0,y=0,labels=expression(mu*'='*pi*'/2,'~kappa*'=10'))
+lines(x=x0+(1+d)*cos(a),y=(1+d)*sin(a),xpd=NA)
+dev.off()
+
+cairo(file='../../figures/R2K.pdf',width=2.5,height=2.5)
+pars()
+R <- seq(from=0,to=1,by=0.01)
+K <- c(.00000,.02000,.04001,.06003,.08006,.10013,.12022,.14034,
+       .16051,.18073,.20101,.22134,.24175,.26223,.28279,.30344,
+       .32419,.34503,.36599,.38707,.40828,.42962,.45110,.47273,
+       .49453,.51649,.53863,.56097,.58350,.60625,.62922,.65242,
+       .67587,.69958,.72356,.74783,.77241,.79730,.82253,.84812,
+       .87408,.90043,.92720,.95440,.98207,1.01022,1.03889,1.06810,
+       1.09788,1.12828,1.15932,1.19105,1.22350,1.25672,1.29077,
+       1.32570,1.36156,1.39842,1.43635,1.47543,1.51574,1.55738,
+       1.60044,1.64506,1.69134,1.73945,1.78953,1.84177,1.89637,
+       1.95357,2.01363,2.07685,2.14359,2.21425,2.28930,2.36930,
+       2.45490,2.54686,2.64613,2.75382,2.87129,3.00020,3.14262,
+       3.30114,3.47901,3.68041,3.91072,4.17703,4.48876,4.85871,
+       5.3047,5.8522,6.5394,7.4257,8.6104,10.2716,12.7661,16.9266,
+       25.2522,50.2421,Inf)
+plot(R,K,type='l',xlab=expression(bar(R)),ylab=expression(kappa),lwd=1,bty='n')
+dev.off()
+
+cairo(file='../../figures/kappastriations.pdf',width=3.5,height=2.5)
+mu <- geostats::meanangle(pebbles,degrees=TRUE)
+Rp <- geostats::Rbar(pebbles,degrees=TRUE)
+Kp <- geostats::Rbar2kappa(Rp)
+a <- seq(from=-pi,to=pi,length.out=200)
+f <- vonMises(angle=a,mu=mu*pi/180,kappa=Kp)
+pars(mar=c(3,3,0.5,0.5))
+plot(a,f,type='l',bty='n',ylim=c(0,0.25),xaxt='n')
+axis(side=1,at=c(-pi,-pi/2,0,pi/2,pi),
+     labels=c(expression(-pi),expression(-pi),0,expression(pi/2),expression(pi)))
+A <- atan(sin(pebbles*pi/180)/cos(pebbles*pi/180))
+rug(A,ticksize=0.1)
+if (FALSE){
+    plot(x=c(-1.1,1.1),y=c(-1.1,1.1),type='n',axes=FALSE,ann=FALSE,bty='n',asp=1)
+    plot.circ(pebbles,degrees=TRUE)
+    text(x=x0,y=0,labels=expression(kappa*'=0'))
+    lines(x=x0+(1+f)*cos(a+pi/2),y=(1+f)*sin(a+pi/2),xpd=NA)
+}
+dev.off()
+
+cairo(file='../../figures/wulffschmidt.pdf',width=5,height=2.5)
+pars(mfrow=c(1,2),mar=rep(1,4))
+geostats::stereonet(wulff=TRUE)
+geostats::stereonet(wulff=FALSE)
+dev.off()
+
+pars()
+geostats::stereonet(azimuth=c(80,120),dip=c(10,20),degrees=TRUE,
+                    wulff=FALSE,show.lines=FALSE)
+
 cairo(file='../../slides/locationdispersionshape.pdf',width=4,height=2)
 pars(mfrow=c(2,3),mgp=c(1.2,0.5,0))
 x <- seq(from=-10,to=10,length.out=200)
@@ -4033,8 +4229,32 @@ axis(side=2)
 dev.off()
 
 cairo(file='../../slides/averageheight.pdf',width=5,height=3)
-pars(mgp=c(1.1,0.5,0))
+pars(mgp=c(1.2,0.5,0))
 x <- 10^seq(from=0,to=9.69897,length.out=100)
 y <- 10/sqrt(x)
 plot(x,y,type='l',xlab='N',ylab=expression("s["*bar(h)*"]"),log='x',bty='n')
+dev.off()
+
+cairo(file='../../slides/RbSr.pdf',width=4,height=4)
+pars(mgp=c(1.25,0.5,0))
+RS <- t(RbSr[c(1,3,2,4,5),])
+RS[,1] <- RS[,1]/2
+RS[,5] <- 1.5*RS[,5]
+scatterplot(RS,fit=york(RS),fill=NA,
+            xlab=expression(''^87*'Rb/'^86*'Sr'),
+            ylab=expression(''^87*'Sr/'^86*'Sr'))
+dev.off()
+
+cairo(file='../../slides/MDS2D.pdf',width=2.5,height=2.5)
+pars(mar=c(2.5,2.5,0.5,0.5))
+m <- cbind(c(4.24,-2.12,-2.12),c(0,-0.71,0.71))
+plot(m,type='n',xlab='dim 1',ylab='dim 2')
+text(m,labels=1:3)
+dev.off()
+
+cairo(file='../../slides/ChinaKDEs.pdf',width=6,height=4)
+pars()
+class(DZ) <- 'detritals'
+IsoplotR::kde(DZ,kde.col=NA,hist.col=NA,show.hist=FALSE,
+              rug=TRUE,samebandwidth=TRUE,normalise=FALSE)
 dev.off()

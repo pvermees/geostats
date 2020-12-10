@@ -13,6 +13,11 @@ porosity <- por <- c(0.058,0.280,0.120,0.270,0.400,0.120,0.038,
                      0.880,0.700,0.920,0.720,0.740,0.840)
 save(porosity,file="../../package/data/porosity.rda",version=2)
 
+striations <- c(44,51,79,65,27,31,4,355,22,352,287,
+                7,287,339,0,276,342,355,334,296,7,
+                17,351,349,37,339,40,324,325,334)
+save(striations,file="../../package/data/striations.rda",version=2)
+
 qdat <- read.csv('recentquakes.csv',header=TRUE)
 dateAsString <- qdat$time
 thedate <- strptime(dateAsString,format='%Y-%m-%d %H:%M:%S ')

@@ -142,7 +142,6 @@ ellipse <- function(mean,cov,alpha=0.05,n=50){
     out <- matrix(0,nrow=n,ncol=2)
     out[,1] <- mu[1] + a * cos(theta) * cos(beta) - b * sin(theta) * sin(beta)
     out[,2] <- mu[2] + a * cos(theta) * sin(beta) + b * sin(theta) * cos(beta)
-    colnames(out) <- c('x','y')
     out
 }
 

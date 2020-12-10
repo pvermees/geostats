@@ -72,48 +72,52 @@
 \BOOKMARK [1][-]{section.14.3}{PCA of compositional data}{chapter.14}% 72
 \BOOKMARK [1][-]{section.14.4}{LDA of compositional data}{chapter.14}% 73
 \BOOKMARK [1][-]{section.14.5}{Logratio processes}{chapter.14}% 74
-\BOOKMARK [0][-]{chapter.15}{An introduction to R}{}% 75
-\BOOKMARK [1][-]{section.15.1}{The basics}{chapter.15}% 76
-\BOOKMARK [1][-]{section.15.2}{Plotting data}{chapter.15}% 77
-\BOOKMARK [1][-]{section.15.3}{Summary Statistics}{chapter.15}% 78
-\BOOKMARK [1][-]{section.15.4}{Probability}{chapter.15}% 79
-\BOOKMARK [1][-]{section.15.5}{The binomial distribution}{chapter.15}% 80
-\BOOKMARK [1][-]{section.15.6}{The Poisson distribution}{chapter.15}% 81
-\BOOKMARK [1][-]{section.15.7}{The normal distribution}{chapter.15}% 82
-\BOOKMARK [1][-]{section.15.8}{Error propagation}{chapter.15}% 83
-\BOOKMARK [1][-]{section.15.9}{Comparing distributions}{chapter.15}% 84
-\BOOKMARK [1][-]{section.15.10}{Regression}{chapter.15}% 85
-\BOOKMARK [1][-]{section.15.11}{Fractals and chaos}{chapter.15}% 86
-\BOOKMARK [1][-]{section.15.12}{Unsupervised learning}{chapter.15}% 87
-\BOOKMARK [1][-]{section.15.13}{Supervised learning}{chapter.15}% 88
-\BOOKMARK [1][-]{section.15.14}{Compositional data}{chapter.15}% 89
-\BOOKMARK [0][-]{chapter.16}{Exercises}{}% 90
-\BOOKMARK [1][-]{section.16.1}{The basics}{chapter.16}% 91
-\BOOKMARK [1][-]{section.16.2}{Plotting data}{chapter.16}% 92
-\BOOKMARK [1][-]{section.16.3}{Summary statistics}{chapter.16}% 93
-\BOOKMARK [1][-]{section.16.4}{Probability}{chapter.16}% 94
-\BOOKMARK [1][-]{section.16.5}{The binomial distribution}{chapter.16}% 95
-\BOOKMARK [1][-]{section.16.6}{The Poisson distribution}{chapter.16}% 96
-\BOOKMARK [1][-]{section.16.7}{The normal distribution}{chapter.16}% 97
-\BOOKMARK [1][-]{section.16.8}{Error propagation}{chapter.16}% 98
-\BOOKMARK [1][-]{section.16.9}{Comparing distributions}{chapter.16}% 99
-\BOOKMARK [1][-]{section.16.10}{Regression}{chapter.16}% 100
-\BOOKMARK [1][-]{section.16.11}{Fractals and chaos}{chapter.16}% 101
-\BOOKMARK [1][-]{section.16.12}{Unsupervised learning}{chapter.16}% 102
-\BOOKMARK [1][-]{section.16.13}{Supervised learning}{chapter.16}% 103
-\BOOKMARK [1][-]{section.16.14}{Compositional data}{chapter.16}% 104
-\BOOKMARK [0][-]{chapter.17}{Solutions}{}% 105
-\BOOKMARK [1][-]{section.17.1}{The basics}{chapter.17}% 106
-\BOOKMARK [1][-]{section.17.2}{Plotting data}{chapter.17}% 107
-\BOOKMARK [1][-]{section.17.3}{Summary statistics}{chapter.17}% 108
-\BOOKMARK [1][-]{section.17.4}{Probability}{chapter.17}% 109
-\BOOKMARK [1][-]{section.17.5}{The binomial distribution}{chapter.17}% 110
-\BOOKMARK [1][-]{section.17.6}{The Poisson distribution}{chapter.17}% 111
-\BOOKMARK [1][-]{section.17.7}{The normal distribution}{chapter.17}% 112
-\BOOKMARK [1][-]{section.17.8}{Error propagation}{chapter.17}% 113
-\BOOKMARK [1][-]{section.17.9}{Comparing distributions}{chapter.17}% 114
-\BOOKMARK [1][-]{section.17.10}{Regression}{chapter.17}% 115
-\BOOKMARK [1][-]{section.17.11}{Fractals and chaos}{chapter.17}% 116
-\BOOKMARK [1][-]{section.17.12}{Unsupervised learning}{chapter.17}% 117
-\BOOKMARK [1][-]{section.17.13}{Supervised learning}{chapter.17}% 118
-\BOOKMARK [1][-]{section.17.14}{Compositional data}{chapter.17}% 119
+\BOOKMARK [0][-]{chapter.15}{Directional data}{}% 75
+\BOOKMARK [1][-]{section.15.1}{Circular data}{chapter.15}% 76
+\BOOKMARK [1][-]{section.15.2}{Circular distributions}{chapter.15}% 77
+\BOOKMARK [1][-]{section.15.3}{Spherical data}{chapter.15}% 78
+\BOOKMARK [0][-]{chapter.16}{An introduction to R}{}% 79
+\BOOKMARK [1][-]{section.16.1}{The basics}{chapter.16}% 80
+\BOOKMARK [1][-]{section.16.2}{Plotting data}{chapter.16}% 81
+\BOOKMARK [1][-]{section.16.3}{Summary Statistics}{chapter.16}% 82
+\BOOKMARK [1][-]{section.16.4}{Probability}{chapter.16}% 83
+\BOOKMARK [1][-]{section.16.5}{The binomial distribution}{chapter.16}% 84
+\BOOKMARK [1][-]{section.16.6}{The Poisson distribution}{chapter.16}% 85
+\BOOKMARK [1][-]{section.16.7}{The normal distribution}{chapter.16}% 86
+\BOOKMARK [1][-]{section.16.8}{Error propagation}{chapter.16}% 87
+\BOOKMARK [1][-]{section.16.9}{Comparing distributions}{chapter.16}% 88
+\BOOKMARK [1][-]{section.16.10}{Regression}{chapter.16}% 89
+\BOOKMARK [1][-]{section.16.11}{Fractals and chaos}{chapter.16}% 90
+\BOOKMARK [1][-]{section.16.12}{Unsupervised learning}{chapter.16}% 91
+\BOOKMARK [1][-]{section.16.13}{Supervised learning}{chapter.16}% 92
+\BOOKMARK [1][-]{section.16.14}{Compositional data}{chapter.16}% 93
+\BOOKMARK [0][-]{chapter.17}{Exercises}{}% 94
+\BOOKMARK [1][-]{section.17.1}{The basics}{chapter.17}% 95
+\BOOKMARK [1][-]{section.17.2}{Plotting data}{chapter.17}% 96
+\BOOKMARK [1][-]{section.17.3}{Summary statistics}{chapter.17}% 97
+\BOOKMARK [1][-]{section.17.4}{Probability}{chapter.17}% 98
+\BOOKMARK [1][-]{section.17.5}{The binomial distribution}{chapter.17}% 99
+\BOOKMARK [1][-]{section.17.6}{The Poisson distribution}{chapter.17}% 100
+\BOOKMARK [1][-]{section.17.7}{The normal distribution}{chapter.17}% 101
+\BOOKMARK [1][-]{section.17.8}{Error propagation}{chapter.17}% 102
+\BOOKMARK [1][-]{section.17.9}{Comparing distributions}{chapter.17}% 103
+\BOOKMARK [1][-]{section.17.10}{Regression}{chapter.17}% 104
+\BOOKMARK [1][-]{section.17.11}{Fractals and chaos}{chapter.17}% 105
+\BOOKMARK [1][-]{section.17.12}{Unsupervised learning}{chapter.17}% 106
+\BOOKMARK [1][-]{section.17.13}{Supervised learning}{chapter.17}% 107
+\BOOKMARK [1][-]{section.17.14}{Compositional data}{chapter.17}% 108
+\BOOKMARK [0][-]{chapter.18}{Solutions}{}% 109
+\BOOKMARK [1][-]{section.18.1}{The basics}{chapter.18}% 110
+\BOOKMARK [1][-]{section.18.2}{Plotting data}{chapter.18}% 111
+\BOOKMARK [1][-]{section.18.3}{Summary statistics}{chapter.18}% 112
+\BOOKMARK [1][-]{section.18.4}{Probability}{chapter.18}% 113
+\BOOKMARK [1][-]{section.18.5}{The binomial distribution}{chapter.18}% 114
+\BOOKMARK [1][-]{section.18.6}{The Poisson distribution}{chapter.18}% 115
+\BOOKMARK [1][-]{section.18.7}{The normal distribution}{chapter.18}% 116
+\BOOKMARK [1][-]{section.18.8}{Error propagation}{chapter.18}% 117
+\BOOKMARK [1][-]{section.18.9}{Comparing distributions}{chapter.18}% 118
+\BOOKMARK [1][-]{section.18.10}{Regression}{chapter.18}% 119
+\BOOKMARK [1][-]{section.18.11}{Fractals and chaos}{chapter.18}% 120
+\BOOKMARK [1][-]{section.18.12}{Unsupervised learning}{chapter.18}% 121
+\BOOKMARK [1][-]{section.18.13}{Supervised learning}{chapter.18}% 122
+\BOOKMARK [1][-]{section.18.14}{Compositional data}{chapter.18}% 123

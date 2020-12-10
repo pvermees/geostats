@@ -400,41 +400,6 @@ certainty that all lithologies are represented in our sample.
 
 \begin{enumerate}
 
-\item To answer the first question, we formulate a two-sided
-  hypothesis:
-
-  $H_\circ: p(\mbox{female}) = p(\mbox{male})$\\
-  $H_a: p(\mbox{female}) \neq p(\mbox{male})$
-
-\begin{console}
-> h <- binom.test(x=32,n=50,p=0.5,alternative="two.sided")
-> h$p.value
-[1] 0.06490865
-\end{console}
-
-$0.06490865>0.05$ and therefore the two-sided hypothesis is not
-rejected. To answer the second question, we carry out a one-sided
-hypothesis test:
-
-  $H_\circ: p(\mbox{female}) = p(\mbox{male})$\\
-  $H_a: p(\mbox{female}) > p(\mbox{male})$
-
-\begin{console}
-> h <- binom.test(x=32,n=50,p=0.5,alternative="greater")
-> h$p.value
-[1] 0.03245432
-\end{console}
-
-\noindent which is half of the one-sided p-value and less than
-0.05. The one-sided hypothesis is more powerful than the two-sided
-version, leading to rejection of $H_\circ$. Thus the one-sided and
-two-sided hypothesis tests lead to different conclusions for the same
-dataset. It is important that the test is chosen before the experiment
-is completed. So you must decide on your scientific question before
-designing your study. In the dinosaur example, it would be bad
-practice to decide on a one-sided hypothesis test \emph{after} seeing
-that female fossils are more abundant in the bone bed than male ones.
-
 \item Let $p(A)$ and $p(N)$ be the probability of counting an arboreal
   and non-arboreal pollen, respectively (where $p(A)+p(N)=1$). Then:
 
@@ -466,34 +431,64 @@ or, equivalently:
 In conclusion, there is a 20\% chance of observing an $A/N$ count
 ratio of greater or equal than 9 when the actual population ratio
 is~4.
+  
+\item To answer the first question, we formulate a two-sided
+  hypothesis:
 
-\item\label{it:binomtest} The 95\% confidence interval for $p(A)$ is
-  given by:
+  $H_\circ: p(\mbox{female}) = p(\mbox{male})$\\
+  $H_a: p(\mbox{female}) \neq p(\mbox{male})$
+
+  Then the 2.5 and 97.5 percentiles of the binomial null distribution
+  are given by:
 
 \begin{console}
-> binom.test(x=12,n=20)$conf.int
-[1] 0.3605426 0.8088099
+> qbinom(p=c(0.025,0.975),size=50,prob=0.5)
+[1] 18 32
 \end{console}
 
-Note that we are not really using \texttt{binom.test} to carry out a
-hypothesis test. We are only interested in the confidence interval.
-The lower value of the confidence interval for $p(A)=0.3605426$
-corresponds to an $A/N$-ratio of
+So the rejection is $R=\{0,\ldots,17,33,\ldots,50\}$, which does not
+include the observed outcome of 32 male fossils. Equivalently, using
+the \texttt{binom.test} function:
+  
+\begin{console}
+> h <- binom.test(x=32,n=50,p=0.5,alternative="two.sided")
+> h$p.value
+[1] 0.06490865
+\end{console}
 
-\[
-\frac{p(A)}{p(N)} = \frac{p(A)}{1-p(A)} =
-\frac{0.3605426}{1-0.3605426} = 0.5638258
-\]
+$0.06490865>0.05$ and therefore the two-sided hypothesis is not
+rejected. To answer the second question, we carry out a one-sided
+hypothesis test:
 
-A value of $p(A)=0.8088099$ corresponds to an $A/N$-ratio of
+  $H_\circ: p(\mbox{female}) = p(\mbox{male})$\\
+  $H_a: p(\mbox{female}) > p(\mbox{male})$
 
-\[
-\frac{p(A)}{p(N)} = \frac{p(A)}{1-p(A)} =
-\frac{0.8088099}{1-0.8088099} = 4.230396
-\]
+\noindent whose 95 percentile is given by:
 
-Hence the 95\% confidence interval for $A/N$ is
-$(0.5638258,4.230396)$.
+\begin{console}
+> qbinom(p=0.95,size=50,prob=0.5)
+[1] 31
+\end{console}
+
+This leads to a rejection region of $R=\{32,\ldots,50\}$, which
+includes the outcome of 32 female fossils. Hence the one sided
+hypothesis is rejected. Equivalently:
+
+\begin{console}
+> h <- binom.test(x=32,n=50,p=0.5,alternative="greater")
+> h$p.value
+[1] 0.03245432
+\end{console}
+
+\noindent which is half of the one-sided p-value and less than
+0.05. The one-sided hypothesis is more powerful than the two-sided
+version, leading to rejection of $H_\circ$. Thus the one-sided and
+two-sided hypothesis tests lead to different conclusions for the same
+dataset. It is important that the test is chosen before the experiment
+is completed. So you must decide on your scientific question before
+designing your study. In the dinosaur example, it would be bad
+practice to decide on a one-sided hypothesis test \emph{after} seeing
+that female fossils are more abundant in the bone bed than male ones.
 
 \item This exercise is all about type-I errors. Using \texttt{rbinom}
   to generate the synthetic data:
@@ -525,6 +520,34 @@ You get a different result every time because \texttt{rbinom}
 generates a different set of numbers every time. The number of
 rejected null hypotheses should hover around 5\%.  Therefore we would
 expect that, on average, 2.5 out of every 50 tests should fail.
+
+\item\label{it:binomtest} The 95\% confidence interval for $p(A)$ is
+  given by:
+
+\begin{console}
+> binom.test(x=12,n=20)$conf.int
+[1] 0.3605426 0.8088099
+\end{console}
+
+Note that we are not really using \texttt{binom.test} to carry out a
+hypothesis test. We are only interested in the confidence interval.
+The lower value of the confidence interval for $p(A)=0.3605426$
+corresponds to an $A/N$-ratio of
+
+\[
+\frac{p(A)}{p(N)} = \frac{p(A)}{1-p(A)} =
+\frac{0.3605426}{1-0.3605426} = 0.5638258
+\]
+
+A value of $p(A)=0.8088099$ corresponds to an $A/N$-ratio of
+
+\[
+\frac{p(A)}{p(N)} = \frac{p(A)}{1-p(A)} =
+\frac{0.8088099}{1-0.8088099} = 4.230396
+\]
+
+Hence the 95\% confidence interval for $A/N$ is
+$(0.5638258,4.230396)$.
 
 \end{enumerate}
   

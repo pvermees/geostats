@@ -728,9 +728,9 @@ Plot the probability mass function (PMF) of the binomial distribution
 (Equation~\ref{eq:binom}) with $n=10$ and $p=0.5$:
 
 \begin{script}
-x <- 0:10
-pmf <- dbinom(x=0:10,size=10,prob=0.5)
-barplot(height=pmf,names.arg=x)
+k <- 0:10
+pmf <- dbinom(x=k,size=10,prob=0.5)
+barplot(height=pmf,names.arg=k)
 \end{script}
   
 \noindent where \texttt{names.arg} specifies the labels of the bar
@@ -755,7 +755,7 @@ plot(cdf,type='s')
   distribution. For example, assume that there is a $p=2/3$ chance of
   finding gold in claim, and suppose that there are $n=15$
   claims. Then there is a 95\% chance that the number of successful
-  claims is less than
+  claims is less than or equal to
 
 \begin{console}
 > qbinom(p=0.95,size=15,prob=2/3)
@@ -767,8 +767,16 @@ parameter $p$ in Equation~\ref{eq:binom}. The latter parameter is
 referred to as \texttt{prob} in \texttt{R}'s binomial functions.
 
 Conversely, if $p=2/3$, then there is a 95\% chance that the number of
-successful gold discoveries among 15 claims is \emph{greater} than
+successful gold discoveries among 15 claims is \emph{greater} than or
+equal to
   
+\begin{console}
+> qbinom(p=0.95,size=15,prob=2/3,lower.tail=FALSE)
+[1] 7
+\end{console}
+
+\noindent or, equivalently:
+
 \begin{console}
 > qbinom(p=0.05,size=15,prob=2/3)
 [1] 7
@@ -783,11 +791,11 @@ p=2/3$ vs. the alternative hypothesis $H_a: p>2/3$ is $R =
   alternative hypothesis $H_a: p\neq{2/3}$ are given by
 
 \begin{console}
-> qbinom(p=c(0.025,0.975),size=30,prob=2/3)
-[1] 15 25
+> qbinom(p=c(0.025,0.975),size=15,prob=2/3)
+[1] 6 13
 \end{console}
 
-Hence $R = \{0,\ldots,14,26,\ldots,30\}$
+Hence $R = \{0,\ldots,5,14,15\}$
 (Equation~\ref{eq:2sidedbinomtest15}).
 
 \item Based on the 1-sided rejection region calculated under
@@ -822,8 +830,8 @@ value of $p=2/3$.
   out of 15 claims is compatible with the null hypothesis $H_\circ:
   p=2/3$ vs.  the one-sided alternative hypothesis $H_a:
   p\neq{2/3}$. This is because $6 \notin
-  R=\{0,\ldots,5,26,\ldots,30\}$. Hence we cannot reject $H_\circ$ in
-  this case.  Here is another way to obtain the same result:
+  R=\{0,\ldots,5,14,15\}$. Hence we cannot reject $H_\circ$ in this
+  case.  Here is another way to obtain the same result:
 
 \begin{console}
 > h <- binom.test(x=6,n=15,p=2/3,alternative='two.sided',conf.level = 0.95)
@@ -867,9 +875,9 @@ of the Poisson distribution (Equation~\ref{eq:poispmf}) for
 $\lambda=3.5$.
 
 \begin{script}
-x <- 0:15
-pmf <- dpois(x=x,lambda=3.5)
-barplot(height=pmf,names.arg=x)
+k <- 0:15
+pmf <- dpois(x=k,lambda=3.5)
+barplot(height=pmf,names.arg=k)
 \end{script}
 
 \item The probability of observing 9 or fewer successes if $\lambda=3.5$:
@@ -882,7 +890,7 @@ barplot(height=pmf,names.arg=x)
 Plot the CDF of the Poisson distribution with $\lambda=3.5$:
 
 \begin{script}
-cdf <- ppois(q=x,lambda=3.5)
+cdf <- ppois(q=k,lambda=3.5)
 plot(cdf,type='s')
 \end{script}
 
@@ -1312,7 +1320,7 @@ fit <- lm(SrSr ~ RbSr, data=rbsr)
 Query the slope and intercept:
 
 \begin{console}
-> fit$coef
+> fit$coefficients
 (Intercept)        RbSr 
  0.69742660  0.01391808
 \end{console}
@@ -1325,7 +1333,7 @@ scatter plot:
 
 \begin{script}[firstnumber=5]
 x <- range(rbsr[,'RbSr'])
-y <- fit$coef[1] + fit$coef[2]*x
+y <- fit$coefficients[1] + fit$coefficients[2]*x
 lines(x,y)
 \end{script}
 
@@ -1395,7 +1403,7 @@ F-statistic: 192.1 on 1 and 6 DF,  p-value: 8.78e-06
 \noindent in which we can recognise both the p-value and $r^2$, as
 well as lots of other information about the fit.
 
-\item Construct a 95\% confidence envelope for the Rb--Sr data:
+\item Construct a 95\% confidence envelope for the linear fit:
 
 \begin{script}[firstnumber=9]
 x <- seq(from=min(rbsr[,'RbSr']),to=max(rbsr[,'RbSr']),length.out=20)
@@ -1537,7 +1545,7 @@ This script produces the same output as the first panel of
   data to produce the biplot shown in Figure~\ref{fig:USArrests}:
 
 \begin{script}
-pc <- prcomp(USArrests, scale=TRUE)
+pc <- prcomp(USArrests,scale.=TRUE)
 biplot(pc)
 \end{script}
 
@@ -1611,6 +1619,13 @@ Compare the classes to the known species of the flowers:
 \begin{script}
 tree <- hclust(dist(measurements))
 plot(tree)
+\end{script}
+
+Cutting the tree down to three branches:
+
+\begin{script}
+treecut <- cutree(tree,k=3)
+table(treecut,species)
 \end{script}
 
 \end{enumerate}
@@ -1738,7 +1753,7 @@ Add the mean to the logratio plot as a black square and the confidence
 ellipse as a polygon:
 
 \begin{script}[firstnumber=5]
-points(mu,pch=22,bg='black')
+points(x=mu[1],y=mu[2],pch=22,bg='black')
 ell <- ellipse(mu,covmat)
 polygon(ell)
 \end{script}
@@ -1775,7 +1790,9 @@ biplot(pc)
 \begin{script}
 library(MASS)    
 data(AFM,package='geostats')
-ld <- lda(x=comp,grouping=AFM$affinity)
+affinity <- AFM[,1]
+comp <- alr(AFM[,-1])
+ld <- lda(x=comp,grouping=affinity)
 \end{script}
 
 \noindent where the \texttt{lda} function does not use formula
