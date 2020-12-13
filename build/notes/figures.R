@@ -4140,22 +4140,9 @@ dev.off()
 
 cairo(file='../../figures/R2K.pdf',width=2.5,height=2.5)
 pars()
-R <- seq(from=0,to=1,by=0.01)
-K <- c(.00000,.02000,.04001,.06003,.08006,.10013,.12022,.14034,
-       .16051,.18073,.20101,.22134,.24175,.26223,.28279,.30344,
-       .32419,.34503,.36599,.38707,.40828,.42962,.45110,.47273,
-       .49453,.51649,.53863,.56097,.58350,.60625,.62922,.65242,
-       .67587,.69958,.72356,.74783,.77241,.79730,.82253,.84812,
-       .87408,.90043,.92720,.95440,.98207,1.01022,1.03889,1.06810,
-       1.09788,1.12828,1.15932,1.19105,1.22350,1.25672,1.29077,
-       1.32570,1.36156,1.39842,1.43635,1.47543,1.51574,1.55738,
-       1.60044,1.64506,1.69134,1.73945,1.78953,1.84177,1.89637,
-       1.95357,2.01363,2.07685,2.14359,2.21425,2.28930,2.36930,
-       2.45490,2.54686,2.64613,2.75382,2.87129,3.00020,3.14262,
-       3.30114,3.47901,3.68041,3.91072,4.17703,4.48876,4.85871,
-       5.3047,5.8522,6.5394,7.4257,8.6104,10.2716,12.7661,16.9266,
-       25.2522,50.2421,Inf)
-plot(R,K,type='l',xlab=expression(bar(R)),ylab=expression(kappa),lwd=1,bty='n')
+R<-seq(from=0.01,to=0.99,by=0.01)
+plot(x=R,y=R*(2-R^2)/(1-R^2),type='l',
+     xlab=expression(bar(R)),ylab=expression(kappa))
 dev.off()
 
 cairo(file='../../figures/kappastriations.pdf',width=3.5,height=2.5)
@@ -4219,30 +4206,49 @@ if (FALSE){
     palaeomag <- rvmf(n=10,mu=xyz,k=200)
     AD <- xyz2AD(palaeomag)
     A <- AD[,1]
-    D <- AD[,2]
+    D1 <- AD[,2]
 } else {
     A <- c(47.9,46.3,44.7,50.9,56.4,42.6,44.9,41.5,47.9,39.6)
-    D <- c(28.6,20.1,15.6,18.1,17.5,28.7,12.2,24.5,20.6,15.0)
+    D1 <- c(28.6,20.1,15.6,18.1,17.5,28.7,12.2,24.5,20.6,15.0)
 }
 cairo(file='../../figures/palaeomag.pdf',width=2.5,height=2.5)
 pars(mar=c(1.2,1,1,1))
-geostats::stereonet(trd=A,plg=D,option=1,degrees=TRUE,
+geostats::stereonet(trd=A,plg=D1,option=1,degrees=TRUE,
                     show.grid=FALSE,wulff=FALSE,pch=19,cex=0.7)
 dev.off()
+
 if (FALSE){
-    xyz <- c(10,10,10); mu <- xyz/sqrt(sum(xyz^2))
-    fault <- rvmf(n=10,mu=xyz,k=200)
+    xyz <- c(-10,-10,10); mu <- xyz/sqrt(sum(xyz^2))
+    fault <- rvmf(n=10,mu=xyz,k=100)
     SD <- xyz2SD(fault)
     S <- SD[,1]
-    D <- SD[,2]    
+    D2 <- SD[,2]    
 } else {
-    S <- c(311,319,316,319,324,312,314,319,320,314)
-    D <- c(38.3,36.5,34.2,34,35.5,32.9,40.7,37.5,40.5,43.2)
+    S <- c(226,220,223,222,233,227,234,229,227,224)
+    D2 <- c(28.4,35.3,41.0,39.6,48.3,34.7,34.5,36.0,34.2,28.7)
 }
 cairo(file='../../figures/fault.pdf',width=2.5,height=2.5)
 pars(mar=c(1.2,1,1,1))
-geostats::stereonet(trd=S,plg=D,option=2,degrees=TRUE,
+geostats::stereonet(trd=S,plg=D2,option=2,degrees=TRUE,
                     show.grid=FALSE,wulff=TRUE,pch=21,cex=0.7,bg='white')
+dev.off()
+
+cairo(file='../../figures/sphericalmean.pdf',width=5,height=2.5)
+pars(mfrow=c(1,2),mar=c(1.2,1,1,1))
+meanpalaeomag <- geostats::meanangle(trd=A,plg=D1,option=1,degrees=TRUE)
+geostats::stereonet(trd=A,plg=D1,option=1,degrees=TRUE,
+                    show.grid=FALSE,wulff=FALSE,pch=19,cex=0.7,col='grey70')
+geostats::stereonet(trd=meanpalaeomag[1],plg=meanpalaeomag[2],
+                    option=1,degrees=TRUE,add=TRUE,wulff=FALSE,
+                    pch=15,cex=0.7,col='black')
+legend('topleft',legend='a)',adj=c(2,0),bty='n')
+meanfault <- geostats::meanangle(trd=S,plg=D2,option=2,degrees=TRUE)
+geostats::stereonet(trd=S,plg=D2,option=2,degrees=TRUE,
+                    show.grid=FALSE,wulff=TRUE,pch=19,cex=0.7,col='grey70')
+geostats::stereonet(trd=meanfault[1],plg=meanfault[2],
+                    option=2,degrees=TRUE,add=TRUE,wulff=TRUE,
+                    pch=15,cex=0.7,col='black',lwd=1.5)
+legend('topleft',legend='b)',adj=c(2,0),bty='n')
 dev.off()
 
 cairo(file='../../slides/locationdispersionshape.pdf',width=4,height=2)

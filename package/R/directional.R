@@ -91,50 +91,126 @@ vonMises <- function(a,mu=0,kappa=1,degrees=FALSE){
     num/den
 }
 
-#' @title von Mises distribution
-#' @description returns the probability density of a von Mises distribution
-#' @details the von Mises distribution describes probability distributions
-#' on a circle using the following density function:
-#'
-#' \eqn{\frac{\exp(\kappa\cos(x-\mu))}{2\pi I_0(\kappa)}}
-#'
-#' where \eqn{I_0(\kappa)} is a zero order Bessel function
-#' 
-#' @param a angle(s), scalar or vector
+#' @title mean angle
+#' @description computes the vector mean of a collection of circular
+#'     measurements
+#' @details averages angles by taking their vector sum
+#' @param trd trend angle, in degrees, between 0 and 360 (if
+#'     \code{degrees=TRUE}) or between 0 and \eqn{2\pi} (if
+#'     \code{degrees=FALSE}).
+#' @param plg (optional) plunge angle, in degrees, between 0 and 90
+#'     (if \code{degrees=TRUE}) or between 0 and \eqn{2\pi} (if
+#'     \code{degrees=FALSE}).
 #' @param degrees \code{TRUE} for degrees, \code{FALSE} for radians
-#' @return the mean angle, either in radians (if
-#'     \code{degrees=FALSE}), or in degrees.
+#' @param option scalar. If code{option=0}, then \code{plg} is ignored
+#'     and the measurements are considered to be circular; if
+#'     \code{option=1}, then \code{trd} is the azimuth and \code{plg}
+#'     is the dip; if \code{option=2}, then \code{trd} is the strike
+#'     and \code{plg} is the dip; if \code{option=3}, then \code{trd}
+#'     is the longitude and \code{plg} is the latitude; if
+#'     \code{option=4}, then \code{trd} is the longitude and
+#'     \code{plg} is the latitude.
+#' @return a scalar of 2-element vector with the mean orientation,
+#'     either in radians (if \code{degrees=FALSE}), or in degrees.
 #' @examples
 #' data(striations,package='geostats')
-#' circle.plot(a=striations,degrees=TRUE)
-#' circle.points(meanangle(striations,degrees=TRUE),pch=19)
+#' meanangle(striations,degrees=TRUE)
 #' @export
-meanangle <- function(a,degrees=FALSE){
-    if (degrees) rad <- a*pi/180
-    out <- atan(sum(sin(rad))/sum(cos(rad)))
-    if (degrees) out <- out*180/pi
-    out
+meanangle <- function(trd,plg=0,option=0,degrees=FALSE){
+    vectorsum(trd=trd,plg=plg,option=option,degrees=degrees,Rbar=FALSE)
 }
 
 #' @title calculate \eqn{\bar{R}}
-#' @description returns \eqn{\bar{R}}, a measure of directional concentration
-#' @details Given \eqn{n} directional measurements \eqn{\theta_i},
-#' 
-#' \eqn{
-#' \bar{R} =
-#' \sqrt{\frac{\sum_{i=1}^{n}(\sin(\theta_i)^2 + cos(\theta_i)^2))}{n} }
-#' }
-#' 
-#' @param a vector of angles
+#' @description returns \eqn{\bar{R}}, a measure of directional
+#'     concentration
+#' @details Given \eqn{n} circular or spherical measurements, their
+#'     length of the normalised vector sum takes serves as a measure
+#'     of concentration.
+#' @param trd trend angle, in degrees, between 0 and 360 (if
+#'     \code{degrees=TRUE}) or between 0 and \eqn{2\pi} (if
+#'     \code{degrees=FALSE}).
+#' @param plg (optional) plunge angle, in degrees, between 0 and 90
+#'     (if \code{degrees=TRUE}) or between 0 and \eqn{2\pi} (if
+#'     \code{degrees=FALSE}).
 #' @param degrees \code{TRUE} for degrees, \code{FALSE} for radians
+#' @param option scalar. If code{option=0}, then \code{plg} is ignored
+#'     and the measurements are considered to be circular; if
+#'     \code{option=1}, then \code{trd} is the azimuth and \code{plg}
+#'     is the dip; if \code{option=2}, then \code{trd} is the strike
+#'     and \code{plg} is the dip; if \code{option=3}, then \code{trd}
+#'     is the longitude and \code{plg} is the latitude; if
+#'     \code{option=4}, then \code{trd} is the longitude and
+#'     \code{plg} is the latitude.
 #' @return a value between 0 and 1
 #' @examples
 #' data(striations,package='geostats')
-#' Rbar(a=striations,degrees=TRUE)
+#' Rbar(striations,degrees=TRUE)
 #' @export
-Rbar <- function(a,degrees=FALSE){
-    if (degrees) rad <- a*pi/180
-    sqrt(sum(sin(rad)^2 + cos(rad)^2))/length(a)
+Rbar <- function(trd,plg=0,option=0,degrees=FALSE){
+    vectorsum(trd=trd,plg=plg,option=option,degrees=degrees,Rbar=TRUE)
+}
+
+# helper function for meanangle and Rbar
+vectorsum <- function(trd,plg=0,option=0,degrees=FALSE,Rbar=TRUE){
+    if (degrees){
+        trd <- trd*pi/180
+        plg <- plg*pi/180
+    }
+    if (option==0){
+        if (Rbar){
+            out <- sqrt(sum(sin(trd)^2 + cos(trd)^2))/length(trd)
+            return(out)
+        } else {
+            out <- atan(sum(sin(trd))/sum(cos(trd)))
+        }
+    } else {
+        if (option==1){
+            az <- trd
+            dip <- abs(plg)
+            x <- cos(dip)*sin(az)
+            y <- cos(dip)*cos(az)
+            z <- sin(dip)
+        } else if (option==2){
+            strike <- trd
+            dip <- plg
+            x <- cos(dip)*sin(strike)
+            y <- -cos(dip)*cos(strike)
+            z <- sin(dip)
+        } else if (option==3){
+            lon <- trd-pi/2
+            lat <- plg
+            x <- cos(lat)*cos(lon)
+            y <- sin(lat)
+            z <- cos(lat)*sin(lon)
+        } else {
+            stop('Illegal option supplied to stereonet.point')
+        }
+        R <- sqrt(sum(x)^2+sum(y)^2+sum(z)^2)
+        if (Rbar) return(R/length(trd))
+        xbar <- sum(x)/R
+        ybar <- sum(y)/R
+        zbar <- sum(z)/R
+        out <- rep(0,2)
+        if (option==1){
+            out[1] <- acos(ybar/sqrt(1-zbar^2))
+            out[2] <- asin(zbar)
+        } else if (option==2){
+            out[1] <- acos(xbar/sqrt(1-zbar^2))
+            out[2] <- asin(zbar)
+            if (xbar>0 & ybar>0){
+                out[1] <- out[1] + pi/2
+            } else if (xbar<0 & ybar>0){
+                out[1] <- out[1] + pi/2
+            } else if (xbar<0 & ybar<0){
+                out[1] <- out[1] + pi
+            }
+        } else {
+            out[1] <- acos(xbar/sqrt(1-ybar^2))
+            out[2] <- asin(ybar)
+        }        
+    }
+    if (degrees) out <- out*180/pi
+    out
 }
 
 #' @title \eqn{\bar{R}} to \eqn{\kappa} conversion
@@ -145,30 +221,23 @@ Rbar <- function(a,degrees=FALSE){
 #'     data analysis.  \eqn{\kappa} is one of the parameters of the
 #'     parametric von Mises distribution, which is difficult to
 #'     estimate from the data. \eqn{\bar{R}} is easier to calculate
-#'     from data. \code{R2kappa} converts \eqn{\bar{R}} to
-#'     \eqn{\bar{\kappa}} using a lookup table.
-#' 
+#'     from data. \code{Rbar2kappa} converts \eqn{\bar{R}} to
+#'     \eqn{\bar{\kappa}} using the following approximate empirical
+#'     formula:
+#'
+#' \eqn{\kappa =
+#'     \frac{\bar{R}(p+1-\bar{R}^2)}{1-\bar{R}^2}
+#' }
+#'
+#' where \eqn{p} marks the number of parameters in the data space
+#' (1 for circle, 2 for a sphere).
 #' @param R a scalar or vector of values between 0 and 1
+#' @param p the number of parameters
 #' @return value(s) between 0 and \eqn{+\infty}
 #' @examples
 #' data(striations,package='geostats')
 #' Rbar2kappa(Rbar(striations,degrees=TRUE))
 #' @export
-Rbar2kappa <- function(R){
-    stats::spline(x=seq(from=0,to=1,by=0.01),
-                  y=c(.00000,.02000,.04001,.06003,.08006,.10013,.12022,.14034,
-                      .16051,.18073,.20101,.22134,.24175,.26223,.28279,.30344,
-                      .32419,.34503,.36599,.38707,.40828,.42962,.45110,.47273,
-                      .49453,.51649,.53863,.56097,.58350,.60625,.62922,.65242,
-                      .67587,.69958,.72356,.74783,.77241,.79730,.82253,.84812,
-                      .87408,.90043,.92720,.95440,.98207,1.01022,1.03889,1.06810,
-                      1.09788,1.12828,1.15932,1.19105,1.22350,1.25672,1.29077,
-                      1.32570,1.36156,1.39842,1.43635,1.47543,1.51574,1.55738,
-                      1.60044,1.64506,1.69134,1.73945,1.78953,1.84177,1.89637,
-                      1.95357,2.01363,2.07685,2.14359,2.21425,2.28930,2.36930,
-                      2.45490,2.54686,2.64613,2.75382,2.87129,3.00020,3.14262,
-                      3.30114,3.47901,3.68041,3.91072,4.17703,4.48876,4.85871,
-                      5.3047,5.8522,6.5394,7.4257,8.6104,10.2716,12.7661,16.9266,
-                      25.2522,50.2421,100),
-                  xout=R)$y
+Rbar2kappa <- function(R,p=1){
+    R*(p+1-R^2)/(1-R^2)
 }

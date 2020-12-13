@@ -166,8 +166,17 @@ $\kappa$-values to wide ones.
   between this circle and the black line.\\}
 \label{fig:vonMises}\endgroup
 
-The parameter $\kappa$ can be determined from lookup tables for the
-concentration parameter $\bar{R}$:
+The parameter $\kappa$ is not easy to determine directly, but can be
+estimated indirectly via the concentration parameter $\bar{R}$ and the
+following approximation:
+
+\begin{equation}
+  \hat{\kappa} = \frac{\bar{R}(p+1-\bar{R}^2)}{1-\bar{R}^2}
+\end{equation}
+
+\noindent where $p$ marks the number of parameters, namely $p=1$ for
+circular data and $p=2$ for spherical data
+(Section~\ref{sec:spherical-distributions}).
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
 \includegraphics[width=\textwidth]{../figures/R2K.pdf}\\
@@ -215,6 +224,7 @@ expressed as latitude ($l$) and longitude ($L$):
     z & = \cos[l]\sin[L]
   \end{split}
   \right.
+  \label{eq:lL}
 \end{equation}
 
 \noindent as strike (S) and dip (D):
@@ -227,6 +237,7 @@ expressed as latitude ($l$) and longitude ($L$):
     z & = \sin[D]
   \end{split}
   \right.
+  \label{eq:SD}
 \end{equation}
 
 \noindent or as dip (D) and azimuth (A):
@@ -239,6 +250,7 @@ expressed as latitude ($l$) and longitude ($L$):
     z & = \sin[D]
   \end{split}
   \right.
+  \label{eq:AD}
 \end{equation}
 
 \noindent where the $x$-axis points towards the north, the $y$-axis
@@ -335,8 +347,8 @@ inclination & 28.6 & 20.1 & 15.6 & 18.1 & 17.5 & 28.7 & 12.2 & 24.5 & 20.6 & 15.
   on a fault plane:
 
 \begin{tabular}{c|cccccccccc}
-strike & 311 & 319 & 316 & 319 & 324 & 312 & 314 & 319 & 320 & 314 \\
-dip & 38.3 & 36.5 & 34.2 & 34 & 35.5 & 32.9 & 40.7 & 37.5 & 40.5 & 43.2
+strike & 226 & 220 & 223 & 222 & 233 & 227 & 234 & 229 & 227 & 224 \\
+dip & 28.4 & 35.3 & 41.0 & 39.6 & 48.3 & 34.7 & 34.5 & 36.0 & 34.2 & 28.7
 \end{tabular}  
 
 \noindent\begin{minipage}[t][][b]{.3\indentwidth}
@@ -352,6 +364,81 @@ dip & 38.3 & 36.5 & 34.2 & 34 & 35.5 & 32.9 & 40.7 & 37.5 & 40.5 & 43.2
 \end{minipage}
 
 \end{enumerate}
+
+\section{Spherical distributions}
+\label{sec:spherical-distributions}
+
+The statistical analysis of spherical data is similar to that of the
+circular of Sections~\ref{sec:circular} and
+\ref{sec:circular-distributions}. To average a collection of $n$
+spherical measurements, we take their vector sum:
+
+\begin{equation}
+  \left\{\bar{x},\bar{y},\bar{z}\right\} =
+  \left\{\sum_{i=1}^{n}\frac{x_i}{n\bar{R}},
+  \sum_{i=1}^{n}\frac{y_i}{n\bar{R}},
+  \sum_{i=1}^{n}\frac{z_i}{n\bar{R}}
+  \right\}
+\end{equation}
+
+\noindent where $\{x_i,y_i,z_i\}$ are the Cartesian coordinates
+computed using Equation~\ref{eq:lL}, \ref{eq:SD} or \ref{eq:AD},
+and $\bar{R}$ is the concentration parameter:
+
+\begin{equation}
+  \bar{R} = \frac{1}{n}
+    \sqrt{\left(\sum_{i=1}^{n}x_i\right)^2 +
+      \left(\sum_{i=1}^{n}y_i\right)^2 +
+      \left(\sum_{i=1}^{n}z_i\right)^2
+    }
+\end{equation}
+
+Then the average latitude and longitude are given by:
+
+\begin{equation}
+  \left\{
+  \begin{split}
+  \bar{L} & = \arccos\left({\bar{x}}/{\sqrt{1-\bar{y}^2}}\right)\\
+  \bar{l} & = \arcsin\left(\bar{y}\right)
+  \end{split}
+  \right.
+\end{equation}
+
+\noindent the average strike and dip:
+
+\begin{equation}
+  \left\{
+  \begin{split}
+    \bar{S} & = \arccos\left({\bar{x}}/{\sqrt{1-\bar{z}^2}}\right)\\
+    \bar{D} & = \arcsin\left(\bar{z}\right)
+  \end{split}
+  \right.
+\end{equation}
+
+\noindent and the average azimuth and dip:
+
+\begin{equation}
+  \left\{
+  \begin{split}
+    \bar{D} & = \arccos\left({\bar{y}}/{\sqrt{1-\bar{z}^2}}\right)\\
+    \bar{A} & = \arcsin\left(\bar{z}\right)
+  \end{split}
+  \right.
+\end{equation}
+
+Applying this procedure to the palaeomagnetic and structural datasets:
+
+\noindent\begin{minipage}[t][][b]{.6\textwidth}
+\includegraphics[width=\textwidth]{../figures/sphericalmean.pdf}
+\end{minipage}
+\begin{minipage}[t][][t]{.4\textwidth}
+  \captionof{figure}{a) the palaeomagnetic data of
+    Figure~\ref{fig:palaeomag} shown in grey, with their vector mean
+    marked as a black square. b) the fault data of
+    Figure~\ref{fig:fault} in grey with the vector mean as a back
+    square and great circle.\\}
+  \label{fig:sphericalmean}
+\end{minipage}
 
 Fisher distribution:
 

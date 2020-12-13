@@ -2,32 +2,42 @@
 % Please edit documentation in R/directional.R
 \name{meanangle}
 \alias{meanangle}
-\title{von Mises distribution}
+\title{mean angle}
 \usage{
-meanangle(a, degrees = FALSE)
+meanangle(trd, plg = 0, option = 0, degrees = FALSE)
 }
 \arguments{
-\item{a}{angle(s), scalar or vector}
+\item{trd}{trend angle, in degrees, between 0 and 360 (if
+\code{degrees=TRUE}) or between 0 and \eqn{2\pi} (if
+\code{degrees=FALSE}).}
+
+\item{plg}{(optional) plunge angle, in degrees, between 0 and 90
+(if \code{degrees=TRUE}) or between 0 and \eqn{2\pi} (if
+\code{degrees=FALSE}).}
+
+\item{option}{scalar. If code{option=0}, then \code{plg} is ignored
+and the measurements are considered to be circular; if
+\code{option=1}, then \code{trd} is the azimuth and \code{plg}
+is the dip; if \code{option=2}, then \code{trd} is the strike
+and \code{plg} is the dip; if \code{option=3}, then \code{trd}
+is the longitude and \code{plg} is the latitude; if
+\code{option=4}, then \code{trd} is the longitude and
+\code{plg} is the latitude.}
 
 \item{degrees}{\code{TRUE} for degrees, \code{FALSE} for radians}
 }
 \value{
-the mean angle, either in radians (if
-    \code{degrees=FALSE}), or in degrees.
+a scalar of 2-element vector with the mean orientation,
+    either in radians (if \code{degrees=FALSE}), or in degrees.
 }
 \description{
-returns the probability density of a von Mises distribution
+computes the vector mean of a collection of circular
+    measurements
 }
 \details{
-the von Mises distribution describes probability distributions
-on a circle using the following density function:
-
-\eqn{\frac{\exp(\kappa\cos(x-\mu))}{2\pi I_0(\kappa)}}
-
-where \eqn{I_0(\kappa)} is a zero order Bessel function
+averages angles by taking their vector sum
 }
 \examples{
 data(striations,package='geostats')
-circle.plot(a=striations,degrees=TRUE)
-circle.points(meanangle(striations,degrees=TRUE),pch=19)
+meanangle(striations,degrees=TRUE)
 }

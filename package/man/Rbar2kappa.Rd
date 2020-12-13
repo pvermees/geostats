@@ -4,10 +4,12 @@
 \alias{Rbar2kappa}
 \title{\eqn{\bar{R}} to \eqn{\kappa} conversion}
 \usage{
-Rbar2kappa(R)
+Rbar2kappa(R, p = 1)
 }
 \arguments{
 \item{R}{a scalar or vector of values between 0 and 1}
+
+\item{p}{the number of parameters}
 }
 \value{
 value(s) between 0 and \eqn{+\infty}
@@ -22,8 +24,16 @@ converts concentration parameter \eqn{\bar{R}} to
     data analysis.  \eqn{\kappa} is one of the parameters of the
     parametric von Mises distribution, which is difficult to
     estimate from the data. \eqn{\bar{R}} is easier to calculate
-    from data. \code{R2kappa} converts \eqn{\bar{R}} to
-    \eqn{\bar{\kappa}} using a lookup table.
+    from data. \code{Rbar2kappa} converts \eqn{\bar{R}} to
+    \eqn{\bar{\kappa}} using the following approximate empirical
+    formula:
+
+\eqn{\kappa =
+    \frac{\bar{R}(p+1-\bar{R}^2)}{1-\bar{R}^2}
+}
+
+where \eqn{p} marks the number of parameters in the data space
+(1 for circle, 2 for a sphere).
 }
 \examples{
 data(striations,package='geostats')

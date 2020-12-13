@@ -75,8 +75,6 @@ stereonet.setup <- function(wulff=TRUE,show.grid=TRUE,grid.col='grey50',tl=0.05,
     graphics::plot(x=cos(TH),y=sin(TH),type='l',asp=1,
                    xlim=c(-1,1),ylim=c(-1,1),
                    bty='n',axes=FALSE,ann=FALSE)
-    graphics::symbols(x=0,y=0,circles=1,add=TRUE,inches=FALSE)
-    if (tl>0) circle.markers(tl=tl)
     if (show.grid){
         nCircles <- pi/(intrad*2)
         trd <- 0.0
@@ -103,6 +101,8 @@ stereonet.setup <- function(wulff=TRUE,show.grid=TRUE,grid.col='grey50',tl=0.05,
             graphics::lines(p[,1],p[,2],lty=3,col=grid.col)
         }
     }
+    graphics::symbols(x=0,y=0,circles=1,add=TRUE,inches=FALSE)
+    if (tl>0) circle.markers(tl=tl)
 }
 stereonet.line <- function(trd,plg,wulff=TRUE,...){ # deprecated
     theta <- trd

@@ -4,10 +4,25 @@
 \alias{Rbar}
 \title{calculate \eqn{\bar{R}}}
 \usage{
-Rbar(a, degrees = FALSE)
+Rbar(trd, plg = 0, option = 0, degrees = FALSE)
 }
 \arguments{
-\item{a}{vector of angles}
+\item{trd}{trend angle, in degrees, between 0 and 360 (if
+\code{degrees=TRUE}) or between 0 and \eqn{2\pi} (if
+\code{degrees=FALSE}).}
+
+\item{plg}{(optional) plunge angle, in degrees, between 0 and 90
+(if \code{degrees=TRUE}) or between 0 and \eqn{2\pi} (if
+\code{degrees=FALSE}).}
+
+\item{option}{scalar. If code{option=0}, then \code{plg} is ignored
+and the measurements are considered to be circular; if
+\code{option=1}, then \code{trd} is the azimuth and \code{plg}
+is the dip; if \code{option=2}, then \code{trd} is the strike
+and \code{plg} is the dip; if \code{option=3}, then \code{trd}
+is the longitude and \code{plg} is the latitude; if
+\code{option=4}, then \code{trd} is the longitude and
+\code{plg} is the latitude.}
 
 \item{degrees}{\code{TRUE} for degrees, \code{FALSE} for radians}
 }
@@ -15,17 +30,15 @@ Rbar(a, degrees = FALSE)
 a value between 0 and 1
 }
 \description{
-returns \eqn{\bar{R}}, a measure of directional concentration
+returns \eqn{\bar{R}}, a measure of directional
+    concentration
 }
 \details{
-Given \eqn{n} directional measurements \eqn{\theta_i},
-
-\eqn{
-\bar{R} =
-\sqrt{\frac{\sum_{i=1}^{n}(\sin(\theta_i)^2 + cos(\theta_i)^2))}{n} }
-}
+Given \eqn{n} circular or spherical measurements, their
+    length of the normalised vector sum takes serves as a measure
+    of concentration.
 }
 \examples{
 data(striations,package='geostats')
-Rbar(a=striations,degrees=TRUE)
+Rbar(striations,degrees=TRUE)
 }
