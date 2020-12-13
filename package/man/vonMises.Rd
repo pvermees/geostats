@@ -4,16 +4,16 @@
 \alias{vonMises}
 \title{von Mises distribution}
 \usage{
-vonMises(angle, mu = 0, kappa = 1, degrees = FALSE)
+vonMises(a, mu = 0, kappa = 1, degrees = FALSE)
 }
 \arguments{
+\item{a}{angle(s), scalar or vector}
+
 \item{mu}{scalar containing the mean direction}
 
 \item{kappa}{scalar containing the concentration parameter}
 
 \item{degrees}{\code{TRUE} for degrees, \code{FALSE} for radians}
-
-\item{angles}{scalar or vector}
 }
 \value{
 a scalar or vector of the same length as \code{angles}
@@ -33,7 +33,7 @@ where \eqn{I_0(\kappa)} is a zero order Bessel function
 plot(x=c(-1.2,1.2),y=c(-1.2,1.2),type='n',
      axes=FALSE,ann=FALSE,bty='n',asp=1)
 a <- seq(from=-pi,to=pi,length.out=200)
-d <- vonMises(angle=a,mu=pi/2,kappa=5)
+d <- vonMises(a=a,mu=pi/2,kappa=5)
 symbols(x=0,y=0,circles=1,add=TRUE,inches=FALSE,xpd=NA,fg='grey50')
-lines(x=x0+(1+d)*cos(a),y=(1+d)*sin(a),xpd=NA)
+lines(x=(1+d)*cos(a),y=(1+d)*sin(a),xpd=NA)
 }

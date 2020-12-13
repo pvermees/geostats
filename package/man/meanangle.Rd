@@ -4,10 +4,10 @@
 \alias{meanangle}
 \title{von Mises distribution}
 \usage{
-meanangle(angles, degrees = FALSE)
+meanangle(a, degrees = FALSE)
 }
 \arguments{
-\item{angles}{scalar or vector}
+\item{a}{angle(s), scalar or vector}
 
 \item{degrees}{\code{TRUE} for degrees, \code{FALSE} for radians}
 }
@@ -28,6 +28,6 @@ where \eqn{I_0(\kappa)} is a zero order Bessel function
 }
 \examples{
 data(striations,package='geostats')
-circle.plot(angles=striations,degrees=TRUE)
+circle.plot(a=striations,degrees=TRUE)
 circle.points(meanangle(striations,degrees=TRUE),pch=19)
 }

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.4.25)  8 DEC 2020 22:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.4.25)  13 DEC 2020 14:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -299,6 +299,8 @@ Package: fancyvrb 2020/01/13 v3.5 verbatim text (tvz,hv)
 \FV@StepNumber=\count276
 \FV@OutFile=\write3
 )
+\indentwidth=\skip60
+
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count277
@@ -307,22 +309,22 @@ File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 (./geostats.aux)
 \openout1 = `geostats.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
 \AtBeginShipoutBox=\box50
  (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2019/11/23 v1.2a Standard LaTeX Color (DPC)
@@ -332,7 +334,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
 )
-Package hyperref Info: Link coloring ON on input line 51.
+Package hyperref Info: Link coloring ON on input line 55.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -345,9 +347,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count278
 )
-LaTeX Info: Redefining \ref on input line 51.
-LaTeX Info: Redefining \pageref on input line 51.
-LaTeX Info: Redefining \nameref on input line 51.
+LaTeX Info: Redefining \ref on input line 55.
+LaTeX Info: Redefining \pageref on input line 55.
+LaTeX Info: Redefining \nameref on input line 55.
 
 (./geostats.out) (./geostats.out)
 \@outlinefile=\write4
@@ -905,12 +907,12 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 )
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 307--87
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 307--91
 [] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 307--87
+Underfull \hbox (badness 10000) in paragraph at lines 307--91
 
  []
 
@@ -2351,12 +2353,12 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 )
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 1389--99
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 1389--103
 [] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1389--99
+Underfull \hbox (badness 10000) in paragraph at lines 1389--103
 
  []
 
@@ -2511,7 +2513,7 @@ File: ../figures/regression-outlier.pdf Graphic file (type pdf)
 <use ../figures/regression-outlier.pdf>
 Package pdftex.def Info: ../figures/regression-outlier.pdf  used on input line 
 539.
-(pdftex.def)             Requested size: 140.92793pt x 140.93474pt.
+(pdftex.def)             Requested size: 132.82785pt x 132.83284pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
@@ -2580,12 +2582,12 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 )
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 804--101
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 804--105
 [] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 804--101
+Underfull \hbox (badness 10000) in paragraph at lines 804--105
 
  []
 
@@ -3423,76 +3425,61 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 462--471
 <../figures/kmeans2.pdf, id=3123, 216.81pt x 216.81pt>
 File: ../figures/kmeans2.pdf Graphic file (type pdf)
 <use ../figures/kmeans2.pdf>
-Package pdftex.def Info: ../figures/kmeans2.pdf  used on input line 480.
+Package pdftex.def Info: ../figures/kmeans2.pdf  used on input line 479.
 (pdftex.def)             Requested size: 110.68875pt x 110.69072pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 480--481
+Underfull \hbox (badness 10000) in paragraph at lines 479--480
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 485.
+(caption)                particular \caption on input line 484.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 479--488
+Overfull \hbox (2.80838pt too wide) in paragraph at lines 478--487
 [] [] 
- []
-
-
-Overfull \hbox (0.37506pt too wide) in paragraph at lines 478--489
-$[]$ 
  []
 
 <../figures/kmeans3.pdf, id=3124, 216.81pt x 216.81pt>
 File: ../figures/kmeans3.pdf Graphic file (type pdf)
 <use ../figures/kmeans3.pdf>
-Package pdftex.def Info: ../figures/kmeans3.pdf  used on input line 495.
+Package pdftex.def Info: ../figures/kmeans3.pdf  used on input line 492.
 (pdftex.def)             Requested size: 110.68875pt x 110.69072pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 495--496
+Underfull \hbox (badness 10000) in paragraph at lines 492--493
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 501.
+(caption)                particular \caption on input line 498.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 494--504
+Overfull \hbox (2.80838pt too wide) in paragraph at lines 491--501
 [] [] 
- []
-
-
-Overfull \hbox (0.37506pt too wide) in paragraph at lines 493--505
-$[]$ 
  []
 
 <../figures/kmeans4.pdf, id=3129, 216.81pt x 216.81pt>
 File: ../figures/kmeans4.pdf Graphic file (type pdf)
 <use ../figures/kmeans4.pdf>
-Package pdftex.def Info: ../figures/kmeans4.pdf  used on input line 510.
+Package pdftex.def Info: ../figures/kmeans4.pdf  used on input line 505.
 (pdftex.def)             Requested size: 110.68875pt x 110.69072pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 510--511
+Underfull \hbox (badness 10000) in paragraph at lines 505--506
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 519.
+(caption)                particular \caption on input line 514.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 509--522
+Overfull \hbox (2.80838pt too wide) in paragraph at lines 504--517
 [] [] 
- []
-
-
-Overfull \hbox (0.37506pt too wide) in paragraph at lines 508--523
-$[]$ 
  []
 
 [128 <../figures/kmeans1.pdf> <../figures/kmeans2.pdf
@@ -3507,87 +3494,82 @@ pdfTeX warning: pdflatex (file ../figures/kmeans3.pdf): PDF inclusion: multiple
 <../figures/kmeans5.pdf, id=3166, 216.81pt x 216.81pt>
 File: ../figures/kmeans5.pdf Graphic file (type pdf)
 <use ../figures/kmeans5.pdf>
-Package pdftex.def Info: ../figures/kmeans5.pdf  used on input line 528.
+Package pdftex.def Info: ../figures/kmeans5.pdf  used on input line 521.
 (pdftex.def)             Requested size: 110.68875pt x 110.69072pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 528--529
+Underfull \hbox (badness 10000) in paragraph at lines 521--522
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 533.
+(caption)                particular \caption on input line 526.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 527--536
+Overfull \hbox (2.80838pt too wide) in paragraph at lines 520--529
 [] [] 
  []
 
 
-Overfull \hbox (0.37506pt too wide) in paragraph at lines 526--537
-$[]$ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 540--544
+Underfull \hbox (badness 10000) in paragraph at lines 532--536
 
  []
 
 <../figures/Iris.pdf, id=3168, 433.62pt x 433.62pt>
 File: ../figures/Iris.pdf Graphic file (type pdf)
 <use ../figures/Iris.pdf>
-Package pdftex.def Info: ../figures/Iris.pdf  used on input line 556.
+Package pdftex.def Info: ../figures/Iris.pdf  used on input line 548.
 (pdftex.def)             Requested size: 281.85587pt x 281.8695pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 556--557
+Underfull \hbox (badness 10000) in paragraph at lines 548--549
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 571.
+(caption)                particular \caption on input line 563.
 See the caption package documentation for explanation.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 571--571
+Underfull \hbox (badness 10000) in paragraph at lines 563--563
 []\OT1/cmr/m/n/10.95 Figure 12.15: |[]Two-dimensional
  []
 
 
-Underfull \hbox (badness 4479) in paragraph at lines 571--571
+Underfull \hbox (badness 4479) in paragraph at lines 563--563
 \OT1/cmr/m/n/10.95 iris dataset, which com-prises four
  []
 
 
-Underfull \hbox (badness 2478) in paragraph at lines 571--571
+Underfull \hbox (badness 2478) in paragraph at lines 563--563
 \OT1/cmr/m/n/10.95 vari-ables mea-sured in 150 dif-fer-ent
  []
 
 
-Underfull \hbox (badness 2503) in paragraph at lines 571--571
+Underfull \hbox (badness 2503) in paragraph at lines 563--563
 \OT1/cmr/m/n/10.95 flow-ers be-long-ing to three dif-fer-ent
  []
 
 
-Underfull \hbox (badness 2922) in paragraph at lines 571--571
+Underfull \hbox (badness 2922) in paragraph at lines 563--563
 \OT1/cmr/m/n/10.95 species: \OT1/cmr/m/it/10.95 se-tosa \OT1/cmr/m/n/10.95 (cir
 -cles), \OT1/cmr/m/it/10.95 ver-si-color
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 571--571
+Underfull \hbox (badness 10000) in paragraph at lines 563--563
 \OT1/cmr/m/n/10.95 (tri-an-gles) and \OT1/cmr/m/it/10.95 vir-ginica \OT1/cmr/m/
 n/10.95 (crosses).
  []
 
 
-Underfull \hbox (badness 3568) in paragraph at lines 571--571
+Underfull \hbox (badness 3568) in paragraph at lines 563--563
 \OT1/cmr/m/n/10.95 ures [][]12.10[][]--[][]12.14[][] was de-rived from
  []
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 555--574
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 547--566
 [] [] 
  []
 
@@ -3598,57 +3580,57 @@ pdfTeX warning: pdflatex (file ../figures/kmeans5.pdf): PDF inclusion: multiple
 >]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 589.
+(caption)                particular \caption on input line 581.
 See the caption package documentation for explanation.
 
 [130 <../figures/Iris.pdf>]
 <../figures/hierarchical1.pdf, id=3218, 216.81pt x 216.81pt>
 File: ../figures/hierarchical1.pdf Graphic file (type pdf)
 <use ../figures/hierarchical1.pdf>
-Package pdftex.def Info: ../figures/hierarchical1.pdf  used on input line 629.
+Package pdftex.def Info: ../figures/hierarchical1.pdf  used on input line 621.
 (pdftex.def)             Requested size: 117.43875pt x 117.43956pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 629--630
+Underfull \hbox (badness 10000) in paragraph at lines 621--622
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 633.
+(caption)                particular \caption on input line 625.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (4.86665pt too wide) in paragraph at lines 617--636
+Overfull \hbox (4.86665pt too wide) in paragraph at lines 609--628
 [] [] [] 
  []
 
 <../figures/hierarchical2.pdf, id=3221, 216.81pt x 216.81pt>
 File: ../figures/hierarchical2.pdf Graphic file (type pdf)
 <use ../figures/hierarchical2.pdf>
-Package pdftex.def Info: ../figures/hierarchical2.pdf  used on input line 658.
-(pdftex.def)             Requested size: 124.61525pt x 124.61514pt.
+Package pdftex.def Info: ../figures/hierarchical2.pdf  used on input line 649.
+(pdftex.def)             Requested size: 132.82785pt x 132.83284pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 658--659
+Underfull \hbox (badness 10000) in paragraph at lines 649--650
 
  []
 
 <../figures/tree1.pdf, id=3222, 180.675pt x 180.675pt>
 File: ../figures/tree1.pdf Graphic file (type pdf)
 <use ../figures/tree1.pdf>
-Package pdftex.def Info: ../figures/tree1.pdf  used on input line 661.
-(pdftex.def)             Requested size: 124.61525pt x 124.61624pt.
+Package pdftex.def Info: ../figures/tree1.pdf  used on input line 652.
+(pdftex.def)             Requested size: 132.82785pt x 132.82898pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 661--662
+Underfull \hbox (badness 10000) in paragraph at lines 652--653
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 667.
+(caption)                particular \caption on input line 658.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (4.86665pt too wide) in paragraph at lines 657--670
+Overfull \hbox (5.24171pt too wide) in paragraph at lines 648--661
 [][] [] [] 
  []
 
@@ -3664,82 +3646,77 @@ dfs with page group included in a single page
 <../figures/hierarchical3.pdf, id=3255, 216.81pt x 216.81pt>
 File: ../figures/hierarchical3.pdf Graphic file (type pdf)
 <use ../figures/hierarchical3.pdf>
-Package pdftex.def Info: ../figures/hierarchical3.pdf  used on input line 693.
-(pdftex.def)             Requested size: 124.61525pt x 124.61514pt.
+Package pdftex.def Info: ../figures/hierarchical3.pdf  used on input line 682.
+(pdftex.def)             Requested size: 132.82785pt x 132.83284pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 693--694
+Underfull \hbox (badness 10000) in paragraph at lines 682--683
 
  []
 
 <../figures/tree2.pdf, id=3256, 180.675pt x 180.675pt>
 File: ../figures/tree2.pdf Graphic file (type pdf)
 <use ../figures/tree2.pdf>
-Package pdftex.def Info: ../figures/tree2.pdf  used on input line 696.
-(pdftex.def)             Requested size: 124.61525pt x 124.61624pt.
+Package pdftex.def Info: ../figures/tree2.pdf  used on input line 685.
+(pdftex.def)             Requested size: 132.82785pt x 132.82898pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 696--697
+Underfull \hbox (badness 10000) in paragraph at lines 685--686
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 702.
+(caption)                particular \caption on input line 691.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (4.86665pt too wide) in paragraph at lines 692--705
+Overfull \hbox (5.24171pt too wide) in paragraph at lines 681--694
 [][] [] [] 
  []
 
 <../figures/hierarchical4.pdf, id=3258, 216.81pt x 216.81pt>
 File: ../figures/hierarchical4.pdf Graphic file (type pdf)
 <use ../figures/hierarchical4.pdf>
-Package pdftex.def Info: ../figures/hierarchical4.pdf  used on input line 722.
-(pdftex.def)             Requested size: 124.61525pt x 124.61514pt.
+Package pdftex.def Info: ../figures/hierarchical4.pdf  used on input line 709.
+(pdftex.def)             Requested size: 132.82785pt x 132.83284pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 722--723
+Underfull \hbox (badness 10000) in paragraph at lines 709--710
 
  []
 
 <../figures/tree3.pdf, id=3259, 180.675pt x 180.675pt>
 File: ../figures/tree3.pdf Graphic file (type pdf)
 <use ../figures/tree3.pdf>
-Package pdftex.def Info: ../figures/tree3.pdf  used on input line 725.
-(pdftex.def)             Requested size: 124.61525pt x 124.61624pt.
+Package pdftex.def Info: ../figures/tree3.pdf  used on input line 712.
+(pdftex.def)             Requested size: 132.82785pt x 132.82898pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 725--726
+Underfull \hbox (badness 10000) in paragraph at lines 712--713
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 731.
+(caption)                particular \caption on input line 718.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (4.86665pt too wide) in paragraph at lines 721--734
+Overfull \hbox (5.24171pt too wide) in paragraph at lines 708--721
 [][] [] [] 
  []
 
 <../figures/hierarchicaltree.pdf, id=3260, 216.81pt x 216.81pt>
 File: ../figures/hierarchicaltree.pdf Graphic file (type pdf)
 <use ../figures/hierarchicaltree.pdf>
-Package pdftex.def Info: ../figures/hierarchicaltree.pdf  used on input line 74
-0.
-(pdftex.def)             Requested size: 145.38551pt x 145.39096pt.
+Package pdftex.def Info: ../figures/hierarchicaltree.pdf  used on input line 72
+5.
+(pdftex.def)             Requested size: 154.96695pt x 154.97496pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 746.
+(caption)                particular \caption on input line 731.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 739--748
+Overfull \hbox (2.80838pt too wide) in paragraph at lines 724--733
 [][] [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 752--754
-
  []
 
 [132 <../figures/hierarchical3.pdf> <../figures/tree2.pdf
@@ -3754,50 +3731,50 @@ ltiple pdfs with page group included in a single page
 
 pdfTeX warning: pdflatex (file ../figures/tree3.pdf): PDF inclusion: multiple p
 dfs with page group included in a single page
-> <../figures/hierarchicaltree.pdf
-
-pdfTeX warning: pdflatex (file ../figures/hierarchicaltree.pdf): PDF inclusion:
- multiple pdfs with page group included in a single page
 >]
-<../figures/irishtree.pdf, id=3309, 578.16pt x 108.405pt>
-File: ../figures/irishtree.pdf Graphic file (type pdf)
-<use ../figures/irishtree.pdf>
-Package pdftex.def Info: ../figures/irishtree.pdf  used on input line 755.
-(pdftex.def)             Requested size: 469.75502pt x 88.07883pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 758.
-See the caption package documentation for explanation.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 760--765
+Underfull \hbox (badness 10000) in paragraph at lines 736--738
 
  []
 
-<../figures/irishtreecut.pdf, id=3310, 578.16pt x 108.405pt>
-File: ../figures/irishtreecut.pdf Graphic file (type pdf)
-<use ../figures/irishtreecut.pdf>
-Package pdftex.def Info: ../figures/irishtreecut.pdf  used on input line 766.
+<../figures/irishtree.pdf, id=3301, 578.16pt x 108.405pt>
+File: ../figures/irishtree.pdf Graphic file (type pdf)
+<use ../figures/irishtree.pdf>
+Package pdftex.def Info: ../figures/irishtree.pdf  used on input line 739.
 (pdftex.def)             Requested size: 469.75502pt x 88.07883pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 769.
+(caption)                particular \caption on input line 742.
+See the caption package documentation for explanation.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 744--749
+
+ []
+
+<../figures/irishtreecut.pdf, id=3302, 578.16pt x 108.405pt>
+File: ../figures/irishtreecut.pdf Graphic file (type pdf)
+<use ../figures/irishtreecut.pdf>
+Package pdftex.def Info: ../figures/irishtreecut.pdf  used on input line 750.
+(pdftex.def)             Requested size: 469.75502pt x 88.07883pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 753.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 783.
+(caption)                particular \caption on input line 767.
 See the caption package documentation for explanation.
 
-) (./supervised.tex [133 <../figures/irishtree.pdf> <../figures/irishtreecut.pd
-f
+[133 <../figures/hierarchicaltree.pdf> <../figures/irishtree.pdf
+
+pdfTeX warning: pdflatex (file ../figures/irishtree.pdf): PDF inclusion: multip
+le pdfs with page group included in a single page
+> <../figures/irishtreecut.pdf
 
 pdfTeX warning: pdflatex (file ../figures/irishtreecut.pdf): PDF inclusion: mul
 tiple pdfs with page group included in a single page
->] [134
-
-]
+>]) (./supervised.tex [134]
 Chapter 13.
 
 Underfull \hbox (badness 10000) in paragraph at lines 4--12
@@ -3809,7 +3786,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--20
 
  []
 
-[135]
+[135
+
+]
 Underfull \hbox (badness 10000) in paragraph at lines 73--76
 
  []
@@ -4553,23 +4532,147 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 188--201
 [] [] 
  []
 
-) (./R.tex [158 <../figures/R2K.pdf> <../figures/kappastriations.pdf
+
+Package amsmath Warning: Cannot use `split' here;
+(amsmath)                trying to recover with `aligned' on input line 216.
+
+
+Package amsmath Warning: Cannot use `split' here;
+(amsmath)                trying to recover with `aligned' on input line 228.
+
+
+Package amsmath Warning: Cannot use `split' here;
+(amsmath)                trying to recover with `aligned' on input line 240.
+
+[158 <../figures/R2K.pdf> <../figures/kappastriations.pdf
 
 pdfTeX warning: pdflatex (file ../figures/kappastriations.pdf): PDF inclusion: 
 multiple pdfs with page group included in a single page
 >]
+<../figures/wulffschmidt.pdf, id=3940, 505.89pt x 252.945pt>
+File: ../figures/wulffschmidt.pdf Graphic file (type pdf)
+<use ../figures/wulffschmidt.pdf>
+Package pdftex.def Info: ../figures/wulffschmidt.pdf  used on input line 251.
+(pdftex.def)             Requested size: 281.85587pt x 140.93034pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 251--252
+
+ []
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 259.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 250--262
+[] [] 
+ []
+
+
+Package amsmath Warning: Cannot use `split' here;
+(amsmath)                trying to recover with `aligned' on input line 272.
+
+
+Package amsmath Warning: Cannot use `split' here;
+(amsmath)                trying to recover with `aligned' on input line 283.
+
+
+Package amsmath Warning: Cannot use `split' here;
+(amsmath)                trying to recover with `aligned' on input line 294.
+
+<../figures/Africa.pdf, id=3941, 505.89pt x 252.945pt>
+File: ../figures/Africa.pdf Graphic file (type pdf)
+<use ../figures/Africa.pdf>
+Package pdftex.def Info: ../figures/Africa.pdf  used on input line 305.
+(pdftex.def)             Requested size: 265.6557pt x 132.82898pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 305--306
+
+ []
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 311.
+See the caption package documentation for explanation.
+
+
+Underfull \hbox (badness 3312) in paragraph at lines 311--311
+[]\OT1/cmr/m/n/10.95 Figure 15.10: |[]a) Wulff and b)
+ []
+
+
+Underfull \hbox (badness 1354) in paragraph at lines 311--311
+\OT1/cmr/m/n/10.95 con-ti-nent. The Wulff net shows
+ []
+
+
+Overfull \hbox (2.80838pt too wide) in paragraph at lines 304--314
+[] [] 
+ []
+
+[159 <../figures/wulffschmidt.pdf>]
+<../figures/palaeomag.pdf, id=3960, 180.675pt x 180.675pt>
+File: ../figures/palaeomag.pdf Graphic file (type pdf)
+<use ../figures/palaeomag.pdf>
+Package pdftex.def Info: ../figures/palaeomag.pdf  used on input line 325.
+(pdftex.def)             Requested size: 132.82785pt x 132.82898pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 325--326
+
+ []
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 330.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (2.80838pt too wide) in paragraph at lines 324--333
+[] [] 
+ []
+
+<../figures/fault.pdf, id=3961, 180.675pt x 180.675pt>
+File: ../figures/fault.pdf Graphic file (type pdf)
+<use ../figures/fault.pdf>
+Package pdftex.def Info: ../figures/fault.pdf  used on input line 343.
+(pdftex.def)             Requested size: 132.82785pt x 132.82898pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 343--344
+
+ []
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 350.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (2.80838pt too wide) in paragraph at lines 342--353
+[] [] 
+ []
+
+) (./R.tex [160 <../figures/Africa.pdf> <../figures/palaeomag.pdf
+
+pdfTeX warning: pdflatex (file ../figures/palaeomag.pdf): PDF inclusion: multip
+le pdfs with page group included in a single page
+> <../figures/fault.pdf
+
+pdfTeX warning: pdflatex (file ../figures/fault.pdf): PDF inclusion: multiple p
+dfs with page group included in a single page
+>]
 Chapter 16.
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <24.88> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 1.
-[159
+[161
 
-] [160] [161] [162] [163] [164] [165] [166] [167] [168] [169] [170]
-[171] [172] [173] [174] [175]
-<../figures/LLpois.pdf, id=4095, 216.81pt x 216.81pt>
+] [162] [163] [164] [165] [166] [167] [168] [169] [170] [171] [172]
+[173] [174] [175] [176] [177]
+<../figures/LLpois.pdf, id=4148, 216.81pt x 216.81pt>
 File: ../figures/LLpois.pdf Graphic file (type pdf)
 <use ../figures/LLpois.pdf>
 Package pdftex.def Info: ../figures/LLpois.pdf  used on input line 1061.
-(pdftex.def)             Requested size: 140.92793pt x 140.93474pt.
+(pdftex.def)             Requested size: 132.82785pt x 132.83284pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 1061--1062
 
@@ -4585,39 +4688,39 @@ Overfull \hbox (2.80838pt too wide) in paragraph at lines 1060--1070
 [] [] 
  []
 
-[176 <../figures/LLpois.pdf>] [177] [178] [179] [180] [181] [182]
+[178 <../figures/LLpois.pdf>] [179] [180] [181] [182] [183] [184]
 Underfull \hbox (badness 10000) in paragraph at lines 1474--1476
 
  []
 
-[183] [184] [185] [186] [187]) (./exercises.tex [188]
+[185] [186] [187] [188] [189]) (./exercises.tex [190]
 Chapter 17.
-[189
+[191
 
-] [190] [191] [192] [193]
+] [192] [193] [194] [195]
 Overfull \hbox (0.21303pt too wide) in paragraph at lines 423--425
 []\OT1/cmr/m/n/10.95 Plot the size-frequency dis-tri-bu-tion of North Amer-i-ca
 n rivers us-ing \OT1/cmtt/m/n/10.95 R\OT1/cmr/m/n/10.95 's built-in \OT1/cmtt/m
 /n/10.95 rivers \OT1/cmr/m/n/10.95 dataset. 
  []
 
-[194]) (./solutions.tex [195] [196]
+[196]) (./solutions.tex [197] [198]
 Chapter 18.
-[197
+[199
 
-] [198] [199] [200] [201] [202] [203] [204] [205]
+] [200] [201] [202] [203] [204] [205] [206] [207]
 Underfull \hbox (badness 10000) in paragraph at lines 613--615
 
  []
 
-[206] [207] [208]
+[208] [209] [210]
 Overfull \hbox (7.12605pt too wide) in paragraph at lines 794--800
 \OT1/cmr/m/n/10.95 where $\OML/cmm/m/it/10.95 z$ \OT1/cmr/m/n/10.95 is den-sity
 , $\OML/cmm/m/it/10.95 x$ \OT1/cmr/m/n/10.95 is mass and $\OML/cmm/m/it/10.95 y
 $ \OT1/cmr/m/n/10.95 is vol-ume. Thus s[density(A)] = $[][] =
  []
 
-[209]
+[211]
 Overfull \hbox (2.42892pt too wide) detected at line 831
 []
  []
@@ -4627,130 +4730,110 @@ Overfull \hbox (27.37506pt too wide) detected at line 831
 []
  []
 
-[210] [211] [212] [213] [214] [215]
-<../figures/PCAiris.pdf, id=4509, 216.81pt x 216.81pt>
+[212] [213] [214] [215] [216] [217]
+<../figures/PCAiris.pdf, id=4563, 216.81pt x 216.81pt>
 File: ../figures/PCAiris.pdf Graphic file (type pdf)
 <use ../figures/PCAiris.pdf>
-Package pdftex.def Info: ../figures/PCAiris.pdf  used on input line 1251.
+Package pdftex.def Info: ../figures/PCAiris.pdf  used on input line 1250.
 (pdftex.def)             Requested size: 154.96695pt x 154.97496pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1251--1252
+Underfull \hbox (badness 10000) in paragraph at lines 1250--1251
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1263.
+(caption)                particular \caption on input line 1262.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 1250--1266
+Overfull \hbox (2.80838pt too wide) in paragraph at lines 1249--1265
 [] [] 
  []
 
-
-Overfull \hbox (0.37506pt too wide) in paragraph at lines 1249--1267
-$[]$ 
- []
-
-[216]
-<../figures/elbow.pdf, id=4519, 216.81pt x 216.81pt>
+[218]
+<../figures/elbow.pdf, id=4573, 216.81pt x 216.81pt>
 File: ../figures/elbow.pdf Graphic file (type pdf)
 <use ../figures/elbow.pdf>
-Package pdftex.def Info: ../figures/elbow.pdf  used on input line 1296.
+Package pdftex.def Info: ../figures/elbow.pdf  used on input line 1293.
 (pdftex.def)             Requested size: 154.96695pt x 154.97496pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1296--1297
+Underfull \hbox (badness 10000) in paragraph at lines 1293--1294
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1302.
+(caption)                particular \caption on input line 1299.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 1295--1305
+Overfull \hbox (2.80838pt too wide) in paragraph at lines 1292--1302
 [] [] 
  []
 
-
-Overfull \hbox (0.37506pt too wide) in paragraph at lines 1294--1306
-$[]$ 
- []
-
-[217 <../figures/PCAiris.pdf> <../figures/elbow.pdf
+[219 <../figures/PCAiris.pdf> <../figures/elbow.pdf
 
 pdfTeX warning: pdflatex (file ../figures/elbow.pdf): PDF inclusion: multiple p
 dfs with page group included in a single page
 >]
-<../figures/DZtree.pdf, id=4545, 216.81pt x 144.54pt>
+<../figures/DZtree.pdf, id=4598, 216.81pt x 144.54pt>
 File: ../figures/DZtree.pdf Graphic file (type pdf)
 <use ../figures/DZtree.pdf>
-Package pdftex.def Info: ../figures/DZtree.pdf  used on input line 1320.
+Package pdftex.def Info: ../figures/DZtree.pdf  used on input line 1315.
 (pdftex.def)             Requested size: 154.96695pt x 103.31662pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1320--1321
+Underfull \hbox (badness 10000) in paragraph at lines 1315--1316
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1327.
+(caption)                particular \caption on input line 1322.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 1319--1330
+Overfull \hbox (2.80838pt too wide) in paragraph at lines 1314--1325
 [] [] 
  []
 
-
-Overfull \hbox (0.37506pt too wide) in paragraph at lines 1318--1331
-$[]$ 
- []
-
-[218 <../figures/DZtree.pdf>] [219] [220]
-<../figures/testPCA.pdf, id=4586, 289.08pt x 289.08pt>
+[220 <../figures/DZtree.pdf>] [221] [222]
+<../figures/testPCA.pdf, id=4640, 289.08pt x 289.08pt>
 File: ../figures/testPCA.pdf Graphic file (type pdf)
 <use ../figures/testPCA.pdf>
-Package pdftex.def Info: ../figures/testPCA.pdf  used on input line 1549.
+Package pdftex.def Info: ../figures/testPCA.pdf  used on input line 1542.
 (pdftex.def)             Requested size: 221.3775pt x 221.37485pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1549--1550
+Underfull \hbox (badness 10000) in paragraph at lines 1542--1543
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1562.
+(caption)                particular \caption on input line 1555.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 1548--1565
+Overfull \hbox (2.80838pt too wide) in paragraph at lines 1541--1558
 [] [] 
  []
 
-
-Overfull \hbox (0.37506pt too wide) in paragraph at lines 1547--1566
-$[]$ 
- []
-
-[221 <../figures/testPCA.pdf>])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 118.
- [222]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 118.
+[223 <../figures/testPCA.pdf>])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 122.
+ [224]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 122.
  (./geostats.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 118.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 118.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 122.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 122.
 Package rerunfilecheck Info: File `geostats.out' has not changed.
 (rerunfilecheck)             Checksum: 798326C7D6DE66E0FAC4319FB51C4FB2;8059.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 118.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 122.
  ) 
 Here is how much of TeX's memory you used:
- 11106 strings out of 481239
- 178438 string characters out of 5920377
- 485147 words of memory out of 5000000
- 24897 multiletter control sequences out of 15000+600000
+ 11149 strings out of 481239
+ 179353 string characters out of 5920377
+ 486222 words of memory out of 5000000
+ 24923 multiletter control sequences out of 15000+600000
  548262 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,26n,42p,1047b,789s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -4782,10 +4865,10 @@ nts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on geostats.pdf (222 pages, 2930184 bytes).
+Output written on geostats.pdf (224 pages, 3127984 bytes).
 PDF statistics:
- 4948 PDF objects out of 5155 (max. 8388607)
- 4003 compressed objects within 41 object streams
- 1093 named destinations out of 1200 (max. 500000)
- 1855 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 5004 PDF objects out of 5155 (max. 8388607)
+ 4045 compressed objects within 41 object streams
+ 1106 named destinations out of 1200 (max. 500000)
+ 1875 words of extra memory for PDF output out of 10000 (max. 10000000)
 

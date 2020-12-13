@@ -103,8 +103,8 @@ colnames(forams) <- c('uvula','scitula','quinqueloba',
 rownames(forams) <- c('A','B')
 save(forams,file='../../package/data/forams.rda',version=2)
 
-pop <- read.csv('population.csv')
-save(pop,file='../../package/data/pop.rda',version=2)
+worldpop <- read.csv('population.csv')
+save(worldpop,file='../../package/data/worldpop.rda',version=2)
 
 raster2dat <- function(fname){
     library(raster)
@@ -147,3 +147,11 @@ colnames(test) <- c('affinity','SiO2','TiO2','Al2O3','CaO',
                     'MgO','MnO','K2O','Na2O')
 rownames(test) <- 1:nrow(test)
 save(test,file='../../package/data/test.rda',version=2)
+
+palaeomag <- data.frame(decl=c(47.9,46.3,44.7,50.9,56.4,42.6,44.9,41.5,47.9,39.6),
+                        incl=c(28.6,20.1,15.6,18.1,17.5,28.7,12.2,24.5,20.6,15.0))
+save(palaeomag,file='../../package/data/palaeomag.rda',version=2)
+
+fault <- data.frame(strike=c(311,319,316,319,324,312,314,319,320,314),
+                    dip=c(38.3,36.5,34.2,34,35.5,32.9,40.7,37.5,40.5,43.2))
+save(fault,file='../../package/data/fault.rda',version=2)

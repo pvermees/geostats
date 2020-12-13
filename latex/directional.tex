@@ -203,17 +203,17 @@ corresponds to a $\kappa$-value of 0.37.
 \label{sec:spherical-data}
 
 The principles of directional statistics can be generalised from the
-1-dimensional circle to a 2-dimensional sphere. The coordinates of
-data in this space can be expressed as latitude ($\theta$) and
-longitude ($\phi$):
+1-dimensional circular line to a 2-dimensional spherical surface in
+3-dimensional space. The coordinates of data in this space can be
+expressed as latitude ($l$) and longitude ($L$):
 
 \begin{equation}
   \left\{
-  \begin{array}{l}
-    x = \sin[\theta] \cos[\phi]\\
-    y = \sin[\theta] \sin[\phi]\\
-    z = \cos[\theta]
-  \end{array}
+  \begin{split}
+    x & = \cos[l]\cos[L]\\
+    y & = \sin[l]\\
+    z & = \cos[l]\sin[L]
+  \end{split}
   \right.
 \end{equation}
 
@@ -221,11 +221,11 @@ longitude ($\phi$):
 
 \begin{equation}
   \left\{
-  \begin{array}{l}
-    x = -\sin[S] \cos[D]\\
-    y = \cos[S] \cos[D]\\
-    z = \sin[D]
-  \end{array}
+  \begin{split}
+    x & = \cos[D]\cos[S]\\
+    y & = -\cos[D]\sin[S]\\
+    z & = \sin[D]
+  \end{split}
   \right.
 \end{equation}
 
@@ -233,10 +233,130 @@ longitude ($\phi$):
 
 \begin{equation}
   \left\{
-  \begin{array}{l}
-    x = \cos[D] \cos[A]\\
-    y = \cos[D] \sin[A]\\
-    z = \sin[D]
-  \end{array}
+  \begin{split}
+    x & = \cos[D] \sin[A]\\
+    y & = \cos[D] \cos[A]\\
+    z & = \sin[D]
+  \end{split}
   \right.
+\end{equation}
+
+\noindent where the $x$-axis points towards the north, the $y$-axis
+towards the east, and the $z$-axis points downwards.  Spherical data
+can be visualised on a 2-dimensional surface by stereographic map
+projection, using either a Wulff equal angle or a Schmidt equal area
+\textbf{stereonet}:
+
+\noindent\begin{minipage}[t][][b]{.6\textwidth}
+\includegraphics[width=\textwidth]{../figures/wulffschmidt.pdf}\\
+\end{minipage}
+\begin{minipage}[t][][t]{.4\textwidth}
+  \captionof{figure}{a) Wulff equal angle and b) Schmidt equal area
+    stereonets, with circles of $10^{\circ}$ radius drawn at azimuths
+    of $0^{\circ}, 90^{\circ}, 180^{\circ}$ and $270^{\circ}$, and
+    dips of $10^{\circ}$ and $90^\circ$. As the names suggest, the
+    Wulff net preserves the shape of the circles, and the Schmidt net
+    their area.\\}
+  \label{fig:wulfschmidt}
+\end{minipage}
+
+The Wulff net is used in structural geology and the Schmidt net in
+crystallography. Given the Cartesian coordinates $\{x,y,z\}$, the
+stereographic projection proceeds as follows:
+
+\begin{equation}
+  \left\{
+  \begin{split}
+    X & = \tan(\phi) \sin(\theta) \\
+    Y & = \tan(\phi) \cos(\theta)
+  \end{split}
+  \right.
+\end{equation}
+
+\noindent for the Wulff net, and 
+
+\begin{equation}
+  \left\{
+  \begin{split}
+    X & = \sqrt{2}\sin(\phi)\sin(\theta) \\
+    Y & = \sqrt{2}\sin(\phi)\cos(\theta)
+  \end{split}
+  \right.
+\end{equation}
+
+\noindent for the Schmidt net, where
+
+\begin{equation}
+  \left\{
+  \begin{split}
+    \phi & = \arccos\left(\sqrt{{x^2+y^2+(z-1)^2}}/{2}\right) \\
+    \theta & = \arctan\left({x}/{y}\right)
+  \end{split}
+  \right.
+\end{equation}
+
+Stereonets can be used to visualise:
+
+\begin{enumerate}
+
+\item geographical data:
+
+\noindent\begin{minipage}[t][][b]{.6\indentwidth}
+\includegraphics[width=\textwidth]{../figures/Africa.pdf}\\
+\end{minipage}
+\begin{minipage}[t][][t]{.4\indentwidth}
+  \captionof{figure}{a) Wulff and b) Schmidt projection of the African
+    continent.  The Wulff net shows Africa in its right shape, the
+    Schmidt net shows its right size. No two dimensional projection
+    can achieve both goals at once.\\}
+  \label{fig:Africa}
+\end{minipage}
+
+\item palaeomagnetic data, such as the following dataset of 10
+  palaeomagnetic declination (= azimuth) and inclination (= dip)
+  measurements:
+
+\begin{tabular}{c|cccccccccc}
+declination & 47.9 & 46.3 & 44.7 & 50.9 & 56.4 & 42.6 & 44.9 & 41.5 & 47.9 & 39.6 \\
+inclination & 28.6 & 20.1 & 15.6 & 18.1 & 17.5 & 28.7 & 12.2 & 24.5 & 20.6 & 15.0 \\
+\end{tabular}
+
+\noindent\begin{minipage}[t][][b]{.3\indentwidth}
+\includegraphics[width=\textwidth]{../figures/palaeomag.pdf}\\
+\end{minipage}
+\begin{minipage}[t][][t]{.7\indentwidth}
+  \captionof{figure}{The palaeomagnetic declination (=azimuth) and
+    inclination (=dip) of 10~samples shown in a Schmidt equal area
+    diagram.\\}
+  \label{fig:palaeomag}
+\end{minipage}
+
+\item structural measurements, such as this set of 10 strikes and dips
+  on a fault plane:
+
+\begin{tabular}{c|cccccccccc}
+strike & 311 & 319 & 316 & 319 & 324 & 312 & 314 & 319 & 320 & 314 \\
+dip & 38.3 & 36.5 & 34.2 & 34 & 35.5 & 32.9 & 40.7 & 37.5 & 40.5 & 43.2
+\end{tabular}  
+
+\noindent\begin{minipage}[t][][b]{.3\indentwidth}
+\includegraphics[width=\textwidth]{../figures/fault.pdf}\\
+\end{minipage}
+\begin{minipage}[t][][t]{.7\indentwidth}
+  \captionof{figure}{10 fault plane measurements shown on a Wulff
+    stereonet. The white cirles mark the `pole' of the planar
+    measurements, i.e. a perpendicular line to the plane. The circular
+    segments mark the intersection of the planes with bottom half of a
+    sphere, shown in an equal area projection.\\}
+  \label{fig:fault}
+\end{minipage}
+
+\end{enumerate}
+
+Fisher distribution:
+
+\begin{equation}
+  f(x,y,z|\mu_x,\mu_y,\mu_y,\kappa) =
+  \frac{\kappa\exp[\kappa (x\mu_x+y\mu_y+z\mu_z)]}{2\pi(\exp[\kappa]-\exp[-\kappa])}
+  \label{eq:vonMisesFisher}
 \end{equation}

@@ -5,34 +5,63 @@
 \title{stereonet}
 \usage{
 stereonet(
-  azimuth,
-  dip,
+  trd,
+  plg,
+  coneAngle = 0,
+  option = 1,
   wulff = TRUE,
+  add = FALSE,
   degrees = FALSE,
-  show.lines = TRUE,
+  show.grid = TRUE,
+  grid.col = "grey50",
   tl = 0.05,
+  type = "p",
+  labels = 1:length(trd),
   ...
 )
 }
 \arguments{
-\item{azimuth}{angle, in degrees, between 0 and 360 (if
+\item{trd}{trend angle, in degrees, between 0 and 360 (if
 \code{degrees=TRUE}) or between 0 and \eqn{2\pi} (if
 \code{degrees=FALSE}).}
 
-\item{dip}{angle, in degrees, between 0 and 90 (if
+\item{plg}{plunge angle, in degrees, between 0 and 90 (if
 \code{degrees=TRUE}) or between 0 and \eqn{2\pi} (if
 \code{degrees=FALSE}).}
+
+\item{coneAngle}{if \code{option=4}, controls the radius of a small
+circle around the pole with azimuth \code{trd} and dip
+\code{plg}.}
+
+\item{option}{scalar. If \code{option=1}, then \code{trd} is the
+azimuth and \code{plg} is the dip; if \code{option=2}, then
+\code{trd} is the strike and \code{plg} is the dip; if
+\code{option=3}, then \code{trd} is the longitude and
+\code{plg} is the latitude; if \code{option=4}, then \code{trd}
+is the longitude and \code{plg} is the latitude}
 
 \item{wulff}{logical. If \code{FALSE}, produces a Schmidt net.}
+
+\item{add}{logical. If \code{TRUE}, adds to an existing stereonet.}
 
 \item{degrees}{logical. If \code{FALSE}, assumes that
 \code{azimuth} and \code{dip} are in radians.}
 
-\item{show.lines}{logical. If \code{TRUE}, decorates the plot with
-a grid of great and small circles.}
+\item{show.grid}{logical. If \code{TRUE}, decorates the plot with a
+grid of great and small circles.}
+
+\item{grid.col}{colour of the grid.}
 
 \item{tl}{tick length for the N, E, S, W markers (value between 0
 and 1).  Set to 0 to omit the markers.}
+
+\item{type}{if \code{option=1} or \code{3}, coordinates can be
+visualsed as points (\code{type='p'}), lines (\code{type='l'})
+or decorated with text labels (\code{type='t'}).}
+
+\item{labels}{if \code{option=1} or \code{3} and \code{type='t'},
+specifies the text labels to be used to mark the measurements
+on the stereonet.}
 
 \item{...}{optional arguments to be passed on to the generic
 \code{points} function}
@@ -42,29 +71,11 @@ Plots directional data on a Schmidt equal area or
     Wulff equal angle stereonet.
 }
 \details{
-The Schmidt equal area polar Lambert projection is used to
-    plot structural data. Given a set of azimuth (\eqn{a}) and dip
-    (\eqn{d}) measurements, it plots the data at positions
-
-\eqn{x = \sqrt{2}\sin(\pi\frac{90-d}{360})
-                 \cos(\pi\frac{90-a}{180})}
-
-and
-
-\eqn{y = \sqrt{2}\sin(\pi\frac{90-d}{360})
-                 \sin(\pi\frac{90-a}{180})}
-
-The Wulff equal angle polar Lambert projection is used to plot
-    crystallographic data. Given a set of azimuth (\eqn{a}) and dip
-    (\eqn{d}) measurements, it plots the data at positions
-
-\eqn{x = \tan(\pi\frac{90-d}{360})
-         \cos(\pi\frac{90-a}{180})}
-
-and
-
-\eqn{y = \tan(\pi\frac{90-d}{360})
-         \sin(\pi\frac{90-a}{180})}
+The Wulff equal angle polar Lambert projection preserves
+    the shape of objects and is often used to visualise structural
+    data.  The Schmidt equal area polar Lambert projection
+    preserves the size of objects and is more popular in
+    mineralogy.
 }
 \examples{
 stereonet(azimuth=c(120,80),dip=c(10,30),degrees=TRUE)

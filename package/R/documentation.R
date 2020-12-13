@@ -133,12 +133,12 @@ NULL
 #'
 #' The world population from 1750 until 2014
 #' 
-#' @name pop
+#' @name worldpop
 #' @docType data
 #' @keywords data
 #' @examples
-#' data(pop,package='geostats')
-#' plot(pop)
+#' data(worldpop,package='geostats')
+#' plot(worldpop)
 NULL
 
 #' British coast
@@ -272,4 +272,34 @@ NULL
 #' @examples
 #' data(striations,package='geostats')
 #' circle.plot(striations,degrees=TRUE)
+NULL
+
+#' palaeomagnetic data
+#'
+#' Ten paired magnetic declination (azimuth) and inclination (dip)
+#' measurements, drawn from a von Mises - Fisher distribution with
+#' mean vector \eqn{\mu=\{2,2,1\}/3} and concentration parameter
+#' \eqn{\kappa=200}.
+#' 
+#' @name palaeomag
+#' @docType data
+#' @keywords data
+#' @examples
+#' data(palaeomag,package='geostats')
+#' stereonet(palaeomag,degrees=TRUE,show.grid=FALSE)
+NULL
+
+#' fault orientation data
+#'
+#' Ten paired strike and dip measurements (in degrees), drawn from a
+#' von Mises - Fisher distribution with mean vector
+#' \eqn{\mu=\{1,1,1\}/\sqrt{3}} and concentration parameter
+#' \eqn{\kappa=200}.
+#' 
+#' @name fault
+#' @docType data
+#' @keywords data
+#' @examples
+#' data(fault,package='geostats')
+#' stereonet(fault,option=2,degrees=TRUE,show.grid=FALSE)
 NULL

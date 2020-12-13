@@ -4,10 +4,10 @@
 \alias{Rbar}
 \title{calculate \eqn{\bar{R}}}
 \usage{
-Rbar(angles, degrees = FALSE)
+Rbar(a, degrees = FALSE)
 }
 \arguments{
-\item{angles}{scalar or vector}
+\item{a}{vector of angles}
 
 \item{degrees}{\code{TRUE} for degrees, \code{FALSE} for radians}
 }
@@ -27,5 +27,5 @@ Given \eqn{n} directional measurements \eqn{\theta_i},
 }
 \examples{
 data(striations,package='geostats')
-Rbar(angles=striations,degrees=TRUE)
+Rbar(a=striations,degrees=TRUE)
 }

@@ -475,41 +475,36 @@ The k-means algorithm then proceeds as follows:
 \item Randomly select three data points from the dataset and designate
   them as the centroids of three clusters:
 
-  \noindent\begin{minipage}{\textwidth-27pt}
-  \noindent\begin{minipage}[t][][b]{.25\textwidth}
+  \noindent\begin{minipage}[t][][b]{.25\indentwidth}
   \includegraphics[width=\textwidth]{../figures/kmeans2.pdf}\\
   \end{minipage}
-  \begin{minipage}[t][][t]{.75\textwidth}
+  \begin{minipage}[t][][t]{.75\indentwidth}
     \captionof{figure}{Data points 48, 100 and 130 were randomly
       selected from the dataset and assigned as the centroids of
       clusters 1 (circle), 2 (triangle) and 3 (cross).}
     \label{fig:kmeans2}
   \end{minipage}
-  \end{minipage}
   
 \item Reassign each data point to the cluster whose centroid is
   closest to it:
 
-  \noindent\begin{minipage}{\textwidth-27pt}
-  \noindent\begin{minipage}[t][][b]{.25\textwidth}
+  \noindent\begin{minipage}[t][][b]{.25\indentwidth}
   \includegraphics[width=\textwidth]{../figures/kmeans3.pdf}\\
   \end{minipage}
-  \begin{minipage}[t][][t]{.75\textwidth}
+  \begin{minipage}[t][][t]{.75\indentwidth}
     \captionof{figure}{Replace each of the question marks in
       Figure~\ref{fig:kmeans2} with the symbol (circles, triangles or
       crosses) that is closest to it, using the Euclidean distance of
       Equation~\ref{eq:euclidean}.}
     \label{fig:kmeans3}
   \end{minipage}
-  \end{minipage}
 
 \item Calculate a new centroid for each cluster:
 
-  \noindent\begin{minipage}{\textwidth-27pt}
-  \noindent\begin{minipage}[t][][b]{.25\textwidth}
+  \noindent\begin{minipage}[t][][b]{.25\indentwidth}
     \includegraphics[width=\textwidth]{../figures/kmeans4.pdf}\\
   \end{minipage}
-  \begin{minipage}[t][][t]{.75\textwidth}
+  \begin{minipage}[t][][t]{.75\indentwidth}
     \captionof{figure}{The grey symbols are the same as the black
       symbols in Figure~\ref{fig:kmeans3}. The black symbols are the
       average $\{x,y\}$-positions of all the samples within each
@@ -519,20 +514,17 @@ The k-means algorithm then proceeds as follows:
       algorithm.}
     \label{fig:kmeans4}
   \end{minipage}
-  \end{minipage}
   
 \item Repeat steps~2 and 3 until convergence is achieved:
 
-  \noindent\begin{minipage}{\textwidth-27pt}
-  \noindent\begin{minipage}[t][][b]{.25\textwidth}
+  \noindent\begin{minipage}[t][][b]{.25\indentwidth}
   \includegraphics[width=\textwidth]{../figures/kmeans5.pdf}\\
   \end{minipage}
-  \begin{minipage}[t][][t]{.75\textwidth}
+  \begin{minipage}[t][][t]{.75\indentwidth}
     \captionof{figure}{Final classification of the data. Each of the 150
       data points has been assigned to a particular cluster whose
       centroids are marked as large and bold symbols.}
     \label{fig:kmeans5}
-  \end{minipage}
   \end{minipage}
 
 \end{enumerate}
@@ -653,20 +645,18 @@ The algorithm works as follows:
 \item Identify the closest two clusters (corresponding to the boxed
   numbers in step~\ref{it:hierachical1}) and join them together.
 
-  \noindent\begin{minipage}{\linewidth-27pt}
-  \begin{minipage}[t][][b]{.3\linewidth}
+  \begin{minipage}[t][][b]{.3\indentwidth}
   \includegraphics[width=\linewidth]{../figures/hierarchical2.pdf}\\
   \end{minipage}
-  \begin{minipage}[t][][b]{.3\linewidth}
+  \begin{minipage}[t][][b]{.3\indentwidth}
     \includegraphics[width=\linewidth]{../figures/tree1.pdf}\\
   \end{minipage}
-  \begin{minipage}[t][][b]{.4\linewidth}
+  \begin{minipage}[t][][b]{.4\indentwidth}
   \captionof{figure}{First step of the hierarchical clustering
     process.  The closest two samples (1 and 3) have been grouped
     together into a new cluster (grey line, left). The results can
     also be visualised as a tree or \textbf{dendrogram} (right).\\}
   \label{fig:hierarchical2}
-  \end{minipage}
   \end{minipage}
   
 \item\label{it:hierarchical2} Calculate the distances between the
@@ -688,20 +678,18 @@ The algorithm works as follows:
 \item Identify the closest two clusters (corresponding to the boxed
   numbers in step~\ref{it:hierarchical2}) and join them together.
 
-  \noindent\begin{minipage}{\linewidth-27pt}
-  \begin{minipage}[t][][b]{.3\linewidth}
+  \begin{minipage}[t][][b]{.3\indentwidth}
   \includegraphics[width=\linewidth]{../figures/hierarchical3.pdf}\\
   \end{minipage}
-  \begin{minipage}[t][][b]{.3\linewidth}
+  \begin{minipage}[t][][b]{.3\indentwidth}
     \includegraphics[width=\linewidth]{../figures/tree2.pdf}\\
   \end{minipage}
-  \begin{minipage}[t][][b]{.4\linewidth}
+  \begin{minipage}[t][][b]{.4\indentwidth}
   \captionof{figure}{The second step of the hierarchical clustering
     process shown as a scatter plot (left) and a dendrogram
     (right). The first order cluster is nested inside the second order
     one.\\}
   \label{fig:hierarchical3}
-  \end{minipage}
   \end{minipage}
 
 \item\label{it:hierarchical3} Calculate the distance between the
@@ -717,34 +705,30 @@ The algorithm works as follows:
 \item Identify the two closest clusters (corresponding to the boxed
   numbers in step~\ref{it:hierarchical3}) and join them together:
 
-  \noindent\begin{minipage}{\linewidth-27pt}
-  \begin{minipage}[t][][b]{.3\linewidth}
+  \begin{minipage}[t][][b]{.3\indentwidth}
   \includegraphics[width=\linewidth]{../figures/hierarchical4.pdf}\\
   \end{minipage}
-  \begin{minipage}[t][][b]{.3\linewidth}
+  \begin{minipage}[t][][b]{.3\indentwidth}
     \includegraphics[width=\linewidth]{../figures/tree3.pdf}\\
   \end{minipage}
-  \begin{minipage}[t][][b]{.4\linewidth}
+  \begin{minipage}[t][][b]{.4\indentwidth}
   \captionof{figure}{The third step of the hierarchical clustering
     process shown as a scatter plot (left) and a dendrogram
     (right). The third cluster does not share any elements with the
     first two clusters.\\}
   \label{fig:hierarchical4}
   \end{minipage}
-  \end{minipage}
 
 \item The final iteration yields the following tree:
 
-  \noindent\begin{minipage}{\linewidth-27pt}
-  \begin{minipage}[t][][b]{.35\linewidth}
+  \begin{minipage}[t][][b]{.35\indentwidth}
     \includegraphics[width=\linewidth]{../figures/hierarchicaltree.pdf}
   \end{minipage}
-  \begin{minipage}[t][][b]{.65\linewidth}
+  \begin{minipage}[t][][b]{.65\indentwidth}
     \captionof{figure}{Final results of the hierarchical cluster
       analysis.  The tree consists of four nested clusters. The y-axis
       has units of distance: the longer the branch, the greater the
       difference between the corresponding clusters.}
-  \end{minipage}
   \end{minipage}
   
 \end{enumerate}

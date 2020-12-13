@@ -4,10 +4,10 @@
 \alias{circle.plot}
 \title{plot circular data}
 \usage{
-circle.plot(angles, degrees = FALSE, tl = 0.1, ...)
+circle.plot(a, degrees = FALSE, tl = 0.1, ...)
 }
 \arguments{
-\item{angles}{scalar or vector}
+\item{a}{angle(s), scalar or vector}
 
 \item{degrees}{\code{TRUE} for degrees, \code{FALSE} for radians}
 

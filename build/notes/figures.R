@@ -3,6 +3,8 @@ graphics.off()
 setwd('~/Documents/Programming/R/geostats/build/notes/')
 source('helper.R')
 
+install.packages('~/Documents/Programming/R/geostats/package',repos=NULL,type='source')
+
 pars <- function(mar=c(2.5,2.3,0.5,0.25),mgp=c(1.5,0.5,0),mfrow=c(1,1)){
     par(list(mar=mar,mgp=mgp,mfrow=mfrow))
 }
@@ -4176,15 +4178,72 @@ if (FALSE){
 }
 dev.off()
 
-cairo(file='../../figures/wulffschmidt.pdf',width=5,height=2.5)
+cairo(file='../../figures/wulffschmidt.pdf',width=7,height=3.5)
 pars(mfrow=c(1,2),mar=rep(1,4))
-geostats::stereonet(wulff=TRUE)
-geostats::stereonet(wulff=FALSE)
+geostats::stereonet(wulff=TRUE,show.grid=TRUE)
+geostats::stereonet(trd=c(0,0,90,180,270),plg=c(90,10,10,10,10),
+                    coneAngle=rep(10,5),option=4,
+                    degrees=TRUE,add=TRUE,wulff=TRUE,lwd=1.5)
+legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,0))
+geostats::stereonet(wulff=FALSE,show.grid=TRUE)
+geostats::stereonet(trd=c(0,0,90,180,270),plg=c(90,10,10,10,10),
+                    coneAngle=rep(10,5),option=4,
+                    degrees=TRUE,add=TRUE,wulff=FALSE,lwd=1.5)
+legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(2,0))
 dev.off()
 
-pars()
-geostats::stereonet(azimuth=c(80,120),dip=c(10,20),degrees=TRUE,
-                    wulff=FALSE,show.lines=FALSE)
+cairo(file='../../figures/Africa.pdf',width=7,height=3.5)
+pars(mfrow=c(1,2),mar=rep(1,4))
+Africa <- read.csv('~/Documents/Programming/R/geostats/build/notes/Africa.csv',header=TRUE)
+geostats::stereonet(trd=Africa$lon,plg=Africa$lat,option=3,
+                    degrees=TRUE,wulff=TRUE,type='l',lty=1.5)
+legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,0))
+geostats::stereonet(trd=Africa$lon,plg=Africa$lat,option=3,
+                    degrees=TRUE,wulff=FALSE,type='l',lty=1.5)
+legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(2,0))
+dev.off()
+
+xyz2SD <- function(xyz){
+    D <- asin(xyz[,3])
+    S <- sign(xyz[,2])*acos(xyz[,1]/cos(D))
+    cbind(S,D)*180/pi
+}
+xyz2AD <- function(xyz){
+    D <- asin(xyz[,3])
+    A <- acos(xyz[,2]/cos(D))
+    cbind(A,D)*180/pi
+}
+if (FALSE){
+    library(Rfast)
+    xyz <- c(10,10,5); mu <- xyz/sqrt(sum(xyz^2))
+    palaeomag <- rvmf(n=10,mu=xyz,k=200)
+    AD <- xyz2AD(palaeomag)
+    A <- AD[,1]
+    D <- AD[,2]
+} else {
+    A <- c(47.9,46.3,44.7,50.9,56.4,42.6,44.9,41.5,47.9,39.6)
+    D <- c(28.6,20.1,15.6,18.1,17.5,28.7,12.2,24.5,20.6,15.0)
+}
+cairo(file='../../figures/palaeomag.pdf',width=2.5,height=2.5)
+pars(mar=c(1.2,1,1,1))
+geostats::stereonet(trd=A,plg=D,option=1,degrees=TRUE,
+                    show.grid=FALSE,wulff=FALSE,pch=19,cex=0.7)
+dev.off()
+if (FALSE){
+    xyz <- c(10,10,10); mu <- xyz/sqrt(sum(xyz^2))
+    fault <- rvmf(n=10,mu=xyz,k=200)
+    SD <- xyz2SD(fault)
+    S <- SD[,1]
+    D <- SD[,2]    
+} else {
+    S <- c(311,319,316,319,324,312,314,319,320,314)
+    D <- c(38.3,36.5,34.2,34,35.5,32.9,40.7,37.5,40.5,43.2)
+}
+cairo(file='../../figures/fault.pdf',width=2.5,height=2.5)
+pars(mar=c(1.2,1,1,1))
+geostats::stereonet(trd=S,plg=D,option=2,degrees=TRUE,
+                    show.grid=FALSE,wulff=TRUE,pch=21,cex=0.7,bg='white')
+dev.off()
 
 cairo(file='../../slides/locationdispersionshape.pdf',width=4,height=2)
 pars(mfrow=c(2,3),mgp=c(1.2,0.5,0))

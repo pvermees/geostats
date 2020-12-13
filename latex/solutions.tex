@@ -1056,8 +1056,8 @@ Hence Volume = 5.065856 - 36.943459 $\times$ Girth.
 \item Predicting the world population for the year 2020:
 
 \begin{script}
-data(pop,package='geostats')
-recent <- pop[pop$year>1960,]
+data(worldpop,package='geostats')
+recent <- worldpop[worldpop$year>1960,]
 fit <- lm(population~year,data=recent)
 pred <- predict(fit,newdata=data.frame(year=2020),interval='prediction')
 \end{script}
@@ -1246,11 +1246,10 @@ biplot(pc)
 
 Which produces the following biplot:
 
-\noindent\begin{minipage}{\textwidth-27pt}
-\noindent\begin{minipage}[t][][b]{.35\textwidth}
+\noindent\begin{minipage}[t][][b]{.35\indentwidth}
 \includegraphics[width=\textwidth]{../figures/PCAiris.pdf}\\
 \end{minipage}
-\begin{minipage}[t][][t]{.65\textwidth}
+\begin{minipage}[t][][t]{.65\indentwidth}
   \captionof{figure}{PCA biplot for the \texttt{iris} data. This
     diagram indicates there are two groups of flowers that with
     distinct petal width and length measurements (PC1).  Within these
@@ -1262,7 +1261,6 @@ Which produces the following biplot:
     measurements, which means that the sepal and petal dimensions vary
     independently.\\}
   \label{fig:PCAiris}
-\end{minipage}
 \end{minipage}
 
 \item Classical MDS analysis of the \texttt{iris} data:
@@ -1291,17 +1289,15 @@ for (k in 1:K){    # loop through all the k values
 plot(x=1:K,y=ss,type='b')            # plot as both lines and points
 \end{script}
 
-\noindent\begin{minipage}{\textwidth-27pt}
-\noindent\begin{minipage}[t][][b]{.35\textwidth}
+\noindent\begin{minipage}[t][][b]{.35\indentwidth}
 \includegraphics[width=\textwidth]{../figures/elbow.pdf}\\
 \end{minipage}
-\begin{minipage}[t][][t]{.65\textwidth}
+\begin{minipage}[t][][t]{.65\indentwidth}
   \captionof{figure}{Evaluating the within-cluster sum-of-squares
     ($ss$) of the k-means algorithm for different numbers of clusters.
     The $ss$-misfit drops off very quicky before making an `elbow' at
     $k=3$ clusters. Hence we cannot justify more than 3 clusters.\\}
   \label{fig:elbow}
-\end{minipage}
 \end{minipage}
 
 \item Using the \texttt{ksdist} function as instructed:
@@ -1315,18 +1311,16 @@ plot(tree)
 
 This produces the following tree:
 
-\noindent\begin{minipage}{\textwidth-27pt}
-\noindent\begin{minipage}[t][][b]{.35\textwidth}
+\noindent\begin{minipage}[t][][b]{.35\indentwidth}
 \includegraphics[width=\textwidth]{../figures/DZtree.pdf}\\
 \end{minipage}
-\begin{minipage}[t][][t]{.65\textwidth}
+\begin{minipage}[t][][t]{.65\indentwidth}
   \captionof{figure}{Hierarchical clustering tree for the detrital
     zircon data. The tree conveys the same information as the MDS
     configuration of Figure~\ref{fig:DZmds}: there are two main
     clusters; T and Y are the two most similar samples; whilst L and 8
     are the two most dissimilar samples.}
   \label{fig:DZtree}
-\end{minipage}
 \end{minipage}
 
 \end{enumerate}
@@ -1544,11 +1538,10 @@ pc <- prcomp(lrdat)
 biplot(pc,col=c('grey50','black'),xlabs=aff)
 \end{script}
 
-\noindent\begin{minipage}{\textwidth-27pt}
-\noindent\begin{minipage}[t][][b]{.5\textwidth}
+\noindent\begin{minipage}[t][][b]{.5\indentwidth}
 \includegraphics[width=\textwidth]{../figures/testPCA.pdf}\\
 \end{minipage}
-\begin{minipage}[t][][t]{.5\textwidth}
+\begin{minipage}[t][][t]{.5\indentwidth}
   \captionof{figure}{PCA biplot of the oceanic basalt compositions.
     The data roughly fall into three clusters, corresponding to OIB,
     MORB and IAB. OIBs are relatively rich in K\textsubscript{2}O and
@@ -1561,7 +1554,6 @@ biplot(pc,col=c('grey50','black'),xlabs=aff)
     exercise~\ref{it:sol-ternary-test} are OIBs that are particularly
     poor in CaO.}
   \label{fig:testPCA}
-\end{minipage}
 \end{minipage}
 
 \item Compositional LDA of the training data:

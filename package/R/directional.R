@@ -2,7 +2,7 @@
 #' @description Plots directional data as ticks on a circle
 #' @details Produces a circle with angles plotting in a clockwise
 #'     direction from the top
-#' @param angles scalar or vector
+#' @param a angle(s), scalar or vector
 #' @param degrees \code{TRUE} for degrees, \code{FALSE} for radians
 #' @param tl tick length (value between 0 and 1)
 #' @param ... optional arguments to be passed on to the generic
@@ -11,12 +11,12 @@
 #' data(striations,package='geostats')
 #' circle.plot(striations,degrees=TRUE)
 #' @export
-circle.plot <- function(angles,degrees=FALSE,tl=0.1,...){
+circle.plot <- function(a,degrees=FALSE,tl=0.1,...){
     graphics::plot(x=c(-1,1),y=c(-1,1),type='n',axes=FALSE,
                    ann=FALSE,asp=1,bty='n')
     graphics::symbols(0,0,circles=1,add=TRUE,inches=FALSE)
     circle.markers(tl=tl)
-    circle.ticks(angles,degrees=degrees,tl=tl,...)
+    circle.ticks(a,degrees=degrees,tl=tl,...)
 }
 
 circle.markers <- function(tl=0.1){
@@ -30,9 +30,9 @@ circle.markers <- function(tl=0.1){
     graphics::text(-1-tl,0,labels='270',pos=2,xpd=NA,offset=0.1)
 }
 
-circle.ticks <- function(angles,degrees=FALSE,tl=0.1,...){
-    if (degrees) rads <- angles*pi/180
-    else rads <- angles
+circle.ticks <- function(a,degrees=FALSE,tl=0.1,...){
+    if (degrees) rads <- a*pi/180
+    else rads <- a
     x1 <- sin(rads)
     y1 <- cos(rads)
     x2 <- x1*(1-tl)
@@ -46,7 +46,7 @@ circle.ticks <- function(angles,degrees=FALSE,tl=0.1,...){
 #'     plot
 #' @details adds points to a circle with angles plotting in a
 #'     clockwise direction from the top
-#' @param angles scalar or vector
+#' @param a angle(s), scalar or vector
 #' @param degrees \code{TRUE} for degrees, \code{FALSE} for radians
 #' @param ... optional arguments to be passed on to the generic
 #'     \code{points} function
@@ -56,9 +56,9 @@ circle.ticks <- function(angles,degrees=FALSE,tl=0.1,...){
 #' md <- meanangle(striations,degrees=TRUE)
 #' circle.points(md,pch=22,bg='black')
 #' @export
-circle.points <- function(angles,degrees=FALSE,...){
-    if (degrees) rads <- angles*pi/180
-    else rads <- angles
+circle.points <- function(a,degrees=FALSE,...){
+    if (degrees) rads <- a*pi/180
+    else rads <- a
     graphics::points(x=sin(rads),y=cos(rads),...)
 }
 
@@ -71,7 +71,7 @@ circle.points <- function(angles,degrees=FALSE,...){
 #'
 #' where \eqn{I_0(\kappa)} is a zero order Bessel function
 #' 
-#' @param angles scalar or vector
+#' @param a angle(s), scalar or vector
 #' @param mu scalar containing the mean direction
 #' @param kappa scalar containing the concentration parameter
 #' @param degrees \code{TRUE} for degrees, \code{FALSE} for radians
@@ -80,13 +80,13 @@ circle.points <- function(angles,degrees=FALSE,...){
 #' plot(x=c(-1.2,1.2),y=c(-1.2,1.2),type='n',
 #'      axes=FALSE,ann=FALSE,bty='n',asp=1)
 #' a <- seq(from=-pi,to=pi,length.out=200)
-#' d <- vonMises(angle=a,mu=pi/2,kappa=5)
+#' d <- vonMises(a=a,mu=pi/2,kappa=5)
 #' symbols(x=0,y=0,circles=1,add=TRUE,inches=FALSE,xpd=NA,fg='grey50')
-#' lines(x=x0+(1+d)*cos(a),y=(1+d)*sin(a),xpd=NA)
+#' lines(x=(1+d)*cos(a),y=(1+d)*sin(a),xpd=NA)
 #' @export
-vonMises <- function(angle,mu=0,kappa=1,degrees=FALSE){
-    if (degrees) rad <- angles*pi/180
-    num <- exp(kappa*cos(angle-mu))
+vonMises <- function(a,mu=0,kappa=1,degrees=FALSE){
+    if (degrees) rad <- a*pi/180
+    num <- exp(kappa*cos(a-mu))
     den <- 2*pi*besselI(kappa,nu=0)
     num/den
 }
@@ -100,17 +100,17 @@ vonMises <- function(angle,mu=0,kappa=1,degrees=FALSE){
 #'
 #' where \eqn{I_0(\kappa)} is a zero order Bessel function
 #' 
-#' @param angles scalar or vector
+#' @param a angle(s), scalar or vector
 #' @param degrees \code{TRUE} for degrees, \code{FALSE} for radians
 #' @return the mean angle, either in radians (if
 #'     \code{degrees=FALSE}), or in degrees.
 #' @examples
 #' data(striations,package='geostats')
-#' circle.plot(angles=striations,degrees=TRUE)
+#' circle.plot(a=striations,degrees=TRUE)
 #' circle.points(meanangle(striations,degrees=TRUE),pch=19)
 #' @export
-meanangle <- function(angles,degrees=FALSE){
-    if (degrees) rad <- angles*pi/180
+meanangle <- function(a,degrees=FALSE){
+    if (degrees) rad <- a*pi/180
     out <- atan(sum(sin(rad))/sum(cos(rad)))
     if (degrees) out <- out*180/pi
     out
@@ -125,16 +125,16 @@ meanangle <- function(angles,degrees=FALSE){
 #' \sqrt{\frac{\sum_{i=1}^{n}(\sin(\theta_i)^2 + cos(\theta_i)^2))}{n} }
 #' }
 #' 
-#' @param angles scalar or vector
+#' @param a vector of angles
 #' @param degrees \code{TRUE} for degrees, \code{FALSE} for radians
 #' @return a value between 0 and 1
 #' @examples
 #' data(striations,package='geostats')
-#' Rbar(angles=striations,degrees=TRUE)
+#' Rbar(a=striations,degrees=TRUE)
 #' @export
-Rbar <- function(angles,degrees=FALSE){
-    if (degrees) rad <- angles*pi/180
-    sqrt(sum(sin(rad)^2 + cos(rad)^2))/length(angles)
+Rbar <- function(a,degrees=FALSE){
+    if (degrees) rad <- a*pi/180
+    sqrt(sum(sin(rad)^2 + cos(rad)^2))/length(a)
 }
 
 #' @title \eqn{\bar{R}} to \eqn{\kappa} conversion

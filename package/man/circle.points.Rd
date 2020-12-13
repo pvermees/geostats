@@ -4,10 +4,10 @@
 \alias{circle.points}
 \title{add points to a circular plot}
 \usage{
-circle.points(angles, degrees = FALSE, ...)
+circle.points(a, degrees = FALSE, ...)
 }
 \arguments{
-\item{angles}{scalar or vector}
+\item{a}{angle(s), scalar or vector}
 
 \item{degrees}{\code{TRUE} for degrees, \code{FALSE} for radians}
 
