@@ -67,7 +67,8 @@ stereonet <- function(trd,plg,coneAngle=0,option=1,wulff=TRUE,add=FALSE,
     }
 }
 
-stereonet.setup <- function(wulff=TRUE,show.grid=TRUE,grid.col='grey50',tl=0.05,...){
+stereonet.setup <- function(wulff=TRUE,show.grid=TRUE,
+                            grid.col='grey50',tl=0.05,...){
     intrad <- 10*pi/180
     east <- pi/2
     west <- 3*east
@@ -139,11 +140,11 @@ stereonet.point <- function(trd,plg,wulff=TRUE,option=1,type='p',labels=NA,...){
     phi <- acos(sqrt(x^2+y^2+(z-1)^2)/2)
     theta <- atan(x/y)
     if (wulff){
-        xp <- sign(y)*tan(phi)*sin(theta)
-        yp <- sign(y)*tan(phi)*cos(theta)
+        xp <- mysign(y)*tan(phi)*sin(theta)
+        yp <- mysign(y)*tan(phi)*cos(theta)
     } else {
-        xp <- sign(y)*sqrt(2)*sin(phi)*sin(theta)
-        yp <- sign(y)*sqrt(2)*sin(phi)*cos(theta)
+        xp <- mysign(y)*sqrt(2)*sin(phi)*sin(theta)
+        yp <- mysign(y)*sqrt(2)*sin(phi)*cos(theta)
     }
     if (type=='l'){
         graphics::lines(xp,yp,...)

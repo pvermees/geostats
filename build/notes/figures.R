@@ -3,7 +3,8 @@ graphics.off()
 setwd('~/Documents/Programming/R/geostats/build/notes/')
 source('helper.R')
 
-install.packages('~/Documents/Programming/R/geostats/package',repos=NULL,type='source')
+install.packages('~/Documents/Programming/R/geostats/package',
+                 repos=NULL,type='source')
 
 pars <- function(mar=c(2.5,2.3,0.5,0.25),mgp=c(1.5,0.5,0),mfrow=c(1,1)){
     par(list(mar=mar,mgp=mgp,mfrow=mfrow))

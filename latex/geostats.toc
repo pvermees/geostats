@@ -69,8 +69,8 @@
 \contentsline {chapter}{\numberline {14}Compositional data}{143}{chapter.14}%
 \contentsline {section}{\numberline {14.1}Ratio data}{143}{section.14.1}%
 \contentsline {section}{\numberline {14.2}Logratio transformations}{144}{section.14.2}%
-\contentsline {section}{\numberline {14.3}PCA of compositional data}{148}{section.14.3}%
-\contentsline {section}{\numberline {14.4}LDA of compositional data}{151}{section.14.4}%
+\contentsline {section}{\numberline {14.3}PCA of compositional data}{147}{section.14.3}%
+\contentsline {section}{\numberline {14.4}LDA of compositional data}{150}{section.14.4}%
 \contentsline {section}{\numberline {14.5}Logratio processes}{152}{section.14.5}%
 \contentsline {chapter}{\numberline {15}Directional data}{155}{chapter.15}%
 \contentsline {section}{\numberline {15.1}Circular data}{155}{section.15.1}%

@@ -1515,11 +1515,11 @@ arithmetic.mean <- colMeans(alkali)
 ternary(arithmetic.mean,add=TRUE,type='p',pch=21,bg='white')
 \end{script}
 
-Adding the geometric mean as a white filled square:
+Adding the logratio mean as a white filled square:
 
 \begin{script}[firstnumber=6]
-geometric.mean <- exp(colMeans(log(alkali)))
-ternary(geometric.mean,add=TRUE,type='p',pch=22,bg='white')
+logratio.mean <- exp(colMeans(log(alkali)))
+ternary(logratio.mean,add=TRUE,type='p',pch=22,bg='white')
 \end{script}
 
 \item PCA is an unsupervised learning technique. So we don't need to
