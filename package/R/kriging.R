@@ -1,66 +1,183 @@
-getsnr <- function(lsnr){
-    s <- exp(lsnr[1]) # sill
-    n <- s*exp(lsnr[2])/(1+exp(lsnr[2])) # nugget
-    r <- exp(lsnr[3]) # range
-    c(s,n,r)
+.snr <- function(lsnr){
+    snr <- rep(0,3)
+    snr[1] <- exp(lsnr[1]) # sill
+    snr[2] <- snr[1]*exp(lsnr[2])/(1+exp(lsnr[2])) # nugget
+    snr[3] <- exp(lsnr[3]) # range
+    snr
+}
+.lsnr <- function(snr){
+    lsnr <- rep(0,3)
+    lsnr[1] <- log(snr[1])
+    lsnr[2] <- log(snr[2]/snr[1])
+    lsnr[3] <- log(snr[3])
+    lsnr
 }
 
 semivarmod <- function(h,lsnr,model='spherical'){
-    snr <- getsnr(lsnr)
+    snr <- .snr(lsnr)
     s <- snr[1]
     n <- snr[2]
     r <- snr[3]
     out <- rep(n,length(h))
-    i <- (h>0 & h<r)
     if (model=='spherical'){
-        out[h==0] <- n
+        i <- h<r
         out[i] <- n + (s-n)*(1.5*h[i]/r-0.5*(h[i]/r)^3)
         out[h>=r] <- s
+    } else if (model=='exponential'){
+        out <- n + (n-s)*exp(-h/r)
+    } else if (model=='linear'){
+        i <- h<r
+        out[i] = n + (s-n)*h[i]/r
+        out[h>=r] <- s
+    } else if (model=='gaussian'){
+        out = s + (n-s) * exp(-(h/r)^2)
     } else {
         stop('Invalid semivariogram model')
     }
     out
 }
 
-semivariogram <- function(x,y,z,bw=NULL,plot=TRUE,fit=FALSE){
-    d <- as.matrix(dist(cbind(x,y)))
+#' @title semivariogram
+#' @description computes, plots, and fits the semivariogram of spatial
+#'     data
+#' @details Plots the semivariance of spatial data against
+#'     inter-sample distance, and fits a spherical equation to it.
+#' @param x numerical vector
+#' @param y numerical vector of the same length as \code{x}
+#' @param z numerical vector of the same length as \code{x}
+#' @param bw (optional) the bin width of the semivariance search
+#'     algorithm
+#' @param nb (optional) the maximum number of bins to evaluate
+#' @param plot logical. If \code{FALSE}, suppresses the graphical
+#'     output
+#' @param fit logical. If \code{TRUE}, returns the sill, nugget and
+#'     range.
+#' @param model the parametric model to fit to the empirical
+#'     semivariogram (only used if \code{fit=TRUE}).
+#' @param ... optional arguments to be passed on to the generic
+#'     \code{plot} function
+#' @return if \code{fit=TRUE}, returns a vector with the sill, nugget
+#'     and range. If \code{fit=FALSE}, returns the estimated
+#'     semivariances at different distances for the data.
+#' @examples
+#' data(meuse,package='geostats')
+#' semivariogram(x=meuse$x,y=meuse$y,z=log(meuse$cadmium))
+#' @export
+semivariogram <- function(x,y,z,bw=NULL,nb=13,plot=TRUE,fit=TRUE,
+                          model=c('spherical','linear','exponential','gaussian'),
+                          ...){
+    d <- as.matrix(stats::dist(cbind(x,y)))
     if (is.null(bw)){
         N <- length(z)
-        q4 <- min(1,4/N)
-        bw <- quantile(d,probs=q4)
-        nq <- 10
-        sv <- rep(0,nq)
-        for (i in 1:nq){
-            ij <- which((d>=((i-1)*bw)) & d< (i*bw),arr.ind=TRUE)
-            sv[i] <- mean((z[ij[,1]]-z[ij[,2]])^2)/2
-        }
+        bw <- stats::quantile(d,probs=min(1,2/N))
     }
-    h <- bw*((1:nq)-1/2) # lag
+    sv <- rep(0,nb)
+    for (i in 1:nb){
+        ij <- which((d>=((i-1)*bw)) & d< (i*bw),arr.ind=TRUE)
+        sv[i] <- mean((z[ij[,1]]-z[ij[,2]])^2)/2
+    }
+    h <- bw*((1:nb)-1/2) # lag
     if (plot){
-        plot(h,sv,type='p',xlab='lag',ylab='var',ylim=c(0,max(sv)))
+        plot(h,sv,type='p',xlab='lag',ylab=expression(gamma(lag)),
+             ylim=c(0,max(sv)),...)
     }
+    out <- list()
+    out$model = model[1]
+    out$h <- h
+    out$sv <- sv
     if (fit){
-        misfit <- function(lsnr,h,sv){
-            svp <- semivarmod(h,lsnr)
+        misfit <- function(lsnr,h,sv,model){
+            svp <- semivarmod(h,lsnr=lsnr,model=model)
             sum((sv-svp)^2)
         }
-        lsnr <- optim(par=c(log(max(sv)),-2,log(max(h))),
-                      fn=misfit,h=h,sv=sv)$par
+        lsnr <- stats::optim(par=c(log(max(sv)),-2,log(max(h))),
+                             fn=misfit,h=h,sv=sv,model=model[1])$par
         if (plot){
             x <- seq(from=0,to=max(h),length.out=20)
-            y <- semivarmod(h=x,lsnr=lsnr)
-            lines(x,y)
+            y <- semivarmod(h=x,lsnr=lsnr,model=model[1])
+            graphics::lines(x,y)
         }
-        out <- getsnr(lsnr)
-        names(out) <- c('sill','nugget','range')
-    } else {
-        out <- list(h=h,sv=sv)
+        out$snr <- .snr(lsnr)
+        names(out$snr) <- c('sill','nugget','range')
     }
     invisible(out)
 }
 
-
-data('meuse',package='sp')
-dat <- meuse
-fit <- semivariogram(dat$x,dat$y,log(dat$cadmium),fit=TRUE)
-
+#' @title kriging
+#' @description ordinary kriging interpolation of spatial data
+#' @details implements a simple version of ordinary kriging that uses
+#'     all the data in a training set to predict the z-value of some
+#'     test data, given a spherical variogram.
+#' @param x numerical vector of training data
+#' @param y numerical vector of the same length as \code{x}
+#' @param z numerical vector of the same length as \code{x}
+#' @param xi scalar or vector with the \code{x}-coordinates of the
+#'     points at which the \code{z}-values are to be evaluated.
+#' @param yi scalar or vector with the \code{x}-coordinates of the
+#'     points at which the \code{z}-values are to be evaluated.
+#' @param snr output of the \code{\link{semivariogram}} function, a
+#'     3-element vector with the sill, nugget and range of the
+#'     semivariogram fit.
+#' @param model type of semivariogram fit. Currently only spherical
+#'     functions are supported
+#' @param grid logical. If \code{TRUE}, evaluates the kriging
+#'     interpolator along a regular grid of values defined by
+#'     \code{xi} and \code{yi}.
+#' @return either a vector (if \code{grid=FALSE}) or a matrix (if
+#'     \code{grid=TRUE}) of kriging interpolations. In the latter
+#'     case, values that are more than 10\% out of the data range are
+#'     given \code{NA} values.
+#' @examples
+#' data(meuse,package='geostats')
+#' x <- meuse$x
+#' y <- meuse$y
+#' z <- log(meuse$cadmium)
+#' snr <- semivariogram(x=x,y=y,z=z)
+#' xi <- seq(from=min(x),to=max(x),length.out=50)
+#' yi <- seq(from=min(y),to=max(y),length.out=50)
+#' zi <- geostats::kriging(x=x,y=y,z=z,snr=snr,xi=xi,yi=yi,grid=TRUE)
+#' contour(xi,yi,zi)
+#' @export
+kriging <- function(x,y,z,xi,yi,svm,grid=FALSE,err=FALSE){
+    # training data
+    lsnr <- .lsnr(svm$snr)
+    d <- as.matrix(stats::dist(cbind(x,y)))
+    m <- semivarmod(h=d,lsnr=lsnr,model=svm$model)
+    N <- length(x)
+    M <- matrix(m,N,N)
+    W <- rbind(cbind(M,1),1)
+    W[N+1,N+1] <- 0
+    out <- NA*xi
+    Y <- c(z,0)
+    # test data
+    if (grid){
+        xyi <- expand.grid(xi,yi)
+        Xi <- xyi[,1]
+        Yi <- xyi[,2]
+    } else {
+        Xi <- xi
+        Yi <- yi
+    }
+    szi <- NA*Xi
+    if (grid){
+        good <- which(inhull(x,y,Xi,Yi))
+    } else {
+        good <- 1:length(zi)
+    }
+    for (i in good){
+        h <- sqrt((Xi[i]-x)^2+(Yi[i]-y)^2)
+        B <- c(semivarmod(h=h,lsnr=lsnr,model=svm$model),1)
+        L <- solve(W,B)
+        if (err)
+            szi[i] <- t(B) %*% L
+        else
+            szi[i] <- Y %*% L
+    }
+    if (grid){
+        Ni <- length(xi)
+        out <- matrix(szi,Ni,Ni)
+    } else {
+        out <- szi
+    }
+    out
+}

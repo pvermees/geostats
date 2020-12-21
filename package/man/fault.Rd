@@ -7,8 +7,8 @@
 \description{
 Ten paired strike and dip measurements (in degrees), drawn from a
 von Mises - Fisher distribution with mean vector
-\eqn{\mu=\{1,1,1\}/\sqrt{3}} and concentration parameter
-\eqn{\kappa=200}.
+\eqn{\mu=\{-1,-1,1\}/\sqrt{3}} and concentration parameter
+\eqn{\kappa=100}.
 }
 \examples{
 data(fault,package='geostats')

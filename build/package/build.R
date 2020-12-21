@@ -155,3 +155,7 @@ save(palaeomag,file='../../package/data/palaeomag.rda',version=2)
 fault <- data.frame(strike=c(311,319,316,319,324,312,314,319,320,314),
                     dip=c(38.3,36.5,34.2,34,35.5,32.9,40.7,37.5,40.5,43.2))
 save(fault,file='../../package/data/fault.rda',version=2)
+
+data('meuse',package='sp')
+meuse <- meuse[c('x','y','elev','cadmium','lead','zinc')]
+save(meuse,file='../../package/data/meuse.rda',version=2)

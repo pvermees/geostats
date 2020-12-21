@@ -303,3 +303,20 @@ NULL
 #' data(fault,package='geostats')
 #' stereonet(fault,option=2,degrees=TRUE,show.grid=FALSE)
 NULL
+
+#' Meuse river data set
+#'
+#' This data set gives locations and topsoil heavy metal
+#' concentrations, collected in a flood plain of the river Meuse, near
+#' the village of Stein (NL). Heavy metal concentrations are from
+#' composite samples of an area of approximately 15 m x 15 m. This
+#' version of the \code{meuse} dataset is a trimmed down version of
+#' the eponymous dataset from the \code{sp} dataset.
+#' 
+#' @name meuse
+#' @docType data
+#' @keywords data
+#' @examples
+#' data(meuse,package='geostats')
+#' semivariogram(x=meuse$x,y=meuse$y,z=log(meuse$cadmium))
+NULL

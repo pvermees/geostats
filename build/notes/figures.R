@@ -4252,6 +4252,100 @@ geostats::stereonet(trd=meanfault[1],plg=meanfault[2],
 legend('topleft',legend='b)',adj=c(2,0),bty='n')
 dev.off()
 
+data('meuse',package='geostats')
+X <- meuse$x
+Y <- meuse$y
+Z <- log(meuse$zinc)
+
+cairo(file='../../figures/meusepoints.pdf',width=5,height=4)
+pars(mar=c(1.5,3,2,0))
+geostats::colourplot(X=X,Y=Y,Z=Z,colspec=grey,
+                     key.title=title('ln[Zn]'),cex=0.7,
+                     extra={text(179850,331650,labels='?')})
+dev.off()
+
+if (FALSE){
+    N <- length(X)
+    dXY <- as.matrix(dist(cbind(X,Y)))
+    dZ <- as.matrix(dist(cbind(Z,Z)))
+    d <- matrix(dXY[upper.tri(dXY,diag=TRUE)],N,N) +
+        matrix(dZ[lower.tri(dZ,diag=TRUE)],N,N)
+    signif(d[c(1:10,N),c(1:10,N)],2)
+}
+
+fit <- geostats::semivariogram(x=X,y=Y,z=Z,plot=FALSE,fit=TRUE)
+
+cairo(file='../../figures/semivariogram.pdf',width=3,height=3)
+pars(mgp=c(1.2,0.5,0))
+geostats::semivariogram(x=X,y=Y,z=Z,plot=TRUE,fit=FALSE)
+dev.off()
+
+cairo(file='../../figures/semivariogramfit.pdf',width=7,height=1.75)
+pars(mfrow=c(1,4),mgp=c(1.2,0.5,0))
+geostats::semivariogram(x=X,y=Y,z=Z,plot=TRUE,fit=TRUE,model='exponential')
+legend('topleft',legend='a)',bty='n',adj=c(2,0),cex=1.2)
+geostats::semivariogram(x=X,y=Y,z=Z,plot=TRUE,fit=TRUE,model='gaussian')
+legend('topleft',legend='b)',bty='n',adj=c(2,0),cex=1.2)
+geostats::semivariogram(x=X,y=Y,z=Z,plot=TRUE,fit=TRUE,model='linear')
+legend('topleft',legend='c)',bty='n',adj=c(2,0),cex=1.2)
+svm <- geostats::semivariogram(x=X,y=Y,z=Z,plot=TRUE,fit=TRUE,model='spherical')
+legend('topleft',legend='d)',bty='n',adj=c(2,0),cex=1.2)
+dev.off()
+
+cairo(file='../../figures/snr.pdf',width=3,height=3)
+pars(mar=c(2.5,2.3,0.75,0.25),mgp=c(1.2,0.5,0))
+plot(x=c(0,500,1500),y=c(0.1,0.6,0.6),type='l',lwd=3,
+     xlab='lag',ylab=expression(gamma(lag)),
+     xlim=c(-50,1550),ylim=c(0,0.62),bty='n')
+arrows(x0=-50,y0=0,x1=-50,y1=0.1,length=0.05,angle=90,code=3)
+arrows(x0=1550,y0=0,x1=1550,y1=0.6,length=0.05,angle=90,code=3)
+arrows(x0=0,y0=0.61,x1=500,y1=0.61,length=0.05,angle=90,code=3)
+lines(x=c(-50,0),y=c(0.1,0.1),lty=3)
+lines(x=c(-50,1550),y=c(0,0),lty=3)
+text(x=-50,y=0.05,labels=expression(nugget~(c[n])),pos=4)
+lines(x=c(0,0),y=c(0.1,0.61),lty=3)
+lines(x=c(500,500),y=c(0.6,0.61),lty=3)
+text(x=250,y=0.61,labels=expression(range~(c[r])),pos=3,xpd=NA)
+lines(x=c(1500,1550),y=c(0.6,0.6),lty=3)
+text(x=1550,y=0.15,labels=expression(sill~(c[s])),pos=2)
+dev.off()
+
+#png(file='../../figures/meusecontour.png',type='cairo',
+#    family="serif",width=1000,height=800)
+cairo(file='../../figures/meusecontour.pdf',width=5,height=4)
+pars(mar=c(1.5,3,2,0))
+dX <- (max(X)-min(X))/10
+dY <- (max(Y)-min(Y))/10
+xi <- seq(from=min(X)-dX,to=max(X)+dX,length.out=50)
+yi <- seq(from=min(Y)-dY,to=max(Y)+dY,length.out=50)
+zi <- geostats::kriging(x=X,y=Y,z=Z,svm=svm,xi=xi,yi=yi,grid=TRUE)
+mZ <- min(zi,na.rm=TRUE)
+MZ <- max(zi,na.rm=TRUE)
+geostats::colourplot(x=xi,y=yi,z=zi,X=X,Y=Y,Z=Z,colspec=grey,
+                     key.title=title('ln[Zn]'),cex=0.7)
+dev.off()
+
+if (FALSE){
+    znew <- geostats::kriging(x=X,y=Y,z=Z,svm=svm,
+                              xi=179850,yi=331650,grid=TRUE,err=FALSE)
+    sznew <- geostats::kriging(x=X,y=Y,z=Z,svm=svm,
+                               xi=179850,yi=331650,grid=TRUE,err=TRUE)
+}
+
+cairo(file='../../figures/meusecontourerr.pdf',width=5,height=4)
+pars(mar=c(1.5,3,2,0))
+dX <- (max(X)-min(X))/10
+dY <- (max(Y)-min(Y))/10
+xi <- seq(from=min(X)-dX,to=max(X)+dX,length.out=50)
+yi <- seq(from=min(Y)-dY,to=max(Y)+dY,length.out=50)
+zi <- sqrt(geostats::kriging(x=X,y=Y,z=Z,svm=svm,xi=xi,yi=yi,grid=TRUE,err=TRUE))
+mZ <- min(zi,na.rm=TRUE)
+MZ <- max(zi,na.rm=TRUE)
+geostats::colourplot(x=xi,y=yi,z=zi,colspec=grey,cex=0.7,
+                     key.title=title("s(Zr)/Zr",cex.main=1.04)
+                     )
+dev.off()
+
 cairo(file='../../slides/locationdispersionshape.pdf',width=4,height=2)
 pars(mfrow=c(2,3),mgp=c(1.2,0.5,0))
 x <- seq(from=-10,to=10,length.out=200)
