@@ -1,128 +1,128 @@
 \contentsline {chapter}{\numberline {1}Introduction}{7}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Plotting data}{9}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Categorical data}{10}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Count data}{10}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Continuous data}{11}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Data transformations}{15}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Multivariate distributions}{17}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Empirical cumulative distribution fuctions}{17}{section.2.6}%
-\contentsline {chapter}{\numberline {3}Summary statistics}{19}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Location}{19}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Dispersion}{22}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Shape}{23}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Box-and-whisker plots}{24}{section.3.4}%
-\contentsline {chapter}{\numberline {4}Probability}{25}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Permutations}{26}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Combinations}{27}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Conditional probability}{28}{section.4.3}%
-\contentsline {chapter}{\numberline {5}The binomial distribution}{31}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Parameter estimation}{33}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Hypothesis tests}{34}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Statistical power}{36}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Type-I and type-II errors}{39}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Pitfalls of statistical hypothesis testing}{41}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Confidence intervals}{43}{section.5.6}%
-\contentsline {chapter}{\numberline {6}The Poisson distribution}{47}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Probability mass function}{49}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Parameter estimation}{50}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Hypothesis tests}{51}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Multiple testing}{52}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Confidence intervals}{53}{section.6.5}%
-\contentsline {chapter}{\numberline {7}The normal distribution}{55}{chapter.7}%
-\contentsline {section}{\numberline {7.1}The Central Limit Theorem}{56}{section.7.1}%
-\contentsline {section}{\numberline {7.2}The multivariate normal distribution}{58}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Properties}{60}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Parameter estimation}{61}{section.7.4}%
-\contentsline {chapter}{\numberline {8}Error propagation}{65}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Linear approximation}{66}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Examples}{68}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Standard deviation vs. standard error}{73}{section.8.3}%
-\contentsline {section}{\numberline {8.4}Fisher Information}{74}{section.8.4}%
-\contentsline {chapter}{\numberline {9}Comparing distributions}{77}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Q-Q plots}{77}{section.9.1}%
-\contentsline {section}{\numberline {9.2}The t-test}{78}{section.9.2}%
-\contentsline {section}{\numberline {9.3}Confidence intervals}{81}{section.9.3}%
-\contentsline {section}{\numberline {9.4}The $\chi ^2$-test}{83}{section.9.4}%
-\contentsline {section}{\numberline {9.5}Comparing two or more samples}{85}{section.9.5}%
-\contentsline {section}{\numberline {9.6}Cherry picking (Type-I errors revisited)}{87}{section.9.6}%
-\contentsline {section}{\numberline {9.7}Effect size (Type-II errors revisited)}{88}{section.9.7}%
-\contentsline {section}{\numberline {9.8}Non-parametric tests}{91}{section.9.8}%
-\contentsline {chapter}{\numberline {10}Regression}{97}{chapter.10}%
-\contentsline {section}{\numberline {10.1}The correlation coefficient}{98}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Least Squares}{100}{section.10.2}%
-\contentsline {section}{\numberline {10.3}Maximum Likelihood}{101}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Common mistakes}{104}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Weighted regression}{106}{section.10.5}%
-\contentsline {chapter}{\numberline {11}Fractals and chaos}{109}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Power law distributions}{110}{section.11.1}%
-\contentsline {section}{\numberline {11.2}How long is the coast of Britain?}{112}{section.11.2}%
-\contentsline {section}{\numberline {11.3}Fractals}{114}{section.11.3}%
-\contentsline {section}{\numberline {11.4}Chaos}{118}{section.11.4}%
-\contentsline {chapter}{\numberline {12}Unsupervised learning}{121}{chapter.12}%
-\contentsline {section}{\numberline {12.1}Principal Component Analysis}{121}{section.12.1}%
-\contentsline {section}{\numberline {12.2}Multidimensional Scaling}{124}{section.12.2}%
-\contentsline {section}{\numberline {12.3}K-means clustering}{128}{section.12.3}%
-\contentsline {section}{\numberline {12.4}Hierarchical clustering}{130}{section.12.4}%
-\contentsline {chapter}{\numberline {13}Supervised learning}{135}{chapter.13}%
-\contentsline {section}{\numberline {13.1}Discriminant Analysis}{135}{section.13.1}%
-\contentsline {section}{\numberline {13.2}Decision trees}{138}{section.13.2}%
-\contentsline {chapter}{\numberline {14}Compositional data}{143}{chapter.14}%
-\contentsline {section}{\numberline {14.1}Ratio data}{143}{section.14.1}%
-\contentsline {section}{\numberline {14.2}Logratio transformations}{144}{section.14.2}%
-\contentsline {section}{\numberline {14.3}PCA of compositional data}{147}{section.14.3}%
-\contentsline {section}{\numberline {14.4}LDA of compositional data}{150}{section.14.4}%
-\contentsline {section}{\numberline {14.5}Logratio processes}{152}{section.14.5}%
-\contentsline {chapter}{\numberline {15}Directional data}{155}{chapter.15}%
-\contentsline {section}{\numberline {15.1}Circular data}{155}{section.15.1}%
-\contentsline {section}{\numberline {15.2}Circular distributions}{157}{section.15.2}%
-\contentsline {section}{\numberline {15.3}Spherical data}{158}{section.15.3}%
-\contentsline {section}{\numberline {15.4}Spherical distributions}{161}{section.15.4}%
-\contentsline {chapter}{\numberline {16}Spatial data}{163}{chapter.16}%
-\contentsline {section}{\numberline {16.1}The semivariogram}{164}{section.16.1}%
-\contentsline {section}{\numberline {16.2}Semivariogram models}{166}{section.16.2}%
-\contentsline {section}{\numberline {16.3}Kriging interpolation}{168}{section.16.3}%
-\contentsline {chapter}{\numberline {17}An introduction to \texttt {R}}{171}{chapter.17}%
-\contentsline {section}{\numberline {17.1}The basics}{171}{section.17.1}%
-\contentsline {section}{\numberline {17.2}Plotting data}{177}{section.17.2}%
-\contentsline {section}{\numberline {17.3}Summary Statistics}{180}{section.17.3}%
-\contentsline {section}{\numberline {17.4}Probability}{181}{section.17.4}%
-\contentsline {section}{\numberline {17.5}The binomial distribution}{182}{section.17.5}%
-\contentsline {section}{\numberline {17.6}The Poisson distribution}{185}{section.17.6}%
-\contentsline {section}{\numberline {17.7}The normal distribution}{187}{section.17.7}%
-\contentsline {section}{\numberline {17.8}Error propagation}{187}{section.17.8}%
-\contentsline {section}{\numberline {17.9}Comparing distributions}{189}{section.17.9}%
-\contentsline {section}{\numberline {17.10}Regression}{192}{section.17.10}%
-\contentsline {section}{\numberline {17.11}Fractals and chaos}{195}{section.17.11}%
-\contentsline {section}{\numberline {17.12}Unsupervised learning}{195}{section.17.12}%
-\contentsline {section}{\numberline {17.13}Supervised learning}{197}{section.17.13}%
-\contentsline {section}{\numberline {17.14}Compositional data}{199}{section.17.14}%
-\contentsline {chapter}{\numberline {18}Exercises}{201}{chapter.18}%
-\contentsline {section}{\numberline {18.1}The basics}{201}{section.18.1}%
-\contentsline {section}{\numberline {18.2}Plotting data}{201}{section.18.2}%
-\contentsline {section}{\numberline {18.3}Summary statistics}{202}{section.18.3}%
-\contentsline {section}{\numberline {18.4}Probability}{202}{section.18.4}%
-\contentsline {section}{\numberline {18.5}The binomial distribution}{202}{section.18.5}%
-\contentsline {section}{\numberline {18.6}The Poisson distribution}{203}{section.18.6}%
-\contentsline {section}{\numberline {18.7}The normal distribution}{203}{section.18.7}%
-\contentsline {section}{\numberline {18.8}Error propagation}{204}{section.18.8}%
-\contentsline {section}{\numberline {18.9}Comparing distributions}{205}{section.18.9}%
-\contentsline {section}{\numberline {18.10}Regression}{205}{section.18.10}%
-\contentsline {section}{\numberline {18.11}Fractals and chaos}{206}{section.18.11}%
-\contentsline {section}{\numberline {18.12}Unsupervised learning}{206}{section.18.12}%
-\contentsline {section}{\numberline {18.13}Supervised learning}{207}{section.18.13}%
-\contentsline {section}{\numberline {18.14}Compositional data}{207}{section.18.14}%
-\contentsline {chapter}{\numberline {19}Solutions}{209}{chapter.19}%
-\contentsline {section}{\numberline {19.1}The basics}{209}{section.19.1}%
-\contentsline {section}{\numberline {19.2}Plotting data}{210}{section.19.2}%
-\contentsline {section}{\numberline {19.3}Summary statistics}{211}{section.19.3}%
-\contentsline {section}{\numberline {19.4}Probability}{214}{section.19.4}%
-\contentsline {section}{\numberline {19.5}The binomial distribution}{215}{section.19.5}%
-\contentsline {section}{\numberline {19.6}The Poisson distribution}{218}{section.19.6}%
-\contentsline {section}{\numberline {19.7}The normal distribution}{219}{section.19.7}%
-\contentsline {section}{\numberline {19.8}Error propagation}{221}{section.19.8}%
-\contentsline {section}{\numberline {19.9}Comparing distributions}{223}{section.19.9}%
-\contentsline {section}{\numberline {19.10}Regression}{225}{section.19.10}%
-\contentsline {section}{\numberline {19.11}Fractals and chaos}{226}{section.19.11}%
-\contentsline {section}{\numberline {19.12}Unsupervised learning}{228}{section.19.12}%
-\contentsline {section}{\numberline {19.13}Supervised learning}{230}{section.19.13}%
-\contentsline {section}{\numberline {19.14}Compositional data}{232}{section.19.14}%
+\contentsline {chapter}{\numberline {2}Plotting data}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Categorical data}{12}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Count data}{12}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Continuous data}{13}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Data transformations}{17}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Multivariate distributions}{19}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Empirical cumulative distribution fuctions}{19}{section.2.6}%
+\contentsline {chapter}{\numberline {3}Summary statistics}{21}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Location}{21}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Dispersion}{24}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Shape}{25}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Box-and-whisker plots}{26}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Probability}{27}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Permutations}{28}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Combinations}{29}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Conditional probability}{30}{section.4.3}%
+\contentsline {chapter}{\numberline {5}The binomial distribution}{33}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Parameter estimation}{35}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Hypothesis tests}{36}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Statistical power}{38}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Type-I and type-II errors}{41}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Pitfalls of statistical hypothesis testing}{43}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Confidence intervals}{45}{section.5.6}%
+\contentsline {chapter}{\numberline {6}The Poisson distribution}{49}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Probability mass function}{51}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Parameter estimation}{52}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Hypothesis tests}{53}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Multiple testing}{54}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Confidence intervals}{55}{section.6.5}%
+\contentsline {chapter}{\numberline {7}The normal distribution}{57}{chapter.7}%
+\contentsline {section}{\numberline {7.1}The Central Limit Theorem}{58}{section.7.1}%
+\contentsline {section}{\numberline {7.2}The multivariate normal distribution}{60}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Properties}{62}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Parameter estimation}{63}{section.7.4}%
+\contentsline {chapter}{\numberline {8}Error propagation}{67}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Linear approximation}{68}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Examples}{70}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Standard deviation vs. standard error}{75}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Fisher Information}{76}{section.8.4}%
+\contentsline {chapter}{\numberline {9}Comparing distributions}{79}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Q-Q plots}{79}{section.9.1}%
+\contentsline {section}{\numberline {9.2}The t-test}{80}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Confidence intervals}{83}{section.9.3}%
+\contentsline {section}{\numberline {9.4}The $\chi ^2$-test}{85}{section.9.4}%
+\contentsline {section}{\numberline {9.5}Comparing two or more samples}{87}{section.9.5}%
+\contentsline {section}{\numberline {9.6}Cherry picking (Type-I errors revisited)}{89}{section.9.6}%
+\contentsline {section}{\numberline {9.7}Effect size (Type-II errors revisited)}{90}{section.9.7}%
+\contentsline {section}{\numberline {9.8}Non-parametric tests}{93}{section.9.8}%
+\contentsline {chapter}{\numberline {10}Regression}{99}{chapter.10}%
+\contentsline {section}{\numberline {10.1}The correlation coefficient}{100}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Least Squares}{102}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Maximum Likelihood}{103}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Common mistakes}{106}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Weighted regression}{108}{section.10.5}%
+\contentsline {chapter}{\numberline {11}Fractals and chaos}{111}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Power law distributions}{112}{section.11.1}%
+\contentsline {section}{\numberline {11.2}How long is the coast of Britain?}{114}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Fractals}{116}{section.11.3}%
+\contentsline {section}{\numberline {11.4}Chaos}{120}{section.11.4}%
+\contentsline {chapter}{\numberline {12}Unsupervised learning}{123}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Principal Component Analysis}{123}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Multidimensional Scaling}{126}{section.12.2}%
+\contentsline {section}{\numberline {12.3}K-means clustering}{130}{section.12.3}%
+\contentsline {section}{\numberline {12.4}Hierarchical clustering}{132}{section.12.4}%
+\contentsline {chapter}{\numberline {13}Supervised learning}{137}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Discriminant Analysis}{137}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Decision trees}{140}{section.13.2}%
+\contentsline {chapter}{\numberline {14}Compositional data}{145}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Ratio data}{145}{section.14.1}%
+\contentsline {section}{\numberline {14.2}Logratio transformations}{146}{section.14.2}%
+\contentsline {section}{\numberline {14.3}PCA of compositional data}{149}{section.14.3}%
+\contentsline {section}{\numberline {14.4}LDA of compositional data}{152}{section.14.4}%
+\contentsline {section}{\numberline {14.5}Logratio processes}{154}{section.14.5}%
+\contentsline {chapter}{\numberline {15}Directional data}{157}{chapter.15}%
+\contentsline {section}{\numberline {15.1}Circular data}{157}{section.15.1}%
+\contentsline {section}{\numberline {15.2}Circular distributions}{159}{section.15.2}%
+\contentsline {section}{\numberline {15.3}Spherical data}{160}{section.15.3}%
+\contentsline {section}{\numberline {15.4}Spherical distributions}{163}{section.15.4}%
+\contentsline {chapter}{\numberline {16}Spatial data}{165}{chapter.16}%
+\contentsline {section}{\numberline {16.1}The semivariogram}{166}{section.16.1}%
+\contentsline {section}{\numberline {16.2}Semivariogram models}{168}{section.16.2}%
+\contentsline {section}{\numberline {16.3}Kriging interpolation}{170}{section.16.3}%
+\contentsline {chapter}{\numberline {17}An introduction to \texttt {R}}{173}{chapter.17}%
+\contentsline {section}{\numberline {17.1}The basics}{173}{section.17.1}%
+\contentsline {section}{\numberline {17.2}Plotting data}{179}{section.17.2}%
+\contentsline {section}{\numberline {17.3}Summary Statistics}{182}{section.17.3}%
+\contentsline {section}{\numberline {17.4}Probability}{183}{section.17.4}%
+\contentsline {section}{\numberline {17.5}The binomial distribution}{184}{section.17.5}%
+\contentsline {section}{\numberline {17.6}The Poisson distribution}{187}{section.17.6}%
+\contentsline {section}{\numberline {17.7}The normal distribution}{189}{section.17.7}%
+\contentsline {section}{\numberline {17.8}Error propagation}{189}{section.17.8}%
+\contentsline {section}{\numberline {17.9}Comparing distributions}{191}{section.17.9}%
+\contentsline {section}{\numberline {17.10}Regression}{194}{section.17.10}%
+\contentsline {section}{\numberline {17.11}Fractals and chaos}{197}{section.17.11}%
+\contentsline {section}{\numberline {17.12}Unsupervised learning}{197}{section.17.12}%
+\contentsline {section}{\numberline {17.13}Supervised learning}{199}{section.17.13}%
+\contentsline {section}{\numberline {17.14}Compositional data}{201}{section.17.14}%
+\contentsline {chapter}{\numberline {18}Exercises}{203}{chapter.18}%
+\contentsline {section}{\numberline {18.1}The basics}{203}{section.18.1}%
+\contentsline {section}{\numberline {18.2}Plotting data}{203}{section.18.2}%
+\contentsline {section}{\numberline {18.3}Summary statistics}{204}{section.18.3}%
+\contentsline {section}{\numberline {18.4}Probability}{204}{section.18.4}%
+\contentsline {section}{\numberline {18.5}The binomial distribution}{204}{section.18.5}%
+\contentsline {section}{\numberline {18.6}The Poisson distribution}{205}{section.18.6}%
+\contentsline {section}{\numberline {18.7}The normal distribution}{205}{section.18.7}%
+\contentsline {section}{\numberline {18.8}Error propagation}{206}{section.18.8}%
+\contentsline {section}{\numberline {18.9}Comparing distributions}{207}{section.18.9}%
+\contentsline {section}{\numberline {18.10}Regression}{207}{section.18.10}%
+\contentsline {section}{\numberline {18.11}Fractals and chaos}{208}{section.18.11}%
+\contentsline {section}{\numberline {18.12}Unsupervised learning}{208}{section.18.12}%
+\contentsline {section}{\numberline {18.13}Supervised learning}{209}{section.18.13}%
+\contentsline {section}{\numberline {18.14}Compositional data}{209}{section.18.14}%
+\contentsline {chapter}{\numberline {19}Solutions}{211}{chapter.19}%
+\contentsline {section}{\numberline {19.1}The basics}{211}{section.19.1}%
+\contentsline {section}{\numberline {19.2}Plotting data}{212}{section.19.2}%
+\contentsline {section}{\numberline {19.3}Summary statistics}{213}{section.19.3}%
+\contentsline {section}{\numberline {19.4}Probability}{216}{section.19.4}%
+\contentsline {section}{\numberline {19.5}The binomial distribution}{217}{section.19.5}%
+\contentsline {section}{\numberline {19.6}The Poisson distribution}{220}{section.19.6}%
+\contentsline {section}{\numberline {19.7}The normal distribution}{221}{section.19.7}%
+\contentsline {section}{\numberline {19.8}Error propagation}{223}{section.19.8}%
+\contentsline {section}{\numberline {19.9}Comparing distributions}{225}{section.19.9}%
+\contentsline {section}{\numberline {19.10}Regression}{227}{section.19.10}%
+\contentsline {section}{\numberline {19.11}Fractals and chaos}{228}{section.19.11}%
+\contentsline {section}{\numberline {19.12}Unsupervised learning}{230}{section.19.12}%
+\contentsline {section}{\numberline {19.13}Supervised learning}{232}{section.19.13}%
+\contentsline {section}{\numberline {19.14}Compositional data}{234}{section.19.14}%
