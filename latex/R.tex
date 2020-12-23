@@ -1819,3 +1819,180 @@ This produces:
 basalt.
 
 \end{enumerate}
+
+\section{Directional data}
+\label{sec:R-directional}
+
+Base \texttt{R} does not include little or no built-in functions for
+directional data analysis. So this tutorial will heavily depend on the
+\texttt{geostats} package.
+
+\begin{enumerate}
+
+\item Load the glacial striation data into memory and plot them on a
+  circle:
+
+\begin{script}
+data(striations,package='geostats')
+circle.plot(striations,degrees=TRUE)
+\end{script}
+
+\noindent where the options \texttt{degrees} accounts for the fact
+that the \texttt{striations} data are expressed in degrees.  Change to
+\texttt{degrees=FALSE} for radians. Add the arithmetic mean and vector
+mean to the plot as a white and black square, respectively:
+
+\begin{script}[firstnumber=3]
+circle.points(mean(striations),pch=22,bg='white',degrees=TRUE)
+md <- meanangle(striations,degrees=TRUE)
+circle.points(md,pch=21,bg='black',degrees=TRUE)
+\end{script}
+
+\item Compute the concentration parameter $\bar{R}$:
+
+\begin{script}
+R <- Rbar(striations,degrees=TRUE)
+\end{script}
+
+Converting to the von Mises parameter $\kappa$ using
+Equation~\ref{eq:kappa}:
+
+\begin{script}[firstnumber=2]
+k <- Rbar2kappa(R)
+\end{script}
+
+Evaluating the von Mises distribution over the 0 -- 360$^{\circ}$
+interval:
+
+\begin{script}[firstnumber=3]
+R <- Rbar(striations,degrees=TRUE)
+k <- Rbar2kappa(R)
+a <- seq(from=0,to=360,length.out=100)
+d <- vonMises(a,mu=md,kappa=k,degrees=TRUE)
+plot(a,d,type='l')
+rug(striations)
+\end{script}
+
+\item To plot azimuths and dips on a Wulff stereonet:
+
+\begin{script}
+data(palaeomag,package='geostats')
+stereonet(trd=palaeomag$decl,plg=palaeomag$incl,
+          option=1,degrees=TRUE,show.grid=FALSE)
+\end{script}
+
+For strikes and dips, use the \texttt{option=2} argument:
+
+\begin{script}
+data(fault,package='geostats')
+stereonet(trd=fault$strike,plg=fault=dip,
+          option=2,degrees=TRUE,show.grid=FALSE)
+\end{script}
+
+To plot geographical coordinates (e.g, 30$^\circ$ longitude and
+-20$^\circ$ latitude) on a Schmidt stereonet:
+
+\begin{script}
+stereonet(trd=30,plg=-20,degrees=TRUE,
+          option=3,show.grid=TRUE,wulff=FALSE)
+\end{script}
+
+To add five cones of 10 degree radius to the existing plot (as in
+Figure~\ref{fig:wulffschmidt}.b):
+
+\begin{script}[firstnumber=2]
+stereonet(trd=c(0,0,90,180,270),plg=c(90,10,10,10,10),coneAngle=rep(10,5),
+          option=4,degrees=TRUE,add=TRUE,wulff=FALSE)
+\end{script}
+
+\item To compute the average azimuth and dip and add it to a Wulff net:
+
+\begin{script}
+A <- palaeomag$decl
+D <- palaeomag$incl
+meanpalaeomag <- meanangle(trd=A,plg=D,option=1,degrees=TRUE)
+stereonet(trd=A,plg=D,degrees=TRUE,show.grid=FALSE,pch=16,col='grey')
+stereonet(trd=meanpalaeomag[1],plg=meanpalaeomag[2],
+          option=1degrees=TRUE,add=TRUE,pch=16,col='black')
+\end{script}
+
+To average strike and dip measurements:
+
+\begin{script}
+S <- fault$strike
+D <- palaeomag$incl
+meanfault <- meanangle(trd=S,plg=D,option=2,degrees=TRUE)
+stereonet(trd=S,plg=D,option=2,degrees=TRUE,
+          show.grid=FALSE,pch=16,col='grey')
+stereonet(trd=meanfault[1],plg=meanfault[2],
+          option=2,degrees=TRUE,add=TRUE,pch=16,col='black')
+\end{script}
+
+\end{enumerate}
+
+\section{Spatial data}
+\label{sec:R-spatial}
+
+\begin{enumerate}
+
+\item Load the Meuse dataset, define three shorthand variables, and
+  plot them on a map:
+
+\begin{script}
+data(meuse,package='geostats')
+X <- meuse$x  # Easting
+Y <- meuse$y  # Northing
+Z <- log(meuse$zinc)
+colourplot(X=X,Y=Y,Z=Z,colspec=grey,key.title=title('ln[Zn]'))
+\end{script}
+
+\item Plot the empirical semivariogram and fit a spherical
+  semivariogram model to it:
+
+\begin{script}[firstnumber=6]
+svm <- semivariogram(x=X,y=Y,z=Z)
+\end{script}
+
+Query the fit parameters:
+
+\begin{console}
+> svm$snr
+        sill       nugget        range 
+  0.63756843   0.03512741 892.01855323 
+\end{console}
+
+To fit a linear semivariogram model:
+
+\begin{script}[firstnumber=6]
+svm <- semivariogram(x=X,y=Y,z=Z,model='linear')
+\end{script}
+
+Other options for the \texttt{model} argument are
+\verb|'exponential'| and \verb|'gaussian'|.
+
+\item Estimating the ln[Zn]-value for the new location
+  $\{x_\circ=179850,y_\circ=331650\}$:
+
+\begin{console}
+> kriging(x=X,y=Y,z=Z,svm=svm,xi=179850,yi=331650)
+[1] 4.960332
+\end{console}
+
+\noindent and its variance:
+
+\begin{console}
+> kriging(x=X,y=Y,z=Z,svm=svm,xi=179850,yi=331650,err=TRUE)
+[1] 0.2116582
+\end{console}
+
+\item Evaluate the ln[Zn]-values for a grid of locations and plot as a
+  contour map:
+
+\begin{script}[firstnumber=7]
+xi <- seq(from=min(X),to=max(X),length.out=50)
+yi <- seq(from=min(Y),to=max(Y),length.out=50)
+zi <- kriging(x=X,y=Y,z=Z,svm=svm,xi=xi,yi=yi,grid=TRUE)
+colourplot(x=xi,y=yi,z=zi,colspec=grey,key.title=title('ln[Zn]'))
+\end{script}
+  
+\end{enumerate}

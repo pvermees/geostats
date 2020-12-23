@@ -286,7 +286,7 @@ NULL
 #' @keywords data
 #' @examples
 #' data(palaeomag,package='geostats')
-#' stereonet(palaeomag,degrees=TRUE,show.grid=FALSE)
+#' stereonet(trd=palaeomag$decl,plg=palaeomag$incl,degrees=TRUE,show.grid=FALSE)
 NULL
 
 #' fault orientation data
@@ -301,7 +301,7 @@ NULL
 #' @keywords data
 #' @examples
 #' data(fault,package='geostats')
-#' stereonet(fault,option=2,degrees=TRUE,show.grid=FALSE)
+#' stereonet(trd=fault$strike,plg=fault=dip,option=2,degrees=TRUE,show.grid=FALSE)
 NULL
 
 #' Meuse river data set

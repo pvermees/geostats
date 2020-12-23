@@ -4,7 +4,17 @@
 \alias{semivariogram}
 \title{semivariogram}
 \usage{
-semivariogram(x, y, z, bw = NULL, plot = TRUE, fit = TRUE, ...)
+semivariogram(
+  x,
+  y,
+  z,
+  bw = NULL,
+  nb = 13,
+  plot = TRUE,
+  fit = TRUE,
+  model = c("spherical", "linear", "exponential", "gaussian"),
+  ...
+)
 }
 \arguments{
 \item{x}{numerical vector}
@@ -16,11 +26,16 @@ semivariogram(x, y, z, bw = NULL, plot = TRUE, fit = TRUE, ...)
 \item{bw}{(optional) the bin width of the semivariance search
 algorithm}
 
+\item{nb}{(optional) the maximum number of bins to evaluate}
+
 \item{plot}{logical. If \code{FALSE}, suppresses the graphical
 output}
 
 \item{fit}{logical. If \code{TRUE}, returns the sill, nugget and
 range.}
+
+\item{model}{the parametric model to fit to the empirical
+semivariogram (only used if \code{fit=TRUE}).}
 
 \item{...}{optional arguments to be passed on to the generic
 \code{plot} function}

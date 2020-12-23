@@ -1587,3 +1587,74 @@ samples from 60 to 48 for the training data, and from 32 to 19 for the
 test data.
 
 \end{enumerate}
+
+\section{Directional data}
+\label{sec:sol-directional}
+
+\begin{enumerate}
+
+\item Store the data into two variables:
+
+\begin{script}
+A <- c(50,55,40,60,45)
+B <- c(350,10,5,358)
+\end{script}
+
+Then the difference of the vector means is given by
+
+\begin{console}
+> meanangle(A,degrees=TRUE) - meanangle(B,degrees=TRUE)
+[1] 49.24496
+\end{console}
+
+(for comparison, the difference of the arithmetic means is
+$-131^\circ$)
+
+\item Load the earthquake data and extract the latitude and longitude
+  values:
+
+\begin{script}  
+data(earthquakes,package='geostats')
+lon <- earthquakes$lon
+lat <- earthquakes$lat
+\end{script}
+
+Select the plottable longitudes and show on a Schmidt net:
+
+\begin{script}[firstnumber=4]
+good <- (lon>-90 & lon<90)
+stereonet(trd=lon[good],plg=lat[good],option=3,degrees=TRUE,wulff=FALSE)
+\end{script}
+
+\item Store the data into two data frames:
+
+\begin{script}
+F1 <- data.frame(strike=c(200,195,210,205),dip=c(70,68,71,67))
+F2 <- data.frame(strike=c(20,25,18,17,16),dip=c(10,12,9,14,11))
+\end{script}
+
+Plot the two sets of fault measurements on a single Wulff diagram:
+
+\begin{script}[firstnumber=3]
+stereonet(trd=F1$strike,plg=F1$dip,option=2,degrees=TRUE)
+stereonet(trd=F2$strike,plg=F2$dip,option=2,degrees=TRUE,add=TRUE,col='grey')
+\end{script}
+
+Calculate the mean strike and dip:
+
+\begin{script}[firstnumber=5]
+mF1 <- meanangle(trd=F1$strike,plg=F1$dip,option=2,degrees=TRUE)
+mF2 <- meanangle(trd=F2$strike,plg=F2$dip,option=2,degrees=TRUE)
+\end{script}
+
+Add these values to the existing stereoplot:
+
+\begin{script}[firstnumber=5]
+
+\end{script}
+stereonet(trd=mF1[1],plg=mF1[2],option=2,degrees=TRUE,add=TRUE,pch=15)
+stereonet(trd=mF2[1],plg=mF2[2],option=2,degrees=TRUE,add=TRUE,pch=15,col='grey')
+\end{enumerate}
+
+\section{Spatial data}
+\label{sec:sol-spatial}

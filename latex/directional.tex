@@ -220,9 +220,9 @@ expressed as latitude ($l$) and longitude ($L$):
 \begin{equation}
   \left\{
   \begin{split}
-    x & = \cos[l]\cos[L]\\
+    x & = \cos[l]\sin[L]\\
     y & = \sin[l]\\
-    z & = \cos[l]\sin[L]
+    z & = -\cos[l]\cos[L]
   \end{split}
   \right.
   \label{eq:lL}
@@ -233,8 +233,8 @@ expressed as latitude ($l$) and longitude ($L$):
 \begin{equation}
   \left\{
   \begin{split}
-    x & = \cos[D]\cos[S]\\
-    y & = -\cos[D]\sin[S]\\
+    x & = -\cos[D]\sin[S]\\
+    y & = \cos[D]\cos[S]\\
     z & = \sin[D]
   \end{split}
   \right.
@@ -246,8 +246,8 @@ expressed as latitude ($l$) and longitude ($L$):
 \begin{equation}
   \left\{
   \begin{split}
-    x & = \cos[D] \sin[A]\\
-    y & = \cos[D] \cos[A]\\
+    x & = \cos[D] \cos[A]\\
+    y & = \cos[D] \sin[A]\\
     z & = \sin[D]
   \end{split}
   \right.
@@ -270,7 +270,7 @@ projection, using either a Wulff equal angle or a Schmidt equal area
     dips of $10^{\circ}$ and $90^\circ$. As the names suggest, the
     Wulff net preserves the shape of the circles, and the Schmidt net
     their area.\\}
-  \label{fig:wulfschmidt}
+  \label{fig:wulffschmidt}
 \end{minipage}
 
 The Wulff net is used in structural geology and the Schmidt net in
@@ -416,7 +416,7 @@ Then the average latitude and longitude are given by:
 \begin{equation}
   \left\{
   \begin{split}
-  \bar{L} & = \arccos\left({\bar{x}}/{\sqrt{1-\bar{y}^2}}\right)\\
+  \bar{L} & = \arctan\left(-\bar{x}/\bar{z}\right)\\
   \bar{l} & = \arcsin\left(\bar{y}\right)
   \end{split}
   \right.
@@ -427,7 +427,7 @@ Then the average latitude and longitude are given by:
 \begin{equation}
   \left\{
   \begin{split}
-    \bar{S} & = \arccos\left({\bar{x}}/{\sqrt{1-\bar{z}^2}}\right)\\
+    \bar{S} & = \arccos\left(-\bar{x}/\bar{y}\right)\\
     \bar{D} & = \arcsin\left(\bar{z}\right)
   \end{split}
   \right.
@@ -438,7 +438,7 @@ Then the average latitude and longitude are given by:
 \begin{equation}
   \left\{
   \begin{split}
-    \bar{D} & = \arccos\left({\bar{y}}/{\sqrt{1-\bar{z}^2}}\right)\\
+    \bar{D} & = \arccos\left(\bar{y}/\bar{x}\right)\\
     \bar{A} & = \arcsin\left(\bar{z}\right)
   \end{split}
   \right.

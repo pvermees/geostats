@@ -15,6 +15,7 @@ colourplot(
   nlevels = 20,
   colspec = rainbow,
   pch = 21,
+  cex = 1,
   plot.title,
   plot.axes,
   key.title,
@@ -25,6 +26,7 @@ colourplot(
   las = 1,
   axes = TRUE,
   frame.plot = axes,
+  extra,
   ...
 )
 }
@@ -55,6 +57,8 @@ levels.}
 
 \item{pch}{plot character (21 - 25)}
 
+\item{cex}{plot character magnification}
+
 \item{plot.title}{statements that add titles to the main plot.}
 
 \item{plot.axes}{statements that draw axes on the main plot. This
@@ -76,8 +80,13 @@ labeling.}
 \item{las}{the style of labeling to be used.  The default is to use
 horizontal labeling.}
 
-\item{frame.plot}{logicals indicating if axes and a box should be
-drawn, as in \code{\link{plot.default}}.}
+\item{axes}{logicals indicating if axes should be drawn}
+
+\item{frame.plot}{logicals indicating if a box should be drawn, as
+in \code{\link{plot.default}}.}
+
+\item{extra}{(optional) extra intructions to be carried out in the
+main plot window, such as text annotations.}
 
 \item{...}{additional graphical parameters}
 }

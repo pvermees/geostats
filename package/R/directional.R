@@ -54,7 +54,7 @@ circle.ticks <- function(a,degrees=FALSE,tl=0.1,...){
 #' data(striations,package='geostats')
 #' circle.plot(striations,degrees=TRUE)
 #' md <- meanangle(striations,degrees=TRUE)
-#' circle.points(md,pch=22,bg='black')
+#' circle.points(md,pch=22,bg='black',degrees=TRUE)
 #' @export
 circle.points <- function(a,degrees=FALSE,...){
     if (degrees) rads <- a*pi/180
@@ -85,7 +85,10 @@ circle.points <- function(a,degrees=FALSE,...){
 #' lines(x=(1+d)*cos(a),y=(1+d)*sin(a),xpd=NA)
 #' @export
 vonMises <- function(a,mu=0,kappa=1,degrees=FALSE){
-    if (degrees) rad <- a*pi/180
+    if (degrees) {
+        a <- a*pi/180
+        mu <- mu*pi/180
+    }
     num <- exp(kappa*cos(a-mu))
     den <- 2*pi*besselI(kappa,nu=0)
     num/den
@@ -167,21 +170,21 @@ vectorsum <- function(trd,plg=0,option=0,degrees=FALSE,Rbar=TRUE){
         if (option==1){
             az <- trd
             dip <- abs(plg)
-            x <- cos(dip)*sin(az)
-            y <- cos(dip)*cos(az)
+            x <- cos(dip)*cos(az)
+            y <- cos(dip)*sin(az)
             z <- sin(dip)
         } else if (option==2){
             strike <- trd
             dip <- plg
-            x <- cos(dip)*sin(strike)
-            y <- -cos(dip)*cos(strike)
+            x <- -cos(dip)*sin(strike)
+            y <- cos(dip)*cos(strike)
             z <- sin(dip)
         } else if (option==3){
-            lon <- trd-pi/2
+            lon <- trd
             lat <- plg
-            x <- cos(lat)*cos(lon)
+            x <- cos(lat)*sin(lon)
             y <- sin(lat)
-            z <- cos(lat)*sin(lon)
+            z <- -cos(lat)*cos(lon)
         } else {
             stop('Illegal option supplied to stereonet.point')
         }
@@ -192,22 +195,17 @@ vectorsum <- function(trd,plg=0,option=0,degrees=FALSE,Rbar=TRUE){
         zbar <- sum(z)/R
         out <- rep(0,2)
         if (option==1){
-            out[1] <- acos(ybar/sqrt(1-zbar^2))
+            out[1] <- atan(ybar/xbar)
             out[2] <- asin(zbar)
+            if (xbar<0) out[1] <- out[1] - pi
         } else if (option==2){
-            out[1] <- acos(xbar/sqrt(1-zbar^2))
+            out[1] <- atan(-xbar/ybar)
             out[2] <- asin(zbar)
-            if (xbar>0 & ybar>0){
-                out[1] <- out[1] + pi/2
-            } else if (xbar<0 & ybar>0){
-                out[1] <- out[1] + pi/2
-            } else if (xbar<0 & ybar<0){
-                out[1] <- out[1] + pi
-            }
+            if (ybar<0) out[1] <- out[1] - pi
         } else {
-            out[1] <- acos(xbar/sqrt(1-ybar^2))
+            out[1] <- atan(-xbar/zbar)
             out[2] <- asin(ybar)
-        }        
+        }
     }
     if (degrees) out <- out*180/pi
     out

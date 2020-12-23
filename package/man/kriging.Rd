@@ -4,7 +4,7 @@
 \alias{kriging}
 \title{kriging}
 \usage{
-kriging(x, y, z, xi, yi, snr, model = "spherical", grid = FALSE)
+kriging(x, y, z, xi, yi, svm, grid = FALSE, err = FALSE)
 }
 \arguments{
 \item{x}{numerical vector of training data}
@@ -19,16 +19,16 @@ points at which the \code{z}-values are to be evaluated.}
 \item{yi}{scalar or vector with the \code{x}-coordinates of the
 points at which the \code{z}-values are to be evaluated.}
 
+\item{grid}{logical. If \code{TRUE}, evaluates the kriging
+interpolator along a regular grid of values defined by
+\code{xi} and \code{yi}.}
+
 \item{snr}{output of the \code{\link{semivariogram}} function, a
 3-element vector with the sill, nugget and range of the
 semivariogram fit.}
 
 \item{model}{type of semivariogram fit. Currently only spherical
 functions are supported}
-
-\item{grid}{logical. If \code{TRUE}, evaluates the kriging
-interpolator along a regular grid of values defined by
-\code{xi} and \code{yi}.}
 }
 \value{
 either a vector (if \code{grid=FALSE}) or a matrix (if

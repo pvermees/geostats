@@ -162,7 +162,7 @@ kriging <- function(x,y,z,xi,yi,svm,grid=FALSE,err=FALSE){
     if (grid){
         good <- which(inhull(x,y,Xi,Yi))
     } else {
-        good <- 1:length(zi)
+        good <- 1:length(szi)
     }
     for (i in good){
         h <- sqrt((Xi[i]-x)^2+(Yi[i]-y)^2)

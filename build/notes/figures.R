@@ -4182,7 +4182,8 @@ dev.off()
 
 cairo(file='../../figures/Africa.pdf',width=7,height=3.5)
 pars(mfrow=c(1,2),mar=rep(1,4))
-Africa <- read.csv('~/Documents/Programming/R/geostats/build/notes/Africa.csv',header=TRUE)
+Africa <- read.csv('~/Documents/Programming/R/geostats/build/notes/Africa.csv',
+                   header=TRUE)
 geostats::stereonet(trd=Africa$lon,plg=Africa$lat,option=3,
                     degrees=TRUE,wulff=TRUE,type='l',lty=1.5)
 legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,0))
@@ -4327,9 +4328,9 @@ dev.off()
 
 if (FALSE){
     znew <- geostats::kriging(x=X,y=Y,z=Z,svm=svm,
-                              xi=179850,yi=331650,grid=TRUE,err=FALSE)
+                              xi=179850,yi=331650,err=FALSE)
     sznew <- geostats::kriging(x=X,y=Y,z=Z,svm=svm,
-                               xi=179850,yi=331650,grid=TRUE,err=TRUE)
+                               xi=179850,yi=331650,err=TRUE)
 }
 
 cairo(file='../../figures/meusecontourerr.pdf',width=5,height=4)

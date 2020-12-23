@@ -556,3 +556,40 @@ error weighted regression.
   transformation affect the misclassification rates?
   
 \end{enumerate}
+
+\section{Directional data}
+\label{sec:ex-directional}
+
+\begin{enumerate}
+
+\item Consider the following two sets of compass bearings:
+
+  \begin{tabular}{c|ccccc}
+    $A$ & 50 & 55 & 40 & 60 & 45 \\
+    $B$ & 350 & 10 & 5 & 358 & 
+  \end{tabular}
+
+  What is the difference of the vector means for $A$ and $B$?
+
+\item The \texttt{earthquakes} dataset in the \texttt{geostats}
+  package contains two columns with the longitude and latitude of
+  20,000 earthquakes.  Extract the events that took place between
+  longitudes $-90^\circ$W and +$90^\circ$E and plot them on a Schmidt
+  stereonet.
+
+\item Consider the following two sets of fault measurements:
+
+  \begin{tabular}{c|ccccc}
+    strike($F1$) & 200 & 195 & 210 & 205 \\
+    dip($F1$)    & 70  & 68  & 71  & 67  \\
+    strike($F2$) & 20 & 25 & 18 & 17 & 16 \\
+    dip($F2$)    & 10 & 12 & 9  & 14 & 11 \\
+  \end{tabular}
+
+  Plot the two sets of faults on a Wulff net and calculate the
+  difference of their mean strike and dip.
+  
+\end{enumerate}
+
+\section{Spatial data}
+\label{sec:ex-spatial}
