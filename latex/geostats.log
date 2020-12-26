@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.4.25)  23 DEC 2020 23:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.4.25)  26 DEC 2020 22:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -4958,7 +4958,7 @@ Overfull \hbox (27.37506pt too wide) detected at line 831
  []
 
 [228] [229] [230] [231] [232] [233]
-<../figures/PCAiris.pdf, id=4929, 216.81pt x 216.81pt>
+<../figures/PCAiris.pdf, id=4935, 216.81pt x 216.81pt>
 File: ../figures/PCAiris.pdf Graphic file (type pdf)
 <use ../figures/PCAiris.pdf>
 Package pdftex.def Info: ../figures/PCAiris.pdf  used on input line 1250.
@@ -4979,7 +4979,7 @@ Overfull \hbox (2.80838pt too wide) in paragraph at lines 1249--1265
  []
 
 [234]
-<../figures/elbow.pdf, id=4939, 216.81pt x 216.81pt>
+<../figures/elbow.pdf, id=4945, 216.81pt x 216.81pt>
 File: ../figures/elbow.pdf Graphic file (type pdf)
 <use ../figures/elbow.pdf>
 Package pdftex.def Info: ../figures/elbow.pdf  used on input line 1293.
@@ -5004,7 +5004,7 @@ Overfull \hbox (2.80838pt too wide) in paragraph at lines 1292--1302
 pdfTeX warning: pdflatex (file ../figures/elbow.pdf): PDF inclusion: multiple p
 dfs with page group included in a single page
 >]
-<../figures/DZtree.pdf, id=4964, 216.81pt x 144.54pt>
+<../figures/DZtree.pdf, id=4970, 216.81pt x 144.54pt>
 File: ../figures/DZtree.pdf Graphic file (type pdf)
 <use ../figures/DZtree.pdf>
 Package pdftex.def Info: ../figures/DZtree.pdf  used on input line 1315.
@@ -5025,7 +5025,7 @@ Overfull \hbox (2.80838pt too wide) in paragraph at lines 1314--1325
  []
 
 [236 <../figures/DZtree.pdf>] [237] [238]
-<../figures/testPCA.pdf, id=5007, 289.08pt x 289.08pt>
+<../figures/testPCA.pdf, id=5013, 289.08pt x 289.08pt>
 File: ../figures/testPCA.pdf Graphic file (type pdf)
 <use ../figures/testPCA.pdf>
 Package pdftex.def Info: ../figures/testPCA.pdf  used on input line 1542.
@@ -5045,16 +5045,58 @@ Overfull \hbox (2.80838pt too wide) in paragraph at lines 1541--1558
 [] [] 
  []
 
-[239 <../figures/testPCA.pdf>] [240]
-Overfull \hbox (397.27339pt too wide) in paragraph at lines 1655--1657
-\OT1/cmr/m/n/10.95 stereonet(trd=mF1[1],plg=mF1[2],option=2,degrees=TRUE,add=TR
-UE,pch=15) stere-onet(trd=mF2[1],plg=mF2[2],option=2,degrees=TRUE,add=TRUE,pch=
-15,col='grey') 
+[239 <../figures/testPCA.pdf>] [240] [241]
+<../figures/hills.pdf, id=5049, 578.16pt x 144.54pt>
+File: ../figures/hills.pdf Graphic file (type pdf)
+<use ../figures/hills.pdf>
+Package pdftex.def Info: ../figures/hills.pdf  used on input line 1726.
+(pdftex.def)             Requested size: 442.75502pt x 110.68741pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 1730.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (0.37506pt too wide) in paragraph at lines 1725--1732
+[]
  []
 
-)
+
+Overfull \hbox (0.37506pt too wide) in paragraph at lines 1725--1732
+[] 
+ []
+
+[242 <../figures/hills.pdf>]
+<../figures/sphvsexp.pdf, id=5081, 361.35pt x 289.08pt>
+File: ../figures/sphvsexp.pdf Graphic file (type pdf)
+<use ../figures/sphvsexp.pdf>
+Package pdftex.def Info: ../figures/sphvsexp.pdf  used on input line 1797.
+(pdftex.def)             Requested size: 265.6557pt x 212.52638pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 1807.
+See the caption package documentation for explanation.
+
+
+Underfull \hbox (badness 1540) in paragraph at lines 1807--1807
+\OT1/cmr/m/n/10.95 two krig-ing in-ter-po-la-tions for the
+ []
+
+
+Underfull \hbox (badness 1661) in paragraph at lines 1807--1807
+\OT1/cmr/m/n/10.95 ex-po-nen-tial semi-var-i-ogram mod-els.
+ []
+
+
+Overfull \hbox (2.80838pt too wide) in paragraph at lines 1796--1809
+[] [] 
+ []
+
+[243])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 126.
- [241]
+ [244 <../figures/sphvsexp.pdf>]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 126.
  (./geostats.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 126.
@@ -5064,10 +5106,10 @@ Package rerunfilecheck Info: File `geostats.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 126.
  ) 
 Here is how much of TeX's memory you used:
- 11314 strings out of 481239
- 182260 string characters out of 5920377
- 497296 words of memory out of 5000000
- 25004 multiletter control sequences out of 15000+600000
+ 11345 strings out of 481239
+ 182772 string characters out of 5920377
+ 497444 words of memory out of 5000000
+ 25018 multiletter control sequences out of 15000+600000
  548262 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,26n,42p,1047b,789s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -5099,10 +5141,10 @@ nts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on geostats.pdf (241 pages, 3344786 bytes).
+Output written on geostats.pdf (244 pages, 3420561 bytes).
 PDF statistics:
- 5392 PDF objects out of 6186 (max. 8388607)
- 4370 compressed objects within 44 object streams
- 1180 named destinations out of 1200 (max. 500000)
- 1998 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 5458 PDF objects out of 6186 (max. 8388607)
+ 4422 compressed objects within 45 object streams
+ 1195 named destinations out of 1200 (max. 500000)
+ 2008 words of extra memory for PDF output out of 10000 (max. 10000000)
 

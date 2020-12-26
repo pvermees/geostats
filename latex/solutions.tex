@@ -1633,11 +1633,13 @@ F1 <- data.frame(strike=c(200,195,210,205),dip=c(70,68,71,67))
 F2 <- data.frame(strike=c(20,25,18,17,16),dip=c(10,12,9,14,11))
 \end{script}
 
-Plot the two sets of fault measurements on a single Wulff diagram:
+Plot the two sets of fault measurements on a single Wulff diagram (in
+different colours to allow distinction):
 
 \begin{script}[firstnumber=3]
 stereonet(trd=F1$strike,plg=F1$dip,option=2,degrees=TRUE)
-stereonet(trd=F2$strike,plg=F2$dip,option=2,degrees=TRUE,add=TRUE,col='grey')
+stereonet(trd=F2$strike,plg=F2$dip,option=2,degrees=TRUE,
+          add=TRUE,col='grey')
 \end{script}
 
 Calculate the mean strike and dip:
@@ -1650,11 +1652,161 @@ mF2 <- meanangle(trd=F2$strike,plg=F2$dip,option=2,degrees=TRUE)
 Add these values to the existing stereoplot:
 
 \begin{script}[firstnumber=5]
-
-\end{script}
 stereonet(trd=mF1[1],plg=mF1[2],option=2,degrees=TRUE,add=TRUE,pch=15)
-stereonet(trd=mF2[1],plg=mF2[2],option=2,degrees=TRUE,add=TRUE,pch=15,col='grey')
+stereonet(trd=mF2[1],plg=mF2[2],option=2,degrees=TRUE,add=TRUE,pch=15,
+          col='grey')
+\end{script}
+
+Querying the mean vectors at the console:
+
+\begin{console}
+> mF1
+[1] -157.67178   69.08943
+> mF2
+[1] 19.19848 11.21677
+\end{console}
+
+The difference between the strikes and dips is -176.9$^\circ$ and
+57.9$^\circ$, respectively.
+
+\item The same \texttt{Rbar} function that was used for the circular
+  data in Section~\ref{sec:ex-directional}.\ref{it:Rbar} can also be
+  used to calculating the concentration parameter ($\bar{R}$) of
+  spherical data. For the \texttt{palaeomag} data:
+
+\begin{console}  
+> Rbar(trd=palaeomag$decl,plg=palaeomag$incl,option=1,degrees=TRUE)
+[1] 0.9927666
+\end{console}
+
+\noindent and for the \texttt{fault} data:
+
+\begin{console}  
+> Rbar(trd=fault$strike,plg=fault$dip,option=2,degrees=TRUE)
+[1] 0.9970092
+\end{console}
+
+Because the latter value is higher than the former, we conclude that
+the fault orientation data are more strongly concentrated than the
+palaeomagnetic data.
+
 \end{enumerate}
 
 \section{Spatial data}
 \label{sec:sol-spatial}
+
+\begin{enumerate}
+  
+\item\label{it:normodel} Load the \texttt{hills} dataset and storing
+  the three columns in separate variables for brevity:
+
+\begin{script}
+data(hills,package='geostats')
+X <- hills$X
+Y <- hills$Y
+Z <- hills$Z
+\end{script}
+
+Fit the four semivariogram models:
+
+\begin{script}[firstnumber=5]
+par(mfrow=c(2,2))
+normodel <- semivariogram(x=X,y=Y,z=Z,plot=TRUE,model='gaussian')
+expmodel <- semivariogram(x=X,y=Y,z=Z,plot=TRUE,model='exponential')
+linmodel <- semivariogram(x=X,y=Y,z=Z,plot=TRUE,model='linear')
+sphmodel <- semivariogram(x=X,y=Y,z=Z,plot=TRUE,model='spherical')
+\end{script}
+
+Visual inspection of the resulting plots indicates that the Gaussian
+model fits the empirical semivariogram best, which is not surprising
+given that the \texttt{hills} dataset consists of a bivariate Gaussian
+mixture.
+
+\noindent\begin{minipage}[t][][b]{\indentwidth}
+\includegraphics[width=\indentwidth]{../figures/hills.pdf}
+\end{minipage}
+\begin{minipage}[t][][t]{\indentwidth}
+\captionof{figure}{a) Gaussian; b) exponential; c) linear and d)
+  spherical semivariogram fits to the \texttt{hills} data.}
+\end{minipage}
+
+\item Kriging interpolation of $\{x=0,y=0\}$ using the
+  \texttt{normodel} semivariogram model from step~\ref{it:normodel}:
+
+\begin{console}
+> kriging(x=X,y=Y,z=Z,xi=0,yi=0,svm=normodel)
+[1] 538.1133
+\end{console}
+
+\noindent and the standard error:
+
+\begin{console}
+> v <- kriging(x=X,y=Y,z=Z,xi=0,yi=0,svm=normodel,err=TRUE)
+> sqrt(v)
+[1] 6.180623
+\end{console}
+
+Hence the elevation estimate at $\{x=0,y=0\}$ is $538 \pm 6$~m.
+
+\item Following the numerical recipe of
+  Section~\ref{sec:R-spatial}.\ref{it:R-meuse-contour}:
+
+\begin{script}[firstnumber=11]
+xi <- seq(from=min(X),to=max(X),length.out=30)
+yi <- seq(from=min(Y),to=max(Y),length.out=30)
+zi <- kriging(x=X,y=Y,z=Z,xi=xi,yi=yi,svm=normodel,grid=TRUE)
+colourplot(x=xi,y=yi,z=zi,colspec=grey)
+\end{script}
+
+\item Fitting spherical and exponential semivariogram models to the
+  Meuse data:
+
+\begin{script}
+data(meuse,package='geostats')
+X <- meuse$x
+Y <- meuse$y
+Z <- log(meuse$zinc)
+sphmodel <- semivariogram(x=X,y=Y,z=Z,plot=FALSE,model='spherical')
+expmodel <- semivariogram(x=X,y=Y,z=Z,plot=FALSE,model='exponential')
+\end{script}
+
+Estimating the log[Zn] values along an $x-y$ grids for both models:
+
+\begin{script}[firstnumber=7]
+xi <- seq(from=min(X),to=max(X),length.out=50)
+yi <- seq(from=min(Y),to=max(Y),length.out=50)
+zsph <- kriging(x=X,y=Y,z=Z,xi=xi,yi=yi,grid=TRUE,svm=sphmodel)
+zexp <- kriging(x=X,y=Y,z=Z,xi=xi,yi=yi,grid=TRUE,svm=expmodel)
+colourplot(x=xi,y=yi,z=zsph-zexp,colspec=grey)
+\end{script}
+
+The largest disagreements are found in sparsely sampled parts of the
+map. To show the sample locations as white circles, use the
+\texttt{colourplots}'s optional \texttt{extra} argument:
+
+\begin{script}[firstnumber=11]
+colourplot(x=xi,y=yi,z=exp(zsph-zexp),colspec=grey,
+           extra={points(X,Y,pch=16,col='white')})
+\end{script}
+
+\noindent which also exponentiates the log-contrasts to yield the
+ratio of the Zn-concentation estimate using the spherical and
+exponential semivariogram models.
+
+\noindent\begin{minipage}[t][][b]{.6\indentwidth}
+\includegraphics[width=\textwidth]{../figures/sphvsexp.pdf}
+\end{minipage}
+\begin{minipage}[t][][t]{.4\indentwidth}
+  \captionof{figure}{Log-contrast between two kriging interpolations
+    for the Meuse data, using the spherical and exponential
+    semivariogram models. The 155 measurements locations are marked by
+    white circles. The smallest discrepancies ($<10\%$) are found in
+    densely sampled areas. In more sparsely sampled parts of the
+    contour plot, and especially near the edges, the disagreement
+    between the spherical and exponential models increases to up to
+    $60\%$.}
+\end{minipage}
+
+
+
+\end{enumerate}

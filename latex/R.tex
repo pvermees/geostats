@@ -1848,7 +1848,7 @@ md <- meanangle(striations,degrees=TRUE)
 circle.points(md,pch=21,bg='black',degrees=TRUE)
 \end{script}
 
-\item Compute the concentration parameter $\bar{R}$:
+\item\label{it:Rbar} Compute the concentration parameter $\bar{R}$:
 
 \begin{script}
 R <- Rbar(striations,degrees=TRUE)
@@ -1933,6 +1933,10 @@ stereonet(trd=meanfault[1],plg=meanfault[2],
 \section{Spatial data}
 \label{sec:R-spatial}
 
+\texttt{geostats} implements a simple version of ordinary kriging.  A
+far more complete set of geostatistical functions can be found in the
+\texttt{gstat} package.
+
 \begin{enumerate}
 
 \item Load the Meuse dataset, define three shorthand variables, and
@@ -1985,8 +1989,8 @@ Other options for the \texttt{model} argument are
 [1] 0.2116582
 \end{console}
 
-\item Evaluate the ln[Zn]-values for a grid of locations and plot as a
-  contour map:
+\item\label{it:R-meuse-contour} Evaluate the ln[Zn]-values for a grid
+  of locations and plot as a contour map:
 
 \begin{script}[firstnumber=7]
 xi <- seq(from=min(X),to=max(X),length.out=50)

@@ -12,6 +12,6 @@ von Mises - Fisher distribution with mean vector
 }
 \examples{
 data(fault,package='geostats')
-stereonet(fault,option=2,degrees=TRUE,show.grid=FALSE)
+stereonet(trd=fault$strike,plg=fault=dip,option=2,degrees=TRUE,show.grid=FALSE)
 }
 \keyword{data}

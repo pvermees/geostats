@@ -24,7 +24,7 @@ semivarmod <- function(h,lsnr,model='spherical'){
         out[i] <- n + (s-n)*(1.5*h[i]/r-0.5*(h[i]/r)^3)
         out[h>=r] <- s
     } else if (model=='exponential'){
-        out <- n + (n-s)*exp(-h/r)
+        out <- s + (n-s)*exp(-h/r)
     } else if (model=='linear'){
         i <- h<r
         out[i] = n + (s-n)*h[i]/r
@@ -123,6 +123,8 @@ semivariogram <- function(x,y,z,bw=NULL,nb=13,plot=TRUE,fit=TRUE,
 #' @param grid logical. If \code{TRUE}, evaluates the kriging
 #'     interpolator along a regular grid of values defined by
 #'     \code{xi} and \code{yi}.
+#' @param err logical. If \code{TRUE}, returns the variance of the
+#'     kriging estimate.
 #' @return either a vector (if \code{grid=FALSE}) or a matrix (if
 #'     \code{grid=TRUE}) of kriging interpolations. In the latter
 #'     case, values that are more than 10\% out of the data range are
@@ -158,26 +160,26 @@ kriging <- function(x,y,z,xi,yi,svm,grid=FALSE,err=FALSE){
         Xi <- xi
         Yi <- yi
     }
-    szi <- NA*Xi
+    vzi <- NA*Xi
     if (grid){
         good <- which(inhull(x,y,Xi,Yi))
     } else {
-        good <- 1:length(szi)
+        good <- 1:length(vzi)
     }
     for (i in good){
         h <- sqrt((Xi[i]-x)^2+(Yi[i]-y)^2)
         B <- c(semivarmod(h=h,lsnr=lsnr,model=svm$model),1)
         L <- solve(W,B)
         if (err)
-            szi[i] <- t(B) %*% L
+            vzi[i] <- t(B) %*% L
         else
-            szi[i] <- Y %*% L
+            vzi[i] <- Y %*% L
     }
     if (grid){
         Ni <- length(xi)
-        out <- matrix(szi,Ni,Ni)
+        out <- matrix(vzi,Ni,Ni)
     } else {
-        out <- szi
+        out <- vzi
     }
     out
 }

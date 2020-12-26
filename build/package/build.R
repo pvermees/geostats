@@ -159,3 +159,23 @@ save(fault,file='../../package/data/fault.rda',version=2)
 data('meuse',package='sp')
 meuse <- meuse[c('x','y','elev','cadmium','lead','zinc')]
 save(meuse,file='../../package/data/meuse.rda',version=2)
+
+set.seed(8)
+nn <- 150
+mu1 <- c(10,10)
+mu2 <- c(0,-10)
+mu3 <- c(-10,10)
+E <- diag(2)*30
+xlim <- c(-25,25)
+ylim <- c(-25,25)
+X <- xlim[1] + runif(nn)*diff(xlim)
+Y <- ylim[1] + runif(nn)*diff(ylim)
+XY <- cbind(X,Y)
+dolog <- FALSE
+Z <- 400+1e5*(
+    1.2*mvtnorm::dmvnorm(XY,mu1,E,log=dolog) +
+    mvtnorm::dmvnorm(XY,mu2,E,log=dolog) +
+    mvtnorm::dmvnorm(XY,mu3,E,log=dolog)*0.8
+)
+hills <- data.frame(X=X,Y=Y,Z=Z)
+save(hills,file='../../package/data/hills.rda',version=2)

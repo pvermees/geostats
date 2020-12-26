@@ -23,6 +23,9 @@ points at which the \code{z}-values are to be evaluated.}
 interpolator along a regular grid of values defined by
 \code{xi} and \code{yi}.}
 
+\item{err}{logical. If \code{TRUE}, returns the variance of the
+kriging estimate.}
+
 \item{snr}{output of the \code{\link{semivariogram}} function, a
 3-element vector with the sill, nugget and range of the
 semivariogram fit.}

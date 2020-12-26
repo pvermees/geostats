@@ -579,17 +579,41 @@ error weighted regression.
 
 \item Consider the following two sets of fault measurements:
 
-  \begin{tabular}{c|ccccc}
-    strike($F1$) & 200 & 195 & 210 & 205 \\
-    dip($F1$)    & 70  & 68  & 71  & 67  \\
-    strike($F2$) & 20 & 25 & 18 & 17 & 16 \\
-    dip($F2$)    & 10 & 12 & 9  & 14 & 11 \\
+  \begin{tabular}{c|cccc|ccccc}
+    ~ & \multicolumn{4}{c|}{1\textsuperscript{th} fault} &
+        \multicolumn{5}{c}{2\textsuperscript{nd} fault} \\ \hline
+    strike & 200 & 195 & 210 & 205 & 20 & 25 & 18 & 17 & 16 \\
+    dip    & 70  & 68  & 71  & 67 & 10 & 12 & 9  & 14 & 11 \\
   \end{tabular}
 
   Plot the two sets of faults on a Wulff net and calculate the
   difference of their mean strike and dip.
+
+\item Which of \texttt{geostats}' buit-in datasets is more tightly
+  clustered: \texttt{palaeomag} or \texttt{fault}?
   
 \end{enumerate}
 
 \section{Spatial data}
 \label{sec:ex-spatial}
+
+\begin{enumerate}
+
+\item\label{it:hillsemivariogram} The \texttt{geostats} package
+  contains a dataset called \texttt{hills}, which tabulates 250
+  topographic measurements for a synthetic landscape comprised of
+  three bivariate normal `hills'. Fit an exponential, linear, Gaussian
+  and spherical model to the semivariogram. Subjectively assess which
+  model fits the empirical semivariogram best.
+
+\item Using the semivariogram model obtained under
+  question~\ref{it:hillsemivariogram}, estimate the elevation at
+  position $\{x=0,y=0\}$, and its standard error.
+
+\item Create a contour plot of the \texttt{hills} dataset.
+  
+\item Using the Meuse data, create a contour map of the difference
+  between kriging models using a spherical and exponential
+  semivariogram model.
+
+\end{enumerate}

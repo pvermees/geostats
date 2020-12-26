@@ -26,5 +26,5 @@ adds points to a circle with angles plotting in a
 data(striations,package='geostats')
 circle.plot(striations,degrees=TRUE)
 md <- meanangle(striations,degrees=TRUE)
-circle.points(md,pch=22,bg='black')
+circle.points(md,pch=22,bg='black',degrees=TRUE)
 }

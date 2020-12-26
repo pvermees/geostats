@@ -95,7 +95,7 @@ inhull <- function(x,y,xi,yi,buffer=0.05){
 #' data('meuse',package='geostats')
 #' colourplot(X=meuse$x,Y=meuse$y,Z=log(meuse$zinc))
 #' @export
-colourplot <- function (x,y,z,X,Y,Z,levels,nlevels=20,colspec=rainbow,
+colourplot <- function (x,y,z,X,Y,Z,nlevels=20,colspec=rainbow,
                         pch = 21, cex = 1, plot.title, plot.axes, key.title,
                         key.axes, asp = NA, xaxs = "i", yaxs = "i",
                         las = 1, axes = TRUE, frame.plot = axes, extra, ...) {
@@ -163,11 +163,10 @@ colourplot <- function (x,y,z,X,Y,Z,levels,nlevels=20,colspec=rainbow,
         .filled.contour(x, y, z, levels, levcol)
     }
     if (pnts){
-        zlev <- (Z-min(levels))/(max(levels)-min(levels))
         points(X, Y, pch=pch, cex=cex, bg=ptscol)
-        if (!missing(extra)){
-            extra
-        }
+    }
+    if (!missing(extra)){
+        extra
     }
     if (missing(plot.axes)) {
         if (axes) {

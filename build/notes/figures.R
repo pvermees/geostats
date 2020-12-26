@@ -4347,6 +4347,53 @@ geostats::colourplot(x=xi,y=yi,z=zi,colspec=grey,cex=0.7,
                      )
 dev.off()
 
+set.seed(8)
+nn <- 150
+mu1 <- c(10,10)
+mu2 <- c(0,-10)
+mu3 <- c(-10,10)
+E <- diag(2)*30
+xlim <- c(-25,25)
+ylim <- c(-25,25)
+X <- xlim[1] + runif(nn)*diff(xlim)
+Y <- ylim[1] + runif(nn)*diff(ylim)
+XY <- cbind(X,Y)
+dolog <- FALSE
+Z <- 400+1e5*(
+    1.2*mvtnorm::dmvnorm(XY,mu1,E,log=dolog) +
+    mvtnorm::dmvnorm(XY,mu2,E,log=dolog) +
+    mvtnorm::dmvnorm(XY,mu3,E,log=dolog)*0.8
+)
+hills <- cbind(X,Y,Z)
+colnames(hills) <- c('X','Y','Z')
+cairo(file='../../figures/hills.pdf',width=8,height=2)
+pars(mfrow=c(1,4),mar=c(2.5,2.3,0.7,0.25))
+normodel <- geostats::semivariogram(x=X,y=Y,z=Z,model='gaussian',plot=TRUE)
+legend('topleft',legend='a)',bty='n',adj=c(2,0),cex=1.2)
+expmodel <- geostats::semivariogram(x=X,y=Y,z=Z,model='exponential',plot=TRUE)
+legend('topleft',legend='b)',bty='n',adj=c(2,0),cex=1.2)
+linmodel <- geostats::semivariogram(x=X,y=Y,z=Z,model='linear',plot=TRUE)
+legend('topleft',legend='c)',bty='n',adj=c(2,0),cex=1.2)
+sphmodel <- geostats::semivariogram(x=X,y=Y,z=Z,model='spherical',plot=TRUE)
+legend('topleft',legend='d)',bty='n',adj=c(2,0),cex=1.2)
+dev.off()
+
+cairo(file='../../figures/sphvsexp.pdf',width=5,height=4)
+pars(mar=c(1.5,3.5,2,0))
+X <- meuse$x
+Y <- meuse$y
+Z <- log(meuse$zinc)
+sphmodel <- geostats::semivariogram(x=X,y=Y,z=Z,plot=FALSE,model='spherical')
+expmodel <- geostats::semivariogram(x=X,y=Y,z=Z,plot=FALSE,model='exponential')
+xi <- seq(from=min(X),to=max(X),length.out=50)
+yi <- seq(from=min(Y),to=max(Y),length.out=50)
+zsph <- geostats::kriging(x=X,y=Y,z=Z,xi=xi,yi=yi,grid=TRUE,svm=sphmodel)
+zexp <- geostats::kriging(x=X,y=Y,z=Z,xi=xi,yi=yi,grid=TRUE,svm=expmodel)
+geostats::colourplot(x=xi,y=yi,z=exp(zsph-zexp),colspec=grey,
+                     extra={points(X,Y,pch=21,cex=0.7,bg='white')},
+                     key.title=title(expression(Zn[sph]/Zn[exp]),cex.main=1.04))
+dev.off()
+
 cairo(file='../../slides/locationdispersionshape.pdf',width=4,height=2)
 pars(mfrow=c(2,3),mgp=c(1.2,0.5,0))
 x <- seq(from=-10,to=10,length.out=200)

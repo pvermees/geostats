@@ -12,6 +12,6 @@ mean vector \eqn{\mu=\{2,2,1\}/3} and concentration parameter
 }
 \examples{
 data(palaeomag,package='geostats')
-stereonet(palaeomag,degrees=TRUE,show.grid=FALSE)
+stereonet(trd=palaeomag$decl,plg=palaeomag$incl,degrees=TRUE,show.grid=FALSE)
 }
 \keyword{data}

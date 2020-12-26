@@ -11,7 +11,6 @@ colourplot(
   X,
   Y,
   Z,
-  levels,
   nlevels = 20,
   colspec = rainbow,
   pch = 21,
@@ -42,11 +41,6 @@ colourplot(
 \item{Y}{numerical vector of \eqn{N} values}
 
 \item{Z}{numerical vector of \eqn{N} values}
-
-\item{levels}{a set of levels which are used to partition the range
-of \code{z}. Must be *strictly* increasing (and finite).  Areas
-with \code{z} values between consecutive levels are painted
-with the same colour.}
 
 \item{nlevels}{if \code{levels} is not specified, the range of
 \code{z}, values is divided into approximately this many
@@ -89,6 +83,11 @@ in \code{\link{plot.default}}.}
 main plot window, such as text annotations.}
 
 \item{...}{additional graphical parameters}
+
+\item{levels}{a set of levels which are used to partition the range
+of \code{z}. Must be *strictly* increasing (and finite).  Areas
+with \code{z} values between consecutive levels are painted
+with the same colour.}
 }
 \description{
 combines a filled contour plot and filled scatter plot
