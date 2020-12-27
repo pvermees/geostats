@@ -18,19 +18,21 @@ semivarmod <- function(h,lsnr,model='spherical'){
     s <- snr[1]
     n <- snr[2]
     r <- snr[3]
-    out <- rep(n,length(h))
+    out <- rep(0,length(h))
     if (model=='spherical'){
-        i <- h<r
+        i <- (h<r) & (h>0)
         out[i] <- n + (s-n)*(1.5*h[i]/r-0.5*(h[i]/r)^3)
         out[h>=r] <- s
     } else if (model=='exponential'){
-        out <- s + (n-s)*exp(-h/r)
+        i <- (h>0)
+        out[i] <- s + (n-s)*exp(-h[i]/r)
     } else if (model=='linear'){
-        i <- h<r
-        out[i] = n + (s-n)*h[i]/r
+        i <- (h<r) & (h>0)
+        out[i] <- n + (s-n)*h[i]/r
         out[h>=r] <- s
     } else if (model=='gaussian'){
-        out = s + (n-s) * exp(-(h/r)^2)
+        i <- (h>0)
+        out[i] <- s + (n-s) * exp(-(h[i]/r)^2)
     } else {
         stop('Invalid semivariogram model')
     }
@@ -93,7 +95,7 @@ semivariogram <- function(x,y,z,bw=NULL,nb=13,plot=TRUE,fit=TRUE,
         lsnr <- stats::optim(par=c(log(max(sv)),-2,log(max(h))),
                              fn=misfit,h=h,sv=sv,model=model[1])$par
         if (plot){
-            x <- seq(from=0,to=max(h),length.out=20)
+            x <- seq(from=.Machine$double.xmin,to=max(h),length.out=20)
             y <- semivarmod(h=x,lsnr=lsnr,model=model[1])
             graphics::lines(x,y)
         }
@@ -115,11 +117,9 @@ semivariogram <- function(x,y,z,bw=NULL,nb=13,plot=TRUE,fit=TRUE,
 #'     points at which the \code{z}-values are to be evaluated.
 #' @param yi scalar or vector with the \code{x}-coordinates of the
 #'     points at which the \code{z}-values are to be evaluated.
-#' @param snr output of the \code{\link{semivariogram}} function, a
+#' @param svm output of the \code{\link{semivariogram}} function, a
 #'     3-element vector with the sill, nugget and range of the
 #'     semivariogram fit.
-#' @param model type of semivariogram fit. Currently only spherical
-#'     functions are supported
 #' @param grid logical. If \code{TRUE}, evaluates the kriging
 #'     interpolator along a regular grid of values defined by
 #'     \code{xi} and \code{yi}.
@@ -134,10 +134,10 @@ semivariogram <- function(x,y,z,bw=NULL,nb=13,plot=TRUE,fit=TRUE,
 #' x <- meuse$x
 #' y <- meuse$y
 #' z <- log(meuse$cadmium)
-#' snr <- semivariogram(x=x,y=y,z=z)
+#' svm <- semivariogram(x=x,y=y,z=z)
 #' xi <- seq(from=min(x),to=max(x),length.out=50)
 #' yi <- seq(from=min(y),to=max(y),length.out=50)
-#' zi <- geostats::kriging(x=x,y=y,z=z,snr=snr,xi=xi,yi=yi,grid=TRUE)
+#' zi <- kriging(x=x,y=y,z=z,xi=xi,yi=yi,svm=svm,grid=TRUE)
 #' contour(xi,yi,zi)
 #' @export
 kriging <- function(x,y,z,xi,yi,svm,grid=FALSE,err=FALSE){

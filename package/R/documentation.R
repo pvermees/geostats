@@ -301,7 +301,7 @@ NULL
 #' @keywords data
 #' @examples
 #' data(fault,package='geostats')
-#' stereonet(trd=fault$strike,plg=fault=dip,option=2,degrees=TRUE,show.grid=FALSE)
+#' stereonet(trd=fault$strike,plg=fault$dip,option=2,degrees=TRUE,show.grid=FALSE)
 NULL
 
 #' Meuse river data set
@@ -319,4 +319,17 @@ NULL
 #' @examples
 #' data(meuse,package='geostats')
 #' semivariogram(x=meuse$x,y=meuse$y,z=log(meuse$cadmium))
+NULL
+
+#' hills
+#'
+#' This data set contains 150 X-Y-Z values for a synthetic landscape
+#' that consists of three Gaussian mountains.
+#' 
+#' @name hills
+#' @docType data
+#' @keywords data
+#' @examples
+#' data(hills,package='geostats')
+#' semivariogram(x=hills$X,y=hills$Y,z=hills$Z)
 NULL

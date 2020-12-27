@@ -83,11 +83,6 @@ in \code{\link{plot.default}}.}
 main plot window, such as text annotations.}
 
 \item{...}{additional graphical parameters}
-
-\item{levels}{a set of levels which are used to partition the range
-of \code{z}. Must be *strictly* increasing (and finite).  Areas
-with \code{z} values between consecutive levels are painted
-with the same colour.}
 }
 \description{
 combines a filled contour plot and filled scatter plot

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.4.25)  26 DEC 2020 22:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.4.25)  27 DEC 2020 19:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -4534,7 +4534,12 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 104--116
 [] [] 
  []
 
-<../figures/lowconcentration.pdf, id=3939, 144.54pt x 144.54pt>
+[158 <../figures/circle3.pdf> <../figures/vectorsum.pdf
+
+pdfTeX warning: pdflatex (file ../figures/vectorsum.pdf): PDF inclusion: multip
+le pdfs with page group included in a single page
+>]
+<../figures/lowconcentration.pdf, id=3971, 144.54pt x 144.54pt>
 File: ../figures/lowconcentration.pdf Graphic file (type pdf)
 <use ../figures/lowconcentration.pdf>
 Package pdftex.def Info: ../figures/lowconcentration.pdf  used on input line 13
@@ -4555,17 +4560,11 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 131--141
 [] [] 
  []
 
-[158 <../figures/circle3.pdf> <../figures/vectorsum.pdf
-
-pdfTeX warning: pdflatex (file ../figures/vectorsum.pdf): PDF inclusion: multip
-le pdfs with page group included in a single page
->]
 <../figures/vonMises.pdf, id=3972, 578.16pt x 144.54pt>
 File: ../figures/vonMises.pdf Graphic file (type pdf)
 <use ../figures/vonMises.pdf>
 Package pdftex.def Info: ../figures/vonMises.pdf  used on input line 161.
 (pdftex.def)             Requested size: 469.75502pt x 117.43845pt.
-
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 166.
@@ -5108,7 +5107,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 126.
 Here is how much of TeX's memory you used:
  11345 strings out of 481239
  182772 string characters out of 5920377
- 497444 words of memory out of 5000000
+ 497443 words of memory out of 5000000
  25018 multiletter control sequences out of 15000+600000
  548262 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -5141,7 +5140,7 @@ nts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on geostats.pdf (244 pages, 3420561 bytes).
+Output written on geostats.pdf (244 pages, 3494698 bytes).
 PDF statistics:
  5458 PDF objects out of 6186 (max. 8388607)
  4422 compressed objects within 45 object streams

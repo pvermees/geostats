@@ -4153,9 +4153,9 @@ Kp <- geostats::Rbar2kappa(Rp)
 a <- seq(from=-pi,to=pi,length.out=200)
 f <- vonMises(angle=a,mu=mu*pi/180,kappa=Kp)
 pars(mar=c(3,3,0.5,0.5))
-plot(a,f,type='l',bty='n',ylim=c(0,0.25),xaxt='n')
+plot(a,f,type='l',bty='n',xaxt='n')
 axis(side=1,at=c(-pi,-pi/2,0,pi/2,pi),
-     labels=c(expression(-pi),expression(-pi),0,expression(pi/2),expression(pi)))
+     labels=c(expression(-pi),expression(-pi/2),0,expression(pi/2),expression(pi)))
 A <- atan(sin(pebbles*pi/180)/cos(pebbles*pi/180))
 rug(A,ticksize=0.1)
 if (FALSE){
@@ -4274,8 +4274,6 @@ if (FALSE){
     signif(d[c(1:10,N),c(1:10,N)],2)
 }
 
-fit <- geostats::semivariogram(x=X,y=Y,z=Z,plot=FALSE,fit=TRUE)
-
 cairo(file='../../figures/semivariogram.pdf',width=3,height=3)
 pars(mgp=c(1.2,0.5,0))
 geostats::semivariogram(x=X,y=Y,z=Z,plot=TRUE,fit=FALSE)
@@ -4294,7 +4292,7 @@ legend('topleft',legend='d)',bty='n',adj=c(2,0),cex=1.2)
 dev.off()
 
 cairo(file='../../figures/snr.pdf',width=3,height=3)
-pars(mar=c(2.5,2.3,0.75,0.25),mgp=c(1.2,0.5,0))
+pars(mar=c(2.5,2.3,0.8,0.25),mgp=c(1.2,0.5,0))
 plot(x=c(0,500,1500),y=c(0.1,0.6,0.6),type='l',lwd=3,
      xlab='lag',ylab=expression(gamma(lag)),
      xlim=c(-50,1550),ylim=c(0,0.62),bty='n')
@@ -4326,7 +4324,7 @@ geostats::colourplot(x=xi,y=yi,z=zi,X=X,Y=Y,Z=Z,colspec=grey,
                      key.title=title('ln[Zn]'),cex=0.7)
 dev.off()
 
-if (FALSE){
+if (TRUE){
     znew <- geostats::kriging(x=X,y=Y,z=Z,svm=svm,
                               xi=179850,yi=331650,err=FALSE)
     sznew <- geostats::kriging(x=X,y=Y,z=Z,svm=svm,
@@ -4465,4 +4463,41 @@ pars()
 class(DZ) <- 'detritals'
 IsoplotR::kde(DZ,kde.col=NA,hist.col=NA,show.hist=FALSE,
               rug=TRUE,samebandwidth=TRUE,normalise=FALSE)
+dev.off()
+
+cairo(file='../../slides/vectorsumnoR.pdf',width=4,height=3)
+pars(mar=rep(0,4))
+plot(x=c(-1,3.5),y=c(-1,1),type='n',axes=FALSE,ann=FALSE,bty='n',asp=1)
+symbols(0,0,circles=1,add=TRUE,inches=FALSE,xpd=NA)
+xy1 <- addarrow(a=45)
+xy2 <- addarrow(a=30)
+xy3 <- addarrow(a=0)
+xy4 <- addarrow(a=-30)
+xy5 <- addarrow(xy0=xy4,a=0)
+xy6 <- addarrow(xy0=xy5,a=30)
+xy7 <- addarrow(xy0=xy6,a=45)
+lines(x=c(xy3[1],xy5[1]),y=c(xy3[2],xy5[2]),lty=3)
+lines(x=c(0,xy5[1]),y=c(0,xy5[2]),lty=3)
+lines(x=c(xy2[1],xy6[1]),y=c(xy2[2],xy6[2]),lty=3)
+lines(x=c(0,xy6[1]),y=c(0,xy6[2]),lty=3)
+lines(x=c(xy1[1],xy7[1]),y=c(xy1[2],xy7[2]),lty=3)
+arrows(x0=0,x1=xy7[1],y0=0,y1=xy7[2],lty=1,lwd=2,length=0.1)
+a <- seq(from=0,to=atan(xy7[2]/xy7[1]),length.out=10)
+x <- 1.05*cos(a)
+y <- 1.05*sin(a)
+lines(x,y)
+text(x[4],y[4],labels=expression(bar(theta)),font=5,pos=4,offset=0.1)
+dev.off()
+
+cairo(file='../../slides/Rbar.pdf',width=2.5,height=2.5)
+pars(mar=rep(0,4))
+plot(x=c(-1,1),y=c(-1,1),type='n',axes=FALSE,ann=FALSE,bty='n',asp=1)
+symbols(0,0,circles=1,add=TRUE,inches=FALSE,xpd=NA)
+xy1 <- addarrow(a=45)
+xy2 <- addarrow(a=30)
+xy3 <- addarrow(a=0)
+xy4 <- addarrow(a=-30)
+arrows(x0=0,x1=xy7[1]/4,y0=0,y1=xy7[2]/4,
+       lty=1,lwd=2,col='black',length=0.1)
+text(xy7[1]/4,xy7[2]/4,labels=expression(bar(R)),pos=3,offset=0.2)
 dev.off()

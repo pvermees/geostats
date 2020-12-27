@@ -161,7 +161,7 @@ vectorsum <- function(trd,plg=0,option=0,degrees=FALSE,Rbar=TRUE){
     }
     if (option==0){
         if (Rbar){
-            out <- sqrt(sum(sin(trd)^2 + cos(trd)^2))/length(trd)
+            out <- sqrt(mean(sin(trd))^2 + mean(cos(trd))^2)
             return(out)
         } else {
             out <- atan(sum(sin(trd))/sum(cos(trd)))

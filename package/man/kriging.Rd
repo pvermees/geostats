@@ -19,19 +19,16 @@ points at which the \code{z}-values are to be evaluated.}
 \item{yi}{scalar or vector with the \code{x}-coordinates of the
 points at which the \code{z}-values are to be evaluated.}
 
+\item{svm}{output of the \code{\link{semivariogram}} function, a
+3-element vector with the sill, nugget and range of the
+semivariogram fit.}
+
 \item{grid}{logical. If \code{TRUE}, evaluates the kriging
 interpolator along a regular grid of values defined by
 \code{xi} and \code{yi}.}
 
 \item{err}{logical. If \code{TRUE}, returns the variance of the
 kriging estimate.}
-
-\item{snr}{output of the \code{\link{semivariogram}} function, a
-3-element vector with the sill, nugget and range of the
-semivariogram fit.}
-
-\item{model}{type of semivariogram fit. Currently only spherical
-functions are supported}
 }
 \value{
 either a vector (if \code{grid=FALSE}) or a matrix (if
@@ -52,9 +49,9 @@ data(meuse,package='geostats')
 x <- meuse$x
 y <- meuse$y
 z <- log(meuse$cadmium)
-snr <- semivariogram(x=x,y=y,z=z)
+svm <- semivariogram(x=x,y=y,z=z)
 xi <- seq(from=min(x),to=max(x),length.out=50)
 yi <- seq(from=min(y),to=max(y),length.out=50)
-zi <- geostats::kriging(x=x,y=y,z=z,snr=snr,xi=xi,yi=yi,grid=TRUE)
+zi <- kriging(x=x,y=y,z=z,xi=xi,yi=yi,svm=svm,grid=TRUE)
 contour(xi,yi,zi)
 }

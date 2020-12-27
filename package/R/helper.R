@@ -61,10 +61,6 @@ inhull <- function(x,y,xi,yi,buffer=0.05){
 #' @param X numerical vector of \eqn{N} values
 #' @param Y numerical vector of \eqn{N} values
 #' @param Z numerical vector of \eqn{N} values
-#' @param levels a set of levels which are used to partition the range
-#'     of \code{z}. Must be *strictly* increasing (and finite).  Areas
-#'     with \code{z} values between consecutive levels are painted
-#'     with the same colour.
 #' @param nlevels if \code{levels} is not specified, the range of
 #'     \code{z}, values is divided into approximately this many
 #'     levels.
@@ -91,6 +87,8 @@ inhull <- function(x,y,xi,yi,buffer=0.05){
 #' @param extra (optional) extra intructions to be carried out in the
 #'     main plot window, such as text annotations.
 #' @param ... additional graphical parameters
+#' @import grDevices
+#' @import graphics
 #' @examples
 #' data('meuse',package='geostats')
 #' colourplot(X=meuse$x,Y=meuse$y,Z=log(meuse$zinc))

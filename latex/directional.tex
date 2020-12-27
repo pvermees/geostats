@@ -120,13 +120,13 @@ dispersion parameter like the standard deviation, but a
 can use $\bar{R}$ to define the \textbf{circular standard deviation}:
 
 \begin{equation}
-  s_c = \sqrt{\ln(1/R^2)}
+  s_c = \sqrt{\ln(1/\bar{R}^2)}
   \label{eq:circularSD}
 \end{equation}
 
 In the extreme case where all the measurements point in the same
-direction, $R = 1$ and $s_c = 1$. If the data are evenly distributed
-around the circle, $R = 0$ and $s_c = \infty$.
+direction, $\bar{R} = 1$ and $s_c = 1$. If the data are evenly
+distributed around the circle, $\bar{R} = 0$ and $s_c = \infty$.
 
 \noindent\begin{minipage}[t][][b]{.2\textwidth}
 \includegraphics[width=\textwidth]{../figures/lowconcentration.pdf}\\
@@ -192,8 +192,8 @@ circular data and $p=2$ for spherical data
 \end{minipage}
 
 Applying this routine to the glacial striation measurements of
-Section~\ref{sec:circular} yields a value of $\bar{R}$ of 0.18, which
-corresponds to a $\kappa$-value of 0.37.
+Section~\ref{sec:circular} yields a value of $\bar{R}$ of 0.78, which
+corresponds to a $\kappa$-value of 2.8.
 
 \noindent\begin{minipage}[t][][b]{.4\textwidth}
 \includegraphics[width=\textwidth]{../figures/kappastriations.pdf}\\
@@ -201,7 +201,7 @@ corresponds to a $\kappa$-value of 0.37.
 \begin{minipage}[t][][t]{.6\textwidth}
   \captionof{figure}{Density plot and rug plot for the glacial
     striation data. The bell shaped density curve represents a von
-    Mises distribution with concentration parameter $\kappa=0.37$ and
+    Mises distribution with concentration parameter $\kappa=2.8$ and
     mean $\mu=357.6^{\circ}$. In contrast with
     Figure~\ref{fig:vonMises}, in which the von Mises distribution was
     wrapped around a circle, here it is stretched out along a linear
@@ -427,7 +427,7 @@ Then the average latitude and longitude are given by:
 \begin{equation}
   \left\{
   \begin{split}
-    \bar{S} & = \arccos\left(-\bar{x}/\bar{y}\right)\\
+    \bar{S} & = \arctan\left(-\bar{x}/\bar{y}\right)\\
     \bar{D} & = \arcsin\left(\bar{z}\right)
   \end{split}
   \right.
@@ -438,7 +438,7 @@ Then the average latitude and longitude are given by:
 \begin{equation}
   \left\{
   \begin{split}
-    \bar{D} & = \arccos\left(\bar{y}/\bar{x}\right)\\
+    \bar{D} & = \arctan\left(\bar{y}/\bar{x}\right)\\
     \bar{A} & = \arcsin\left(\bar{z}\right)
   \end{split}
   \right.
