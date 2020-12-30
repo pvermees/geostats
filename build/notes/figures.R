@@ -4306,7 +4306,7 @@ lines(x=c(0,0),y=c(0.1,0.61),lty=3)
 lines(x=c(500,500),y=c(0.6,0.61),lty=3)
 text(x=250,y=0.61,labels=expression(range~(c[r])),pos=3,xpd=NA)
 lines(x=c(1500,1550),y=c(0.6,0.6),lty=3)
-text(x=1550,y=0.15,labels=expression(sill~(c[s])),pos=2)
+text(x=1550,y=0.3,labels=expression(sill~(c[s])),pos=2)
 dev.off()
 
 #png(file='../../figures/meusecontour.png',type='cairo',
@@ -4332,7 +4332,7 @@ if (TRUE){
 }
 
 cairo(file='../../figures/meusecontourerr.pdf',width=5,height=4)
-pars(mar=c(1.5,3,2,0))
+pars(mar=c(1.5,3.5,2,0))
 dX <- (max(X)-min(X))/10
 dY <- (max(Y)-min(Y))/10
 xi <- seq(from=min(X)-dX,to=max(X)+dX,length.out=50)
@@ -4341,7 +4341,7 @@ zi <- sqrt(geostats::kriging(x=X,y=Y,z=Z,svm=svm,xi=xi,yi=yi,grid=TRUE,err=TRUE)
 mZ <- min(zi,na.rm=TRUE)
 MZ <- max(zi,na.rm=TRUE)
 geostats::colourplot(x=xi,y=yi,z=zi,colspec=grey,cex=0.7,
-                     key.title=title("s(Zr)/Zr",cex.main=1.04)
+                     key.title=title("s(Zn)/Zn",cex.main=1.04)
                      )
 dev.off()
 

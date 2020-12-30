@@ -30,17 +30,23 @@ colourplot(
 )
 }
 \arguments{
-\item{x}{numerical vector of \eqn{n} equally spaced values}
+\item{x}{numerical vector of \eqn{n} equally spaced values to be
+used in the contour plot}
 
-\item{y}{numerical vector of \eqn{m} equally spaced values}
+\item{y}{numerical vector of \eqn{m} equally spaced values to be
+used in the contour plot}
 
-\item{z}{an \eqn{n \times m} matrix of numerical values}
+\item{z}{an \eqn{n \times m} matrix of numerical values to be used
+in the contour plot}
 
-\item{X}{numerical vector of \eqn{N} values}
+\item{X}{numerical vector of \eqn{N} values to be used in the
+scatter plot}
 
-\item{Y}{numerical vector of \eqn{N} values}
+\item{Y}{numerical vector of \eqn{N} values to be used in the
+scatter plot}
 
-\item{Z}{numerical vector of \eqn{N} values}
+\item{Z}{numerical vector of \eqn{N} values to be used in the
+scatter plot}
 
 \item{nlevels}{if \code{levels} is not specified, the range of
 \code{z}, values is divided into approximately this many
@@ -90,7 +96,7 @@ combines a filled contour plot and filled scatter plot
 }
 \details{
 adds a colour bar to a scatter plot and/or filled contour
-    plot.  This funciton, which is based on base \code{R}'s
+    plot.  This function, which is based on base \code{R}'s
     \code{filled.contour} function, is useful for visualising
     kriging results.
 }

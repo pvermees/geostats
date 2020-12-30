@@ -36,9 +36,8 @@ circle around the pole with azimuth \code{trd} and dip
 \item{option}{scalar. If \code{option=1}, then \code{trd} is the
 azimuth and \code{plg} is the dip; if \code{option=2}, then
 \code{trd} is the strike and \code{plg} is the dip; if
-\code{option=3}, then \code{trd} is the longitude and
-\code{plg} is the latitude; if \code{option=4}, then \code{trd}
-is the longitude and \code{plg} is the latitude}
+\code{option=3} or \code{4}, then \code{trd} is the longitude
+and \code{plg} is the latitude.}
 
 \item{wulff}{logical. If \code{FALSE}, produces a Schmidt net.}
 

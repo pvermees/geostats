@@ -2,8 +2,9 @@
 \label{ch:spatial}
 
 \begin{quotation}
-  ``everything is related to everything else, but near things are more related than distant things.''
-  \flushright{-- Waldo R. Tobler (1969)}
+``everything is related to everything else, but near things are more
+  related than distant things.''  \flushright{-- Waldo R. Tobler
+    (1969)}
 \end{quotation}
 
 \textbf{Geostatistics} is a branch of statistics that deals explicitly
@@ -11,8 +12,8 @@ with data distributed in space and aims at explicitly modelling that
 spatial relationship between the data. Originally developed in the
 context of mining geology, the field has applications in petroleum
 geology, environmental science, oceanography, hydrology, pedology,
-ecology, epidemiology, and many more. In this chapter we will use an
-environmental dataset to introduce some fundamental geostatistical
+ecology, epidemiology, and other fields. In this chapter we will use
+an environmental dataset to introduce some fundamental geostatistical
 concepts:
 
 \begin{center}
@@ -29,20 +30,20 @@ $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ \\
 \captionof{table}{ Locations and zinc concentrations of 155 samples of
   topsoil, collected in a flood plain of the river Meuse, near the
   village of Stein (Netherlands). $x$ and $y$ are the Easting and
-  Northing (as metres), respectively, in Rijksdriehoek (RDH)
-  (Netherlands topographical) map coordinates. The column labelled
-  `Zn' contains the zinc concentration (in ppm) from composite samples
-  of an area of approximately $15\times{15}$m.}
+  Northing (as metres), respectively, in Rijksdriehoek (RDH,
+  Netherlands topographical) map coordinates. The column labelled `Zn'
+  contains the zinc concentration (in ppm) from composite samples of
+  approximately $15\times{15}$m areas.}
 \label{tab:Meuse}
 \end{center}
 
-Now consider the position $\{x=179850,y=331650\}$ where no measurements
+Now consider a position $\{x=179850,y=331650\}$ where no measurements
 was taken. The question that this chapter addresses is: can we use the
 surrounding data to estimate the Zn-concentration at this new
 location? Or, bearing in mind the idiosyncrasies of compositional data
 that were discussed in chapter~\ref{ch:compositional}: can we estimate
-the logarithm of the Zr-concentration at this new location
-($z$ in Table~\ref{tab:Meuse})?
+the logarithm of the Zr-concentration ($z$ in Table~\ref{tab:Meuse})
+at this new location?
 
 \noindent\begin{minipage}[t][][b]{.55\textwidth}
 \includegraphics[width=\textwidth]{../figures/meusepoints.pdf}
@@ -50,7 +51,7 @@ the logarithm of the Zr-concentration at this new location
 \begin{minipage}[t][][t]{.45\textwidth}
   \captionof{figure}{Location map of the Meuse data. The question mark
     is located at a position $\{x=179850,y=331650\}$ where no
-    measurements was taken. This chapter will use a geostatistical
+    measurement was taken. This chapter will use a geostatistical
     technique called \textbf{kriging} to estimate the (logarithm of)
     the zinc concentration at this location from the surrounding
     measurements.\\}
@@ -83,10 +84,10 @@ $\vdots$ & ~   & ~ & ~ & ~ & ~ & ~ & ~ &
 \end{tabular}
 \end{center}
 
-\noindent where we show only the upper triangle because the lower
+\noindent where only the upper triangle is shown because the lower
 triangle contains exactly the same values. Next, we compute the
-differences between the Zn-concentations of the samples, thus
-producing a second $155\times{155}$ matrix:
+differences between the (logged) Zn-concentrations of the samples,
+thus producing a second $155\times{155}$ matrix:
 
 \begin{center}
 \begin{tabular}{c|cccccccccccc}
@@ -130,14 +131,14 @@ $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ \\
 155 & 1.4 & 1.6 & 0.76 & 0.53 & 0.47 & 0.41 & 0.11 & 0.11 & 0.11 & 1.0 & $\ldots$ & 0 \\
 \end{tabular}
 \captionof{table}{Composite data table with the inter-sample distances
-  above the diagonal and the log-contrasts of the corresponding
-  zinc-concentrations below the diagonal. Boxed values mark sample
-  pairs that are located within 150 metres of each other.}
+  shown above the diagonal and the log-contrasts of the corresponding
+  zinc-concentrations shown below the diagonal. Boxed values mark
+  sample pairs that are located within 150 metres of each other.}
 \label{tab:h=100}
 \end{center}
 
-\noindent we can then use the boxed values below the diagonal to
-define the sample \textbf{semivariance} as:
+We can then use the boxed values below the diagonal to define the
+sample \textbf{semivariance} as:
 
 \begin{equation}
 \gamma[h] = \sum\limits_{k}^{n(h)}\frac{(z_{i[k]}-z_{j[k]})^2}{2 n(h)}
@@ -145,10 +146,10 @@ define the sample \textbf{semivariance} as:
 
 \noindent where $n(h)$ is the number of sample pairs that fall within
 a distance (or `lag') $h$ of each other, and $\{z_{i[k]},z_{j[k]}\}$
-are the $\log_{10}$(Zn) values for the $k$\textsuperscript{th} sample
-pair.  For the data shown in Table~\ref{tab:h=100}, there are 166
-sample pairs that fall within a distance of 150~m of each other (of
-which only 9 are shown due to space constraints), and the sample
+are the ln(Zn) values for the $k$\textsuperscript{th} sample pair.
+For the data shown in Table~\ref{tab:h=100}, there are 166 sample
+pairs that fall within a distance of 150~m of each other (of which
+only 9 are shown due to space constraints), and the sample
 semivariance equals:
 
 \[
@@ -176,8 +177,9 @@ $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ &
 $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ \\
 155 & 1.4 & 1.6 & 0.76 & 0.53 & 0.47 & 0.41 & 0.11 & 0.11 & 0.11 & 1.0 & $\ldots$ & 0 \\
 \end{tabular}
-\captionof{table}{Boxed values mark inter-sample distances of 150 to
-  300 metres (above the diagonal) and their corresponding log-contrast
+\captionof{table}{The same composite matrix of Table~\ref{tab:h=100},
+  with boxed values marking inter-sample distances of 150 to 300
+  metres (above the diagonal) and their corresponding log-contrast
   (below the diagonal).}
 \label{tab:h=300}
 \end{center}
@@ -205,7 +207,7 @@ an empirical \textbf{semivariogram}:
     correlation, the semivariogram tells us that there is relatively
     little variability among samples that are located close together,
     and more variability among samples that are far apart.  In other
-    words, the semivariogram formalises Waldo's \textit{First Law of
+    words, the semivariogram formalises Tobler's \textit{First Law of
       Geography}, which was quoted at the beginning of this chapter.}
   \label{fig:semivariogram}
 \end{minipage}
@@ -274,14 +276,14 @@ contain three parameters:
   each other.
 
 \item The \textbf{sill} ($c_s$) quantifies the long range background
-  variability of the the data.\\
+  variability of the data.
 
 \item The \textbf{nugget} ($c_n$) is the excess variance at zero
   distance. In principle samples that are co-located should have the
   same value, but in practice this is not always the case and the
   semivariogram may have a non-zero intercept. This \textit{nugget
-    effect} may be caused by measurement errors, or it may be caused
-  by features occurring at scales smaller than the sample.
+    effect} may be caused by measurement errors, or by features
+  occurring at scales smaller than the sample.
 \end{enumerate}
 
 \noindent\begin{minipage}[t][][b]{.35\textwidth}
@@ -312,10 +314,10 @@ z(x_\circ,y_\circ) = \sum\limits_{i=1}^n w_i z(x_i,y_i)
 \label{eq:kriging}
 \end{equation}
 
-\noindent where, for the Meuse dataset, $z(x,y)$ is the zinc
+\noindent where, for the Meuse dataset, $z(x,y)$ is the (logged) zinc
 concentration at some location $\{x,y\}$; $\{x_i,y_i\}$ are the
 coordinates of the $i$\textsuperscript{th} site (out of $n$); and
-$\{x_\circ,y_\circ\}$ is the location of a the new site for which we
+$\{x_\circ,y_\circ\}$ is the location of the new site for which we
 want to estimate the zinc concentration. $w_i$ is a weighting
 parameter that depends on the distance between locations $\{x_i,y_i\}$
 and $\{x_\circ,y_\circ\}$ and on the spatial correlation at that
@@ -335,16 +337,16 @@ expression:
     \right]
   =
   \left[
-    \begin{array}{cccccc}
+    \begin{array}{@{}cccccc@{}}
       c_n & \gamma[h_{1,2}] & \gamma[h_{1,3}] & \ldots & \gamma[h_{1,n}] & 1 \\
       \gamma[h_{2,1}] & c_n & \gamma[h_{2,3}] & \ldots & \gamma[h_{2,n}] & 1 \\
-      \vdots & \vdots & \vdots & \ddots & \vdots \\
+      \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
       \gamma[h_{n,1}] & \gamma[h_{n,2}] & \gamma[h_{n,3}] & \ldots & c_n & 1 \\
       1 & 1 & 1 & \ldots & 1 & 0 \\
     \end{array}
     \right]^{-1}
   \left[
-    \begin{array}{c}
+    \begin{array}{@{}c@{}}
       \gamma[h_{1,\circ}] \\
       \gamma[h_{2,\circ}] \\
       \vdots \\
@@ -364,7 +366,7 @@ h_{i,j} = \sqrt{(x_i-x_j)^2 + (y_i-y_j)^2}
 \end{equation}
 
 Fitting a spherical variogram to the Meuse dataset yields a nugget
-$c_n = 0.035$, a sill $c_s = 0.64$ and a range of $c_r =
+$c_n = 0.035$, a sill $c_s = 0.64$ and a range $c_r =
 892$~metres. Fitting a kriging model to location
 $\{x_\circ=179850,y_\circ=331650\}$ of Figure~\ref{fig:meusepoints}
 then yields the following results:
@@ -425,22 +427,21 @@ then yields the following results:
 \noindent in which we can recognise the nugget ($c_s = 0.035$) and the
 sill ($c_s = 0.64$) for all the sample pairs that are separated by a
 distance of zero or more than $c_r = 892$~metres, respectively.  Given
-the 155 zinc (logged) concentration measurements of
+the 155 (logged) zinc concentration measurements of
 Table~\ref{tab:Meuse}, the logged zinc concentration of location
 $\{x_\circ=179850,y_\circ=331650\}$ is given by
-
 \[
 z_{x_\circ,y_\circ} = 0.0022 \times 6.93 - 0.00030 \times 7.04 +
 0.00022 \times 6.46 + \ldots - 0.028 \times 5.93 + \ldots +
 0.0019 \times 5.93 = 5.01
 \]
 
-\noindent corrsponding to a zinc concentration of $\exp[5.01]$ =
+\noindent which corresponds to a zinc concentration of $\exp[5.01]$ =
 150~ppm. Repeating the same exercise for a grid of points spanning the
 entire sampling area:
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
-\includegraphics[width=\textwidth]{../figures/meusecontour.pdf}
+\includegraphics[width=\textwidth]{../figures/meusecontour.pdf}\\
 \end{minipage}
 \begin{minipage}[t][][t]{.39\textwidth}
   \captionof{figure}{
@@ -455,7 +456,6 @@ entire sampling area:
 \end{minipage}
 
 The uncertainty (variance) of the kriging estimate is given by
-
 \begin{equation}
   s^2(x_\circ,y_\circ) = \lambda + \sum\limits_{i=1}^n \gamma[h_{i,\circ}] w_i
   \label{eq:kriginvar}
@@ -466,15 +466,15 @@ Equation~\ref{eq:krigingweights}. For location
 $\{x_\circ=179850,y_\circ=331650\}$:
 
 \[
-s^2(x_\circ,y_\circ) = 0.00029 + 0.64 \times 0.0022 - 0.64 \times
+s^2(x_\circ,y_\circ) = 0.0015 + 0.64 \times 0.0022 - 0.64 \times
 0.00030 + \ldots = 0.22
 \]
 
 Using the error propagation formula for the natural logarithm
-(Equation~\ref{eq:logarithms}), this tells us the relative uncertainty
-(i.e. the coefficient of variation) of the new measurement is
-$s[z]/z=\sqrt{0.22}=47$\%. Repeating this exercise for the entire grid
-of $\{x,y\}$-values:
+(Equation~\ref{eq:logarithms}), this tells us that the relative
+uncertainty (i.e. the coefficient of variation) of the new measurement
+is $s[z]/z=\sqrt{0.22}=47$\%. Repeating this exercise for the entire
+grid of $\{x,y\}$-values:
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
 \includegraphics[width=\textwidth]{../figures/meusecontourerr.pdf}\\
@@ -488,30 +488,30 @@ of $\{x,y\}$-values:
   \label{fig:meusecontourerr}
 \end{minipage}
 
-This particular algorithm is known as \textbf{ordinary kriging}.
-Other, more sophisticated variants of the kriging method exist that
-relax some of the simplifying assumptions that are made by the
-ordinary kriging.  For example:
+The kriging algorithm described in this chapter is known as
+\textbf{ordinary kriging}.  Other, more sophisticated variants of the
+kriging method exist that relax some of the simplifying assumptions
+that are made by ordinary kriging.  For example:
 
 \begin{enumerate}
-\item Ordinary kriging assumes that the data is \textbf{stationary},
-  and has a constant mean and variance. Minor violations of this
+\item Ordinary kriging assumes that the data are \textbf{stationary},
+  and have a constant mean and variance. Minor violations of this
   assumption can be corrected by detrending the data.
 \item The semivariogram models of
   Section~\ref{sec:semivariogram-models} assumed that the spatial
   correlation was \textbf{isotropic}. This means that the semivariance
   was only a function of the lag and not of the direction. This
   assumption may not always be appropriate. For example, valleys in a
-  fold-and-thrust belt may be preferentially oriented in a particular
-  direction. To accommodate these situations, anisotropic
-  semivariogram models can be created that require additional
-  parameters.
+  fold-and-thrust belt may be preferentially oriented perpendicular to
+  the principal stress direction. To accommodate such situations,
+  anisotropic semivariogram models can be created that require
+  additional parameters.
 \item Using Equation~\ref{eq:kriging}, the kriging interpolation for a
   new location involved the values of all $n$ measurements.  This is
   fine for the relatively small Meuse dataset ($n=155)$, but for much
   larger datasets, the matrix inversion of
   Equation~\ref{eq:krigingweights} becomes computationally too
-  demanding.  This problem can be solved by using only measurements
-  that are reasonably close to the new sample for the interpolation.
+  demanding.  This problem can be solved by interpolationg using only
+  measurements that are reasonably close to the new sample.
 \end{enumerate}
 

@@ -52,15 +52,21 @@ inhull <- function(x,y,xi,yi,buffer=0.05){
 #' @description combines a filled contour plot and filled scatter plot
 #'     for 3-dimensional measurements
 #' @details adds a colour bar to a scatter plot and/or filled contour
-#'     plot.  This funciton, which is based on base \code{R}'s
+#'     plot.  This function, which is based on base \code{R}'s
 #'     \code{filled.contour} function, is useful for visualising
 #'     kriging results.
-#' @param x numerical vector of \eqn{n} equally spaced values
-#' @param y numerical vector of \eqn{m} equally spaced values
-#' @param z an \eqn{n \times m} matrix of numerical values
-#' @param X numerical vector of \eqn{N} values
-#' @param Y numerical vector of \eqn{N} values
-#' @param Z numerical vector of \eqn{N} values
+#' @param x numerical vector of \eqn{n} equally spaced values to be
+#'     used in the contour plot
+#' @param y numerical vector of \eqn{m} equally spaced values to be
+#'     used in the contour plot
+#' @param z an \eqn{n \times m} matrix of numerical values to be used
+#'     in the contour plot
+#' @param X numerical vector of \eqn{N} values to be used in the
+#'     scatter plot
+#' @param Y numerical vector of \eqn{N} values to be used in the
+#'     scatter plot
+#' @param Z numerical vector of \eqn{N} values to be used in the
+#'     scatter plot
 #' @param nlevels if \code{levels} is not specified, the range of
 #'     \code{z}, values is divided into approximately this many
 #'     levels.

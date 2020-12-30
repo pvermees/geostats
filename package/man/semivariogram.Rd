@@ -41,9 +41,9 @@ semivariogram (only used if \code{fit=TRUE}).}
 \code{plot} function}
 }
 \value{
-if \code{fit=TRUE}, returns a vector with the sill, nugget
-    and range. If \code{fit=FALSE}, returns the estimated
-    semivariances at different distances for the data.
+returns a list with the estimated semivariances at
+    different distances for the data, and (if \code{fit=TRUE}), a
+    vector with the sill, nugget and range.
 }
 \description{
 computes, plots, and fits the semivariogram of spatial

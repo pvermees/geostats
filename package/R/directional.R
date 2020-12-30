@@ -105,14 +105,12 @@ vonMises <- function(a,mu=0,kappa=1,degrees=FALSE){
 #'     (if \code{degrees=TRUE}) or between 0 and \eqn{2\pi} (if
 #'     \code{degrees=FALSE}).
 #' @param degrees \code{TRUE} for degrees, \code{FALSE} for radians
-#' @param option scalar. If code{option=0}, then \code{plg} is ignored
+#' @param option scalar. If \code{option=0}, then \code{plg} is ignored
 #'     and the measurements are considered to be circular; if
 #'     \code{option=1}, then \code{trd} is the azimuth and \code{plg}
 #'     is the dip; if \code{option=2}, then \code{trd} is the strike
-#'     and \code{plg} is the dip; if \code{option=3}, then \code{trd}
-#'     is the longitude and \code{plg} is the latitude; if
-#'     \code{option=4}, then \code{trd} is the longitude and
-#'     \code{plg} is the latitude.
+#'     and \code{plg} is the dip; if \code{option=3} or \code{4}, then
+#'     \code{trd} is the longitude and \code{plg} is the latitude.
 #' @return a scalar of 2-element vector with the mean orientation,
 #'     either in radians (if \code{degrees=FALSE}), or in degrees.
 #' @examples

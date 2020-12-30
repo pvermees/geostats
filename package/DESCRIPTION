@@ -1,7 +1,7 @@
 Package: geostats
 Title: An Introduction to Statistics for Geoscientists
 Version: 1.0
-Date: 2020-11-14
+Date: 2020-12-30
 Authors@R: person("Pieter", "Vermeesch", , "p.vermeesch@ucl.ac.uk", role = c("aut", "cre"))
 Description: Provides example datasets and code for the introductory statistics module for geoscientists at University College London (UCL). Includes functionality for compositional data, fractals and chaos.
 Author: Pieter Vermeesch [aut, cre]

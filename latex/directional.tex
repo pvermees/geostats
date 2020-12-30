@@ -3,8 +3,8 @@
 
 Strike and dip, azimuth and elevation, latitude and longitude,
 $\ldots$ \textit{directional data} are ubiquitous in the Earth
-Sciences. And just like the compositional data discussed in
-chapter~\ref{ch:compositional}, the statistical analysis of
+Sciences. Just like the compositional data discussed in
+chapter~\ref{ch:compositional}, the statistical analysis of these
 directional data is fraught with dangers.
 
 \section{Circular data}
@@ -34,8 +34,8 @@ $0^{\circ}=360^{\circ}$. Plotting the data on a circle:
   \label{fig:circle1}
 \end{minipage}
 
-Computing the arithmetic mean value of these angles yields a value of
-189.2$^{\circ}$. This is a nonsensical value:
+Computing the arithmetic mean of these angles yields a value of
+189.2$^{\circ}$. This is a nonsensical result:
 
 \noindent\begin{minipage}[t][][b]{.2\textwidth}
 \includegraphics[width=\textwidth]{../figures/circle2.pdf}\\
@@ -55,21 +55,20 @@ $358^{\circ}$ but $2^{\circ}$. So the usual rules of arithmetic do not
 apply to angular measurements. Better results for the difference
 between two angles $\theta$ and $\phi$ are obtained using the
 following trigonometric relationship:
-
 \begin{equation}
   \theta - \phi = \arcsin\left( \sin[\theta] \cos[\phi] -
                                 \cos[\theta] \sin[\phi] \right)
   \label{eq:anglediff}
 \end{equation}
 
-For the same reason, the (arithmetic) mean of 1$^\circ$ and
-359$^\circ$ is 180$^\circ$ but should be 0$^\circ$. A more sensible
-definition of the `mean direction' is again obtained using
-trigonometry, by taking the \textbf{vector sum} of all the component
-directions. For example, let $\theta = \{\theta_1, \ldots, \theta_i,
-\ldots \theta_n \}$ be $n$ angles, then the resultant direction is
-obtained by summing the horizontal and vertical components of unit
-vectors pointing in these directions:
+Similarly, the mean of 1$^\circ$ and 359$^\circ$ should not be
+180$^\circ$ but 0$^\circ$. A more sensible definition of the `mean
+direction' is again obtained using trigonometry, by taking the
+\textbf{vector sum} of all the component directions. For example, if
+$\theta = \{\theta_1, \ldots, \theta_i, \ldots \theta_n \}$ are $n$
+angles, then the resultant direction is obtained by summing the
+horizontal and vertical components of unit vectors pointing in these
+directions:
 
 \begin{equation}
   \overline{\theta} = \arctan\left(\frac{\sum_{i=1}^{n}
@@ -83,10 +82,10 @@ Applying this formula to the glacial striation data:
 \includegraphics[width=\textwidth]{../figures/circle3.pdf}\\
 \end{minipage}
 \begin{minipage}[t][][t]{.8\textwidth}
-  \captionof{figure}{The direction of the vector sum of the 30 glacial
-    striation meausurements points in a direction of 357.6$^\circ$,
-    which is marked by the arrow and does a much better job at
-    capturing the `central' direction than the arithmetic mean of
+  \captionof{figure}{The vector sum of the 30 glacial striation
+    measurements points in a direction of 357.6$^\circ$, which is
+    marked by the arrow and does a much better job at capturing the
+    `central' direction than the arithmetic mean of
     Figure~\ref{fig:circle2} does.\\}
   \label{fig:circle3}
 \end{minipage}
@@ -125,8 +124,8 @@ can use $\bar{R}$ to define the \textbf{circular standard deviation}:
 \end{equation}
 
 In the extreme case where all the measurements point in the same
-direction, $\bar{R} = 1$ and $s_c = 1$. If the data are evenly
-distributed around the circle, $\bar{R} = 0$ and $s_c = \infty$.
+direction, $\bar{R} = 1$ and $s_c = 0$. If the data are evenly
+distributed around the circle, then $\bar{R} = 0$ and $s_c = \infty$.
 
 \noindent\begin{minipage}[t][][b]{.2\textwidth}
 \includegraphics[width=\textwidth]{../figures/lowconcentration.pdf}\\
@@ -142,8 +141,8 @@ distributed around the circle, $\bar{R} = 0$ and $s_c = \infty$.
 \section{Circular distributions}
 \label{sec:circular-distributions}
 
-The normal distribution is not appropriate for directional data for
-the same reason why it did not apply to compositional data. Its tails
+The normal distribution is inappropriate for directional data for the
+same reason why it was inappropriate for compositional data: its tails
 go from $-\infty$ to $+\infty$ and do not fit within the constrained
 dataspace of the angles. The \textbf{von Mises distribution} does not
 suffer from this problem:
@@ -162,8 +161,8 @@ $\kappa$-values to wide ones.
 \begingroup \captionof{figure}{Four examples of the von Mises
   distribution with different values for the mean $\mu$ and the
   concentration parameter $\kappa$, wrapped around a (grey)
-  circle. The probability density is proportional to the distance
-  between this circle and the black line.\\}
+  circle. The probability density is proportional to the distance from
+  the circle to the black line.\\}
 \label{fig:vonMises}\endgroup
 
 The parameter $\kappa$ is not easy to determine directly, but can be
@@ -213,9 +212,9 @@ corresponds to a $\kappa$-value of 2.8.
 \label{sec:spherical-data}
 
 The principles of directional statistics can be generalised from the
-1-dimensional circular line to a 2-dimensional spherical surface in
-3-dimensional space. The coordinates of data in this space can be
-expressed as latitude ($l$) and longitude ($L$):
+1-dimensional circular line in 2-dimensional space to a 2-dimensional
+spherical surface in 3-dimensional space. The coordinates of data in
+this space can be expressed as latitude ($l$) and longitude ($L$):
 
 \begin{equation}
   \left\{
@@ -241,7 +240,7 @@ expressed as latitude ($l$) and longitude ($L$):
   \label{eq:SD}
 \end{equation}
 
-\noindent or as dip (D) and azimuth (A):
+\noindent or as azimuth (A) and dip (D):
 
 \begin{equation}
   \left\{
@@ -268,8 +267,8 @@ projection, using either a Wulff equal angle or a Schmidt equal area
     stereonets, with circles of $10^{\circ}$ radius drawn at azimuths
     of $0^{\circ}, 90^{\circ}, 180^{\circ}$ and $270^{\circ}$, and
     dips of $10^{\circ}$ and $90^\circ$. As the names suggest, the
-    Wulff net preserves the shape of the circles, and the Schmidt net
-    their area.\\}
+    Wulff equal angle net preserves the shape of the circles, and the
+    Schmidt equal area net their size.\\}
   \label{fig:wulffschmidt}
 \end{minipage}
 
@@ -308,7 +307,7 @@ stereographic projection proceeds as follows:
   \right.
 \end{equation}
 
-Stereonets can be used to visualise:
+Stereonets can be used to visualise
 
 \begin{enumerate}
 
@@ -319,9 +318,9 @@ Stereonets can be used to visualise:
 \end{minipage}
 \begin{minipage}[t][][t]{.4\indentwidth}
   \captionof{figure}{a) Wulff and b) Schmidt projection of the African
-    continent.  The Wulff net shows Africa in its right shape, the
-    Schmidt net shows its right size. No two dimensional projection
-    can achieve both goals at once.\\}
+    continent.  The Wulff net shows Africa in its right shape, and the
+    Schmidt net shows it at the right size. No two dimensional
+    projection can achieve both goals at once.\\}
   \label{fig:Africa}
 \end{minipage}
 
@@ -360,7 +359,7 @@ dip & 28.4 & 35.3 & 41.0 & 39.6 & 48.3 & 34.7 & 34.5 & 36.0 & 34.2 & 28.7
     stereonet. The white cirles mark the `pole' of the planar
     measurements, i.e. a perpendicular line to the plane. The circular
     segments mark the intersection of the planes with bottom half of a
-    sphere, shown in an equal area projection.\\}
+    sphere, shown in an equal angle projection.\\}
   \label{fig:fault}
 \end{minipage}
 
@@ -370,7 +369,7 @@ dip & 28.4 & 35.3 & 41.0 & 39.6 & 48.3 & 34.7 & 34.5 & 36.0 & 34.2 & 28.7
 \label{sec:spherical-distributions}
 
 The statistical analysis of spherical data is similar to that of the
-circular of Sections~\ref{sec:circular} and
+circular data in Sections~\ref{sec:circular} and
 \ref{sec:circular-distributions}. The von Mises -- Fisher (vMF)
 distribution generalises the von-Mises distribution of
 Equation~\ref{eq:vonMises}.  In three dimensions, the density function
@@ -408,7 +407,7 @@ and $\bar{R}$ is the concentration parameter:
     }
 \end{equation}
 
-\noindent where is related to the (approximate) value for $\kappa$ by
+\noindent which is related to the (approximate) value for $\kappa$ by
 Equation~\ref{eq:kappa} (with $p=2$).
 
 Then the average latitude and longitude are given by:

@@ -1823,8 +1823,8 @@ basalt.
 \section{Directional data}
 \label{sec:R-directional}
 
-Base \texttt{R} does not include little or no built-in functions for
-directional data analysis. So this tutorial will heavily depend on the
+Base \texttt{R} includes little or no functionality for directional
+data analysis. So this tutorial will heavily depend on the
 \texttt{geostats} package.
 
 \begin{enumerate}
@@ -1837,8 +1837,8 @@ data(striations,package='geostats')
 circle.plot(striations,degrees=TRUE)
 \end{script}
 
-\noindent where the options \texttt{degrees} accounts for the fact
-that the \texttt{striations} data are expressed in degrees.  Change to
+\noindent where the \texttt{degrees} option accounts for the fact that
+the \texttt{striations} data are expressed in degrees.  Change to
 \texttt{degrees=FALSE} for radians. Add the arithmetic mean and vector
 mean to the plot as a white and black square, respectively:
 
@@ -1865,8 +1865,6 @@ Evaluating the von Mises distribution over the 0 -- 360$^{\circ}$
 interval:
 
 \begin{script}[firstnumber=3]
-R <- Rbar(striations,degrees=TRUE)
-k <- Rbar2kappa(R)
 a <- seq(from=0,to=360,length.out=100)
 d <- vonMises(a,mu=md,kappa=k,degrees=TRUE)
 plot(a,d,type='l')
@@ -1885,7 +1883,7 @@ For strikes and dips, use the \texttt{option=2} argument:
 
 \begin{script}
 data(fault,package='geostats')
-stereonet(trd=fault$strike,plg=fault=dip,
+stereonet(trd=fault$strike,plg=fault$dip,
           option=2,degrees=TRUE,show.grid=FALSE)
 \end{script}
 
@@ -1900,7 +1898,7 @@ stereonet(trd=30,plg=-20,degrees=TRUE,
 To add five cones of 10 degree radius to the existing plot (as in
 Figure~\ref{fig:wulffschmidt}.b):
 
-\begin{script}[firstnumber=2]
+\begin{script}[firstnumber=3]
 stereonet(trd=c(0,0,90,180,270),plg=c(90,10,10,10,10),coneAngle=rep(10,5),
           option=4,degrees=TRUE,add=TRUE,wulff=FALSE)
 \end{script}
@@ -1913,14 +1911,14 @@ D <- palaeomag$incl
 meanpalaeomag <- meanangle(trd=A,plg=D,option=1,degrees=TRUE)
 stereonet(trd=A,plg=D,degrees=TRUE,show.grid=FALSE,pch=16,col='grey')
 stereonet(trd=meanpalaeomag[1],plg=meanpalaeomag[2],
-          option=1degrees=TRUE,add=TRUE,pch=16,col='black')
+          option=1,degrees=TRUE,add=TRUE,pch=16,col='black')
 \end{script}
 
 To average strike and dip measurements:
 
 \begin{script}
 S <- fault$strike
-D <- palaeomag$incl
+D <- fault$dip
 meanfault <- meanangle(trd=S,plg=D,option=2,degrees=TRUE)
 stereonet(trd=S,plg=D,option=2,degrees=TRUE,
           show.grid=FALSE,pch=16,col='grey')
@@ -1965,28 +1963,28 @@ Query the fit parameters:
   0.63756843   0.03512741 892.01855323 
 \end{console}
 
-To fit a linear semivariogram model:
+To fit an exponential semivariogram model:
 
 \begin{script}[firstnumber=6]
-svm <- semivariogram(x=X,y=Y,z=Z,model='linear')
+svm_exp <- semivariogram(x=X,y=Y,z=Z,model='exponential')
 \end{script}
 
-Other options for the \texttt{model} argument are
-\verb|'exponential'| and \verb|'gaussian'|.
+Other options for the \texttt{model} argument are \verb|'linear'|, and
+\verb|'gaussian'|.
 
 \item Estimating the ln[Zn]-value for the new location
   $\{x_\circ=179850,y_\circ=331650\}$:
 
 \begin{console}
 > kriging(x=X,y=Y,z=Z,svm=svm,xi=179850,yi=331650)
-[1] 4.960332
+[1] 5.011715
 \end{console}
 
 \noindent and its variance:
 
 \begin{console}
 > kriging(x=X,y=Y,z=Z,svm=svm,xi=179850,yi=331650,err=TRUE)
-[1] 0.2116582
+[1] 0.2215261
 \end{console}
 
 \item\label{it:R-meuse-contour} Evaluate the ln[Zn]-values for a grid
@@ -1998,5 +1996,13 @@ yi <- seq(from=min(Y),to=max(Y),length.out=50)
 zi <- kriging(x=X,y=Y,z=Z,svm=svm,xi=xi,yi=yi,grid=TRUE)
 colourplot(x=xi,y=yi,z=zi,colspec=grey,key.title=title('ln[Zn]'))
 \end{script}
-  
+
+And to visualise the uncertainties of the kriging estimates,
+replace the last two lines with:
+
+\begin{script}[firstnumber=9]
+zi <- kriging(x=X,y=Y,z=Z,svm=svm,xi=xi,yi=yi,grid=TRUE,err=TRUE)
+colourplot(x=xi,y=yi,z=sqrt(zi),colspec=grey,key.title=title('s[Zn]/Zn'))
+\end{script}
+
 \end{enumerate}

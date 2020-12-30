@@ -58,9 +58,9 @@ semivarmod <- function(h,lsnr,model='spherical'){
 #'     semivariogram (only used if \code{fit=TRUE}).
 #' @param ... optional arguments to be passed on to the generic
 #'     \code{plot} function
-#' @return if \code{fit=TRUE}, returns a vector with the sill, nugget
-#'     and range. If \code{fit=FALSE}, returns the estimated
-#'     semivariances at different distances for the data.
+#' @return returns a list with the estimated semivariances at
+#'     different distances for the data, and (if \code{fit=TRUE}), a
+#'     vector with the sill, nugget and range.
 #' @examples
 #' data(meuse,package='geostats')
 #' semivariogram(x=meuse$x,y=meuse$y,z=log(meuse$cadmium))
