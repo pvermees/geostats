@@ -19,21 +19,19 @@ vonMises(a, mu = 0, kappa = 1, degrees = FALSE)
 a scalar or vector of the same length as \code{angles}
 }
 \description{
-returns the probability density of a von Mises distribution
-}
-\details{
-the von Mises distribution describes probability distributions
-on a circle using the following density function:
+Returns the probability density of a von Mises
+    distribution, which describes probability distributions on a
+    circle using the following density function:
 
-\eqn{\frac{\exp(\kappa\cos(x-\mu))}{2\pi I_0(\kappa)}}
+    \eqn{\frac{\exp(\kappa\cos(x-\mu))}{2\pi I_0(\kappa)}}
 
-where \eqn{I_0(\kappa)} is a zero order Bessel function
+where \eqn{I_0(\kappa)} is a zero order Bessel function.
 }
 \examples{
-plot(x=c(-1.2,1.2),y=c(-1.2,1.2),type='n',
+plot(x=c(-1,1.2),y=c(-1,1.2),type='n',
      axes=FALSE,ann=FALSE,bty='n',asp=1)
 a <- seq(from=-pi,to=pi,length.out=200)
-d <- vonMises(a=a,mu=pi/2,kappa=5)
+d <- vonMises(a=a,mu=pi/4,kappa=5)
 symbols(x=0,y=0,circles=1,add=TRUE,inches=FALSE,xpd=NA,fg='grey50')
 lines(x=(1+d)*cos(a),y=(1+d)*sin(a),xpd=NA)
 }

@@ -5,7 +5,7 @@
 \alias{clasts}
 \title{clast size data}
 \description{
-20 clast size measurements, in cm
+20 clast size measurements, in cm.
 }
 \examples{
 data(clasts,package='geostats')

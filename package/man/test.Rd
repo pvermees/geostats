@@ -5,7 +5,7 @@
 \alias{test}
 \title{composition of oceanic basalts}
 \description{
-major element compositions of 64 island arc basalts (IAB), 23 mid
+Major element compositions of 64 island arc basalts (IAB), 23 mid
 oceanic ridge basalts (MORB) and 60 ocean island basalts
 (OIB). This dataset can be used to test supervised learning
 algorithms.
@@ -13,9 +13,13 @@ algorithms.
 \examples{
 library(MASS)
 data(training,package='geostats')
+ld <- lda(x=alr(training[,-1]),grouping=training[,1])
 data(test,package='geostats')
-qd <- qda(affinity ~ ., data=training)
-pr <- predict(qd,newdata=test[,-1])
+pr <- predict(ld,newdata=alr(test[,-1]))
 table(test$affinity,pr$class)
+}
+\references{
+Vermeesch, P. ``Tectonic discrimination diagrams
+    revisited.''  Geochemistry, Geophysics, Geosystems 7.6 (2006).
 }
 \keyword{data}

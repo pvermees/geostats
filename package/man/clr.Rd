@@ -9,15 +9,16 @@ clr(dat, inverse = FALSE)
 \arguments{
 \item{dat}{an \code{n x m} matrix}
 
-\item{inverse}{if \code{TRUE}, applies the inverse clr tranformation}
+\item{inverse}{logical. If \code{TRUE}, applies the inverse clr
+tranformation}
 }
 \value{
 an \code{n x m} matrix
 }
 \description{
-maps compositional data from an n-dimensional simplex
+Maps compositional data from an n-dimensional simplex
     to an n-dimensional Euclidean space with Aitchison's centred
-    logratio transformation
+    logratio transformation.
 }
 \examples{
 xyz <- rbind(c(0.03,99.88,0.09),

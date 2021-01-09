@@ -5,8 +5,8 @@
 \alias{declustered}
 \title{declustered earthquake data}
 \description{
-dataset of 28267 earthquakes between 1769 and 2016, with
-aftershocks and precursor events removed
+Dataset of 28267 earthquakes between 1769 and 2016, with
+aftershocks and precursor events removed.
 }
 \examples{
 data(declustered,package='geostats')

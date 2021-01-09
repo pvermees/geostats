@@ -9,19 +9,20 @@ circle.plot(a, degrees = FALSE, tl = 0.1, ...)
 \arguments{
 \item{a}{angle(s), scalar or vector}
 
-\item{degrees}{\code{TRUE} for degrees, \code{FALSE} for radians}
+\item{degrees}{logical. \code{TRUE} for degrees, \code{FALSE} for
+radians}
 
 \item{tl}{tick length (value between 0 and 1)}
 
 \item{...}{optional arguments to be passed on to the generic
 \code{matlines} function}
 }
-\description{
-Plots directional data as ticks on a circle
+\value{
+no return value
 }
-\details{
-Produces a circle with angles plotting in a clockwise
-    direction from the top
+\description{
+Plots directional data as ticks on a circle, with
+    angles plotting in a clockwise direction from the top.
 }
 \examples{
 data(striations,package='geostats')

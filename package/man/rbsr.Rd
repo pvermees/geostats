@@ -5,7 +5,7 @@
 \alias{rbsr}
 \title{Rb-Sr data}
 \description{
-synthetic dataset of 8 Rb-Sr analysis that form a 1Ga isochron
+Synthetic dataset of 8 Rb-Sr analysis that form a 1Ga isochron.
 }
 \examples{
 data(rbsr,package='geostats')

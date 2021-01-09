@@ -14,8 +14,11 @@ scale.}
 
 \item{...}{optional arguments to the generic \code{points} function.}
 }
+\value{
+an object of class \code{lm}
+}
 \description{
-performs box counting on a matrix of 0s and 1s.
+Performs box counting on a matrix of 0s and 1s.
 }
 \examples{
 g <- sierpinski(n=5)

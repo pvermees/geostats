@@ -1,12 +1,13 @@
 #' @title plot circular data
-#' @description Plots directional data as ticks on a circle
-#' @details Produces a circle with angles plotting in a clockwise
-#'     direction from the top
+#' @description Plots directional data as ticks on a circle, with
+#'     angles plotting in a clockwise direction from the top.
 #' @param a angle(s), scalar or vector
-#' @param degrees \code{TRUE} for degrees, \code{FALSE} for radians
+#' @param degrees logical. \code{TRUE} for degrees, \code{FALSE} for
+#'     radians
 #' @param tl tick length (value between 0 and 1)
 #' @param ... optional arguments to be passed on to the generic
 #'     \code{matlines} function
+#' @return no return value
 #' @examples
 #' data(striations,package='geostats')
 #' circle.plot(striations,degrees=TRUE)
@@ -42,14 +43,15 @@ circle.ticks <- function(a,degrees=FALSE,tl=0.1,...){
 }
 
 #' @title add points to a circular plot
-#' @description adds directional data as points on an existing circle
-#'     plot
-#' @details adds points to a circle with angles plotting in a
-#'     clockwise direction from the top
+#' @description Adds directional data as points on an existing circle
+#'     plot, with angles plotting in a clockwise direction from the
+#'     top.
 #' @param a angle(s), scalar or vector
-#' @param degrees \code{TRUE} for degrees, \code{FALSE} for radians
+#' @param degrees logical. \code{TRUE} for degrees, \code{FALSE} for
+#'     radians
 #' @param ... optional arguments to be passed on to the generic
 #'     \code{points} function
+#' @return no return value
 #' @examples
 #' data(striations,package='geostats')
 #' circle.plot(striations,degrees=TRUE)
@@ -63,13 +65,13 @@ circle.points <- function(a,degrees=FALSE,...){
 }
 
 #' @title von Mises distribution
-#' @description returns the probability density of a von Mises distribution
-#' @details the von Mises distribution describes probability distributions
-#' on a circle using the following density function:
+#' @description Returns the probability density of a von Mises
+#'     distribution, which describes probability distributions on a
+#'     circle using the following density function:
+#' 
+#'     \eqn{\frac{\exp(\kappa\cos(x-\mu))}{2\pi I_0(\kappa)}}
 #'
-#' \eqn{\frac{\exp(\kappa\cos(x-\mu))}{2\pi I_0(\kappa)}}
-#'
-#' where \eqn{I_0(\kappa)} is a zero order Bessel function
+#' where \eqn{I_0(\kappa)} is a zero order Bessel function.
 #' 
 #' @param a angle(s), scalar or vector
 #' @param mu scalar containing the mean direction
@@ -77,10 +79,10 @@ circle.points <- function(a,degrees=FALSE,...){
 #' @param degrees \code{TRUE} for degrees, \code{FALSE} for radians
 #' @return a scalar or vector of the same length as \code{angles}
 #' @examples
-#' plot(x=c(-1.2,1.2),y=c(-1.2,1.2),type='n',
+#' plot(x=c(-1,1.2),y=c(-1,1.2),type='n',
 #'      axes=FALSE,ann=FALSE,bty='n',asp=1)
 #' a <- seq(from=-pi,to=pi,length.out=200)
-#' d <- vonMises(a=a,mu=pi/2,kappa=5)
+#' d <- vonMises(a=a,mu=pi/4,kappa=5)
 #' symbols(x=0,y=0,circles=1,add=TRUE,inches=FALSE,xpd=NA,fg='grey50')
 #' lines(x=(1+d)*cos(a),y=(1+d)*sin(a),xpd=NA)
 #' @export
@@ -95,9 +97,8 @@ vonMises <- function(a,mu=0,kappa=1,degrees=FALSE){
 }
 
 #' @title mean angle
-#' @description computes the vector mean of a collection of circular
-#'     measurements
-#' @details averages angles by taking their vector sum
+#' @description Computes the vector mean of a collection of circular
+#'     measurements.
 #' @param trd trend angle, in degrees, between 0 and 360 (if
 #'     \code{degrees=TRUE}) or between 0 and \eqn{2\pi} (if
 #'     \code{degrees=FALSE}).
@@ -105,12 +106,12 @@ vonMises <- function(a,mu=0,kappa=1,degrees=FALSE){
 #'     (if \code{degrees=TRUE}) or between 0 and \eqn{2\pi} (if
 #'     \code{degrees=FALSE}).
 #' @param degrees \code{TRUE} for degrees, \code{FALSE} for radians
-#' @param option scalar. If \code{option=0}, then \code{plg} is ignored
-#'     and the measurements are considered to be circular; if
+#' @param option scalar. If \code{option=0}, then \code{plg} is
+#'     ignored and the measurements are considered to be circular; if
 #'     \code{option=1}, then \code{trd} is the azimuth and \code{plg}
 #'     is the dip; if \code{option=2}, then \code{trd} is the strike
-#'     and \code{plg} is the dip; if \code{option=3} or \code{4}, then
-#'     \code{trd} is the longitude and \code{plg} is the latitude.
+#'     and \code{plg} is the dip; if \code{option=3} then \code{trd}
+#'     is the longitude and \code{plg} is the latitude.
 #' @return a scalar of 2-element vector with the mean orientation,
 #'     either in radians (if \code{degrees=FALSE}), or in degrees.
 #' @examples
@@ -122,11 +123,9 @@ meanangle <- function(trd,plg=0,option=0,degrees=FALSE){
 }
 
 #' @title calculate \eqn{\bar{R}}
-#' @description returns \eqn{\bar{R}}, a measure of directional
-#'     concentration
-#' @details Given \eqn{n} circular or spherical measurements, their
-#'     length of the normalised vector sum takes serves as a measure
-#'     of concentration.
+#' @description Given \eqn{n} circular or spherical measurements, the
+#'     length of their normalised vector sum (\eqn{\bar{R}}) serves as
+#'     a measure of directional concentration.
 #' @param trd trend angle, in degrees, between 0 and 360 (if
 #'     \code{degrees=TRUE}) or between 0 and \eqn{2\pi} (if
 #'     \code{degrees=FALSE}).
@@ -134,14 +133,12 @@ meanangle <- function(trd,plg=0,option=0,degrees=FALSE){
 #'     (if \code{degrees=TRUE}) or between 0 and \eqn{2\pi} (if
 #'     \code{degrees=FALSE}).
 #' @param degrees \code{TRUE} for degrees, \code{FALSE} for radians
-#' @param option scalar. If code{option=0}, then \code{plg} is ignored
-#'     and the measurements are considered to be circular; if
+#' @param option scalar. If \code{option=0}, then \code{plg} is
+#'     ignored and the measurements are considered to be circular; if
 #'     \code{option=1}, then \code{trd} is the azimuth and \code{plg}
 #'     is the dip; if \code{option=2}, then \code{trd} is the strike
-#'     and \code{plg} is the dip; if \code{option=3}, then \code{trd}
-#'     is the longitude and \code{plg} is the latitude; if
-#'     \code{option=4}, then \code{trd} is the longitude and
-#'     \code{plg} is the latitude.
+#'     and \code{plg} is the dip; if \code{option=3} then \code{trd}
+#'     is the longitude and \code{plg} is the latitude.
 #' @return a value between 0 and 1
 #' @examples
 #' data(striations,package='geostats')
@@ -210,8 +207,9 @@ vectorsum <- function(trd,plg=0,option=0,degrees=FALSE,Rbar=TRUE){
 }
 
 #' @title \eqn{\bar{R}} to \eqn{\kappa} conversion
-#' @description converts concentration parameter \eqn{\bar{R}} to
-#'     \eqn{\kappa}
+#' @description Converts the empirical concentration parameter
+#'     \eqn{\bar{R}} to the von-Mises concentration parameter
+#'     \eqn{\kappa}.
 #' @details \eqn{\bar{R}} and \eqn{\kappa} are two types of
 #'     concentration parameter that are commonly used in directional
 #'     data analysis.  \eqn{\kappa} is one of the parameters of the
@@ -225,11 +223,14 @@ vectorsum <- function(trd,plg=0,option=0,degrees=FALSE,Rbar=TRUE){
 #'     \frac{\bar{R}(p+1-\bar{R}^2)}{1-\bar{R}^2}
 #' }
 #'
-#' where \eqn{p} marks the number of parameters in the data space
-#' (1 for circle, 2 for a sphere).
+#' where \eqn{p} marks the number of parameters in the data space (1
+#' for circle, 2 for a sphere).
 #' @param R a scalar or vector of values between 0 and 1
 #' @param p the number of parameters
 #' @return value(s) between 0 and \eqn{+\infty}
+#' @references Banerjee, A., et al. ``Clustering on the unit
+#'     hypersphere using von Mises-Fisher distributions.''  Journal of
+#'     Machine Learning Research 6.Sep (2005): 1345-1382.
 #' @examples
 #' data(striations,package='geostats')
 #' Rbar2kappa(Rbar(striations,degrees=TRUE))

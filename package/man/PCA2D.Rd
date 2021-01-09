@@ -10,8 +10,8 @@ PCA2D(X)
 \item{X}{a matrix with two columns}
 }
 \description{
-produces a 4-panel summary plot for two dimensional
-    PCA for didactical purposes
+Produces a 4-panel summary plot for two dimensional
+    PCA for didactical purposes.
 }
 \examples{
 X <- rbind(c(-1,7),c(3,2),c(4,3))

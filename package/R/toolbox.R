@@ -1,5 +1,5 @@
 #' @title get the mode of a dataset
-#' @description compute the most frequently occuring value in a
+#' @description Computes the most frequently occuring value in a
 #'     sampling distribution.
 #' @param x a vector
 #' @param categorical logical. If \code{TRUE}, returns the most
@@ -29,7 +29,7 @@ Mode <- function(x,categorical=FALSE){
 }
 
 #' @title calculate the skewness of a dataset
-#' @description compute the third moment of a sampling distribution.
+#' @description Compute the third moment of a sampling distribution.
 #' @param x a vector
 #' @return a scalar
 #' @examples
@@ -41,7 +41,7 @@ skew <- function(x){
 }
 
 #' @title generate bivariate random data
-#' @description returns bivariate datasets from four synthetic
+#' @description Returns bivariate datasets from four synthetic
 #'     distributions that have the shape of a circle, arrow, square
 #'     and ellipse.
 #' @param pop an integer from 1 to 4 marking the population of choice:
@@ -98,4 +98,8 @@ randy <- function(pop=1,n=250){
         ry <- mu[2] + a*cos(rangle)*sin(theta) + b*sin(rangle)*cos(theta)
     }
     cbind(rx,ry)
+}
+
+hasClass <- function(obj,...){
+    any(class(obj)%in%unlist(list(...)))
 }

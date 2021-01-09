@@ -5,10 +5,14 @@
 \alias{DZ}
 \title{detrital zircon U-Pb data}
 \description{
-detrital zircon U-Pb data of 5 sand samples from China
+Detrital zircon U-Pb data of 13 sand samples from China.
 }
 \examples{
 data(DZ,package='geostats')
 qqplot(DZ[['Y']],DZ[['5']])
+}
+\references{
+Vermeesch, P. ``Multi-sample comparison of detrital age
+    distributions.''  Chemical Geology 341 (2013): 140-146.
 }
 \keyword{data}

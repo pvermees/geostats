@@ -133,11 +133,8 @@ plot(exp(ldens$x),ldens$y,type='l',main='',
      xlab='clast size (cm)',ylab='Density',log='x')
 rug(clasts)
 legend('topright',legend='a)',bty='n',cex=1.2,adj=c(0,0))
-dens <- ldens
-dens$x <- exp(ldens$x)
-dx <- diff(dens$x)
-dens$y <- ldens$y/c(dx,dx[511])
-plot(dens,main='',xlab='clast size (cm)',
+clastdens <- geostats:::exp.density(ldens)
+plot(clastdens,main='',xlab='clast size (cm)',
      ylab='Density',xlim=c(0,20),zero.line=FALSE)
 rug(clasts)
 legend('topright',legend='b)',bty='n',cex=1.2,adj=c(0,0))
@@ -166,11 +163,8 @@ axis(side=1,at=log(ticks/(1-ticks)),labels=ticks)
 axis(side=3)
 mtext(text='logit[porosity]',side=3,line=1.5)
 legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,0))
-dens <- ldens
-dens$x <- exp(ldens$x)/(exp(ldens$x)+1)
-dx <- diff(dens$x)
-dens$y <- ldens$y/c(dx,dx[511])
-plot(dens,main='',xlab='porosity (fraction)',zero.line=FALSE)
+pordens <- geostats:::logit.density(ldens,inverse=TRUE)
+plot(pordens,main='',xlab='porosity (fraction)',zero.line=FALSE)
 rug(por)
 legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(0.5,0))
 dev.off()
@@ -273,7 +267,8 @@ layout.show(6)
 plot.new()
 plot.new()
 plot.new()
-plot(dens,type='l',xaxt='n',main='',xlim=xlim,zero.line=FALSE)
+plot(clastdens,type='l',xaxt='n',yaxt='n',main='',xlim=xlim,zero.line=FALSE)
+axis(side=2,at=c(0,0.1,0.2,0.3),labels=c(0,0.1,0.2,0.3))
 axis(side=3)
 mtext(text='clast size [cm]',side=3,line=1.5)
 mtext(text='Density',side=2,line=1.5)
@@ -310,7 +305,7 @@ layout.show(6)
 plot.new()
 plot.new()
 plot.new()
-plot(dens,type='l',xaxt='n',main='',xlim=xlim,zero.line=FALSE)
+plot(pordens,type='l',xaxt='n',main='',xlim=xlim,zero.line=FALSE)
 axis(side=3)
 mtext(text='Porosity',side=3,line=1.5)
 mtext(text='Density',side=2,line=1.5)
@@ -394,7 +389,7 @@ dens <- ldens
 dens$x <- exp(ldens$x)
 dx <- diff(dens$x)
 dens$y <- ldens$y/c(dx,dx[511])
-plot(dens$x,dens$y,main='',xlab='clast size [cm]',
+plot(clastdens,main='',xlab='clast size [cm]',
      ylab='Density',type='l',xlim=c(0,12),bty='n')
 mtext(paste0('skewness=',signif(skewness(clasts),2)),side=3,line=0,cex=0.8)
 legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(0,0))
@@ -414,7 +409,8 @@ layout(m,widths=c(0.1,0.9),heights=c(0.65,0.2,0.15))
 plot.new()
 xlim <- c(0,12)
 iin <- which(dens$x<xlim[2])
-plot(dens$x[iin],dens$y[iin],type='l',main='',xlim=xlim,xaxt='n',bty='n',ylab='')
+plot(clastdens$x[iin],clastdens$y[iin],type='l',
+     main='',xlim=xlim,xaxt='n',bty='n',ylab='')
 mtext('Density',side=2,line=1.5)
 rug(clasts,ticksize=0.05)
 boxplot(clasts,horizontal=TRUE,ylim=xlim,
@@ -4260,7 +4256,7 @@ Z <- log(meuse$zinc)
 
 cairo(file='../../figures/meusepoints.pdf',width=5,height=4)
 pars(mar=c(1.5,3,2,0))
-geostats::colourplot(X=X,Y=Y,Z=Z,colspec=grey,
+geostats::colourplot(X=X,Y=Y,Z=Z,colspec=grey.colors,
                      key.title=title('ln[Zn]'),cex=0.7,
                      extra={text(179850,331650,labels='?')})
 dev.off()
@@ -4320,7 +4316,7 @@ yi <- seq(from=min(Y)-dY,to=max(Y)+dY,length.out=50)
 zi <- geostats::kriging(x=X,y=Y,z=Z,svm=svm,xi=xi,yi=yi,grid=TRUE)
 mZ <- min(zi,na.rm=TRUE)
 MZ <- max(zi,na.rm=TRUE)
-geostats::colourplot(x=xi,y=yi,z=zi,X=X,Y=Y,Z=Z,colspec=grey,
+geostats::colourplot(x=xi,y=yi,z=zi,X=X,Y=Y,Z=Z,colspec=grey.colors,
                      key.title=title('ln[Zn]'),cex=0.7)
 dev.off()
 
@@ -4340,9 +4336,8 @@ yi <- seq(from=min(Y)-dY,to=max(Y)+dY,length.out=50)
 zi <- sqrt(geostats::kriging(x=X,y=Y,z=Z,svm=svm,xi=xi,yi=yi,grid=TRUE,err=TRUE))
 mZ <- min(zi,na.rm=TRUE)
 MZ <- max(zi,na.rm=TRUE)
-geostats::colourplot(x=xi,y=yi,z=zi,colspec=grey,cex=0.7,
-                     key.title=title("s(Zn)/Zn",cex.main=1.04)
-                     )
+geostats::colourplot(x=xi,y=yi,z=zi,colspec=grey.colors,cex=0.7,
+                     key.title=title("s(Zn)/Zn",cex.main=1.04))
 dev.off()
 
 set.seed(8)
@@ -4387,7 +4382,7 @@ xi <- seq(from=min(X),to=max(X),length.out=50)
 yi <- seq(from=min(Y),to=max(Y),length.out=50)
 zsph <- geostats::kriging(x=X,y=Y,z=Z,xi=xi,yi=yi,grid=TRUE,svm=sphmodel)
 zexp <- geostats::kriging(x=X,y=Y,z=Z,xi=xi,yi=yi,grid=TRUE,svm=expmodel)
-geostats::colourplot(x=xi,y=yi,z=exp(zsph-zexp),colspec=grey,
+geostats::colourplot(x=xi,y=yi,z=exp(zsph-zexp),colspec=grey.colors,
                      extra={points(X,Y,pch=21,cex=0.7,bg='white')},
                      key.title=title(expression(Zn[sph]/Zn[exp]),cex.main=1.04))
 dev.off()

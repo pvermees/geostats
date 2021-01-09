@@ -5,12 +5,13 @@
 \alias{Corsica}
 \title{rivers on Corsica}
 \description{
-a 512 x 512 pixel image of the river network on Corsica
+A \eqn{512 \times 512} pixel image of the river network on Corsica.
 }
 \examples{
 data(Corsica,package='geostats')
 p <- par(mfrow=c(1,2))
 image(Corsica)
 fractaldim(Corsica)
+par(p)
 }
 \keyword{data}

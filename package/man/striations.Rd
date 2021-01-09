@@ -5,7 +5,7 @@
 \alias{striations}
 \title{directions of glacial striations}
 \description{
-directions (in degrees) of 30 glacial striation measurements from
+Directions (in degrees) of 30 glacial striation measurements from
 Madagascar.
 }
 \examples{

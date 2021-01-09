@@ -46,10 +46,6 @@ returns a list with the estimated semivariances at
     vector with the sill, nugget and range.
 }
 \description{
-computes, plots, and fits the semivariogram of spatial
-    data
-}
-\details{
 Plots the semivariance of spatial data against
     inter-sample distance, and fits a spherical equation to it.
 }

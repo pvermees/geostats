@@ -19,7 +19,7 @@ a data frame with two columns \code{size} and
     \code{frequency}
 }
 \description{
-calculate the number of items exceeding a certain size
+Count the number of items exceeding a certain size.
 }
 \examples{
 data(Finland,package='geostats')

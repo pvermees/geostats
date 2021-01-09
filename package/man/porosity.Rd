@@ -5,7 +5,7 @@
 \alias{porosity}
 \title{porosity data}
 \description{
-20 porosity measurements, as fractions
+20 porosity measurements, as fractions.
 }
 \examples{
 data(porosity,package='geostats')

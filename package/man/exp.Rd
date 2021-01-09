@@ -14,8 +14,8 @@
 an object of class \code{density}
 }
 \description{
-Map the input from [\eqn{-\infty,+\infty}] to [\eqn{0,\infty}] by
-taking exponents
+Map a logged kernel density estimate from [\eqn{-\infty,+\infty}]
+to [\eqn{0,\infty}] by taking exponents.
 }
 \examples{
 data(clasts,package='geostats')

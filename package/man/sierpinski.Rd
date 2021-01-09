@@ -14,14 +14,11 @@ levels.}
 a square matrix with 0s and 1s.
 }
 \description{
-returns a matrix of 0s and 1s that form a Sierpinski
-    fractal.
-}
-\details{
-The Sierpinski carpet is two dimensional fractal, which is
-    generated using a recursive algorithm that is built on a grid
-    of eight black squares surrounding a white square. Each level
-    of recursion replaces each black square by the same pattern.
+Returns a matrix of 0s and 1s that form a Sierpinski
+    carpet. This is a two dimensional fractal, which is generated
+    using a recursive algorithm that is built on a grid of eight
+    black squares surrounding a white square. Each level of
+    recursion replaces each black square by the same pattern.
 }
 \examples{
 g <- sierpinski(n=5)

@@ -13,8 +13,8 @@ xyz2xy(xyz)
 an \code{n x 2} numerical matrix
 }
 \description{
-helper function to generate bivariate plot coordinates
-    for ternary data
+Helper function to generate bivariate plot coordinates
+    for ternary data.
 }
 \examples{
 xyz <- rbind(c(1,0,0),c(0,1,0),c(0,0,1),c(1,0,0))

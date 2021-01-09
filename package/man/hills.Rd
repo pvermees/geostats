@@ -5,11 +5,11 @@
 \alias{hills}
 \title{hills}
 \description{
-This data set contains 150 X-Y-Z values for a synthetic landscape
-that consists of three Gaussian mountains.
+150 X-Y-Z values for a synthetic landscape that consists of three
+Gaussian mountains.
 }
 \examples{
 data(hills,package='geostats')
-semivariogram(x=hills$X,y=hills$Y,z=hills$Z)
+semivariogram(x=hills$X,y=hills$Y,z=hills$Z,model='gaussian')
 }
 \keyword{data}

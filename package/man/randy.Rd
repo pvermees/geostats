@@ -16,7 +16,7 @@ randy(pop = 1, n = 250)
 a \code{[2xn]} matrix of random numbers
 }
 \description{
-returns bivariate datasets from four synthetic
+Returns bivariate datasets from four synthetic
     distributions that have the shape of a circle, arrow, square
     and ellipse.
 }

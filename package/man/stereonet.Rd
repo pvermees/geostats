@@ -7,7 +7,7 @@
 stereonet(
   trd,
   plg,
-  coneAngle = 0,
+  coneAngle = rep(10, length(trd)),
   option = 1,
   wulff = TRUE,
   add = FALSE,
@@ -33,11 +33,11 @@ stereonet(
 circle around the pole with azimuth \code{trd} and dip
 \code{plg}.}
 
-\item{option}{scalar. If \code{option=1}, then \code{trd} is the
-azimuth and \code{plg} is the dip; if \code{option=2}, then
-\code{trd} is the strike and \code{plg} is the dip; if
-\code{option=3} or \code{4}, then \code{trd} is the longitude
-and \code{plg} is the latitude.}
+\item{option}{scalar. If \code{option=1} or \code{option=4}, then
+\code{trd} is the azimuth and \code{plg} is the dip; if
+\code{option=2}, then \code{trd} is the strike and \code{plg}
+is the dip; if \code{option=3}, then \code{trd} is the
+longitude and \code{plg} is the latitude.}
 
 \item{wulff}{logical. If \code{FALSE}, produces a Schmidt net.}
 
@@ -66,19 +66,23 @@ on the stereonet.}
 \code{points} function}
 }
 \description{
-Plots directional data on a Schmidt equal area or
-    Wulff equal angle stereonet.
-}
-\details{
-The Wulff equal angle polar Lambert projection preserves
-    the shape of objects and is often used to visualise structural
-    data.  The Schmidt equal area polar Lambert projection
-    preserves the size of objects and is more popular in
+Plots directional data on a Wulff or Schmidt
+    stereonet. The Wulff equal angle polar Lambert projection
+    preserves the shape of objects and is often used to visualise
+    structural data.  The Schmidt equal area polar Lambert
+    projection preserves the size of objects and is more popular in
     mineralogy.
 }
 \examples{
-stereonet(azimuth=c(120,80),dip=c(10,30),degrees=TRUE)
+stereonet(trd=c(120,80),plg=c(10,30),degrees=TRUE,pch=16)
+stereonet(trd=c(120,80),plg=c(10,30),degrees=TRUE,
+          option=4,coneAngle=c(5,10),add=TRUE)
+}
+\references{
+Allmendinger, R.W., Cardozo, N., and Fisher,
+    D.M. ``Structural geology algorithms: Vectors and
+    tensors''. Cambridge University Press, 2011.
 }
 \author{
-based on the Matlab script by Gerry Middleton
+based on a MATLAB script written by Nestor Cardozo.
 }

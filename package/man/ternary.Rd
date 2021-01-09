@@ -24,7 +24,7 @@ diagram}
 \code{text} functions.}
 }
 \description{
-plot points, lines or text on a ternary diagram
+Plot points, lines or text on a ternary diagram.
 }
 \examples{
 data(ACNK,package='geostats')

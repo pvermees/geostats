@@ -32,7 +32,7 @@ earthquakes <- data.frame(
     lon = qdat$longitude,
     mag = qdat$mag
 )
-save(earthquakes,file='../../package/data/earthquakes.rda',version=2)
+save(earthquakes,file='../../package/data/earthquakes.rda',compress='xz',version=2)
 
 dqdat <- read.csv('declusteredquakes.csv',
                   header=TRUE)
@@ -48,7 +48,7 @@ declustered <- data.frame(
     mag = dqdat$Mwe
 )
 save(declustered,file='../../package/data/declustered.rda',
-     version=2,compression_level=9)
+     version=2,compress='xz',compression_level=9)
 
 dat <- read.csv('Finland.csv',header=TRUE)
 Finland <- data.frame(
@@ -59,7 +59,7 @@ Finland <- data.frame(
     elevation = dat$Elevation
 )
 save(Finland,file='../../package/data/Finland.rda',
-     version=2,compression_level=9)
+     version=2,compress='xz',compression_level=9)
 
 set.seed(1)
 dz <- provenance::read.distributional('DZages.csv',check.names=FALSE)$x
@@ -117,7 +117,7 @@ raster2dat <- function(fname){
 
 fractures <- raster2dat('fractures.tif')
 save(fractures,file='../../package/data/fractures.rda',
-     version=2,compression_level=9)
+     version=2,compress='bzip2',compression_level=9)
 
 Corsica <- raster2dat('Corsica.tif')
 save(Corsica,file='../../package/data/Corsica.rda',version=2)
@@ -139,7 +139,7 @@ training <- na.omit(dat[,c(1,5:7,10:14)])
 colnames(training) <- c('affinity','SiO2','TiO2','Al2O3','CaO',
                      'MgO','MnO','K2O','Na2O')
 rownames(training) <- 1:nrow(training)
-save(training,file='../../package/data/training.rda',version=2)
+save(training,file='../../package/data/training.rda',compress='xz',version=2)
 
 dat <- read.delim('test.txt',header=TRUE,sep='\t',check.names=FALSE)
 test <- na.omit(dat[,c(1,5:7,10:14)])

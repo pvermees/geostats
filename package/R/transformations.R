@@ -1,8 +1,8 @@
 #' @title logistic transformation
-#' @description maps numbers from [0,1] to [\eqn{-\infty,+\infty}] and
-#'     back
+#' @description Maps numbers from [0,1] to [\eqn{-\infty,+\infty}] and
+#'     back.
 #' @param x a vector of real numbers (strictly positive if
-#'     \code{inverse=FALSE})
+#'     \code{inverse=FALSE}) or an object of class \code{density}.
 #' @param inverse logical. If \code{inverse=FALSE}, returns
 #'     \eqn{\ln\!\left[\frac{x}{1-x}\right]}; otherwise returns
 #'     \eqn{\frac{\exp[x]}{\exp[x]+1}}.
@@ -34,8 +34,9 @@ logit.density <- function(x,inverse=TRUE,...){
     if (inverse | all(x$x>0)){
         out <- x
         out$x <- logit(x$x,inverse=inverse,...)
-        dx <- diff(out$x)
-        out$y <- x$y/c(dx,utils::tail(dx,1))
+        dxin <- diff(x$x)
+        dxout <- diff(out$x)
+        out$y <- c(dxin,utils::tail(dxin,1))*x$y/c(dxout,utils::tail(dxout,1))
     } else {
         stop('Cannot apply the logit transformation to negative values.')
     }
@@ -44,8 +45,9 @@ logit.density <- function(x,inverse=TRUE,...){
 
 #' exponential transformation
 #'
-#' Map the input from [\eqn{-\infty,+\infty}] to [\eqn{0,\infty}] by
-#' taking exponents
+#' Map a logged kernel density estimate from [\eqn{-\infty,+\infty}]
+#' to [\eqn{0,\infty}] by taking exponents.
+#' 
 #' @param x an object of class \code{density}
 #' @return an object of class \code{density}
 #' @examples
@@ -59,17 +61,19 @@ logit.density <- function(x,inverse=TRUE,...){
 exp.density <- function(x){
     out <- x
     out$x <- exp(x$x)
-    dx <- diff(out$x)
-    out$y <- x$y/c(dx,utils::tail(dx,1))
+    dxin <- diff(x$x)
+    dxout <- diff(out$x)
+    out$y <- c(dxin,utils::tail(dxin,1))*x$y/c(dxout,utils::tail(dxout,1))
     out    
 }
 
 #' @title centred logratio transformation
-#' @description maps compositional data from an n-dimensional simplex
+#' @description Maps compositional data from an n-dimensional simplex
 #'     to an n-dimensional Euclidean space with Aitchison's centred
-#'     logratio transformation
+#'     logratio transformation.
 #' @param dat an \code{n x m} matrix
-#' @param inverse if \code{TRUE}, applies the inverse clr tranformation
+#' @param inverse logical. If \code{TRUE}, applies the inverse clr
+#'     tranformation
 #' @return an \code{n x m} matrix
 #' @examples
 #' xyz <- rbind(c(0.03,99.88,0.09),
@@ -81,7 +85,7 @@ exp.density <- function(x){
 #' biplot(pc)
 #' @export
 clr <- function(dat,inverse=FALSE){
-    if (class(dat)%in%c('matrix','data.frame')){
+    if (hasClass(dat,'matrix','data.frame')){
         d <- dat
     } else {
         d <- matrix(dat,nrow=1)
@@ -98,26 +102,27 @@ clr <- function(dat,inverse=FALSE){
 }
 
 #' @title additive logratio transformation
-#' @description maps compositional data from an n-dimensional simplex
-#'     to an (n-1)-dimensional Euclidean space with Aitchison's
-#'     additive logratio transformation
-#' @param dat an \code{n x m} matrix
+#' @description Maps compositional data from an \eqn{n}-dimensional
+#'     simplex to an (\eqn{n-1})-dimensional Euclidean space with
+#'     Aitchison's additive logratio transformation.
+#' @param dat an \eqn{n \times m} matrix
 #' @param inverse if \code{TRUE}, applies the inverse alr
 #'     tranformation
-#' @return if \code{inverse=FALSE}, returns an \code{(n-1) x m} matrix
-#'     of logratios; otherwise returns an \code{(n+1) x m} matrix of
-#'     compositional data whose columns add up to 1.
+#' @return If \code{inverse=FALSE}, returns an \eqn{(n-1) \times m}
+#'     matrix of logratios; otherwise returns an \eqn{(n+1) \times m}
+#'     matrix of compositional data whose columns add up to 1.
 #' @examples
 #' xyz <- rbind(c(0.03,99.88,0.09),
 #'              c(70.54,25.95,3.51),
 #'              c(72.14,26.54,1.32))
 #' colnames(xyz) <- c('a','b','c')
 #' rownames(xyz) <- 1:3
-#' pc <- prcomp(alr(xyz))
-#' biplot(pc)
+#' uv <- alr(xyz)
+#' XYZ <- alr(uv,inverse=TRUE)
+#' xyz/XYZ
 #' @export
 alr <- function(dat,inverse=FALSE){
-    if (class(dat)%in%c('matrix','data.frame')){
+    if (hasClass(dat,'matrix','data.frame')){
         d <- dat
         cnames <- colnames(dat)
     } else {

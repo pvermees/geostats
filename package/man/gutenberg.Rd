@@ -20,7 +20,7 @@ the output of \code{lm} with earthquake magnitude as the
     of the frequency as the dependent variable (\code{lfreq}).
 }
 \description{
-calculate a semi-log plot with earthquake magnitude on
+Calculate a semi-log plot with earthquake magnitude on
     the horizontal axis,and the cumulative number of earthquakes
     exceeding any given magnitude on the vertical axis.
 }

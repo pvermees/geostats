@@ -11,12 +11,15 @@ ellipse(mean, cov, alpha = 0.05, n = 50)
 
 \item{cov}{the \code{2 x 2} covariance matrix of \code{x} and \code{y}}
 
-\item{alpha}{confidence level of the confidence ellipse}
+\item{alpha}{confidence level of the ellipse}
 
 \item{n}{the number of points at which the ellipse is evaluated}
 }
+\value{
+a two-column matrix of plot coordinates
+}
 \description{
-compute the x-y coordinates of an error ellipse
+Compute the x-y coordinates of an error ellipse.
 }
 \examples{
 X <- rnorm(100,mean=100,sd=1)

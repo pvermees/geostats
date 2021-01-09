@@ -44,27 +44,38 @@ rxzyz(mx, my, mz, sx, sy, sz, rxy = 0, rxz = 0, ryz = 0)
 
 \item{sz}{the standard deviation of variable \code{z}}
 
-\item{rwx}{the correlation coefficient between \code{w} and \code{x}}
+\item{rwx}{the correlation coefficient between \code{w} and
+\code{x}}
 
-\item{rwy}{the correlation coefficient between \code{w} and \code{y}}
+\item{rwy}{the correlation coefficient between \code{w} and
+\code{y}}
 
-\item{rwz}{the correlation coefficient between \code{w} and \code{z}}
+\item{rwz}{the correlation coefficient between \code{w} and
+\code{z}}
 
-\item{rxy}{the correlation coefficient between \code{x} and \code{y}}
+\item{rxy}{the correlation coefficient between \code{x} and
+\code{y}}
 
-\item{rxz}{the correlation coefficient between \code{x} and \code{z}}
+\item{rxz}{the correlation coefficient between \code{x} and
+\code{z}}
 
-\item{ryz}{the correlation coefficient between \code{y} and \code{z}}
+\item{ryz}{the correlation coefficient between \code{y} and
+\code{z}}
 }
 \value{
 the null correlation coefficient
 }
 \description{
-Calculate the 'null correlation' of ratios
-}
-\details{
-Implements the spurious correlation formula of Pearson (1897)
+Calculate the `null correlation' of ratios, using the
+    the spurious correlation formula of Pearson (1897).
 }
 \examples{
 rxzyz(mx=100,my=100,mz=100,sx=1,sy=1,sz=10)
+}
+\references{
+Pearson, K. ``Mathematical contributions to the theory
+    of evolution. -- on a form of spurious correlation which may
+    arise when indices are used in the measurement of organs.''
+    Proceedings of the Royal Society of London 60.359-367 (1897):
+    489-498.
 }

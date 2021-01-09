@@ -5,8 +5,9 @@
 \alias{AFM}
 \title{A-F-M data}
 \description{
-(Na2O + K2O) - FeO - MgO compositions of 630 calc-alkali basalts
-from the Cascade Mountains and 474 tholeiitic basalts from Iceland.
+(Na\eqn{_2}O + K\eqn{_2}O) -- FeO - MgO compositions of 630
+calc-alkali basalts from the Cascade Mountains and 474 tholeiitic
+basalts from Iceland.
 }
 \examples{
 data(AFM,package='geostats')

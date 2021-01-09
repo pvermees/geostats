@@ -18,7 +18,7 @@ kernel density for continuous variables}
 a scalar
 }
 \description{
-compute the most frequently occuring value in a
+Computes the most frequently occuring value in a
     sampling distribution.
 }
 \examples{

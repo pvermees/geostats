@@ -15,14 +15,12 @@ Rbar(trd, plg = 0, option = 0, degrees = FALSE)
 (if \code{degrees=TRUE}) or between 0 and \eqn{2\pi} (if
 \code{degrees=FALSE}).}
 
-\item{option}{scalar. If code{option=0}, then \code{plg} is ignored
-and the measurements are considered to be circular; if
+\item{option}{scalar. If \code{option=0}, then \code{plg} is
+ignored and the measurements are considered to be circular; if
 \code{option=1}, then \code{trd} is the azimuth and \code{plg}
 is the dip; if \code{option=2}, then \code{trd} is the strike
-and \code{plg} is the dip; if \code{option=3}, then \code{trd}
-is the longitude and \code{plg} is the latitude; if
-\code{option=4}, then \code{trd} is the longitude and
-\code{plg} is the latitude.}
+and \code{plg} is the dip; if \code{option=3} then \code{trd}
+is the longitude and \code{plg} is the latitude.}
 
 \item{degrees}{\code{TRUE} for degrees, \code{FALSE} for radians}
 }
@@ -30,13 +28,9 @@ is the longitude and \code{plg} is the latitude; if
 a value between 0 and 1
 }
 \description{
-returns \eqn{\bar{R}}, a measure of directional
-    concentration
-}
-\details{
-Given \eqn{n} circular or spherical measurements, their
-    length of the normalised vector sum takes serves as a measure
-    of concentration.
+Given \eqn{n} circular or spherical measurements, the
+    length of their normalised vector sum (\eqn{\bar{R}}) serves as
+    a measure of directional concentration.
 }
 \examples{
 data(striations,package='geostats')

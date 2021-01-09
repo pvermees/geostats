@@ -16,7 +16,7 @@ pendulum(
 
 \item{startvel}{2-element vector with the initial velocity}
 
-\item{src}{n x 2 matrix with the positions of the magnets}
+\item{src}{\eqn{n \time 2} matrix with the positions of the magnets}
 
 \item{plot}{logical. If \code{TRUE}, generates a plot with the
 trajectory of the pendulum.}
@@ -25,14 +25,12 @@ trajectory of the pendulum.}
 the end position of the pendulum
 }
 \description{
-simulate the 3-magnet pendulum experiment
-}
-\details{
-start a pendulumn at a specified position and with a start
-    velocity.
+Simulates the 3-magnet pendulum experiment, starting
+    at a specified position with a given start velocity.
 }
 \examples{
-par(mfrow=c(1,2))
-pendulum(startpos=c(2,2))
+p <- par(mfrow=c(1,2))
+pendulum(startpos=c(2.1,2))
 pendulum(startpos=c(1.9,2))
+par(p)
 }

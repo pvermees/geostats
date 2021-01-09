@@ -47,16 +47,8 @@
 #' Journal of Physics 72.3, pp.367-375.
 #'
 #' @examples
-#' X <- c(1.550,12.395,20.445,20.435,20.610,24.900,
-#'        28.530,50.540,51.595,86.51,106.40,157.35)
-#' Y <- c(.7268,.7849,.8200,.8156,.8160,.8322,
-#'        .8642,.9584,.9617,1.135,1.230,1.490)
-#' n <- length(X)
-#' sX <- X*0.01
-#' sY <- Y*0.005
-#' rXY <- rep(0.8,n)
-#' dat <- cbind(X,sX,Y,sY,rXY)
-#' fit <- york(dat)
+#' data(rbsr,package='geostats')
+#' fit <- york(rbsr)
 #' @export
 york <- function(dat,alpha=0.05,plot=TRUE,fill=NA,...){
     if (ncol(dat)==4) dat <- cbind(dat,0)
@@ -116,11 +108,12 @@ get.york.xy <- function(dat,a,b){
 }
 
 #' @title ellipse
-#' @description compute the x-y coordinates of an error ellipse
+#' @description Compute the x-y coordinates of an error ellipse.
 #' @param mean two-element vector with the centre of the ellipse
 #' @param cov the \code{2 x 2} covariance matrix of \code{x} and \code{y}
-#' @param alpha confidence level of the confidence ellipse
+#' @param alpha confidence level of the ellipse
 #' @param n the number of points at which the ellipse is evaluated
+#' @return a two-column matrix of plot coordinates
 #' @examples
 #' X <- rnorm(100,mean=100,sd=1)
 #' Y <- rnorm(100,mean=100,sd=1)

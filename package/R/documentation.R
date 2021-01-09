@@ -1,6 +1,6 @@
 #' pH data
 #'
-#' pH measurements in 20 samples of rain water
+#' pH measurements in 20 samples of rain water.
 #' 
 #' @name pH
 #' @docType data
@@ -12,7 +12,7 @@ NULL
 
 #' clast size data
 #'
-#' 20 clast size measurements, in cm
+#' 20 clast size measurements, in cm.
 #' 
 #' @name clasts
 #' @docType data
@@ -25,7 +25,7 @@ NULL
 
 #' porosity data
 #'
-#' 20 porosity measurements, as fractions
+#' 20 porosity measurements, as fractions.
 #' 
 #' @name porosity
 #' @docType data
@@ -37,11 +37,13 @@ NULL
 
 #' detrital zircon U-Pb data
 #'
-#' detrital zircon U-Pb data of 5 sand samples from China
+#' Detrital zircon U-Pb data of 13 sand samples from China.
 #' 
 #' @name DZ
 #' @docType data
 #' @keywords data
+#' @references Vermeesch, P. ``Multi-sample comparison of detrital age
+#'     distributions.''  Chemical Geology 341 (2013): 140-146.
 #' @examples
 #' data(DZ,package='geostats')
 #' qqplot(DZ[['Y']],DZ[['5']])
@@ -49,7 +51,7 @@ NULL
 
 #' Rb-Sr data
 #'
-#' synthetic dataset of 8 Rb-Sr analysis that form a 1Ga isochron
+#' Synthetic dataset of 8 Rb-Sr analysis that form a 1Ga isochron.
 #' 
 #' @name rbsr
 #' @docType data
@@ -63,8 +65,8 @@ NULL
 
 #' declustered earthquake data
 #'
-#' dataset of 28267 earthquakes between 1769 and 2016, with
-#' aftershocks and precursor events removed
+#' Dataset of 28267 earthquakes between 1769 and 2016, with
+#' aftershocks and precursor events removed.
 #' 
 #' @name declustered
 #' @docType data
@@ -80,7 +82,7 @@ NULL
 
 #' earthquake data
 #'
-#' dataset of 20000 earthquakes between 2017 and 2000, downloaded from
+#' Dataset of 20000 earthquakes between 2017 and 2000, downloaded from
 #' the USGS earthquake database
 #' (\url{https://earthquake.usgs.gov/earthquakes/search/}).
 #' 
@@ -110,7 +112,7 @@ NULL
 #' freq <- sf[,'frequency']
 #' plot(size,freq,log='xy')
 #' fit <- lm(log(freq) ~ log(size))
-#' lines(exp(predict(fit)))
+#' lines(size,exp(predict(fit)))
 NULL
 
 #' foram count data
@@ -131,7 +133,7 @@ NULL
 
 #' world population
 #'
-#' The world population from 1750 until 2014
+#' The world population from 1750 until 2014.
 #' 
 #' @name worldpop
 #' @docType data
@@ -143,7 +145,7 @@ NULL
 
 #' British coast
 #'
-#' a 512 x 512 pixel image of the British coast line
+#' A \eqn{512 \times 512} pixel image of the British coastline.
 #' 
 #' @name Britain
 #' @docType data
@@ -153,11 +155,12 @@ NULL
 #' p <- par(mfrow=c(1,2))
 #' image(Britain)
 #' fractaldim(Britain)
+#' par(p)
 NULL
 
 #' rivers on Corsica
 #'
-#' a 512 x 512 pixel image of the river network on Corsica
+#' A \eqn{512 \times 512} pixel image of the river network on Corsica.
 #' 
 #' @name Corsica
 #' @docType data
@@ -167,11 +170,12 @@ NULL
 #' p <- par(mfrow=c(1,2))
 #' image(Corsica)
 #' fractaldim(Corsica)
+#' par(p)
 NULL
 
 #' fractures
 #'
-#' a 512 x 512 pixel image of a fracture network
+#' A \eqn{512 \times 512} pixel image of a fracture network.
 #' 
 #' @name fractures
 #' @docType data
@@ -181,11 +185,13 @@ NULL
 #' p <- par(mfrow=c(1,2))
 #' image(fractures)
 #' fractaldim(fractures)
+#' par(p)
 NULL
 
 #' A-CN-K compositions
 #'
-#' Synthetic A (Al2O3), CN (CaO+Na2O), K (K2O) data table
+#' Synthetic A (Al\eqn{_2}O\eqn{_3}) -- CN (CaO+Na\eqn{_2}O) -- K
+#' (K\eqn{_2}O) data table.
 #' 
 #' @name ACNK
 #' @docType data
@@ -199,11 +205,14 @@ NULL
 
 #' composition of Namib dune sand
 #'
-#' major element compositions of 16 Namib sand samples
+#' Major element compositions of 16 Namib sand samples.
 #' 
 #' @name major
 #' @docType data
 #' @keywords data
+#' @references Vermeesch, P. & Garzanti, E. ``Making geological sense
+#'     of `Big Data' in sedimentary provenance analysis.'' Chemical
+#'     Geology 409 (2015): 20-27.
 #' @examples
 #' data(major,package='geostats')
 #' comp <- clr(major)
@@ -213,7 +222,7 @@ NULL
 
 #' composition of oceanic basalts
 #'
-#' major element compositions of 227 island arc basalts (IAB), 221 mid
+#' Major element compositions of 227 island arc basalts (IAB), 221 mid
 #' oceanic ridge basalts (MORB) and 198 ocean island basalts
 #' (OIB). This dataset can be used to train supervised learning
 #' algorithms.
@@ -221,17 +230,19 @@ NULL
 #' @name training
 #' @docType data
 #' @keywords data
+#' @references Vermeesch, P. ``Tectonic discrimination diagrams
+#'     revisited.''  Geochemistry, Geophysics, Geosystems 7.6 (2006).
 #' @examples
 #' library(MASS)
 #' data(training,package='geostats')
-#' qd <- qda(affinity ~ ., data=training)
-#' pr <- predict(qd)
+#' ld <- lda(x=alr(training[,-1]),grouping=training[,1])
+#' pr <- predict(ld)
 #' table(training$affinity,pr$class)
 NULL
 
 #' composition of oceanic basalts
 #'
-#' major element compositions of 64 island arc basalts (IAB), 23 mid
+#' Major element compositions of 64 island arc basalts (IAB), 23 mid
 #' oceanic ridge basalts (MORB) and 60 ocean island basalts
 #' (OIB). This dataset can be used to test supervised learning
 #' algorithms.
@@ -239,19 +250,22 @@ NULL
 #' @name test
 #' @docType data
 #' @keywords data
+#' @references Vermeesch, P. ``Tectonic discrimination diagrams
+#'     revisited.''  Geochemistry, Geophysics, Geosystems 7.6 (2006).
 #' @examples
 #' library(MASS)
 #' data(training,package='geostats')
+#' ld <- lda(x=alr(training[,-1]),grouping=training[,1])
 #' data(test,package='geostats')
-#' qd <- qda(affinity ~ ., data=training)
-#' pr <- predict(qd,newdata=test[,-1])
+#' pr <- predict(ld,newdata=alr(test[,-1]))
 #' table(test$affinity,pr$class)
 NULL
 
 #' A-F-M data
 #'
-#' (Na2O + K2O) - FeO - MgO compositions of 630 calc-alkali basalts
-#' from the Cascade Mountains and 474 tholeiitic basalts from Iceland.
+#' (Na\eqn{_2}O + K\eqn{_2}O) -- FeO - MgO compositions of 630
+#' calc-alkali basalts from the Cascade Mountains and 474 tholeiitic
+#' basalts from Iceland.
 #' 
 #' @name AFM
 #' @docType data
@@ -263,7 +277,7 @@ NULL
 
 #' directions of glacial striations
 #'
-#' directions (in degrees) of 30 glacial striation measurements from
+#' Directions (in degrees) of 30 glacial striation measurements from
 #' Madagascar.
 #' 
 #' @name striations
@@ -323,13 +337,13 @@ NULL
 
 #' hills
 #'
-#' This data set contains 150 X-Y-Z values for a synthetic landscape
-#' that consists of three Gaussian mountains.
+#' 150 X-Y-Z values for a synthetic landscape that consists of three
+#' Gaussian mountains.
 #' 
 #' @name hills
 #' @docType data
 #' @keywords data
 #' @examples
 #' data(hills,package='geostats')
-#' semivariogram(x=hills$X,y=hills$Y,z=hills$Z)
+#' semivariogram(x=hills$X,y=hills$Y,z=hills$Z,model='gaussian')
 NULL

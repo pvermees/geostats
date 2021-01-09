@@ -14,7 +14,7 @@ logit(x, ...)
 }
 \arguments{
 \item{x}{a vector of real numbers (strictly positive if
-\code{inverse=FALSE})}
+\code{inverse=FALSE}) or an object of class \code{density}.}
 
 \item{...}{optional arguments to the \code{log} function.}
 
@@ -26,8 +26,8 @@ logit(x, ...)
 a vector with the same length of \code{x}
 }
 \description{
-maps numbers from [0,1] to [\eqn{-\infty,+\infty}] and
-    back
+Maps numbers from [0,1] to [\eqn{-\infty,+\infty}] and
+    back.
 }
 \examples{
 data(porosity,package='geostats')

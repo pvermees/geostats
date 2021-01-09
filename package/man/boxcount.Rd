@@ -7,12 +7,17 @@
 boxcount(mat, size)
 }
 \arguments{
-\item{mat}{a square square matrix of 0s and 1s. Must be a power of 2.}
+\item{mat}{a square square matrix of 0s and 1s, whose size should
+be a power of 2.}
 
-\item{size}{the size (pixels per side) of the boxes. Should be a power of 2.}
+\item{size}{the size (pixels per side) of the boxes, whose size
+should be a power of 2.}
+}
+\value{
+an integer
 }
 \description{
-count the number of boxes needed to cover all the 1s
+Count the number of boxes needed to cover all the 1s
     in a matrix of 0s and 1s.
 }
 \examples{

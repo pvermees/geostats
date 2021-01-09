@@ -15,8 +15,9 @@ Rbar2kappa(R, p = 1)
 value(s) between 0 and \eqn{+\infty}
 }
 \description{
-converts concentration parameter \eqn{\bar{R}} to
-    \eqn{\kappa}
+Converts the empirical concentration parameter
+    \eqn{\bar{R}} to the von-Mises concentration parameter
+    \eqn{\kappa}.
 }
 \details{
 \eqn{\bar{R}} and \eqn{\kappa} are two types of
@@ -32,10 +33,15 @@ converts concentration parameter \eqn{\bar{R}} to
     \frac{\bar{R}(p+1-\bar{R}^2)}{1-\bar{R}^2}
 }
 
-where \eqn{p} marks the number of parameters in the data space
-(1 for circle, 2 for a sphere).
+where \eqn{p} marks the number of parameters in the data space (1
+for circle, 2 for a sphere).
 }
 \examples{
 data(striations,package='geostats')
 Rbar2kappa(Rbar(striations,degrees=TRUE))
+}
+\references{
+Banerjee, A., et al. ``Clustering on the unit
+    hypersphere using von Mises-Fisher distributions.''  Journal of
+    Machine Learning Research 6.Sep (2005): 1345-1382.
 }

@@ -1,6 +1,6 @@
 #' @title Spurious correlation
-#' @description Calculate the 'null correlation' of ratios
-#' @details Implements the spurious correlation formula of Pearson (1897)
+#' @description Calculate the `null correlation' of ratios, using the
+#'     the spurious correlation formula of Pearson (1897).
 #' @param mw the mean of variable \code{w}
 #' @param mx the mean of variable \code{x}
 #' @param my the mean of variable \code{y}
@@ -9,13 +9,24 @@
 #' @param sx the standard deviation of variable \code{x}
 #' @param sy the standard deviation of variable \code{y}
 #' @param sz the standard deviation of variable \code{z}
-#' @param rwx the correlation coefficient between \code{w} and \code{x}
-#' @param rwy the correlation coefficient between \code{w} and \code{y}
-#' @param rwz the correlation coefficient between \code{w} and \code{z}
-#' @param rxy the correlation coefficient between \code{x} and \code{y}
-#' @param rxz the correlation coefficient between \code{x} and \code{z}
-#' @param ryz the correlation coefficient between \code{y} and \code{z}
+#' @param rwx the correlation coefficient between \code{w} and
+#'     \code{x}
+#' @param rwy the correlation coefficient between \code{w} and
+#'     \code{y}
+#' @param rwz the correlation coefficient between \code{w} and
+#'     \code{z}
+#' @param rxy the correlation coefficient between \code{x} and
+#'     \code{y}
+#' @param rxz the correlation coefficient between \code{x} and
+#'     \code{z}
+#' @param ryz the correlation coefficient between \code{y} and
+#'     \code{z}
 #' @return the null correlation coefficient
+#' @references Pearson, K. ``Mathematical contributions to the theory
+#'     of evolution. -- on a form of spurious correlation which may
+#'     arise when indices are used in the measurement of organs.''
+#'     Proceedings of the Royal Society of London 60.359-367 (1897):
+#'     489-498.
 #' @rdname rwyxz
 #' @examples
 #' rxzyz(mx=100,my=100,mz=100,sx=1,sy=1,sz=10)

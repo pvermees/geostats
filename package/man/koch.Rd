@@ -18,15 +18,11 @@ levels.}
 a \code{res x res} matrix with 0s and 1s
 }
 \description{
-Calculates or plots a Koch set of fractal lines.
-}
-\details{
-The Koch set is generated using a recursive algorithm that
-    is built on a triangular hat shaped line segment. Each level of
-    recursion replaces each linear segment by the same pattern.
+Calculates or plots a Koch set of fractal lines, which
+    is generated using a recursive algorithm that is built on a
+    triangular hat shaped line segment. Each level of recursion
+    replaces each linear segment by the same pattern.
 }
 \examples{
-k <- koch(n=5)
-d <- fractaldim(k,plot=FALSE)
-print(d)
+koch()
 }

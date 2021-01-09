@@ -11,6 +11,13 @@ A list of documented functions may be viewed by typing
     \code{help(package='geostats')}.  Detailed instructions are
     provided at \url{https://github.com/pvermees/geostats/}.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/pvermees/geostats/}
+}
+
+}
 \author{
 \strong{Maintainer}: Pieter Vermeesch \email{p.vermeesch@ucl.ac.uk}
 

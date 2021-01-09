@@ -49,57 +49,54 @@ inhull <- function(x,y,xi,yi,buffer=0.05){
 
 
 #' @title colour plot
-#' @description combines a filled contour plot and filled scatter plot
-#'     for 3-dimensional measurements
-#' @details adds a colour bar to a scatter plot and/or filled contour
-#'     plot.  This function, which is based on base \code{R}'s
+#' @description Adds a colour bar to a scatter plot and/or filled
+#'     contour plot.  This function, which is based on base \code{R}'s
 #'     \code{filled.contour} function, is useful for visualising
 #'     kriging results.
 #' @param x numerical vector of \eqn{n} equally spaced values to be
-#'     used in the contour plot
+#'     used in the contour plot.
 #' @param y numerical vector of \eqn{m} equally spaced values to be
-#'     used in the contour plot
+#'     used in the contour plot.
 #' @param z an \eqn{n \times m} matrix of numerical values to be used
-#'     in the contour plot
+#'     in the contour plot.
 #' @param X numerical vector of \eqn{N} values to be used in the
-#'     scatter plot
+#'     scatter plot.
 #' @param Y numerical vector of \eqn{N} values to be used in the
-#'     scatter plot
+#'     scatter plot.
 #' @param Z numerical vector of \eqn{N} values to be used in the
-#'     scatter plot
-#' @param nlevels if \code{levels} is not specified, the range of
-#'     \code{z}, values is divided into approximately this many
-#'     levels.
+#'     scatter plot.
+#' @param nlevels number of levels to be used in the contour plot.
 #' @param colspec colour specification (e.g., \code{rainbow},
-#'     \code{hsv}, \code{hcl}, \code{rgb})
-#' @param pch plot character (21 - 25)
-#' @param cex plot character magnification
+#'     \code{grey.colors}, \code{heat.colors}, \code{topo.colors}).
+#' @param pch plot character (\code{21} -- \code{25}).
+#' @param cex plot character magnification.
 #' @param plot.title statements that add titles to the main plot.
 #' @param plot.axes statements that draw axes on the main plot. This
 #'     overrides the default axes.
 #' @param key.title statements that add titles for the plot key.
 #' @param key.axes statements that draw axes on the plot key.  This
 #'     overrides the default axis.
-#' @param asp the y/x aspect ratio, see \code{\link{plot.window}}.
+#' @param asp the y/x aspect ratio, see \code{plot.window}.
 #' @param xaxs the x axis style.  The default is to use internal
-#'     labeling.
+#'     labelling.
 #' @param yaxs the y axis style.  The default is to use internal
-#'     labeling.
-#' @param las the style of labeling to be used.  The default is to use
-#'     horizontal labeling.
-#' @param axes logicals indicating if axes should be drawn
+#'     labelling.
+#' @param las the style of labelling to be used.  The default is to
+#'     use horizontal labelling.
+#' @param axes logicals indicating if axes should be drawn.
 #' @param frame.plot logicals indicating if a box should be drawn, as
-#'     in \code{\link{plot.default}}.
+#'     in \code{plot.default}.
 #' @param extra (optional) extra intructions to be carried out in the
 #'     main plot window, such as text annotations.
 #' @param ... additional graphical parameters
+#' @return no return value
 #' @import grDevices
 #' @import graphics
 #' @examples
 #' data('meuse',package='geostats')
 #' colourplot(X=meuse$x,Y=meuse$y,Z=log(meuse$zinc))
 #' @export
-colourplot <- function (x,y,z,X,Y,Z,nlevels=20,colspec=rainbow,
+colourplot <- function (x, y, z, X, Y, Z, nlevels=20, colspec=hcl.colors,
                         pch = 21, cex = 1, plot.title, plot.axes, key.title,
                         key.axes, asp = NA, xaxs = "i", yaxs = "i",
                         las = 1, axes = TRUE, frame.plot = axes, extra, ...) {
@@ -130,13 +127,16 @@ colourplot <- function (x,y,z,X,Y,Z,nlevels=20,colspec=rainbow,
     # add a bit of padding
     dx <- diff(xlim)
     dy <- diff(ylim)
+    dz <- diff(zlim)
     xlim <- xlim + dx*c(-1,1)/20
     ylim <- ylim + dy*c(-1,1)/20
-    levels <- pretty(zlim, nlevels)
-    dl <- diff(range(levels))
-    levcol <- colspec((levels-levels[1])/dl)
+    zlim <- zlim + dz*c(-1,1)/100
+    levels <- seq(from=zlim[1],to=zlim[2],length.out=nlevels)
+    dl <- diff(zlim)
+    levcol <- colspec(nlevels)
     if (pnts){
-        ptscol <- colspec((Z-levels[1])/dl)
+        ci <- ceiling(nlevels*(Z-levels[1])/dl)
+        ptscol <- levcol[ci]
     }
     mar.orig <- (par.orig <- par(c("mar", "las", "mfrow")))$mar
     on.exit(par(par.orig))

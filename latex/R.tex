@@ -1945,7 +1945,7 @@ data(meuse,package='geostats')
 X <- meuse$x  # Easting
 Y <- meuse$y  # Northing
 Z <- log(meuse$zinc)
-colourplot(X=X,Y=Y,Z=Z,colspec=grey,key.title=title('ln[Zn]'))
+colourplot(X=X,Y=Y,Z=Z,key.title=title('ln[Zn]'))
 \end{script}
 
 \item Plot the empirical semivariogram and fit a spherical
@@ -1994,7 +1994,7 @@ Other options for the \texttt{model} argument are \verb|'linear'|, and
 xi <- seq(from=min(X),to=max(X),length.out=50)
 yi <- seq(from=min(Y),to=max(Y),length.out=50)
 zi <- kriging(x=X,y=Y,z=Z,svm=svm,xi=xi,yi=yi,grid=TRUE)
-colourplot(x=xi,y=yi,z=zi,colspec=grey,key.title=title('ln[Zn]'))
+colourplot(x=xi,y=yi,z=zi,key.title=title('ln[Zn]'))
 \end{script}
 
 And to visualise the uncertainties of the kriging estimates,
@@ -2002,7 +2002,7 @@ replace the last two lines with:
 
 \begin{script}[firstnumber=9]
 zi <- kriging(x=X,y=Y,z=Z,svm=svm,xi=xi,yi=yi,grid=TRUE,err=TRUE)
-colourplot(x=xi,y=yi,z=sqrt(zi),colspec=grey,key.title=title('s[Zn]/Zn'))
+colourplot(x=xi,y=yi,z=sqrt(zi),key.title=title('s[Zn]/Zn'))
 \end{script}
 
 \end{enumerate}

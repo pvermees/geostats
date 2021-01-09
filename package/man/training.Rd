@@ -5,7 +5,7 @@
 \alias{training}
 \title{composition of oceanic basalts}
 \description{
-major element compositions of 227 island arc basalts (IAB), 221 mid
+Major element compositions of 227 island arc basalts (IAB), 221 mid
 oceanic ridge basalts (MORB) and 198 ocean island basalts
 (OIB). This dataset can be used to train supervised learning
 algorithms.
@@ -13,8 +13,12 @@ algorithms.
 \examples{
 library(MASS)
 data(training,package='geostats')
-qd <- qda(affinity ~ ., data=training)
-pr <- predict(qd)
+ld <- lda(x=alr(training[,-1]),grouping=training[,1])
+pr <- predict(ld)
 table(training$affinity,pr$class)
+}
+\references{
+Vermeesch, P. ``Tectonic discrimination diagrams
+    revisited.''  Geochemistry, Geophysics, Geosystems 7.6 (2006).
 }
 \keyword{data}

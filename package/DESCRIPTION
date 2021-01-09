@@ -1,14 +1,15 @@
 Package: geostats
 Title: An Introduction to Statistics for Geoscientists
 Version: 1.0
-Date: 2020-12-30
+Date: 2021-01-05
 Authors@R: person("Pieter", "Vermeesch", , "p.vermeesch@ucl.ac.uk", role = c("aut", "cre"))
-Description: Provides example datasets and code for the introductory statistics module for geoscientists at University College London (UCL). Includes functionality for compositional data, fractals and chaos.
+Description: A collection of datasets and simplified functions for an introductory (geo)statistics module at University College London. Provides functionality for compositional, directional and spatial data, including ternary diagrams, Wulff and Schmidt stereonets, and ordinary kriging interpolation. Implements logistic and (additive and centred) logratio transformations. Computes vector averages and concentration parameters for the von-Mises distribution. Includes a collection of natural and synthetic fractals, and a simulator for deterministic chaos using a magnetic pendulum example. The main purpose of these functions is pedagogical. Researchers can find more complete alternatives for these tools in other packages such as 'compositions', 'robCompositions', 'sp', 'gstat' and 'RFOC'. All the functions are written in plain R, with no compiled code and a minimal number of dependencies. Theoretical background and worked examples are available at <https://tinyurl.com/UCLgeostats/>.
 Author: Pieter Vermeesch [aut, cre]
 Maintainer: Pieter Vermeesch <p.vermeesch@ucl.ac.uk>
 Depends: R (>= 3.5.0)
 Imports: MASS
 License: GPL-3
+URL: https://github.com/pvermees/geostats/
 LazyData: true
 RoxygenNote: 7.1.1
 Encoding: UTF-8

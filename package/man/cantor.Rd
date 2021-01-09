@@ -30,15 +30,16 @@ the Cantor set is added to an existing plot.}
 a square matrix with 0s and 1s.
 }
 \description{
-Calculates or plots a Cantor set of fractal lines.
-}
-\details{
-The Cantor set is generated using a recursive algorithm
-    that is built on a line segment whose middle third is
-    removed. Each level of recursion replaces each black line by
-    the same pattern.
+Calculates or plots a Cantor set of fractal lines,
+    which is generated using a recursive algorithm that is built on
+    a line segment whose middle third is removed. Each level of
+    recursion replaces each black line by the same pattern.
 }
 \examples{
-g <- sierpinski(n=5)
-image(g,col=c('white','black'),axes=FALSE,asp=1)
+plot(c(0,1),y=c(0,1),type='n',bty='n',ann=FALSE,xaxt='n',yaxt='n',xpd=NA)
+cantor(n=0,Y=1.00,plot=TRUE,add=TRUE)
+cantor(n=1,Y=0.75,plot=TRUE,add=TRUE)
+cantor(n=2,Y=0.50,plot=TRUE,add=TRUE)
+cantor(n=3,Y=0.25,plot=TRUE,add=TRUE)
+cantor(n=4,Y=0.00,plot=TRUE,add=TRUE)
 }

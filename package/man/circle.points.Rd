@@ -9,18 +9,19 @@ circle.points(a, degrees = FALSE, ...)
 \arguments{
 \item{a}{angle(s), scalar or vector}
 
-\item{degrees}{\code{TRUE} for degrees, \code{FALSE} for radians}
+\item{degrees}{logical. \code{TRUE} for degrees, \code{FALSE} for
+radians}
 
 \item{...}{optional arguments to be passed on to the generic
 \code{points} function}
 }
-\description{
-adds directional data as points on an existing circle
-    plot
+\value{
+no return value
 }
-\details{
-adds points to a circle with angles plotting in a
-    clockwise direction from the top
+\description{
+Adds directional data as points on an existing circle
+    plot, with angles plotting in a clockwise direction from the
+    top.
 }
 \examples{
 data(striations,package='geostats')

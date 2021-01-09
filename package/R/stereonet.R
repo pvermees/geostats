@@ -1,10 +1,9 @@
 #' @title stereonet
-#' @description Plots directional data on a Schmidt equal area or
-#'     Wulff equal angle stereonet.
-#' @details The Wulff equal angle polar Lambert projection preserves
-#'     the shape of objects and is often used to visualise structural
-#'     data.  The Schmidt equal area polar Lambert projection
-#'     preserves the size of objects and is more popular in
+#' @description Plots directional data on a Wulff or Schmidt
+#'     stereonet. The Wulff equal angle polar Lambert projection
+#'     preserves the shape of objects and is often used to visualise
+#'     structural data.  The Schmidt equal area polar Lambert
+#'     projection preserves the size of objects and is more popular in
 #'     mineralogy.
 #' @param trd trend angle, in degrees, between 0 and 360 (if
 #'     \code{degrees=TRUE}) or between 0 and \eqn{2\pi} (if
@@ -12,14 +11,14 @@
 #' @param plg plunge angle, in degrees, between 0 and 90 (if
 #'     \code{degrees=TRUE}) or between 0 and \eqn{2\pi} (if
 #'     \code{degrees=FALSE}).
+#' @param option scalar. If \code{option=1} or \code{option=4}, then
+#'     \code{trd} is the azimuth and \code{plg} is the dip; if
+#'     \code{option=2}, then \code{trd} is the strike and \code{plg}
+#'     is the dip; if \code{option=3}, then \code{trd} is the
+#'     longitude and \code{plg} is the latitude.
 #' @param coneAngle if \code{option=4}, controls the radius of a small
 #'     circle around the pole with azimuth \code{trd} and dip
 #'     \code{plg}.
-#' @param option scalar. If \code{option=1}, then \code{trd} is the
-#'     azimuth and \code{plg} is the dip; if \code{option=2}, then
-#'     \code{trd} is the strike and \code{plg} is the dip; if
-#'     \code{option=3} or \code{4}, then \code{trd} is the longitude
-#'     and \code{plg} is the latitude.
 #' @param add logical. If \code{TRUE}, adds to an existing stereonet.
 #' @param wulff logical. If \code{FALSE}, produces a Schmidt net.
 #' @param degrees logical. If \code{FALSE}, assumes that
@@ -37,11 +36,17 @@
 #'     on the stereonet.
 #' @param ... optional arguments to be passed on to the generic
 #'     \code{points} function
-#' @author based on the Matlab script by Gerry Middleton
+#' @author based on a MATLAB script written by Nestor Cardozo.
+#' @references Allmendinger, R.W., Cardozo, N., and Fisher,
+#'     D.M. ``Structural geology algorithms: Vectors and
+#'     tensors''. Cambridge University Press, 2011.
 #' @examples
-#' stereonet(azimuth=c(120,80),dip=c(10,30),degrees=TRUE)
+#' stereonet(trd=c(120,80),plg=c(10,30),degrees=TRUE,pch=16)
+#' stereonet(trd=c(120,80),plg=c(10,30),degrees=TRUE,
+#'           option=4,coneAngle=c(5,10),add=TRUE)
 #' @export
-stereonet <- function(trd,plg,coneAngle=0,option=1,wulff=TRUE,add=FALSE,
+stereonet <- function(trd,plg,coneAngle=rep(10,length(trd)),
+                      option=1,wulff=TRUE,add=FALSE,
                       degrees=FALSE,show.grid=TRUE,grid.col='grey50',
                       tl=0.05,type='p',labels=1:length(trd),...){
     if (!add){

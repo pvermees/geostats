@@ -13,7 +13,7 @@ skew(x)
 a scalar
 }
 \description{
-compute the third moment of a sampling distribution.
+Compute the third moment of a sampling distribution.
 }
 \examples{
 data(porosity,package='geostats')

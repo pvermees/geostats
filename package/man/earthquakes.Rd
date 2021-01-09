@@ -5,7 +5,7 @@
 \alias{earthquakes}
 \title{earthquake data}
 \description{
-dataset of 20000 earthquakes between 2017 and 2000, downloaded from
+Dataset of 20000 earthquakes between 2017 and 2000, downloaded from
 the USGS earthquake database
 (\url{https://earthquake.usgs.gov/earthquakes/search/}).
 }

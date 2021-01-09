@@ -5,12 +5,13 @@
 \alias{Britain}
 \title{British coast}
 \description{
-a 512 x 512 pixel image of the British coast line
+A \eqn{512 \times 512} pixel image of the British coastline.
 }
 \examples{
 data(Britain,package='geostats')
 p <- par(mfrow=c(1,2))
 image(Britain)
 fractaldim(Britain)
+par(p)
 }
 \keyword{data}

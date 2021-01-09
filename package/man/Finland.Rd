@@ -14,7 +14,7 @@ size <- sf[,'size']
 freq <- sf[,'frequency']
 plot(size,freq,log='xy')
 fit <- lm(log(freq) ~ log(size))
-lines(exp(predict(fit)))
+lines(size,exp(predict(fit)))
 }
 \references{
 Lehner, B., and Doll, P. (2004), Development and

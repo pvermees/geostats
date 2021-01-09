@@ -16,9 +16,12 @@ countQuakes(qdat, minmag, from, to)
 
 \item{to}{last year}
 }
+\value{
+a table with the number of earthquakes per year
+}
 \description{
-counts the number of earthquakes per year that fall
-    between two magnitude limits
+Counts the number of earthquakes per year that fall
+    between two magnitude limits.
 }
 \examples{
 data(declustered,package='geostats')

@@ -5,7 +5,7 @@
 \alias{worldpop}
 \title{world population}
 \description{
-The world population from 1750 until 2014
+The world population from 1750 until 2014.
 }
 \examples{
 data(worldpop,package='geostats')

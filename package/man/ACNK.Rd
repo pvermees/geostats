@@ -5,7 +5,8 @@
 \alias{ACNK}
 \title{A-CN-K compositions}
 \description{
-Synthetic A (Al2O3), CN (CaO+Na2O), K (K2O) data table
+Synthetic A (Al\eqn{_2}O\eqn{_3}) -- CN (CaO+Na\eqn{_2}O) -- K
+(K\eqn{_2}O) data table.
 }
 \examples{
 data(ACNK,package='geostats')

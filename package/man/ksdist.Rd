@@ -9,12 +9,17 @@ ksdist(dat)
 \arguments{
 \item{dat}{a list of numerical data vectors}
 }
+\value{
+an object of class \code{dist}
+}
 \description{
-fills a square matrix with Kolmogorov-Smirnov
-    statistics
+Given a list of numerical vectors, fills a square
+    matrix with Kolmogorov-Smirnov statistics.
 }
 \examples{
 data(DZ,package='geostats')
 d <- ksdist(DZ)
-plot(cmdscale(d))
+mds <- cmdscale(d)
+plot(mds,type='n')
+text(mds,labels=names(DZ))
 }

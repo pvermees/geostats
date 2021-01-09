@@ -12,7 +12,7 @@ colourplot(
   Y,
   Z,
   nlevels = 20,
-  colspec = rainbow,
+  colspec = hcl.colors,
   pch = 21,
   cex = 1,
   plot.title,
@@ -31,33 +31,31 @@ colourplot(
 }
 \arguments{
 \item{x}{numerical vector of \eqn{n} equally spaced values to be
-used in the contour plot}
+used in the contour plot.}
 
 \item{y}{numerical vector of \eqn{m} equally spaced values to be
-used in the contour plot}
+used in the contour plot.}
 
 \item{z}{an \eqn{n \times m} matrix of numerical values to be used
-in the contour plot}
+in the contour plot.}
 
 \item{X}{numerical vector of \eqn{N} values to be used in the
-scatter plot}
+scatter plot.}
 
 \item{Y}{numerical vector of \eqn{N} values to be used in the
-scatter plot}
+scatter plot.}
 
 \item{Z}{numerical vector of \eqn{N} values to be used in the
-scatter plot}
+scatter plot.}
 
-\item{nlevels}{if \code{levels} is not specified, the range of
-\code{z}, values is divided into approximately this many
-levels.}
+\item{nlevels}{number of levels to be used in the contour plot.}
 
 \item{colspec}{colour specification (e.g., \code{rainbow},
-\code{hsv}, \code{hcl}, \code{rgb})}
+\code{grey.colors}, \code{heat.colors}, \code{topo.colors}).}
 
-\item{pch}{plot character (21 - 25)}
+\item{pch}{plot character (\code{21} -- \code{25}).}
 
-\item{cex}{plot character magnification}
+\item{cex}{plot character magnification.}
 
 \item{plot.title}{statements that add titles to the main plot.}
 
@@ -69,34 +67,33 @@ overrides the default axes.}
 \item{key.axes}{statements that draw axes on the plot key.  This
 overrides the default axis.}
 
-\item{asp}{the y/x aspect ratio, see \code{\link{plot.window}}.}
+\item{asp}{the y/x aspect ratio, see \code{plot.window}.}
 
 \item{xaxs}{the x axis style.  The default is to use internal
-labeling.}
+labelling.}
 
 \item{yaxs}{the y axis style.  The default is to use internal
-labeling.}
+labelling.}
 
-\item{las}{the style of labeling to be used.  The default is to use
-horizontal labeling.}
+\item{las}{the style of labelling to be used.  The default is to
+use horizontal labelling.}
 
-\item{axes}{logicals indicating if axes should be drawn}
+\item{axes}{logicals indicating if axes should be drawn.}
 
 \item{frame.plot}{logicals indicating if a box should be drawn, as
-in \code{\link{plot.default}}.}
+in \code{plot.default}.}
 
 \item{extra}{(optional) extra intructions to be carried out in the
 main plot window, such as text annotations.}
 
 \item{...}{additional graphical parameters}
 }
-\description{
-combines a filled contour plot and filled scatter plot
-    for 3-dimensional measurements
+\value{
+no return value
 }
-\details{
-adds a colour bar to a scatter plot and/or filled contour
-    plot.  This function, which is based on base \code{R}'s
+\description{
+Adds a colour bar to a scatter plot and/or filled
+    contour plot.  This function, which is based on base \code{R}'s
     \code{filled.contour} function, is useful for visualising
     kriging results.
 }

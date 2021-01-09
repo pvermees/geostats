@@ -5,12 +5,13 @@
 \alias{fractures}
 \title{fractures}
 \description{
-a 512 x 512 pixel image of a fracture network
+A \eqn{512 \times 512} pixel image of a fracture network.
 }
 \examples{
 data(fractures,package='geostats')
 p <- par(mfrow=c(1,2))
 image(fractures)
 fractaldim(fractures)
+par(p)
 }
 \keyword{data}

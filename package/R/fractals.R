@@ -1,10 +1,9 @@
 #' @title Sierpinski carpet
-#' @description returns a matrix of 0s and 1s that form a Sierpinski
-#'     fractal.
-#' @details The Sierpinski carpet is two dimensional fractal, which is
-#'     generated using a recursive algorithm that is built on a grid
-#'     of eight black squares surrounding a white square. Each level
-#'     of recursion replaces each black square by the same pattern.
+#' @description Returns a matrix of 0s and 1s that form a Sierpinski
+#'     carpet. This is a two dimensional fractal, which is generated
+#'     using a recursive algorithm that is built on a grid of eight
+#'     black squares surrounding a white square. Each level of
+#'     recursion replaces each black square by the same pattern.
 #' @param n an integer value controling the number of recursive
 #'     levels.
 #' @return a square matrix with 0s and 1s.
@@ -23,11 +22,10 @@ sierpinski <- function(n=5){
 }
 
 #' @title Cantor set
-#' @description Calculates or plots a Cantor set of fractal lines.
-#' @details The Cantor set is generated using a recursive algorithm
-#'     that is built on a line segment whose middle third is
-#'     removed. Each level of recursion replaces each black line by
-#'     the same pattern.
+#' @description Calculates or plots a Cantor set of fractal lines,
+#'     which is generated using a recursive algorithm that is built on
+#'     a line segment whose middle third is removed. Each level of
+#'     recursion replaces each black line by the same pattern.
 #' @param n an integer value controling the number of recursive
 #'     levels.
 #' @param plot logical.  If \code{TRUE}, the Cantor set is plotted,
@@ -42,8 +40,12 @@ sierpinski <- function(n=5){
 #'     \code{matlines}.
 #' @return a square matrix with 0s and 1s.
 #' @examples
-#' g <- sierpinski(n=5)
-#' image(g,col=c('white','black'),axes=FALSE,asp=1)
+#' plot(c(0,1),y=c(0,1),type='n',bty='n',ann=FALSE,xaxt='n',yaxt='n',xpd=NA)
+#' cantor(n=0,Y=1.00,plot=TRUE,add=TRUE)
+#' cantor(n=1,Y=0.75,plot=TRUE,add=TRUE)
+#' cantor(n=2,Y=0.50,plot=TRUE,add=TRUE)
+#' cantor(n=3,Y=0.25,plot=TRUE,add=TRUE)
+#' cantor(n=4,Y=0.00,plot=TRUE,add=TRUE)
 #' @export
 cantor <- function(n=5,plot=FALSE,add=FALSE,Y=0,
                    lty=1,col='black',...){
@@ -67,19 +69,17 @@ cantor <- function(n=5,plot=FALSE,add=FALSE,Y=0,
 }
 
 #' @title Koch snowflake
-#' @description Calculates or plots a Koch set of fractal lines.
-#' @details The Koch set is generated using a recursive algorithm that
-#'     is built on a triangular hat shaped line segment. Each level of
-#'     recursion replaces each linear segment by the same pattern.
+#' @description Calculates or plots a Koch set of fractal lines, which
+#'     is generated using a recursive algorithm that is built on a
+#'     triangular hat shaped line segment. Each level of recursion
+#'     replaces each linear segment by the same pattern.
 #' @param n an integer value controling the number of recursive
 #'     levels.
 #' @param plot logical.  If \code{TRUE}, the Koch flake is plotted.
 #' @param res the number of pixels in each side of the output matrix
 #' @return a \code{res x res} matrix with 0s and 1s
 #' @examples
-#' k <- koch(n=5)
-#' d <- fractaldim(k,plot=FALSE)
-#' print(d)
+#' koch()
 #' @export
 koch <- function(n=4,plot=TRUE,res=512){
     i <- function(x,res=512){
@@ -119,10 +119,13 @@ koch <- function(n=4,plot=TRUE,res=512){
 }
 
 #' @title box counting
-#' @description count the number of boxes needed to cover all the 1s
+#' @description Count the number of boxes needed to cover all the 1s
 #'     in a matrix of 0s and 1s.
-#' @param mat a square square matrix of 0s and 1s. Must be a power of 2.
-#' @param size the size (pixels per side) of the boxes. Should be a power of 2.
+#' @param mat a square square matrix of 0s and 1s, whose size should
+#'     be a power of 2.
+#' @param size the size (pixels per side) of the boxes, whose size
+#'     should be a power of 2.
+#' @return an integer
 #' @examples
 #' g <- sierpinski(n=5)
 #' boxcount(mat=g,size=16)
@@ -144,11 +147,12 @@ boxcount <- function(mat,size){
 }
 
 #' @title calculate the fractal dimension
-#' @description performs box counting on a matrix of 0s and 1s.
+#' @description Performs box counting on a matrix of 0s and 1s.
 #' @param mat a square matrix of 0s and 1s. Size must be a power of 2.
 #' @param plot logical. If \code{TRUE}, plots the results on a log-log
 #'     scale.
 #' @param ... optional arguments to the generic \code{points} function.
+#' @return an object of class \code{lm}
 #' @examples
 #' g <- sierpinski(n=5)
 #' fractaldim(g)
@@ -176,13 +180,14 @@ fractaldim <- function(mat,plot=TRUE,...){
 }
 
 #' @title count the number of earthquakes per year
-#' @description counts the number of earthquakes per year that fall
-#'     between two magnitude limits
+#' @description Counts the number of earthquakes per year that fall
+#'     between two magnitude limits.
 #' @param qdat a data frame containing columns named \code{mag} and
 #'     \code{year}.
 #' @param minmag minimum magnitude
 #' @param from first year
 #' @param to last year
+#' @return a table with the number of earthquakes per year
 #' @examples
 #' data(declustered,package='geostats')
 #' quakesperyear <- countQuakes(declustered,minmag=5.0,from=1917,to=2016)
@@ -197,7 +202,7 @@ countQuakes <- function(qdat,minmag,from,to){
 }
 
 #' @title create a Gutenberg-Richter plot
-#' @description calculate a semi-log plot with earthquake magnitude on
+#' @description Calculate a semi-log plot with earthquake magnitude on
 #'     the horizontal axis,and the cumulative number of earthquakes
 #'     exceeding any given magnitude on the vertical axis.
 #' @param m a vector of earthquake magnitudes
@@ -226,7 +231,7 @@ gutenberg <- function(m,n=10,...){
 }
 
 #' @title calculate the size-frequency distribution of things
-#' @description calculate the number of items exceeding a certain size
+#' @description Count the number of items exceeding a certain size.
 #' @param dat a numerical vector
 #' @param n the number of sizes to evaluate
 #' @param log logical. If \code{TRUE}, uses a log spacing for the
@@ -255,19 +260,19 @@ sizefrequency <- function(dat,n=10,log=TRUE){
 }
 
 #' @title 3-magnet pendulum experiment
-#' @description simulate the 3-magnet pendulum experiment
-#' @details start a pendulumn at a specified position and with a start
-#'     velocity.
+#' @description Simulates the 3-magnet pendulum experiment, starting
+#'     at a specified position with a given start velocity.
 #' @param startpos 2-element vecotor with the initial position
 #' @param startvel 2-element vector with the initial velocity
-#' @param src n x 2 matrix with the positions of the magnets
+#' @param src \eqn{n \time 2} matrix with the positions of the magnets
 #' @param plot logical. If \code{TRUE}, generates a plot with the
 #'     trajectory of the pendulum.
 #' @return the end position of the pendulum
 #' @examples
-#' par(mfrow=c(1,2))
-#' pendulum(startpos=c(2,2))
+#' p <- par(mfrow=c(1,2))
+#' pendulum(startpos=c(2.1,2))
 #' pendulum(startpos=c(1.9,2))
+#' par(p)
 #' @export
 pendulum <- function(startpos=c(-2,2),startvel=c(0,0),
                      src=rbind(c(0,0),c(.5,sqrt(.75)),c(1,0)),plot=TRUE){
@@ -317,13 +322,14 @@ pendulum <- function(startpos=c(-2,2),startvel=c(0,0),
         }
     }
     if (plot){
-        p <- graphics::par(mar=rep(0,4))
+        oldpar <- graphics::par(no.readonly = TRUE)
+        on.exit(graphics::par(oldpar))
+        graphics::par(mar=rep(0,4))
         graphics::plot(c(-2,2),c(-2,2),type='n',bty='n',
                        ann=FALSE,xaxt='n',yaxt='n')
         graphics::lines(pos[1:i,])
         graphics::points(src,pch=21,bg='white',cex=2.5,lwd=2)
         graphics::text(src,labels=1:3)
-        graphics::par(p)
     }
     invisible(best)
 }

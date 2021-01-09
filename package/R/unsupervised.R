@@ -1,6 +1,6 @@
 #' @title Principal Component Analysis of 2D data
-#' @description produces a 4-panel summary plot for two dimensional
-#'     PCA for didactical purposes
+#' @description Produces a 4-panel summary plot for two dimensional
+#'     PCA for didactical purposes.
 #' @param X a matrix with two columns
 #' @examples
 #' X <- rbind(c(-1,7),c(3,2),c(4,3))
@@ -8,13 +8,15 @@
 #' PCA2D(X)
 #' @export
 PCA2D <- function(X){
+    oldpar <- graphics::par(no.readonly = TRUE)
+    on.exit(graphics::par(oldpar))
     pc <- stats::prcomp(X)
     # calculate the end-points of two lines marking the principal components (PC):
     CL <- matrix(NA,4,2) # initialise the matrix of coordinates
     CL[1:2,] <- matrix(1,2,1) %*% pc$center + diag(pc$sdev) %*% t(pc$rotation)
     CL[3:4,] <- matrix(1,2,1) %*% pc$center - diag(pc$sdev) %*% t(pc$rotation)
     # set up the 4-panel plot:
-    p <- graphics::par(mfrow=c(2,2),mar=c(5,5,1,1),xpd=TRUE)
+    graphics::par(mfrow=c(2,2),mar=c(5,5,1,1),xpd=TRUE)
     # initialise the 1st panel:
     rx <- range(X[,'a'],CL[,1]) # range of x-values
     ry <- range(X[,'b'],CL[,2]) # range of y-values
@@ -52,17 +54,19 @@ PCA2D <- function(X){
     names(w) <- colnames(pc$x)
     graphics::barplot(w)
     graphics::mtext('iv',side=3,line=-1,adj=0.99)
-    graphics::par(p)
 }
 
 #' @title Kolmogorov-Smirnov distance matrix
-#' @description fills a square matrix with Kolmogorov-Smirnov
-#'     statistics 
+#' @description Given a list of numerical vectors, fills a square
+#'     matrix with Kolmogorov-Smirnov statistics.
 #' @param dat a list of numerical data vectors
+#' @return an object of class \code{dist}
 #' @examples
 #' data(DZ,package='geostats')
 #' d <- ksdist(DZ)
-#' plot(cmdscale(d))
+#' mds <- cmdscale(d)
+#' plot(mds,type='n')
+#' text(mds,labels=names(DZ))
 #' @export
 ksdist <- function(dat){
     snames <- names(dat)

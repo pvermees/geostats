@@ -1,15 +1,15 @@
 #' @title get x,y plot coordinates of ternary data
-#' @description helper function to generate bivariate plot coordinates
-#'     for ternary data
+#' @description Helper function to generate bivariate plot coordinates
+#'     for ternary data.
 #' @param xyz an \code{n x 3} matrix or data frame
-#' @return an \code{n x 2} numerical matrix 
+#' @return an \code{n x 2} numerical matrix
 #' @examples
 #' xyz <- rbind(c(1,0,0),c(0,1,0),c(0,0,1),c(1,0,0))
 #' xy <- xyz2xy(xyz)
 #' plot(xy,type='l',bty='n')
 #' @export
 xyz2xy <- function(xyz){
-    if (class(xyz)%in%c('matrix','data.frame')){
+    if (hasClass(xyz,'matrix','data.frame')){
         n <- nrow(xyz)
         x <- xyz[,1]
         y <- xyz[,2]
@@ -27,7 +27,7 @@ xyz2xy <- function(xyz){
 }
 
 #' @title ternary diagrams
-#' @description plot points, lines or text on a ternary diagram
+#' @description Plot points, lines or text on a ternary diagram.
 #' @param xyz an \code{n x 3} matrix or data frame
 #' @param f a three-element vector of multipliers for \code{xyz}
 #' @param labels the text labels for the corners of the ternary
@@ -46,7 +46,7 @@ xyz2xy <- function(xyz){
 #' @export
 ternary <- function(xyz=NULL,f=rep(1,3),labels,
                     add=FALSE,type='p',...){
-    if (!(class(xyz)%in%c('matrix','data.frame'))){
+    if (!hasClass(xyz,'matrix','data.frame')){
         xyz <- matrix(xyz,nrow=1)
     }
     if (!add){

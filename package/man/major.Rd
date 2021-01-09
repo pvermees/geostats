@@ -5,12 +5,17 @@
 \alias{major}
 \title{composition of Namib dune sand}
 \description{
-major element compositions of 16 Namib sand samples
+Major element compositions of 16 Namib sand samples.
 }
 \examples{
 data(major,package='geostats')
 comp <- clr(major)
 pc <- prcomp(comp)
 biplot(pc)
+}
+\references{
+Vermeesch, P. & Garzanti, E. ``Making geological sense
+    of `Big Data' in sedimentary provenance analysis.'' Chemical
+    Geology 409 (2015): 20-27.
 }
 \keyword{data}

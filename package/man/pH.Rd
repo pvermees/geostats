@@ -5,7 +5,7 @@
 \alias{pH}
 \title{pH data}
 \description{
-pH measurements in 20 samples of rain water
+pH measurements in 20 samples of rain water.
 }
 \examples{
 data(pH,package='geostats')

@@ -15,12 +15,12 @@ meanangle(trd, plg = 0, option = 0, degrees = FALSE)
 (if \code{degrees=TRUE}) or between 0 and \eqn{2\pi} (if
 \code{degrees=FALSE}).}
 
-\item{option}{scalar. If \code{option=0}, then \code{plg} is ignored
-and the measurements are considered to be circular; if
+\item{option}{scalar. If \code{option=0}, then \code{plg} is
+ignored and the measurements are considered to be circular; if
 \code{option=1}, then \code{trd} is the azimuth and \code{plg}
 is the dip; if \code{option=2}, then \code{trd} is the strike
-and \code{plg} is the dip; if \code{option=3} or \code{4}, then
-\code{trd} is the longitude and \code{plg} is the latitude.}
+and \code{plg} is the dip; if \code{option=3} then \code{trd}
+is the longitude and \code{plg} is the latitude.}
 
 \item{degrees}{\code{TRUE} for degrees, \code{FALSE} for radians}
 }
@@ -29,11 +29,8 @@ a scalar of 2-element vector with the mean orientation,
     either in radians (if \code{degrees=FALSE}), or in degrees.
 }
 \description{
-computes the vector mean of a collection of circular
-    measurements
-}
-\details{
-averages angles by taking their vector sum
+Computes the vector mean of a collection of circular
+    measurements.
 }
 \examples{
 data(striations,package='geostats')
