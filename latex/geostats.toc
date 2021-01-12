@@ -84,19 +84,19 @@
 \contentsline {chapter}{\numberline {17}An introduction to \texttt {R}}{173}{chapter.17}%
 \contentsline {section}{\numberline {17.1}The basics}{173}{section.17.1}%
 \contentsline {section}{\numberline {17.2}Plotting data}{179}{section.17.2}%
-\contentsline {section}{\numberline {17.3}Summary Statistics}{182}{section.17.3}%
-\contentsline {section}{\numberline {17.4}Probability}{183}{section.17.4}%
-\contentsline {section}{\numberline {17.5}The binomial distribution}{184}{section.17.5}%
+\contentsline {section}{\numberline {17.3}Summary Statistics}{183}{section.17.3}%
+\contentsline {section}{\numberline {17.4}Probability}{184}{section.17.4}%
+\contentsline {section}{\numberline {17.5}The binomial distribution}{185}{section.17.5}%
 \contentsline {section}{\numberline {17.6}The Poisson distribution}{187}{section.17.6}%
 \contentsline {section}{\numberline {17.7}The normal distribution}{189}{section.17.7}%
-\contentsline {section}{\numberline {17.8}Error propagation}{189}{section.17.8}%
+\contentsline {section}{\numberline {17.8}Error propagation}{190}{section.17.8}%
 \contentsline {section}{\numberline {17.9}Comparing distributions}{191}{section.17.9}%
 \contentsline {section}{\numberline {17.10}Regression}{194}{section.17.10}%
 \contentsline {section}{\numberline {17.11}Fractals and chaos}{197}{section.17.11}%
-\contentsline {section}{\numberline {17.12}Unsupervised learning}{197}{section.17.12}%
-\contentsline {section}{\numberline {17.13}Supervised learning}{199}{section.17.13}%
+\contentsline {section}{\numberline {17.12}Unsupervised learning}{198}{section.17.12}%
+\contentsline {section}{\numberline {17.13}Supervised learning}{200}{section.17.13}%
 \contentsline {section}{\numberline {17.14}Compositional data}{201}{section.17.14}%
-\contentsline {section}{\numberline {17.15}Directional data}{202}{section.17.15}%
+\contentsline {section}{\numberline {17.15}Directional data}{203}{section.17.15}%
 \contentsline {section}{\numberline {17.16}Spatial data}{204}{section.17.16}%
 \contentsline {chapter}{\numberline {18}Exercises}{207}{chapter.18}%
 \contentsline {section}{\numberline {18.1}The basics}{207}{section.18.1}%

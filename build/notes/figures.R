@@ -4496,3 +4496,66 @@ arrows(x0=0,x1=xy7[1]/4,y0=0,y1=xy7[2]/4,
        lty=1,lwd=2,col='black',length=0.1)
 text(xy7[1]/4,xy7[2]/4,labels=expression(bar(R)),pos=3,offset=0.2)
 dev.off()
+
+# PDFs and CDFs for quizzes:
+
+plotpdf <- function(x,d){
+    plot(x,d,type='l',bty='n',ann=FALSE,axes=FALSE)
+    Axis(side=1,at=c(0,0.5,1))
+}
+plotcdf <- function(x,d){
+    dx <- diff(x)
+    foo <- cumsum(d*c(dx[1],dx))
+    cdf <- foo/tail(foo,n=1)
+    plot(x,cdf,type='l',bty='n',ann=FALSE,axes=FALSE)
+    Axis(side=1,at=c(0,0.5,1))
+}
+quiz1question <- function(qn=1){
+    dx <- 1e-4
+    x <- list()
+    pd <- list()
+    x[[1]] <- seq(from=0,to=1,length.out=100)
+    pd[[1]] <- rep(1/100,100)
+    x[[2]] <- c(seq(from=0,to=0.5-dx,length.out=50),
+                0.5,
+                seq(from=0.5+dx,to=1,length.out=50))
+    foo <- c(rep(0,50),1,rep(0,50))
+    pd[[2]] <- foo/sum(foo)
+    set.seed(1)
+    x[[3]] <- seq(from=0,to=1,length.out=100)
+    pd[[3]] <- 0.3*dnorm(x[[3]],mean=0.3,sd=0.05) +
+        0.7* dnorm(x[[3]],mean=0.7,sd=0.05)
+    x[[4]] <- x[[3]]
+    pd[[4]] <- 0.7*dnorm(x[[3]],mean=0.3,sd=0.05) +
+        0.3* dnorm(x[[3]],mean=0.7,sd=0.05)
+    x[[5]] <- seq(from=0,to=1,length.out=100)
+    pd[[5]] <- x[[5]]/sum(x[[5]])
+    pars(mfrow=c(6,2),mar=c(2,1,0.5,0.5))
+    plotpdf(x[[qn]],pd[[qn]])
+    legend('topleft',legend='1)',bty='n',adj=c(3,-1),xpd=NA,cex=1.2)
+    plotcdf(x[[3]],pd[[3]])
+    legend('topleft',legend='a)',bty='n',adj=c(3,-1),xpd=NA,cex=1.2)
+    plot.new()
+    plotcdf(x[[1]],pd[[1]])
+    legend('topleft',legend='b)',bty='n',adj=c(3,-1),xpd=NA,cex=1.2)
+    plot.new()
+    plotcdf(x[[5]],pd[[5]])
+    legend('topleft',legend='c)',bty='n',adj=c(3,-1),xpd=NA,cex=1.2)
+    plot.new()
+    plotcdf(x[[2]],pd[[2]])
+    legend('topleft',legend='d)',bty='n',adj=c(3,-1),xpd=NA,cex=1.2)
+    plot.new()
+    plotcdf(x[[4]],pd[[4]])
+    legend('topleft',legend='e)',bty='n',adj=c(3,-1),xpd=NA,cex=1.2)
+    plot.new()
+    plot(x=c(0,1),y=c(1,1),type='l',bty='n',ann=FALSE,axes=FALSE)
+    Axis(side=1,at=c(0,0.5,1))
+    legend('topleft',legend='f)',bty='n',adj=c(3,-1),xpd=NA,cex=1.2)
+}
+
+for (i in 1:5){
+    fn <- paste0('~/Desktop/q1q',i,'.png')
+    png(filename=fn,width=400,height=800,pointsize=14)
+    quiz1question(qn=i)
+    dev.off()
+}
