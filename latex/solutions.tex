@@ -653,7 +653,7 @@ profitable.
 # np = the number of Poisson values per sum
 # ns = the number of sums
 CLT <- function(np=100,ns=200){
-  r <- rpois(n=np*ns,lambda=1.2)   # create all the random numbers at once
+  r <- rpois(n=np*ns,lambda=1.2)   # create all random numbers at once
   mat <- matrix(r,nrow=np,ncol=ns) # put the values in one big matrix
   sums <- colSums(mat)  # take the column sums (instead of a for loop)
   hist(sums)            # plot the histogram
@@ -1218,11 +1218,11 @@ observing at least one such event next year is given by
 \begin{script}
 p <- par(mfrow=c(3,3),mar=rep(0,4)) # initialise the plot
 pendulum()                          # default settings
-pendulum(startpos=c(-1.9,2))        # slightly different starting position
+pendulum(startpos=c(-1.9,2))        # tiny change in starting position
 pendulum(startpos=c(2,2))           # start in the upper right corner
-pendulum(startvel=c(0.5,0))                  # start with a horizontal push
-pendulum(startvel=c(1,0))                    # a stronger push
-pendulum(startvel=c(0,-1))                   # push down
+pendulum(startvel=c(0.5,0))         # start with a horizontal push
+pendulum(startvel=c(1,0))           # a stronger push
+pendulum(startvel=c(0,-1))          # push down
 pendulum(src=matrix(c(1,-1,0,0),ncol=2))             # two magnets
 pendulum(src=matrix(c(1,-1,0,0,0,-1),ncol=2))        # three magnets
 pendulum(src=matrix(c(1,1,-1,-1,1,-1,1,-1),ncol=2))  # four magnets
