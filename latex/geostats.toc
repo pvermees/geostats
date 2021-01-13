@@ -27,7 +27,7 @@
 \contentsline {section}{\numberline {6.2}Parameter estimation}{52}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Hypothesis tests}{53}{section.6.3}%
 \contentsline {section}{\numberline {6.4}Multiple testing}{54}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Confidence intervals}{55}{section.6.5}%
+\contentsline {section}{\numberline {6.5}Confidence intervals}{54}{section.6.5}%
 \contentsline {chapter}{\numberline {7}The normal distribution}{57}{chapter.7}%
 \contentsline {section}{\numberline {7.1}The Central Limit Theorem}{58}{section.7.1}%
 \contentsline {section}{\numberline {7.2}The multivariate normal distribution}{60}{section.7.2}%
@@ -51,7 +51,7 @@
 \contentsline {section}{\numberline {10.1}The correlation coefficient}{100}{section.10.1}%
 \contentsline {section}{\numberline {10.2}Least Squares}{102}{section.10.2}%
 \contentsline {section}{\numberline {10.3}Maximum Likelihood}{103}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Common mistakes}{106}{section.10.4}%
+\contentsline {section}{\numberline {10.4}Common mistakes}{105}{section.10.4}%
 \contentsline {section}{\numberline {10.5}Weighted regression}{108}{section.10.5}%
 \contentsline {chapter}{\numberline {11}Fractals and chaos}{111}{chapter.11}%
 \contentsline {section}{\numberline {11.1}Power law distributions}{112}{section.11.1}%
@@ -86,17 +86,17 @@
 \contentsline {section}{\numberline {17.2}Plotting data}{179}{section.17.2}%
 \contentsline {section}{\numberline {17.3}Summary Statistics}{183}{section.17.3}%
 \contentsline {section}{\numberline {17.4}Probability}{184}{section.17.4}%
-\contentsline {section}{\numberline {17.5}The binomial distribution}{185}{section.17.5}%
+\contentsline {section}{\numberline {17.5}The binomial distribution}{184}{section.17.5}%
 \contentsline {section}{\numberline {17.6}The Poisson distribution}{187}{section.17.6}%
 \contentsline {section}{\numberline {17.7}The normal distribution}{189}{section.17.7}%
-\contentsline {section}{\numberline {17.8}Error propagation}{190}{section.17.8}%
+\contentsline {section}{\numberline {17.8}Error propagation}{189}{section.17.8}%
 \contentsline {section}{\numberline {17.9}Comparing distributions}{191}{section.17.9}%
 \contentsline {section}{\numberline {17.10}Regression}{194}{section.17.10}%
 \contentsline {section}{\numberline {17.11}Fractals and chaos}{197}{section.17.11}%
-\contentsline {section}{\numberline {17.12}Unsupervised learning}{198}{section.17.12}%
-\contentsline {section}{\numberline {17.13}Supervised learning}{200}{section.17.13}%
+\contentsline {section}{\numberline {17.12}Unsupervised learning}{197}{section.17.12}%
+\contentsline {section}{\numberline {17.13}Supervised learning}{199}{section.17.13}%
 \contentsline {section}{\numberline {17.14}Compositional data}{201}{section.17.14}%
-\contentsline {section}{\numberline {17.15}Directional data}{203}{section.17.15}%
+\contentsline {section}{\numberline {17.15}Directional data}{202}{section.17.15}%
 \contentsline {section}{\numberline {17.16}Spatial data}{204}{section.17.16}%
 \contentsline {chapter}{\numberline {18}Exercises}{207}{chapter.18}%
 \contentsline {section}{\numberline {18.1}The basics}{207}{section.18.1}%
@@ -113,7 +113,7 @@
 \contentsline {section}{\numberline {18.12}Unsupervised learning}{212}{section.18.12}%
 \contentsline {section}{\numberline {18.13}Supervised learning}{213}{section.18.13}%
 \contentsline {section}{\numberline {18.14}Compositional data}{213}{section.18.14}%
-\contentsline {section}{\numberline {18.15}Directional data}{214}{section.18.15}%
+\contentsline {section}{\numberline {18.15}Directional data}{213}{section.18.15}%
 \contentsline {section}{\numberline {18.16}Spatial data}{214}{section.18.16}%
 \contentsline {chapter}{\numberline {19}Solutions}{215}{chapter.19}%
 \contentsline {section}{\numberline {19.1}The basics}{215}{section.19.1}%
