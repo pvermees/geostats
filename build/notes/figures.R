@@ -389,7 +389,7 @@ dens <- ldens
 dens$x <- exp(ldens$x)
 dx <- diff(dens$x)
 dens$y <- ldens$y/c(dx,dx[511])
-plot(clastdens,main='',xlab='clast size [cm]',
+plot(clastdens$x,clastdens$y,main='',xlab='clast size [cm]',
      ylab='Density',type='l',xlim=c(0,12),bty='n')
 mtext(paste0('skewness=',signif(skewness(clasts),2)),side=3,line=0,cex=0.8)
 legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(0,0))
@@ -4559,3 +4559,24 @@ for (i in 1:5){
     quiz1question(qn=i)
     dev.off()
 }
+
+png(filename='~/Desktop/boxplot.png',width=400,height=200,pointsize=14)
+pars(mar=c(2,0.5,0.5,0.5))
+dat <- c(seq(from=0,to=50,length.out=25),
+         seq(from=51,to=100,length.out=25),
+         seq(from=101,to=200,length.out=25),
+         seq(from=201,to=400,length.out=25)
+         )
+boxplot(dat,horizontal=TRUE,xaxt='n')
+axis(1,at=c(0,50,100,200,400))
+dev.off()
+
+png(filename='~/Desktop/ecdf.png',width=400,height=400,pointsize=14)
+pars(mar=c(3,3,0.5,0.5))
+plot(ecdf(1:12),verticals=TRUE,pch=NA,main=NA)
+dev.off()
+
+tab <- rbind(dbinom(x=0:10,size=10,prob=0.4),
+             pbinom(q=0:10,size=10,prob=0.4))
+colnames(tab) <- 0:10
+signif(tab,2)

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.4.25)  13 JAN 2021 16:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.4.25)  14 JAN 2021 12:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1072,17 +1072,17 @@ LaTeX Font Info:    Trying to load font information for U+ifsym on input line 4
 (/usr/share/texlive/texmf-dist/tex/latex/ifsym/uifsym.fd) [27
 
 ] [28]
-Overfull \hbox (1.88113pt too wide) detected at line 295
+Overfull \hbox (1.88113pt too wide) detected at line 294
 []
  []
 
 [29]
-Underfull \hbox (badness 10000) in paragraph at lines 353--360
+Underfull \hbox (badness 10000) in paragraph at lines 352--359
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 368--373
+Underfull \hbox (badness 10000) in paragraph at lines 367--372
 
  []
 
@@ -5255,7 +5255,7 @@ cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
 i9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on geostats.pdf (227 pages, 3483272 bytes).
+Output written on geostats.pdf (227 pages, 3483113 bytes).
 PDF statistics:
  5375 PDF objects out of 6186 (max. 8388607)
  4357 compressed objects within 44 object streams
