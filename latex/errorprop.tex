@@ -156,18 +156,18 @@ two variables, which can also be written in a matrix form:
 \begin{equation}
 s[z]^2 \approx
 \left[
-\begin{array}{cc}
-\frac{\partial z}{\partial x} \frac{\partial z}{\partial y}
+  \begin{array}{@{}cc@{}}
+\frac{\partial z}{\partial x} & \frac{\partial z}{\partial y}
 \end{array}
 \right]
 \left[
-\begin{array}{cc}
+\begin{array}{@{}cc@{}}
 s[x]^2 & s[x,y]\\
 s[x,y] & s[y]^2
 \end{array}
 \right]
 \left[
-\begin{array}{c}
+\begin{array}{@{}c@{}}
 \frac{\partial z}{\partial x} \\
 \frac{\partial z}{\partial y}
 \end{array}

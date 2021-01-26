@@ -300,8 +300,8 @@ You should get ten broadly similar looking box plots.
   number of possible IGSNs is
 
 \begin{console}
-> sum(26^{1:5}) + 36^4
-[1] 14036246
+> sum(26^{1:5}) * 36^4
+[1] 2.075439e+13
 \end{console}
 
 \item There are $\binom{20}{5}$ choices for the first group,
@@ -311,8 +311,8 @@ You should get ten broadly similar looking box plots.
 
 \begin{console}
 > i <- seq(from=5,to=20,by=5)
-> sum(choose(i,5))
-[1] 18760
+> prod(choose(i,5))
+[1] 11732745024
 \end{console}
 
 \item Let $A$, $B$ and $C$ stand for for andesite, basalt and
@@ -1806,7 +1806,5 @@ exponential semivariogram models.
     between the spherical and exponential models increases to up to
     $60\%$.}
 \end{minipage}
-
-
 
 \end{enumerate}

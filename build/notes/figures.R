@@ -4573,10 +4573,77 @@ dev.off()
 
 png(filename='~/Desktop/ecdf.png',width=400,height=400,pointsize=14)
 pars(mar=c(3,3,0.5,0.5))
-plot(ecdf(1:12),verticals=TRUE,pch=NA,main=NA)
+plot(ecdf(1:9),verticals=TRUE,pch=NA,main=NA,xaxt='n')
+axis(1,at=1:9)
 dev.off()
 
-tab <- rbind(dbinom(x=0:10,size=10,prob=0.4),
-             pbinom(q=0:10,size=10,prob=0.4))
-colnames(tab) <- 0:10
-signif(tab,2)
+if (FALSE){
+    tab <- rbind(dbinom(x=0:10,size=10,prob=0.4),
+                 pbinom(q=0:10,size=10,prob=0.4))
+    colnames(tab) <- 0:10
+    signif(tab,2)
+}
+if (FALSE){
+    kk <- 60
+    nn <- 100
+    qq <- c(0.01,0.025,0.05,0.1,0.5,0.9,0.95,0.975,0.99)
+    pp <- c(binom.test(kk,nn,conf.level=0.99,alternative='two.sided')$conf.int[1],
+            binom.test(kk,nn,conf.level=0.95,alternative='two.sided')$conf.int[1],
+            binom.test(kk,nn,conf.level=0.95,alternative='greater')$conf.int[1],
+            binom.test(kk,nn,conf.level=0.95,alternative='less')$conf.int[2],
+            binom.test(kk,nn,conf.level=0.95,alternative='two.sided')$conf.int[2],
+            binom.test(kk,nn,conf.level=0.99,alternative='two.sided')$conf.int[2]
+            )
+    out <- NULL
+    for (p in pp){
+        out <- rbind(out,qbinom(qq,prob=p,size=nn))
+    }
+    colnames(out) <- qq
+    rownames(out) <- signif(pp,3)
+}
+
+png(filename='~/Desktop/ci.png',width=400,height=400,pointsize=14)
+pars(mar=c(3,3,0,0))
+xx <- c(1,2,3,4)
+yy <- c(20,22,19,21)
+dy <- c(4,1,3,2)
+plot(xx,yy,type='n',ann=FALSE,bty='n',xaxt='n',
+     xlim=c(0.5,4.5),ylim=range(c(yy-dy,yy+dy)))
+arrows(xx,yy-dy,xx,yy+dy,code=3,angle=90)
+axis(1,at=1:4,labels=c('a','b','c','d'))
+dev.off()
+
+png(filename='~/Desktop/QQ.png',width=800,height=800,pointsize=14)
+data(DZ,package='geostats')
+ns <- 5
+p <- par(mfrow=c(ns,ns),mar=c(3,3,0.5,0.5),mgp=c(1.5,0.5,0))
+for (i in 1:ns){
+    for (j in 1:ns){
+        if (i==j){
+            plot.new()
+        } else {
+            qqplot(DZ[[i]],DZ[[j]],xlab=paste('sample',i),ylab=paste('sample',j))
+        }
+    }
+}
+par(p)
+dev.off()
+
+png(filename='~/Desktop/pt.png',width=400,height=300,pointsize=14)
+x <- seq(from=-5,to=5,length.out=100)
+y <- pt(x,df=3)
+plot(x,y,type='l',xlab='t',ylab='F')
+lines(range(x),rep(0.025,2),lty=2)
+lines(range(x),rep(0.975,2),lty=2)
+lines(rep(qt(0.025,df=3),2),c(0,1),lty=3)
+lines(rep(qt(0.975,df=3),2),c(0,1),lty=3)
+dev.off()
+
+png(filename='~/Desktop/majorqq.png',width=1200,height=400,pointsize=14)
+pars(mfrow=c(2,5),mar=c(3,3,1,0.5))
+data(major,package='geostats')
+for (cname in colnames(major)){
+    qqnorm(major[,cname],main=cname)
+    qqline(major[,cname])
+}
+dev.off()

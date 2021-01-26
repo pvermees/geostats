@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.4.25)  14 JAN 2021 12:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.4.25)  26 JAN 2021 16:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1178,7 +1178,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 293--311
  []
 
 [36 <../figures/1sidedbinomialrejection5.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 364--365
+Underfull \hbox (badness 10000) in paragraph at lines 365--366
 
  []
 
@@ -1186,20 +1186,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 364--365
 File: ../figures/2sidedbinomialrejection5.pdf Graphic file (type pdf)
 <use ../figures/2sidedbinomialrejection5.pdf>
 Package pdftex.def Info: ../figures/2sidedbinomialrejection5.pdf  used on input
- line 367.
+ line 368.
 (pdftex.def)             Requested size: 273.14923pt x 136.58109pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 367--368
+Underfull \hbox (badness 10000) in paragraph at lines 368--369
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 378.
+(caption)                particular \caption on input line 379.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 366--381
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 367--382
 [] [] 
  []
 
@@ -1208,35 +1208,35 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 366--381
 File: ../figures/1sidedbinomialrejection15.pdf Graphic file (type pdf)
 <use ../figures/1sidedbinomialrejection15.pdf>
 Package pdftex.def Info: ../figures/1sidedbinomialrejection15.pdf  used on inpu
-t line 422.
+t line 423.
 (pdftex.def)             Requested size: 273.14923pt x 136.58109pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 422--423
+Underfull \hbox (badness 10000) in paragraph at lines 423--424
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 431.
+(caption)                particular \caption on input line 432.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 421--434
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 422--435
 [] [] 
  []
 
 [38 <../figures/2sidedbinomialrejection5.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 435--437
+Underfull \hbox (badness 10000) in paragraph at lines 436--438
 
  []
 
 
-Overfull \hbox (4.3146pt too wide) in paragraph at lines 439--450
+Overfull \hbox (4.3146pt too wide) in paragraph at lines 440--451
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 460--462
+Underfull \hbox (badness 10000) in paragraph at lines 461--463
 
  []
 
@@ -1244,25 +1244,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 460--462
 File: ../figures/2sidedbinomialrejection15.pdf Graphic file (type pdf)
 <use ../figures/2sidedbinomialrejection15.pdf>
 Package pdftex.def Info: ../figures/2sidedbinomialrejection15.pdf  used on inpu
-t line 464.
+t line 465.
 (pdftex.def)             Requested size: 273.14923pt x 136.58109pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 464--465
+Underfull \hbox (badness 10000) in paragraph at lines 465--466
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 473.
+(caption)                particular \caption on input line 474.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 463--476
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 464--477
 [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--482
+Underfull \hbox (badness 10000) in paragraph at lines 478--483
 
  []
 
@@ -1270,15 +1270,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 477--482
 File: ../figures/binomialrejection30.pdf Graphic file (type pdf)
 <use ../figures/binomialrejection30.pdf>
 Package pdftex.def Info: ../figures/binomialrejection30.pdf  used on input line
- 484.
+ 485.
 (pdftex.def)             Requested size: 295.90588pt x 207.13449pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 494.
+(caption)                particular \caption on input line 495.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 483--497
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 484--498
 [] [] 
  []
 
@@ -1288,32 +1288,32 @@ ion15.pdf
 pdfTeX warning: pdflatex (file ../figures/2sidedbinomialrejection15.pdf): PDF i
 nclusion: multiple pdfs with page group included in a single page
 >]
-Underfull \hbox (badness 10000) in paragraph at lines 551--556
+Underfull \hbox (badness 10000) in paragraph at lines 552--557
 
  []
 
 [40 <../figures/binomialrejection30.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 557--562
+Underfull \hbox (badness 10000) in paragraph at lines 558--563
 
  []
 
 <../figures/binompower1.pdf, id=1374, 578.16pt x 274.02374pt>
 File: ../figures/binompower1.pdf Graphic file (type pdf)
 <use ../figures/binompower1.pdf>
-Package pdftex.def Info: ../figures/binompower1.pdf  used on input line 616.
+Package pdftex.def Info: ../figures/binompower1.pdf  used on input line 617.
 (pdftex.def)             Requested size: 428.24411pt x 202.96672pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 632.
+(caption)                particular \caption on input line 633.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (0.37506pt too wide) in paragraph at lines 615--635
+Overfull \hbox (0.37506pt too wide) in paragraph at lines 616--636
 []
  []
 
 
-Overfull \hbox (0.37506pt too wide) in paragraph at lines 615--635
+Overfull \hbox (0.37506pt too wide) in paragraph at lines 616--636
 [] 
  []
 
@@ -1321,21 +1321,21 @@ Overfull \hbox (0.37506pt too wide) in paragraph at lines 615--635
 <../figures/binompower2.pdf, id=1383, 578.16pt x 274.02374pt>
 File: ../figures/binompower2.pdf Graphic file (type pdf)
 <use ../figures/binompower2.pdf>
-Package pdftex.def Info: ../figures/binompower2.pdf  used on input line 644.
+Package pdftex.def Info: ../figures/binompower2.pdf  used on input line 645.
 (pdftex.def)             Requested size: 428.24411pt x 202.96672pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 660.
+(caption)                particular \caption on input line 661.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (0.37506pt too wide) in paragraph at lines 643--663
+Overfull \hbox (0.37506pt too wide) in paragraph at lines 644--664
 [][]
  []
 
 
-Overfull \hbox (0.37506pt too wide) in paragraph at lines 643--663
+Overfull \hbox (0.37506pt too wide) in paragraph at lines 644--664
 [] 
  []
 
@@ -1344,22 +1344,22 @@ Overfull \hbox (0.37506pt too wide) in paragraph at lines 643--663
 pdfTeX warning: pdflatex (file ../figures/binompower2.pdf): PDF inclusion: mult
 iple pdfs with page group included in a single page
 >]
-Underfull \hbox (badness 10000) in paragraph at lines 669--671
+Underfull \hbox (badness 10000) in paragraph at lines 670--672
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 672--674
+Underfull \hbox (badness 10000) in paragraph at lines 673--675
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 708--717
+Underfull \hbox (badness 10000) in paragraph at lines 709--718
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 718--727
+Underfull \hbox (badness 10000) in paragraph at lines 719--728
 
  []
 
@@ -1367,26 +1367,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 718--727
 <../figures/binompvsn.pdf, id=1421, 266.9975pt x 216.81pt>
 File: ../figures/binompvsn.pdf Graphic file (type pdf)
 <use ../figures/binompvsn.pdf>
-Package pdftex.def Info: ../figures/binompvsn.pdf  used on input line 743.
+Package pdftex.def Info: ../figures/binompvsn.pdf  used on input line 744.
 (pdftex.def)             Requested size: 204.85846pt x 166.35864pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 752.
+(caption)                particular \caption on input line 753.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 742--755
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 743--756
 [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 756--765
+Underfull \hbox (badness 10000) in paragraph at lines 757--766
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 785--792
+Underfull \hbox (badness 10000) in paragraph at lines 786--793
 
  []
 
@@ -1394,20 +1394,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 785--792
 <../figures/binomcik2n5.pdf, id=1439, 505.89pt x 252.945pt>
 File: ../figures/binomcik2n5.pdf Graphic file (type pdf)
 <use ../figures/binomcik2n5.pdf>
-Package pdftex.def Info: ../figures/binomcik2n5.pdf  used on input line 844.
+Package pdftex.def Info: ../figures/binomcik2n5.pdf  used on input line 845.
 (pdftex.def)             Requested size: 295.90588pt x 147.95485pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 844--845
+Underfull \hbox (badness 10000) in paragraph at lines 845--846
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 851.
+(caption)                particular \caption on input line 852.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 843--854
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 844--855
 [] [] 
  []
 
@@ -1415,65 +1415,65 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 843--854
 <../figures/binomcik4n5.pdf, id=1460, 505.89pt x 252.945pt>
 File: ../figures/binomcik4n5.pdf Graphic file (type pdf)
 <use ../figures/binomcik4n5.pdf>
-Package pdftex.def Info: ../figures/binomcik4n5.pdf  used on input line 863.
+Package pdftex.def Info: ../figures/binomcik4n5.pdf  used on input line 864.
 (pdftex.def)             Requested size: 295.90588pt x 147.95485pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 863--864
+Underfull \hbox (badness 10000) in paragraph at lines 864--865
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 871.
+(caption)                particular \caption on input line 872.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 862--874
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 863--875
 [] [] 
  []
 
 <../figures/binomcik12n30.pdf, id=1461, 505.89pt x 252.945pt>
 File: ../figures/binomcik12n30.pdf Graphic file (type pdf)
 <use ../figures/binomcik12n30.pdf>
-Package pdftex.def Info: ../figures/binomcik12n30.pdf  used on input line 885.
+Package pdftex.def Info: ../figures/binomcik12n30.pdf  used on input line 886.
 (pdftex.def)             Requested size: 295.90588pt x 147.95485pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 885--886
+Underfull \hbox (badness 10000) in paragraph at lines 886--887
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 893.
+(caption)                particular \caption on input line 894.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 884--896
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 885--897
 [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 897--901
+Underfull \hbox (badness 10000) in paragraph at lines 898--902
 
  []
 
 <../figures/binomcivsn.pdf, id=1462, 505.89pt x 216.81pt>
 File: ../figures/binomcivsn.pdf Graphic file (type pdf)
 <use ../figures/binomcivsn.pdf>
-Package pdftex.def Info: ../figures/binomcivsn.pdf  used on input line 903.
+Package pdftex.def Info: ../figures/binomcivsn.pdf  used on input line 904.
 (pdftex.def)             Requested size: 295.90588pt x 126.81844pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 903--904
+Underfull \hbox (badness 10000) in paragraph at lines 904--905
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 910.
+(caption)                particular \caption on input line 911.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 902--913
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 903--914
 [] [] 
  []
 
@@ -5255,7 +5255,7 @@ cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
 i9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on geostats.pdf (227 pages, 3483113 bytes).
+Output written on geostats.pdf (227 pages, 3483121 bytes).
 PDF statistics:
  5375 PDF objects out of 6186 (max. 8388607)
  4357 compressed objects within 44 object streams
