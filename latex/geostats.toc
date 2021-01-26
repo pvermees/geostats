@@ -44,9 +44,9 @@
 \contentsline {section}{\numberline {9.3}Confidence intervals}{79}{section.9.3}%
 \contentsline {section}{\numberline {9.4}The $\chi ^2$-test}{81}{section.9.4}%
 \contentsline {section}{\numberline {9.5}Comparing two or more samples}{83}{section.9.5}%
-\contentsline {section}{\numberline {9.6}Cherry picking (Type-I errors revisited)}{85}{section.9.6}%
-\contentsline {section}{\numberline {9.7}Effect size (Type-II errors revisited)}{86}{section.9.7}%
-\contentsline {section}{\numberline {9.8}Non-parametric tests}{88}{section.9.8}%
+\contentsline {section}{\numberline {9.6}Cherry picking (Type-I errors revisited)}{84}{section.9.6}%
+\contentsline {section}{\numberline {9.7}Effect size (Type-II errors revisited)}{85}{section.9.7}%
+\contentsline {section}{\numberline {9.8}Non-parametric tests}{87}{section.9.8}%
 \contentsline {chapter}{\numberline {10}Regression}{93}{chapter.10}%
 \contentsline {section}{\numberline {10.1}The correlation coefficient}{94}{section.10.1}%
 \contentsline {section}{\numberline {10.2}Least Squares}{95}{section.10.2}%

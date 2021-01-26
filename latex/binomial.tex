@@ -15,16 +15,19 @@ have each purchased a claim in the Sierra Nevada foothills. Geological
 evidence suggests that, on average, two thirds of the claims in the
 area should contain gold (1), and the remaining third do not (0). The
 probability that none of the five prospectors find gold is
+
 \[
 P(0\times\mbox{gold}) = P(00000) = (1/3)^5 = 0.0041
 \]
 
 The chance that exactly one of the prospectors strikes gold is
+
 \[
 P(1\times\mbox{gold}) = P(10000) + P(01000) + P(00100) + P(00010) + P(00001)
 \]
 
 \noindent where
+
 \begin{align*}
   P(10000) = & (2/3) (1/3)^4 = 0.0082 \\
   P(01000) = & (1/3) (2/3) (1/3)^3 = 0.0082 \\
@@ -34,12 +37,14 @@ P(1\times\mbox{gold}) = P(10000) + P(01000) + P(00100) + P(00010) + P(00001)
 \end{align*}
 
 \noindent so that
+
 \[
 P(1\times\mbox{gold}) = \binom{5}{1} (2/3) (1/3)^4 = {5}\times{0.0082} = 0.041
 \]
 
 \noindent in which we recognise the binomial coefficient
 (Equation~\ref{eq:nchoosek}). Similarly:
+
 \begin{align*}
 P(2\times\mbox{gold}) & = \binom{5}{2} (2/3)^2 (1/3)^3 = {10}\times{0.016} = 0.16\\
 P(3\times\mbox{gold}) & = \binom{5}{3} (2/3)^3 (1/3)^2 = {10}\times{0.033} = 0.33\\
@@ -63,6 +68,7 @@ and can be visualised as a bar chart:
 \end{minipage}
 
 The generic equation for the binomial distribution is
+
 \begin{equation}
   P(k|n,p) = \binom{n}{k} p^k (1-p)^{n-k}
   \label{eq:binom}
@@ -210,17 +216,20 @@ question, we follow the following sequence of steps:
   \begin{center}
   \begin{tabular}{ccccccc}
     k & 0 & 1 & \textit{2} & 3 & 4 & 5 \\ \hline
-    $P(T=k)$ & 0.0041 & 0.0411 & 0.1646 & 0.3292 & 0.3292 & 0.1317 \\
+    $P(T=k)$ & 0.0041 & 0.0411 & \textit{0.1646} & 0.3292 & 0.3292 & 0.1317 \\
     $P({T}\leq{k})$ & 0.0041 & 0.0453 & \textit{0.2099} & 0.5391 & 0.8683 & 1.0000
   \end{tabular}
   \end{center}
 
-  The probability of observing $k\leq{2}$ successful claims under the
-  null hypothesis is called the \textbf{p-value}\footnote{The term
-    `p-value' is not to be confused with the value of our unknown
-    binomial parameter $p$. The p-value would exist even if we had
-    named the binomial parameter something else (e.g., $q$).}
-  (=0.2099).
+
+The \textbf{p-value}\footnote{The term `p-value' is not to be confused
+  with the value of our unknown binomial parameter $p$. The p-value
+  would exist even if we had named the binomial parameter something
+  else (e.g., $q$).} is the probability of obtaining test results at
+least as extreme as the results actually observed, under the
+assumption that the null hypothesis is correct. For our one-sided
+test, the p-value is 0.2099, which corresponds the probability of
+observing $k\leq{2}$ successful claims if $p=2/3$.
   
 \item Choose a \textbf{significance level $\alpha$}. It is customary
   to choose $\alpha=0.05$.
@@ -232,7 +241,7 @@ question, we follow the following sequence of steps:
   \begin{center}
   \begin{tabular}{ccccccc}
     k & \textbf{0} & \textbf{1} & \textit{2} & 3 & 4 & 5 \\ \hline
-    $P(T=k)$ & 0.0041 & 0.0411 & 0.1646 & 0.3292 & 0.3292 & 0.1317 \\
+    $P(T=k)$ & 0.0041 & 0.0411 & \textit{0.1646} & 0.3292 & 0.3292 & 0.1317 \\
     $P({T}\leq{k})$ & \textbf{0.0041} & \textbf{0.0453} &
     \textit{0.2099} & 0.5391 & 0.8683 & 1.0000
   \end{tabular}
@@ -242,7 +251,7 @@ question, we follow the following sequence of steps:
   probability of finding gold in $k\leq{1}$ claims is only 0.0453,
   which is less than $\alpha$. Therefore our rejection region contains
   two values:
-
+  
   \[
   R = \{0,1\}
   \]
@@ -251,19 +260,17 @@ question, we follow the following sequence of steps:
   the observed outcome for the test statistics falls inside the
   rejection region. If it does, then $H_\circ$ is rejected in favour
   of $H_a$. In our example,
-  
+
   \[
   k=2\notin{R}
   \]
 
-  \noindent which means that we cannot reject $H_\circ$. \textit{Note
-    that failure to reject the null hypothesis does \underline{not}
-    mean that said hypothesis has been
+  \noindent which means that we cannot reject $H_\circ$.
+  Alternatively, and equivalently, we can reach the same conclusion by
+  observing that the p-value is greater than $\alpha$ (i.e.,
+  $0.2099>0.05$). \textit{Note that failure to reject the null
+    hypothesis does \underline{not} mean that said hypothesis has been
     \underline{accepted}!}\label{pag:notaccepted}
-  
-\item Alternatively, and equivalently, we can skip steps
-  \ref{it:rejection} and \ref{it:decision} and observe that the
-  p-value is greater than $\alpha$ (i.e., $0.2099>0.05$).
   
 \end{enumerate}
 
@@ -317,9 +324,11 @@ can also formulate a \textbf{two-sided} hypothesis test:
   \begin{center}
     \begin{tabular}{ccccccc}
       k & 0 & 1 & \textit{2} & 3 & 4 & 5 \\ \hline
-      $P(T=k)$ & 0.0041 & 0.0411 & 0.1646 & 0.3292 & 0.3292 & 0.1317 \\
-      $P({T}\leq{k})$ & 0.0041 & 0.0453 & \textit{0.2099} & 0.5391 & 0.8683 & 1.0000 \\
-      $P({T}\geq{k})$ & 1.000 & 0.9959 & \textit{0.9547} & 0.7901 & 0.4609 & 0.1317
+      $P(T=k)$ & 0.0041 & 0.0411 & \textit{0.1646} & 0.3292 & 0.3292 & 0.1317 \\
+      $P({T}\leq{k})$ & 0.0041 & 0.0453 & \textit{0.2099} &
+      0.5391 & 0.8683 & 1.0000 \\
+      $P({T}\geq{k})$ & 1.000 & 0.9959 & \textit{0.9547} &
+      0.7901 & 0.4609 & 0.1317
     \end{tabular}
   \end{center}
   
@@ -334,7 +343,7 @@ can also formulate a \textbf{two-sided} hypothesis test:
   \begin{center}
     \begin{tabular}{ccccccc}
       k & \textbf{0} & 1 & \textit{2} & 3 & 4 & 5 \\ \hline
-      $P(T=k)$ & 0.0041 & 0.0411 & 0.1646 & 0.3292 & 0.3292 & 0.1317 \\
+      $P(T=k)$ & 0.0041 & 0.0411 & \textit{0.1646} & 0.3292 & 0.3292 & 0.1317 \\
       $P({T}\leq{k})$ & \textbf{0.0041} & 0.0453 &
       \textit{0.2099} & 0.5391 & 0.8683 & 1.0000 \\
       $P({T}\geq{k})$ & 1.000 & 0.9959 & \textit{0.9547} & 0.7901 & 0.4609 & 0.1317
@@ -342,8 +351,9 @@ can also formulate a \textbf{two-sided} hypothesis test:
   \end{center}
 
   \noindent which yields a smaller rejection region than before,
-  because $P(T<2)=0.0453$, which is greater than $\alpha/2=0.025$.
-  The same is true for all the outcomes for $P(T>2)$. Therefore:
+  because $P(T\leq{1})=0.0453$, which is greater than
+  $\alpha/2=0.025$.  The same is true for $P(T\geq{k})$ for any
+  $k$. Therefore:
 
   \[
   R = \{0\}
@@ -353,12 +363,6 @@ can also formulate a \textbf{two-sided} hypothesis test:
   observed $k/n=2/5$ success rate does not rule out the possibility
   that the true value of $p=2/3$, and that the geologists were
   therefore correct.
-
-\item The p-value\footnote{There actually exist several ways to define
-  the p-value of a two-sided hypothesis test but this is the most
-  common one.} for the two-sided test is twice the smallest value
-  among $P(T\leq{2})$ and $P(T\geq{2})$. So in this case it is
-  $2\times{0.2099}=0.4198$, which is greater than $\alpha$.
   
 \end{enumerate}
 
@@ -370,13 +374,13 @@ Displaying the two-sided hypothesis test graphically:\\
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{a) the same PMF and b) CDF as
     Figure~\ref{fig:1sidedbinomialrejection5}. The black bar marks the
-    rejection region for a two sided hypothesis test of $H_\circ:
-    p=2/3$. Horizontal dotted lines mark the $\alpha/2=0.025$ and
-    $(1-\alpha/2)=0.975$ cutoff marks. Their intersections with the
-    CDF are shown as two vertical dotted lines. The horizontal dashed
-    line marks $P(k\leq{2}|p=2/3)=0.2099$.  This value falls between
-    $\alpha/2$ and $(1-\alpha/2)$. Therefore $H_\circ$ cannot be
-    rejected.\\}
+    rejection region for $H_\circ: p=2/3$ vs $H_a:
+    p\neq{2/3}$. Horizontal dotted lines mark $\alpha/2=0.025$ and
+    $(1-\alpha/2)=0.975$. Their intersections with the CDF are shown
+    as vertical dotted lines and mark the outer edges of the rejection
+    region.  The dashed lines mark the observed value and probability,
+    which fall outside the rejection region. Therefore $H_\circ$
+    stands.}
   \label{fig:2sidedbinomialrejection5}
 \end{minipage}
 
@@ -395,23 +399,31 @@ $p$ is:
 \hat{p} = \frac{6}{15} = 0.4
 \]
 
-which is the same as before. The one-sided hypothesis test ($H_\circ:
-p={2/3}$ vs. $H_a: p<2/3$) proceeds as before, but leads to a
-different table of probabilities:
+\noindent which is the same as before. The one-sided hypothesis test
+($H_\circ: p={2/3}$ vs. $H_a: p<2/3$) proceeds as before, but leads to
+a different table of probabilities:
+
 \begin{center}
   \begin{tabular}{c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
-    k & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{\textit{6}} & 7 \\ \hline
-    $P(T=k)$ & 7.0$\times{10}^{-8}$ & 2.1$\times{10}^{-6}$ & 2.9$\times{10}^{-5}$ & 2.5$\times{10}^{-4}$ & 0.0015 & 0.0067 & 0.0223 & 0.0574 \\
-    $P({T}\leq{k})$ & \textbf{7.0}$\mathbf{\times{10}^{-8}}$ & \textbf{2.2}$\mathbf{\times{10}^{-6}}$ & \textbf{3.1}$\mathbf{\times{10}^{-5}}$ &
-    \textbf{2.8}$\mathbf{\times{10}^{-4}}$ & \textbf{0.0018} & \textbf{0.0085} & \textbf{\textit{0.0308}} & 0.0882 \\
-    k & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\ \hline
-    $P(T=k)$ & 0.1148 & 0.1786 & 0.2143 & 0.1948 & 0.1299 & 0.0599 & 0.0171 & 0.0023 \\
-    $P({T}\leq{k})$ & 0.2030 & 0.3816 & 0.5959 & 0.7908 & 0.9206 & 0.9806 & 0.9977 & 1.0000 \\
+    k & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4}
+    & \textbf{5} & \textbf{\textit{6}} & 7 \\ \hline $P(T=k)$ &
+    7.0$\times{10}^{-8}$ & 2.1$\times{10}^{-6}$ & 2.9$\times{10}^{-5}$
+    & 2.5$\times{10}^{-4}$ & 0.0015 & 0.0067 & \textit{0.0223} & 0.0574 \\
+    $P({T}\leq{k})$ & \textbf{7.0}$\mathbf{\times{10}^{-8}}$
+    & \textbf{2.2}$\mathbf{\times{10}^{-6}}$ &
+    \textbf{3.1}$\mathbf{\times{10}^{-5}}$ &
+    \textbf{2.8}$\mathbf{\times{10}^{-4}}$ & \textbf{0.0018} &
+    \textbf{0.0085} & \textbf{\textit{0.0308}} & 0.0882 \\
+    k & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\
+    \hline $P(T=k)$ & 0.1148 & 0.1786 & 0.2143
+    & 0.1948 & 0.1299 & 0.0599 & 0.0171 & 0.0023 \\
+    $P({T}\leq{k})$ & 0.2030 & 0.3816 & 0.5959 & 0.7908 &
+    0.9206 & 0.9806 & 0.9977 & 1.0000 \\
   \end{tabular}
 \end{center}
 
-The p-value is 0.0308, which is less than $\alpha$, and the rejection
-region (bold) consists of
+The rejection region (bold) consists of
+
 \begin{equation}
   R=\{0,1,2,3,4,5,6\}
   \label{eq:1sidedbinomtest15}
@@ -434,24 +446,34 @@ region (bold) consists of
 \end{minipage}
 
 For the two-sided hypothesis test ($H_\circ: p={2/3}$ vs. $H_a:
-p\neq{2/3}$):\\
+p\neq{2/3}$):
 
 \begin{center}
 \begin{tabular}{c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
-    k & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textit{6} & 7 \\ \hline
-    $P(T=k)$ & 7.0$\times{10}^{-8}$ & 2.1$\times{10}^{-6}$ & 2.9$\times{10}^{-5}$ & 2.5$\times{10}^{-4}$ & 0.0015 & 0.0067 & 0.0223 & 0.0574 \\
-    $P({T}\leq{k})$ & \textbf{7.0}$\mathbf{\times{10}^{-8}}$ & \textbf{2.2}$\mathbf{\times{10}^{-6}}$ & \textbf{3.1}$\mathbf{\times{10}^{-5}}$ &
-    \textbf{2.8}$\mathbf{\times{10}^{-4}}$ & \textbf{0.0018} & \textbf{0.0085} & \textit{0.0308} & 0.0882 \\
-    $P({T}\geq{k})$ & 1.0000 & 1-7.0$\times{10}^{-8}$ & 1-2.2$\times{10}^{-6}$ & 1-3.1$\times{10}^{-5}$ & 1-2.8$\times{10}^{-4}$ & 0.9982 & 0.9915 & 0.9692 \\
-    k & 8 & 9 & 10 & 11 & 12 & 13 & \textbf{14} & \textbf{15} \\ \hline
-    $P(T=k)$ & 0.1148 & 0.1786 & 0.2143 & 0.1948 & 0.1299 & 0.0599 & 0.0171 & 0.0023 \\
-    $P({T}\leq{k})$ & 0.2030 & 0.3816 & 0.5959 & 0.7908 & 0.9206 & 0.9806 & 0.9977 & 1.0000 \\
-    $P({T}\geq{k})$ & 0.9118 & 0.7970 & 0.6184 & 0.4041 & 0.2092 & 0.0794 & \textbf{0.0194} & \textbf{0.0023}
+    k & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4}
+    & \textbf{5} & \textit{6} & 7 \\ \hline $P(T=k)$ &
+    7.0$\times{10}^{-8}$ & 2.1$\times{10}^{-6}$ & 2.9$\times{10}^{-5}$
+    & 2.5$\times{10}^{-4}$ & 0.0015 & 0.0067 & \textit{0.0223} & 0.0574 \\
+    $P({T}\leq{k})$ & \textbf{7.0}$\mathbf{\times{10}^{-8}}$ &
+    \textbf{2.2}$\mathbf{\times{10}^{-6}}$ &
+    \textbf{3.1}$\mathbf{\times{10}^{-5}}$ &
+    \textbf{2.8}$\mathbf{\times{10}^{-4}}$ & \textbf{0.0018} &
+    \textbf{0.0085} & \textit{0.0308} & 0.0882 \\
+    $P({T}\geq{k})$ & 1.0000 &
+    1-7.0$\times{10}^{-8}$ & 1-2.2$\times{10}^{-6}$ &
+    1-3.1$\times{10}^{-5}$ & 1-2.8$\times{10}^{-4}$ & 0.9982 & \textit{0.9915}
+    & 0.9692 \\ k & 8 & 9 & 10 & 11 & 12 & 13 & \textbf{14} & \textbf{15} \\ \hline
+    $P(T=k)$ & 0.1148 & 0.1786 & 0.2143 & 0.1948
+    & 0.1299 & 0.0599 & 0.0171 & 0.0023 \\
+    $P({T}\leq{k})$ & 0.2030 &
+    0.3816 & 0.5959 & 0.7908 & 0.9206 & 0.9806 & 0.9977 & 1.0000 \\
+    $P({T}\geq{k})$ & 0.9118 & 0.7970 & 0.6184 & 0.4041 & 0.2092 &
+    0.0794 & \textbf{0.0194} & \textbf{0.0023}
 \end{tabular}
 \end{center}
 
-The p-value is $(2\times{0.0308}=) 0.0616>\alpha$, and the rejection
-region (which includes both tails of the distribution) is:
+The rejection region (which includes both tails of the distribution)
+is:
 
 \begin{equation}
   R=\{0,1,2,3,4,5,14,15\}
@@ -468,10 +490,8 @@ reject the two-sided null hypothesis that $p=2/3$.\\
   \captionof{figure}{a) PMF and b) CDF of the binomial distribution
     with $p=2/3$ and $n=15$.  The dotted lines mark the
     $\alpha/2=0.025$ and $(1-\alpha/2)=0.975$ levels and
-    quantiles. The dashed lines mark the observed value ($k=6$,
-    vertical) and its cumulative probability (0.0308,
-    horizontal). $k=6$ falls outside the rejection region and
-    $0.0308>\alpha/2$.  Therefore $H_\circ$ cannot be rejected.}
+    quantiles. The dashed lines mark the observed value ($k=6$), which
+    falls outside the rejection region.  Therefore $H_\circ$ stands.}
   \label{fig:2sidedbinomialrejection15}
 \end{minipage}
 
@@ -489,10 +509,7 @@ will just show the distributions graphically:\\
     distribution with $p=2/3$ and $n=30$. The vertical dashed lines
     mark the observation $k=12$, which falls outside the cutoff limits
     defined by the vertical dotted lines, and inside the rejection
-    regions marked in black.  The p-value of the one-sided test (a \&
-    c) is 0.0025 and the p-value of the two-sided test (b \& d) is
-    0.005. Both of these values are less than $\alpha$ and therefore
-    both null hypotheses are rejected.}
+    regions marked in black.}
   \label{fig:binomialrejection30}
 \end{minipage}
 
@@ -563,6 +580,7 @@ wrong.\\
 
 The probability of committing a type-I error is controlled by one
 parameter:
+
 \begin{enumerate}
 \item {\bf The confidence level $\alpha$}
   
@@ -595,6 +613,7 @@ things:
   rejection region is $P(k<2|n=5,p=2/5)=0.34$. This is known as the
   \textbf{power} of the statistical test. The probability of
   committing a type-II error is given by:
+  
   \begin{equation}
     \beta = 1 - \mbox{power} = 0.66
   \end{equation}
@@ -804,14 +823,16 @@ successful claims:
   impossible.  So $p=0$ can be ruled out.
 \item{\bf p=0.1?} The probability of observing ${k}\geq{2}$ successful
   claims if $p=0.1$ is given by:
+  
   \[
   P({k}\geq{2}|p=0.1,n=5) =
   \sum\limits_{i=2}^{5}\binom{5}{i}(0.1)^i(0.9)^{n-i} = 0.081
   \]
-  which leads to a two-sided p-value of $(2\times{0.081}=)0.162$,
-  which is greater than the $\alpha$ cutoff. Consequently, the
-  proposed parameter value $p=0.1$ is deemed compatible with the
-  observation.
+  
+  which is greater than $\alpha/2$. Consequently, the observation
+  $k=2$ falls outside the rejection region of the two-sided hypothesis
+  test, and the proposed parameter value $p=0.1$ is deemed compatible
+  with the observation.
 \item{\bf p=2/5?} This is our maximum likelihood estimate for $p$.  It
   is definitely possible that this is the true value.
 \item{\bf p=2/3?} Figures~\ref{fig:binompower1}.b) and e) show that
@@ -824,9 +845,8 @@ successful claims:
   P({k}\leq{2}|p=0.9,n=5) =
   \sum\limits_{i=0}^{2}\binom{5}{i}(0.9)^i(0.1)^{n-i} = 0.0086
   \]
-  The p-value of $(2\times{0.086}=)0.0172$ is less than the $\alpha$
-  cutoff, and so $p=0.9$ is \emph{not} compatible with the
-  observation.
+  which is less than the $\alpha/2$ cutoff, and so $p=0.9$ is
+  \emph{not} compatible with the observation.
 \item{\bf p=1?} If $p=1$, then 100\% of the claims should contain
   gold. This is incompatible with the observation that $k=2$.
   Therefore $p=1$ can be ruled out.

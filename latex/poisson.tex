@@ -108,7 +108,7 @@ and decreasing $p$. In the limit of $n \rightarrow \infty$ and $p
 distribution with $\lambda = {n}{p}$. The next table illustrates this
 by evaluating the probability of observing $k\leq{2}$ successes under
 a binomial distribution with $np=5$ for different values of $n$ and
-$p$:\\
+$p$:
 
 \begin{center}
 \begin{tabular}{r|llllllllll}
@@ -239,7 +239,7 @@ way as for binomial variables (section~\ref{sec:binomH}). For example:
   \begin{tabular}{c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c}
     k & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & \textit{9} & 10 \\ \hline
     $P(T=k)$ & 0.030 & 0.106 & 0.185 & 0.216 & 0.189 &
-    0.132 & 0.077 & 0.038 & 0.017 & 0.007 & 0.002 \\
+    0.132 & 0.077 & 0.038 & 0.017 & \textit{0.007} & 0.002 \\
     $P({T}\geq{k})$ & 1.000 & 0.970 & 0.864 & 0.679 & 0.463 &
     0.275 & 0.142 & 0.065 & 0.027 & \textit{0.010} & 0.003 \\
   \end{tabular}
@@ -247,25 +247,21 @@ way as for binomial variables (section~\ref{sec:binomH}). For example:
 \item We will use the same significance level as always,
   i.e. $\alpha=0.05$.
 
-\item Marking the rejection region in bold and the p-value in italic:
+\item Marking the rejection region in bold:
 
   \begin{tabular}{c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c}
     k & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & \textbf{8} &
     \textbf{\textit{9}} & \textbf{10} \\ \hline
     $P(T=k)$ & 0.030 & 0.106 & 0.185 & 0.216 & 0.189 &
-    0.132 & 0.077 & 0.038 & 0.017 & 0.007 & 0.002 \\
+    0.132 & 0.077 & 0.038 & 0.017 & \textit{0.007} & 0.002 \\
     $P({T}\geq{k})$ & 1.000 & 0.970 & 0.864 & 0.679 & 0.463 &
     0.275 & 0.142 & 0.065 & \textbf{0.027} & \textbf{\textit{0.010}} &
     \textbf{0.003} \\
   \end{tabular}
 
 \item\label{it:poisl351sided} The rejection region is $R =
-  \{8,9,10,\ldots,\infty\}$, which includes our observation $k=9$,
-  and the p-value is 0.010, which is less than $\alpha$. Therefore,
-  our null hypothesis is rejected.
-
-\item Equivalently, the p-value is $0.010<\alpha$, which again leads
-  to the rejection of $H_\circ$.
+  \{8,9,10,\ldots,\infty\}$, which includes our observation
+  $k=9$. Therefore, our null hypothesis is rejected.
 
 \end{enumerate}
 
@@ -280,8 +276,7 @@ Displaying the rejection region graphically:
     black on a).  The horizontal dotted line in b) shows the
     $1-\alpha=0.95$ mark. The horizontal dashed line in the CDF marks
     the cumulative probability for $k=9$, which is greater than the
-    0.95 cutoff. Therefore the p-value is less than 0.05 and the
-    one-sided null hypothesis is rejected.}
+    0.95 cutoff. Therefore the one-sided null hypothesis is rejected.}
   \label{fig:poishyp}
 \end{minipage}
 

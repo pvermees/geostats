@@ -817,7 +817,7 @@ Hence $R = \{0,\ldots,5,14,15\}$
 
 data:  6 and 15
 number of successes = 6, number of trials = 15, p-value = 0.03083
-alternative hypothesis: true probability of success is less than 0.6666667
+alternative hypothesis: true probability of success is less than 0.666667
 95 percent confidence interval:
  0.0000000 0.6404348
 sample estimates:
@@ -839,7 +839,7 @@ value of $p=2/3$.
   case.  Here is another way to obtain the same result:
 
 \begin{console}
-> h <- binom.test(x=6,n=15,p=2/3,alternative='two.sided',conf.level = 0.95)
+> h <- binom.test(x=6,n=15,p=2/3,alternative='two.sided',conf.level=0.95)
 > h$p.value
 [1] 0.05023902
 > h$conf.int
