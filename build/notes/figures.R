@@ -1610,6 +1610,7 @@ legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(1,1))
 lines(rep(tt$statistic,2),range(Y),lty=2)
 lines(range(x),rep(pt(tt$statistic,df=df),2),lty=2)
 lines(range(x),rep(0.05,2),lty=3)
+lines(rep(qt(0.05,df=tt$parameter),2),range(Y),lty=3)
 dev.off()
 
 gold2 <- signif(sort(rnorm(n-1,19.25,0.1)),df)
@@ -1638,6 +1639,8 @@ lines(rep(tt$statistic,2),range(Y),lty=2)
 lines(range(x),rep(pt(tt$statistic,df=df),2),lty=2)
 lines(range(x),rep(0.025,2),lty=3)
 lines(range(x),rep(0.975,2),lty=3)
+lines(rep(qt(0.025,df=tt$parameter),2),range(Y),lty=3)
+lines(rep(qt(0.975,df=tt$parameter),2),range(Y),lty=3)
 dev.off()
 
 cairo(file='../../figures/normconf.pdf',width=6,height=3)
@@ -1730,6 +1733,7 @@ lines(rep(X$statistic,2),range(y),lty=2)
 lines(range(x),rep(0.95,2),lty=3)
 pval <- pchisq(X$statistic,df=X$parameter-1)
 lines(range(x),rep(pval,2),lty=2)
+lines(rep(qchisq(0.95,df=X$parameter-1),2),range(y),lty=3)
 dev.off()
 
 zirctab <- table(nzirc)
@@ -1827,6 +1831,7 @@ mtext(expression('F['*chi^2*']'),side=2,line=1.1)
 lines(rep(X$statistic,2),range(y),lty=2)
 lines(range(x),rep(0.95,2),lty=3)
 pval <- pchisq(X$statistic,df=3)
+lines(rep(qchisq(0.95,df=X$parameter),2),range(y),lty=3)
 lines(range(x),rep(pval,2),lty=2)
 dev.off()
 
@@ -1848,8 +1853,8 @@ cairo(file='../../figures/wilcox.pdf',width=6,height=3)
 pars(mfrow=c(1,2))
 x <- 9:36
 y <- dwilcox(x-10,m=5,n=4)
-llim <- qwilcox(0.025,4,5)+1
-ulim <- qwilcox(0.975,4,5)+3
+llim <- qwilcox(0.025,m=4,n=5)+1
+ulim <- qwilcox(0.975,m=4,n=5)+3
 col <- rep('white',length(x))
 col[1:llim] <- 'black'
 col[ulim:length(x)] <- 'black'
@@ -1866,7 +1871,9 @@ plot(xx,yy,type='s',bty='n',xaxt='n',xlab='x',ylab='F(x)')
 lines(rep(26,2),range(yy),lty=2)
 lines(range(xx),rep(0.025,2),lty=3)
 lines(range(xx),rep(0.975,2),lty=3)
-lines(range(xx),rep(pwilcox(25-9,n=5,m=4),2),lty=2)
+lines(rep(qwilcox(0.025,m=5,n=4)+10,2),c(0,1),lty=3)
+lines(rep(qwilcox(0.975,m=5,n=4)+10,2),c(0,1),lty=3)
+lines(range(xx),rep(pwilcox(25-9,m=5,n=4),2),lty=2)
 axis(side=1,at=ticks)
 dev.off()
 
