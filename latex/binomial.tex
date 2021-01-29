@@ -608,10 +608,10 @@ things:
   expected distribution of outcomes would follow a binomial
   distribution with $p=2/5$. As shown in Section~\ref{sec:binomH}, the
   rejection region for the one-sided hypothesis test of $H_\circ:
-  p=2/3$ vs. $H_a: p<2/3$ is $R=\{0\}$. If the actual value for $p$ is
-  2/5, then the probability a value for $k$ that falls in this
-  rejection region is $P(k<2|n=5,p=2/5)=0.34$. This is known as the
-  \textbf{power} of the statistical test. The probability of
+  p=2/3$ vs. $H_a: p<2/3$ is $R=\{0,1\}$. If the actual value for $p$
+  is 2/5, then the probability of observing a value for $k$ that falls
+  in this rejection region is $P(k<2|n=5,p=2/5)=0.34$. This is known
+  as the \textbf{power} of the statistical test. The probability of
   committing a type-II error is given by:
   
   \begin{equation}
@@ -836,7 +836,7 @@ successful claims:
 \item{\bf p=2/5?} This is our maximum likelihood estimate for $p$.  It
   is definitely possible that this is the true value.
 \item{\bf p=2/3?} Figures~\ref{fig:binompower1}.b) and e) show that
-  there is a greater than 5\% chance of observing 2 or fewer
+  there is a greater than 2.5\% chance of observing 2 or fewer
   successful claims if the true value of $p$ is $2/3$. So $p=2/3$
   remains possible.
 \item{\bf p=0.9?} The probability of observing ${k}\leq{2}$ successful
