@@ -123,14 +123,13 @@ rugdensity(log(A/B))
 rugdensity(log(B/A))
 \end{script}
 
-\item\label{it:xyrandsol} Even though \texttt{runif($\ldots$)} only
-  produces values from 0 to 1, it is easy to map these values to any
-  other interval:
+\item\label{it:xyrandsol} Using the optional \texttt{min} and
+  \texttt{max} arguments of the \texttt{runif($\ldots$)} function:
 
 \begin{script}
 library(MASS)
-x <- runif(1000)*2 - 1  # generates values from -1 to +1
-y <- runif(1000)*20 + 2 # generates values from 2 to 22
+x <- runif(1000,min=-1,max=1)
+y <- runif(1000,min=2,max=22)
 contour(kde2d(x,y))
 points(x,y)
 \end{script}
@@ -245,7 +244,7 @@ Chapter~\ref{sec:stderr}.
 N <- 500
 counts <- rep(0,N)
 for (i in 1:N){
-  r <- runif(1000)*200
+  r <- runif(1000,max=200)
   counts[i] <- sum(r < 1)
 }
 \end{script}
@@ -256,7 +255,7 @@ for-loop:
 \begin{script}
 n <- 1000
 N <- 500
-r <- runif(n*N)*200
+r <- runif(n*N,max=200)
 m <- matrix(r,nrow=n,ncol=N)
 counts <- colSums(m<1)
 \end{script}
