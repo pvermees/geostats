@@ -116,11 +116,11 @@ sum of $n$ randomly selected values from the geyser durations:
 \end{minipage}
 \begin{minipage}[t][][t]{.65\textwidth}
   \captionof{figure}{Collect $n=2$ randomly chosen events from the
-    original dasaset of geyser eruptions and add their durations
-    together. Repeat to create a new dataset of 500 values.  The KDE
-    of this distribution has not two but three modes at 4
-    ($=2\times{2}$), 6.5 ($=2+4.5$), and 9 ($=2\times{4.5}$) minutes,
-    respectively.}
+    original dasaset of geyser eruptions with replacement and add
+    their durations together. Repeat to create a new dataset of
+    $N=500$ values.  The KDE of this distribution has not two but
+    three modes at 4 ($=2\times{2}$), 6.5 ($=2+4.5$), and 9
+    ($=2\times{4.5}$) minutes, respectively.}
   \label{fig:CLTfaithful2}
 \end{minipage}
 
@@ -130,7 +130,7 @@ sum of $n$ randomly selected values from the geyser durations:
 \begin{minipage}[t][][t]{.65\textwidth}
   \captionof{figure}{Collect $n=3$ randomly chosen events from the
     geyser eruption dataset and add their durations together. Repeat
-    500 times to create a third dataset.  The KDE of this
+    $N=500$ times to create a third dataset.  The KDE of this
     distributions has four visible modes, including peaks at 6
     ($=3\times{2}$), 8.5 ($=2\times{2}+4.5$), 11 ($=2+2\times{4.5}$)
     and 13.5 ($=3\times{4.5}$) minutes. }
@@ -141,10 +141,10 @@ sum of $n$ randomly selected values from the geyser durations:
   \includegraphics[width=\textwidth]{../figures/CLTfaithful10.pdf}\\
 \end{minipage}
 \begin{minipage}[t][][t]{.65\textwidth}
-  \captionof{figure}{Taking 500 samples of $n=10$ randomly selected
-    eruptions and summing their durations produces a fourth dataset
-    whose KDE has a single mode with symmetric tails towards lower and
-    higher values.}
+  \captionof{figure}{Taking $N=500$ samples of $n=10$ randomly
+    selected eruptions and summing their durations produces a fourth
+    dataset whose KDE has a single mode with symmetric tails towards
+    lower and higher values.}
   \label{fig:CLTfaithful10}
 \end{minipage}
 
@@ -217,25 +217,25 @@ two-dimensional data space:\\
 \label{fig:pop2d}
 \endgroup
 
-Let us collect 100 random $(X,Y)$ samples from these four
+Let us collect $n=100$ random $(X,Y)$ samples from these four
 distributions and plot them as four scatter plots:\\
 
 \noindent\includegraphics[width=\textwidth]{../figures/rand2d.pdf}
 \begingroup \captionof{figure}{It is easy to recognise the probability
-  distributions of Figure~\ref{fig:pop2d} in the scatter plots of 100
-  random points selected from them.\\}
+  distributions of Figure~\ref{fig:pop2d} in the scatter plots of
+  $n=100$ random points selected from them.\\}
 \label{fig:rand2d}
 \endgroup
 
 Next, we can calculate the sum of all the sampled points in each of
 the four panels in Figure~\ref{fig:rand2d}. This gives rise to four
-new pairs of coordinates. Repeating this experiment 200 times and
+new pairs of coordinates. Repeating this experiment $N=200$ times and
 plotting the four resulting datasets as scatter plots:\\
 
 \noindent\includegraphics[width=\textwidth]{../figures/rand2dsum.pdf}
-\begingroup \captionof{figure}{Four scatter plots with 200 points,
-  each of which represents the sum of a random sample of 100 points
-  drawn from Figure~\ref{fig:pop2d}.\\}
+\begingroup \captionof{figure}{Four scatter plots with $N=200$ points,
+  each of which represents the sum of a random sample of $n=100$
+  points drawn from Figure~\ref{fig:pop2d}.\\}
 \label{fig:rand2sum}
 \endgroup
 

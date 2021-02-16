@@ -3918,7 +3918,7 @@ p[[1]] <- list(uv0=c(-2,1),lA=1,lF=2,lM=3,lab='i',lty=1,srt=-36.5,pos=3,o=0.1)
 p[[2]] <- list(uv0=c(-2,1),lA=1,lF=2,lM=5,lab='i',lty=2,srt=-36.5,pos=1,o=0.3)
 p[[3]] <- list(uv0=c(1,2),lA=1,lF=2,lM=2,lab='ii',lty=3,srt=0,pos=3,o=0)
 tt <- seq(from=0,to=5,length.out=100)
-plot(c(-3,7),c(-15,5),type='n',xlab='ln(F/A)',ylab='ln(M/A)')
+plot(c(-3,7),c(-15,5),type='n',xlab='ln(A/F)',ylab='ln(M/F)')
 for (i in 1:length(p)){
     uv0 <- p[[i]]$uv0
     lF <- p[[i]]$lF
@@ -3936,7 +3936,7 @@ for (i in 1:length(p)){
 #         pos=p[[i]]$pos,offset=p[[i]]$o,srt=p[[i]]$srt,col='gray50')
 }
 P <- par(mar=c(0.5,0,0.5,0))
-ternary(alr(lr,inverse=TRUE),type='n',labels=c('A','F','M'))
+ternary(alr(lr,inverse=TRUE),type='n',labels=c('F','A','M'))
 for (i in 1:length(p)){
     uv0 <- p[[i]]$uv0
     lF <- p[[i]]$lF

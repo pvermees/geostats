@@ -436,7 +436,8 @@ Figure~\ref{fig:anscombe}:
 \begin{script}[firstnumber=3]
 titles <- c('I','II','III','IV')
 for (i in 1:np){
-  plot(anscombe[,i],anscombe[,i+np],xlab='x',ylab='y',pch=19,main=titles[i])
+  plot(anscombe[,i],anscombe[,i+np],
+       xlab='x',ylab='y',pch=19,main=titles[i])
 }
 \end{script}
 
@@ -760,7 +761,7 @@ plot(cdf,type='s')
   distribution. For example, assume that there is a $p=2/3$ chance of
   finding gold in claim, and suppose that there are $n=15$
   claims. Then there is a 95\% chance that the number of successful
-  claims is less than or equal to
+  claims is less than
 
 \begin{console}
 > qbinom(p=0.95,size=15,prob=2/3)

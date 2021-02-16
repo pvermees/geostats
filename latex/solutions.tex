@@ -554,10 +554,10 @@ $(0.5638258,4.230396)$.
 \label{sec:sol-poisson}
 
 \begin{enumerate}
-\item If one magnitude $\geq{9}$ event happens every 13.5 years, then
-  this means that there is a $\lambda=1/13.5$ chance that one event
-  will happen next year, and the chance that exactly two such events
-  happen is given by Equation~\ref{eq:poispmf}:
+\item If, on average, one magnitude $\geq{9}$ event happens every 13.5
+  years, then this means that $\lambda=1/13.5$. The chance that
+  exactly two such events happen per year is given by
+  Equation~\ref{eq:poispmf}:
 
   \[
   P\left(k=2|\lambda=\frac{1}{13.5}\right) = \frac{\lambda^k
@@ -572,7 +572,7 @@ $(0.5638258,4.230396)$.
 [1] 0.002547607
 \end{console}
 
-The number of magnitude $\geq{9}$ earthquakes per century is
+The average number of magnitude $\geq{9}$ earthquakes per century is
 $\lambda={100/13.5}$. The chance that no such earthquake will happen
 during the next century is:
 
@@ -727,7 +727,7 @@ The fraction of women who exceed this height is
   part of base \texttt{R} so we need to implement it ourselves:
 
 \begin{script}
-dmvnorm <- function(vec,mu=rep(0,2),sigma=matrix(1,nrow=2,ncol=2)){
+dmvnorm <- function(vec,mu=rep(0,2),sigma=diag(2)){
   num <- exp(0.5 * t(vec - mu) %*% solve(sigma) %*% (vec - mu))
   den <- 2*pi*sqrt(det(sigma))
   return(num/den)
@@ -812,7 +812,7 @@ and $s[\mbox{density}(B)] =
   \[
   \begin{split}
     x & = \rho_z-1 = 3.85 \mbox{~and~} y = \rho_q-1 = 1.65 \\
-    z & = \frac{x}{y} = \frac{3.85}{2.65} = 2.333\\
+    z & = \frac{x}{y} = \frac{3.85}{1.65} = 2.333\\
     SS & = a \ln\left(z\right) = \frac{1}{0.69}\ln(2.33) = 1.228
   \end{split}
   \]
@@ -822,12 +822,15 @@ and $s[\mbox{density}(B)] =
     s[x] & = s[\rho_z] = 0.10 \mbox{~and~} s[y] = s[\rho_q] = 0.05 \mbox{~(using
       Equation~\ref{eq:subtraction})}\\
     s[z] & = z\sqrt{\left(\frac{s[x]}{x}\right)^2+\left(\frac{s[y]}{y}\right)^2}
-    = \frac{3.85}{2.65}\sqrt{\left(\frac{0.10}{3.85}\right)^2+\left(\frac{0.05}{2.65}\right)^2}
-    = 0.047 \mbox{~(using Equation~\ref{eq:division})}\\
-    s[SS] & = a\frac{s[z]}{z} = \frac{1}{0.69}\frac{0.047}{2.333} = 0.029
+    = \frac{3.85}{1.65}
+    \sqrt{\left(\frac{0.10}{3.85}\right)^2+\left(\frac{0.05}{1.65}\right)^2}
+    = 0.093 \mbox{~(using Equation~\ref{eq:division})}\\
+    s[SS] & = a\frac{s[z]}{z} = \frac{1}{0.69}\frac{0.093}{2.333} = 0.058
     \mbox{~(using Equation~\ref{eq:logarithms})}
   \end{split}
   \]
+  Hence the size shift is $SS=1.228\pm{0.058}$, which can be used to
+  select a set of sieves that separate zircon from quartz.
 
 \item \begin{enumerate}
 \item Calculating the means:

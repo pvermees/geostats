@@ -484,7 +484,9 @@ y^b$, where $a=1/2$ and $b=3$.
   Equation~\ref{eq:power} to Equation~\ref{eq:ygt2} yields:
 
   \begin{equation}
-    s[y]^2 = g^2 \left(\frac{s[t]}{t}\right)^2
+    \left(\frac{s[y]}{y}\right)^2 =  2^2 \left(\frac{s[t]}{t}\right)^2
+    \Rightarrow s[y]^2 = \left(2 g t^2 \frac{s[t]}{t}\right)^2 =
+    \left(2 g t s[t]\right)^2
     \label{eq:sy}
   \end{equation}
 
@@ -506,22 +508,25 @@ y^b$, where $a=1/2$ and $b=3$.
   Equation~\ref{eq:sy} for $s[y]^2$:
 
   \[
-  s[d]^2 = \left(v_\circ s[t]\right)^2 + g^2 \left(\frac{s[t]}{t}\right)^2
+  s[d]^2 = \left(v_\circ s[t]\right)^2 + \left(2 g t s[t]\right)^2
   \]
 
   \noindent which leads to the following expression for the
   uncertainty of $d$:
 
   \begin{equation}
-    s[d] = \sqrt{\left(v_\circ s[t]\right)^2 + g^2 \left(\frac{s[t]}{t}\right)^2}
+    s[d] = \sqrt{\left(v_\circ s[t]\right)^2 + \left(2 g t s[t]\right)^2}
     \label{eq:sdnewton}
   \end{equation}
 
   To illustrate the use of this formula, suppose that $d_\circ=0$~m,
   $v_\circ=10$~m/s and $g=9.81$~m/s\textsuperscript{2}.  Further
-  suppose that we measure the time $t$ with a watch that has a 1
-  second precision ($s[t]=1$). Then we can predict how far the object
-  will have travelled after 5 seconds:
+  suppose that we measure the time $t$ with a watch that has a
+  1/10\textsuperscript{th} of a second precision\footnote{Here
+    precision refers not to the magnitude of normally distributed
+    noise, but to the resolution of the clock.} ($s[t]=0.1$~s). Then
+  we can predict how far the object will have travelled after 5
+  seconds:
 
   \begin{equation}
   d = 0 \mbox{~m} +
@@ -530,19 +535,23 @@ y^b$, where $a=1/2$ and $b=3$.
   \label{eq:snowy}
   \end{equation}
 
-  Using Equation~\ref{eq:sdnewton}, the uncertainty of $d$ is given
-  by:
+  Using Equation~\ref{eq:sdnewton}, the uncertainty\footnote{Here the
+    uncertainty is not a standard error in the traditional sense of
+    the word, but we can still use the same error propagation methods
+    to compute it.} of $d$ is given by:
 
   \begin{equation}
-  s[d] = \sqrt{\left(10 \frac{\mbox{m}}{\mbox{s}} \times 1\mbox{~s}\right)^2 +
+  s[d] = \sqrt{\left(10 \frac{\mbox{m}}{\mbox{s}} \times
+    0.1\mbox{~s}\right)^2 + 4
     \left(9.81\frac{\mbox{m}}{\mbox{s}^2}\right)^2
-    \left(\frac{1\mbox{~s}}{5\mbox{~s}}\right)^2} = 10.19\mbox{~m}
+    \left(5\mbox{~s}\right)^2\left(0.1\mbox{~s}\right)^2} =
+  9.861\mbox{~m}
   \label{eq:haddock}
   \end{equation}
 
-  Thus the estimated displacement after 10~seconds can be reported as
-  $295.25\pm{10.19}$~m, or as $295\pm{10}$~m if we \textbf{round} the
-  estimate to two \textbf{significant digits}. Note how
+  Thus the predicted displacement after 5~seconds can be reported as
+  $295.250\pm{9.861}$~m, or as $295.2\pm{9.9}$~m if we \textbf{round}
+  the estimate to two \textbf{significant digits}. Note how
   Equations~\ref{eq:snowy} and \ref{eq:haddock} specifies the units of
   all the variables. Checking that these units are balanced is good
   practice that avoids arithmetic errors.
