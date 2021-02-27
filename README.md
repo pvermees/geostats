@@ -9,7 +9,14 @@ statistics module for geoscientists at University College London
 
 The **geostats** package requires **R**, which can be downloaded from
 [CRAN](https://www.r-project.org/). In **R**, the **geostats** package
-can be installed from GitHub using the **remotes** package:
+can be installed from CRAN as follows:
+
+```
+install.packages('geostats')
+```
+
+The latest development version can be installed from GitHub using the
+**remotes** package:
 
 ```
 install.packages('remotes')
