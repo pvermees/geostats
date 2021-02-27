@@ -132,9 +132,9 @@ alr <- function(dat,inverse=FALSE){
     if (inverse){
         num <- cbind(1,exp(d))
         den <- 1+rowSums(exp(d),na.rm=TRUE)
-        out <- num/den        
+        out <- sweep(num,1,den,'/')   
     } else {
-        out <- log(d[,-1])-log(d[,1])
+        out <- sweep(log(dat[,-1]),1,log(dat[,1]),'-')
     }
     if (!is.null(cnames))
         colnames(out) <- LRlabels(cnames,inverse=inverse)

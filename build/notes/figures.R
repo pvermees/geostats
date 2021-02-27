@@ -2242,7 +2242,7 @@ mtext(bquote('r'^2*'='*.(r2)*', p='*.(pval)),line=-1.6)
 dev.off()
 
 cairo(file='../../figures/spurious.pdf',width=9,height=1.8)
-pars(mfrow=c(1,5),mar=c(2.3,2.2,1.6,0.2))
+pars(mfrow=c(1,5),mar=c(2.3,2.3,1.6,0.2))
 set.seed(2)
 n <- 50
 x <- 100+rnorm(n)
@@ -4654,3 +4654,166 @@ for (cname in colnames(major)){
     qqline(major[,cname])
 }
 dev.off()
+
+if (FALSE){
+    tab <- matrix(0,7,10)
+    for (i in 1:10){
+        tab[,i] <- signif(qt(c(0.01,0.025,0.05,0.5,0.95,0.975,0.99),df=i),3)
+    }
+}
+
+png(filename='~/Desktop/comparingdistributions-2-3.png',
+    width=400,height=400,pointsize=14)
+pars()
+chi2 <- seq(from=0,to=10,length.out=100)
+plot(x=chi2,y=pchisq(chi2,df=4),type='l',
+     xlab=expression(chi^2),ylab=('F'))
+lines(x=range(chi2),y=rep(0.95,2),lty=3)
+lines(x=rep(qchisq(0.95,df=4),2),y=c(0,1),lty=3)
+dev.off()
+
+png(filename='~/Desktop/regression-1-2.png',
+    width=400,height=400,pointsize=14)
+E <- rbind(c(1,0.1),c(0.1,1))
+e <- MASS::mvrnorm(500,rep(0,2),E)
+colnames(e) <- c('x','y')
+fit <- lm(e[,'y']~e[,'x'])
+tit <- paste0('r=',signif(sqrt(summary(fit)$r.squared),2),
+              ', p-value=',signif(summary(fit)$coefficients[2,4],2))
+plot(e,pch=16,bty='n',main=tit)
+dev.off()
+
+png(filename='~/Desktop/regression-1-3a.png',
+    width=400,height=400,pointsize=14)
+par(mfrow=c(2,2),mar=c(3,3,0.5,0.5),mgp=c(1.5,0.5,0))
+E <- rbind(c(1,-0.7),c(-0.7,1))
+e <- MASS::mvrnorm(50,rep(0,2),E)
+x <- 10 + e[,1]
+y <- 10 + e[,2]
+z <- rnorm(50,mean=10,sd=3)
+plot(x,y,pch=16)
+plot(x,z,pch=16)
+plot(y,z,pch=16)
+plot(x/z,y/z,pch=16)
+dev.off()
+
+png(filename='~/Desktop/regression-1-3b.png',
+    width=400,height=400,pointsize=14)
+par(mfrow=c(2,2),mar=c(3,3,0.5,0.5),mgp=c(1.5,0.5,0))
+E <- rbind(c(1,-0.95),c(-0.95,1))
+e <- MASS::mvrnorm(50,rep(0,2),E)
+x <- 10 + e[,1]
+y <- 10 + e[,2]
+z <- rnorm(50,mean=50,sd=1)
+plot(x,y,pch=16)
+plot(x,z,pch=16)
+plot(y,z,pch=16)
+plot(x/z,y/z,pch=16)
+dev.off()
+
+png(filename='~/Desktop/unsupervised-pca.png',
+    width=400,height=400,pointsize=14)
+pars(mar=c(3,3,2,2))
+dat <- read.csv('Zanzibar.csv',header=TRUE)
+pc <- prcomp(dat[,-c(1,2)],scale=TRUE)
+biplot(pc,xlabs=dat$channel,xlim=c(-0.5,0.7))
+dev.off()
+
+png(filename='~/Desktop/unsupervised-hclust.png',
+    width=250,height=750,pointsize=14)
+set.seed(5)
+pars(mfrow=c(4,1))
+labs <- c('(a)','(b)','(c)','(d)')
+xy <- list()
+d <- list()
+for (i in 1:4){
+    xy[[i]] <- cbind(runif(4,min=0,max=100),
+                     runif(4,min=50,max=200))
+    d[[i]] <- round(dist(xy[[i]]))
+    hc <- hclust(d[[i]])
+    plot(hc,main='',sub='',xlab='')
+    legend('topright',labs[i],xpd=NA,bty='n',cex=1.2)
+}
+dev.off()
+print(d[[1]])
+pdf(file='~/Desktop/unsupervised-hclust.pdf')
+plot(xy[[1]],type='n',xlab='x',ylab='y')
+text(xy[[1]],labels=1:4)
+dev.off()
+
+pdf(file='~/Desktop/crimeclust.pdf')
+crime <- scale(USArrests)
+fit <- hclust(dist(crime))
+plot(fit,xlab='',sub='')
+dev.off()
+
+if (FALSE){
+    fit <- kmeans(crime,centers=4)
+    fit$cluster[c('Alaska','Texas')]
+
+    data(training,package='geostats')
+    my.control <- rpart.control(xval=10, cp=0, minsplit=1)
+    tree <- rpart::rpart(affinity ~ ., data=training, control=my.control)
+    rpart::printcp(tree)
+    tree <- rpart::rpart(affinity ~ ., data=training)
+    rpart::printcp(tree)
+}
+
+png(filename='~/Desktop/compositional-biplot.png',
+    width=400,height=400,pointsize=14)
+pars(mar=c(3,3,2,2))
+set.seed(4)
+lrcomp <- mvrnorm(5,mu=c(0,0,0),Sigma=rbind(c(2,1,2),c(1,3,1),c(2,1,5)))
+comp <- round(100*clr(lrcomp,inverse=TRUE))
+lrcomp2 <- clr(comp)
+colnames(lrcomp2) <- c('Ca','Mg','Fe')
+pc <- prcomp(lrcomp2)
+biplot(pc)
+dev.off()
+
+png(filename='~/Desktop/wulff.png',
+    width=400,height=400,pointsize=14)
+pars(mar=rep(1.3,4))
+geostats::stereonet(wulff=TRUE)
+dev.off()
+
+png(filename='~/Desktop/trdplgsolution.png',
+    width=600,height=300,pointsize=14)
+pars(mar=rep(1.3,4),mfrow=c(1,2))
+geostats::stereonet(trd=30,plg=10,degrees=TRUE,
+                    wulff=FALSE,show.grid=FALSE,
+                    pch=21,bg='black')
+legend('topleft',legend='a)',bty='n',adj=c(2,0))
+geostats::stereonet(trd=30,plg=10,degrees=TRUE,
+                    wulff=TRUE,show.grid=FALSE,
+                    pch=21,bg='black')
+legend('topleft',legend='b)',bty='n',adj=c(2,0))
+dev.off()
+
+pdf(file='~/Desktop/trdplgsolution.pdf',width=6,height=3)
+pars(mar=rep(1.3,4),mfrow=c(1,2))
+geostats::stereonet(trd=30,plg=10,degrees=TRUE,
+                    wulff=FALSE,show.grid=TRUE,
+                    pch=21,bg='black')
+legend('topleft',legend='a)',bty='n',adj=c(2,0))
+geostats::stereonet(trd=30,plg=10,degrees=TRUE,
+                    wulff=TRUE,show.grid=TRUE,
+                    pch=21,bg='black')
+legend('topleft',legend='b)',bty='n',adj=c(2,0))
+dev.off()
+
+ns <- 1000
+nv <- 2
+obs <- matrix(rnorm(nv*ns),nrow=ns,ncol=nv)
+tstat <- rep(NA,ns)
+for (i in 1:ns){
+    tstat[i] <- sqrt(nv)*mean(obs[i,])/sd(obs[i,])
+}
+pred1 <- qt(seq(from=0,to=1,length.out=ns),df=nv-1)
+pred2 <- qt(seq(from=0,to=1,length.out=ns),df=nv)
+plot(ecdf(tstat),verticals=TRUE,pch=NA,
+     col='blue',xlim=c(-5,5),xlab='t',main='')
+lines(ecdf(pred1),verticals=TRUE,pch=NA,col='black')
+lines(ecdf(pred2),verticals=TRUE,pch=NA,col='red')
+legend('topleft',legend=c('measured','n-1 d.o.f','n d.o.f'),
+       lty=1,col=c('blue','black','red'))

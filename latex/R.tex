@@ -1578,7 +1578,7 @@ Flip the y-axis to make the MDS configuration look more like the map
 of Europe:
 
 \begin{script}[firstnumber=4]
-ylim <- rev(range(conf[,2]))        # reverse the minimum and maximum values
+ylim <- rev(range(conf[,2])) # reverse the minimum and maximum values
 plot(conf,type='n',asp=1,ylim=ylim) # change the y-axis limits
 \end{script}
 
