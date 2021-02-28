@@ -305,13 +305,14 @@ You should get ten broadly similar looking box plots.
 
 \item There are $\binom{20}{5}$ choices for the first group,
   $\binom{15}{5}$ for the second, $\binom{10}{5}$ for the third and
-  $\binom{5}{5}$ for the fourth. Hence the total number of
-  combinations is:
+  $\binom{5}{5}$ for the fourth. However this includes $4!$ duplicate
+  groupings, because there are $4!$ was to shuffle the four
+  groups. Hence the total number of combinations is:
 
 \begin{console}
 > i <- seq(from=5,to=20,by=5)
-> prod(choose(i,5))
-[1] 11732745024
+> prod(choose(i,5))/factorial(4)
+[1] 488864376
 \end{console}
 
 \item Let $A$, $B$ and $C$ stand for for andesite, basalt and
