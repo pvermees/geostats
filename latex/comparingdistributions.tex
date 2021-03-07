@@ -380,14 +380,12 @@ similar procedure as laid out in sections~\ref{sec:binomCI} and
 \ref{sec:poisCI}. Let us use the first set of coins as an example, and
 recall that the one sample t-statistic is defined as
 (Equation~\ref{eq:t1}):
-
 \[
   t = \frac{\bar{x} - \mu}{s[x]/\sqrt{n}}
 \]
 
 By definition, the 95\% confidence interval is the collection of all
 those values of $\mu$ for which
-
 \[
 t_{df,\alpha/2} \leq t \leq t_{df,1-\alpha/2}
 \]
@@ -395,33 +393,28 @@ t_{df,\alpha/2} \leq t \leq t_{df,1-\alpha/2}
 \noindent where $t_{df,\alpha/2}$ and $t_{df,1-\alpha/2}$ are the
 $\alpha/2$ and $(1-\alpha/2)$ quantiles of a t-distribution with $df$
 degrees of freedom, respectively.  Hence:
-
 \[
 t_{df,\alpha/2} \leq \frac{\bar{x} - \mu}{s[x]/\sqrt{n}} \leq t_{df,1-\alpha/2}
 \]
 
 Rearranging:
-
 \[
 \bar{x} - t_{df,\alpha/2}\frac{s[x]}{\sqrt{n}} \geq \mu \geq
 \bar{x} - t_{df,1-\alpha/2}\frac{s[x]}{\sqrt{n}}
 \]
 
 Because the t-distribution is symmetric around zero, we can also write:
-
 \[
 t_{df,1-\alpha/2} = -t_{df,\alpha/2}
 \]
 
 Hence
-
 \[
 \bar{x} + t_{df,\alpha/2}\frac{s[x]}{\sqrt{n}} \leq \mu \leq
 \bar{x} - t_{df,\alpha/2}\frac{s[x]}{\sqrt{n}}
 \]
 
 \noindent or
-
 \begin{equation}
   \mu \in \left\{\bar{x} \pm t_{df,\alpha/2}\frac{s[x]}{\sqrt{n}}\right\}
   \label{eq:tci}
@@ -470,7 +463,6 @@ For large sample sizes, the 95\% percentile of the t-distribution is
 the same as the 95\% percentile of the normal distribution ($=1.962$,
 see section~\ref{sec:normalproperties}). In this case
 Equation~\ref{eq:tci} simplifies to approximately
-
 \[
 \mu \in \left\{ \bar{x} \pm 2 s[\bar{x}] \right\}
 \]
@@ -696,7 +688,6 @@ column sum & 35 & 17 & 16 & 55 & 123
 
 If the two samples have the same underlying composition, then the
 expected counts of each cell in the contingency table should be:
-
 \[
 \mbox{expected counts of bin }(i,j) =
 \frac{(\mbox{sum of row }i)\times(\mbox{sum of column }j)}
@@ -704,7 +695,6 @@ expected counts of each cell in the contingency table should be:
 \]
 
 For example, the expected number of granite clasts in sample~A would be
-
 \[
 \frac{41\times35}{123}=11.7
 \]
@@ -919,7 +909,6 @@ let's carry out a two-sample $\chi^2$-test to be sure.
 
   Plugging tables~\ref{tab:observedsand} and \ref{tab:predictedsand}
   into Equation~\ref{eq:chi2} yields
-
   \[
   \chi^2 = 10.0
   \]
@@ -1096,7 +1085,6 @@ distributions, then their values will be unevenly distributed.  The
 test statistic is given by the sum of the ranks of the smallest
 sample. In our case, sample $A$ contains 5 and sample $B$ 4 items.
 Thus we calculate sum of the ranks of sample $B$:
-
 \[
 W = 4 + 6 + 7 + 9 = 26
 \]
@@ -1127,7 +1115,6 @@ possibilities). To compute the probability of $W=10$ under the null
 hypothesis, we must divide this value by the total number of
 permutations of the 9 values, which is $9!$ (see
 section~\ref{sec:permutations}). Therefore:
-
 \[
 P(W=10|n_A=5,n_B=4) = \frac{4!5!}{9!} = 0.00794
 \]
@@ -1250,7 +1237,6 @@ example of table~\ref{tab:2setcoins}:
 The \textbf{Kolmogorov-Smirnov test} is non-parametric alternative to
 the $\chi^2$-test that does not require binning. Given two sets of
 numbers:
-
 \[
 x = \{x_1,x_2,\ldots,x_n\} \mbox{~and~} y = \{y_1,y_2,\ldots,y_m\}
 \]

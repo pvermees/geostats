@@ -82,7 +82,6 @@ distributions that are relevant to Earth scientists:
 \begingroup \captionof{figure}{The time of day for all 543 magnitude
   5.0 or greater earthquakes of Figure~\ref{fig:declusteredquakes}.}
 \endgroup
-
   
 \end{itemize}
 
@@ -408,7 +407,6 @@ strategy to estimate $\sigma$:
 \noindent which is \emph{almost} the same as the formula for the
 standard deviation that we saw in Section~\ref{sec:dispersion}
 (Equation~\ref{eq:stdev}):
-
 \begin{equation}
   s[x] = \sqrt{\frac{1}{n-1}\sum\limits_{i=1}^{n}(x_i-\bar{x})^2}
   \label{eq:stdevrepeat}
@@ -417,7 +415,6 @@ standard deviation that we saw in Section~\ref{sec:dispersion}
 There are just two differences between
 Equations~\ref{eq:stdev}/\ref{eq:stdevrepeat} and
 Equation~\ref{eq:stdevgivenmu}:
-
 \begin{enumerate}
 \item Equation~\ref{eq:stdevgivenmu} uses the population mean $\mu$,
   whereas Equation~\ref{eq:stdev} uses the sample mean $\bar{x}$.
@@ -436,14 +433,12 @@ additional uncertainty is accounted for by subtracting one
 
 Finally, for multivariate normal datasets, we can show that (proof
 omitted):
-
 \begin{equation}
   \hat{\sigma}_{x,y} = \sum\limits_{i=1}^{n}\frac{1}{n}(x_i-\mu_x)(y_i-\mu_y)
 \end{equation}
 
 \noindent or, if $\mu_x$ and $\mu_y$ are unknown and must be estimated
 from the data as well:
-
 \begin{equation}
   s[x,y] = \sum\limits_{i=1}^{n}\frac{1}{n-1}(x_i-\bar{x})(y_i-\bar{y})
   \label{eq:sxy}
