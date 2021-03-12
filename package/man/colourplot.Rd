@@ -99,5 +99,7 @@ Adds a colour bar to a scatter plot and/or filled
 }
 \examples{
 data('meuse',package='geostats')
-colourplot(X=meuse$x,Y=meuse$y,Z=log(meuse$zinc))
+colourplot(X=meuse$x,Y=meuse$y,Z=log(meuse$zinc),
+           plot.title=title(main='Meuse',xlab='Easting',ylab='Northing'),
+           key.title=title(main='log(Zn)'))
 }

@@ -263,16 +263,17 @@ NULL
 
 #' A-F-M data
 #'
-#' (Na\eqn{_2}O + K\eqn{_2}O) -- FeO - MgO compositions of 630
+#' FeO - (Na\eqn{_2}O + K\eqn{_2}O) - MgO compositions of 630
 #' calc-alkali basalts from the Cascade Mountains and 474 tholeiitic
-#' basalts from Iceland.
+#' basalts from Iceland. Arranged in F-A-M order instead of A-F-M for
+#' consistency with the \code{ternary} function.
 #' 
-#' @name AFM
+#' @name FAM
 #' @docType data
 #' @keywords data
 #' @examples
-#' data(AFM,package='geostats')
-#' ternary(AFM[,-1])
+#' data(FAM,package='geostats')
+#' ternary(FAM[,-1])
 NULL
 
 #' directions of glacial striations

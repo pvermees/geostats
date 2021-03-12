@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.4.25)  6 MAR 2021 21:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.8)  12 MAR 2021 21:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -5215,16 +5215,12 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 126.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 126.
 Package rerunfilecheck Info: File `geostats.out' has not changed.
 (rerunfilecheck)             Checksum: F19986EE28FEB3954F719A5760A6C917;8780.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 126.
  ) 
 Here is how much of TeX's memory you used:
  11753 strings out of 481239
- 188834 string characters out of 5920377
- 525356 words of memory out of 5000000
+ 188834 string characters out of 5920378
+ 525354 words of memory out of 5000000
  25448 multiletter control sequences out of 15000+600000
  547016 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -5256,7 +5252,7 @@ cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
 i9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on geostats.pdf (228 pages, 3482693 bytes).
+Output written on geostats.pdf (228 pages, 3482678 bytes).
 PDF statistics:
  5366 PDF objects out of 6186 (max. 8388607)
  4347 compressed objects within 44 object streams

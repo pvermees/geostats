@@ -94,7 +94,9 @@ inhull <- function(x,y,xi,yi,buffer=0.05){
 #' @import graphics
 #' @examples
 #' data('meuse',package='geostats')
-#' colourplot(X=meuse$x,Y=meuse$y,Z=log(meuse$zinc))
+#' colourplot(X=meuse$x,Y=meuse$y,Z=log(meuse$zinc),
+#'            plot.title=title(main='Meuse',xlab='Easting',ylab='Northing'),
+#'            key.title=title(main='log(Zn)'))
 #' @export
 colourplot <- function (x, y, z, X, Y, Z, nlevels=20, colspec=hcl.colors,
                         pch = 21, cex = 1, plot.title, plot.axes, key.title,

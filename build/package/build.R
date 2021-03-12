@@ -1,4 +1,4 @@
-setwd('~/Documents/Programming/R/geostats/build/package/')
+setwd('~/Documents/Programming/geostats/build/package/')
 
 pH <- c(6.2,4.4,5.6,5.2,4.5,5.4,4.8,5.9,3.9,3.8,
         5.1,4.1,5.1,5.5,5.1,4.6,5.7,4.6,4.6,5.6)
@@ -131,8 +131,8 @@ save(ACNK,file='../../package/data/ACNK.rda',version=2)
 major <- read.csv('Major.csv',header=TRUE,row.names=1,check.names=FALSE)
 save(major,file='../../package/data/major.rda',version=2)
 
-AFM <- read.csv('AFM.csv',header=TRUE,check.names=FALSE)
-save(AFM,file='../../package/data/AFM.rda',version=2)
+FAM <- read.csv('FAM.csv',header=TRUE,check.names=FALSE)
+save(FAM,file='../../package/data/FAM.rda',version=2)
 
 dat <- read.delim('training.txt',header=TRUE,sep='\t',check.names=FALSE)
 training <- na.omit(dat[,c(1,5:7,10:14)])

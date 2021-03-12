@@ -1795,9 +1795,9 @@ biplot(pc)
 
 \begin{script}
 library(MASS)    
-data(AFM,package='geostats')
-affinity <- AFM[,1]
-comp <- alr(AFM[,-1])
+data(FAM,package='geostats')
+affinity <- FAM[,1]
+comp <- alr(FAM[,-1])
 ld <- lda(x=comp,grouping=affinity)
 \end{script}
 
