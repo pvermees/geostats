@@ -1,9 +1,9 @@
 graphics.off()
 
-setwd('~/Documents/Programming/R/geostats/build/notes/')
+setwd('~/Documents/Programming/geostats/build/notes/')
 source('helper.R')
 
-install.packages('~/Documents/Programming/R/geostats/package',
+install.packages('~/Documents/Programming/geostats/package',
                  repos=NULL,type='source')
 
 pars <- function(mar=c(2.5,2.3,0.5,0.25),mgp=c(1.5,0.5,0),mfrow=c(1,1)){
@@ -2897,13 +2897,16 @@ if (FALSE){
             mat[i,j] <- throw(startpos=c(x[i],y[j]),src=src,plot=FALSE)
         }
     }
+    save(x,y,mat,file="3magnets.rda",version=2)
 }
 
 png(file='../../figures/3magnets.png',type='cairo',
     family="serif",pointsize=25,width=6,height=6,res=300,units='in')
-load('3magnets.RData')
+load('3magnets.rda')
 pars(mar=rep(0,4))
 image(x,y,mat,col=c('white','gray50','black'))
+src[,1] <- src[,1] - 0.5
+src[,2] <- src[,2] - 1 + 0.5/cos(30*pi/180)
 points(src,pch=21,bg='white',cex=2)
 text(src,labels=1:3)
 dev.off()
@@ -4185,7 +4188,7 @@ dev.off()
 
 cairo(file='../../figures/Africa.pdf',width=7,height=3.5)
 pars(mfrow=c(1,2),mar=rep(1,4))
-Africa <- read.csv('~/Documents/Programming/R/geostats/build/notes/Africa.csv',
+Africa <- read.csv('~/Documents/Programming/geostats/build/notes/Africa.csv',
                    header=TRUE)
 geostats::stereonet(trd=Africa$lon,plg=Africa$lat,option=3,
                     degrees=TRUE,wulff=TRUE,type='l',lty=1.5)

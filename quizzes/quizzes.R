@@ -1,9 +1,11 @@
 graphics.off()
 
-setwd('~/Documents/Programming/R/geostats/build/quizzes/')
+setwd('~/Documents/Programming/geostats/build/quizzes/')
 
-install.packages('~/Documents/Programming/R/geostats/package',
+install.packages('~/Documents/Programming/geostats/package',
                  repos=NULL,type='source')
+
+library(geostats)
 
 pars <- function(mar=c(2.5,2.3,0.5,0.25),mgp=c(1.5,0.5,0),mfrow=c(1,1)){
     par(list(mar=mar,mgp=mgp,mfrow=mfrow))
@@ -285,30 +287,37 @@ dev.off()
 png(filename='wulff.png',
     width=400,height=400,pointsize=14)
 pars(mar=rep(1.3,4))
-geostats::stereonet(wulff=TRUE)
+stereonet(wulff=TRUE)
 dev.off()
 
 png(filename='trdplgsolution.png',
     width=600,height=300,pointsize=14)
 pars(mar=rep(1.3,4),mfrow=c(1,2))
-geostats::stereonet(trd=30,plg=10,degrees=TRUE,
-                    wulff=FALSE,show.grid=FALSE,
-                    pch=21,bg='black')
+stereonet(trd=30,plg=10,degrees=TRUE,wulff=FALSE,
+          show.grid=FALSE,pch=21,bg='black')
 legend('topleft',legend='a)',bty='n',adj=c(2,0))
-geostats::stereonet(trd=30,plg=10,degrees=TRUE,
-                    wulff=TRUE,show.grid=FALSE,
-                    pch=21,bg='black')
+stereonet(trd=30,plg=10,degrees=TRUE,wulff=TRUE,
+          show.grid=FALSE,pch=21,bg='black')
 legend('topleft',legend='b)',bty='n',adj=c(2,0))
 dev.off()
 
 pdf(file='trdplgsolution.pdf',width=6,height=3)
 pars(mar=rep(1.3,4),mfrow=c(1,2))
-geostats::stereonet(trd=30,plg=10,degrees=TRUE,
-                    wulff=FALSE,show.grid=TRUE,
-                    pch=21,bg='black')
+stereonet(trd=30,plg=10,degrees=TRUE,wulff=FALSE,
+          show.grid=TRUE,pch=21,bg='black')
 legend('topleft',legend='a)',bty='n',adj=c(2,0))
-geostats::stereonet(trd=30,plg=10,degrees=TRUE,
-                    wulff=TRUE,show.grid=TRUE,
-                    pch=21,bg='black')
+stereonet(trd=30,plg=10,degrees=TRUE,wulff=TRUE,
+          show.grid=TRUE,pch=21,bg='black')
 legend('topleft',legend='b)',bty='n',adj=c(2,0))
 dev.off()
+
+data('meuse',package='geostats')
+colourplot(X=meuse$x,Y=meuse$y,Z=log(meuse$zinc),
+           plot.title=title(main='Meuse',xlab='Easting',ylab='Northing'),
+           key.title=title(main='log(Zn)'))
+points(178800,330750,pch=21,bg='white',cex=4)
+text(178800,330750,'a',cex=2)
+points(179450,331700,pch=21,bg='white',cex=4)
+text(179450,331700,'b',cex=2)
+points(179500,332500,pch=21,bg='white',cex=4)
+text(179500,332500,'c',cex=2)
