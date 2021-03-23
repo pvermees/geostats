@@ -4271,13 +4271,13 @@ geostats::colourplot(X=X,Y=Y,Z=Z,colspec=grey.colors,
                      extra={text(179850,331650,labels='?')})
 dev.off()
 
-if (FALSE){
+if (TRUE){
     N <- length(X)
     dXY <- as.matrix(dist(cbind(X,Y)))
-    dZ <- as.matrix(dist(cbind(Z,Z)))
-    d <- matrix(dXY[upper.tri(dXY,diag=TRUE)],N,N) +
-        matrix(dZ[lower.tri(dZ,diag=TRUE)],N,N)
-    signif(d[c(1:10,N),c(1:10,N)],2)
+    i <- c(1:10,155)
+    signif(dXY,2)[i,i]
+    dZ <- as.matrix(dist(Z))
+    signif(dZ,2)[i,i]
 }
 
 cairo(file='../../figures/semivariogram.pdf',width=3,height=3)
