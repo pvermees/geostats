@@ -1713,10 +1713,9 @@ Z <- hills$Z
 Fit the four semivariogram models:
 
 \begin{script}[firstnumber=5]
-par(mfrow=c(2,2))
-normodel <- semivariogram(x=X,y=Y,z=Z,plot=TRUE,model='gaussian')
+par(mfrow=c(1,3))
 expmodel <- semivariogram(x=X,y=Y,z=Z,plot=TRUE,model='exponential')
-linmodel <- semivariogram(x=X,y=Y,z=Z,plot=TRUE,model='linear')
+normodel <- semivariogram(x=X,y=Y,z=Z,plot=TRUE,model='gaussian')
 sphmodel <- semivariogram(x=X,y=Y,z=Z,plot=TRUE,model='spherical')
 \end{script}
 
@@ -1729,8 +1728,8 @@ mixture.
 \includegraphics[width=\indentwidth]{../figures/hills.pdf}
 \end{minipage}
 \begin{minipage}[t][][t]{\indentwidth}
-\captionof{figure}{a) Gaussian; b) exponential; c) linear and d)
-  spherical semivariogram fits to the \texttt{hills} data.}
+\captionof{figure}{a) exponential; b) Gaussian; and c) spherical
+  semivariogram fits to the \texttt{hills} data.}
 \end{minipage}
 
 \item Kriging interpolation of $\{x=0,y=0\}$ using the
@@ -1758,7 +1757,7 @@ Hence the elevation estimate at $\{x=0,y=0\}$ is $538 \pm 6$~m.
 xi <- seq(from=min(X),to=max(X),length.out=30)
 yi <- seq(from=min(Y),to=max(Y),length.out=30)
 zi <- kriging(x=X,y=Y,z=Z,xi=xi,yi=yi,svm=normodel,grid=TRUE)
-colourplot(x=xi,y=yi,z=zi,colspec=grey)
+colourplot(x=xi,y=yi,z=zi,colspec=grey.colors)
 \end{script}
 
 \item Fitting spherical and exponential semivariogram models to the
@@ -1780,16 +1779,16 @@ xi <- seq(from=min(X),to=max(X),length.out=50)
 yi <- seq(from=min(Y),to=max(Y),length.out=50)
 zsph <- kriging(x=X,y=Y,z=Z,xi=xi,yi=yi,grid=TRUE,svm=sphmodel)
 zexp <- kriging(x=X,y=Y,z=Z,xi=xi,yi=yi,grid=TRUE,svm=expmodel)
-colourplot(x=xi,y=yi,z=zsph-zexp,colspec=grey)
+colourplot(x=xi,y=yi,z=zsph-zexp,colspec=grey.colors)
 \end{script}
 
 The largest disagreements are found in sparsely sampled parts of the
 map. To show the sample locations as white circles, use the
-\texttt{colourplots}'s optional \texttt{extra} argument:
+\texttt{colourplot}'s optional \texttt{extra} argument:
 
 \begin{script}[firstnumber=11]
-colourplot(x=xi,y=yi,z=exp(zsph-zexp),colspec=grey,
-           extra={points(X,Y,pch=16,col='white')})
+colourplot(x=xi,y=yi,z=exp(zsph-zexp),colspec=grey.colors,
+           extra={points(X,Y,pch=21,bg='white')})
 \end{script}
 
 \noindent which also exponentiates the log-contrasts to yield the

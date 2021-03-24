@@ -218,33 +218,7 @@ an empirical \textbf{semivariogram}:
 Now that we have quantified the degree of spatial variability or,
 equivalently, the degree of spatial correlation, the next step in the
 kriging method is to parameterise the semivariogram. There are several
-equations to do this, such as the exponential model:
-
-\begin{equation}
-  \gamma[h] = c_s + (c_n-c_s) \exp\left[-\frac{h}{c_r}\right]
-  \label{eq:semivariogramexponential}
-\end{equation}
-
-\noindent the Gaussian model:
-
-\begin{equation}
-  \gamma[h] = c_s + (c_n-c_s) \exp\left[-\frac{h^2}{c_r^2}\right]
-  \label{eq:semivariogramgaussian}
-\end{equation}
-
-\noindent the linear model:
-
-\begin{equation}
-  \left\{
-  \begin{aligned}
-  \gamma[h] = & c_n + \frac{(c_s-c_n) h}{c_r} & \mbox{~if~}{h}\leq{c_r}\\
-    \gamma[h] = & c_s & \mbox{~if~} h>c_r 
-  \end{aligned}
-  \right.
-    \label{eq:semivariogramlinear}
-\end{equation}
-
-\noindent and the spherical model:
+equations to do this, such as the spherical model:
 
 \begin{equation}
   \left\{
@@ -259,11 +233,25 @@ equations to do this, such as the exponential model:
   \label{eq:semivariogramspherical}
 \end{equation}
 
+\noindent the exponential model:
+
+\begin{equation}
+  \gamma[h] = c_s + (c_n-c_s) \exp\left[-\frac{h}{c_r}\right]
+  \label{eq:semivariogramexponential}
+\end{equation}
+
+\noindent and the Gaussian model:
+
+\begin{equation}
+  \gamma[h] = c_s + (c_n-c_s) \exp\left[-\frac{h^2}{c_r^2}\right]
+  \label{eq:semivariogramgaussian}
+\end{equation}
+
 \noindent
 \includegraphics[width=\textwidth]{../figures/semivariogramfit.pdf}
 \begingroup \captionof{figure}{Parametric semivariogram fits for the
-  Meuse data, using the a) Gaussian, b) exponential, c) linear and d)
-  spherical models.\\}
+  Meuse data, using the a) spherical, b) exponential, and c) Gaussian
+  models.\\}
 \label{fig:semivariogramfit}
 \endgroup
 
@@ -291,12 +279,12 @@ contain three parameters:
 \end{minipage}
 \begin{minipage}[t][][t]{.65\textwidth}
   \captionof{figure}{Illustration of the range, sill and nugget of a
-    generic linear semivariogram model. The same three parameters also
-    control the shape of the exponential, Gaussian and spherical
-    models. In the case of the Meuse dataset, the nugget effect is
-    likely caused by the fact that the zinc concentrations were
-    averaged over a 15$\times$15~metre area, and that the variability
-    within this sampling area is not captured by the semivariogram.}
+    generic spherical semivariogram model. The same three parameters
+    also control the shape of the exponential and Gaussian models. In
+    the case of the Meuse dataset, the nugget effect is likely caused
+    by the fact that the zinc concentrations were averaged over a
+    15$\times$15~metre area, and that the variability within this
+    sampling area is not captured by the semivariogram.}
   \label{fig:snr}
 \end{minipage}
 

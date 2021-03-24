@@ -8,7 +8,7 @@
 .lsnr <- function(snr){
     lsnr <- rep(0,3)
     lsnr[1] <- log(snr[1])
-    lsnr[2] <- log(snr[2]/snr[1])
+    lsnr[2] <- log(snr[2]) - log(snr[1]-snr[2])
     lsnr[3] <- log(snr[3])
     lsnr
 }
@@ -26,10 +26,6 @@ semivarmod <- function(h,lsnr,model='spherical'){
     } else if (model=='exponential'){
         i <- (h>0)
         out[i] <- s + (n-s)*exp(-h[i]/r)
-    } else if (model=='linear'){
-        i <- (h<r) & (h>0)
-        out[i] <- n + (s-n)*h[i]/r
-        out[h>=r] <- s
     } else if (model=='gaussian'){
         i <- (h>0)
         out[i] <- s + (n-s) * exp(-(h[i]/r)^2)
@@ -64,7 +60,7 @@ semivarmod <- function(h,lsnr,model='spherical'){
 #' semivariogram(x=meuse$x,y=meuse$y,z=log(meuse$cadmium))
 #' @export
 semivariogram <- function(x,y,z,bw=NULL,nb=13,plot=TRUE,fit=TRUE,
-                          model=c('spherical','linear','exponential','gaussian'),
+                          model=c('spherical','exponential','gaussian'),
                           ...){
     d <- as.matrix(stats::dist(cbind(x,y)))
     if (is.null(bw)){
