@@ -4,49 +4,41 @@ mysign <- function(x){
     out
 }
 
-# from eponymous fuction in pracma package
-inpolygon <- function (x, y, xp, yp, boundary = TRUE){
-    stopifnot(is.numeric(x), is.numeric(y), length(x) == length(y), 
-        is.numeric(xp), is.numeric(yp), length(xp) == length(yp))
-    n <- length(x)
-    np <- length(xp)
-    if (xp[1] != xp[np] || yp[1] != yp[np]) {
-        xp <- c(xp, xp[1])
-        yp <- c(yp, yp[1])
-        np <- np + 1
+# This uses the ray-casting algorithm to decide whether the point is inside
+# the given polygon. See https://en.wikipedia.org/wiki/Point_in_polygon
+inside <- function(pts,pol){
+    nv <- nrow(pol)
+    if (identical(pol[1,],pol[nv,])){
+        pol <- pol[-1,] # remove the duplicate vertex
+        nv <- nv - 1
     }
-    inpoly <- rep(FALSE, n)
-    onpoly <- rep(FALSE, n)
-    j <- np
-    for (i in 1:np) {
-        dxp <- xp[j] - xp[i]
-        dyp <- yp[j] - yp[i]
-        dist <- dxp * (y - yp[i]) - (x - xp[i]) * dyp
-        idx1 <- (((yp[i] <= y & y < yp[j]) | (yp[j] <= y & y < 
-            yp[i])) & (0 < dist * dyp))
-        inpoly[idx1] <- !inpoly[idx1]
-        idx2 <- (((yp[i] <= y & y <= yp[j]) | (yp[j] <= y & y <= 
-            yp[i])) & ((xp[i] <= x & x <= xp[j]) | (xp[j] <= 
-            x & x <= xp[i])) & (0 == dist | !dxp))
-        onpoly[idx2] <- TRUE
-        j <- i
+    if (class(pts)=='matrix'){
+        np <- nrow(pts)
+        x <- pts[,1]
+        y <- pts[,2]
+    } else {
+        np <- 1
+        x <- pts[1]
+        y <- pts[2]
     }
-    if (boundary) inpoly[onpoly] <- TRUE
-    else inpoly[onpoly] <- FALSE
-    return(inpoly)
+    igood <- which(!(is.na(x)|is.na(y)))
+    out <- rep(FALSE,np)
+    for (i in 1:nv){
+        j <- i %% nv + 1
+        xp0 <- pol[i,1]
+        yp0 <- pol[i,2]
+        xp1 <- pol[j,1]
+        yp1 <- pol[j,2]
+        crosses <- (yp0 <= y) & (yp1 > y) | (yp1 <= y) & (yp0 > y)
+        if (any(crosses[igood])){
+            icrosses <- igood[which(crosses[igood])]
+            cross <- (xp1 - xp0) * (y[icrosses] - yp0) / (yp1 - yp0) + xp0
+            change <- icrosses[cross < x[icrosses]]
+            out[change] <- !out[change]
+        }
+    }
+    out
 }
-
-inhull <- function(x,y,xi,yi,buffer=0.05){
-    dx <- buffer*(max(x)-min(x))
-    dy <- buffer*(max(y)-min(y))
-    X <- c(x-dx,x-dx,x+dx,x+dx)
-    Y <- c(y-dx,y+dy,y-dy,y+dy)
-    ch <- grDevices::chull(x=X,y=Y)
-    xh <- X[ch]
-    yh <- Y[ch]
-    inpolygon(x=xi,y=yi,xp=xh,yp=yh)
-}
-
 
 #' @title colour plot
 #' @description Adds a colour bar to a scatter plot and/or filled

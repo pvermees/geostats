@@ -136,7 +136,7 @@ semivariogram <- function(x,y,z,bw=NULL,nb=13,plot=TRUE,fit=TRUE,
 #' svm <- semivariogram(x=x,y=y,z=z)
 #' kriging(x=x,y=y,z=z,xi=179850,yi=331650,svm=svm,grid=TRUE)
 #' @export
-kriging <- function(x,y,z,xi,yi,svm,grid=FALSE,err=FALSE){
+kriging <- function(x,y,z,xi,yi,svm,grid=FALSE,err=FALSE,test=FALSE){
     # training data
     lsnr <- .lsnr(svm$snr)
     d <- as.matrix(stats::dist(cbind(x,y)))
@@ -158,7 +158,13 @@ kriging <- function(x,y,z,xi,yi,svm,grid=FALSE,err=FALSE){
     }
     vzi <- NA*Xi
     if (grid){
-        good <- which(inhull(x,y,Xi,Yi))
+        buffer <- 0.05
+        dx <- buffer*(max(x)-min(x))
+        dy <- buffer*(max(y)-min(y))
+        xy <- cbind(c(x-dx,x-dx,x+dx,x+dx),
+                    c(y-dy,y+dy,y-dy,y+dy))
+        i <- chull(xy)
+        good <- which(inside(cbind(Xi,Yi),xy[i,,drop=FALSE]))
     } else {
         good <- 1:length(vzi)
     }

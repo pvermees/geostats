@@ -338,10 +338,10 @@ expression:
   =
   \left[
     \begin{array}{@{}cccccc@{}}
-      c_n & \gamma[h_{1,2}] & \gamma[h_{1,3}] & \ldots & \gamma[h_{1,n}] & 1 \\
-      \gamma[h_{2,1}] & c_n & \gamma[h_{2,3}] & \ldots & \gamma[h_{2,n}] & 1 \\
+      0 & \gamma[h_{1,2}] & \gamma[h_{1,3}] & \ldots & \gamma[h_{1,n}] & 1 \\
+      \gamma[h_{2,1}] & 0 & \gamma[h_{2,3}] & \ldots & \gamma[h_{2,n}] & 1 \\
       \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
-      \gamma[h_{n,1}] & \gamma[h_{n,2}] & \gamma[h_{n,3}] & \ldots & c_n & 1 \\
+      \gamma[h_{n,1}] & \gamma[h_{n,2}] & \gamma[h_{n,3}] & \ldots & 0 & 1 \\
       1 & 1 & 1 & \ldots & 1 & 0 \\
     \end{array}
     \right]^{-1}
@@ -400,13 +400,13 @@ then yields the following results:
   =
   \left[
     \begin{array}{c@{}c@{~}c@{~}c@{~}c@{~}c@{~}c@{~}c@{}}
-      0.035 & 0.11  & 0.15  & \ldots & 0.64   & \ldots & 0.64   & 1 \\
-      0.11  & 0.035 & 0.18  & \ldots & 0.64   & \ldots & 0.64   & 1 \\
-      0.15  & 0.18  & 0.035 & \ldots & 0.64   & \ldots & 0.64   & 1 \\
+      0 & 0.11  & 0.15  & \ldots & 0.64   & \ldots & 0.64   & 1 \\
+      0.11  & 0 & 0.18  & \ldots & 0.64   & \ldots & 0.64   & 1 \\
+      0.15  & 0.18  & 0 & \ldots & 0.64   & \ldots & 0.64   & 1 \\
       \vdots & \vdots & \vdots & \ddots & \vdots & \ddots & \vdots & \vdots \\
-      0.64   & 0.64   & 0.64   & \ldots & 0.035 & \ldots & 0.64   & 1 \\
+      0.64   & 0.64   & 0.64   & \ldots & 0 & \ldots & 0.64   & 1 \\
       \vdots & \vdots & \vdots & \ddots & \vdots & \ddots & \vdots & \vdots \\
-      0.64   & 0.64   & 0.64   & \ldots & 0.64   & \ldots & 0.035 & 1 \\
+      0.64   & 0.64   & 0.64   & \ldots & 0.64   & \ldots & 0 & 1 \\
       1      & 1      & 1      & \ldots & 1      & \ldots & 1      & 0 \\
     \end{array}
     \right]^{-1}
@@ -424,11 +424,10 @@ then yields the following results:
     \right]
 \end{equation}
 
-\noindent in which we can recognise the nugget ($c_s = 0.035$) and the
-sill ($c_s = 0.64$) for all the sample pairs that are separated by a
-distance of zero or more than $c_r = 892$~metres, respectively.  Given
-the 155 (logged) zinc concentration measurements of
-Table~\ref{tab:Meuse}, the logged zinc concentration of location
+\noindent in which we can recognise the sill ($c_s = 0.64$) for all
+the sample pairs that are separated by a distance of more than $c_r =
+892$~metres.  Given the 155 (logged) zinc concentration measurements
+of Table~\ref{tab:Meuse}, the logged zinc concentration of location
 $\{x_\circ=179850,y_\circ=331650\}$ is given by
 \[
 z_{x_\circ,y_\circ} = 0.0022 \times 6.93 - 0.00030 \times 7.04 +
