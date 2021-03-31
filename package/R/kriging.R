@@ -132,7 +132,7 @@ semivariogram <- function(x,y,z,bw=NULL,nb=13,plot=TRUE,fit=TRUE,
 #' svm <- semivariogram(x=x,y=y,z=z)
 #' kriging(x=x,y=y,z=z,xi=179850,yi=331650,svm=svm,grid=TRUE)
 #' @export
-kriging <- function(x,y,z,xi,yi,svm,grid=FALSE,err=FALSE,test=FALSE){
+kriging <- function(x,y,z,xi,yi,svm,grid=FALSE,err=FALSE){
     # training data
     lsnr <- .lsnr(svm$snr)
     d <- as.matrix(stats::dist(cbind(x,y)))
@@ -143,7 +143,6 @@ kriging <- function(x,y,z,xi,yi,svm,grid=FALSE,err=FALSE,test=FALSE){
     W[N+1,N+1] <- 0
     out <- NA*xi
     Y <- c(z,0)
-    # test data
     if (grid){
         xyi <- expand.grid(xi,yi)
         Xi <- xyi[,1]

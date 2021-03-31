@@ -12,7 +12,7 @@ semivariogram(
   nb = 13,
   plot = TRUE,
   fit = TRUE,
-  model = c("spherical", "linear", "exponential", "gaussian"),
+  model = c("spherical", "exponential", "gaussian"),
   ...
 )
 }
