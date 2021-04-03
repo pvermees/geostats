@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.8)  31 MAR 2021 21:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.8)  3 APR 2021 20:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3718,7 +3718,7 @@ See the caption package documentation for explanation.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 563--563
-[]\OT1/cmr/m/n/10.95 Figure 12.15: |[]Two-dimensional
+[]\OT1/cmr/m/n/10.95 Figure 12.14: |[]Two-dimensional
  []
 
 
@@ -3739,8 +3739,8 @@ n/10.95 (crosses).
  []
 
 
-Underfull \hbox (badness 1558) in paragraph at lines 563--563
-\OT1/cmr/m/n/10.95 ures [][]12.10[][]--[][]12.14[][] was de-rived from
+Underfull \hbox (badness 3417) in paragraph at lines 563--563
+\OT1/cmr/m/n/10.95 ures [][]12.9[][]--[][]12.13[][] was de-rived from
  []
 
 
@@ -5219,8 +5219,8 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 126.
  ) 
 Here is how much of TeX's memory you used:
  11751 strings out of 481239
- 188794 string characters out of 5920378
- 525280 words of memory out of 5000000
+ 188792 string characters out of 5920378
+ 525276 words of memory out of 5000000
  25447 multiletter control sequences out of 15000+600000
  547016 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -5252,7 +5252,7 @@ cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
 i9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on geostats.pdf (228 pages, 3482967 bytes).
+Output written on geostats.pdf (228 pages, 3482936 bytes).
 PDF statistics:
  5365 PDF objects out of 6186 (max. 8388607)
  4346 compressed objects within 44 object streams
