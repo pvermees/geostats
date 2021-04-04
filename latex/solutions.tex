@@ -1249,10 +1249,10 @@ biplot(pc)
 
 Which produces the following biplot:
 
-\noindent\begin{minipage}[t][][b]{.35\indentwidth}
+\noindent\begin{minipage}[t][][b]{.35\linewidth}
 \includegraphics[width=\textwidth]{../figures/PCAiris.pdf}\\
 \end{minipage}
-\begin{minipage}[t][][t]{.65\indentwidth}
+\begin{minipage}[t][][t]{.65\linewidth}
   \captionof{figure}{PCA biplot for the \texttt{iris} data. This
     diagram indicates there are two groups of flowers that with
     distinct petal width and length measurements (PC1).  Within these
@@ -1292,10 +1292,10 @@ for (k in 1:K){    # loop through all the k values
 plot(x=1:K,y=ss,type='b')            # plot as both lines and points
 \end{script}
 
-\noindent\begin{minipage}[t][][b]{.35\indentwidth}
+\noindent\begin{minipage}[t][][b]{.35\linewidth}
 \includegraphics[width=\textwidth]{../figures/elbow.pdf}\\
 \end{minipage}
-\begin{minipage}[t][][t]{.65\indentwidth}
+\begin{minipage}[t][][t]{.65\linewidth}
   \captionof{figure}{Evaluating the within-cluster sum-of-squares
     ($ss$) of the k-means algorithm for different numbers of clusters.
     The $ss$-misfit drops off very quicky before making an `elbow' at
@@ -1314,10 +1314,10 @@ plot(tree)
 
 This produces the following tree:
 
-\noindent\begin{minipage}[t][][b]{.35\indentwidth}
+\noindent\begin{minipage}[t][][b]{.35\linewidth}
 \includegraphics[width=\textwidth]{../figures/DZtree.pdf}\\
 \end{minipage}
-\begin{minipage}[t][][t]{.65\indentwidth}
+\begin{minipage}[t][][t]{.65\linewidth}
   \captionof{figure}{Hierarchical clustering tree for the detrital
     zircon data. The tree conveys the same information as the MDS
     configuration of Figure~\ref{fig:DZmds}: there are two main
@@ -1541,10 +1541,10 @@ pc <- prcomp(lrdat)
 biplot(pc,col=c('grey50','black'),xlabs=aff)
 \end{script}
 
-\noindent\begin{minipage}[t][][b]{.5\indentwidth}
+\noindent\begin{minipage}[t][][b]{.5\linewidth}
 \includegraphics[width=\textwidth]{../figures/testPCA.pdf}\\
 \end{minipage}
-\begin{minipage}[t][][t]{.5\indentwidth}
+\begin{minipage}[t][][t]{.5\linewidth}
   \captionof{figure}{PCA biplot of the oceanic basalt compositions.
     The data roughly fall into three clusters, corresponding to OIB,
     MORB and IAB. OIBs are relatively rich in K\textsubscript{2}O and
@@ -1724,10 +1724,10 @@ model fits the empirical semivariogram best, which is not surprising
 given that the \texttt{hills} dataset consists of a bivariate Gaussian
 mixture.
 
-\noindent\begin{minipage}[t][][b]{\indentwidth}
-\includegraphics[width=\indentwidth]{../figures/hills.pdf}
+\noindent\begin{minipage}[t][][b]{\linewidth}
+\includegraphics[width=\linewidth]{../figures/hills.pdf}
 \end{minipage}
-\begin{minipage}[t][][t]{\indentwidth}
+\begin{minipage}[t][][t]{\linewidth}
 \captionof{figure}{a) exponential; b) Gaussian; and c) spherical
   semivariogram fits to the \texttt{hills} data.}
 \end{minipage}
@@ -1795,10 +1795,10 @@ colourplot(x=xi,y=yi,z=exp(zsph-zexp),colspec=grey.colors,
 ratio of the Zn-concentation estimate using the spherical and
 exponential semivariogram models.
 
-\noindent\begin{minipage}[t][][b]{.6\indentwidth}
+\noindent\begin{minipage}[t][][b]{.6\linewidth}
 \includegraphics[width=\textwidth]{../figures/sphvsexp.pdf}
 \end{minipage}
-\begin{minipage}[t][][t]{.4\indentwidth}
+\begin{minipage}[t][][t]{.4\linewidth}
   \captionof{figure}{Log-contrast between two kriging interpolations
     for the Meuse data, using the spherical and exponential
     semivariogram models. The 155 measurements locations are marked by

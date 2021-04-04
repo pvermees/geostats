@@ -475,10 +475,10 @@ The k-means algorithm then proceeds as follows:
 \item Randomly select three data points from the dataset and designate
   them as the centroids of three clusters:
 
-  \noindent\begin{minipage}[t][][b]{.25\indentwidth}
+  \noindent\begin{minipage}[t][][b]{.25\linewidth}
   \includegraphics[width=\textwidth]{../figures/kmeans2.pdf}\\
   \end{minipage}
-  \begin{minipage}[t][][t]{.75\indentwidth}
+  \begin{minipage}[t][][t]{.75\linewidth}
     \captionof{figure}{Data points 48, 100 and 130 were randomly
       selected from the dataset and assigned as the centroids of
       clusters 1 (circle), 2 (triangle) and 3 (cross).}
@@ -488,10 +488,10 @@ The k-means algorithm then proceeds as follows:
 \item Reassign each data point to the cluster whose centroid is
   closest to it:
 
-  \noindent\begin{minipage}[t][][b]{.25\indentwidth}
+  \noindent\begin{minipage}[t][][b]{.25\linewidth}
   \includegraphics[width=\textwidth]{../figures/kmeans3.pdf}\\
   \end{minipage}
-  \begin{minipage}[t][][t]{.75\indentwidth}
+  \begin{minipage}[t][][t]{.75\linewidth}
     \captionof{figure}{Replace each of the question marks in
       Figure~\ref{fig:kmeans2} with the symbol (circles, triangles or
       crosses) that is closest to it, using the Euclidean distance of
@@ -501,10 +501,10 @@ The k-means algorithm then proceeds as follows:
 
 \item Calculate a new centroid for each cluster:
 
-  \noindent\begin{minipage}[t][][b]{.25\indentwidth}
+  \noindent\begin{minipage}[t][][b]{.25\linewidth}
     \includegraphics[width=\textwidth]{../figures/kmeans4.pdf}\\
   \end{minipage}
-  \begin{minipage}[t][][t]{.75\indentwidth}
+  \begin{minipage}[t][][t]{.75\linewidth}
     \captionof{figure}{The grey symbols are the same as the black
       symbols in Figure~\ref{fig:kmeans3}. The black symbols are the
       average $\{x,y\}$-positions of all the samples within each
@@ -517,10 +517,10 @@ The k-means algorithm then proceeds as follows:
   
 \item Repeat steps~2 and 3 until convergence is achieved:
 
-  \noindent\begin{minipage}[t][][b]{.25\indentwidth}
+  \noindent\begin{minipage}[t][][b]{.25\linewidth}
   \includegraphics[width=\textwidth]{../figures/kmeans5.pdf}\\
   \end{minipage}
-  \begin{minipage}[t][][t]{.75\indentwidth}
+  \begin{minipage}[t][][t]{.75\linewidth}
     \captionof{figure}{Final classification of the data. Each of the 150
       data points has been assigned to a particular cluster whose
       centroids are marked as large and bold symbols.}
@@ -645,13 +645,13 @@ The algorithm works as follows:
 \item Identify the closest two clusters (corresponding to the boxed
   numbers in step~\ref{it:hierachical1}) and join them together.
 
-  \begin{minipage}[t][][b]{.3\indentwidth}
+  \begin{minipage}[t][][b]{.3\linewidth}
   \includegraphics[width=\linewidth]{../figures/hierarchical2.pdf}\\
   \end{minipage}
-  \begin{minipage}[t][][b]{.3\indentwidth}
+  \begin{minipage}[t][][b]{.3\linewidth}
     \includegraphics[width=\linewidth]{../figures/tree1.pdf}\\
   \end{minipage}
-  \begin{minipage}[t][][b]{.4\indentwidth}
+  \begin{minipage}[t][][b]{.4\linewidth}
   \captionof{figure}{First step of the hierarchical clustering
     process.  The closest two samples (1 and 3) have been grouped
     together into a new cluster (grey line, left). The results can
@@ -678,13 +678,13 @@ The algorithm works as follows:
 \item Identify the closest two clusters (corresponding to the boxed
   numbers in step~\ref{it:hierarchical2}) and join them together.
 
-  \begin{minipage}[t][][b]{.3\indentwidth}
+  \begin{minipage}[t][][b]{.3\linewidth}
   \includegraphics[width=\linewidth]{../figures/hierarchical3.pdf}\\
   \end{minipage}
-  \begin{minipage}[t][][b]{.3\indentwidth}
+  \begin{minipage}[t][][b]{.3\linewidth}
     \includegraphics[width=\linewidth]{../figures/tree2.pdf}\\
   \end{minipage}
-  \begin{minipage}[t][][b]{.4\indentwidth}
+  \begin{minipage}[t][][b]{.4\linewidth}
   \captionof{figure}{The second step of the hierarchical clustering
     process shown as a scatter plot (left) and a dendrogram
     (right). The first order cluster is nested inside the second order
@@ -705,13 +705,13 @@ The algorithm works as follows:
 \item Identify the two closest clusters (corresponding to the boxed
   numbers in step~\ref{it:hierarchical3}) and join them together:
 
-  \begin{minipage}[t][][b]{.3\indentwidth}
+  \begin{minipage}[t][][b]{.3\linewidth}
   \includegraphics[width=\linewidth]{../figures/hierarchical4.pdf}\\
   \end{minipage}
-  \begin{minipage}[t][][b]{.3\indentwidth}
+  \begin{minipage}[t][][b]{.3\linewidth}
     \includegraphics[width=\linewidth]{../figures/tree3.pdf}\\
   \end{minipage}
-  \begin{minipage}[t][][b]{.4\indentwidth}
+  \begin{minipage}[t][][b]{.4\linewidth}
   \captionof{figure}{The third step of the hierarchical clustering
     process shown as a scatter plot (left) and a dendrogram
     (right). The third cluster does not share any elements with the
@@ -721,10 +721,10 @@ The algorithm works as follows:
 
 \item The final iteration yields the following tree:
 
-  \begin{minipage}[t][][b]{.35\indentwidth}
+  \begin{minipage}[t][][b]{.35\linewidth}
     \includegraphics[width=\linewidth]{../figures/hierarchicaltree.pdf}
   \end{minipage}
-  \begin{minipage}[t][][b]{.65\indentwidth}
+  \begin{minipage}[t][][b]{.65\linewidth}
     \captionof{figure}{Final results of the hierarchical cluster
       analysis.  The tree consists of four nested clusters. The y-axis
       has units of distance: the longer the branch, the greater the
