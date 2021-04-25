@@ -12,7 +12,7 @@ inside <- function(pts,pol){
         pol <- pol[-1,] # remove the duplicate vertex
         nv <- nv - 1
     }
-    if (class(pts)=='matrix'){
+    if ('matrix' %in% class(pts)){
         np <- nrow(pts)
         x <- pts[,1]
         y <- pts[,2]
