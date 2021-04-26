@@ -1,9 +1,9 @@
 graphics.off()
 
-setwd('~/Documents/Programming/geostats/build/notes/')
+setwd('~/Documents/Programming/R/geostats/build/notes/')
 source('helper.R')
 
-install.packages('~/Documents/Programming/geostats/package',
+install.packages('~/Documents/Programming/R/geostats/package',
                  repos=NULL,type='source')
 library(geostats)
 
@@ -4189,7 +4189,7 @@ dev.off()
 
 cairo(file='../../figures/Africa.pdf',width=7,height=3.5)
 pars(mfrow=c(1,2),mar=rep(1,4))
-Africa <- read.csv('~/Documents/Programming/geostats/build/notes/Africa.csv',
+Africa <- read.csv('~/Documents/Programming/R/geostats/build/notes/Africa.csv',
                    header=TRUE)
 geostats::stereonet(trd=Africa$lon,plg=Africa$lat,option=3,
                     degrees=TRUE,wulff=TRUE,type='l',lty=1.5)

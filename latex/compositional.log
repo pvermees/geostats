@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.8)  12 MAR 2021 19:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.9.16)  26 APR 2021 13:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -18701,7 +18701,7 @@ Missing character: There is no . in font nullfont!
  
 Here is how much of TeX's memory you used:
  59 strings out of 481239
- 972 string characters out of 5920378
+ 972 string characters out of 5920377
  264562 words of memory out of 5000000
  15423 multiletter control sequences out of 15000+600000
  532992 words of font info for 26 fonts, out of 8000000 for 9000
