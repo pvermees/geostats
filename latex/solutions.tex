@@ -592,8 +592,8 @@ during the next century is:
   \times({6.022}\times{10}^{10}\mbox{atoms})=50.95
   \]
 
-  The probability that the crystal contains fewer
-  than 50 fission tracks is:
+  The probability that the crystal contains 50 or fewer fission tracks
+  is:
 
 \begin{console}
 > L <- 1e6 * 8.46e-17 * 6.022e11
@@ -601,7 +601,7 @@ during the next century is:
 [1] 0.4843836
 \end{console}
 
-The probability that it contains between 40 and 60 fission tracks is:
+The probability that it contains 41 to 60 fission tracks is:
 
 \begin{console}
 > ppois(q=60,lambda=L) - ppois(q=40,lambda=L)
