@@ -37,7 +37,7 @@
 \contentsline {section}{\numberline {8.1}Linear approximation}{65}{section.8.1}%
 \contentsline {section}{\numberline {8.2}Examples}{68}{section.8.2}%
 \contentsline {section}{\numberline {8.3}Standard deviation vs. standard error}{72}{section.8.3}%
-\contentsline {section}{\numberline {8.4}Fisher Information}{73}{section.8.4}%
+\contentsline {section}{\numberline {8.4}Fisher Information}{72}{section.8.4}%
 \contentsline {chapter}{\numberline {9}Comparing distributions}{75}{chapter.9}%
 \contentsline {section}{\numberline {9.1}Q-Q plots}{75}{section.9.1}%
 \contentsline {section}{\numberline {9.2}The t-test}{76}{section.9.2}%

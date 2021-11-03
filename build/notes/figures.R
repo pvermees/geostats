@@ -1,3 +1,4 @@
+rm(list=ls())
 graphics.off()
 
 setwd('~/Documents/Programming/R/geostats/build/notes/')
@@ -1883,7 +1884,7 @@ pars()
 na.rm <- function(dat,var){
     dat[!is.na(dat[,var]),var]
 }
-DZ <- read.csv('DZages.csv',header=TRUE)
+DZ <- read.csv('../package/DZages.csv',header=TRUE)
 samp1 <- na.rm(DZ,'X5')
 samp2 <- na.rm(DZ,'Y')
 cdf1 <- ecdf(samp1)
@@ -2584,7 +2585,7 @@ fractaldim <- function(mat,nticks){
 
 tiff(file='Britain.tiff',width=512,height=512)
 pars(mar=rep(0,4))
-plot(b)
+sp::plot(b)
 dev.off()
 
 nticks <- rep(2,10)^(0:9)
@@ -3026,12 +3027,12 @@ cairo(file='../../figures/DZmds.pdf',width=4,height=3)
 pars(mar=c(2.5,2.5,0,0.5))
 library(IsoplotR)
 set.seed(1)
-dz <- provenance::read.distributional('DZages.csv',check.names=FALSE)$x
-DZ <- lapply(dz,jitter)
+DZ <- provenance::read.distributional('../package/DZages.csv',check.names=FALSE)$x
 d <- matrix(0,13,13)
 for (i in 1:13){
     for (j in 1:13){
-        d[i,j] <- ks.test(DZ[[i]],DZ[[j]])$statistic
+        if (i==j) d[i,j] <- 0
+        else d[i,j] <- ks.test(DZ[[i]],DZ[[j]])$statistic
     }
 }
 nms <- c(1:10,'L','T','Y')
@@ -4474,7 +4475,7 @@ plot(x,y,type='l',xlab='N',ylab=expression("s["*bar(h)*"]"),log='x',bty='n')
 dev.off()
 
 cairo(file='../../slides/RbSr.pdf',width=4,height=4)
-data(RbSr,package='geostats')
+RbSr <- read.csv('RbSr.csv',header=TRUE)
 pars(mgp=c(1.25,0.5,0))
 RS <- t(RbSr[c(1,3,2,4,5),])
 RS[,1] <- RS[,1]/2

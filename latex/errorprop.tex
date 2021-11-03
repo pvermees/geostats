@@ -59,7 +59,6 @@ $\bar{z}=g(\overline{x})$.\\
 
 Recall the definition of the sample standard deviation and variance
 (Equation~\ref{eq:stdevrepeat}):
-
 \begin{equation}
 s[z]^2 \equiv \frac{1}{n-1} \sum_{i=1}^{n} (z_i-\bar{z})^2
 \label{eq:varz}
@@ -90,7 +89,6 @@ respect to the measurements $x$, then:
 \end{minipage}
 
 Plugging Equation \ref{eq:zi-z} into \ref{eq:varz}, we obtain:
-
 \begin{equation}
   \begin{split}
     s[z]^2 & \approx \frac{1}{n-1} \sum_{i=1}^{n}
@@ -110,7 +108,6 @@ Equation~\ref{eq:errorprop1d} is the general equation for the
 propagation of uncertainty with one variable.  Next, let us move on to
 multivariate problems. Suppose that the our estimated quantity ($z$)
 is calculated as a function ($g$) of two measurements ($x$ and $y$):
-
 \begin{equation}
 z = g(x,y)
 \label{eq:zfxy}
@@ -125,7 +122,6 @@ infer $s[z]$, the standard error of $z$, in exactly the same way as
 for the one dimensional case.\\
 
 Differentiating $g$ with respect to $x$ and $y$:
-
 \begin{equation}
   z_i - \overline{z} \approx (x_i-\overline{x}) \frac{\partial z}{\partial x} +
   (y_i-\overline{y}) \frac{\partial z}{\partial y}
@@ -133,7 +129,6 @@ Differentiating $g$ with respect to $x$ and $y$:
 \end{equation}
 
 Plugging Equation~\ref{eq:dg} into Equation~\ref{eq:varz}:
-
 \begin{equation}
   s[z]^2 \approx \frac{1}{n-1} \sum_{i=1}^{n} \left[
     (x_i-\overline{x}) \frac{\partial z}{\partial x} +
@@ -142,7 +137,6 @@ Plugging Equation~\ref{eq:dg} into Equation~\ref{eq:varz}:
 
 After some rearranging (similar the derivation of
 Equation~\ref{eq:errorprop1d}), this leads to:
-
 \begin{equation}
   s[z]^2 \approx s[x]^2 \left(\frac{\partial z}{\partial x}\right)^2 +
   s[y]^2 \left(\frac{\partial z}{\partial y}\right)^2 +
@@ -152,7 +146,6 @@ Equation~\ref{eq:errorprop1d}), this leads to:
 
 This is the general equation for the propagation of uncertainty with
 two variables, which can also be written in a matrix form:
-
 \begin{equation}
 s[z]^2 \approx
 \left[
@@ -229,7 +222,6 @@ y^b$, where $a=1/2$ and $b=3$.
   \]
 
   Plugging these into Equation~\ref{eq:errorprop2d}:
-
   \begin{equation}
     s[z]^2 = b^2 s[x]^2 + c^2 s[y]^2 + 2bc~s[x,y]
     \label{eq:addition}
@@ -251,7 +243,6 @@ y^b$, where $a=1/2$ and $b=3$.
   \]
 
   Plugging these into Equation~\ref{eq:errorprop2d}:
-  
   \begin{equation}
     s[z]^2 = a^2 s[x]^2 + b^2 s[y]^2 - 2ab~s[x,y]
     \label{eq:subtraction}
@@ -266,20 +257,17 @@ y^b$, where $a=1/2$ and $b=3$.
   \]
 
   The partial derivatives are
-
   \[
   \frac{\partial z}{\partial x} = a y \mbox{~and~}
   \frac{\partial z}{\partial y} = a x
   \]
 
   Plugging these into Equation~\ref{eq:errorprop2d}:
-
   \[
   s[z]^2 = (a y)^2 s[x]^2 + (a x)^2 s[y]^2 + 2(a y)(a x)~s[x,y]
   \]
 
   Dividing both sides of this equation by $z^2 = (a x y)^2$:
-  
   \[
   \left(\frac{s[z]}{z}\right)^2 =
   \left(\frac{a y}{a x y} s[x]\right)^2 +
@@ -288,7 +276,6 @@ y^b$, where $a=1/2$ and $b=3$.
   \]
 
   which simplifies to:
-
   \begin{equation}
     \left(\frac{s[z]}{z}\right)^2 = \left(\frac{s[x]}{x}\right)^2 +
     \left(\frac{s[y]}{y}\right)^2 + 2 \frac{s[x,y]}{x y}
@@ -302,20 +289,17 @@ y^b$, where $a=1/2$ and $b=3$.
   of the squared CoVs.
 
 \item{\bf division:}
-
   \[
   z = a \frac{x}{y}
   \]
 
   The partial derivatives are
-
   \[
   \frac{\partial z}{\partial x} = \frac{a}{y} \mbox{~and~}
   \frac{\partial z}{\partial y} = -\frac{a x}{y^2}
   \]
 
   Plugging these into Equation~\ref{eq:errorprop2d}:
-
   \[
   s[z]^2 = \left(\frac{a}{y}\right)^2 s[x]^2 +
   \left(-\frac{a x}{y^2}\right)^2 s[y]^2 +
@@ -324,7 +308,6 @@ y^b$, where $a=1/2$ and $b=3$.
 
   Dividing both sides of this equation by $z^2 =
   \left(a x / y\right)^2$:
-  
   \[
   s[z]^2 = \left(\frac{a}{y}\frac{y}{ax}\right)^2 s[x]^2 +
   \left(-\frac{a x}{y^2}\frac{y}{ax}\right)^2 s[y]^2 +
@@ -333,7 +316,6 @@ y^b$, where $a=1/2$ and $b=3$.
   \]
 
   which simplifies to:
-
   \begin{equation}
     \left(\frac{s[z]}{z}\right)^2 = \left(\frac{s[x]}{x}\right)^2 +
     \left(\frac{s[y]}{y}\right)^2 - 2 \frac{s[x,y]}{x y}
@@ -345,82 +327,69 @@ y^b$, where $a=1/2$ and $b=3$.
   product (Equation~\ref{eq:multiplication}).
 
 \item{\bf exponentiation:}
-
   \[
   z = a e^{bx}
   \]
 
   The partial derivative of $z$ w.r.t. $x$ is
-
   \[
   \frac{\partial z}{\partial x} = ab e^{bx}
   \]
 
   Plugging this into Equation~\ref{eq:errorprop2d}:
-
   \[
   s[z]^2 = \left(ab e^{bx}\right)^2 s[x]^2
   \]
 
   Dividing both sides by $z^2 = \left(a e^{bx}\right)^2$:
-
   \[
   \left(\frac{s[z]}{z}\right)^2 =
   \left(\frac{ab e^{bx}}{a e^{bx}}s[x]\right)^2 
   \]
 
   which simplifies to
-
   \begin{equation}
     \left(\frac{s[z]}{z}\right)^2 = b^2 s[x]^2
     \label{eq:exponentiation}
   \end{equation}
 
 \item{\bf logarithms:}
-
   \[
   z = a \ln[bx]
   \]
 
   The partial derivative of $z$ w.r.t. $x$ is
-
   \[
   \frac{\partial z}{\partial x} = \frac{a}{x}
   \]
 
   Plugging this into Equation~\ref{eq:errorprop2d}:
-
   \begin{equation}
     s[z]^2 = a^2 \left(\frac{s[x]}{x}\right)^2
     \label{eq:logarithms}
   \end{equation}
 
 \item{\bf power:}
-
   \[
   z = a x^b
   \]
 
   The partial derivative of $z$ w.r.t. $x$ is
-
   \[
   \frac{\partial z}{\partial x} = ab x^{b-1}
   \]
 
   Plugging this into Equation~\ref{eq:errorprop2d}:
-
   \[
   s[z]^2 = \left(ab~x^{b-1}\right)^2 s[x]^2
   \]
 
   Dividing both sides by $z = a x^b$:
-
   \[
   \left(\frac{s[z]}{z}\right)^2 = \left(\frac{ab x^{b-1}}{a x^{b}}s[x]\right)^2 
   \]
 
   which simplifies to
-  
   \begin{equation}
     \left(\frac{s[z]}{z}\right)^2 = b^2\left(\frac{s[x]}{x}\right)^2
     \label{eq:power}
@@ -432,7 +401,6 @@ y^b$, where $a=1/2$ and $b=3$.
   from Equation~\ref{eq:errorprop2d} directly, or can be done with
   Equations~\ref{eq:addition}--\ref{eq:power} using the \textbf{chain
     rule}. For example, consider the following equation:
-
   \begin{equation}
     d = d_\circ + v_\circ t + g t^2
     \label{eq:newtons2nd}
@@ -444,14 +412,12 @@ y^b$, where $a=1/2$ and $b=3$.
   Although Equation~\ref{eq:newtons2nd} does not directly fit into any
   of the formulations that we have derived thus far, it is easy to
   define two new functions that do. Let
-
   \begin{equation}
     x \equiv d_\circ + v_\circ t
     \label{eq:xvt}
   \end{equation}
 
   \noindent and
-
   \begin{equation}
     y \equiv g t^2
     \label{eq:ygt2}
@@ -459,7 +425,6 @@ y^b$, where $a=1/2$ and $b=3$.
 
   \noindent then Equation~\ref{eq:xvt} matches with the formula for
   addition (Equation~\ref{eq:addition}):
-
   \[
   z = a + bx + cy
   \]
@@ -467,7 +432,6 @@ y^b$, where $a=1/2$ and $b=3$.
   \noindent where $a \equiv d_\circ$, $b \equiv v_\circ$, $x \equiv t$,
   $c \equiv 0$ and $y$ is undefined. Then uncertainty propagation of
   Equation~\ref{eq:xvt} using Equation~\ref{eq:addition} gives:
-
   \begin{equation}
     s[x]^2 = \left(v_\circ s[t]\right)^2
     \label{eq:sx}
@@ -475,14 +439,12 @@ y^b$, where $a=1/2$ and $b=3$.
 
   Similarly, Equation~\ref{eq:ygt2} matches with the formula for
   powering (Equation~\ref{eq:power}):
-
   \[
   z = a x^b
   \]
 
   \noindent where $a \equiv g$, $b \equiv 2$ and $x \equiv t$. Applying
   Equation~\ref{eq:power} to Equation~\ref{eq:ygt2} yields:
-
   \begin{equation}
     \left(\frac{s[y]}{y}\right)^2 =  2^2 \left(\frac{s[t]}{t}\right)^2
     \Rightarrow s[y]^2 = \left(2 g t^2 \frac{s[t]}{t}\right)^2 =
@@ -492,28 +454,24 @@ y^b$, where $a=1/2$ and $b=3$.
 
   Combining Equations~\ref{eq:xvt} and \ref{eq:ygt2} turns
   Equation~\ref{eq:newtons2nd} into a simple sum:
-
   \[
   d = x + y
   \]
 
   \noindent whose uncertainty can be propagated with
   Equation~\ref{eq:addition}:
-
   \[
   s[d]^2 = s[x]^2 + s[y]^2
   \]
 
   Substituting Equation~\ref{eq:sx} for $s[x]^2$ and
   Equation~\ref{eq:sy} for $s[y]^2$:
-
   \[
   s[d]^2 = \left(v_\circ s[t]\right)^2 + \left(2 g t s[t]\right)^2
   \]
 
   \noindent which leads to the following expression for the
   uncertainty of $d$:
-
   \begin{equation}
     s[d] = \sqrt{\left(v_\circ s[t]\right)^2 + \left(2 g t s[t]\right)^2}
     \label{eq:sdnewton}
@@ -527,7 +485,6 @@ y^b$, where $a=1/2$ and $b=3$.
     noise, but to the resolution of the clock.} ($s[t]=0.1$~s). Then
   we can predict how far the object will have travelled after 5
   seconds:
-
   \begin{equation}
   d = 0 \mbox{~m} +
   10 \frac{\mbox{m}}{\mbox{s}} \times 5 \mbox{~s} +
@@ -539,7 +496,6 @@ y^b$, where $a=1/2$ and $b=3$.
     uncertainty is not a standard error in the traditional sense of
     the word, but we can still use the same error propagation methods
     to compute it.} of $d$ is given by:
-
   \begin{equation}
   s[d] = \sqrt{\left(10 \frac{\mbox{m}}{\mbox{s}} \times
     0.1\mbox{~s}\right)^2 + 4
@@ -568,14 +524,12 @@ derived quantity, and its estimated uncertainty is called the standard
 error of the mean.  Let $\{x_1,x_2, \ldots x_n\}$ be $n$ measurements
 of some quantity $x$, and let $\bar{x}$ be its mean
 (Equation~\ref{eq:mean}):
-
 \[
 \bar{x} = \sum\limits_{i=1}^n \frac{x_i}{n} = \frac{1}{n} \sum\limits_{i=1}^n x_i
 \]
 
 Applying the error propagation formula for a sum
 (Equation~\ref{eq:addition}):
-
 \[
 s[\bar{x}]^2 = \sum\limits_{i=1}^{n}\left(\frac{s[x_i]}{n}\right)^2 =
 \left(\frac{1}{n}\right)^2 \sum\limits_{i=1}^{n}s[x_i]^2
@@ -583,14 +537,12 @@ s[\bar{x}]^2 = \sum\limits_{i=1}^{n}\left(\frac{s[x_i]}{n}\right)^2 =
 
 If all the $x_i$s were drawn from the same normal distribution with
 standard deviation $s[x]$, then
-
 \[
 s[\bar{x}]^2 = \left(\frac{1}{n}\right)^2 \sum\limits_{i=1}^{n}s[x]^2 =
 n \left(\frac{1}{n}\right)^2 s[x]^2
 \]
 
 \noindent which simplifies to
-
 \begin{equation}
   s[\bar{x}] = \frac{s[x]}{\sqrt{n}}
   \label{eq:stderrmean}
@@ -623,7 +575,6 @@ parameters without any other information. Let $\hat{z}$ be the maximum
 likelihood estimate of some parameter $z$. We can approximate the
 log-likelihood with a second order Taylor series in the vicinity of
 $\hat{z}$:
-
 \[
   \mathcal{LL}(z) \approx \mathcal{LL}(\hat{z}) +
   \frac{\partial\mathcal{LL}}{\partial{z}} (z-\hat{z}) +
@@ -633,7 +584,6 @@ $\hat{z}$:
 By definition, $\partial{\mathcal{LL}}/\partial{z}=0$ at
 $\hat{z}$. Therefore, the likelihood ($\mathcal{L}(z) =
 \exp[\mathcal{LL}(z)]$) is proportional to:
-
 \[
 \mathcal{L}(z) \propto 
 \exp\left[
@@ -642,7 +592,6 @@ $\hat{z}$. Therefore, the likelihood ($\mathcal{L}(z) =
 \]
 
 \noindent which can also be written as:
-
 \[
 \mathcal{L}(z) \propto \exp\!\left[
   -\frac{1}{2} \frac{(z-\hat{z})^2}{
@@ -652,7 +601,6 @@ $\hat{z}$. Therefore, the likelihood ($\mathcal{L}(z) =
 
 This equation fits the functional form of the normal distribution
 (Equation~\ref{eq:gauss}):
-
 \[
 \mathcal{L}(z) \propto \exp\!\left[
   -\frac{1}{2} \frac{(z-\hat{z})^2}{\sigma[z]^2}
@@ -660,7 +608,6 @@ This equation fits the functional form of the normal distribution
 \]
 
 \noindent which leads to
-
 \begin{equation}
   \sigma[z]^2 = \frac{1}{-\frac{\partial^2\mathcal{LL}}{\partial{z^2}}}
   \label{eq:Fisher}
@@ -669,7 +616,6 @@ This equation fits the functional form of the normal distribution
 $-\frac{\partial^2\mathcal{LL}}{\partial{z^2}}$ is known as the
 \textbf{Fisher Information}. Equation~\ref{eq:Fisher} can be
 generalised to multiple dimensions:
-
 \begin{equation}
   \Sigma = -\mathcal{H}^{-1}
   \label{eq:multidimFisher}
@@ -684,7 +630,6 @@ To illustrate the usefulness of Equation~\ref{eq:Fisher}, let us apply
 it to the Poisson distribution.  Recalling the log-likelihood function
 (Equation~\ref{eq:poisLL}) and denoting the maximum likelihood
 estimate of the parameter by $\hat{\lambda}$:
-
 \[
 \mathcal{LL}(\hat{\lambda}|k) =
 k \log[\hat{\lambda}] - \hat{\lambda} - \sum\limits_{i=1}^{k}i
@@ -692,7 +637,6 @@ k \log[\hat{\lambda}] - \hat{\lambda} - \sum\limits_{i=1}^{k}i
 
 Taking the second derivative of $\mathcal{LL}$ with respect to
 $\hat{\lambda}$:
-
 \begin{equation}
   \frac{\partial^2{\mathcal{LL}}}{\partial{\hat{\lambda}^2}} =
   -\frac{k}{\hat{\lambda}^2}
@@ -700,14 +644,12 @@ $\hat{\lambda}$:
 \end{equation}
 
 Plugging Equation~\ref{eq:d2LLdl2} into \ref{eq:Fisher}:
-
 \[
   \sigma[\hat{\lambda}]^2 = \frac{\hat{\lambda}^2}{k}
 \]
 
 Recalling that $\hat{\lambda} = k$ (Equation~\ref{eq:lambda=k}), we
-get
-
+get:
 \begin{equation}
   \sigma[\hat{\lambda}]^2 = \hat{\lambda}
   \label{eq:poisvar}

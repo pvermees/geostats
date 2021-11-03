@@ -1,4 +1,4 @@
-setwd('~/Documents/Programming/geostats/build/package/')
+setwd('~/Documents/Programming/R/geostats/build/package/')
 
 pH <- c(6.2,4.4,5.6,5.2,4.5,5.4,4.8,5.9,3.9,3.8,
         5.1,4.1,5.1,5.5,5.1,4.6,5.7,4.6,4.6,5.6)
@@ -62,9 +62,31 @@ save(Finland,file='../../package/data/Finland.rda',
      version=2,compress='xz',compression_level=9)
 
 set.seed(1)
-dz <- provenance::read.distributional('DZages.csv',check.names=FALSE)$x
-DZ <- lapply(dz,jitter)
+DZ <- provenance::read.distributional('DZages.csv',check.names=FALSE)$x
+nr <- max(unlist(lapply(DZ,'length')))
+nc <- length(DZ)
+DZages <- matrix('',nr,nc)
+colnames(DZages) <- names(DZ)
+done <- NULL
+for (i in 1:nc){
+    ng <- length(DZ[[i]])
+    done <- c(done,DZ[[i]])
+    nd <- length(done)
+    duplicates <- duplicated(done)[(nd-ng+1):nd]
+    DZij <- jitter(DZ[[i]])
+    DZ[[i]][duplicates] <- round(DZij[duplicates],2)
+    done[(nd-ng+1):nd] <- DZ[[i]]
+    duplicates <- duplicated(done)[(nd-ng+1):nd]
+    DZ[[i]][duplicates] <- round(DZij[duplicates],3)
+    done[(nd-ng+1):nd] <- DZ[[i]]
+    duplicates <- duplicated(done)[(nd-ng+1):nd]
+    DZ[[i]][duplicates] <- round(DZij[duplicates],4)
+    done[(nd-ng+1):nd] <- DZ[[i]]
+    DZages[1:ng,i] <- DZ[[i]]
+}
 save(DZ,file="../../package/data/DZ.rda",version=2)
+colnames(DZages) <- names(DZ)
+write.csv(DZages,file='DZages.csv',row.names=FALSE)
 
 RbSrGenerator <- function(n){
     lambda <- 1.42e-5

@@ -7,7 +7,7 @@ aspects of data analysis, it is useful to \emph{visualise} the data.
 Consider, for example, the following four bivariate datasets
 (Anscombe's quartet\footnote{Anscombe, F.J., 1973. Graphs in
   statistical analysis. \emph{The American statistician}, 27(1),
-  pp.17-21.}):\\
+  pp.17-21.}):\medskip
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
   \begin{tabular}{cc|cc|cc|cc}
@@ -30,7 +30,7 @@ Consider, for example, the following four bivariate datasets
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{table}{Anscombe's quartet of bivariate data pairs.}
   \label{tab:anscombe}
-\end{minipage}\\
+\end{minipage}\medskip
 
 For all four datasets (I -- IV):
 
@@ -47,12 +47,12 @@ For all four datasets (I -- IV):
 
 So from a numerical point of view, it would appear that all four
 datasets are identical. However, when we visualise the data as
-bivariate scatter plots, they turn out to be very different:\\
+bivariate scatter plots, they turn out to be very different:\medskip
 
 \noindent\includegraphics[width=\textwidth]{../figures/anscombe.pdf}
 \begingroup
 \captionof{figure}{Anscombe's quartet shown as bivariate scatter
-  plots.\\}\label{fig:anscombe}
+  plots.\medskip}\label{fig:anscombe}
 \endgroup
 
 Bivariate scatter plots are just one way to visualise analytical data.
@@ -73,7 +73,7 @@ of categorical data are:
 \item the modal composition of a thin section.
 \end{itemize}
 
-Consider, for example, the following 41 clast counts:\\
+Consider, for example, the following 41 clast counts:
 
 \begin{center}
   \begin{tabular}{cccc}
@@ -82,7 +82,7 @@ Consider, for example, the following 41 clast counts:\\
   \end{tabular}
 \end{center}
 
-A bar chart is the natural way to visualise these data:\\
+A bar chart is the natural way to visualise these data:\medskip
 
 \noindent\begin{minipage}[t][][b]{.4\textwidth}
   \includegraphics[width=\textwidth]{../figures/clasts.pdf}
@@ -158,7 +158,7 @@ binning exercise poses two practical problems.
 The number of bins strongly affects the appearance of a histogram:
 
 \noindent\begin{minipage}[t][][b]{.5\textwidth}
-  \includegraphics[width=\textwidth]{../figures/binwidth.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/binwidth.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.5\textwidth}
   \captionof{figure}{ Two histograms of the same pH data, with the
@@ -195,7 +195,7 @@ slightly to the left or to the right can have a significant effect on
 the appearance of the histogram. For example:
 
 \noindent\begin{minipage}[t][][b]{.5\textwidth}
-  \includegraphics[width=\textwidth]{../figures/binpos.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/binpos.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.5\textwidth}
   \captionof{figure}{Two histograms of the pH data whose bin widths
@@ -263,7 +263,7 @@ popular choice is the Gaussian function:
   \label{eq:gaussiankernel}
 \end{equation}
 
-\noindent which produces a continuous KDE function:\\
+\noindent which produces a continuous KDE function:\medskip
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
   \includegraphics[width=\textwidth]{../figures/gaussKDE.pdf}
@@ -274,10 +274,10 @@ popular choice is the Gaussian function:
     This produces a smooth KDE.}
 \end{minipage}
 
-Using the Gaussian kernel to plot the pH data:\\
+Using the Gaussian kernel to plot the pH data:\medskip
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-  \includegraphics[width=\textwidth]{../figures/pHgaussKDE.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/pHgaussKDE.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{Gaussian KDE of the pH data. The continuous curve
@@ -290,10 +290,10 @@ Using the Gaussian kernel to plot the pH data:\\
 Although kernel density estimation solves the bin placement problem,
 it is not entirely free of design decisions. The bandwidth $h$ of a
 KDE fulfils a similar role as the bin width of a histogram. Changes in
-$h$ affect the \emph{smoothness} of the KDE curve:\\
+$h$ affect the \emph{smoothness} of the KDE curve:\medskip
 
 \noindent\begin{minipage}[t][][b]{.55\textwidth}
-  \includegraphics[width=\textwidth]{../figures/bandwidth.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/bandwidth.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.45\textwidth}
   \captionof{figure}{Rug plots of the pH data with a) a kernel
@@ -320,7 +320,7 @@ clast sizes, in centimetres:
 \end{center}
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-  \includegraphics[width=\textwidth]{../figures/negativeKDE.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/negativeKDE.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{Rug plot of 20 clast size measurements.  Even
@@ -338,10 +338,10 @@ Jeffreys). In addition to length, other examples of Jeffreys
 quantities are mass, volume, density, speed, etc. These parameters
 exist within an infinite half space between 0 and $+\infty$. We can
 transform them to the entire infinite space of numbers by applying a
-logarithmic transformation:\\
+logarithmic transformation:\medskip
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
-  \includegraphics[width=\textwidth]{../figures/logKDE.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/logKDE.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{a) KDE of the clast size measurements, after
@@ -355,7 +355,7 @@ logarithmic transformation:\\
 
 Jeffreys quantities are just one example of constrained measurements.
 As another example, consider the following twenty porosity
-measurements in limestone:\\
+measurements in limestone:\medskip
 
 \begin{center}
   5.8, 28.0, 12.0, 27.0, 40.0, 12.0, 3.8, 6.3, 17.0, 16.0,\\
@@ -365,10 +365,10 @@ measurements in limestone:\\
 Porosity takes on values between 0 and 1 (if expressed as fractions,
 or between 0 and 100 if expressed as percentages). Yet again the
 Gaussian KDE of the data plot into physically impossible values of
-$<0$ and $>1$:\\
+$<0$ and $>1$:\medskip
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-  \includegraphics[width=\textwidth]{../figures/porosityKDE.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/porosityKDE.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{Rug plot of 20 porosity measurements.  Even
@@ -397,7 +397,7 @@ interval with the inverse logit transformation:
 \end{equation}
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
-  \includegraphics[width=\textwidth]{../figures/logitKDE.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/logitKDE.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{a) KDE of the porosity data, after applying a
@@ -420,10 +420,10 @@ transformation is a special case of a general class of \emph{logratio
 
 KDEs can be generalised from one to two dimensions.  For example,
 consider a dataset of eruption timings from the Old Faithful geyser in
-Yellowstone national park (Wyoming, USA): \\
+Yellowstone national park (Wyoming, USA): \medskip
 
 \noindent\begin{minipage}[t][][b]{.5\textwidth}
-  \includegraphics[width=\textwidth]{../figures/KDE2D.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/KDE2D.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.5\textwidth}
   \captionof{figure}{Old Faithful eruption measurements. The dataset
@@ -484,14 +484,14 @@ data as ECDFs:
   Figure~\ref{fig:negativeKDE}; c) the porosity data of
   Figure~\ref{fig:porosityKDE}; and d) the eruption time data of
   Figure~\ref{fig:KDE2D}. Note that ECDFs are only applicable to
-  1-dimensional datasets.\\}
+  1-dimensional datasets.\medskip}
 \label{fig:ECDFs}
 \endgroup
 
 ECDFs do not require binning or selecting a bandwidth.  Because they
 do not require smoothing, they do not spill over into physically
 impossible values for the clast size and porosity data. Therefore the
-construction of an ECDF is completely hands off.\\
+construction of an ECDF is completely hands off.\medskip
 
 The visual interpetation of ECDFs is different from that of histograms
 or KDEs. Whereas different clusters of values stand out as `peaks' in

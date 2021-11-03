@@ -37,7 +37,7 @@ Thus, pretty much everything that we do as Earth Scientists involves
 statistics in one way or another. We need statistics to plot,
 summarise, average, interpolate and extrapolate data; to quantify the
 precision of quantitative inferences; to fit analytical models to our
-measurements; to classify data and to extract patterns from it.\\
+measurements; to classify data and to extract patterns from it.\medskip
 
 The field of statistics is as vast as it is deep and it is simply
 impossible to cover all its aspects in a single text. These notes are
@@ -49,7 +49,7 @@ Statistics and Data Analysis'' by John A. Rice (Duxbury Press), which
 provides an in-depth introduction to general statistics; and
 ``Statistics and Data Analysis in Geology'' by John C. Davis (Wiley),
 which presents an excellent if very detailed introduction to
-geoscience-specific statistics.\\
+geoscience-specific statistics.\medskip
 
 Useful though a basic understanding of statistics may be, it is only
 when this understanding is combined with some programming skills that
@@ -62,7 +62,7 @@ methods described herein, a large number of datasets and predefined
 versatility of \texttt{R}, all the 189~figures in these notes were
 made with \texttt{R}, without involving any other graphics
 software. Most of these figures can be reproduced using the
-\texttt{geostats} package.\\
+\texttt{geostats} package.\medskip
 
 These notes begin by introducing the basic principles of general
 statistics, before moving on to `geological' data. Their main purpose
@@ -73,7 +73,7 @@ and \ref{ch:summary-statistics} introduce basic notions of exploratory
 data analysis using plots and summary statistics. Right from the
 start, they will show that geological data, such as sedimentary clast
 sizes or reservoir porosity measurements, cannot readily be analysed
-using these techniques without some simple pre-treatment.\\
+using these techniques without some simple pre-treatment.\medskip
 
 Chapters~\ref{ch:probability}, \ref{ch:binomial} and \ref{ch:poisson}
 introduce the basic principles of probability theory, and uses these
@@ -89,7 +89,7 @@ Sections~\ref{sec:poispar}, \ref{sec:normalparameters},
 \ref{sec:FisherInformation} and \ref{sec:MLregression}. Even though
 few geoscientists may use maximum likelihood theory themselves, it is
 nevertheless useful that they are aware of its main principles,
-because these principles underlie many common statistical tools.\\
+because these principles underlie many common statistical tools.\medskip
 
 Chapter~\ref{ch:normal} discusses the normal or Gaussian
 distribution. It begins with an empirical demonstration of the central
@@ -99,7 +99,7 @@ distribution?''.  This is an important question because much of the
 remainder of the notes (including Chapters~\ref{ch:fractals},
 \ref{ch:compositional} and \ref{ch:directional}) point out that many
 geological datasets are \emph{not} normal. Ignoring this non-normality
-can lead to biased and sometimes nonsensical results.\\
+can lead to biased and sometimes nonsensical results.\medskip
 
 Scientists use measurements to make quantitative inferences about the
 world.  Random sampling fluctuations can have a significant effect on
@@ -110,7 +110,7 @@ as the inference itself.  Chapter~\ref{ch:errorprop} uses basic
 calculus to derive some generic error propagation formulas.  However,
 these formulas are useful regardless of whether one is able to derive
 them or not.  The error propagation chapter points out a strong
-dependency of statistical precision on sample size.\\
+dependency of statistical precision on sample size.\medskip
 
 This sample size dependency is further explored in
 Chapter~\ref{ch:comparingdistributions}, which introduces a number of
@@ -125,7 +125,7 @@ is the reason why statistical hypothesis tests have come under
 increasing scrutiny in recent years.
 Chapter~\ref{ch:comparingdistributions} advocates that, rather than
 testing whether a hypothesis is true or false, it is much more
-productive to quantify `how false' said hypothesis is.\\
+productive to quantify `how false' said hypothesis is.\medskip
 
 Chapter~\ref{ch:regression} introduces linear regression using the
 method of least squares. But whereas most introductory statistics
@@ -138,7 +138,7 @@ methods of Chapter~\ref{ch:errorprop}. The method of maximum
 likelihood also provides a natural route towards more advanced
 weighted regression algorithms that account for correlated
 uncertainties in both variables
-(Section~\ref{sec:weightedregression}).\\
+(Section~\ref{sec:weightedregression}).\medskip
 
 Chapter~\ref{ch:fractals} covers the subjects of fractals and
 chaos. These topics may seem a bit esoteric at first glance, but do
@@ -152,7 +152,7 @@ briefest of introductions to the fascinating world of deterministic
 chaos, Section~\ref{sec:chaos} uses a simple magnetic pendulum example
 to introduce the `butterfly effect', which describes the phenomenon
 whereby even simple systems of nonlinear equations can give rise to
-unpredictable and highly complex behaviour.\\
+unpredictable and highly complex behaviour.\medskip
 
 Chapters~\ref{ch:unsupervised} and \ref{ch:supervised} introduce some
 simple algorithms for unsupervised and supervised machine learning,
@@ -168,7 +168,7 @@ learning algorithms such as discriminant analysis
 (Section~\ref{sec:LDA}) and decision trees (Section~\ref{sec:CART})
 define decision rules to identify pre-defined groups in some training
 data. These rules can then be used to assign a dataset of new samples
-to one of these same groups.\\
+to one of these same groups.\medskip
 
 Chapter~\ref{ch:compositional} discusses compositional data, which are
 one of the most common data types in the Earth Sciences. Chemical
@@ -182,7 +182,7 @@ applied to compositional data. Fortunately, the compositional data
 conundrum can be solved using a simple data transformation using
 logratios (Section~\ref{sec:logratios}). Following logratio
 transformation, compositional datasets can be safely averaged or
-analysed by more sophisticated statistical methods.\\
+analysed by more sophisticated statistical methods.\medskip
 
 Directional data such as compass bearings and geographical coordinates
 are another type of measurement that is probably more common in the
@@ -196,7 +196,7 @@ Chapter~\ref{ch:directional} introduces the vector sum as a better way
 to average directional data, both in one dimension (i.e., a circle,
 Sections~\ref{sec:circular}--\ref{sec:circular-distributions}) and two
 dimensions (i.e., a sphere,
-Sections~\ref{sec:spherical-data}--\ref{sec:spherical-distributions}).\\
+Sections~\ref{sec:spherical-data}--\ref{sec:spherical-distributions}).\medskip
 
 The spatial dimension is crucially important for the Earth
 Sciences. \emph{Geostatistics} is a subfield of statistics that
@@ -206,7 +206,7 @@ widely used method to create topographical and compositional maps from
 a set of sparsely distributed measurements. This chapter concludes the
 theoretical half of these notes. The remainder of the text
 (Chapters~\ref{ch:R}--\ref{ch:solutions}) is dedicated to practical
-exercises.\\
+exercises.\medskip
 
 Chapter~\ref{ch:R} provides an extensive introduction to the
 \texttt{R} programming language. It comprises \nch~sections, one for
@@ -218,7 +218,7 @@ hypothesis test of Section~\ref{sec:binomH} involves six different
 manual steps, or one simple \texttt{R} command called
 \texttt{binom.test}. And the Poisson test of Section~\ref{sec:poishyp}
 is implemented in an equally simple function called
-\texttt{poisson.test}.\\
+\texttt{poisson.test}.\medskip
 
 Despite this simplicity, learning \texttt{R} does present the reader
 with a steep learning curve. The only way to climb this curve is to
@@ -228,16 +228,19 @@ Chapter~\ref{ch:R}, these exercises are also grouped in \nch~sections,
 one for each of the \nch~theory chapters. Most of the exercises can be
 solved with \texttt{R}, using the functions provided in
 Chapter~\ref{ch:R}. Fully worked solutions are provided in
-Chapter~\ref{ch:solutions}, which again comprises \nch~sections.\\
+Chapter~\ref{ch:solutions}, which again comprises \nch~sections.\medskip
 
-The source code of the \texttt{geostats} package and of these notes
-are provided on GitHub at
+I am grateful to my students for the feedback that they have provided
+on earlier versions of these notes.  I particularly want to thank
+Peter Elston and Veerle Troelstra for pointing out numerous mistakes
+and inconsistencies in the first version. The source code of the
+\texttt{geostats} package and of these notes are provided on GitHub at
 \href{https://github.com/pvermees/geostats/}{\tt
-  https://github.com/pvermees/geostats/}.  Should you find a mistake
-in the text or a bug in the software, then you can correct them there
-and issue a pull request. Or alternatively, you can simply drop me an
-email. Thanks in advance for your help!\\
+  https://github.com/pvermees/geostats/}.  Should you find any
+remaining mistakes in the text or bugs in the software, then you can
+correct them there and issue a pull request. Or alternatively, you can
+simply drop me an email. Thanks in advance for your help!\medskip
 
 \begin{flushright}
-  Pieter Vermeesch\\ University College London\\ 22 December 2020\\
+  Pieter Vermeesch\\ University College London\\ 3 November 2021
 \end{flushright}

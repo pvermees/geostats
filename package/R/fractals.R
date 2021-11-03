@@ -181,7 +181,7 @@ fractaldim <- function(mat,plot=TRUE,...){
 
 #' @title count the number of earthquakes per year
 #' @description Counts the number of earthquakes per year that fall
-#'     between two magnitude limits.
+#'     within a certain time interval.
 #' @param qdat a data frame containing columns named \code{mag} and
 #'     \code{year}.
 #' @param minmag minimum magnitude

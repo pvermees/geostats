@@ -21,7 +21,7 @@ a table with the number of earthquakes per year
 }
 \description{
 Counts the number of earthquakes per year that fall
-    between two magnitude limits.
+    within a certain time interval.
 }
 \examples{
 data(declustered,package='geostats')
