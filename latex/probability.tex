@@ -5,7 +5,6 @@ Probability is a numerical description of how likely it is for an
 event to occur or how likely it is for a proposition to be true.  In
 the context of a sampling experiment, the probability of an outcome
 $A$ can be defined as:
-
 \begin{equation}
 P(A) = \frac{\mbox{the number of ways }A\mbox{ can occur}}
 {\mbox{the total number of outcomes}}
@@ -13,7 +12,6 @@ P(A) = \frac{\mbox{the number of ways }A\mbox{ can occur}}
 
 For example, the probability of tossing an unbiased coin and observing
 a head ($H$) is
-
 \[
 \frac{
   \{H\}
@@ -24,7 +22,6 @@ a head ($H$) is
 
 The probability of tossing the same coin three times and obtaining two
 heads and one tail ($T$) is:
-
 \begin{equation}
   P\!\left(2\times{H} \cap 1\times{T}\right) =
   \frac{
@@ -39,7 +36,6 @@ heads and one tail ($T$) is:
 intersection of two sets of outcomes''. Similarly, the probability of
 throwing two dice and obtaining a two (\raisebox{-2pt}{\Cube{2}}) and
 a six (\raisebox{-2pt}{\Cube{6}}) is:
-  
 \begin{equation}
   P\!\left(1\times{\mbox{\raisebox{-2pt}{\Cube{2}}}} \cap
   1\times\mbox{\raisebox{-2pt}{\Cube{6}}}\right) =
@@ -74,13 +70,14 @@ a six (\raisebox{-2pt}{\Cube{6}}) is:
 
 The \textbf{multiplicative rule of
   probability}\label{page:multiplication} dictates that the
-probability of two combined (independent) experiments is given by the
-product of their respective probabilities. Thus, if one were to carry
-out a coin tossing \emph{and} a dice throwing experiment, then the
-probability of obtaining two heads and one tail for the first
+probability of two combined (independent\footnote{The case of
+  non-independent experiments will be discussed in
+  Section~\ref{sec:conditionalprobability}.}) experiments is given by
+the product of their respective probabilities. Thus, if one were to
+carry out a coin tossing \emph{and} a dice throwing experiment, then
+the probability of obtaining two heads and one tail for the first
 experiment \emph{and} throwing a two and a six in the second
 experiment is:
-
 \[
 P\left(\left\{2\times{H} \cap 1\times{T}\right\} \cap
 \left\{1\times\mbox{\raisebox{-2pt}{\Cube{2}}} \cap
@@ -90,10 +87,25 @@ P\left(\left\{2\times{H} \cap 1\times{T}\right\} \cap
 
 The \textbf{additive rule of probability}\label{page:addition}
 dictates that the probability of observing \emph{either} of two
-mutually exclusive outcomes is given by the sum of their respective
-probabilities. Thus, the probability of obtaining two heads and one
-tail \emph{or} throwing three heads is:
+outcomes $A$ and $B$ is given by:
+\begin{equation}
+  P({A}\cup{B}) = P(A) + P(B) - P({A}\cap{B})
+  \label{eq:additive}
+\end{equation}
 
+For example the probability of observing two heads for the first
+experiment \emph{or} throwing a two and a six in the second experiment
+is:
+\[
+P\left(\left\{2\times{H} \cap 1\times{T}\right\} \cup
+\left\{1\times\mbox{\raisebox{-2pt}{\Cube{2}}} \cap
+1\times\mbox{\raisebox{-2pt}{\Cube{6}}}\right\}\right) =
+\frac{3}{8} + \frac{1}{18} - \frac{3}{144} = \frac{59}{144} = 0.410
+\]
+
+For two mutually exclusive experiments, the third term in
+Equation~\ref{eq:additive} disappears. For example, the probability of
+obtaining two heads and one tail \emph{or} throwing three heads is:
 \[
 P\left(\left\{2\times{H} \cap 1\times{T}\right\} \cup
 \left\{3\times{H}\right\}\right) = \frac{3}{8} + \frac{1}{8} = \frac{4}{8} = 0.5
@@ -175,11 +187,9 @@ Section~\ref{sec:permutations} showed that there are $n^k$ unique
 possible ways to select $k$ objects from a collection of $n$ with
 replacement. For example, there are $2^3=8$ ways for three coins to
 land:
-
 \[\{HHH\}\{THH\}\{HTH\}\{HHT\}\{TTH\}\{THT\}\{HTT\}\{TTT\}\]
 
 \noindent and there are $6^2=36$ ways for two dice to land:
-
 \[
 \begin{array}{c}
 \mbox{ \big\{\raisebox{-2pt}{\Cube{1}
@@ -303,7 +313,6 @@ appear. How many different \textbf{unordered} samples are possible?
 
 There are $n!/(n-k)!$ ways to select $k$ objects from a collection of
 $n$, and there are $k!$ ways to order these $k$ objects. Therefore
-
 \[
 \mbox{
   (\# unordered samples)} =
@@ -316,7 +325,6 @@ The formula on the right hand side of this equation gives the number
 of combinations of $k$ elements among a collection of $n$.  This
 formula is also known as the \textbf{binomial coefficient} and is
 often written as $\binom{n}{k}$ (pronounce ``n choose k''):
-
 \begin{equation}
   \binom{n}{k} = \frac{n!}{(n-k)!k!}
   \label{eq:nchoosek}
@@ -358,7 +366,6 @@ the probability that an ammonite fossil came from a Bajocian
 deposit.\\
 
 The \textbf{multiplication law} dictates that:
-
 \begin{equation}
   P({A}\cap{B}) = P(A|B) P(B) = P(B|A) P(A) = P({B}\cap{A})
   \label{eq:PA&B}

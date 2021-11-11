@@ -40,7 +40,6 @@ chapters will introduce a few more.
 \item{\bf Median.} The median is obtained by ranking the observations
   according to size, and selecting the middle value. If $n$ is an odd
   number, then:
-
   \begin{equation}
     \mbox{med}(x) = x_1 < \ldots < {\bf x_{n/2}} < \ldots < x_n
   \end{equation}
@@ -50,13 +49,14 @@ chapters will introduce a few more.
   identified as the value that corresponds the to halfway point of the
   ECDF.
   
-\item{\bf Mode.} The mode is the most frequently occurring value in a
-  dataset. It can be identified as the highest point on a KDE or the
-  steepest point on the ECDF.
+\item{\bf Mode.} For discrete datasets, the mode is the most
+  frequently occurring value. For continuous datasets, it can be
+  identified as the steepest point on the ECDF, or as the highest
+  point on a histogram or KDE. Note that the outcome of the latter
+  procedure may depend on the histogram bandwidth or KDE bandwidth.
 \end{enumerate}
 
 Applying these three concepts to the pH data, the mean is given by:
-
 \begin{equation*}
   \bar{x} = \frac{
     \begin{array}{c}
@@ -75,20 +75,21 @@ marking the two middle values in bold:
 \end{center}
 
 Then the median is the average of these two values (median[x] =
-5.1). Finally, the mode is the pH value that corresponds to the
-maximum value of the KDE (mode[x]=5.25):
+5.1). The most frequently occurring pH value in the dataset is 5.1,
+but this is a rounded value from a continuous distribution. If instead
+we use a KDE to identify the mode, then this yields a value of 5.25:
 
 \noindent\begin{minipage}[t][][b]{.5\textwidth}
 \includegraphics[width=\textwidth]{../figures/pHlocation.pdf}
 \end{minipage}
 \begin{minipage}[t][][t]{.5\textwidth}
-  \captionof{figure}{Rug plot (top) and ECDF (bottom) of the pH
-    data. The mean (solid vertical line) is 5.00, the median (dashed
-    line) is 5.10 and the mode (dotted line) is 5.25. The dash-dot
-    line on the bottom panel marks halfway mark of the ECDF. The
-    intersection of this line with the ECDF marks the median. All
-    three measures of location are closely spaced together in the
-    densest part of the dataset.}
+  \captionof{figure}{KDE (top) and ECDF (bottom) of the pH data. The
+    mean (solid vertical line) is 5.00, the median (dashed line) is
+    5.10 and the KDE mode (dotted line) is 5.25. The dash-dot line on
+    the bottom panel marks halfway mark of the ECDF. The intersection
+    of this line with the ECDF marks the median. All three measures of
+    location are closely spaced together in the densest part of the
+    dataset.}
 \end{minipage}
 
 Calculating the same three summary statistics for the clast size data:
@@ -97,14 +98,13 @@ Calculating the same three summary statistics for the clast size data:
 \includegraphics[width=\textwidth]{../figures/clastslocation.pdf}
 \end{minipage}
 \begin{minipage}[t][][t]{.5\textwidth}
-  \captionof{figure}{Rug plot and ECDF of the clast size data. The
-    mean (solid vertical line) is 3.19, the median (dashed line) is
-    2.1, and the mode (dotted line) is 0.45. There is a factor 7
-    difference between the smallest and largest measure of location
-    for this dataset. The mean is strongly affected by the long `tail'
-    of large outliers. Only 6 out of 20 clasts (30\%) are larger than
-    the mean of the distribution and only 1 is (5\%) is smaller than
-    the mode.}
+  \captionof{figure}{KDE and ECDF of the clast size data. The mean
+    (solid vertical line) is 3.19, the median (dashed line) is 2.1,
+    and the mode (dotted line) is 0.45. There is a factor 7 difference
+    between the smallest and largest measure of location for this
+    dataset. The mean is strongly affected by the long `tail' of large
+    outliers. Only 6 out of 20 clasts (30\%) are larger than the mean
+    of the distribution and only 1 is (5\%) is smaller than the mode.}
   \label{fig:clastslocation}
 \end{minipage}
 \vfill
@@ -114,7 +114,7 @@ geyser eruption data:
 \noindent\includegraphics[width=.5\textwidth]{../figures/porositylocation.pdf}
 \includegraphics[width=.5\textwidth]{../figures/eruptionslocation.pdf}
 \begingroup
-\captionof{figure}{Rug plot and ECDF of a) the porosity data (mean =
+\captionof{figure}{KDE and ECDF of a) the porosity data (mean =
   0.51, median = 0.55, mode = 0.97); and b) the geyser eruption data
   (mean = 3.49, median = 4.0, mode = 4.37). Both of these
   distributions are `bimodal', meaning that they have two `peaks' in
@@ -150,7 +150,6 @@ of which are:
 
 \item{\bf Standard deviation.} Given $n$ measurements $x_i$ (for $1
   \leq i \leq n$), the standard deviation is defined as:
-
 \begin{equation}
   s[x] = \sqrt{\frac{1}{n-1}\sum\limits_{i=1}^{n}(x_i-\bar{x})^2}
   \label{eq:stdev}
@@ -163,7 +162,6 @@ of which are:
 \item{\bf Median Absolute Deviation (MAD).} Whereas the standard
   deviation quantifies the dispersion around the mean, MAD quantifies
   the dispersion around the median:
-
   \begin{equation}
     \mbox{MAD} = \mbox{median}|x_i - \mbox{median}(x)|
     \label{eq:MAD}
@@ -206,13 +204,11 @@ $\bar{x} = 5.0$):
 \end{center}
 
 Taking the sum of the last row:
-
 \[
 \sum\limits_{i=1}^{20} (x_i-\bar{x})^2 = 8.52
 \]
 
 \noindent from which we get:
-
 \[
 s[x] = \sqrt{8.52/19} = 0.70
 \]
@@ -266,7 +262,6 @@ same calculation on an ECDF:
 \label{sec:shape}
 
 The \textbf{skewness} of a distribution is defined as:
-
 \begin{equation}
   \mbox{skew}(x) = \frac{1}{n \cdot s[x]^3}\sum\limits_{i=1}^{n}(x_i-\bar{x})^3
   \label{eq:skew}

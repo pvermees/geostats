@@ -15,19 +15,16 @@ have each purchased a claim in the Sierra Nevada foothills. Geological
 evidence suggests that, on average, two thirds of the claims in the
 area should contain gold (1), and the remaining third do not (0). The
 probability that none of the five prospectors find gold is
-
 \[
 P(0\times\mbox{gold}) = P(00000) = (1/3)^5 = 0.0041
 \]
 
 The chance that exactly one of the prospectors strikes gold is
-
 \[
 P(1\times\mbox{gold}) = P(10000) + P(01000) + P(00100) + P(00010) + P(00001)
 \]
 
 \noindent where
-
 \begin{align*}
   P(10000) = & (2/3) (1/3)^4 = 0.0082 \\
   P(01000) = & (1/3) (2/3) (1/3)^3 = 0.0082 \\
@@ -37,14 +34,12 @@ P(1\times\mbox{gold}) = P(10000) + P(01000) + P(00100) + P(00010) + P(00001)
 \end{align*}
 
 \noindent so that
-
 \[
 P(1\times\mbox{gold}) = \binom{5}{1} (2/3) (1/3)^4 = {5}\times{0.0082} = 0.041
 \]
 
 \noindent in which we recognise the binomial coefficient
 (Equation~\ref{eq:nchoosek}). Similarly:
-
 \begin{align*}
 P(2\times\mbox{gold}) & = \binom{5}{2} (2/3)^2 (1/3)^3 = {10}\times{0.016} = 0.16\\
 P(3\times\mbox{gold}) & = \binom{5}{3} (2/3)^3 (1/3)^2 = {10}\times{0.033} = 0.33\\
@@ -56,19 +51,20 @@ These probabilities form a \textbf{probability mass function} (PMF),
 and can be visualised as a bar chart:
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-  \includegraphics[width=\textwidth]{../figures/goldbarplot.pdf}
+\includegraphics[width=\textwidth]{../figures/goldbarplot.pdf}
+\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{The probability mass function (PMF) for a
     binomial experiment with a 2/3 chance of success (and a 1/3 chance
     of failure) for five gold prospecting claims. The horizontal axis
     is labelled with the number of claims that produce gold. The
-    vertical axis shows the probability of these respective outcomes.}
+    vertical axis shows the probability of these respective
+    outcomes.\medskip}
   \label{fig:goldbar}
 \end{minipage}
 
 The generic equation for the binomial distribution is
-
 \begin{equation}
   P(k|n,p) = \binom{n}{k} p^k (1-p)^{n-k}
   \label{eq:binom}
@@ -77,7 +73,6 @@ The generic equation for the binomial distribution is
 \noindent where $p$ is the probability of success and $k$ is the
 number of successes out of $n$ trials. Equivalently, the results can
 also be shown as a \textbf{cumulative distribution function} (CDF):
-
 \begin{equation}
   F(x) = P(X \leq x)
   \label{eq:CDF}
@@ -105,7 +100,6 @@ the case. In fact, $p$ is usually the parameter whose value we want to
 determine based on some data. Consider the general case of $k$
 successes among $n$ trials. Then we can estimate $p$ by reformulating
 Equation~\ref{eq:binom} in terms of $p$ instead of $k$:
-
 \begin{equation}
   \mathcal{L}(p|n,k) = \binom{n}{k} p^k (1-p)^{n-k}
   \label{eq:Lbinom}
@@ -119,43 +113,37 @@ estimates the probability of an outcome given the parameter
 data ($P(p|n,k)$). The \emph{most likely} value of $p$ given $n$ and
 $k$ can be found by taking the derivative of Equation~\ref{eq:Lbinom}
 with respect to $p$ and setting it to zero:
-
 \[
 \frac{\partial{\mathcal{L}(p|n,k)}}{\partial{p}} = 0
 \]
 
 \noindent which gives
-
 \[
   \binom{n}{k} k p^{k-1} (1-p)^{n-k} -  \binom{n}{k} p^k (n-k) (1-p)^{n-k-1} = 0
 \]
 
 Dividing by $\binom{n}{k}$ and rearranging:
-
 \[
   k p^{k-1} (1-p)^{n-k} = p^k (n-k) (1-p)^{n-k-1}
 \]
 
 Dividing both sides by $p^k (1-p)^{n-k}$:
-
 \[
 k (1-p) = p (n-k)
 \]
 
 \noindent which can be solved for $p$:
-
 \begin{equation}
   \hat{p} = \frac{k}{n}
   \label{eq:phat}
 \end{equation}
 
 The $\hat{~}$ symbol indicates that $\hat{p}$ is an \emph{estimate}
-for $p$ that may differ from the actual parameter value $p$.\\
+for $p$ that may differ from the actual parameter value $p$.\medskip
 
 Let us apply Equation~\ref{eq:phat} to our gold prospecting example.
 Suppose that only two of the five claims produce gold. Then our best
 estimate for $p$ given this result is
-
 \[
 \hat{p} = \frac{2}{5} = 0.4
 \]
@@ -184,7 +172,7 @@ question, we follow the following sequence of steps:
 
 \begin{enumerate}
 
-\item Formulate two hypotheses:\\
+\item Formulate two hypotheses:\medskip
 
 \noindent\begin{minipage}{.4\textwidth}
   $H_\circ$ (\textbf{null hypothesis})
@@ -203,7 +191,7 @@ question, we follow the following sequence of steps:
   $p<{2/3}$
 \end{minipage}
 \begin{minipage}{.2\textwidth}
-\end{minipage}\\
+\end{minipage}\medskip
 
 \item Calculate the \textbf{test statistic} $T$, which in this case is
   the number of success ($k$).
@@ -251,7 +239,6 @@ observing $k\leq{2}$ successful claims if $p=2/3$.
   probability of finding gold in $k\leq{1}$ claims is only 0.0453,
   which is less than $\alpha$. Therefore our rejection region contains
   two values:
-  
   \[
   R = \{0,1\}
   \]
@@ -260,7 +247,6 @@ observing $k\leq{2}$ successful claims if $p=2/3$.
   the observed outcome for the test statistics falls inside the
   rejection region. If it does, then $H_\circ$ is rejected in favour
   of $H_a$. In our example,
-
   \[
   k=2\notin{R}
   \]
@@ -274,10 +260,11 @@ observing $k\leq{2}$ successful claims if $p=2/3$.
   
 \end{enumerate}
 
-Displaying the rejection region graphically:\\
+Displaying the rejection region graphically:\medskip
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
-  \includegraphics[width=\textwidth]{../figures/1sidedbinomialrejection5.pdf}\\
+\includegraphics[width=\textwidth]{../figures/1sidedbinomialrejection5.pdf}
+\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{a) PMF and b) CDF of a binomial null distribution
@@ -295,7 +282,7 @@ can also formulate a \textbf{two-sided} hypothesis test:
 
 \begin{enumerate}
 
-\item In this case $H_\circ$ and $H_a$ are symmetric:\\
+\item In this case $H_\circ$ and $H_a$ are symmetric:\medskip
 
 \noindent\begin{minipage}{.4\textwidth}
   $H_\circ$ (null hypothesis)
@@ -314,7 +301,7 @@ can also formulate a \textbf{two-sided} hypothesis test:
   ${p}\neq{2/3}$
 \end{minipage}
 \begin{minipage}{.2\textwidth}
-\end{minipage}\\
+\end{minipage}\medskip
 
 \item The test statistic remains the same as before.
 
@@ -354,7 +341,6 @@ can also formulate a \textbf{two-sided} hypothesis test:
   because $P(T\leq{1})=0.0453$, which is greater than
   $\alpha/2=0.025$.  The same is true for $P(T\geq{k})$ for any
   $k$. Therefore:
-
   \[
   R = \{0\}
   \]
@@ -366,10 +352,11 @@ can also formulate a \textbf{two-sided} hypothesis test:
   
 \end{enumerate}
 
-Displaying the two-sided hypothesis test graphically:\\
+Displaying the two-sided hypothesis test graphically:\medskip
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
-  \includegraphics[width=\textwidth]{../figures/2sidedbinomialrejection5.pdf}\\
+\includegraphics[width=\textwidth]{../figures/2sidedbinomialrejection5.pdf}
+\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{a) the same PMF and b) CDF as
@@ -394,7 +381,6 @@ Suppose that not five but fifteen gold prospectors had purchased a
 claim in the same area as before. And suppose that six of these
 prospectors had struck gold. Then the maximum likelihood estimate for
 $p$ is:
-
 \[
 \hat{p} = \frac{6}{15} = 0.4
 \]
@@ -418,12 +404,11 @@ a different table of probabilities:
     \hline $P(T=k)$ & 0.1148 & 0.1786 & 0.2143
     & 0.1948 & 0.1299 & 0.0599 & 0.0171 & 0.0023 \\
     $P({T}\leq{k})$ & 0.2030 & 0.3816 & 0.5959 & 0.7908 &
-    0.9206 & 0.9806 & 0.9977 & 1.0000 \\
+    0.9206 & 0.9806 & 0.9977 & 1.0000
   \end{tabular}
 \end{center}
 
 The rejection region (bold) consists of
-
 \begin{equation}
   R=\{0,1,2,3,4,5,6\}
   \label{eq:1sidedbinomtest15}
@@ -432,7 +417,8 @@ The rejection region (bold) consists of
 \noindent which includes $k=6$. Therefore $H_\circ$ has been rejected.
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
-  \includegraphics[width=\textwidth]{../figures/1sidedbinomialrejection15.pdf}\\
+\includegraphics[width=\textwidth]{../figures/1sidedbinomialrejection15.pdf}
+\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{a) PMF and b) CDF of a binomial distribution with
@@ -474,17 +460,17 @@ p\neq{2/3}$):
 
 The rejection region (which includes both tails of the distribution)
 is:
-
 \begin{equation}
   R=\{0,1,2,3,4,5,14,15\}
   \label{eq:2sidedbinomtest15}
 \end{equation}
 
 This region does \emph{not} include $k=6$. Therefore we \emph{cannot}
-reject the two-sided null hypothesis that $p=2/3$.\\
+reject the two-sided null hypothesis that $p=2/3$.\medskip
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
-  \includegraphics[width=\textwidth]{../figures/2sidedbinomialrejection15.pdf}\\
+\includegraphics[width=\textwidth]{../figures/2sidedbinomialrejection15.pdf}
+\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{a) PMF and b) CDF of the binomial distribution
@@ -499,7 +485,7 @@ Let us increase our `sample size' (number of prospectors) even more,
 from 15 to 30, and suppose once again that only 40\% of these found
 gold even though the geological evidence suggested that this should be
 67\%. The lookup table of probabilities would be quite large, so we
-will just show the distributions graphically:\\
+will just show the distributions graphically:\medskip
 
 \noindent\begin{minipage}[t][][b]{.65\textwidth}
   \includegraphics[width=\textwidth]{../figures/binomialrejection30.pdf}
@@ -570,13 +556,14 @@ A \textbf{type-I error} is committed when a true null hypothesis test
 is erroneously rejected. This is akin to putting an innocent person in
 prison. For our gold prospecting example, this means that we reject
 the expert opinion of the geologist (whose assessment indicated a 2/3
-chance of finding gold) when this geologist is in fact correct.\\
+chance of finding gold) when this geologist is in fact
+correct.\medskip
 
 A \textbf{type-II error} is committed when we fail to reject a false
 null hypothesis.  This is akin to letting a guilty person get away
 with a crime for lack of evidence. In the geological example, this
 means that we still trust the geological assessment despite it being
-wrong.\\
+wrong.\medskip
 
 The probability of committing a type-I error is controlled by one
 parameter:
@@ -687,10 +674,10 @@ things:
 \label{sec:pitfalls}
 
 \hspace{\parindent}\textit{All hypotheses are wrong ... in some decimal place}
-\hfill-- John Tukey (paraphrased)\\
+\hfill-- John Tukey (paraphrased)\medskip
 
 \textit{All models are wrong, but some are useful}
-\hfill-- George Box\\
+\hfill-- George Box\medskip
 
 Statistical tests provide a rigorous mathematical framework to assess
 the validity of a hypothesis. It is not difficult to see the appeal of
@@ -733,7 +720,7 @@ live another day. The scientific method is strikingly similar to the
 way in which a statistical hypothesis test is carried out. A null
 hypothesis, like a scientific hypothesis, cannot be proven. It can
 only be disproved. Rejection of a null hypothesis is the best outcome,
-because it is the only outcome that teaches us something new.\\
+because it is the only outcome that teaches us something new.\medskip
 
 It may seem natural to use the statistical approach to test scientific
 hypotheses. However doing so is not without dangers. To explain these
@@ -743,7 +730,7 @@ $H_\circ: p=2/3$ increases with sample size. A small sample may be
 sufficient to detect large deviations from the null
 hypothesis. Smaller deviations require larger sample sizes. But no
 matter how small the violation of the null hypothesis is, there always
-exists a sample size that is large enough to detect it.\\
+exists a sample size that is large enough to detect it.\medskip
 
 Statistical tests are an effective way to evaluate mathematical
 hypotheses. They are less useful for scientific hypotheses.  There is
@@ -781,7 +768,7 @@ will always be possible to reject it, given a large enough
 sample. Perhaps we need to classify a million grains from each sample,
 but at some point a `statistically significant' difference will be
 found. Given a large enough sample, even the tiniest hydraulic sorting
-effect becomes detectable.\\
+effect becomes detectable.\medskip
 
 In conclusion, formalised hypothesis tests are of limited use in
 science.  There are just two exceptions in which they do serve a
@@ -808,7 +795,7 @@ not so much whether a hypothesis is wrong, but rather \emph{how wrong}
 it is. In the context of our gold prospecting example, there is little
 use in testing whether $p$ is exactly equal to $2/3$. In reality, $p$
 is \emph{unknown}. It is far more useful to actually estimate $p$ and
-to quantify the statistical uncertainty associated with it.\\
+to quantify the statistical uncertainty associated with it.\medskip
 
 Equation~\ref{eq:phat} showed that, given $k$ successful claims among
 $n$ total claims, the \emph{most likely} estimate for $p$ is $k/n$.
@@ -823,7 +810,6 @@ successful claims:
   impossible.  So $p=0$ can be ruled out.
 \item{\bf p=0.1?} The probability of observing ${k}\geq{2}$ successful
   claims if $p=0.1$ is given by:
-  
   \[
   P({k}\geq{2}|p=0.1,n=5) =
   \sum\limits_{i=2}^{5}\binom{5}{i}(0.1)^i(0.9)^{n-i} = 0.081
@@ -856,32 +842,32 @@ The set of all values of $p$ that are compatible with the observed
 outcome $k=2$ forms a \textbf{confidence interval}. Using an iterative
 process, it can be shown that the lower and upper limits of this
 interval are given by:
-
 \[
 \mbox{C.I.}(p|k=2,n=5) = [0.053, 0.85]
 \]
 
 \noindent\begin{minipage}[t][][b]{.65\textwidth}
-  \includegraphics[width=\textwidth]{../figures/binomcik2n5.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/binomcik2n5.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.35\textwidth}
   \captionof{figure}{95\% confidence interval for the binomial
     parameter $p$ given $k=2$ successful claims (dashed lines) out of
     $n=5$.  The lower ($p=0.053$, grey) and upper ($p=0.85$) limits of
     the confidence interval are shown as a) PMFs and b) CDFs. Dotted
-    horizontal lines mark the 0.025 and 0.975 confidence levels.\\}
+    horizontal lines mark the 0.025 and 0.975 confidence
+    levels.\medskip}
   \label{fig:binomcik2n5}
 \end{minipage}
 
 Repeating this procedure for a different result, for example $k=4$,
 yields a different confidence interval, namely:
-
 \[
 \mbox{C.I.}(p|k=4,n=5) = [0.284, 0.995]
 \]
 
 \noindent\begin{minipage}[t][][b]{.65\textwidth}
-  \includegraphics[width=\textwidth]{../figures/binomcik4n5.pdf}\\
+\includegraphics[width=\textwidth]{../figures/binomcik4n5.pdf}
+\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.35\textwidth}
   \captionof{figure}{95\% confidence interval for the binomial
@@ -889,7 +875,7 @@ yields a different confidence interval, namely:
     $n=5$ trials.  The lower ($p=0.284$, grey) and upper ($p=0.995$)
     limits of the confidence interval are shown as a) PMFs and b)
     CDFs. Dotted horizontal lines mark the 0.025 and 0.975 confidence
-    levels.\\}
+    levels.\medskip}
   \label{fig:binomcik4n5}
 \end{minipage}
 
@@ -897,13 +883,13 @@ What happens if we increase the sample size from $n=5$ to $n=30$, and
 the number of successful claims from $k=2$ to $k=12$?  Then the
 maximum likelihood estimate remains $\hat{p}=2/5$ as in our first
 example, but the 95\% confidence interval narrows down to
-
 \[
 \mbox{C.I.}(p|k=12,n=30) = [0.23, 0.59]
 \]
 
 \noindent\begin{minipage}[t][][b]{.65\textwidth}
-  \includegraphics[width=\textwidth]{../figures/binomcik12n30.pdf}\\
+\includegraphics[width=\textwidth]{../figures/binomcik12n30.pdf}
+\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.35\textwidth}
   \captionof{figure}{95\% confidence interval for the binomial
@@ -911,17 +897,18 @@ example, but the 95\% confidence interval narrows down to
     $n=30$ trials.  The lower ($p=0.23$, grey) and upper ($p=0.59$)
     limits of the confidence interval are shown as a) PMFs and b)
     CDFs. Dotted horizontal lines mark the 0.025 and 0.975 confidence
-    levels.\\}
+    levels.\medskip}
   \label{fig:binomcik12n30}
 \end{minipage}
 
 To further explore the trend of decreasing confidence interval width
 with increasing sample size, let us evaluate the 95\% confidence
 intervals for $\hat{p}=k/n$ estimates of 2/3 and 1/5, respectively,
-over a range of sample sizes between $n=3$ and $n=300$:\\
+over a range of sample sizes between $n=3$ and $n=300$:\medskip
 
 \noindent\begin{minipage}[t][][b]{.65\textwidth}
-  \includegraphics[width=\textwidth]{../figures/binomcivsn.pdf}\\
+\includegraphics[width=\textwidth]{../figures/binomcivsn.pdf}
+\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.35\textwidth}
   \captionof{figure}{95\% confidence intervals for a) $\hat{p}=2/3$
