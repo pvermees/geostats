@@ -114,25 +114,26 @@ data ($P(p|n,k)$). The \emph{most likely} value of $p$ given $n$ and
 $k$ can be found by taking the derivative of Equation~\ref{eq:Lbinom}
 with respect to $p$ and setting it to zero:
 \[
-\frac{\partial{\mathcal{L}(p|n,k)}}{\partial{p}} = 0
+\left.\frac{\partial{\mathcal{L}(p|n,k)}}{\partial{p}}\right|_{\hat{p}} = 0
 \]
 
 \noindent which gives
 \[
-  \binom{n}{k} k p^{k-1} (1-p)^{n-k} -  \binom{n}{k} p^k (n-k) (1-p)^{n-k-1} = 0
+\binom{n}{k} k \hat{p}^{k-1} (1-\hat{p})^{n-k} -
+\binom{n}{k} \hat{p}^k (n-k) (1-\hat{p})^{n-k-1} = 0
 \]
 
 Dividing by $\binom{n}{k}$ and rearranging:
 \[
-  k p^{k-1} (1-p)^{n-k} = p^k (n-k) (1-p)^{n-k-1}
+  k \hat{p}^{k-1} (1-\hat{p})^{n-k} = \hat{p}^k (n-k) (1-\hat{p})^{n-k-1}
 \]
 
-Dividing both sides by $p^k (1-p)^{n-k}$:
+Dividing both sides by $\hat{p}^k (1-\hat{p})^{n-k}$:
 \[
-k (1-p) = p (n-k)
+k (1-\hat{p}) = \hat{p} (n-k)
 \]
 
-\noindent which can be solved for $p$:
+\noindent which can be solved for $\hat{p}$:
 \begin{equation}
   \hat{p} = \frac{k}{n}
   \label{eq:phat}
@@ -624,8 +625,9 @@ things:
   \end{minipage}
   \begin{minipage}[t][][t]{\linewidth}
   \captionof{figure}{a) -- c) PMFs of the binomial null distribution
-    with $p=2/3$ ($H_\circ$, grey) and alternative distributions with
-    a) $p=2/5$, b) $p=1/5$ and c) $p=0$. Sample size is $n=5$ for all
+    with $p=2/3$ ($H_\circ$, grey, background) and alternative
+    distributions ($H_a$, black and white, foreground) with a)
+    $p=2/5$, b) $p=1/5$ and c) $p=0$. Sample size is $n=5$ for all
     cases.  d) -- f) CDFs for the null distribution (grey) and the
     alternative distribution (black). The horizontal dotted lines mark
     $\alpha=0.05$.  Their intersections with the CDF of the null
@@ -642,29 +644,29 @@ things:
 
 \item{\bf Sample size}
 
-  The effect of sample size was already discussed in section
-  \ref{sec:power}. Comparing the predicted outcomes for the null
-  hypothesis $H_\circ: p=2/3$ to those of the alternative hypothesis
-  $H_a: p=2/5$ for sample sizes of $n=5$, 15 and 30:
+  The effect of sample size was already discussed in
+  Section~\ref{sec:power}. Comparing the predicted outcomes for the
+  null hypothesis $H_\circ: p=2/3$ to those of the alternative
+  hypothesis $H_a: p=2/5$ for sample sizes of $n=5$, 15 and 30:
 
   \begin{minipage}[t][][b]{\linewidth}
     \includegraphics[width=\textwidth]{../figures/binompower2.pdf}
   \end{minipage}
   \begin{minipage}[t][][t]{\linewidth}
     \captionof{figure}{a) -- c) PMFs of binomial distributions with
-      $p=2/3$ ($H_\circ$, grey) and $p=2/5$ ($H_a$, black and white),
-      for sample sizes of a) $n=5$, b) $n=15$ and c) $n=30$.  d) -- f)
-      CDFs for the null distribution (grey) and the alternative
-      distribution (black). The horizontal dotted lines mark
-      $\alpha=0.05$.  Their intersections with the CDF of the null
-      distribution are marked by vertical dotted lines. The area to
-      the left of these lines define the rejection region and are
-      marked in black in the bar chart. The larger the sample size,
-      the easier it is to reject $H_\circ$. The dashed horizontal
-      lines mark the intersection of the rejection region with the CDF
-      of the alternative distribution. These mark the power of the
-      statistical test ($1-\beta$).  Power clearly increases with
-      sample size.}
+      $p=2/3$ ($H_\circ$, grey, background) and $p=2/5$ ($H_a$, black
+      and white, foreground), for sample sizes of a) $n=5$, b) $n=15$
+      and c) $n=30$.  d) -- f) CDFs for the null distribution (grey)
+      and the alternative distribution (black). The horizontal dotted
+      lines mark $\alpha=0.05$.  Their intersections with the CDF of
+      the null distribution are marked by vertical dotted lines. The
+      area to the left of these lines define the rejection region and
+      are marked in black in the bar chart. The larger the sample
+      size, the easier it is to reject $H_\circ$. The dashed
+      horizontal lines mark the intersection of the rejection region
+      with the CDF of the alternative distribution. These mark the
+      power of the statistical test ($1-\beta$).  Power clearly
+      increases with sample size.}
     \label{fig:binompower2}
   \end{minipage}
 

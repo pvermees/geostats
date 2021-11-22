@@ -33,8 +33,8 @@
 \BOOKMARK [1][-]{section.7.2}{The multivariate normal distribution}{chapter.7}% 33
 \BOOKMARK [1][-]{section.7.3}{Properties}{chapter.7}% 34
 \BOOKMARK [1][-]{section.7.4}{Parameter estimation}{chapter.7}% 35
-\BOOKMARK [0][-]{chapter.8}{Error propagation}{}% 36
-\BOOKMARK [1][-]{section.8.1}{Linear approximation}{chapter.8}% 37
+\BOOKMARK [0][-]{chapter.8}{Error estimation}{}% 36
+\BOOKMARK [1][-]{section.8.1}{Error propagation}{chapter.8}% 37
 \BOOKMARK [1][-]{section.8.2}{Examples}{chapter.8}% 38
 \BOOKMARK [1][-]{section.8.3}{Standard deviation vs. standard error}{chapter.8}% 39
 \BOOKMARK [1][-]{section.8.4}{Fisher Information}{chapter.8}% 40

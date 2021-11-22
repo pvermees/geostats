@@ -739,10 +739,10 @@ legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,1))
 binomcdf(nn=n,kk=k,H0=ci[1],Ha=ci[1],nsides=0,
          plota=TRUE,plotp=FALSE,col='gray60')
 ly <- pbinom(0,n,ci[1])
-text(0,ly,labels=paste0('p=',signif(ci[1],2)),pos=3,col='gray60')
+text(0,ly,labels=paste0('p=',signif(ci[1],3)),pos=3,col='gray60')
 binomcdf(nn=n,kk=k,H0=ci[2],Ha=ci[2],nsides=0,add=TRUE)
 ly <- pbinom(4,n,ci[2])
-text(3,ly,labels=paste0('p=',signif(ci[2],2)),pos=1,offset=-0.75)
+text(3,ly,labels=paste0('p=',signif(ci[2],3)),pos=1,offset=-0.75)
 legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(2,1))
 dev.off()
 
@@ -897,7 +897,7 @@ poishist <- function(nn,kk,H0,Ha=H0,nsides=1,
     names(prob) <- nn
     if (nsides==-1){
         lrej <- 0
-        urej <- length(nn)-qpois(0.95,H0)+1
+        urej <- length(nn)-qpois(0.95,H0)
     } else if (nsides==1){
         lrej <- qpois(0.05,H0)
         urej <- 0

@@ -1,4 +1,4 @@
-\chapter{Error propagation}
+\chapter{Error estimation}
 \label{ch:errorprop}
 
 Suppose that the extinction of the dinosaurs has been dated at 65 Ma
@@ -7,10 +7,10 @@ elsewhere.  These two numbers are effectively meaningless in the
 absence of an estimate of precision. Taken at face value, the dates
 imply that the meteorite impact took place 1 million years after the
 mass extinction, which rules out a causal relationship between the two
-events. However, if the statistical uncertainty of the age estimates
-is significantly greater than 1 Myr, then such of a causal
-relationship remains plausible. There are two aspects of analytical
-uncertainty:
+events. However, if the analytical uncertainty of the age estimates is
+significantly greater than 1 Myr, then such of a causal relationship
+remains plausible. There are two aspects of analytical uncertainty that
+need to be considered:
 
 \begin{itemize}
   \item{\bf accuracy} is the closeness of a statistical estimate to
@@ -25,7 +25,7 @@ uncertainty:
   measurements). The best case scenario combines high precision with
   high accuracy. The worst case scenario combines high precision with
   low accuracy. This is the worst possible situation because the high
-  precision gives false confidence in the data.\\}
+  precision gives false confidence in the data.\medskip}
 \label{fig:darts}
 \endgroup
 
@@ -37,7 +37,7 @@ involved process that is also known as \textbf{error
   propagation}. This procedure will be discussed in some detail in the
 following sections.
 
-\section{Linear approximation}
+\section{Error propagation}
 \label{sec:linearerrorprop}
 
 Suppose that the geological age or any other physical quantity ($z$)
@@ -55,7 +55,7 @@ function $g$ is (approximately) linear in the vicinity of $\bar{x}$,
 then small deviations $(\bar{x}-x_i)$ of the measured parameter $x_i$
 from the mean value $\bar{x}$ are proporational to small deviations
 $(\bar{z}-z_i)$ of the estimated quantity $z$ from the mean value
-$\bar{z}=g(\overline{x})$.\\
+$\bar{z}=g(\overline{x})$.\medskip
 
 Recall the definition of the sample standard deviation and variance
 (Equation~\ref{eq:stdevrepeat}):
@@ -72,7 +72,7 @@ respect to the measurements $x$, then:
 \end{equation}
 
 \noindent\begin{minipage}[t][][b]{.45\textwidth}
-  \includegraphics[width=\textwidth]{../figures/errorprop2d.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/errorprop2d.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.55\textwidth}
 \captionof{figure}{Error propagation of two linear functions, $g_1$
@@ -102,7 +102,7 @@ Plugging Equation \ref{eq:zi-z} into \ref{eq:varz}, we obtain:
 \end{equation}
 
 $s[z]$ is the \textbf{standard error} of $z$, i.e.  the
-\textit{estimated} standard deviation of the inferred quantity $z$.\\
+\textit{estimated} standard deviation of the inferred quantity $z$.\medskip
 
 Equation~\ref{eq:errorprop1d} is the general equation for the
 propagation of uncertainty with one variable.  Next, let us move on to
@@ -119,7 +119,7 @@ $\sigma_{x}$, $\sigma_{y}$ and $\sigma_{x,y}$ can all be estimated (as
 $\bar{x}, \bar{y}, s[x], s[y]$ and $s[x,y]$) from the input data
 ($\{x_i, y_i\}$, for $i~=~1...n$). These values can then be used to
 infer $s[z]$, the standard error of $z$, in exactly the same way as
-for the one dimensional case.\\
+for the one dimensional case.\medskip
 
 Differentiating $g$ with respect to $x$ and $y$:
 \begin{equation}
@@ -174,7 +174,7 @@ matrix and the outermost matrix (and its transpose) as the
 that it can easily be scaled up to three or more dimensions.
 
 \noindent\begin{minipage}[t][][b]{.55\textwidth}
-  \includegraphics[width=\textwidth]{../figures/errorprop3d.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/errorprop3d.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.45\textwidth}
   \captionof{figure}{Error propagation of a bivariate function $z =
@@ -567,9 +567,9 @@ error of the mean is only 1.5 \emph{microns}.
 \label{sec:FisherInformation}
 
 We used the method of maximum likelihood to estimate the parameters of
-the binomial (section~\ref{sec:binompar}), Poisson
-(section~\ref{sec:poispar}) and normal
-(section~\ref{sec:normalparameters}) distributions. An extension of
+the binomial (Section~\ref{sec:binompar}), Poisson
+(Section~\ref{sec:poispar}) and normal
+(Section~\ref{sec:normalparameters}) distributions. An extension of
 the same method can be used to estimate the standard errors of the
 parameters without any other information. Let $\hat{z}$ be the maximum
 likelihood estimate of some parameter $z$. We can approximate the
@@ -577,8 +577,10 @@ log-likelihood with a second order Taylor series in the vicinity of
 $\hat{z}$:
 \[
   \mathcal{LL}(z) \approx \mathcal{LL}(\hat{z}) +
-  \frac{\partial\mathcal{LL}}{\partial{z}} (z-\hat{z}) +
-  \frac{1}{2} \frac{\partial^2\mathcal{LL}}{\partial{z^2}} (z-\hat{z})^2
+  \left.\frac{\partial\mathcal{LL}}{\partial{z}}\right|_{\hat{z}}
+  \!(z-\hat{z}) +
+  \left.\frac{1}{2} \frac{\partial^2\mathcal{LL}}{\partial{z^2}}\right|_{\hat{z}}
+  \!(z-\hat{z})^2
 \]
 
 By definition, $\partial{\mathcal{LL}}/\partial{z}=0$ at
@@ -587,7 +589,9 @@ $\hat{z}$. Therefore, the likelihood ($\mathcal{L}(z) =
 \[
 \mathcal{L}(z) \propto 
 \exp\left[
-  \frac{1}{2} \frac{\partial^2\mathcal{LL}}{\partial{z^2}} (z-\hat{z})^2
+  \frac{1}{2}
+  \left.\frac{\partial^2\mathcal{LL}}{\partial{z^2}}\right|_{\hat{z}}
+  \!(z-\hat{z})^2
   \right]
 \]
 
@@ -595,7 +599,7 @@ $\hat{z}$. Therefore, the likelihood ($\mathcal{L}(z) =
 \[
 \mathcal{L}(z) \propto \exp\!\left[
   -\frac{1}{2} \frac{(z-\hat{z})^2}{
-    -\frac{1}{\frac{\partial^2\mathcal{LL}}{\partial{z^2}}}
+    -\frac{1}{\left.\frac{\partial^2\mathcal{LL}}{\partial{z^2}}\right|_{\hat{z}}}
   }\right]
 \]
 
@@ -609,22 +613,23 @@ This equation fits the functional form of the normal distribution
 
 \noindent which leads to
 \begin{equation}
-  \sigma[z]^2 = \frac{1}{-\frac{\partial^2\mathcal{LL}}{\partial{z^2}}}
+  \hat{\sigma}[z]^2 =
+  \frac{1}{-\left.\frac{\partial^2\mathcal{LL}}{\partial{z^2}}\right|_{\hat{z}}}
   \label{eq:Fisher}
 \end{equation}
 
-$-\frac{\partial^2\mathcal{LL}}{\partial{z^2}}$ is known as the
+$-\left.\frac{\partial^2\mathcal{LL}}{\partial{z^2}}\right|_{\hat{z}}$ is known as the
 \textbf{Fisher Information}. Equation~\ref{eq:Fisher} can be
 generalised to multiple dimensions:
 \begin{equation}
-  \Sigma = -\mathcal{H}^{-1}
+  \hat{\Sigma} = -\mathcal{H}^{-1}
   \label{eq:multidimFisher}
 \end{equation}
 
-\noindent where $\Sigma$ is the covariance matrix and
+\noindent where $\hat{\Sigma}$ is the estimated covariance matrix and
 $(\mathcal{H})^{-1}$ is the inverse of the (`Hessian') matrix of
 second derivatives of the log-likelihood function with respect to the
-parameters.\\
+parameters.\medskip
 
 To illustrate the usefulness of Equation~\ref{eq:Fisher}, let us apply
 it to the Poisson distribution.  Recalling the log-likelihood function
@@ -636,22 +641,22 @@ k \log[\hat{\lambda}] - \hat{\lambda} - \sum\limits_{i=1}^{k}i
 \]
 
 Taking the second derivative of $\mathcal{LL}$ with respect to
-$\hat{\lambda}$:
+$\lambda$:
 \begin{equation}
-  \frac{\partial^2{\mathcal{LL}}}{\partial{\hat{\lambda}^2}} =
+  \left.\frac{\partial^2{\mathcal{LL}}}{\partial{\lambda^2}}\right|_{\hat{\lambda}}\! =
   -\frac{k}{\hat{\lambda}^2}
   \label{eq:d2LLdl2}
 \end{equation}
 
 Plugging Equation~\ref{eq:d2LLdl2} into \ref{eq:Fisher}:
 \[
-  \sigma[\hat{\lambda}]^2 = \frac{\hat{\lambda}^2}{k}
+  \hat{\sigma}[\lambda]^2 = \frac{\hat{\lambda}^2}{k}
 \]
 
 Recalling that $\hat{\lambda} = k$ (Equation~\ref{eq:lambda=k}), we
 get:
 \begin{equation}
-  \sigma[\hat{\lambda}]^2 = \hat{\lambda}
+  \hat{\sigma}[\lambda]^2 = \hat{\lambda}
   \label{eq:poisvar}
 \end{equation}
 

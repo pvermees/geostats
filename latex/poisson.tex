@@ -1,18 +1,18 @@
 \chapter{The Poisson distribution}
 \label{ch:poisson}
 
-\textbf{\underline{Example~1}}\\
+\textbf{\underline{Example~1}}\medskip
 
 A \emph{declustered} earthquake catalog\footnote{Mueller, C.S.,
   2019. Earthquake catalogs for the USGS national seismic hazard
   maps. \textit{Seismological Research Letters}, 90(1), pp.251-261.}
 of the western United States contains 543 events of magnitude 5.0 and
-greater that occurred between 1917 and 2016:\\
+greater that occurred between 1917 and 2016:\medskip
 
 \noindent\includegraphics[width=\textwidth]{../figures/declusteredquakes.pdf}
 \begingroup \captionof{figure}{The number of US earthquakes of
   magnitude 5.0 or greater per year between 1917 and 2016, with
-  aftershocks removed.\\}
+  aftershocks removed.\medskip}
 \label{fig:declusteredquakes}
 \endgroup
 
@@ -20,11 +20,12 @@ The number of earthquakes in each bin forms a new dataset of 100
 numbers, which has the following summary statistics:
 
 \noindent\begin{minipage}[t][][b]{.35\textwidth}
-  \includegraphics[width=\textwidth]{../figures/declusteredquakesperyear.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/declusteredquakesperyear.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.65\textwidth}
   \captionof{figure}{ Histogram of the earthquake counts shown in
-    Figure~\ref{fig:declusteredquakes}.\\~\\
+    Figure~\ref{fig:declusteredquakes}.\medskip
+    ~\\
     \textbf{mean: 5.43}\\
     standard deviation: 2.50\\
     \textbf{variance: 6.24}
@@ -32,9 +33,9 @@ numbers, which has the following summary statistics:
   \label{fig:declusteredquakesperyear}
 \end{minipage}
 
-Note how the mean and the variance of this dataset are similar.\\
+Note how the mean and the variance of this dataset are similar.\medskip
 
-\noindent\textbf{\underline{Example~2}}\\
+\noindent\textbf{\underline{Example~2}}\medskip
 
 5000 grains of sand have been mounted in an uncovered thin section and
 imaged with a scanning electron microscope (SEM). The SEM has
@@ -43,25 +44,26 @@ that are suitable for geochronological dating:
 
 \noindent\includegraphics[width=\textwidth]{../figures/zircons.pdf}
 \begingroup \captionof{figure}{Point-counting results for zircon in
-  sand. Black squares mark zircons and grey circles other minerals.\\}
+  sand. Black squares mark zircons and grey circles other minerals.\medskip}
 \label{fig:zircons}
 \endgroup
 
-Counting the number of zircons per graticule:
+Counting the number of zircons in the graticule:
 
 \noindent\includegraphics[width=\textwidth]{../figures/zirconcounts.pdf}
 \begingroup \captionof{figure}{The number of zircons counted in each
-  graticule of Figure~\ref{fig:zircons}.\\}
+  square of Figure~\ref{fig:zircons}.\medskip}
 \label{fig:zirconcounts}\endgroup
 
-And tallying the number of zircons per graticule in a histogram:
+And tallying the number of zircons per square in a histogram:
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-  \includegraphics[width=\textwidth]{../figures/zirconhist.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/zirconhist.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{ Histogram of the zircon counts shown in
-    Figure~\ref{fig:zirconcounts}.\\~\\
+    Figure~\ref{fig:zirconcounts}.\medskip
+    ~\\
     \textbf{mean: 3.50}\\
     standard deviation: 1.85\\
     \textbf{variance: 3.40}
@@ -80,7 +82,6 @@ The Poisson distribution describes the frequency of \textit{rare
   events} in time or space.  It predicts the likelihood of observing
 the number of `successes' $k$ given the long term average of successes
 $\lambda$:
-
 \begin{equation}
   P(k|\lambda) = \frac{\lambda^k e^{-\lambda}}{k!}
   \label{eq:poispmf}
@@ -88,33 +89,32 @@ $\lambda$:
 
 Thus the Poisson distribution is characterised by a single parameter,
 $\lambda$. Exploring the distribution for different values of this
-parameter:\\
+parameter:\medskip
 
 \noindent\includegraphics[width=\textwidth]{../figures/increasinglambda.pdf}
 \begingroup \captionof{figure}{PMF (a -- d) and CDF (e -- h) of the
   Poisson distribution for $\lambda=1$ (a, e); $\lambda=2$ (b, f);
   $\lambda=5$ (c, g); and $\lambda=10$ (d, h); as marked by the dashed
-  line.\\} \endgroup
+  line.\medskip} \endgroup
 
 The Poisson distribution is positively skewed but becomes more
 symmetric with increasing $\lambda$. In this respect it is similar to
 the binomial distribution (Figure~\ref{fig:binompower1}). In fact the
-Poisson distribution is closely related to the binomial
-distribution. Recall that the binomial distribution depends on two
-parameters: $n$ and $p$. It can be shown that the binomial
-distribution converges to the Poisson distribution with increasing $n$
-and decreasing $p$. In the limit of $n \rightarrow \infty$ and $p
-\rightarrow 0$, the binomial distribution simplifies to a Poisson
-distribution with $\lambda = {n}{p}$. The next table illustrates this
-by evaluating the probability of observing $k\leq{2}$ successes under
-a binomial distribution with $np=5$ for different values of $n$ and
-$p$:
+Poisson and binomial distributions are closely related. Recall that
+the binomial distribution depends on two parameters: $n$ and $p$. It
+can be shown that the binomial distribution converges to the Poisson
+distribution with increasing $n$ and decreasing $p$. In the limit of
+$n \rightarrow \infty$ and $p \rightarrow 0$, the binomial
+distribution simplifies to a Poisson distribution with $\lambda =
+{n}{p}$. The next table illustrates this by evaluating the probability
+of observing $k\leq{2}$ successes under a binomial distribution with
+$np=5$ for different values of $n$ and $p$:
 
 \begin{center}
 \begin{tabular}{r|llllllllll}
 $n$ & 10 & 20 & 50 & 100 & 200 & 500 & 1000 & 2000 & 5000 & 10000 \\
 $p$ & 0.5 & 0.25 & 0.1 & 0.05 & 0.025 & 0.01 & 0.005 & 0.0025 & 0.001 & 0.0005 \\
-$P(k\leq{2})$ & 0.0547 & 0.0913 & 0.112 & 0.118 & 0.121 & 0.1234 & 0.124 & 0.1243 & 0.1245 & 0.1246\\
+$P(k\leq{2})$ & 0.0547 & 0.0913 & 0.112 & 0.118 & 0.121 & 0.1234 & 0.124 & 0.1243 & 0.1245 & 0.1246
 \end{tabular}
 \captionof{table}{Binomial probability of 2 successes after $n$ trials
   for different values of $p$, where $np=5$. In the limit of $n
@@ -147,9 +147,8 @@ clustered in time.
 The Poisson distribution has one unknown parameter, $\lambda$. This
 parameter can be estimated using the method of maximum likelihood,
 just like the parameter $p$ of the binomial distribution
-(section~\ref{sec:binompar}). As before, the likelihood function is
+(Section~\ref{sec:binompar}). As before, the likelihood function is
 obtained by swapping the parameter ($\lambda$) and the data ($k$):
-
 \begin{equation}
   \mathcal{L}(\lambda|k) = \frac{\lambda^k e^{-\lambda}}{k!}
   \label{eq:poislik}
@@ -157,42 +156,37 @@ obtained by swapping the parameter ($\lambda$) and the data ($k$):
 
 And as before, we can estimate $\lambda$ by taking the derivative of
 $\mathcal{L}$ with respect to it and setting this derivative to zero:
-
 \begin{equation}
   \frac{\partial{\mathcal{L}}}{\partial{\lambda}} = 0
 \end{equation}
 
 Alternatively, we can also maximise the \textbf{log-likelihood}:
-
 \begin{equation}
   \mathcal{LL}(\lambda|k) = k \ln[\lambda] - \lambda - \sum\limits_{i=1}^{k}i
   \label{eq:poisLL}
 \end{equation}
 
 \noindent and set its derivative w.r.t. $\lambda$ to zero:
-
 \begin{equation}
   \frac{\partial{\mathcal{LL}}}{\partial{\lambda}} = 0
 \end{equation}
 
-Both approaches give exactly the same result because the value of
-$\lambda$ that minimises $\mathcal{L}$ also minimises $\mathcal{LL}$.
-Thus:
-
+Both approaches give exactly the same result because any parameter
+value $\hat{\lambda}$ that minimises $\mathcal{L}$ also minimises
+$\mathcal{LL}$.  Thus:
 \begin{equation}
-  \frac{\partial{\mathcal{LL}}}{\partial{\lambda}} = \frac{k}{\lambda} - 1 = 0
+  \left.\frac{\partial{\mathcal{LL}}}{\partial{\lambda}}\right|_{\hat{\lambda}} =
+  \frac{k}{\hat{\lambda}} - 1 = 0
 \end{equation}
 
 \noindent which leads to
-
 \begin{equation}
-  \frac{k}{\lambda} = 1
+  \frac{k}{\hat{\lambda}} = 1
 \end{equation}
 
 \noindent and, hence
-
 \begin{equation}
-  \lambda = k
+  \hat{\lambda} = k
   \label{eq:lambda=k}
 \end{equation}
 
@@ -206,7 +200,7 @@ $k$ are reconsilable with a given value of $\lambda$.
 \label{sec:poishyp}
 
 Hypothesis testing for Poisson variables proceeds in exactly the same
-way as for binomial variables (section~\ref{sec:binomH}). For example:
+way as for binomial variables (Section~\ref{sec:binomH}). For example:
 
 \begin{enumerate}
 \item consider the following one-sided pair of hypotheses:
@@ -228,7 +222,7 @@ way as for binomial variables (section~\ref{sec:binomH}). For example:
     $\lambda>{3.5}$
   \end{minipage}
   \begin{minipage}{.2\textwidth}
-  \end{minipage}\\
+  \end{minipage}\medskip
 
 \item Like for the binomial case, the test statistic is the number of
   `successes'.  Suppose that we have observed $k=9$ successes.
@@ -268,7 +262,7 @@ way as for binomial variables (section~\ref{sec:binomH}). For example:
 Displaying the rejection region graphically:
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
-  \includegraphics[width=\textwidth]{../figures/poishyp.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/poishyp.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{a) PMF and b) CDF of a Poissonian null
@@ -284,17 +278,17 @@ Displaying the rejection region graphically:
 \label{sec:multipletesting}
 
 The observant reader may have noticed that the hypothesis test of
-section~\ref{sec:poishyp} referred to the zircon counting example of
+Section~\ref{sec:poishyp} referred to the zircon counting example of
 Figures~\ref{fig:zircons} -- \ref{fig:zirconcounts}. The average
 number of observations per bin in this example was 3.5. And therefore,
-according to section~\ref{sec:poispar}, the maximum likelihood
+according to Section~\ref{sec:poispar}, the maximum likelihood
 estimate for $\lambda$ is 3.5 as well. According to our hypothesis
 test, a value of $k=9$ is incompatible with a parameter value of
 $\lambda=3.5$. Yet the observant reader may also have noticed that a
 value of $k=9$ appears in the dataset
-(Figure~\ref{fig:zirconcounts})!\\
+(Figure~\ref{fig:zirconcounts})!\medskip
 
-Does this mean that our data do not follow a Poisson distribution?\\
+Does this mean that our data do not follow a Poisson distribution?\medskip
 
 The answer is no. The apparent contradiction between the
 point-counting data and the hypothesis test is a result of multiple
@@ -307,8 +301,8 @@ of twice avoiding a type-I error is $(1-\alpha)^2=0.9025$. If we do
 $N$ tests, then the probability of not making a type-I error reduces
 to $(1-\alpha)^N$. Hence, the probability of making a type-I error
 increases to $1-(1-\alpha)^N$. Figure~\ref{fig:zirconcounts} contains
-${4}\times{12}=48$ graticules. Therefore, the likelihood of a type-I
-error is not $\alpha$ but $1-(1-\alpha)^{48}=0.915$.\\
+${4}\times{12}=48$ squares. Therefore, the likelihood of a type-I
+error is not $\alpha$ but $1-(1-\alpha)^{48}=0.915$.\medskip
 
 In other words, there is a 91.5\% chance of committing a type-I error
 when performing 48 simultaneous tests. One way to address this issue
@@ -318,9 +312,9 @@ to $\alpha/N$, where $N$ equals the number of tests.  This is called a
 confidence level would be reduced from $\alpha=0.05$ to
 $\alpha=0.05/48=0.00104$ ($1-\alpha=0.99896$).  It turns out that the
 99.896\% percentile of a Poisson distribution with parameter
-$\lambda=3.5$ is 10. So the observed outcome of $k=9$ zircons in one
-of the 48 graticules is in fact not in contradiction with the null
-hypothesis, but falls within the range of expected values.\\
+$\lambda=3.5$ is 10. So the observed outcome of $k=9$ zircons in the
+48 square graticule is in fact not in contradiction with the null
+hypothesis, but falls within the range of expected values.\medskip
 
 Multiple testing is a common problem in science, and a frequent source
 of spurious scientific `discoveries'. For example, consider a dataset
@@ -343,7 +337,7 @@ The construction of confidence intervals for the Poisson parameter
 $\lambda$ proceeds in pretty much the same way as it did for the
 binomial parameter $p$. Let us construct a 95\% confidence interval
 for $\lambda$ given the observation that 5 magnitude 5.0 or greater
-earthquakes occurred in the US in 2016.\\
+earthquakes occurred in the US in 2016.\medskip
 
 The lower limit of a 95\% confidence interval for the number of
 earthquakes per year is marked by the value of $\lambda$ that is more
@@ -353,10 +347,10 @@ interval is marked by the value of $\lambda$ that is more than 97.5\%
 likely to produce an observation of $k=5$ or smaller. This value is
 $\lambda=11.7$. Hence, 95\% confidence interval is $[1.62, 11.7]$.
 Note that this interval includes the average of all 100 preceding
-years. \\
+years. \medskip
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
-  \includegraphics[width=\textwidth]{../figures/poisci.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/poisci.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{95\% confidence interval for the Poisson
@@ -369,23 +363,24 @@ years. \\
 
 Repeating the exercise for all observations in
 Figure~\ref{fig:declusteredquakes} yields the following set of 100
-confidence intervals for $\lambda$:\\
+confidence intervals for $\lambda$:\medskip
 
 \noindent\includegraphics[width=\textwidth]{../figures/poiserrbars.pdf}
 \begingroup \captionof{figure}{95\% Poisson confidence intervals for
   all the years in the declustered earthquake database. The horizontal
   dotted line marks the average of all the years
-  ($\hat{\lambda}=5.43$). `outliers' are marked in black.\\}  \endgroup
+  ($\hat{\lambda}=5.43$). `outliers' are marked in black.\medskip}
+\endgroup
 
 Three years (1941, 1954 and 1984) stand out because their 95\%
 confidence intervals do not overlap with the long term average value
 of 5.43. Does this mean that the earthquake statistics did not fit the
 Poisson distribution during those years? The answer to this question
 is no, for the same reasons as given in
-section~\ref{sec:multipletesting}. When a large number of confidence
+Section~\ref{sec:multipletesting}. When a large number of confidence
 intervals are drawn, it is inevitable that some of these do not
 include with the true parameter value. In fact it would be suspicious
-if all the error bars overlapped with the long term average.\\
+if all the error bars overlapped with the long term average.\medskip
 
 With a confidence level of $\alpha=0.05$, there should be a 5\%
 chance of committing a type-I error.  Therefore, we would expect 5\%

@@ -1,8 +1,8 @@
 \chapter{The normal distribution}
 \label{ch:normal}
 
-The binomial (chapter~\ref{ch:binomial} and Poisson
-(chapter~\ref{ch:poisson}) distributions are just two of countless
+The binomial (Chapter~\ref{ch:binomial} and Poisson
+(Chapter~\ref{ch:poisson}) distributions are just two of countless
 possible distributions.  Here are a few examples of other
 distributions that are relevant to Earth scientists:
 
@@ -13,7 +13,6 @@ distributions that are relevant to Earth scientists:
   specified number of failures (or successes) occurs. For example, it
   describes the number of dry holes $x$ that are drilled before $r$
   petroleum discoveries are made given a probability of discovery $p$:
-
   \begin{equation}
     P(x|r,p) = \binom{r+x-1}{x} (1-p)^x p^r
   \end{equation}
@@ -25,7 +24,6 @@ distributions that are relevant to Earth scientists:
   of $m$ minerals (where $\sum_{i=1}^{m}p_i=1$), and let
   $k_1,k_2,\ldots,k_m$ be their respective counts in the thin section
   (where $\sum_{i=1}^{m}k_i=n$). Then:
-
   \begin{equation}
     P(k_1,k_2,\ldots,k_m|p_1,p_2,\ldots,p_m) =
     \frac{n!}{\prod\limits_{i=1}^{m}k_i!} \prod\limits_{i=1}^{m}p_i^{k_i}
@@ -40,7 +38,6 @@ distributions that are relevant to Earth scientists:
 \item{\bf the uniform distribution} is the simplest example of a
   \textbf{continuous distribution}. For any number $x$ between the
   minimum $a$ and maximum $b$:
-
   \begin{equation}
     f(x|a,b) =
   \begin{cases}
@@ -57,14 +54,12 @@ distributions that are relevant to Earth scientists:
   observing any particular value $x$ is actually zero. For continuous
   variables, probabilities require integration between two values. For
   example:
-
   \begin{equation}
     P({c}\leq{x}\leq{d}) = \int\limits_{c}^{d} f(x|a,b) dx
   \end{equation}
 
   The cumulative density function (CDF) of continuous variable is also
   obtained by integration rather than summation:
-
   \begin{equation}
     P(X\leq{x}) =
     \begin{cases}
@@ -97,7 +92,7 @@ are `abnormal'.
 Let us revisit the Old Faithful dataset of Figure~\ref{fig:KDE2D}.
   
 \noindent\begin{minipage}[t][][b]{.35\textwidth}
-  \includegraphics[width=\textwidth]{../figures/CLTfaithful1.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/CLTfaithful1.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.65\textwidth}
   \captionof{figure}{The KDE and rug plot of 272 Old Faithful eruption
@@ -111,7 +106,7 @@ The next three figures derive three new distributions by taking the
 sum of $n$ randomly selected values from the geyser durations:
 
 \noindent\begin{minipage}[t][][b]{.35\textwidth}
-  \includegraphics[width=\textwidth]{../figures/CLTfaithful2.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/CLTfaithful2.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.65\textwidth}
   \captionof{figure}{Collect $n=2$ randomly chosen events from the
@@ -124,7 +119,7 @@ sum of $n$ randomly selected values from the geyser durations:
 \end{minipage}
 
 \noindent\begin{minipage}[t][][b]{.35\textwidth}
-  \includegraphics[width=\textwidth]{../figures/CLTfaithful3.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/CLTfaithful3.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.65\textwidth}
   \captionof{figure}{Collect $n=3$ randomly chosen events from the
@@ -137,7 +132,7 @@ sum of $n$ randomly selected values from the geyser durations:
 \end{minipage}
 
 \noindent\begin{minipage}[t][][b]{.35\textwidth}
-  \includegraphics[width=\textwidth]{../figures/CLTfaithful10.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/CLTfaithful10.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.65\textwidth}
   \captionof{figure}{Taking $N=500$ samples of $n=10$ randomly
@@ -150,7 +145,6 @@ sum of $n$ randomly selected values from the geyser durations:
 Figure~\ref{fig:CLTfaithful10} has the characteristic \emph{bell
   shape} of a Gaussian distribution, which is described by the
 following PDF:
-
 \begin{equation}
   f(x|\mu,\sigma) = \frac{1}{\sigma\sqrt{2\pi}}
   \exp\!\left[-\frac{(x-\mu)^2}{2\sigma^2}\right]
@@ -163,7 +157,7 @@ following PDF:
 distribution, provided that $n$ is large enough. This convergence is
 guaranteed \textit{regardless of the distribution of the original
   data}.  This mathematical law is called the \textbf{Central Limit
-  Theorem}.\\
+  Theorem}.\medskip
 
 The Gaussian distribution is known as the normal distribution because
 it naturally arises from \emph{additive processes}, which are very
@@ -172,7 +166,7 @@ distributions in a laboratory environment. There even exists a machine
 that generates normally distributed numbers:
 
 \noindent\begin{minipage}[t][][b]{.55\textwidth}
-  \includegraphics[width=\textwidth]{../figures/galtonsbeanmachine.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/galtonsbeanmachine.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.45\textwidth}
   \captionof{figure}{Galton's bean machine is a mechanical device that
@@ -207,34 +201,34 @@ distribution of Old Faithful eruption gaps and durations
 (Figure~\ref{fig:KDE2D}) is not really captured by any of the
 aforementioned distributions. In fact, it is quite easy to invent
 one's own distributions. Here are four examples of such creations in
-two-dimensional data space:\\
+two-dimensional data space:\medskip
 
 \noindent\includegraphics[width=\textwidth]{../figures/pop2d.pdf}
 \begingroup \captionof{figure}{Four synthetic, bivariate, continuous
   distributions, defined by black areas and lines. White areas are
-  excluded from the distributions.\\}
+  excluded from the distributions.\medskip}
 \label{fig:pop2d}
 \endgroup
 
 Let us collect $n=100$ random $(X,Y)$ samples from these four
-distributions and plot them as four scatter plots:\\
+distributions and plot them as four scatter plots:\medskip
 
 \noindent\includegraphics[width=\textwidth]{../figures/rand2d.pdf}
 \begingroup \captionof{figure}{It is easy to recognise the probability
   distributions of Figure~\ref{fig:pop2d} in the scatter plots of
-  $n=100$ random points selected from them.\\}
+  $n=100$ random points selected from them.\medskip}
 \label{fig:rand2d}
 \endgroup
 
 Next, we can calculate the sum of all the sampled points in each of
 the four panels in Figure~\ref{fig:rand2d}. This gives rise to four
 new pairs of coordinates. Repeating this experiment $N=200$ times and
-plotting the four resulting datasets as scatter plots:\\
+plotting the four resulting datasets as scatter plots:\medskip
 
 \noindent\includegraphics[width=\textwidth]{../figures/rand2dsum.pdf}
 \begingroup \captionof{figure}{Four scatter plots with $N=200$ points,
   each of which represents the sum of a random sample of $n=100$
-  points drawn from Figure~\ref{fig:pop2d}.\\}
+  points drawn from Figure~\ref{fig:pop2d}.\medskip}
 \label{fig:rand2sum}
 \endgroup
 
@@ -245,7 +239,6 @@ distributions (Figure~\ref{fig:pop2d}) and samples
 elliptical point cloud that is dense in the middle and thins out
 towards the edges. The density of the points per unit area is
 accurately described by a bivariate Gaussian distribution:
-
 \begin{equation}
 f(x,y|\mu_x,\mu_y,\sigma_x,\sigma_y,\sigma_{x,y}) = \frac{
 \exp\left(-
@@ -277,7 +270,7 @@ projections of the data on the X- and Y-axis yield two univariate
 Gaussian distributions.
 
 \noindent\begin{minipage}[t][][b]{.45\textwidth}
-  \includegraphics[width=\textwidth]{../figures/norm2dmarginal.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/norm2dmarginal.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.55\textwidth}
   \captionof{figure}{The main panel shows population 4 of
@@ -313,7 +306,7 @@ parameters:
   distribution for different values of $\mu$ and $\sigma$. $\mu$
   controls the position and $\sigma$ the width of the distribution. By
   definition, the area under the PDF always remains the same
-  (i.e. $\int_{-\infty}^{+\infty}f(x)~dx = 1$).\\}
+  (i.e. $\int_{-\infty}^{+\infty}f(x)~dx = 1$).\medskip}
 \label{fig:musigma}
 \endgroup
 
@@ -339,7 +332,7 @@ normal PDF is contained within an interval of $\mu\pm{1.96}\sigma$.
 \noindent\includegraphics[width=\textwidth]{../figures/cov.pdf}
 \begingroup \captionof{figure}{The standard deviations $\sigma_x$ and
   $\sigma_y$, and covariance $\sigma_{x,y}$ control the shape and
-  dispersion of the bivariate normal distribution.\\}
+  dispersion of the bivariate normal distribution.\medskip}
 \label{fig:cov}
 \endgroup
 
@@ -359,7 +352,6 @@ the data. Just like the binomial parameter $p$
 maximum likelihood.  Given $n$ data points $\{x_1, x_2, \ldots,
 x_n\}$, and using the multiplication rule, we can formulate the normal
 likelihood function as
-
 \begin{equation}
   \mathcal{L}(\mu,\sigma|x_1,x_2,\ldots,x_n) =
   \prod\limits_{i=1}^{n}f(x_i|\mu,\sigma)
@@ -368,7 +360,6 @@ likelihood function as
 
 $\mu$ and $\sigma$ can be estimated by maximising the likelihood or,
 equivalently, the log-likelihood:
-
 \begin{equation}
   \begin{split}
     \mathcal{LL}(\mu,\sigma|x_1,x_2,\ldots,x_n) & =
@@ -381,25 +372,26 @@ equivalently, the log-likelihood:
 
 Taking the derivative of $\mathcal{LL}$ with respect to $\mu$ and
 setting it to zero:
-
 \begin{equation}
   \begin{split}
-    \frac{\partial{\mathcal{LL}}}{\partial{\mu}} & =
-    - \sum\limits_{i=1}^{n} \frac{x_i-\mu}{\sigma^2} = 0 \\
-    & \Rightarrow n\mu - \sum\limits_{i=1}^{n} x_i = 0 \\
+    \left.\frac{\partial{\mathcal{LL}}}{\partial{\mu}}\right|_{\hat{\mu}} & =
+    - \sum\limits_{i=1}^{n} \frac{x_i-\hat{\mu}}{\sigma^2} = 0 \\
+    & \Rightarrow n\hat{\mu} - \sum\limits_{i=1}^{n} x_i = 0 \\
     & \Rightarrow \hat{\mu} = \frac{1}{n}\sum\limits_{i=1}^{n}x_i
   \end{split}
 \end{equation}
 
 \noindent which is the same as Equation~\ref{eq:mean}. Using the same
 strategy to estimate $\sigma$:
-
 \begin{equation}
   \begin{split}
-    \frac{\partial{\mathcal{LL}}}{\partial{\sigma}} & =
-    \sum\limits_{i=1}^{n} - \frac{1}{\sigma} +  \frac{(x_i-\mu)^2}{\sigma^3} = 0\\
-    & \Rightarrow  \sum\limits_{i=1}^{n} \frac{(x_i-\mu)^2}{\sigma^3} = \frac{n}{\sigma} \\
-    & \Rightarrow \hat{\sigma} = \sqrt{\frac{1}{n}\sum\limits_{i=1}^{n}(x_i-\mu)^2}
+    \left.\frac{\partial{\mathcal{LL}}}{\partial{\sigma}}\right|_\hat{\sigma} & =
+    \sum\limits_{i=1}^{n} - \frac{1}{\hat{\sigma}} +
+    \frac{(x_i-\mu)^2}{\hat{\sigma}^3} = 0\\
+    & \Rightarrow  \sum\limits_{i=1}^{n} \frac{(x_i-\mu)^2}{\hat{\sigma}^3} =
+    \frac{n}{\hat{\sigma}} \\
+    & \Rightarrow \hat{\sigma} =
+    \sqrt{\frac{1}{n}\sum\limits_{i=1}^{n}(x_i-\mu)^2}
   \end{split}
   \label{eq:stdevgivenmu}
 \end{equation}
@@ -429,7 +421,7 @@ fact that by using an estimate of the mean ($\bar{x}$), rather than
 the true value of the mean ($\mu$), we introduce an additional source
 of uncertainty in the estimate of the standard deviation. This
 additional uncertainty is accounted for by subtracting one
-\textbf{degree of freedom} from the model fit.\\
+\textbf{degree of freedom} from the model fit.\medskip
 
 Finally, for multivariate normal datasets, we can show that (proof
 omitted):

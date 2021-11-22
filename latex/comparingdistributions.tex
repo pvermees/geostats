@@ -5,10 +5,10 @@ The previous chapters have introduced a plethora of parametric
 distributions that allow us to test hypotheses and assess the
 precision of experimental results. However these inferences are only
 as strong as the assumptions on which they are based.  For example,
-chapter~\ref{ch:binomial} used a binomial distribution to assess the
+Chapter~\ref{ch:binomial} used a binomial distribution to assess the
 occurrence of gold in a prospecting area, assuming that the gold was
 randomly distributed across all the claims.  And
-chapter~\ref{ch:poisson} used a Poisson distribution to model
+Chapter~\ref{ch:poisson} used a Poisson distribution to model
 earthquakes, assuming that the earthquake catalog was free of clusters
 and that all aftershocks had been removed from it. This chapter will
 introduce some strategies to test these assumptions, both graphically
@@ -26,7 +26,7 @@ eruption duration dataset (Figure~\ref{fig:CLTfaithful1}) to a normal
 distribution:
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-  \includegraphics[width=\textwidth]{../figures/qqfaithful1.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/qqfaithful1.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{Quantile-quantile (Q-Q) plot of Old Faithful
@@ -42,7 +42,7 @@ distribution:
 \end{minipage}
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-  \includegraphics[width=\textwidth]{../figures/qqfaithful2.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/qqfaithful2.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{Q-Q plot of the dataset of 500 sums of $n = 2$
@@ -54,7 +54,7 @@ distribution:
 \end{minipage}
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-  \includegraphics[width=\textwidth]{../figures/qqfaithful10.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/qqfaithful10.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{Q-Q plot of the dataset of 500 sums of $n = 10$
@@ -76,7 +76,7 @@ theoretically predicted parametric distributions, but also to compare
 one sample with another. For example:
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-  \includegraphics[width=\textwidth]{../figures/qqfaithful12.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/qqfaithful12.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{ Q-Q plot comparing datasets
@@ -115,7 +115,6 @@ question, we assume that the sample mean $\bar{x}$ follows a normal
 distribution with mean $\mu$ and standard deviation $\sigma/\sqrt{n}$
 (following the same derivation as Equation~\ref{eq:stderrmean}). Thus,
 the parameter
-
 \begin{equation}
   z = \frac{\bar{x}-\mu}{\sigma/\sqrt{n}}
   \label{eq:z}
@@ -123,10 +122,9 @@ the parameter
 
 \noindent follows a \textbf{standard normal distribution} whose mean
 is zero and whose standard deviation is one. As we have seen in
-section~\ref{sec:normalparameters}, $\sigma$ is unknown but can be
+Section~\ref{sec:normalparameters}, $\sigma$ is unknown but can be
 estimated by the sample standard deviation $s[x]$. We can then
 replace Equation~\ref{eq:z} with a new parameter
-
 \begin{equation}
   t = \frac{\bar{x}-\mu}{s[x]/\sqrt{n}}
   \label{eq:t}
@@ -135,14 +133,14 @@ replace Equation~\ref{eq:z} with a new parameter
 However $t$ does not follow a normal distribution but a
 \textbf{Student t-distribution} with $(n-1)$ \textbf{degrees of
   freedom} where the $(n-1)$ plays a similar role as the Bessel
-correction of section~\ref{sec:normalparameters}. It accounts for the
+correction of Section~\ref{sec:normalparameters}. It accounts for the
 `double use' of the data to estimate both the mean and the standard
 deviation of the data. The t-distribution forms the basis of a
 statistical test that follows the same sequence of steps as in
-sections~\ref{sec:binomH} and \ref{sec:poishyp}.
+Sections~\ref{sec:binomH} and \ref{sec:poishyp}.
 
 \begin{enumerate}
-\item  Formulate two hypotheses:\\
+\item  Formulate two hypotheses:\medskip
 
   \noindent\begin{minipage}{.4\textwidth}
     $H_\circ$ (\textbf{null hypothesis})
@@ -215,7 +213,7 @@ We therefore conclude that the coins are not made of pure gold. Here
 is a graphical representation of this test:
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
-  \includegraphics[width=\textwidth]{../figures/1samplettest.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/1samplettest.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{a) PDF and b) CDF of a t-distribution with 4
@@ -252,7 +250,7 @@ have the \textit{same variance}, then we can test whether the
 difference between the two means is significant or not.
 
 \begin{enumerate}
-\item  Formulate two hypotheses:\\
+\item  Formulate two hypotheses:\medskip
 
   \noindent\begin{minipage}{.4\textwidth}
     $H_\circ$ (\textbf{null hypothesis})
@@ -274,7 +272,6 @@ difference between the two means is significant or not.
   \end{minipage}
   
 \item Calculate the following test statistic:
-
   \begin{equation}
     t = \frac{\bar{x}_1 - \bar{x}_2}{s_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}
     \label{eq:t2}
@@ -283,7 +280,6 @@ difference between the two means is significant or not.
   \noindent where $\bar{x}_1 = 19.164$, $n_1 = 5$, $\bar{x}_2 =
   19.275$, $n_2 = 4$, and $s_p$ is the \emph{pooled} standard
   deviation:
-
   \begin{equation}
     s_p = \sqrt{\frac{(n_1-1) s[x_1]^2 + (n_2-1) s[x_2]^2}{n_1 + n_2 - 2}}
     \label{eq:sp}
@@ -344,7 +340,7 @@ difference between the two means is significant or not.
 \end{enumerate}
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
-  \includegraphics[width=\textwidth]{../figures/2samplettest.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/2samplettest.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{a) PDF and b) CDF of a t-distribution with 7
@@ -361,7 +357,7 @@ difference between the two means is significant or not.
 
 Section~\ref{sec:t} introduced a powerful way to test whether the mean
 of a sample was equal to a particular value, or to the mean of another
-sample. However, section~\ref{sec:pitfalls} showed that formalised
+sample. However, Section~\ref{sec:pitfalls} showed that formalised
 tests such as the t-test have limited practical value. Provided that
 the sample is large enough, its mean will nearly always be
 `significantly' different than that of another sample. Suppose that we
@@ -369,14 +365,14 @@ were to average the densities of not five but five millions coins,
 then it would be extremely unlikely for the mean to be exactly 19.30
 g/cm\textsuperscript{3}. With a sample size of five million the power
 of the t-test would be such that even trace amounts of a lighter
-contaminant would have a detectable effect on the density.\\
+contaminant would have a detectable effect on the density.\medskip
 
 Instead of asking ourselves whether the coins have the same density as
 gold, it is more useful to know what the mean density actually is, and
 to construct a confidence interval for it. We could then use this
 information to learn something about the composition of the gold
 coins. To construct a confidence interval for the mean, we follow a
-similar procedure as laid out in sections~\ref{sec:binomCI} and
+similar procedure as laid out in Sections~\ref{sec:binomCI} and
 \ref{sec:poisCI}. Let us use the first set of coins as an example, and
 recall that the one sample t-statistic is defined as
 (Equation~\ref{eq:t1}):
@@ -420,7 +416,7 @@ Hence
   \label{eq:tci}
 \end{equation}
 
-For the gold coin example of section~\ref{sec:t}, $\bar{x}=19.164$,
+For the gold coin example of Section~\ref{sec:t}, $\bar{x}=19.164$,
 $s[x]=0.0948$, $df=4$ and $t_{4,0.025}=-2.776$. Hence the 95\%
 confidence interval for $\mu$ is
 $19.16\pm{0.12}$~g/cm\textsuperscript{3}. Note that this interval does
@@ -429,13 +425,13 @@ $19.16\pm{0.12}$~g/cm\textsuperscript{3}. Note that this interval does
 not made of pure gold. However, the upper limit of the 95\% confidence
 interval is 19.28~g/cm\textsuperscript{3}, which is not far off the
 19.30~cm\textsuperscript{3} value. Therefore it is possible that the
-amount of light contaminant is minor.\\
+amount of light contaminant is minor.\medskip
 
 With increasing sample size, the t-distribution converges towards the
 normal distribution:
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
-  \includegraphics[width=\textwidth]{../figures/tdof.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/tdof.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{a) PDFs and b) CDFs of the t-distribution for
@@ -461,7 +457,7 @@ Evaluating $t_{df,0.975}$ for different values of $df$:
 
 For large sample sizes, the 95\% percentile of the t-distribution is
 the same as the 95\% percentile of the normal distribution ($=1.962$,
-see section~\ref{sec:normalproperties}). In this case
+see Section~\ref{sec:normalproperties}). In this case
 Equation~\ref{eq:tci} simplifies to approximately
 \[
 \mu \in \left\{ \bar{x} \pm 2 s[\bar{x}] \right\}
@@ -471,7 +467,7 @@ Equation~\ref{eq:tci} simplifies to approximately
 (Equation~\ref{eq:stderrmean}).
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
-  \includegraphics[width=\textwidth]{../figures/normconf.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/normconf.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{The grey and black lines mark the PDFs (a) and
@@ -492,22 +488,22 @@ interval (i.e. Equation~\ref{eq:tci}).
 \label{sec:chi2}
 
 Comparing the means of two datasets is one way to assess their
-(dis)similarity. But as we have seen in chapter~\ref{ch:plotting} and
+(dis)similarity. But as we have seen in Chapter~\ref{ch:plotting} and
 Figure~\ref{fig:anscombe}, summary statistics like the mean do not
 always capture the data adequately. The $\chi^2$ (chi-square) test is
 an alternative approach, which uses a histogram to compare the
 \emph{shape} of a sample distribution with a theoretical distribution,
-or with another sample distribution.\\
+or with another sample distribution.\medskip
 
 To illustrate this method, let us go back to example~1 of
-chapter~\ref{ch:poisson}. Figure~\ref{fig:declusteredquakesperyear}
+Chapter~\ref{ch:poisson}. Figure~\ref{fig:declusteredquakesperyear}
 tallied the number of magnitude $\geq{5.0}$ earthquakes per year from
 1917 to 2016.  This histogram represents 100 years, with values
 ranging from 1 to 12 events per year. Based on the similarity of the
-mean (5.43) and the variance (6.25), chapter~\ref{ch:poisson}
+mean (5.43) and the variance (6.25), Chapter~\ref{ch:poisson}
 proceeded under the assumption that the data followed a Poisson
 distribution.  The $\chi^2$-test allows us to test this assumption
-more rigorously.\\
+more rigorously.\medskip
 
 We begin by counting the number of events in each bin of
 Figure~\ref{fig:declusteredquakesperyear}:
@@ -553,7 +549,6 @@ $\lambda=5.43$ (Equation~\ref{eq:poispmf}):
 
 \noindent where $N=100$ years. We can then compute the
 $\chi^2$-statistic:
-
 \begin{equation}
   \chi^2 = \sum\limits_{i=1}^{n} \frac{(O_i-E_i)^2}{E_i}
   \label{eq:chi2}
@@ -561,14 +556,14 @@ $\chi^2$-statistic:
 
 \noindent where $O_i$ stands for the `observed' and $E_i$ for the
 `expected' number of counts in the $i$\textsuperscript{th} out of
-$n=9$ bins.\\
+$n=9$ bins.\medskip
 
 Finally we compare the value of $\chi^2$ with a chi-square
 distribution with $n-2$ degrees of freedom, where one degree of
 freedom has been removed because we forced
 $\sum_{i=1}^nE_i=\sum_{i=1}^nO_i$, and another degree of freedom was
 subtracted because we used the data to estimate $\lambda$ when
-predicting the expected counts.\\
+predicting the expected counts.\medskip
 
 Applying the $\chi^2$-test to the earthquake data:
 
@@ -582,7 +577,6 @@ Applying the $\chi^2$-test to the earthquake data:
   the earthquake data do not follow a Poisson distribution
   
 \item Calculate the $\chi^2$-statistic using Equation~\ref{eq:chi2}:
-
   \begin{equation}
     \begin{split}
       \chi^2 = &
@@ -618,7 +612,7 @@ Applying the $\chi^2$-test to the earthquake data:
   distribution, because this indicates sample distributions that are
   very dissimilar from the theoretical distribution. The lower tail of
   the distribution groups samples that are very similar to the
-  predicted distribution (see section~\ref{sec:cherrypicking} for
+  predicted distribution (see Section~\ref{sec:cherrypicking} for
   further discussion). Marking the rejection region in bold:
   
   \begin{center}
@@ -640,7 +634,7 @@ Applying the $\chi^2$-test to the earthquake data:
 \end{enumerate}
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
-  \includegraphics[width=\textwidth]{../figures/chi2.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/chi2.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{a) PDF and b) CDF of the $\chi^2$-distribution
@@ -656,12 +650,12 @@ Applying the $\chi^2$-test to the earthquake data:
 \section{Comparing two or more samples}
 \label{sec:contingency}
 
-Recall that the t-test of section~\ref{sec:t} could either be used to
+Recall that the t-test of Section~\ref{sec:t} could either be used to
 compare the mean of a single sample with a particular value, or to
 compare the means of two samples. In a similar vein, the $\chi^2$-test
 can be used to compare either one sample to a theoretical
 distribution, or to compare two samples with each other. For example,
-let us compare the clast counts of section~\ref{sec:categorical} with
+let us compare the clast counts of Section~\ref{sec:categorical} with
 those of a second sample:
 
 \begin{center}
@@ -717,7 +711,7 @@ Equation~\ref{eq:chi2} to calculate a $\chi^2$-value. The null
 distribution of this statistic is $\chi^2$ with $(n_r-1)\times(n_c-1)$
 degrees of freedom, where $n_r$ is the number of rows and $n_c$ is the
 number of columns.  The $\chi^2$-test then proceeds in the same way as
-the one-sample case of section~\ref{sec:chi2}:
+the one-sample case of Section~\ref{sec:chi2}:
 
 \begin{enumerate}
 \item  Formulate two hypotheses:
@@ -730,7 +724,6 @@ the one-sample case of section~\ref{sec:chi2}:
 \item Calculate the $\chi^2$-statistic with Equation~\ref{eq:chi2},
   using table~\ref{tab:observedclasts} for the observed and
   table~\ref{tab:expectedclasts} for the predicted values:
-  
   \begin{equation}
     \begin{split}
       \chi^2 = &
@@ -783,7 +776,7 @@ the one-sample case of section~\ref{sec:chi2}:
 \end{enumerate}
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
-  \includegraphics[width=\textwidth]{../figures/chi22.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/chi22.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{a) PDF and b) CDF of the $\chi^2$-distribution
@@ -801,10 +794,10 @@ the one-sample case of section~\ref{sec:chi2}:
 The $\chi^2$-distribution only covers positive numbers, from 0 to
 $\infty$. Low $\chi^2$-values indicate a good fit of the data to the
 proposed distribution, and high $\chi^2$-values indicate a bad fit.
-This is why the $\chi^2$-tests of section~\ref{sec:chi2} were
+This is why the $\chi^2$-tests of Section~\ref{sec:chi2} were
 one-tailed tests: we want to identify the bad fits in order to reject
 the null hypothesis. However it would be wrong to ignore the good
-fits.\\
+fits.\medskip
 
 Section~\ref{sec:pitfalls} made the case that, in general, the desired
 outcome of a statistical test is the rejection of the null hypothesis.
@@ -814,7 +807,7 @@ the data pass a $\chi^2$-test for a Poisson distribution, then this
 allows us to model the data with a single number ($\lambda$). If the
 data fail the $\chi^2$-test, then we may have to abandon the
 simplicity of the Poisson distribution and use a more realistic but
-complex alternative.\\
+complex alternative.\medskip
 
 The desire to see the data pass a hypothesis test leads some
 scientists to \textbf{cherry pick} data. This means that they
@@ -823,16 +816,16 @@ remaining values pass the null hypothesis. It is important to remember
 that, even if the null hypothesis is true, we should still expect 5\%
 (if $\alpha=0.05$) of all samples fail the null hypothesis. That is,
 there is always a 5\% chance of committing a Type-I error
-(section~\ref{sec:typeI&II}).\\
+(Section~\ref{sec:typeI&II}).\medskip
 
 If all samples in a study have p-values of well over 0.05, then this
 should raise suspicion. For example, comparing a Poisson null
 distribution (a) with three samples (b--d):
 
-\noindent\includegraphics[width=\textwidth]{../figures/cherrypicking.pdf}\\
+\noindent\includegraphics[width=\textwidth]{../figures/cherrypicking.pdf}\medskip
 \begingroup
 \captionof{figure}{a) predicted frequency distribution for the zircon
-  count data of example~2 in chapter~\ref{ch:poisson}, following a Poisson
+  count data of example~2 in Chapter~\ref{ch:poisson}, following a Poisson
   distribution with $\lambda=3.50$ and $n=48$; b) -- d) three sample
   distributions with the $\chi^2$ statistic and p-values for
   comparison with distribution a; e) $\chi^2$-distribution with 5
@@ -842,7 +835,7 @@ distribution (a) with three samples (b--d):
   this difference falls within the expected range of random sampling
   variability of the Poisson distribution. Sample b is identical to
   the prediction a. This should raise suspicion. It is extremely
-  unlikely for a sample to fit the prediction so well.\\}
+  unlikely for a sample to fit the prediction so well.\medskip}
   \label{fig:cherrypicking}
 \endgroup
 
@@ -854,7 +847,7 @@ be extremely unlikely to happen by chance.
 \label{sec:effectsize}
 
 Let us carry out a similar experiment to
-section~\ref{sec:contingency}, but instead of counting a few
+Section~\ref{sec:contingency}, but instead of counting a few
 sedimentary clasts by hand, we task a machine to classify $\sim$10,000
 grains of sand by image recognition:
 
@@ -882,7 +875,7 @@ let's carry out a two-sample $\chi^2$-test to be sure.
   
 \item The expected number of counts for each cell of the contingency
   table is obtained using the procedure outlined in
-  section~\ref{sec:contingency}. Calculate the row and column sums:
+  Section~\ref{sec:contingency}. Calculate the row and column sums:
 
   \begin{center}
     \begin{tabular}{r|cccc|c}
@@ -958,16 +951,16 @@ So despite the close similarity of the point counts for samples A and
 B in table~\ref{tab:observedsand}, the $\chi^2$-test convincingly
 rejects the null hypothesis that they were drawn from the same
 population. To understand what is going on, we need to go back to
-section~\ref{sec:pitfalls}. This section explained that the power of a
+Section~\ref{sec:pitfalls}. This section explained that the power of a
 statistical test to evaluate a null hypothesis monotonically increase
-with sample size.\\
+with sample size.\medskip
 
 With a sample size of more than 100,000 counts per sample, it is not
 surprising that the $\chi^2$-test is able to detect even the tiniest
 difference between samples A and B.  In comparison, the two samples of
-section~\ref{sec:contingency} only contain 41 and 82 samples,
+Section~\ref{sec:contingency} only contain 41 and 82 samples,
 respectively. Consequently, it is more difficult to detect a small
-difference in composition between them.\\
+difference in composition between them.\medskip
 
 The power of a statistical test actually depends on two things:
 
@@ -981,7 +974,6 @@ The power of a statistical test actually depends on two things:
 
 The second factor is also known as the \textbf{effect size}. In the
 case of the $\chi^2$-distribution, the effect size is defined as:
-
 \begin{equation}
   w = \sqrt{\sum\limits_{i=1}^{n}\frac{\left(o_i-e_i\right)^2}{e_i}}
   \label{eq:effectsize}
@@ -1052,7 +1044,7 @@ about the data:
 
 These limitations can be avoided with \textbf{non-parametric tests},
 which offer greater flexibility than parametric tests whilst
-increasing robustness to outliers.\\
+increasing robustness to outliers.\medskip
 
 The \textbf{Wilcoxon test} (which is also known as the Mann-Whitney
 test) is a non-parametric alternative to the t-test. Consider two sets
@@ -1114,12 +1106,12 @@ The total number of arrangements that result in $W=10$ is $4!5!$ (2880
 possibilities). To compute the probability of $W=10$ under the null
 hypothesis, we must divide this value by the total number of
 permutations of the 9 values, which is $9!$ (see
-section~\ref{sec:permutations}). Therefore:
+Section~\ref{sec:permutations}). Therefore:
 \[
 P(W=10|n_A=5,n_B=4) = \frac{4!5!}{9!} = 0.00794
 \]
 
-The probability of other outcomes is computed in a similar fashion.\\
+The probability of other outcomes is computed in a similar fashion.\medskip
 
 Let us illustrate the Wilcoxon rank-sum test with the two-sample
 example of table~\ref{tab:2setcoins}:
@@ -1221,7 +1213,7 @@ example of table~\ref{tab:2setcoins}:
 \end{enumerate}
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
-  \includegraphics[width=\textwidth]{../figures/wilcox.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/wilcox.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{a) PMF and b) CDF of the Wilcoxon test statistic
@@ -1242,7 +1234,7 @@ x = \{x_1,x_2,\ldots,x_n\} \mbox{~and~} y = \{y_1,y_2,\ldots,y_m\}
 \]
 
 \noindent the Kolmogorov-Smirnov statistic is defined as the maximum
-vertical distance between the ECDFs (section~\ref{sec:ECDF}) of the
+vertical distance between the ECDFs (Section~\ref{sec:ECDF}) of the
 two samples:
 \begin{equation}
   D = \underset{z}{\mbox{max}} |F_x(z) - F_y(z)|
@@ -1251,7 +1243,7 @@ two samples:
 
 \noindent where $F_x$ and $F_y$ are the ECDFs of $x$ and $y$,
 respectively.  $D$ takes on values from 0 (two identical
-distributions) and 1 (no overlap between the two distributions).\\
+distributions) and 1 (no overlap between the two distributions).\medskip
 
 To illustrate the Kolmogorov-Smirnov method, consider two sand samples
 from China: one sample from the Yellow River, and one sample from a
@@ -1262,7 +1254,7 @@ distribution of the zircon dates serves as a characteristic
 `fingerprint' that can be used to compare the different samples.
 
 \noindent\begin{minipage}[t][][b]{.35\textwidth}
-  \includegraphics[width=\textwidth]{../figures/KS.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/KS.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.65\textwidth}
   \captionof{figure}{The two-sample Kolmogorov-Smirnov statistic is
@@ -1327,7 +1319,7 @@ The hypothesis test then proceeds as always:
 \end{enumerate}
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
-  \includegraphics[width=\textwidth]{../figures/KSdens.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/KSdens.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{a) PMF and b) CDF of the Kolmogorov-Smirnov
@@ -1347,7 +1339,7 @@ compare the dune sample with a normal distribution that has the same
 mean and standard deviation:
 
 \noindent\begin{minipage}[t][][b]{.35\textwidth}
-  \includegraphics[width=\textwidth]{../figures/KSnorm.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/KSnorm.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.65\textwidth}
   \captionof{figure}{Kolmogorov-Smirnov statistic for the comparison

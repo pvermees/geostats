@@ -23,19 +23,19 @@
 \contentsline {section}{\numberline {5.5}Pitfalls of statistical hypothesis testing}{42}{section.5.5}%
 \contentsline {section}{\numberline {5.6}Confidence intervals}{44}{section.5.6}%
 \contentsline {chapter}{\numberline {6}The Poisson distribution}{47}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Probability mass function}{49}{section.6.1}%
+\contentsline {section}{\numberline {6.1}Probability mass function}{48}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Parameter estimation}{50}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Hypothesis tests}{51}{section.6.3}%
+\contentsline {section}{\numberline {6.3}Hypothesis tests}{50}{section.6.3}%
 \contentsline {section}{\numberline {6.4}Multiple testing}{51}{section.6.4}%
 \contentsline {section}{\numberline {6.5}Confidence intervals}{52}{section.6.5}%
 \contentsline {chapter}{\numberline {7}The normal distribution}{55}{chapter.7}%
 \contentsline {section}{\numberline {7.1}The Central Limit Theorem}{56}{section.7.1}%
-\contentsline {section}{\numberline {7.2}The multivariate normal distribution}{58}{section.7.2}%
+\contentsline {section}{\numberline {7.2}The multivariate normal distribution}{57}{section.7.2}%
 \contentsline {section}{\numberline {7.3}Properties}{59}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Parameter estimation}{61}{section.7.4}%
-\contentsline {chapter}{\numberline {8}Error propagation}{63}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Linear approximation}{63}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Examples}{66}{section.8.2}%
+\contentsline {section}{\numberline {7.4}Parameter estimation}{60}{section.7.4}%
+\contentsline {chapter}{\numberline {8}Error estimation}{63}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Error propagation}{63}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Examples}{65}{section.8.2}%
 \contentsline {section}{\numberline {8.3}Standard deviation vs. standard error}{70}{section.8.3}%
 \contentsline {section}{\numberline {8.4}Fisher Information}{70}{section.8.4}%
 \contentsline {chapter}{\numberline {9}Comparing distributions}{73}{chapter.9}%
