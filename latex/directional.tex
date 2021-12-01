@@ -24,13 +24,13 @@ These values span a range from 0$^{\circ}$ and 360$^{\circ}$, where
 $0^{\circ}=360^{\circ}$. Plotting the data on a circle:
 
 \noindent\begin{minipage}[t][][b]{.2\textwidth}
-\includegraphics[width=\textwidth]{../figures/circle1.pdf}\\
+\includegraphics[width=\textwidth]{../figures/circle1.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.8\textwidth}
   \captionof{figure}{The orientations of 30~glacial striations. The
     values are roughly centered around zero but exhibit significant
     scatter, from the northwest (276$^\circ$) to the northeast
-    (79$^\circ$).\\}
+    (79$^\circ$).\medskip}
   \label{fig:circle1}
 \end{minipage}
 
@@ -38,14 +38,14 @@ Computing the arithmetic mean of these angles yields a value of
 189.2$^{\circ}$. This is a nonsensical result:
 
 \noindent\begin{minipage}[t][][b]{.2\textwidth}
-\includegraphics[width=\textwidth]{../figures/circle2.pdf}\\
+\includegraphics[width=\textwidth]{../figures/circle2.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.8\textwidth}
   \captionof{figure}{The same glacial striation data of
     Figure~\ref{fig:circle1}, with their arithmetic mean shown as an
     arrow. Even though the individual striations are all pointing
     north, their arithmetic mean is pointing in exactly the opposite
-    direction.\\}
+    direction.\medskip}
   \label{fig:circle2}
 \end{minipage}
 
@@ -69,7 +69,6 @@ $\theta = \{\theta_1, \ldots, \theta_i, \ldots \theta_n \}$ are $n$
 angles, then the resultant direction is obtained by summing the
 horizontal and vertical components of unit vectors pointing in these
 directions:
-
 \begin{equation}
   \overline{\theta} = \arctan\left(\frac{\sum_{i=1}^{n}
     \sin[\theta_i]}{\sum_{i=1}^{n}\cos[\theta_i]} \right)
@@ -79,21 +78,20 @@ directions:
 Applying this formula to the glacial striation data:
 
 \noindent\begin{minipage}[t][][b]{.2\textwidth}
-\includegraphics[width=\textwidth]{../figures/circle3.pdf}\\
+\includegraphics[width=\textwidth]{../figures/circle3.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.8\textwidth}
   \captionof{figure}{The vector sum of the 30 glacial striation
     measurements points in a direction of 357.6$^\circ$, which is
     marked by the arrow and does a much better job at capturing the
     `central' direction than the arithmetic mean of
-    Figure~\ref{fig:circle2} does.\\}
+    Figure~\ref{fig:circle2} does.\medskip}
   \label{fig:circle3}
 \end{minipage}
 
 Dividing the length of the vector sum by the number of measurements
 yields a new summary statistic, $\bar{R}$, which is shown as a thick
 black arrow in Figure~\ref{fig:vectorsum}.
-
 \begin{equation}
   \bar{R} = \sqrt{\left(\sum_{i=1}^{n} \sin[\theta_i]/n\right)^2 +
     \left( \sum_{i=1}^{n}\cos[\theta_i]/n \right)^2}
@@ -101,7 +99,7 @@ black arrow in Figure~\ref{fig:vectorsum}.
 \end{equation}
 
 \noindent\begin{minipage}[t][][b]{.45\textwidth}
-\includegraphics[width=\textwidth]{../figures/vectorsum.pdf}\\
+\includegraphics[width=\textwidth]{../figures/vectorsum.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.55\textwidth}
   \captionof{figure}{An average direction (dashed line) is obtained by
@@ -109,7 +107,7 @@ black arrow in Figure~\ref{fig:vectorsum}.
     arrows).  Scaling by the number of measurements (thick black
     arrow) yields a measure of concentration ($0 \leq \bar{R} \leq
     1$), which increases in length with decreasing angular dispersion
-    and vice versa.\\}
+    and vice versa.\medskip}
   \label{fig:vectorsum}
 \end{minipage}
 
@@ -117,7 +115,6 @@ This arrow shortens with increasing scatter and so $\bar{R}$ is not
 dispersion parameter like the standard deviation, but a
 \textit{concentration parameter}. To create a dispersion parameter, we
 can use $\bar{R}$ to define the \textbf{circular standard deviation}:
-
 \begin{equation}
   s_c = \sqrt{\ln(1/\bar{R}^2)}
   \label{eq:circularSD}
@@ -128,13 +125,13 @@ direction, $\bar{R} = 1$ and $s_c = 0$. If the data are evenly
 distributed around the circle, then $\bar{R} = 0$ and $s_c = \infty$.
 
 \noindent\begin{minipage}[t][][b]{.2\textwidth}
-\includegraphics[width=\textwidth]{../figures/lowconcentration.pdf}\\
+\includegraphics[width=\textwidth]{../figures/lowconcentration.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.8\textwidth}
   \captionof{figure}{When the directional measurements are greatly
     dispersed, the normalised vector sum $\bar{R}$ is short
     ($\bar{R}=0.125$ in this example), and the circular standard
-    deviation large ($s_c=4.16$).\\}
+    deviation large ($s_c=4.16$).\medskip}
   \label{fig:lowconcentration}
 \end{minipage}
 
@@ -146,7 +143,6 @@ same reason why it was inappropriate for compositional data: its tails
 go from $-\infty$ to $+\infty$ and do not fit within the constrained
 dataspace of the angles. The \textbf{von Mises distribution} does not
 suffer from this problem:
-
 \begin{equation}
   f(\theta|\mu,\kappa) \propto \exp[\kappa \cos(\theta-\mu)]
   \label{eq:vonMises}
@@ -162,13 +158,12 @@ $\kappa$-values to wide ones.
   distribution with different values for the mean $\mu$ and the
   concentration parameter $\kappa$, wrapped around a (grey)
   circle. The probability density is proportional to the distance from
-  the circle to the black line.\\}
+  the circle to the black line.\medskip}
 \label{fig:vonMises}\endgroup
 
 The parameter $\kappa$ is not easy to determine directly, but can be
 estimated indirectly via the concentration parameter $\bar{R}$ and the
 following approximation:
-
 \begin{equation}
   \hat{\kappa} = \frac{\bar{R}(p+1-\bar{R}^2)}{1-\bar{R}^2}
   \label{eq:kappa}
@@ -179,14 +174,14 @@ circular data and $p=2$ for spherical data
 (Section~\ref{sec:spherical-distributions}).
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-\includegraphics[width=\textwidth]{../figures/R2K.pdf}\\
+\includegraphics[width=\textwidth]{../figures/R2K.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{$\bar{R}$ and $\kappa$ are two concentration
     parameters for circular data. $\bar{R}$ is easier to calculate
     than $\kappa$ (using Equation~\ref{eq:circularR}), and can be
     converted to $\kappa$ in order to fit a von Mises distribution to
-    the data.\\}
+    the data.\medskip}
   \label{fig:R2K}
 \end{minipage}
 
@@ -195,7 +190,7 @@ Section~\ref{sec:circular} yields a value of $\bar{R}$ of 0.78, which
 corresponds to a $\kappa$-value of 2.8.
 
 \noindent\begin{minipage}[t][][b]{.4\textwidth}
-\includegraphics[width=\textwidth]{../figures/kappastriations.pdf}\\
+\includegraphics[width=\textwidth]{../figures/kappastriations.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.6\textwidth}
   \captionof{figure}{Density plot and rug plot for the glacial
@@ -204,7 +199,7 @@ corresponds to a $\kappa$-value of 2.8.
     mean $\mu=357.6^{\circ}$. In contrast with
     Figure~\ref{fig:vonMises}, in which the von Mises distribution was
     wrapped around a circle, here it is stretched out along a linear
-    interval from $-\pi$ to $+\pi$.\\}
+    interval from $-\pi$ to $+\pi$.\medskip}
   \label{fig:kappastriations}
 \end{minipage}
 
@@ -215,7 +210,6 @@ The principles of directional statistics can be generalised from the
 1-dimensional circular line in 2-dimensional space to a 2-dimensional
 spherical surface in 3-dimensional space. The coordinates of data in
 this space can be expressed as latitude ($l$) and longitude ($L$):
-
 \begin{equation}
   \left\{
   \begin{split}
@@ -228,7 +222,6 @@ this space can be expressed as latitude ($l$) and longitude ($L$):
 \end{equation}
 
 \noindent as strike (S) and dip (D):
-
 \begin{equation}
   \left\{
   \begin{split}
@@ -241,7 +234,6 @@ this space can be expressed as latitude ($l$) and longitude ($L$):
 \end{equation}
 
 \noindent or as azimuth (A) and dip (D):
-
 \begin{equation}
   \left\{
   \begin{split}
@@ -260,7 +252,7 @@ projection, using either a Wulff equal angle or a Schmidt equal area
 \textbf{stereonet}:
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
-\includegraphics[width=\textwidth]{../figures/wulffschmidt.pdf}\\
+\includegraphics[width=\textwidth]{../figures/wulffschmidt.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{a) Wulff equal angle and b) Schmidt equal area
@@ -268,14 +260,13 @@ projection, using either a Wulff equal angle or a Schmidt equal area
     of $0^{\circ}, 90^{\circ}, 180^{\circ}$ and $270^{\circ}$, and
     dips of $10^{\circ}$ and $90^\circ$. As the names suggest, the
     Wulff equal angle net preserves the shape of the circles, and the
-    Schmidt equal area net their size.\\}
+    Schmidt equal area net their size.\medskip}
   \label{fig:wulffschmidt}
 \end{minipage}
 
 The Wulff net is used in structural geology and the Schmidt net in
 crystallography. Given the Cartesian coordinates $\{x,y,z\}$, the
 stereographic projection proceeds as follows:
-
 \begin{equation}
   \left\{
   \begin{split}
@@ -286,7 +277,6 @@ stereographic projection proceeds as follows:
 \end{equation}
 
 \noindent for the Wulff net, and 
-
 \begin{equation}
   \left\{
   \begin{split}
@@ -297,7 +287,6 @@ stereographic projection proceeds as follows:
 \end{equation}
 
 \noindent for the Schmidt net, where
-
 \begin{equation}
   \left\{
   \begin{split}
@@ -314,13 +303,13 @@ Stereonets can be used to visualise
 \item geographical data:
 
 \noindent\begin{minipage}[t][][b]{.6\linewidth}
-\includegraphics[width=\textwidth]{../figures/Africa.pdf}\\
+\includegraphics[width=\textwidth]{../figures/Africa.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.4\linewidth}
   \captionof{figure}{a) Wulff and b) Schmidt projection of the African
     continent.  The Wulff net shows Africa in its right shape, and the
     Schmidt net shows it at the right size. No two dimensional
-    projection can achieve both goals at once.\\}
+    projection can achieve both goals at once.\medskip}
   \label{fig:Africa}
 \end{minipage}
 
@@ -334,12 +323,12 @@ inclination & 28.6 & 20.1 & 15.6 & 18.1 & 17.5 & 28.7 & 12.2 & 24.5 & 20.6 & 15.
 \end{tabular}
 
 \noindent\begin{minipage}[t][][b]{.3\linewidth}
-\includegraphics[width=\textwidth]{../figures/palaeomag.pdf}\\
+\includegraphics[width=\textwidth]{../figures/palaeomag.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\linewidth}
   \captionof{figure}{The palaeomagnetic declination (=azimuth) and
     inclination (=dip) of 10~samples shown in a Schmidt equal area
-    diagram.\\}
+    diagram.\medskip}
   \label{fig:palaeomag}
 \end{minipage}
 
@@ -352,14 +341,14 @@ dip & 28.4 & 35.3 & 41.0 & 39.6 & 48.3 & 34.7 & 34.5 & 36.0 & 34.2 & 28.7
 \end{tabular}  
 
 \noindent\begin{minipage}[t][][b]{.3\linewidth}
-\includegraphics[width=\textwidth]{../figures/fault.pdf}\\
+\includegraphics[width=\textwidth]{../figures/fault.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\linewidth}
   \captionof{figure}{10 fault plane measurements shown on a Wulff
     stereonet. The white cirles mark the `pole' of the planar
     measurements, i.e. a perpendicular line to the plane. The circular
     segments mark the intersection of the planes with bottom half of a
-    sphere, shown in an equal angle projection.\\}
+    sphere, shown in an equal angle projection.\medskip}
   \label{fig:fault}
 \end{minipage}
 
@@ -374,7 +363,6 @@ circular data in Sections~\ref{sec:circular} and
 distribution generalises the von-Mises distribution of
 Equation~\ref{eq:vonMises}.  In three dimensions, the density function
 for the vMF distribution is given by:
-
 \begin{equation}
   f(\{x,y,z\}|\{\mu_x,\mu_y,\mu_y\},\kappa) = \frac{\kappa\exp[\kappa
       (x\mu_x+y\mu_y+z\mu_z)]}{2\pi(\exp[\kappa]-\exp[-\kappa])}
@@ -386,7 +374,6 @@ representing the mean of the distribution in Cartesian coordinates,
 and $\kappa$ is the concentration parameter. $\mathbf{\mu}$ and
 $\kappa$ are unknown but can be estimated from the data using the
 vector sum. To average a collection of $n$ spherical measurements:
-
 \begin{equation}
   \left\{\bar{x},\bar{y},\bar{z}\right\} =
   \left\{\sum_{i=1}^{n}\frac{x_i}{n\bar{R}},
@@ -398,7 +385,6 @@ vector sum. To average a collection of $n$ spherical measurements:
 \noindent where $\{x_i,y_i,z_i\}$ are the Cartesian coordinates
 computed using Equation~\ref{eq:lL}, \ref{eq:SD} or \ref{eq:AD},
 and $\bar{R}$ is the concentration parameter:
-
 \begin{equation}
   \bar{R} = \frac{1}{n}
     \sqrt{\left(\sum_{i=1}^{n}x_i\right)^2 +
@@ -411,7 +397,6 @@ and $\bar{R}$ is the concentration parameter:
 Equation~\ref{eq:kappa} (with $p=2$).
 
 Then the average latitude and longitude are given by:
-
 \begin{equation}
   \left\{
   \begin{split}
@@ -422,7 +407,6 @@ Then the average latitude and longitude are given by:
 \end{equation}
 
 \noindent the average strike and dip:
-
 \begin{equation}
   \left\{
   \begin{split}
@@ -433,7 +417,6 @@ Then the average latitude and longitude are given by:
 \end{equation}
 
 \noindent and the average azimuth and dip:
-
 \begin{equation}
   \left\{
   \begin{split}
@@ -453,7 +436,6 @@ Applying this procedure to the palaeomagnetic and structural datasets:
     Figure~\ref{fig:palaeomag} shown in grey, with their vector mean
     marked as a black square. b) the fault data of
     Figure~\ref{fig:fault} in grey with the vector mean as a back
-    square and great circle.\\}
+    square and great circle.\medskip}
   \label{fig:sphericalmean}
 \end{minipage}
-

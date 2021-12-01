@@ -36,14 +36,14 @@ the three samples plot close together while the third one plots
 further away:
 
 \noindent\begin{minipage}[t][][b]{.25\textwidth}
-  \includegraphics[width=\textwidth]{../figures/PCA2Ddata.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/PCA2Ddata.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.75\textwidth}
   \captionof{figure}{Simple toy example of three samples that can be
     visualised on a two-dimensional scatter plot. There is no need to
     use unsupervised learning in this case. But we will use this
     simple dataset as a toy example to understand how Principal
-    Component Analysis works.\\}
+    Component Analysis works.\medskip}
   \label{fig:PCA2Ddata}
 \end{minipage}
 
@@ -122,7 +122,7 @@ Figure~\ref{fig:PCA2Ddata} with key elements of the PCA matrix
 decomposition:
 
 \noindent\begin{minipage}[t][][b]{.25\textwidth}
-  \includegraphics[width=\textwidth]{../figures/PCA2D1.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/PCA2D1.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.75\textwidth}
   \captionof{figure}{PCA decomposition of
@@ -130,7 +130,7 @@ decomposition:
     as a square, and $1_{2,1}C \pm L$ as a cross. The first principal
     direction (running from the upper left to the lower right) has
     been stretched by a factor of $(3.67/0.71) = 5.2$ w.r.t the second
-    principal direction, which runs perpendicular to it.\\}
+    principal direction, which runs perpendicular to it.\medskip}
   \label{fig:PCA2D1}
 \end{minipage}
 
@@ -139,13 +139,13 @@ Figure~\ref{fig:PCA2D1} yields the desired one-dimensional
 simplification of the data:
 
 \noindent\begin{minipage}[t][][b]{.25\textwidth}
-  \includegraphics[width=\textwidth]{../figures/PCA2D2.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/PCA2D2.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.75\textwidth}
   \captionof{figure}{Projection of the three data points on the two
     principal directions yields two principal components ($P$ in
     Equation~\ref{eq:P}), representing a one dimensional
-    representation of the two-dimensional data\\}
+    representation of the two-dimensional data\medskip}
   \label{fig:PCA2D2}
 \end{minipage}
 
@@ -159,7 +159,7 @@ that, to a first approximation, sample~1 is very different from
 samples~2 and 3, which are identical to each other. $PC2$ then
 captures the remaining information, which shows that samples~2 and 3
 are, in fact, not exactly identical. In the second principal
-direction, sample~1 falls in between samples $2$ and $3$.\\
+direction, sample~1 falls in between samples $2$ and $3$.\medskip
 
 The matrix decomposition of Equation~\ref{eq:PCA} contains information
 about both the samples (1, 2 and 3) and the variables ($a$ and $b$).
@@ -169,7 +169,7 @@ respectively.  We can graphically combine all this information in a
 \textbf{biplot}:
 
 \noindent\begin{minipage}[t][][b]{.25\textwidth}
-  \includegraphics[width=\textwidth]{../figures/PCA2D3.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/PCA2D3.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.75\textwidth}
   \captionof{figure}{A biplot of both principal components along with
@@ -178,7 +178,7 @@ respectively.  We can graphically combine all this information in a
     that between sample~1 (which is rich in $b$ and poor in $a$) and
     samples 2 \& 3 (which are poor in $b$ and rich in $a$). The second
     principal component captures the remaining variance, with sample~3
-    begin slightly richer in $a$ and $b$ than sample~2.\\}
+    begin slightly richer in $a$ and $b$ than sample~2.\medskip}
   \label{fig:PCA2D3}
 \end{minipage}
 
@@ -212,7 +212,7 @@ Wyoming    & 6.8 & 161 & 15.6 & 60
     visualised on a two-dimensional surface.}
   \label{tab:USArrests}
 \end{minipage}
-\endgroup\\
+\endgroup\medskip
 
 Applying PCA to Table~\ref{tab:USArrests} yields four principal
 components, the first two of which represent 62\% and 25\% of the
@@ -220,7 +220,7 @@ total variance, respectively.  Visualising the PCA results as a
 biplot:
 
 \noindent\begin{minipage}[t][][b]{.5\textwidth}
-  \includegraphics[width=\textwidth]{../figures/USArrests.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/USArrests.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.5\textwidth}
   \captionof{figure}{ PCA biplot of American crime statistics.  The
@@ -229,7 +229,7 @@ biplot:
     urban areas. States that have a lot of crime plot on the left hand
     side of the diagram, states with little crime plot towards the
     right.  Heavily urbanised states plot at the bottom of the
-    diagram, rural states plot near the top.\\}
+    diagram, rural states plot near the top.\medskip}
   \label{fig:USArrests}
 \end{minipage}
 
@@ -325,7 +325,7 @@ Plugging this table into an MDS algorithm produces the following
 output:
 
 \noindent\begin{minipage}[t][][b]{.4\textwidth}
-  \includegraphics[width=\textwidth]{../figures/eurodist.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/eurodist.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.6\textwidth}
   \captionof{figure}{MDS configuration of the European city distance
@@ -337,7 +337,7 @@ output:
     distances, it does not preserve the orientation of the cities. In
     this figure, the y-axis has been flipped, and the city locations
     are rotated $\sim 15^\circ$ in a clockwise sense compared to the
-    real map of Europe.\\}
+    real map of Europe.\medskip}
   \label{fig:eurodist}
 \end{minipage}
 
@@ -347,7 +347,7 @@ inches or any other unit) and plot them against the input distances
 \textbf{Shepard plot}:
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-  \includegraphics[width=\textwidth]{../figures/Shepard.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/Shepard.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{The Shepard plot of the European city distances
@@ -359,7 +359,7 @@ inches or any other unit) and plot them against the input distances
     points on this scatter plot. Most of the scatter of the data
     around the best fit line is caused by the fact that the input data
     are \emph{road distances}, which do not perfectly agree with the
-    straight line map distances.\\}
+    straight line map distances.\medskip}
   \label{fig:Shepard}
 \end{minipage}
 
@@ -396,7 +396,7 @@ are several ways to do so. In its simplest form (\textbf{classical
 are similar in many ways to the PCA algorithm outlined in
 Equations~\ref{eq:PCA}, \ref{eq:P} and \ref{eq:L}. An alternative and
 more widely used approach (\textbf{nonmetric MDS}) uses an iterative
-gradient search algorithm to minimise Equation~\ref{eq:stress}.\\
+gradient search algorithm to minimise Equation~\ref{eq:stress}.\medskip
 
 Nonmetric MDS is more flexible than classical MDS because it
 accommodates unconventional `dissimilarity' measures that do not
@@ -437,7 +437,7 @@ containing positive values and a zero diagonal. Thus it fulfils all
 the requirements for MDS analysis:
 
 \noindent\begin{minipage}[t][][b]{.4\textwidth}
-  \includegraphics[width=\textwidth]{../figures/DZmds.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/DZmds.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.6\textwidth}
   \captionof{figure}{MDS configuration of the detrital zircon U--Pb
@@ -446,7 +446,7 @@ the requirements for MDS analysis:
     $d[Y,T]=0.07$) and plot close together. Samples that have greatly
     differing age distributions (such as `Y' and `8') are
     characterised by high K-S statistics (e.g., $d[Y,5]=0.62$) and
-    plot far apart on the MDS map.\\}
+    plot far apart on the MDS map.\medskip}
   \label{fig:DZmds}
 \end{minipage}
 
@@ -460,7 +460,7 @@ in the dataset. We will introduce this algorithm using a simple
 2-dimensional dataset:
 
 \noindent\begin{minipage}[t][][b]{.25\textwidth}
-  \includegraphics[width=\textwidth]{../figures/kmeans1.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/kmeans1.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.75\textwidth}
   \captionof{figure}{A two-dimensional dataset to illustrate the
@@ -476,7 +476,7 @@ The k-means algorithm then proceeds as follows:
   them as the centroids of three clusters:
 
   \noindent\begin{minipage}[t][][b]{.25\linewidth}
-  \includegraphics[width=\textwidth]{../figures/kmeans2.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/kmeans2.pdf}\medskip
   \end{minipage}
   \begin{minipage}[t][][t]{.75\linewidth}
     \captionof{figure}{Data points 48, 100 and 130 were randomly
@@ -489,7 +489,7 @@ The k-means algorithm then proceeds as follows:
   closest to it:
 
   \noindent\begin{minipage}[t][][b]{.25\linewidth}
-  \includegraphics[width=\textwidth]{../figures/kmeans3.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/kmeans3.pdf}\medskip
   \end{minipage}
   \begin{minipage}[t][][t]{.75\linewidth}
     \captionof{figure}{Replace each of the question marks in
@@ -502,7 +502,7 @@ The k-means algorithm then proceeds as follows:
 \item Calculate a new centroid for each cluster:
 
   \noindent\begin{minipage}[t][][b]{.25\linewidth}
-    \includegraphics[width=\textwidth]{../figures/kmeans4.pdf}\\
+    \includegraphics[width=\textwidth]{../figures/kmeans4.pdf}\medskip
   \end{minipage}
   \begin{minipage}[t][][t]{.75\linewidth}
     \captionof{figure}{The grey symbols are the same as the black
@@ -518,7 +518,7 @@ The k-means algorithm then proceeds as follows:
 \item Repeat steps~2 and 3 until convergence is achieved:
 
   \noindent\begin{minipage}[t][][b]{.25\linewidth}
-  \includegraphics[width=\textwidth]{../figures/kmeans5.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/kmeans5.pdf}\medskip
   \end{minipage}
   \begin{minipage}[t][][t]{.75\linewidth}
     \captionof{figure}{Final classification of the data. Each of the 150
@@ -532,7 +532,7 @@ The k-means algorithm then proceeds as follows:
 The k-means algorithm can easily be generalised from two to more
 dimensions because the Euclidean distance
 (Equation~\ref{eq:euclidean}) can easily generalised to any number of
-dimensions.\\
+dimensions.\medskip
 
 The k-means algorithm is an unsupervised learning algorithm. This
 means that it is meant to be applied to data for which we do not know
@@ -545,7 +545,7 @@ the sepal length and width, plus the petal length and width of 50
 flowers from each of 3 species of iris:
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
-  \includegraphics[width=\textwidth]{../figures/Iris.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/Iris.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{Two-dimensional marginal distributions of
@@ -560,7 +560,7 @@ flowers from each of 3 species of iris:
     classification is not perfect. For example, the flower in the
     lower left corner of panel (4,2) belongs to \emph{setosa} but was
     incorrectly classified as \emph{versicolor} in
-    Figure~\ref{fig:kmeans5}.  \\}
+    Figure~\ref{fig:kmeans5}.  \medskip}
   \label{fig:Iris}
 \end{minipage}
 
@@ -618,7 +618,7 @@ example to introduce the method:
   \end{equation*}
 \end{minipage}
 \begin{minipage}[t][][b]{.25\textwidth}
-  \includegraphics[width=\textwidth]{../figures/hierarchical1.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/hierarchical1.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.5\textwidth}
   \captionof{figure}{A simple bivariate dataset that will be used to
@@ -646,16 +646,16 @@ The algorithm works as follows:
   numbers in step~\ref{it:hierachical1}) and join them together.
 
   \begin{minipage}[t][][b]{.3\linewidth}
-  \includegraphics[width=\linewidth]{../figures/hierarchical2.pdf}\\
+  \includegraphics[width=\linewidth]{../figures/hierarchical2.pdf}\medskip
   \end{minipage}
   \begin{minipage}[t][][b]{.3\linewidth}
-    \includegraphics[width=\linewidth]{../figures/tree1.pdf}\\
+    \includegraphics[width=\linewidth]{../figures/tree1.pdf}\medskip
   \end{minipage}
   \begin{minipage}[t][][b]{.4\linewidth}
   \captionof{figure}{First step of the hierarchical clustering
     process.  The closest two samples (1 and 3) have been grouped
     together into a new cluster (grey line, left). The results can
-    also be visualised as a tree or \textbf{dendrogram} (right).\\}
+    also be visualised as a tree or \textbf{dendrogram} (right).\medskip}
   \label{fig:hierarchical2}
   \end{minipage}
   
@@ -679,16 +679,16 @@ The algorithm works as follows:
   numbers in step~\ref{it:hierarchical2}) and join them together.
 
   \begin{minipage}[t][][b]{.3\linewidth}
-  \includegraphics[width=\linewidth]{../figures/hierarchical3.pdf}\\
+  \includegraphics[width=\linewidth]{../figures/hierarchical3.pdf}\medskip
   \end{minipage}
   \begin{minipage}[t][][b]{.3\linewidth}
-    \includegraphics[width=\linewidth]{../figures/tree2.pdf}\\
+    \includegraphics[width=\linewidth]{../figures/tree2.pdf}\medskip
   \end{minipage}
   \begin{minipage}[t][][b]{.4\linewidth}
   \captionof{figure}{The second step of the hierarchical clustering
     process shown as a scatter plot (left) and a dendrogram
     (right). The first order cluster is nested inside the second order
-    one.\\}
+    one.\medskip}
   \label{fig:hierarchical3}
   \end{minipage}
 
@@ -706,16 +706,16 @@ The algorithm works as follows:
   numbers in step~\ref{it:hierarchical3}) and join them together:
 
   \begin{minipage}[t][][b]{.3\linewidth}
-  \includegraphics[width=\linewidth]{../figures/hierarchical4.pdf}\\
+  \includegraphics[width=\linewidth]{../figures/hierarchical4.pdf}\medskip
   \end{minipage}
   \begin{minipage}[t][][b]{.3\linewidth}
-    \includegraphics[width=\linewidth]{../figures/tree3.pdf}\\
+    \includegraphics[width=\linewidth]{../figures/tree3.pdf}\medskip
   \end{minipage}
   \begin{minipage}[t][][b]{.4\linewidth}
   \captionof{figure}{The third step of the hierarchical clustering
     process shown as a scatter plot (left) and a dendrogram
     (right). The third cluster does not share any elements with the
-    first two clusters.\\}
+    first two clusters.\medskip}
   \label{fig:hierarchical4}
   \end{minipage}
 
@@ -734,23 +734,23 @@ The algorithm works as follows:
 \end{enumerate}
 
 Applying the same algorithm to Fisher's iris datasets produces a tree
-with 150 `leaves', each corresponding to a single flower:\\
+with 150 `leaves', each corresponding to a single flower:\medskip
 
 \noindent\includegraphics[width=\textwidth]{../figures/irishtree.pdf}
 \begingroup \captionof{figure}{Hierarchical clustering tree of
   R.A. Fisher's iris data. Labels have been omitted to reduce
-  clutter.\\}  \endgroup
+  clutter.\medskip}  \endgroup
 
 Recall that the `height' of the tree corresponds to the maximum
 possible distance between points belonging to two different clusters.
 The height changes rapidly between one and three clusters, indicating
 that these correspond to the most significant bifurcations. So let us
-`cut down' the tree at this level:\\
+`cut down' the tree at this level:\medskip
 
 \noindent\includegraphics[width=\textwidth]{../figures/irishtreecut.pdf}
 \begingroup \captionof{figure}{Cutting the tree at height=3.6 (dashed
   line) produces a simple tree with three branches, which can be used
-  to classify the iris flowers into three groups.\\} \endgroup
+  to classify the iris flowers into three groups.\medskip} \endgroup
 
 Given that we know the species of all 150 iris flowers in the dataset,
 we can assess the performance using a contingency table, just like

@@ -1293,15 +1293,14 @@ $4.500822\times{10}^{-5}\ll{0.05}$ and hence $H_\circ$ is clearly rejected.
 
 \begin{script}
 data(rbsr,package='geostats')
-plot(x=rbsr[,'RbSr'],y=rbsr[,'SrSr'])
+plot(x=rbsr$RbSr,y=rbsr$SrSr)
 \end{script}
 
 Calculate the correlation coefficient of \texttt{RbSr} and
 \texttt{SrSr}:
 
 \begin{script}[firstnumber=3]
-cormat <- cor(rbsr[,c('RbSr','SrSr')])
-r <- cormat[1,2]
+r <- cor(x=rbsr$RbSr,y=rbsr$SrSr)
 \end{script}
 
 \noindent which yields:
@@ -1313,53 +1312,10 @@ r <- cormat[1,2]
 [1] 0.9697158
 \end{console}
 
-\item Fit a line to the data using the method of least squares:
-
-\begin{script}[firstnumber=4]
-fit <- lm(SrSr ~ RbSr, data=rbsr)
-\end{script}
-
-\noindent which uses \texttt{R}'s \textbf{formula notation}
-(\verb|Y ~ X| where \texttt{X} is the independent variable and
-\texttt{Y} is the dependent variable).
-
-Query the slope and intercept:
-
-\begin{console}
-> fit$coefficients
-(Intercept)        RbSr 
- 0.69742660  0.01391808
-\end{console}
-
-So the best fit line is given by
-[\textsuperscript{87}Sr/\textsuperscript{86}Sr] = 0.696 + 0.014
-[\textsuperscript{87}Rb/\textsuperscript{86}Sr] (rounded to two
-significant digits). Add the best fit line to the existing
-scatter plot:
-
-\begin{script}[firstnumber=5]
-x <- range(rbsr[,'RbSr'])
-y <- fit$coefficients[1] + fit$coefficients[2]*x
-lines(x,y)
-\end{script}
-
-Or, equivalently:
-
-\begin{script}[firstnumber=6]
-y <- predict(fit, newdata=data.frame(RbSr=x))
-lines(x,y)
-\end{script}
-
-Or, shorter:
-
-\begin{script}[firstnumber=5]
-abline(fit)
-\end{script}
-
 \item Test the statistical significance of the correlation coefficient
   using Equation~\ref{eq:tr}:
 
-\begin{script}[firstnumber=6]
+\begin{script}[firstnumber=4]
 n <- nrow(rbsr)
 tstat <- r*sqrt(n-2)/sqrt(1-r^2)
 p <- pt(q=tstat,df=n-2)
@@ -1380,39 +1336,71 @@ is:
 [1] 8.779983e-06
 \end{console}
 
-Thus $H_\circ$ is rejected and the linear trend is real. An easier way
-to obtain the same result is to apply the \texttt{summary($\ldots$)}
-function to the output of the \texttt{lm($\ldots$)}:
+Thus $H_\circ$ is rejected and the linear trend is
+real. Alternatively, we can also perform the correlation test using
+\texttt{R}'s \texttt{cor.test($\ldots$)} function:
 
 \begin{console}
-> summary(fit)
-
-Call:
-lm(formula = SrSr ~ RbSr, data = rbsr)
-
-Residuals:
-      Min        1Q    Median        3Q       Max 
--0.007887 -0.004425 -0.002511  0.006451  0.009178 
-
-Coefficients:
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept) 0.697427   0.006273  111.18 3.57e-11 ***
-RbSr        0.013918   0.001004   13.86 8.78e-06 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-Residual standard error: 0.007092 on 6 degrees of freedom
-Multiple R-squared:  0.9697,	Adjusted R-squared:  0.9647 
-F-statistic: 192.1 on 1 and 6 DF,  p-value: 8.78e-06
+> h <- cor.test(x=rbsr$RbSr,y=rbsr$SrSr)
+> h$p.value
+[1] 8.779983e-06
 \end{console}
 
-\noindent in which we can recognise both the p-value and $r^2$, as
-well as lots of other information about the fit.
+\item Having demonstrated the statistical significance of the
+  correlation, we can now fit a line to the data using the method of
+  least squares:
 
-\item Construct a 95\% confidence envelope for the linear fit:
+\begin{script}[firstnumber=7]
+fit <- lm(SrSr ~ RbSr, data=rbsr)
+\end{script}
+
+\noindent which uses \texttt{R}'s \textbf{formula notation}
+(\verb|Y ~ X| where \texttt{X} is the independent variable and
+\texttt{Y} is the dependent variable)\footnote{Many other \texttt{R}
+  functions also accept formula notation, e.g. \texttt{plot(SrSr
+    \textasciitilde{} RbSr, data=rbsr)}}.
+
+The output of \texttt{lm($\ldots$)} can be queried like a list to
+retrieve the slope and intercept:
+
+\begin{console}
+> fit$coefficients
+(Intercept)        RbSr 
+ 0.69742660  0.01391808
+\end{console}
+
+The best fit line is given by
+[\textsuperscript{87}Sr/\textsuperscript{86}Sr] = 0.696 + 0.014
+[\textsuperscript{87}Rb/\textsuperscript{86}Sr] (rounded to two
+significant digits).
+
+\item Predict the \textsuperscript{87}Sr/\textsuperscript{86}Sr-value
+  for \textsuperscript{87}Rb/\textsuperscript{86}Sr = 10, say:
+  
+\begin{console}
+> fit$coefficients[1] + fit$coefficients[2]*10
+(Intercept)
+  0.8366074 
+\end{console}
+
+Equivalently:
+
+\begin{console}
+> predict(fit, newdata=data.frame(RbSr=10))
+        1 
+0.8366074
+\end{console}
+
+\item Add the best fit line to the existing scatter plot:
+
+\begin{script}[firstnumber=8]
+abline(fit)
+\end{script}
+
+Construct a 95\% confidence envelope for the linear fit:
 
 \begin{script}[firstnumber=9]
-x <- seq(from=min(rbsr[,'RbSr']),to=max(rbsr[,'RbSr']),length.out=20)
+x <- seq(from=min(rbsr$RbSr),to=max(rbsr$RbSr),length.out=20)
 pred <- predict(fit,newdata=data.frame(RbSr=x),
                 interval="confidence",level=0.95)
 matlines(x,pred,lty=1,col='black')
@@ -1449,12 +1437,12 @@ Section~\ref{sec:weightedregression} is not trivial in base
 \texttt{R}. Fortunately, the \texttt{geostats} package comes to the
 rescue:
 
-\begin{script}[firstnumber=2]
-y <- york(x=rbsr)
+\begin{script}[firstnumber=16]
+yfit <- york(x=rbsr)
 \end{script}
 
 The name of the weighted least squares regression refers to
-geophysicists Derek York, who developed an early version of the
+geophysicist Derek York, who developed an early version of the
 algorithm\footnote{York, D., 1968. Least squares fitting of a straight
   line with correlated errors. \emph{Earth and Planetary Science
     Letters}, 5, pp.320-324.}.

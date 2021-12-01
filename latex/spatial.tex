@@ -54,7 +54,7 @@ at this new location?
     measurement was taken. This chapter will use a geostatistical
     technique called \textbf{kriging} to estimate the (logarithm of)
     the zinc concentration at this location from the surrounding
-    measurements.\\}
+    measurements.\medskip}
   \label{fig:meusepoints}
 \end{minipage}
 
@@ -139,7 +139,6 @@ $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ \\
 
 We can then use the boxed values below the diagonal to define the
 sample \textbf{semivariance} as:
-
 \begin{equation}
 \gamma[h] = \sum\limits_{k}^{n(h)}\frac{(z_{i[k]}-z_{j[k]})^2}{2 n(h)}
 \end{equation}
@@ -151,7 +150,6 @@ For the data shown in Table~\ref{tab:h=100}, there are 166 sample
 pairs that fall within a distance of 150~m of each other (of which
 only 9 are shown due to space constraints), and the sample
 semivariance equals:
-
 \[
 \gamma[0<h\leq{150}] =
 \frac{0.16^2 + 0.66^2 + 0.82^2 + \ldots}{2 \times 166} = 0.10
@@ -186,7 +184,6 @@ $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ \\
 
 There are 530 sample pairs that fall within a 150--300~m distance of
 each other, resulting in a semivariance of:
-
 \[
 \gamma[150<h\leq{300}] =
 \frac{2.0^2 + 1.5^2 + 1.3^2 + 2.1^2 + \ldots}{2 \times 530} = 0.28
@@ -219,7 +216,6 @@ Now that we have quantified the degree of spatial variability or,
 equivalently, the degree of spatial correlation, the next step in the
 kriging method is to parameterise the semivariogram. There are several
 equations to do this, such as the spherical model:
-
 \begin{equation}
   \left\{
   \begin{aligned}
@@ -234,14 +230,12 @@ equations to do this, such as the spherical model:
 \end{equation}
 
 \noindent the exponential model:
-
 \begin{equation}
   \gamma[h] = c_s + (c_n-c_s) \exp\left[-\frac{h}{c_r}\right]
   \label{eq:semivariogramexponential}
 \end{equation}
 
 \noindent and the Gaussian model:
-
 \begin{equation}
   \gamma[h] = c_s + (c_n-c_s) \exp\left[-\frac{h^2}{c_r^2}\right]
   \label{eq:semivariogramgaussian}
@@ -251,7 +245,7 @@ equations to do this, such as the spherical model:
 \includegraphics[width=\textwidth]{../figures/semivariogramfit.pdf}
 \begingroup \captionof{figure}{Parametric semivariogram fits for the
   Meuse data, using the a) spherical, b) exponential, and c) Gaussian
-  models.\\}
+  models.\medskip}
 \label{fig:semivariogramfit}
 \endgroup
 
@@ -296,7 +290,6 @@ Danie Gerhardus Krige, who laid the foundations for the method in his
 Master's thesis.  Given the best analytical fit to the semivariogram,
 the kriging algorithm interpolates the data between the measurements
 as follows:
-
 \begin{equation}
 z(x_\circ,y_\circ) = \sum\limits_{i=1}^n w_i z(x_i,y_i)
 \label{eq:kriging}
@@ -312,7 +305,6 @@ and $\{x_\circ,y_\circ\}$ and on the spatial correlation at that
 distance, which is captured by the analytical fit to the
 semivariogram. The weights can be estimated with the following matrix
 expression:
-
 \begin{equation}
   \left[
     \begin{array}{@{}c@{}}
@@ -325,12 +317,12 @@ expression:
     \right]
   =
   \left[
-    \begin{array}{@{}cccccc@{}}
-      0 & \gamma[h_{1,2}] & \gamma[h_{1,3}] & \ldots & \gamma[h_{1,n}] & 1 \\
-      \gamma[h_{2,1}] & 0 & \gamma[h_{2,3}] & \ldots & \gamma[h_{2,n}] & 1 \\
-      \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
-      \gamma[h_{n,1}] & \gamma[h_{n,2}] & \gamma[h_{n,3}] & \ldots & 0 & 1 \\
-      1 & 1 & 1 & \ldots & 1 & 0 \\
+    \begin{array}{@{}ccccc@{}}
+      0 & \gamma[h_{1,2}] & \ldots & \gamma[h_{1,n}] & 1 \\
+      \gamma[h_{2,1}] & 0 & \ldots & \gamma[h_{2,n}] & 1 \\
+      \vdots & \vdots & \ddots & \vdots & \vdots \\
+      \gamma[h_{n,1}] & \gamma[h_{n,2}] & \ldots & 0 & 1 \\
+      1 & 1 & \ldots & 1 & 0 \\
     \end{array}
     \right]^{-1}
   \left[
@@ -348,7 +340,6 @@ expression:
 \noindent where $\lambda$ is a \textit{Lagrange multiplier} that is
 used to ensure that the weights add up to one; and $h_{i,j}$ is the
 distance between points $i$ and $j$:
-
 \begin{equation}
 h_{i,j} = \sqrt{(x_i-x_j)^2 + (y_i-y_j)^2}
 \end{equation}
@@ -358,7 +349,6 @@ $c_n = 0.035$, a sill $c_s = 0.64$ and a range $c_r =
 892$~metres. Fitting a kriging model to location
 $\{x_\circ=179850,y_\circ=331650\}$ of Figure~\ref{fig:meusepoints}
 then yields the following results:
-
 \begin{equation}
   \left[
     \begin{array}{@{}c@{}}
@@ -428,7 +418,7 @@ z_{x_\circ,y_\circ} = 0.0022 \times 6.93 - 0.00030 \times 7.04 +
 entire sampling area:
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
-\includegraphics[width=\textwidth]{../figures/meusecontour.pdf}\\
+\includegraphics[width=\textwidth]{../figures/meusecontour.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.39\textwidth}
   \captionof{figure}{
@@ -437,7 +427,7 @@ entire sampling area:
     Figure~\ref{fig:meusepoints} added as points of comparison. The
     extent of the contour plot is limited to immediate vicinity of the
     measurements because kriging is an interpolation method and
-    \emph{not} an \emph{extrapolation} method.\\
+    \emph{not} an \emph{extrapolation} method.\medskip
   }
   \label{fig:meusecontour}
 \end{minipage}
@@ -451,7 +441,6 @@ The uncertainty (variance) of the kriging estimate is given by
 \noindent where $\lambda$ is the Lagrange multiplier of
 Equation~\ref{eq:krigingweights}. For location
 $\{x_\circ=179850,y_\circ=331650\}$:
-
 \[
 s^2(x_\circ,y_\circ) = 0.0015 + 0.64 \times 0.0022 - 0.64 \times
 0.00030 + \ldots = 0.22
@@ -464,14 +453,14 @@ is $s[z]/z=\sqrt{0.22}=47$\%. Repeating this exercise for the entire
 grid of $\{x,y\}$-values:
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
-\includegraphics[width=\textwidth]{../figures/meusecontourerr.pdf}\\
+\includegraphics[width=\textwidth]{../figures/meusecontourerr.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.39\textwidth}
   \captionof{figure}{ Contour plot of the relative uncertainty
     (coefficient of variation) of the kriging interpolation estimates
     of Figure~\ref{fig:meusecontour}. Note how the uncertainties are
     the greatest near the edges of the dataset, confirming again that
-    kriging is not an extrapolation but an interpolation method.\\ }
+    kriging is not an extrapolation but an interpolation method.\medskip }
   \label{fig:meusecontourerr}
 \end{minipage}
 
@@ -486,13 +475,13 @@ that are made by ordinary kriging.  For example:
   assumption can be corrected by detrending the data.
 \item The semivariogram models of
   Section~\ref{sec:semivariogram-models} assumed that the spatial
-  correlation was \textbf{isotropic}. This means that the semivariance
-  was only a function of the lag and not of the direction. This
-  assumption may not always be appropriate. For example, valleys in a
-  fold-and-thrust belt may be preferentially oriented perpendicular to
-  the principal stress direction. To accommodate such situations,
-  anisotropic semivariogram models can be created that require
-  additional parameters.
+  correlation was \textbf{iso\-tro\-pic}. This means that the
+  semivariance was only a function of the lag and not of the
+  direction. This assumption may not always be appropriate. For
+  example, valleys in a fold-and-thrust belt may be preferentially
+  oriented perpendicular to the principal stress direction. To
+  accommodate such situations, anisotropic semivariogram models can be
+  created that require additional parameters.
 \item Using Equation~\ref{eq:kriging}, the kriging interpolation for a
   new location involved the values of all $n$ measurements.  This is
   fine for the relatively small Meuse dataset ($n=155)$, but for much
@@ -501,4 +490,3 @@ that are made by ordinary kriging.  For example:
   demanding.  This problem can be solved by interpolationg using only
   measurements that are reasonably close to the new sample.
 \end{enumerate}
-

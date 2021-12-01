@@ -2444,6 +2444,7 @@ L <- nrulers * rulers
 cairo(file='../../figures/loglogbritain.pdf',width=3,height=3)
 pars()
 fit <- lm(log(L)~log(rulers))
+err <- diff(confint(fit,level=0.95)[2,])/2
 plot(rulers,L,log='xy',bty='n',type='n',
      xlab='length of measuring rod [km]',ylab='length of coast [km]')
 lines(rulers,exp(fit$coef[1]+fit$coef[2]*log(rulers)))
@@ -2581,6 +2582,7 @@ fractaldim <- function(mat,nticks){
     legend('topright',bty='n',
            legend=paste0('y = ',signif(fit$coef[1],3),
                          signif(fit$coef[2],3),' x'))
+    invisible(fit)
 }
 
 tiff(file='Britain.tiff',width=512,height=512)
@@ -2609,7 +2611,8 @@ dev.off()
 
 cairo(file='../../figures/Britainboxcounts.pdf',width=3,height=3)
 pars()
-fractaldim(mat=Britain,nticks=nticks)
+britfit <- fractaldim(mat=Britain,nticks=nticks)
+err <- diff(confint(britfit,level=0.95)[2,])/2
 dev.off()
 
 Corsica <- raster2dat('Corsica.tif')
@@ -2703,7 +2706,8 @@ dev.off()
 
 cairo(file='../../figures/kochboxcounts.pdf',width=3,height=3)
 pars()
-fractaldim(mat=kochimg,nticks=rep(2,10)^(0:9))
+fit <- fractaldim(mat=kochimg,nticks=rep(2,10)^(0:9))
+err <- diff(confint(fit,level=0.95)[2,])/2
 dev.off()
 
 cairo(file='../../figures/sierpinski.pdf',width=12,height=2.5)
@@ -2725,7 +2729,8 @@ image(g,col=c('white','black'),axes=FALSE,asp=1)
 dev.off()
 
 sierpimg <- raster2dat('sierpinski.tif')
-png(file='../../figures/sierpinski.png',type='cairo',width=15,height=3,res=300,units='in')
+png(file='../../figures/sierpinski.png',type='cairo',
+    width=15,height=3,res=300,units='in')
 pars(mfrow=c(1,4),mar=rep(0,4))
 mat <- sierpimg
 crop <- rep(0,4)
@@ -2741,7 +2746,8 @@ dev.off()
 
 cairo(file='../../figures/sierpinskiboxcounts.pdf',width=3,height=3)
 pars()
-fractaldim(mat=sierpimg,nticks=rep(2,10)^(0:9))
+fit <- fractaldim(mat=sierpimg,nticks=rep(2,10)^(0:9))
+err <- diff(confint(fit,level=0.95)[2,])/2
 dev.off()
 
 cantor <- function(n,Y=0){
@@ -2779,8 +2785,8 @@ dev.off()
 
 cairo(file='../../figures/cantorloglog.pdf',width=3,height=3)
 pars()
-mult <- 1e4
-n <- 10
+mult <- 1e6
+n <- 11
 xy <- cantor(n=n,Y=0)
 l <- diff(xy$x)[seq(from=2,to=length(xy$x)-1,by=2)]*mult
 sizes <- exp(seq(from=log(min(l)),to=log(max(l)),length.out=n))
@@ -2788,11 +2794,14 @@ counts <- rep(0,n)
 for (i in 1:n){
     counts[i] <- sum(l>=sizes[i])
 }
+sizes <- sizes[1:(n-2)]
+counts <- counts[1:(n-2)]
 plot(sizes,counts,log='xy',bty='n',type='n',axes=FALSE,
      xlab='length of segment',ylab='number of segments')
-axis(side=1,at=c(1,10,100,1000))
-axis(side=2,at=c(1,10,100,1000))
+axis(side=1,at=c(10,100,1000,10000))
+axis(side=2,at=c(10,100,1000))
 fit <- lm(log(counts) ~ log(sizes))
+err <- diff(confint(fit,level=0.95)[2,])/2
 X <- range(sizes)
 Y <- exp(fit$coef[1] + log(X)*fit$coef[2])
 lines(X,Y)
@@ -3880,6 +3889,47 @@ Major <- read.csv(file="Major.csv",header=TRUE,row.names=1)
 cMajor <- log(Major) - rowMeans(log(Major)) %*% matrix(1,1,ncol(Major))
 pc <- prcomp(cMajor)
 biplot(pc,asp=1.1,col=c('gray50','black'))
+dev.off()
+
+cairo(file='../../figures/links.pdf',width=5,height=4.7)
+lwd <- 1.5
+par(mgp=c(1.3,0.5,0))
+layout(mat=rbind(c(1,2),c(3,4)),
+       width=c(0.5,0.5),
+       height=c(0.53,0.47))
+par(mar=c(0.75,2.5,0,1.5))
+biplot(pc,asp=1.1,col=c('gray75','gray55'))
+legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,0))
+lines(x=c(-1.58,-0.08),y=c(0.5,-1.11),lty=1,lwd=lwd)
+lines(x=c(-1.22,-0.20),y=c(0.05,-1.05),lty=1,lwd=lwd)
+par(mar=c(0.75,2.5,0,1.5))
+biplot(pc,asp=1.1,col=c('gray75','gray55'))
+legend('topleft',legend='c)',bty='n',cex=1.2,adj=c(2,0))
+lines(x=c(-1.60,1.23),y=c(0.51,-0.85),lty=1,lwd=lwd)
+lines(x=c(0.9,-0.08),y=c(0.8,-1.13),lty=1,lwd=lwd)
+par(mgp=c(1.5,0.5,0))
+par(mar=c(2.5,2.75,0,1.5))
+x <- log(Major$TiO2/Major$CaO)
+y <- log(Major$MnO/Major$MgO)
+dx <- diff(range(x))
+dy <- diff(range(y))
+plot(x=c(min(x)-dx/20,max(x)+dx/20),
+     y=c(min(y)-dy/20,max(y)+dy/20),
+     type='n',xlab=expression('ln[TiO'[2]*'/CaO]'),
+     ylab=expression('ln[MnO/MgO]'))
+legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(2,0))
+text(x=x,y=y,labels=rownames(Major))
+par(mar=c(2.5,2.50,0,1.5))
+x <- log(Major$K2O/Major$MgO)
+y <- log(Major$P2O5/Major$TiO2)
+dx <- diff(range(x))
+dy <- diff(range(y))
+plot(x=c(min(x)-dx/20,max(x)+dx/20),
+     y=c(min(y)-dy/20,max(y)+dy/20),
+     type='n',xlab=expression('ln[K'[2]*'O/CaO]'),
+     ylab=expression('ln[P'[2]*'O'[5]*'/TiO'[2]*']'))
+legend('topleft',legend='d)',bty='n',cex=1.2,adj=c(2,0))
+text(x=x,y=y,labels=rownames(Major))
 dev.off()
 
 cairo(file='../../figures/AFM.pdf',width=3,height=3)

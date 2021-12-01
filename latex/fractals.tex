@@ -9,7 +9,7 @@ with magnitude 4.5 or greater, which was downloaded when this text was
 written.
 
 \noindent\begin{minipage}[t][][b]{.4\textwidth}
-  \includegraphics[width=\textwidth]{../figures/recentquakes.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/recentquakes.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.6\textwidth}
   \captionof{figure}{Histogram for 20,000 recent earthquakes of
@@ -29,10 +29,10 @@ $\chi^2$- or Kolmogorov-Smirnov test to show that the log of the clast
 sizes follows a normal distribution.  This type of skewed
 distribution, which becomes normal after taking logarithms, is called
 a \textbf{lognormal} distribution. Let's see if this procedure also
-works for the earthquake data:\\
+works for the earthquake data:\medskip
 
 \noindent\begin{minipage}[t][][b]{.4\textwidth}
-  \includegraphics[width=\textwidth]{../figures/recentlogquakes.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/recentlogquakes.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.6\textwidth}
   \captionof{figure}{ The histogram of the logarithm of the 20,000
@@ -60,7 +60,7 @@ taking the logarithm of the earthquake magnitudes, let us take the
 logarithm of the frequencies:
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-  \includegraphics[width=\textwidth]{../figures/gutenberg.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/gutenberg.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{ Bivariate scatter plot of
@@ -123,7 +123,7 @@ earthquakes of the past century:
 
 \noindent then that amounts to 5 events. This seems to indicate that
 the short term earthquake record can indeed be used to make long term
-predictions.\\
+predictions.\medskip
 
 Power-law relationships are found in many other geoscience fields. For
 example, in hydrology:
@@ -171,14 +171,14 @@ In a famous paper\footnote{Mandelbrot, B., 1967. How long is the coast
   dimension. \textit{Science}, 156(3775), pp.636-638.}, Benoit
 Mandelbrot showed that it is impossible to unequivocally pin down the
 circumference of Britain. The answer depends on the length of the
-measuring rod:\\
+measuring rod:\medskip
 
 \noindent\includegraphics[width=\textwidth]{../figures/britain.pdf}
 \begingroup
 \captionof{figure}{Five attempts to measure the length of
   Britain's coastline. Different results are obtained depending on the
   length of the measuring rod used for the measurements. The shorter
-the yardstick (shown as error bars), the longer the estimate.\\}
+the yardstick (shown as error bars), the longer the estimate.\medskip}
 \endgroup
 
 However this seemingly complex phenomenon can be fully captured by a
@@ -186,16 +186,16 @@ simple \textbf{power law} equation. Plotting the length of the coastline
 against the size of the measuring rod on a log-log scale:
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-  \includegraphics[width=\textwidth]{../figures/loglogbritain.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/loglogbritain.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{Setting out the length of the British coast line
     against the length of the measuring rod on a log-log scale
-    produces a linear trend with a slope of -0.253. This line can be
-    extrapolated to lower values to estimate the length that would be
-    measured with even smaller measuring rods. For example, if we were
-    to measure the British coast with a 30~cm long ruler, then this
-    would produce a result of
+    produces a linear trend with a slope of $-0.253\pm{0.018}$ (95\%
+    confidence). This line can be extrapolated to lower values to
+    estimate the length that would be measured with even smaller
+    measuring rods. For example, if we were to measure the British
+    coast with a 30~cm long ruler, then this would produce a result of
     $\exp(9.18-0.253\ln[3\times{10}^{-4}])=42,060$~km!  }
   \label{fig:loglogbritain}
 \end{minipage}
@@ -207,7 +207,7 @@ coast.  Plotting this number against the length of the measuring rod
 on a log-log plot also produces a straight line:
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-  \includegraphics[width=\textwidth]{../figures/fractaldimbritain.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/fractaldimbritain.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{The same data as Figure~\ref{fig:loglogbritain}
@@ -221,7 +221,7 @@ on a log-log plot also produces a straight line:
 \textbf{Box counting} is another way to obtain this result. Instead of
 approximating the British coast with a set of line segments, this
 method covers the coast with a set of boxes. Varying the box size and
-counting the number of boxes needed to cover the entire coast:\\
+counting the number of boxes needed to cover the entire coast:\medskip
 
 \noindent\includegraphics[width=\textwidth]{../figures/Britainboxes.png}
 \begingroup \captionof{figure}{Box counting of the British coast using
@@ -229,42 +229,43 @@ counting the number of boxes needed to cover the entire coast:\\
   $64\times{64}$, and $128\times{128}$ grid. Black squares overlap
   with the coastline, white squares do not. The legends in the upper
   right corner of each subpanel specify the number of black squares
-  relative to the total number of squares.\\}
+  relative to the total number of squares.\medskip}
   \label{fig:Britainboxes}
 \endgroup
 
 Instead of plotting the number of line segments against their size, we
 plot the number of boxes against their size (width). This produces a
 linear trend that has a different intercept than
-Figure~\ref{fig:Britainboxes}, but a similar slope:\\
+Figure~\ref{fig:Britainboxes}, but a similar slope:\medskip
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-  \includegraphics[width=\textwidth]{../figures/Britainboxcounts.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/Britainboxcounts.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{Plotting the number of boxes against their size
-    on a log-log diagram yields a linear array with a slope of -1.28.
-    This is similar to the value obtained by the polygonal line
-    segment method of Figure~\ref{fig:fractaldimbritain}.  }
+    on a log-log diagram yields a linear array with a slope of
+    $-1.28\pm{0.10}$.  This is similar to the value obtained by the
+    polygonal line segment method of
+    Figure~\ref{fig:fractaldimbritain}.  }
   \label{fig:Britainboxcounts}
 \end{minipage}
 
 The box counting method is more flexible, and therefore more widely
 used, than the line segment method. For example, applying the same
-technique to a river network:\\
+technique to a river network:\medskip
 
 \noindent\includegraphics[width=\textwidth]{../figures/Corsica.png}
 \begingroup \captionof{figure}{Box counting of the river network on
   the island of Corsica (France). Black boxes overlap with rivers,
   white boxes do not.  Legends are as in
-  Figure~\ref{fig:Britainboxes}.\\}
+  Figure~\ref{fig:Britainboxes}.\medskip}
 \label{fig:Corsica}
 \endgroup
 
 \noindent and visualising the results on a log-log plot:
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-  \includegraphics[width=\textwidth]{../figures/Corsicaboxcounts.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/Corsicaboxcounts.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{Log-log plot of the box counting results of
@@ -283,7 +284,7 @@ The first of these synthetic patterns is the \textbf{Koch curve},
 which is created by a simple \textbf{recursive algorithm}.
 
 \noindent\begin{minipage}[t][][b]{.5\textwidth}
-  \includegraphics[width=\textwidth]{../figures/koch1.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/koch1.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.5\textwidth}
   \captionof{figure}{A 1\textsuperscript{st} order Koch curve is
@@ -296,7 +297,7 @@ which is created by a simple \textbf{recursive algorithm}.
 \end{minipage}
 
 \noindent\begin{minipage}[t][][b]{.5\textwidth}
-  \includegraphics[width=\textwidth]{../figures/koch2.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/koch2.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.5\textwidth}
   \captionof{figure}{A 2\textsuperscript{nd} order Koch curve is
@@ -308,7 +309,7 @@ which is created by a simple \textbf{recursive algorithm}.
 \end{minipage}
 
 \noindent\begin{minipage}[t][][b]{.5\textwidth}
-  \includegraphics[width=\textwidth]{../figures/koch3.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/koch3.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.5\textwidth}
   \captionof{figure}{A 3\textsuperscript{rd} order Koch curve is
@@ -320,7 +321,7 @@ which is created by a simple \textbf{recursive algorithm}.
 \end{minipage}
 
 \noindent\begin{minipage}[t][][b]{.5\textwidth}
-  \includegraphics[width=\textwidth]{../figures/koch6.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/koch6.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.5\textwidth}
   \captionof{figure}{This is a 6\textsuperscript{th} order Koch curve,
@@ -336,28 +337,28 @@ to the British coast line, which also produces ever more detail as we
 zoom into the map. Measuring the length of a Koch curve presents the
 same difficulty as measuring the length of the British coastline: the
 answer depends on the length of the measuring rod. Applying the box
-counting method to the Koch curve:\\
+counting method to the Koch curve:\medskip
 
 \noindent\includegraphics[width=\textwidth]{../figures/koch.png}
 \begingroup \captionof{figure}{Box counting of the
   6\textsuperscript{th} order Koch curve. The larger the boxes, the
   fewer of them are needed to cover the entire curve. The recursive
   order of the Koch curve can be increased indefinitely, and so does
-  the number of small boxes needed to cover them.\\}
+  the number of small boxes needed to cover them.\medskip}
 \label{fig:kochboxes}
 \endgroup
 
 Plotting the results on a frequency-magnitude log-log plot:
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-  \includegraphics[width=\textwidth]{../figures/kochboxcounts.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/kochboxcounts.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{Log-log plot setting out the number of boxes
     needed to cover the 6\textsuperscript{th} order Koch curve of
     Figure~\ref{fig:koch6} against the size of those boxes.  The best
-    fitting line has a slope of 1.21, which is similar to the slope of
-    the box-counting results for the British coastline
+    fitting line has a slope of $-1.21\pm{0.07}$, which is similar to
+    the slope of the box-counting results for the British coastline
     (Figure~\ref{fig:Britainboxcounts}).  }
   \label{fig:kochboxcounts}
 \end{minipage}
@@ -365,7 +366,7 @@ Plotting the results on a frequency-magnitude log-log plot:
 The similarity of Figures~\ref{fig:Britainboxcounts} and
 \ref{fig:kochboxcounts} suggest that the Koch curve serves as an
 \emph{artificial coastline}. The Koch curve is just one of many
-artificial fractals. Here is another one:\\
+artificial fractals. Here is another one:\medskip
 
 \noindent\includegraphics[width=\textwidth]{../figures/sierpinski.pdf}
 \begingroup \captionof{figure}{The \textbf{Sierpinski carpet} is
@@ -375,62 +376,73 @@ artificial fractals. Here is another one:\\
   to right, this figure shows the first four levels of recursion for
   this algorithm. The end result is an arrangement of small and large
   holes that shares many characteristics with the size distribution of
-  Finnish lakes shown in Figure~\ref{fig:Finland}.\\ }
+  Finnish lakes shown in Figure~\ref{fig:Finland}.\medskip }
 \label{fig:sierpinski}
 \endgroup
 
 One thing that the Koch curve and Sierpinski carpet have in common
 is their \textbf{self-similarity}. Their level of complexity remains
 the same regardless of scale. Whether one zooms in or out of the picture,
-the complexity remains the same.\\
+the complexity remains the same.\medskip
 
 Because it consists of boxes, the Sierpinski carpet is ideally suited
 for box counting. We can either cover the black areas with boxes, or
 do the same with the white areas. Here is the resulting log-log
-plot:\\
+plot:\medskip
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-  \includegraphics[width=\textwidth]{../figures/sierpinskiboxcounts.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/sierpinskiboxcounts.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{Log-log plot of the box counting results for the
     Sierpinski carpet. This pattern in ideally suited for box
     counting, resulting in a perfect linear fit. Note how the slope of
-    the best fitting line (1.92) is higher than that of the Koch curve
-    (slope=1.21). It is similar to the slope that would be obtained by
-    box-counting the Finnish lakes of Figure~\ref{fig:Finland}, which
-    similar to $1-x$ where $x$ is the slope of the size-frequency plot
-    of the Finnish lakes (Figure~\ref{fig:Finlandpowerlaw}).}
+    the best fitting line ($-1.92\pm{0.02}$) is greater than that of
+    the Koch curve (Figure~\ref{fig:kochboxcounts}). It is similar to
+    the slope that would be obtained by box-counting the Finnish lakes
+    of Figure~\ref{fig:Finland}, which similar to $x-1$ where $x$ is
+    the slope of the size-frequency plot of the Finnish lakes
+    (Figure~\ref{fig:Finlandpowerlaw}).}
   \label{fig:sierpinskiboxcounts}
 \end{minipage}
 
 Mathematically, the linear fit of the log-log plots can written as
 \begin{equation}
-  \ln[\mbox{number of boxes}] = C + D \times \ln[\mbox{size of boxes}]
+  \ln[\mbox{number of boxes}] = C - D \times \ln[\mbox{size of boxes}]
   \label{eq:fractaldim}
 \end{equation}
 
-The slope of the line ($D$) is also known as the \textbf{fractal
-  dimension} of the pattern. It is called a \emph{dimension} because
-it has all the characteristics of the spatial dimensions, which can be
-used to chacterise a point ($D=0$), a line ($D=1$), a plane ($D=2$) or
-a cube ($D=3$). But whereas these traditional notions of  dimension
-are tied to integer numbers, the dimensionality of fractals
-is quantified by a non-integer \emph{fraction}.\\
+The slope magnitude of the line ($D$) is also known as the
+\textbf{fractal dimension} of the pattern. It is called a
+\emph{dimension} because it has all the characteristics of the spatial
+dimensions, which can be used to chacterise a point ($D=0$), a line
+($D=1$), a plane ($D=2$) or a cube ($D=3$). But whereas these
+traditional notions of dimension are tied to integer numbers, the
+dimensionality of fractals is quantified by a non-integer
+\emph{fraction}. Formalising the box-counting procedure leads to an
+alternative definition of the fractal dimension:
+\begin{equation}
+  D = -\lim\limits_{\epsilon \to 0}\frac{\ln{N(\epsilon)}}{\ln{\epsilon}}
+  \label{eq:Minkowski}
+\end{equation}
 
-The fractal dimension of a Koch curve is $D=1.21$
-(Figure~\ref{fig:kochboxcounts}). This is a number between $D=1$ (a
-line) and $D=2$ (a plane). It reflects the intricate curvature of the
-Koch curve, which partly `fills' the 2-dimensional plane.  The
-Sierpinski carpet has a fractal dimension of $D=1.92$. This number,
+\noindent where $\epsilon$ is the size of the box and $N(\epsilon)$ is
+the number of boxes needed to cover the feature of
+interest. Equation~\ref{eq:Minkowski} can be used to obtain exact
+analytical expressions for deterministic fractals. Thus, it can be
+shown that the fractal dimension of a Koch curve is
+$D=\log_{3}(4)=1.262$. This is a number between $D=1$ (a line) and
+$D=2$ (a plane). It reflects the intricate curvature of the Koch
+curve, which partly `fills' the 2-dimensional plane.  The Sierpinski
+carpet has a fractal dimension of $D=\log_{3}(8)=1.893$. This number,
 too, falls between the dimensionalities of a line and a plane. But it
-is more similar to a plane than it is to a line.\\
+is more similar to a plane than it is to a line.\medskip
 
 Other shapes exist that have fractal dimensions between $0 < D < 1$ or
 between $2 < D < 3$. Consider, for example, the \textbf{Cantor set}:
 
 \noindent\begin{minipage}[t][][b]{.4\textwidth}
-  \includegraphics[width=\textwidth]{../figures/cantor.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/cantor.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.6\textwidth}
   \captionof{figure}{The Cantor set is generated using a recursive
@@ -444,15 +456,16 @@ between $2 < D < 3$. Consider, for example, the \textbf{Cantor set}:
 Plotting the size distribution of the Cantor set on a log-log scale:
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-  \includegraphics[width=\textwidth]{../figures/cantorloglog.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/cantorloglog.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{The y-axis shows the number of linear segments in
     the Cantor set that exceed the length shown on the x-axis. The
-    values form a power law with a fractal dimension of $D=0.68$. In
-    fact it can be shown that the exact value is $D=\ln[2]/\ln[3]$.
-    With a fractal dimension between zero and one, the Cantor set
-    falls somewhere between a point and a line.  }
+    values form a power law with a fractal dimension of
+    $D=0.64\pm{0.01}$.  Using Equation~\ref{eq:Minkowski}, it can be
+    shown that the exact value is $D=\ln[2]/\ln[3]=0.631$. With a
+    fractal dimension between zero and one, the Cantor set falls
+    somewhere between a point and a line.}
   \label{fig:cantorloglog}
 \end{minipage}
 
@@ -462,7 +475,7 @@ Plotting the size distribution of the Cantor set on a log-log scale:
 Consider the following experimental setup:
 
 \noindent\begin{minipage}[t][][b]{.4\textwidth}
-  \includegraphics[width=\textwidth]{../figures/pendulum.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/pendulum.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.6\textwidth}
   \captionof{figure}{A pendulum is swinging above three magnets. The
@@ -480,13 +493,13 @@ Despite the simplicity of this setup, it can lead to some complex
 behaviour.
 
 \noindent\begin{minipage}[t][][b]{.33\textwidth}
-  \includegraphics[width=\textwidth]{../figures/3magnets1.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/3magnets1.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.67\textwidth}
   \captionof{figure}{This figure shows the three magnet configuration
     of Figure~\ref{fig:pendulum} in map view. The black line marks the
     trajectory of the pendulum after it was pushed southward from a
-    position towards the northeast of the three magnets.  After
+    position towards the northwest of the three magnets.  After
     describing a circular motion, the bob of the pendulum accelerates
     towards the second magnet, gets deflected by it, and slows down.
     It then heads towards the third magnet and the first magnet before
@@ -499,7 +512,7 @@ Moving the initial position of the bob slightly to the south of the
 previous position results in a different outcome:
 
 \noindent\begin{minipage}[t][][b]{.33\textwidth}
-  \includegraphics[width=\textwidth]{../figures/3magnets2.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/3magnets2.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.67\textwidth}
   \captionof{figure}{The experimental setup shown in this figure is
@@ -521,7 +534,7 @@ position. Evaluating the outcomes along a $512\times{512}$ grid of
 initial values:
 
 \noindent\begin{minipage}[t][][b]{.4\textwidth}
-  \includegraphics[width=\textwidth]{../figures/3magnets.png}\\
+  \includegraphics[width=\textwidth]{../figures/3magnets.png}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.6\textwidth}
   \captionof{figure}{This intricate picture colour codes the initial
@@ -543,7 +556,7 @@ The strong sensitivity of the outcome on the initial conditions of the
 magnetic pendulum experiments is the hallmark of \textbf{deterministic
   chaos}. It is the phenomenon whereby ``the present determines the
 future, but the approximate present does not approximately determine
-the future''.\\
+the future''.\medskip
 
 The magnetic pendulum is just one example of a simple system of
 \emph{coupled equations} that produces complex outcomes. It is a
@@ -558,7 +571,7 @@ parameters of planets such as Mars. The obliquity of Mars' spin axis
 is chaotic. Its evolution can be predicted thousands of years into the
 future, but becomes unpredictable over million year timescales. Rapid
 changes in the obliquity of Mars have caused its polar ice caps to
-shift over time.\\
+shift over time.\medskip
 
 Chaos theory originates from the work of atmospheric scientist Edward
 Lorenz. Lorenz formulated a simplified mathematical model for
@@ -566,7 +579,7 @@ atmospheric convection, based on three \emph{deterministic} equations.
 Like the three magnets of the pendulum example, the interactions
 between the three Lorenz equations produced outcomes that were
 extremely sensitive to the initial conditions. Lorenz called this the
-\textbf{butterfly effect}.\\
+\textbf{butterfly effect}.\medskip
 
 In the magnetic pendulum example there were just three outcomes, but
 in the real world there are countless numbers of them. The butterfly

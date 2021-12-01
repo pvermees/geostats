@@ -126,7 +126,6 @@ values, but are restricted to a narrow subset of that space, ranging
 from 0 to 1 (if fractions are used) or from 0 to 100 (using percentage
 notation).  Compositions are further restricted by a constant sum
 constraint:
-
 \[
 \sum_{i=1}^n C_i = 1
 \]
@@ -141,7 +140,7 @@ as a regular Euclidean space with Gaussian statistics leads to wrong
 results, as illustrated by the following example:
 
 \noindent\begin{minipage}[t][][b]{.4\textwidth}
-\includegraphics[width=\textwidth]{../figures/ACNK.pdf}\\
+\includegraphics[width=\textwidth]{../figures/ACNK.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.6\textwidth}
   \captionof{figure}{The A--CN--K diagram is a widely used graphical
@@ -155,7 +154,7 @@ results, as illustrated by the following example:
     towards the Al\textsubscript{2}O\textsubscript{3} apex of the
     ternary diagram. This figure shows a synthetic dataset of 20
     A--CN--K measurements that have been affected by variable
-    weathering intensities.\\}
+    weathering intensities.\medskip}
   \label{fig:ACNK}
 \end{minipage}
 
@@ -176,7 +175,7 @@ Plotting this result on the ternary diagram reveals that it is
 physically meaningless:
 
 \noindent\begin{minipage}[t][][b]{.4\textwidth}
-\includegraphics[width=\textwidth]{../figures/ACNKarithmeticmean.pdf}\\
+\includegraphics[width=\textwidth]{../figures/ACNKarithmeticmean.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.6\textwidth}
   \captionof{figure}{ The black square represents the average A--CN--K
@@ -187,7 +186,7 @@ physically meaningless:
     Equation~\ref{eq:mean}, and plotting the resulting 3-element
     vector as a new sample. This average composition plots outside the
     sample cloud, which is a meaningless result not unlike the porosity
-    example of Figure~\ref{fig:porositylocation}.a.\\}
+    example of Figure~\ref{fig:porositylocation}.a.\medskip}
   \label{fig:ACNKarithmeticmean}
 \end{minipage}
 
@@ -224,7 +223,7 @@ impossible negative values. Visualising these limits as a 2-sigma
 `confidence polygon':
 
 \noindent\begin{minipage}[t][][b]{.4\textwidth}
-\includegraphics[width=\textwidth]{../figures/ACNKnaive.pdf}\\
+\includegraphics[width=\textwidth]{../figures/ACNKnaive.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.6\textwidth}
   \captionof{figure}{The black polygon represents a `95\% confidence
@@ -237,7 +236,7 @@ impossible negative values. Visualising these limits as a 2-sigma
     3) subtracting or adding these values to the arithmetic mean of
     Figure~\ref{fig:ACNKarithmeticmean}. The resulting `2-sigma'
     confidence polygon plots outside the ternary diagram, in
-    physically impossible negative data space.\\}
+    physically impossible negative data space.\medskip}
   \label{fig:ACNKnaive}
 \end{minipage}
 
@@ -249,7 +248,7 @@ normal distribution. This includes linear regression
 (Section~\ref{sec:PCA}) and discriminant analysis
 (Section~\ref{sec:LDA}). These problems had long been known to
 geologists, but a comprehensive solution was not found until the
-1980s, by Scottish statistician John Aitchison.\\
+1980s, by Scottish statistician John Aitchison.\medskip
 
 The solution to the compositional data conundrum is closely related to
 the solution of the ratio averaging problem discussed in
@@ -275,7 +274,7 @@ space with the inverse logratio transformation. For the ternary case:
   \label{eq:inverse-logratio-transformation}
 \end{equation}
 
-Applying this method to the A--CN--K dataset:\\
+Applying this method to the A--CN--K dataset:\medskip
 
 \noindent\includegraphics[width=\linewidth]{../figures/alr.PDF}
 \begingroup \captionof{figure}{The additive logratio transformation
@@ -287,7 +286,7 @@ Applying this method to the A--CN--K dataset:\\
   (black square) and confidence regions (black ellipse). After
   completion of these calculations, the result can be mapped back to
   the ternary diagram using the inverse logratio transformation
-  (Equation~\ref{eq:inverse-logratio-transformation}).\\}
+  (Equation~\ref{eq:inverse-logratio-transformation}).\medskip}
 \label{fig:alr}\endgroup
 
 For the A--CN--K example, the transformed logratio mean plots inside
@@ -296,7 +295,7 @@ logratios maps to a curved confidence region that entirely stays
 within the ternary diagram and closely hugs the data. These results
 are a lot more meaningful than the arithmetic mean and 2-sigma
 confidence polygons of Figures~\ref{fig:ACNKarithmeticmean} and
-\ref{fig:ACNKnaive}.\\
+\ref{fig:ACNKnaive}.\medskip
 
 The logratio transformation makes intuitive sense. The very fact that
 it is possible to plot a ternary diagram on a two-dimensional sheet of
@@ -346,7 +345,7 @@ first step in the PCA analysis is the calculation of an arithmetic
 mean (Equation~\ref{eq:PCA}). However, Section~\ref{sec:logratios}
 showed that the arithmetic mean of compositional data can produce
 nonsensical results. This Section will show that this problem can be
-solved using logratio transformations.\\
+solved using logratio transformations.\medskip
 
 Before we apply PCA to the data of Table~\ref{tab:Major}, let us first
 illustrate the logratio solution using a simple toy example, which is
@@ -367,13 +366,13 @@ to a constant sum ($a_i+b_i+c_i=1$ for $1\leq{i}\leq{3}$):
 Plot the data on a ternary diagram:
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-\includegraphics[width=\textwidth]{../figures/abc.pdf}\\
+\includegraphics[width=\textwidth]{../figures/abc.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{Ternary diagram of the synthetic toy example of
     Equation~\ref{eq:Xcomp}. Component $c$ has been multiplied by a
     factor of 5 to avoid an unsightly overlap between the plot symbols
-    of samples 2 and 3, whose compositions are very similar.\\}
+    of samples 2 and 3, whose compositions are very similar.\medskip}
   \label{fig:abc}
 \end{minipage}
 
@@ -394,14 +393,14 @@ The observant reader may note that the numbers in this table are
 identical to the toy example shown in Equation~\ref{eq:X}. This, of
 course, is intentional. The implication is that, once the data have
 undergone a logratio transformation, PCA proceeds in exactly the same
-way as previously demonstrated in Section~\ref{sec:PCA}.\\
+way as previously demonstrated in Section~\ref{sec:PCA}.\medskip
 
 Applying conventional PCA to the log-transformed data of
 Equation~\ref{eq:Xa} yields two principal components that are
 expressed in terms of the logratios ln($a/c$) and ln($b/c$):
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-\includegraphics[width=\textwidth]{../figures/alrPCA.pdf}\\
+\includegraphics[width=\textwidth]{../figures/alrPCA.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{PCA biplot of the ternary toy data of
@@ -409,7 +408,7 @@ expressed in terms of the logratios ln($a/c$) and ln($b/c$):
     result is nearly identical to the toy example of
     Figure~\ref{fig:PCA2D3}. The only difference is the labels of the
     vector loadings, which are logatios instead of the names of the
-    original variables.\\}
+    original variables.\medskip}
   \label{fig:alrPCA}
 \end{minipage}
 
@@ -495,7 +494,7 @@ zero.  Therefore, all the information is contained in the first two
 components:
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-\includegraphics[width=\textwidth]{../figures/clrPCA.pdf}\\
+\includegraphics[width=\textwidth]{../figures/clrPCA.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{Compositional biplot of the toy data using the
@@ -506,7 +505,7 @@ components:
     samples~2 and 3 are rich in component $a$. The difference between
     samples~2 and 3 is due to a small difference in component $c$.
     Compare with the ternary diagram (Figure~\ref{fig:abc}) to verify
-    these conclusions.\\}
+    these conclusions.\medskip}
   \label{fig:clrPCA}
 \end{minipage}
 
@@ -519,7 +518,7 @@ Applying the same concept to the Namib dataset of
 Table~\ref{tab:Major}:
 
 \noindent\begin{minipage}[t][][b]{.4\textwidth}
-\includegraphics[width=\textwidth]{../figures/majorPCA.pdf}\\
+\includegraphics[width=\textwidth]{../figures/majorPCA.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.6\textwidth}
   \captionof{figure}{Compositional biplot of the major element
@@ -528,15 +527,31 @@ Table~\ref{tab:Major}:
     close together (such as N1 and N14) have similar compositions. The
     arrows indicate that sample N8 is enriched in MnO relative to
     sample T8.  The arrows for MgO and CaO plot in the same direction,
-    suggesting that these two oxides are correlated. The arrow for
+    suggesting that these two oxides are proportional. The arrow for
     K\textsubscript{2}O points in the opposite direction, suggesting
-    that this oxide is anticorrelated with MgO and CaO.  The
-    \textbf{link} between K\textsubscript{2}O and MgO is perpendicular
-    to the link between TiO\textsubscript{2} and
-    P\textsubscript{2}O\textsubscript{5}, suggesting that the
-    variability of these two \textbf{subcompositions} is statistically
-    independent.\\}
+    that this oxide is anticorrelated with MgO and CaO.\medskip}
   \label{fig:majorPCA}
+\end{minipage}
+
+\noindent\begin{minipage}[t][][b]{.57\textwidth}
+\includegraphics[width=\textwidth]{../figures/links.pdf}\medskip
+\end{minipage}
+\begin{minipage}[t][][t]{.43\textwidth}
+  \captionof{figure}{a) The \textbf{link} between TiO\textsubscript{2}
+    and CaO is collinear with that between MnO and MgO. This indicates
+    that the TiO\textsubscript{2} -- CaO -- MnO -- MgO
+    \textbf{subcomposition} forms a one dimensional pattern. b) This
+    pattern is reflected in the strong correlation of the samples in
+    ln[MnO/MgO] -- ln[TiO\textsubscript{2}/CaO] space. c) The link
+    between K\textsubscript{2}O and CaO is perpendicular to that
+    between TiO\textsubscript{2} and
+    P\textsubscript{2}O\textsubscript{5}, suggesting that the
+    corresponding subcompositions are independent. d) Consequently,
+    the samples are uncorrelated in
+    ln[P\textsubscript{2}O\textsubscript{5}/TiO\textsubscript{2}] --
+    ln[K\textsubscript{2}O/CaO] space.
+    \medskip}
+  \label{fig:links}
 \end{minipage}
 
 Although the alr and clr transformations act in slightly different
@@ -557,7 +572,7 @@ can be applied to supervised learning techniques such as LDA. We will
 illustrate this with an example from igneous petrology:
 
 \noindent\begin{minipage}[t][][b]{.35\textwidth}
-\includegraphics[width=\textwidth]{../figures/AFM.pdf}\\
+\includegraphics[width=\textwidth]{../figures/AFM.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.65\textwidth}
   \captionof{figure}{A dataset of igneous rock compositions from
@@ -566,14 +581,14 @@ illustrate this with an example from igneous petrology:
     Fe\textsubscript{2}O\textsubscript{3}+FeO and M = MgO). The white
     dots define a `Fenner' trend marking the tholeiitic suite of
     igneous rocks from Iceland. The black dots define a `Bowen' trend,
-    marking the calc-alkaline suite of rocks from the Cascades.  \\}
+    marking the calc-alkaline suite of rocks from the Cascades.\medskip}
   \label{fig:AFM}
 \end{minipage}
 
 Plotting the same data in logratio space:
 
 \noindent\begin{minipage}[t][][b]{.35\textwidth}
-\includegraphics[width=\textwidth]{../figures/lrAFM.pdf}\\
+\includegraphics[width=\textwidth]{../figures/lrAFM.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.65\textwidth}
   \captionof{figure}{The additive logratio transformation liberates
@@ -584,7 +599,7 @@ Plotting the same data in logratio space:
     are clustered into two distinct clouds of roughly equal size that
     have all the hallmarks of bivariate normal distributions with a
     shared covariance matrix. Thus the transformed data seems well
-    suited for linear discriminant analysis.\\}
+    suited for linear discriminant analysis.\medskip}
   \label{fig:lrAFM}
 \end{minipage}
 
@@ -592,11 +607,11 @@ Applying LDA to the A--F--M data and visualising the results in both
 logratio space and the ternary diagram:
 
 \noindent\begin{minipage}[t][][b]{.7\textwidth}
-\includegraphics[width=\textwidth]{../figures/LDAAFM.pdf}\\
+\includegraphics[width=\textwidth]{../figures/LDAAFM.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.3\textwidth}
   \captionof{figure}{LDA of the A--F--M data shown in a) logratio
-    space and b) a ternary diagram.\\}
+    space and b) a ternary diagram.\medskip}
   \label{fig:LDAAFM}
 \end{minipage}
 
@@ -616,7 +631,6 @@ FeO+Fe\textsubscript{2}O\textsubscript{3}, and $M$ mass units of
 MgO. Suppose that, as the magma cools, it loses components $A$, $F$
 and $M$ at rates that are proportional to the amounts of $A$, $F$ and
 $M$ present in the magma:
-
 \begin{equation}
   \frac{\partial A}{\partial t} = -\lambda_A A \mbox{,~}
   \frac{\partial F}{\partial t} = -\lambda_F F \mbox{,~and~}
@@ -675,14 +689,14 @@ three different A--F--M systems:
 \noindent produces the following output:
 
 \noindent\begin{minipage}[t][][b]{.7\textwidth}
-\includegraphics[width=\textwidth]{../figures/cath.pdf}\\
+\includegraphics[width=\textwidth]{../figures/cath.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.3\textwidth}
   \captionof{figure}{Exponential decay processes of compositional data
     become linear trends in logratio space. Initial composition $i$
     forms the starting point of two trajectories, marked by dashed and
     solid lines, respectively. These trends are characterised by
-    different decay parameters.\\}
+    different decay parameters.\medskip}
   \label{fig:cath}
 \end{minipage}
 
