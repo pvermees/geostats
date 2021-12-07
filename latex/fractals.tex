@@ -66,9 +66,8 @@ logarithm of the frequencies:
   \captionof{figure}{ Bivariate scatter plot of
     $y=\log_{10}[N/N_\circ]$ against earthquake magnitude, where $N$
     is the number of earthquakes exceeding a given magnitude and
-    $N_\circ$ is the total number of earthquakes, which is 20,000 for
-    the dataset of Figure~\ref{fig:recentquakes}.
- }
+    $N_\circ$ is the total number of registered earthquakes, which is
+    20,000 for the dataset of Figure~\ref{fig:recentquakes}.  }
   \label{fig:gutenberg}
 \end{minipage}
 
@@ -395,20 +394,21 @@ plot:\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{Log-log plot of the box counting results for the
-    Sierpinski carpet. This pattern in ideally suited for box
-    counting, resulting in a perfect linear fit. Note how the slope of
-    the best fitting line ($-1.92\pm{0.02}$) is greater than that of
-    the Koch curve (Figure~\ref{fig:kochboxcounts}). It is similar to
-    the slope that would be obtained by box-counting the Finnish lakes
-    of Figure~\ref{fig:Finland}, which similar to $x-1$ where $x$ is
-    the slope of the size-frequency plot of the Finnish lakes
+    4\textsuperscript{th} order Sierpinski carpet. This pattern in
+    ideally suited for box counting, resulting in a perfect linear
+    fit. Note how the slope of the best fitting line
+    ($-1.92\pm{0.02}$) is greater than that of the Koch curve
+    (Figure~\ref{fig:kochboxcounts}). It is similar to the slope that
+    would be obtained by box-counting the Finnish lakes of
+    Figure~\ref{fig:Finland}, which similar to $x-1$ where $x$ is the
+    slope of the size-frequency plot of the Finnish lakes
     (Figure~\ref{fig:Finlandpowerlaw}).}
   \label{fig:sierpinskiboxcounts}
 \end{minipage}
 
 Mathematically, the linear fit of the log-log plots can written as
 \begin{equation}
-  \ln[\mbox{number of boxes}] = C - D \times \ln[\mbox{size of boxes}]
+  \log[\mbox{number of boxes}] = C - D \times \log[\mbox{size of the boxes}]
   \label{eq:fractaldim}
 \end{equation}
 
@@ -422,7 +422,7 @@ dimensionality of fractals is quantified by a non-integer
 \emph{fraction}. Formalising the box-counting procedure leads to an
 alternative definition of the fractal dimension:
 \begin{equation}
-  D = -\lim\limits_{\epsilon \to 0}\frac{\ln{N(\epsilon)}}{\ln{\epsilon}}
+  D = -\lim\limits_{\epsilon \to 0}\frac{\log{N(\epsilon)}}{\log{\epsilon}}
   \label{eq:Minkowski}
 \end{equation}
 
@@ -460,12 +460,13 @@ Plotting the size distribution of the Cantor set on a log-log scale:
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{The y-axis shows the number of linear segments in
-    the Cantor set that exceed the length shown on the x-axis. The
-    values form a power law with a fractal dimension of
-    $D=0.64\pm{0.01}$.  Using Equation~\ref{eq:Minkowski}, it can be
-    shown that the exact value is $D=\ln[2]/\ln[3]=0.631$. With a
-    fractal dimension between zero and one, the Cantor set falls
-    somewhere between a point and a line.}
+    an 11\textsuperscript{th} order Cantor set that exceed the length
+    shown on the x-axis. The values form a power law with a fractal
+    dimension of $D=0.64\pm{0.01}$.  Using
+    Equation~\ref{eq:Minkowski}, it can be shown that the exact value
+    is $D=\ln[2]/\ln[3]=0.631$. With a fractal dimension between zero
+    and one, the Cantor set falls somewhere between a point and a
+    line.}
   \label{fig:cantorloglog}
 \end{minipage}
 

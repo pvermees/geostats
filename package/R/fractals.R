@@ -167,14 +167,14 @@ fractaldim <- function(mat,plot=TRUE,...){
     }
     fit <- stats::lm(log(nboxes) ~ log(size))
     if (plot){
-        graphics::plot(log(nboxes) ~ log(size),type='n',
-                       bty='n',xlab='ln[size of boxes]',
-                       ylab=expression('ln[number of boxes]'))
-        graphics::abline(fit)
-        graphics::points(log(nboxes) ~ log(size),...)
+        graphics::plot(nboxes ~ size,type='n',log='xy',
+                       bty='n',xlab='size of boxes',
+                       ylab=expression('number of boxes'))
+        graphics::lines(exp(fit$fitted.values) ~ size)
+        graphics::points(nboxes ~ size,...)
         graphics::legend('topright',bty='n',
-                         legend=paste0('y = ',signif(fit$coef[1],3),
-                                       signif(fit$coef[2],3),' x'))
+                         legend=paste0('ln[y] = ',signif(fit$coef[1],3),
+                                       signif(fit$coef[2],3),' ln[x]'))
     }
     invisible(fit)
 }

@@ -986,7 +986,6 @@ hist(d)
 \item Generate 200 random pairs of numbers ($\{x_i,y_i\}$ for
   $1\leq{i}\leq{200}$) from a bivariate normal distribution with mean
   $\{\mu_x=10,\mu_y=20\}$ and covariance matrix
-
   \[
   \sigma_{x,y} = \left[
     \begin{array}{cc}
@@ -1035,7 +1034,6 @@ $s[\hat{\lambda}] = \hat{\lambda}$. This Section will show how
 \begin{enumerate}
 \item Recall the log-likelihood function for the Poisson distribution
   (Equation~\ref{eq:poisLL}):
-
 \[
   \mathcal{LL}(\lambda|k) = k \ln[\lambda] - \lambda - \sum\limits_{i=1}^{k}i
 \]
@@ -1064,7 +1062,7 @@ plot(lam,loglik,type='l',xlab=expression(lambda),ylab='LL')
 \noindent which produces the following output:
 
 \noindent\begin{minipage}[t][][b]{.3\linewidth}
-  \includegraphics[width=\textwidth]{../figures/LLpois.pdf}\\
+  \includegraphics[width=\textwidth]{../figures/LLpois.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\linewidth}
   \captionof{figure}{Log-likelihood function for the Poisson
@@ -1466,7 +1464,7 @@ lines(x=sf$size,y=exp(predict(fit)))
 \end{script}
 
 \noindent where the \texttt{sizefrequency} function is provided by
-\texttt{geostats}.\\
+\texttt{geostats}.\medskip
 
 \item Create a Gutenberg-Richter plot for the recent earthquake data
   (Figure~\ref{fig:gutenberg}):

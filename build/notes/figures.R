@@ -2488,8 +2488,8 @@ fit <- lm(log(counts) ~ log(sizes))
 lines(range(sizes),exp(fit$coef[1]+fit$coef[2]*log(range(sizes))))
 points(x=sizes,y=counts,pch=21,bg='white')
 mtext('# lakes',side=2,line=1.2)
-legend('topright',paste0('y = ',signif(fit$coef[1],3),
-                         signif(fit$coef[2],3),' x'),bty='n')
+legend('topright',paste0('ln[y] = ',signif(fit$coef[1],3),
+                         signif(fit$coef[2],3),' ln[x]'),bty='n')
 dev.off()
 
 if (FALSE){
@@ -2574,14 +2574,14 @@ fractaldim <- function(mat,nticks){
         nboxes[i] <- count$nboxes
     }
     fit <- lm(log(nboxes) ~ log(boxside))
-    plot(log(nboxes) ~ log(boxside),type='n',mgp=c(1.2,0.5,0),
-         bty='n',xlab='ln[size of boxes]',
-         ylab=expression('ln[number of boxes]'))
-    abline(fit)
-    points(log(nboxes) ~ log(boxside),pch=21,bg='white')
+    plot(nboxes ~ boxside,type='n',mgp=c(1.2,0.5,0),
+         log='xy',bty='n',xlab='size of the boxes',
+         ylab=expression('number of boxes'))
+    lines(boxside,exp(fit$fitted.values))
+    points(nboxes ~ boxside,pch=21,bg='white')
     legend('topright',bty='n',
-           legend=paste0('y = ',signif(fit$coef[1],3),
-                         signif(fit$coef[2],3),' x'))
+           legend=paste0('ln[y] = ',signif(fit$coef[1],3),
+                         signif(fit$coef[2],3),' ln[x]'))
     invisible(fit)
 }
 

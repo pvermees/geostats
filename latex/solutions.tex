@@ -402,7 +402,6 @@ certainty that all lithologies are represented in our sample.
 
 \item Let $p(A)$ and $p(N)$ be the probability of counting an arboreal
   and non-arboreal pollen, respectively (where $p(A)+p(N)=1$). Then:
-
   \[
   \frac{p(A)}{p(N)} = 4 = \frac{p(A)}{1-p(A)}
   \Rightarrow p(A) = \frac{4}{1+4} = 0.8
@@ -533,14 +532,12 @@ Note that we are not really using \texttt{binom.test} to carry out a
 hypothesis test. We are only interested in the confidence interval.
 The lower value of the confidence interval for $p(A)=0.3605426$
 corresponds to an $A/N$-ratio of
-
 \[
 \frac{p(A)}{p(N)} = \frac{p(A)}{1-p(A)} =
 \frac{0.3605426}{1-0.3605426} = 0.5638258
 \]
 
 A value of $p(A)=0.8088099$ corresponds to an $A/N$-ratio of
-
 \[
 \frac{p(A)}{p(N)} = \frac{p(A)}{1-p(A)} =
 \frac{0.8088099}{1-0.8088099} = 4.230396
@@ -559,7 +556,6 @@ $(0.5638258,4.230396)$.
   years, then this means that $\lambda=1/13.5$. The chance that
   exactly two such events happen per year is given by
   Equation~\ref{eq:poispmf}:
-
   \[
   P\left(k=2|\lambda=\frac{1}{13.5}\right) = \frac{\lambda^k
     e^{-\lambda}}{k!} = \frac{\exp\left[-\frac{1}{13.5}\right]}{13.5^22!} =
@@ -576,7 +572,6 @@ $(0.5638258,4.230396)$.
 The average number of magnitude $\geq{9}$ earthquakes per century is
 $\lambda={100/13.5}$. The chance that no such earthquake will happen
 during the next century is:
-
   \[
   P\left(k=0|\lambda=\frac{100}{13.5}\right) =
   \exp\left[{-\frac{100}{13.5}}\right] =
@@ -584,7 +579,6 @@ during the next century is:
   \]
 
 \item The expected number of fission tracks is
-
   \[
   (1\times{10}^{6}\mbox{yr})
   \times
@@ -611,7 +605,7 @@ The probability that it contains 41 to 60 fission tracks is:
 \item This problem requires a one-sided hypothesis test:
 
   $H_\circ: \lambda=2$\\
-  $H_a: \lambda<2$\\
+  $H_a: \lambda<2$
 
   In \texttt{R}:
 
@@ -771,7 +765,6 @@ So outcome $X$ is more likely than outcome $Y$.
   and C ($y=50\pm0.5$~m). Then the height difference between A and C
   is simply $z=x+y=75$~m. To propagate the uncertainty of this
   estimate, we use Equation~\ref{eq:addition} with $a=0$ and $b=c=1$:
-
   \[
   s[z]^2 = s[x]^2 + s[y]^2 = 0.25^2 + 0.5^2 = 0.3125
   \Rightarrow s[z] = \sqrt{0.3125} = 0.559017
@@ -870,7 +863,6 @@ age <- log(1+LLe*Ar40K40)/L
 
 Propagating its uncertainty requires breaking down the calculation
 into two steps:
-
 \[
 \begin{split}
   z & = 1 + \frac{\lambda}{\lambda_e}\left(\frac{^{40}Ar }{^{40}K}\right)
@@ -1075,7 +1067,6 @@ pred <- predict(fit,newdata=data.frame(year=2020),interval='prediction')
 
 \item Using the left hand side of
   Equation~\ref{eq:spuriousxzyzindepxyz}:
-
   \[
   \noindent \rho_{X,Y} \approx
   \frac{
@@ -1250,7 +1241,7 @@ biplot(pc)
 Which produces the following biplot:
 
 \noindent\begin{minipage}[t][][b]{.35\linewidth}
-\includegraphics[width=\textwidth]{../figures/PCAiris.pdf}\\
+\includegraphics[width=\textwidth]{../figures/PCAiris.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.65\linewidth}
   \captionof{figure}{PCA biplot for the \texttt{iris} data. This
@@ -1262,7 +1253,7 @@ Which produces the following biplot:
     variables are correlated with each other. The vector loading of
     the sepal width is perpendicular to that of the petal
     measurements, which means that the sepal and petal dimensions vary
-    independently.\\}
+    independently.\medskip}
   \label{fig:PCAiris}
 \end{minipage}
 
@@ -1293,13 +1284,13 @@ plot(x=1:K,y=ss,type='b')            # plot as both lines and points
 \end{script}
 
 \noindent\begin{minipage}[t][][b]{.35\linewidth}
-\includegraphics[width=\textwidth]{../figures/elbow.pdf}\\
+\includegraphics[width=\textwidth]{../figures/elbow.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.65\linewidth}
   \captionof{figure}{Evaluating the within-cluster sum-of-squares
     ($ss$) of the k-means algorithm for different numbers of clusters.
     The $ss$-misfit drops off very quicky before making an `elbow' at
-    $k=3$ clusters. Hence we cannot justify more than 3 clusters.\\}
+    $k=3$ clusters. Hence we cannot justify more than 3 clusters.\medskip}
   \label{fig:elbow}
 \end{minipage}
 
@@ -1315,7 +1306,7 @@ plot(tree)
 This produces the following tree:
 
 \noindent\begin{minipage}[t][][b]{.35\linewidth}
-\includegraphics[width=\textwidth]{../figures/DZtree.pdf}\\
+\includegraphics[width=\textwidth]{../figures/DZtree.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.65\linewidth}
   \captionof{figure}{Hierarchical clustering tree for the detrital
@@ -1542,7 +1533,7 @@ biplot(pc,col=c('grey50','black'),xlabs=aff)
 \end{script}
 
 \noindent\begin{minipage}[t][][b]{.5\linewidth}
-\includegraphics[width=\textwidth]{../figures/testPCA.pdf}\\
+\includegraphics[width=\textwidth]{../figures/testPCA.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.5\linewidth}
   \captionof{figure}{PCA biplot of the oceanic basalt compositions.
