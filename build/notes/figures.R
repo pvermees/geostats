@@ -4585,3 +4585,20 @@ arrows(x0=0,x1=xy7[1]/4,y0=0,y1=xy7[2]/4,
        lty=1,lwd=2,col='black',length=0.1)
 text(xy7[1]/4,xy7[2]/4,labels=expression(bar(R)),pos=3,offset=0.2)
 dev.off()
+
+cairo(file='../../slides/PC.pdf',width=10,height=5)
+pars()
+xy1 <- MASS::mvrnorm(n=100,mu=c(0,0),Sigma=rbind(c(1,0.9),c(0.9,1)))
+xy2 <- MASS::mvrnorm(n=100,mu=c(2,0),Sigma=rbind(c(1,0.9),c(0.9,1)))
+xy3 <- MASS::mvrnorm(n=100,mu=c(10,2),Sigma=rbind(c(1,0.9),c(0.9,1)))
+X <- cbind(xy1[,1],xy2[,1],xy3[,1])
+Y <- cbind(xy1[,2],xy2[,2],xy3[,2])
+matplot(x=X,y=Y,type='p',pch=16,col='black',bty='n',xlab='x',ylab='y',asp=1)
+pc <- prcomp(rbind(xy1,xy2,xy3))
+lines(rbind(pc$center,pc$center+pc$sdev[1]*pc$rotation[,1]))
+lines(rbind(pc$center,pc$center+pc$sdev[2]*pc$rotation[,2]))
+text(x=pc$center[1]+pc$sdev[1]*pc$rotation[1,1],
+     y=pc$center[2]+pc$sdev[1]*pc$rotation[2,1],labels='PC1',pos=1)
+text(x=pc$center[1]+pc$sdev[2]*pc$rotation[1,2],
+     y=pc$center[2]+pc$sdev[2]*pc$rotation[2,2],labels='PC2',pos=1)
+dev.off()
