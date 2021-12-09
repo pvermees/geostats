@@ -1212,26 +1212,25 @@ of these categories:
 obs <- c( sum(quaketab[1:2]), quaketab[3:9], sum(quaketab[10:12]) )
 \end{script}
 
-The corresponding predicted counts are obtained using a Poisson
+The corresponding predicted probabilities are obtained using a Poisson
 distribution with parameter given by the mean of the earthquake
 counts:
 
 \begin{script}[firstnumber=4]
 lam <- mean(quakesperyear)
-pred <- c(sum(dpois(x=0:2,lambda=lam)),
-          dpois(x=3:9,lambda=lam),
-          sum(dpois(x=10:25,lambda=lam))
-         )
+pred <- c(ppois(q=2,lambda=lam),                  # lower tail
+          dpois(x=3:9,lambda=lam),                # central segment
+          ppois(q=9,lambda=lam,lower.tail=FALSE)) # upper tail
 \end{script}
 
-Then the $\chi^2$-test proceeds as follows:
+\noindent which add up to 1. Then the $\chi^2$-test proceeds as
+follows:
 
 \begin{script}[firstnumber=9]
-h <- chisq.test(x=obs,p=pred/sum(pred))
+h <- chisq.test(x=obs,p=pred)
 \end{script}
 
-\noindent where \texttt{pred/sum(pred)} normalises the predicted
-probabilities to 1. Querying the p-value:
+Querying the p-value:
 
 \begin{console}
 > h$p.value
