@@ -2444,7 +2444,6 @@ L <- nrulers * rulers
 cairo(file='../../figures/loglogbritain.pdf',width=3,height=3)
 pars()
 fit <- lm(log(L)~log(rulers))
-err <- diff(confint(fit,level=0.95)[2,])/2
 plot(rulers,L,log='xy',bty='n',type='n',
      xlab='length of measuring rod [km]',ylab='length of coast [km]')
 lines(rulers,exp(fit$coef[1]+fit$coef[2]*log(rulers)))
@@ -2567,33 +2566,9 @@ plotboxmap <- function(mat,boxside,nticks,i,
           asp=(1-sum(crop[c(1,3)]))/(1-sum(crop[c(2,4)])),...)
     invisible(count)
 }
-fractaldim <- function(mat,nticks){
-    nboxes <- nticks^2
-    for(i in 1:length(nticks)){
-        count <- count_boxes(mat=mat,boxside=boxside[i],nticks=nticks[i])
-        nboxes[i] <- count$nboxes
-    }
-    fit <- lm(log(nboxes) ~ log(boxside))
-    plot(nboxes ~ boxside,type='n',mgp=c(1.2,0.5,0),
-         log='xy',bty='n',xlab='size of the boxes',
-         ylab=expression('number of boxes'))
-    lines(boxside,exp(fit$fitted.values))
-    points(nboxes ~ boxside,pch=21,bg='white')
-    legend('topright',bty='n',
-           legend=paste0('ln[y] = ',signif(fit$coef[1],3),
-                         signif(fit$coef[2],3),' ln[x]'))
-    invisible(fit)
-}
 
-tiff(file='Britain.tiff',width=512,height=512)
-pars(mar=rep(0,4))
-sp::plot(b)
-dev.off()
+data('Britain',package='geostats')
 
-nticks <- rep(2,10)^(0:9)
-boxside <- rev(nticks)
-
-Britain <- raster2dat('Britain.tiff')
 png(file='../../figures/Britainboxes.png',type='cairo',
     family="serif",pointsize=25,
     width=11.6,height=3,res=300,units='in')
@@ -2611,8 +2586,7 @@ dev.off()
 
 cairo(file='../../figures/Britainboxcounts.pdf',width=3,height=3)
 pars()
-britfit <- fractaldim(mat=Britain,nticks=nticks)
-err <- diff(confint(britfit,level=0.95)[2,])/2
+britfit <- geostats::fractaldim(mat=Britain)
 dev.off()
 
 Corsica <- raster2dat('Corsica.tif')
@@ -2633,7 +2607,7 @@ dev.off()
 
 cairo(file='../../figures/Corsicaboxcounts.pdf',width=3,height=3)
 pars()
-fractaldim(mat=Corsica,nticks=nticks)
+geostats::fractaldim(mat=Corsica)
 dev.off()
 
 drawSnow <- function(lev, x1, y1, x5, y5){
@@ -2706,8 +2680,13 @@ dev.off()
 
 cairo(file='../../figures/kochboxcounts.pdf',width=3,height=3)
 pars()
-fit <- fractaldim(mat=kochimg,nticks=rep(2,10)^(0:9))
-err <- diff(confint(fit,level=0.95)[2,])/2
+N <- 3*4^(0:6-1)
+d <- (1/3)^(0:6)
+plot(N ~ d,log='xy',type='l',bty='n',
+     xlab='size of the boxes',ylab='number of boxes')
+points(N ~ d,pch=21,bg='white')
+ab <- signif(lm(log(N)~log(d))$coefficients,3)
+legend('topright',y=paste0('ln[y] = ',ab[1],ab[2],' ln[x]'),bty='n')
 dev.off()
 
 cairo(file='../../figures/sierpinski.pdf',width=12,height=2.5)
@@ -2722,32 +2701,21 @@ g <- sierpinski(level=4)
 image(g,col=c('white','black'),axes=FALSE,asp=1)
 dev.off()
 
-tiff(file='sierpinski.tif',width=512,height=512,units='px')
-pars(mar=rep(0,4))
-g <- sierpinski(level=4)
-image(g,col=c('white','black'),axes=FALSE,asp=1)
-dev.off()
-
-sierpimg <- raster2dat('sierpinski.tif')
-png(file='../../figures/sierpinski.png',type='cairo',
-    width=15,height=3,res=300,units='in')
-pars(mfrow=c(1,4),mar=rep(0,4))
-mat <- sierpimg
-crop <- rep(0,4)
-count <- plotboxmap(mat,boxside=boxside,nticks=nticks,
-                    i=6,frame=FALSE,crop=crop)
-count <- plotboxmap(mat,boxside=boxside,nticks=nticks,
-                    i=7,frame=FALSE,crop=crop)
-count <- plotboxmap(mat,boxside=boxside,nticks=nticks,
-                    i=8,frame=FALSE,crop=crop)
-count <- plotboxmap(mat,boxside=boxside,nticks=nticks,
-                    i=10,frame=FALSE,crop=crop)
-dev.off()
-
 cairo(file='../../figures/sierpinskiboxcounts.pdf',width=3,height=3)
 pars()
-fit <- fractaldim(mat=sierpimg,nticks=rep(2,10)^(0:9))
-err <- diff(confint(fit,level=0.95)[2,])/2
+N <- c(1,
+       sum(sierpinski(level=1)),
+       sum(sierpinski(level=2)),
+       sum(sierpinski(level=3)),
+       sum(sierpinski(level=4)),
+       sum(sierpinski(level=5)),
+       sum(sierpinski(level=6)))
+d <- (1/3)^(-6)*(1/3)^(0:6)
+plot(N ~ d,log='xy',type='l',bty='n',
+     xlab='size of the boxes',ylab='number of boxes')
+points(N ~ d,pch=21,bg='white')
+ab <- signif(lm(log(N)~log(d))$coefficients,3)
+legend('topright',y=paste0('ln[y] = ',ab[1],ab[2],' ln[x]'),bty='n')
 dev.off()
 
 cantor <- function(n,Y=0){
@@ -2785,29 +2753,19 @@ dev.off()
 
 cairo(file='../../figures/cantorloglog.pdf',width=3,height=3)
 pars()
-mult <- 1e6
-n <- 11
-xy <- cantor(n=n,Y=0)
-l <- diff(xy$x)[seq(from=2,to=length(xy$x)-1,by=2)]*mult
-sizes <- exp(seq(from=log(min(l)),to=log(max(l)),length.out=n))
-counts <- rep(0,n)
-for (i in 1:n){
-    counts[i] <- sum(l>=sizes[i])
-}
-sizes <- sizes[1:(n-2)]
-counts <- counts[1:(n-2)]
-plot(sizes,counts,log='xy',bty='n',type='n',axes=FALSE,
-     xlab='length of segment',ylab='number of segments')
-axis(side=1,at=c(10,100,1000,10000))
-axis(side=2,at=c(10,100,1000))
-fit <- lm(log(counts) ~ log(sizes))
-err <- diff(confint(fit,level=0.95)[2,])/2
-X <- range(sizes)
-Y <- exp(fit$coef[1] + log(X)*fit$coef[2])
-lines(X,Y)
-points(sizes,counts,pch=21,bg='white')
-legend('topright',legend=paste0('ln[y] = ',signif(fit$coef[1],2),
-                                signif(fit$coef[2],2),' ln[x]'),bty='n')
+N <- c(1,
+       sum(cantor(n=1)$x),
+       sum(cantor(n=2)$x),
+       sum(cantor(n=3)$x),
+       sum(cantor(n=4)$x),
+       sum(cantor(n=5)$x),
+       sum(cantor(n=6)$x))
+d <- (1/3)^(-6)*(1/3)^(0:6)
+plot(N ~ d,log='xy',type='l',bty='n',
+     xlab='size of the boxes',ylab='number of boxes')
+points(N ~ d,pch=21,bg='white')
+ab <- signif(lm(log(N)~log(d))$coefficients,3)
+legend('topright',y=paste0('ln[y] = ',ab[1],ab[2],' ln[x]'),bty='n')
 dev.off()
 
 src <- rbind(c(0,0),c(.5,sqrt(.75)),c(1,0))
@@ -3891,24 +3849,13 @@ pc <- prcomp(cMajor)
 biplot(pc,asp=1.1,col=c('gray50','black'))
 dev.off()
 
-cairo(file='../../figures/links.pdf',width=5,height=4.7)
-lwd <- 1.5
-par(mgp=c(1.3,0.5,0))
-layout(mat=rbind(c(1,2),c(3,4)),
-       width=c(0.5,0.5),
-       height=c(0.53,0.47))
-par(mar=c(0.75,2.5,0,1.5))
-biplot(pc,asp=1.1,col=c('gray75','gray55'))
+cairo(file='../../figures/links.pdf',width=6.5,height=2)
+pars(mfrow=c(1,3),mgp=c(1.4,1,0),mar=c(2.5,2.75,0,0.5))
+boxplot(cbind(log(Major$CaO)-log(Major$MgO),
+              log(Major$K2O)-log(Major$MgO)),xlab='',xaxt='n',bty='n')
+axis(side=1,at=1:2,labels=c('ln[CaO/MgO]',expression('ln[K'[2]*'O/MgO]')))
 legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,0))
-lines(x=c(-1.58,-0.08),y=c(0.5,-1.11),lty=1,lwd=lwd)
-lines(x=c(-1.22,-0.20),y=c(0.05,-1.05),lty=1,lwd=lwd)
-par(mar=c(0.75,2.5,0,1.5))
-biplot(pc,asp=1.1,col=c('gray75','gray55'))
-legend('topleft',legend='c)',bty='n',cex=1.2,adj=c(2,0))
-lines(x=c(-1.60,1.23),y=c(0.51,-0.85),lty=1,lwd=lwd)
-lines(x=c(0.9,-0.08),y=c(0.8,-1.13),lty=1,lwd=lwd)
-par(mgp=c(1.5,0.5,0))
-par(mar=c(2.5,2.75,0,1.5))
+par(mgp=c(1.4,0.5,0))
 x <- log(Major$TiO2/Major$CaO)
 y <- log(Major$MnO/Major$MgO)
 dx <- diff(range(x))
@@ -3919,7 +3866,6 @@ plot(x=c(min(x)-dx/20,max(x)+dx/20),
      ylab=expression('ln[MnO/MgO]'))
 legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(2,0))
 text(x=x,y=y,labels=rownames(Major))
-par(mar=c(2.5,2.50,0,1.5))
 x <- log(Major$K2O/Major$MgO)
 y <- log(Major$P2O5/Major$TiO2)
 dx <- diff(range(x))
@@ -3928,7 +3874,7 @@ plot(x=c(min(x)-dx/20,max(x)+dx/20),
      y=c(min(y)-dy/20,max(y)+dy/20),
      type='n',xlab=expression('ln[K'[2]*'O/CaO]'),
      ylab=expression('ln[P'[2]*'O'[5]*'/TiO'[2]*']'))
-legend('topleft',legend='d)',bty='n',cex=1.2,adj=c(2,0))
+legend('topleft',legend='c)',bty='n',cex=1.2,adj=c(2,0))
 text(x=x,y=y,labels=rownames(Major))
 dev.off()
 

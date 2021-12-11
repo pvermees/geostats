@@ -188,13 +188,13 @@ against the size of the measuring rod on a log-log scale:
   \includegraphics[width=\textwidth]{../figures/loglogbritain.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
-  \captionof{figure}{Setting out the length of the British coast line
+  \captionof{figure}{Setting out the length of the British coastline
     against the length of the measuring rod on a log-log scale
-    produces a linear trend with a slope of $-0.253\pm{0.018}$ (95\%
-    confidence). This line can be extrapolated to lower values to
-    estimate the length that would be measured with even smaller
-    measuring rods. For example, if we were to measure the British
-    coast with a 30~cm long ruler, then this would produce a result of
+    produces a linear trend with a slope of $-0.253$. This line can be
+    extrapolated to lower values to estimate the length that would be
+    measured with even smaller measuring rods. For example, if we were
+    to measure the British coast with a 30~cm long ruler, then this
+    would produce a result of
     $\exp(9.18-0.253\ln[3\times{10}^{-4}])=42,060$~km!  }
   \label{fig:loglogbritain}
 \end{minipage}
@@ -242,9 +242,9 @@ Figure~\ref{fig:Britainboxes}, but a similar slope:\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{Plotting the number of boxes against their size
-    on a log-log diagram yields a linear array with a slope of
-    $-1.28\pm{0.10}$.  This is similar to the value obtained by the
-    polygonal line segment method of
+    (i.e. width in pixels) on a log-log diagram yields a linear array
+    with a slope of $-1.26$.  This is similar to the value obtained by
+    the polygonal line segment method of
     Figure~\ref{fig:fractaldimbritain}.  }
   \label{fig:Britainboxcounts}
 \end{minipage}
@@ -354,11 +354,10 @@ Plotting the results on a frequency-magnitude log-log plot:
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{Log-log plot setting out the number of boxes
-    needed to cover the 6\textsuperscript{th} order Koch curve of
-    Figure~\ref{fig:koch6} against the size of those boxes.  The best
-    fitting line has a slope of $-1.21\pm{0.07}$, which is similar to
-    the slope of the box-counting results for the British coastline
-    (Figure~\ref{fig:Britainboxcounts}).  }
+    needed to cover the Koch curve of Figure~\ref{fig:koch6} against
+    the size of those boxes.  The best fitting line has a slope of
+    $-1.26$, which is similar to the slope of the box-counting results
+    for the British coastline (Figure~\ref{fig:Britainboxcounts}).}
   \label{fig:kochboxcounts}
 \end{minipage}
 
@@ -394,14 +393,12 @@ plot:\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{Log-log plot of the box counting results for the
-    4\textsuperscript{th} order Sierpinski carpet. This pattern in
-    ideally suited for box counting, resulting in a perfect linear
-    fit. Note how the slope of the best fitting line
-    ($-1.92\pm{0.02}$) is greater than that of the Koch curve
+    Sierpinski carpet. Note how the slope of the best fitting line
+    ($-1.89$) is steeper than that of the Koch curve
     (Figure~\ref{fig:kochboxcounts}). It is similar to the slope that
     would be obtained by box-counting the Finnish lakes of
-    Figure~\ref{fig:Finland}, which similar to $x-1$ where $x$ is the
-    slope of the size-frequency plot of the Finnish lakes
+    Figure~\ref{fig:Finland}, which is similar to $x-1$ where $x$ is
+    the slope of the size-frequency plot of the Finnish lakes
     (Figure~\ref{fig:Finlandpowerlaw}).}
   \label{fig:sierpinskiboxcounts}
 \end{minipage}
@@ -412,15 +409,15 @@ Mathematically, the linear fit of the log-log plots can written as
   \label{eq:fractaldim}
 \end{equation}
 
-The slope magnitude of the line ($D$) is also known as the
-\textbf{fractal dimension} of the pattern. It is called a
-\emph{dimension} because it has all the characteristics of the spatial
-dimensions, which can be used to chacterise a point ($D=0$), a line
-($D=1$), a plane ($D=2$) or a cube ($D=3$). But whereas these
-traditional notions of dimension are tied to integer numbers, the
-dimensionality of fractals is quantified by a non-integer
-\emph{fraction}. Formalising the box-counting procedure leads to an
-alternative definition of the fractal dimension:
+The slope magnitude of the line ($D$, which is independent of the
+logarithmic base) is also known as the \textbf{fractal dimension} of
+the pattern. It is called a \emph{dimension} because it has all the
+characteristics of the spatial dimensions, which can be used to
+chacterise a point ($D=0$), a line ($D=1$), a plane ($D=2$) or a cube
+($D=3$). But whereas these traditional notions of dimension are tied
+to integer numbers, the dimensionality of fractals is quantified by a
+non-integer \emph{fraction}. Formalising the box-counting procedure
+leads to an alternative definition of the fractal dimension:
 \begin{equation}
   D = -\lim\limits_{\epsilon \to 0}\frac{\log{N(\epsilon)}}{\log{\epsilon}}
   \label{eq:Minkowski}
@@ -460,13 +457,10 @@ Plotting the size distribution of the Cantor set on a log-log scale:
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{The y-axis shows the number of linear segments in
-    an 11\textsuperscript{th} order Cantor set that exceed the length
-    shown on the x-axis. The values form a power law with a fractal
-    dimension of $D=0.64\pm{0.01}$.  Using
-    Equation~\ref{eq:Minkowski}, it can be shown that the exact value
-    is $D=\ln[2]/\ln[3]=0.631$. With a fractal dimension between zero
-    and one, the Cantor set falls somewhere between a point and a
-    line.}
+    the Cantor set that exceed the length shown on the x-axis. The
+    values form a power law with a fractal dimension of
+    $D=\ln[2]/\ln[3]=0.631$. With a fractal dimension between zero and
+    one, the Cantor set falls somewhere between a point and a line.}
   \label{fig:cantorloglog}
 \end{minipage}
 

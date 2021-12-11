@@ -146,6 +146,34 @@ boxcount <- function(mat,size){
     nboxes
 }
 
+#' @title box counting
+#' @description Count the number of boxes needed to cover all the 1s
+#'     in a matrix of 0s and 1s.
+#' @param mat a square square matrix of 0s and 1s, whose size should
+#'     be a power of 2.
+#' @param size the size (pixels per side) of the boxes, whose size
+#'     should be a power of 2.
+#' @return an integer
+#' @examples
+#' g <- sierpinski(n=5)
+#' boxcount(mat=g,size=16)
+#' @export
+boxcount <- function(mat,size){
+    n2 <- floor(log2(min(dim(mat))))
+    n <- 2^(n2-log2(size)-1)
+    nboxes <- n^2
+    for(j in 1:n){
+        row_id <- ((j-1)*size+1):(j*size)
+        for(k in 1:n){
+            col_id <- ((k-1)*size+1):(k*size)
+            if(sum(mat[row_id,col_id]) == 0){
+                nboxes <- nboxes - 1
+            }
+        }
+    }
+    nboxes
+}
+
 #' @title calculate the fractal dimension
 #' @description Performs box counting on a matrix of 0s and 1s.
 #' @param mat a square matrix of 0s and 1s. Size must be a power of 2.
@@ -168,7 +196,7 @@ fractaldim <- function(mat,plot=TRUE,...){
     fit <- stats::lm(log(nboxes) ~ log(size))
     if (plot){
         graphics::plot(nboxes ~ size,type='n',log='xy',
-                       bty='n',xlab='size of boxes',
+                       bty='n',xlab='size of the boxes',
                        ylab=expression('number of boxes'))
         graphics::lines(exp(fit$fitted.values) ~ size)
         graphics::points(nboxes ~ size,...)

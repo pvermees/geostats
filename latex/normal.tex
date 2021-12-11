@@ -384,16 +384,16 @@ setting it to zero:
 \noindent which is the same as Equation~\ref{eq:mean}. Using the same
 strategy to estimate $\sigma$:
 \begin{equation}
+  \label{eq:stdevgivenmu}
   \begin{split}
-    \left.\frac{\partial{\mathcal{LL}}}{\partial{\sigma}}\right|_\hat{\sigma} & =
-    \sum\limits_{i=1}^{n} - \frac{1}{\hat{\sigma}} +
+    \left.\frac{\partial{\mathcal{LL}}}{\partial{\sigma}}\right|_{\hat{\sigma}}
+    & = \sum\limits_{i=1}^{n} - \frac{1}{\hat{\sigma}} +
     \frac{(x_i-\mu)^2}{\hat{\sigma}^3} = 0\\
     & \Rightarrow  \sum\limits_{i=1}^{n} \frac{(x_i-\mu)^2}{\hat{\sigma}^3} =
     \frac{n}{\hat{\sigma}} \\
     & \Rightarrow \hat{\sigma} =
-    \sqrt{\frac{1}{n}\sum\limits_{i=1}^{n}(x_i-\mu)^2}
+    \sqrt{\frac{1}{n}\sum\limits_{i=1}^{n}(x_i-\mu)^2}\\
   \end{split}
-  \label{eq:stdevgivenmu}
 \end{equation}
 
 \noindent which is \emph{almost} the same as the formula for the
