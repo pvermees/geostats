@@ -5,6 +5,8 @@
 \title{box counting}
 \usage{
 boxcount(mat, size)
+
+boxcount(mat, size)
 }
 \arguments{
 \item{mat}{a square square matrix of 0s and 1s, whose size should
@@ -15,12 +17,19 @@ should be a power of 2.}
 }
 \value{
 an integer
+
+an integer
 }
 \description{
 Count the number of boxes needed to cover all the 1s
     in a matrix of 0s and 1s.
+
+Count the number of boxes needed to cover all the 1s
+    in a matrix of 0s and 1s.
 }
 \examples{
+g <- sierpinski(n=5)
+boxcount(mat=g,size=16)
 g <- sierpinski(n=5)
 boxcount(mat=g,size=16)
 }
