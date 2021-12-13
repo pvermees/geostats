@@ -1,21 +1,21 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.4.25)  13 DEC 2020 21:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.8)  13 DEC 2021 09:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**\nonstopmode\input geostats.texp
+**\nonstopmode\input geostats.texpdf
 
 ! Emergency stop.
-<*> \nonstopmode\input geostats.texp
-                                    
+<*> \nonstopmode\input geostats.texpdf
+                                      
 *** (job aborted, file error in nonstop mode)
 
  
 Here is how much of TeX's memory you used:
  15 strings out of 481239
- 370 string characters out of 5920377
- 236564 words of memory out of 5000000
+ 372 string characters out of 5920378
+ 236562 words of memory out of 5000000
  15384 multiletter control sequences out of 15000+600000
  532338 words of font info for 24 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 11i,0n,15p,63b,8s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 11i,0n,15p,65b,8s stack positions out of 5000i,500n,10000p,200000b,80000s
 !  ==> Fatal error occurred, no output PDF file produced!

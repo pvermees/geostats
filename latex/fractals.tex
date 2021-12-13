@@ -357,7 +357,8 @@ Plotting the results on a frequency-magnitude log-log plot:
     needed to cover the Koch curve of Figure~\ref{fig:koch6} against
     the size of those boxes.  The best fitting line has a slope of
     $-1.26$, which is similar to the slope of the box-counting results
-    for the British coastline (Figure~\ref{fig:Britainboxcounts}).}
+    for the British coastline (Figure~\ref{fig:Britainboxcounts}).
+    Box sizes are expressed in arbitrary units (pixels).}
   \label{fig:kochboxcounts}
 \end{minipage}
 
@@ -423,8 +424,10 @@ leads to an alternative definition of the fractal dimension:
   \label{eq:Minkowski}
 \end{equation}
 
-\noindent where $\epsilon$ is the size of the box and $N(\epsilon)$ is
-the number of boxes needed to cover the feature of
+\noindent where $\epsilon$ is the normalised\footnote{Here the units
+  of $\epsilon$ are chosen so that $\epsilon\leq{1}$ and
+  $N(\epsilon=1) = 1$.}  size of the box and $N(\epsilon)$ is the
+number of boxes needed to cover the feature of
 interest. Equation~\ref{eq:Minkowski} can be used to obtain exact
 analytical expressions for deterministic fractals. Thus, it can be
 shown that the fractal dimension of a Koch curve is

@@ -2574,6 +2574,8 @@ png(file='../../figures/Britainboxes.png',type='cairo',
     width=11.6,height=3,res=300,units='in')
 pars(mfrow=c(1,4),mar=rep(0,4))
 mat <- Britain
+nticks <- rep(2,10)^(0:9)
+boxside <- rev(nticks)
 count <- plotboxmap(mat,boxside=boxside,nticks=nticks,i=5,frame=FALSE)
 legend('topright',bty='n',legend=paste0(count$nboxes,'/',nticks[5]^2))
 count <- plotboxmap(mat,boxside=boxside,nticks=nticks,i=6,frame=FALSE)
@@ -2680,8 +2682,8 @@ dev.off()
 
 cairo(file='../../figures/kochboxcounts.pdf',width=3,height=3)
 pars()
-N <- 3*4^(0:6-1)
-d <- (1/3)^(0:6)
+N <- 3*4^(0:6)
+d <- (1/3)^(1:7)/(1/3)^(7)
 plot(N ~ d,log='xy',type='l',bty='n',
      xlab='size of the boxes',ylab='number of boxes')
 points(N ~ d,pch=21,bg='white')
