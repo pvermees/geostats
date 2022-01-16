@@ -9,19 +9,24 @@ output:
 
 ```{r setup, include = FALSE}
 solution <- FALSE
-knitr::opts_chunk$set(echo=solution, include=FALSE)
+results <- FALSE
+knitr::opts_chunk$set(echo=solution,include=results)
 set.seed(1)
 # to render:
 # rmarkdown::render("~/Documents/Programming/R/geostats/quizzes/extra.Rmd")
+# then parse into separate PDFs using parsextra.R
 ```
-\newif\ifsol
-\sol`r ifelse(solution, 'true', 'false')`
+
+\newif\ifsol\sol`r ifelse(solution, 'true', 'false')`
+\newif\ifmulti\multi`r ifelse(solution, 'true', 'false')`
+\ifmulti\pagestyle{empty}\fi
 
 Unlike the exercises in the notes, whose solutions are provided in
 Chapter 19, you must attempt these questions yourself before I will
 share my answer with you. You can do so during the live sessions,
 either in person or via Zoom. Try, struggle, ask questions, and learn!
 
+\ifmulti\clearpage\fi
 # Brownian motion \label{sec:Brownian}
 
 Write a function that simulates a random walk:
@@ -33,37 +38,38 @@ direction. \label{it:Brownian1}
 2. Repeat $n=1000$ times and plot the track of the particle as a
 line. \label{it:Brownian2}
 
-```{r brown, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
-# brownian motion for one particle:
-brown <- function(xy0=rep(0,2),n=1000){
-  xy <- matrix(rep(xy0,n),ncol=2,byrow=TRUE)
-  d <- runif(n,min=0,max=2*pi) # random directions
-  for (i in 2:n){
-    dx <- cos(d[i])
-    dy <- sin(d[i])
-    xy[i,1] <- xy[i-1,1] + dx
-    xy[i,2] <- xy[i-1,2] + dy
-  }
-  return(xy)
-}
-xy <- brown()
-plot(xy,type='l',xlab='x',ylab='y')
-```
+   ```{r brown, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
+   # brownian motion for one particle:
+   brown <- function(xy0=rep(0,2),n=1000){
+      xy <- matrix(rep(xy0,n),ncol=2,byrow=TRUE)
+      d <- runif(n,min=0,max=2*pi) # random directions
+      for (i in 2:n){
+         dx <- cos(d[i])
+	 dy <- sin(d[i])
+	 xy[i,1] <- xy[i-1,1] + dx
+	 xy[i,2] <- xy[i-1,2] + dy
+      }
+      return(xy)
+   }
+   xy <- brown()
+   plot(xy,type='l',xlab='x',ylab='y')
+   ```
 
 3. Repeat steps \ref{it:Brownian1} and \ref{it:Brownian2} for $N=500$
 virtual particles and visualise their final positions on a scatter
 plot. \label{it:Brownian3}
 
-```{r browngauss, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
-n <- 1000
-N <- 500
-xyf <- matrix(NA,nrow=N,ncol=2)
-for (i in 1:N){
-  xyf[i,] <- brown(n=n)[n,]
-}
-plot(xyf,type='p',pch=16,xlab='x',ylab='y')
-```
+   ```{r browngauss, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
+   n <- 1000
+   N <- 500
+   xyf <- matrix(NA,nrow=N,ncol=2)
+   for (i in 1:N){
+      xyf[i,] <- brown(n=n)[n,]
+   }
+   plot(xyf,type='p',pch=16,xlab='x',ylab='y')
+   ```
 
+\ifmulti\clearpage\fi
 # Diffusion \label{sec:diffusion}
 
 Using the code from exercise \ref{sec:Brownian}:
@@ -73,60 +79,61 @@ Using the code from exercise \ref{sec:Brownian}:
 ${2}\times{2}$ panel grid of scatter plots. Adjust the axis limits so
 that all four panels are plotted at the same scale. \label{it:diffusion1}
 
-```{r diffusion, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
-cloud <- function(n=1000,N=500,plot=TRUE,...){
-  xyf <- matrix(NA,nrow=N,ncol=2)
-  for (i in 1:N){
-    xyf[i,] <- brown(n=n)[n,]
-  }
-  if (plot) plot(xyf,pch=16,xlab='x',ylab='y',...)
-  invisible(xyf) # returns the values without printing them at the console
-}
+   ```{r diffusion, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
+   cloud <- function(n=1000,N=500,plot=TRUE,...){
+      xyf <- matrix(NA,nrow=N,ncol=2)
+      for (i in 1:N){
+         xyf[i,] <- brown(n=n)[n,]
+      }
+      if (plot) plot(xyf,pch=16,xlab='x',ylab='y',...)
+      invisible(xyf) # returns the values without printing them at the console
+   }
 
-par(mfrow=c(2,2),mar=rep(2,4))
-lims <- c(-100,100)
-ns <- c(250,500,1000,2000)
-for (n in ns){
-  cloud(n=n,xlim=lims,ylim=lims)
-  legend('topleft',legend=paste('n=',n),bty='n')
-}
+   par(mfrow=c(2,2),mar=rep(2,4))
+   lims <- c(-100,100)
+   ns <- c(250,500,1000,2000)
+   for (n in ns){
+      cloud(n=n,xlim=lims,ylim=lims)
+      legend('topleft',legend=paste('n=',n),bty='n')
+   }
 ```
 
 2. Plot the marginal distributions of the $x$-values as kernel density
 estimates and empirical cumulative distribution functions.
 \label{it:diffusion2}
 
-```{r marginals, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
-par(mfrow=c(2,2),mar=rep(2,4))
-for (n in ns){
-  xy <- cloud(n=n,plot=FALSE)
-  d <- density(xy[,1],from=-100,to=100)
-  plot(d,main='')
-  rug(xy[,1])
-  legend('topleft',legend=paste('n=',n),bty='n')
-}
-for (n in ns){
-  xy <- cloud(n=n,plot=FALSE)
-  d <- ecdf(xy[,1])
-  plot(d,xlim=c(-100,100),main='',verticals=TRUE,pch=NA)
-  legend('topleft',legend=paste('n=',n),bty='n')
-}
-```
+   ```{r marginals, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
+   par(mfrow=c(2,2),mar=rep(2,4))
+   for (n in ns){
+      xy <- cloud(n=n,plot=FALSE)
+      d <- density(xy[,1],from=-100,to=100)
+      plot(d,main='')
+      rug(xy[,1])
+      legend('topleft',legend=paste('n=',n),bty='n')
+   }
+   for (n in ns){
+      xy <- cloud(n=n,plot=FALSE)
+      d <- ecdf(xy[,1])
+      plot(d,xlim=c(-100,100),main='',verticals=TRUE,pch=NA)
+      legend('topleft',legend=paste('n=',n),bty='n')
+   }
+   ```
 
 3. Visualise the bivariate datasets as 2-dimensional
 KDEs. \label{it:diffusion3}
 
-```{r kde2d, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
-par(mfrow=c(2,2),mar=rep(2,4))
-lims <- c(-100,100)
-for (n in ns){
-  xy <- cloud(n=n,plot=FALSE)
-  d2d <- MASS::kde2d(x=xy[,1],y=xy[,2],lims=rep(lims,2))
-  contour(d2d,xlim=lims,ylim=lims)
-  legend('topleft',legend=paste('n=',n),bty='n')
-}
-```
+   ```{r kde2d, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
+   par(mfrow=c(2,2),mar=rep(2,4))
+   lims <- c(-100,100)
+   for (n in ns){
+      xy <- cloud(n=n,plot=FALSE)
+      d2d <- MASS::kde2d(x=xy[,1],y=xy[,2],lims=rep(lims,2))
+      contour(d2d,xlim=lims,ylim=lims)
+      legend('topleft',legend=paste('n=',n),bty='n')
+   }
+   ```
 
+\ifmulti\clearpage\fi
 # Summary statistics \label{sec:summary-statistics}
 
 Using the code from the previous exercises:
@@ -135,30 +142,31 @@ Using the code from the previous exercises:
 interquartile ranges of the synthetic datasets (x-values) of exercise
 \ref{sec:diffusion}. \label{it:sumstat1}
 
-```{r summary-table, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
-nn <- length(ns)
-tab <- data.frame(means=rep(0,nn),medians=rep(0,nn),sds=rep(0,nn),iqrs=rep(0,nn))
-for (i in 1:nn){
-  x <- cloud(n=ns[i],plot=FALSE)[,1]
-  tab[i,'means'] <- mean(x)
-  tab[i,'medians'] <- median(x)
-  tab[i,'sds'] <- sd(x)
-  tab[i,'iqrs'] <- IQR(x)
-}
-tab
-```
+   ```{r out.width="50%", out.height="50%", fig.width=5, fig.height=5}
+   nn <- length(ns)
+   tab <- data.frame(means=rep(0,nn),medians=rep(0,nn),sds=rep(0,nn),iqrs=rep(0,nn))
+   for (i in 1:nn){
+      x <- cloud(n=ns[i],plot=FALSE)[,1]
+      tab[i,'means'] <- mean(x)
+      tab[i,'medians'] <- median(x)
+      tab[i,'sds'] <- sd(x)
+      tab[i,'iqrs'] <- IQR(x)
+   }
+   tab
+   ```
 
 2. Plot the four datasets as box plots. \label{it:sumstat2}
 
-```{r box-plots, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
-dat <- list()
-for (i in 1:nn){
-  dat[[i]] <- cloud(n=ns[i],plot=FALSE)[,1]
-}
-names(dat) <- ns
-boxplot(dat)
-```
+   ```{r box-plots, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
+   dat <- list()
+   for (i in 1:nn){
+      dat[[i]] <- cloud(n=ns[i],plot=FALSE)[,1]
+   }
+   names(dat) <- ns
+   boxplot(dat)
+   ```
 
+\ifmulti\clearpage\fi
 # Probability \label{sec:probability}
 
 Suppose that a password needs to contain exactly 8 characters and must
@@ -190,306 +198,446 @@ combinations of those three outcomes:
 In \texttt{R}:
 \fi
 
-```{r prob1}
-len <- 8 # length of the password
-nupper <- 26 # A -> Z
-nlower <- 26 # a -> z
-ndigit <- 10 # 0 -> 9
-# total number of 8-character strings:
-N <- (nupper+nlower+ndigit)^len
-# remove all the passwords with no uppercase letter, lowercase letter, or digit:
-N <- N - (nlower+ndigit)^len - (nupper+ndigit)^len - (nlower+nupper)^len
-# But then you removed some passwords twice. You must add back all passwords with
-# no lowercase AND no uppercase, no lowercase AND no digit, or no uppercase AND no digit:
-N <- N + ndigit^len + nupper^len + nlower^len
-# hence the total number of passwords is
-print(N)
-```
+   ```{r prob1}
+   len <- 8 # length of the password
+   nupper <- 26 # A -> Z
+   nlower <- 26 # a -> z
+   ndigit <- 10 # 0 -> 9
+   # total number of 8-character strings:
+   N <- (nupper+nlower+ndigit)^len
+   # remove all the passwords with no uppercase letter, lowercase letter, or digit:
+   N <- N - (nlower+ndigit)^len - (nupper+ndigit)^len - (nlower+nupper)^len
+   # But then you removed some passwords twice. You must add back all passwords with
+   # no lowercase AND no uppercase, no lowercase AND no digit, or no uppercase AND no digit:
+   N <- N + ndigit^len + nupper^len + nlower^len
+   # hence the total number of passwords is
+   print(N)
+   ```
 
+\ifmulti\clearpage\fi
 # Bernoulli variables \label{sec:Bernoulli}
 
 1. Draw a random number from a uniform distribution between 0 and 1
 and store this number in a variable ($p$, say). \label{it:Bernoulli1}
 
-```{r Bernoulli1}
-set.seed(2) # to get reproducible results (comment out for truly random values)
-p <- runif(1)
-print(p)
-```
+   ```{r Bernoulli1}
+   set.seed(2) # to get reproducible results (comment out for truly random values)
+   p <- runif(1)
+   print(p)
+   ```
 
 2. draw $n=20$ additional numbers from the same uniform distribution
 and count how many of these values are less than $p$. \label{it:Bernoulli2}
 
-```{r Bernoulli2}
-n <- 20
-r <- runif(n)
-print(sum(r<p))
-```
+   ```{r Bernoulli2}
+   n <- 20
+   r <- runif(n)
+   print(sum(r<p))
+   ```
 
 3. Repeat steps \ref{it:Bernoulli1} and \ref{it:Bernoulli2} $N=100$
 times, store the results in a vector ($x$, say), and plot the results
 as a histogram. \label{it:Bernoulli3}
 
-```{r Bernoulli3, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
-N <- 100
-m <- matrix(runif(n*N),nrow=N,ncol=n)
-x <- rowSums(m<p)
-h <- hist(x,breaks=seq(from=-0.5,to=20.5,by=1))
-```
+   ```{r Bernoulli3, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
+   N <- 100
+   m <- matrix(runif(n*N),nrow=N,ncol=n)
+   x <- rowSums(m<p)
+   h <- hist(x,breaks=seq(from=-0.5,to=20.5,by=1))
+   ```
 
 4. Suppose that you did not know the value of $p$, then you could
 estimate it (as a new variable $\hat{p}$, say) from the data $x$. To
 this end, compute the binomial density (or `likelihood') of all values
 in $x$ for $\hat{p}=0.5$ and sample size $n$. \label{it:Bernoulli4}
 
-```{r Bernoulli4}
-phat <- 0.5 # example value
-d <- dbinom(x=x, size=n, prob=phat)
-```
+   ```{r Bernoulli4}
+   phat <- 0.5 # example value
+   d <- dbinom(x=x, size=n, prob=phat)
+   ```
 
 5. Now take the sum of the logarithms of the binomial likelihoods of
 $x$. Call this sum $LL$ (for `log-likelihood'). \label{it:Bernoulli5}
 
-```{r Bernoulli5}
-d <- dbinom(x=x, size=n, prob=phat, log=TRUE)
-LL <- sum(d)
-print(LL)
-```
+   ```{r Bernoulli5}
+   d <- dbinom(x=x, size=n, prob=phat, log=TRUE)
+   LL <- sum(d)
+   print(LL)
+   ```
 
 6. Repeat step 5 for a regularly spaced sequence of $\hat{p}$-values.
 Then plot the resulting $LL$-values against those
 $\hat{p}$-values. \label{it:Bernoulli6}
 
-```{r Bernoulli6, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
-phat <- seq(from=0.01,to=0.99,by=0.01) # values of 0 and 1 don't work
-np <- length(phat)
-LL <- rep(0,np)
-for (i in 1:np){
-  d <- dbinom(x=x, size=n, prob=phat[i], log=TRUE)
-  LL[i] <- sum(d)
-}
-plot(phat,LL,type='l')
-```
+   ```{r Bernoulli6, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
+   phat <- seq(from=0.01,to=0.99,by=0.01) # values of 0 and 1 don't work
+   np <- length(phat)
+   LL <- rep(0,np)
+   for (i in 1:np){
+   d <- dbinom(x=x, size=n, prob=phat[i], log=TRUE)
+   LL[i] <- sum(d)
+   }
+   plot(phat,LL,type='l')
+   ```
 
 7. Approximately which value of $\hat{p}$ corresponds to the maximum
 value for $LL$? How does this compare to the true value of $p$?
 \label{it:Bernoulli7}
 
-```{r Bernoulli7}
-i <- which.max(LL)
-message('phat=',phat[i],', p=',signif(p,2))
-```
+   ```{r Bernoulli7}
+   i <- which.max(LL)
+   message('phat=',phat[i],', p=',signif(p,2))
+   ```
 
 By completing this exercise, you have numerically extended the
 procedure described in Section 5.1 of the notes.
 
+\ifmulti\clearpage\fi
 # Type-2 errors \label{sec:binomialtest}
 
 1. Draw a random number from a binomial distribution with $n=20$ and
 $p=0.52$. \label{it:binomialtest1}
 
-```{r binomialtest1}
-n <- 20
-p <- 0.52
-r <- rbinom(n=1,size=n,prob=p)
-```
+   ```{r binomialtest1}
+   n <- 20
+   p <- 0.52
+   r <- rbinom(n=1,size=n,prob=p)
+   ```
 
 2. Apply a binomial test comparing $H_\circ: p=0.5$ with $H_a:
 p\neq{0.5}$. Do the data pass the test? \label{it:binomialtest2}
 
-```{r binomialtest2}
-alpha <- 0.05
-p0 <- 0.5
-h <- binom.test(x=r,n=n,p=p0)
-message('The data ',ifelse(h$p.value<alpha,'fail','pass'),' the test')
-```
+   ```{r binomialtest2}
+   alpha <- 0.05
+   p0 <- 0.5
+   h <- binom.test(x=r,n=n,p=p0)
+   message('The data ',ifelse(h$p.value<alpha,'fail','pass'),' the test')
+   ```
 
 3. Repeat steps \ref{it:binomialtest1} and \ref{it:binomialtest2}
 $N=1000$ times. What percentage of the datasets pass the test?
 \label{it:binomialtest3}
 
-```{r binomialtest3}
-N <- 1000
-r <- rbinom(n=N,size=n,prob=p)
-npass <- 0
-for (i in 1:N){
-  h <- binom.test(x=r[i],n=n,p=p0)
-  if (h$p.value>alpha) npass <- npass + 1
-}
-npass/N
-```
+   ```{r binomialtest3}
+   N <- 1000
+   r <- rbinom(n=N,size=n,prob=p)
+   npass <- 0
+   for (i in 1:N){
+      h <- binom.test(x=r[i],n=n,p=p0)
+      if (h$p.value>alpha) npass <- npass + 1
+   }
+   npass/N
+   ```
 
 4. Repeat steps \ref{it:binomialtest1} through \ref{it:binomialtest3}
 for $n=200$. \label{it:binomialtest4}
 
-```{r binomialtest4}
-# write a function to avoid duplicate code:
-btest <- function(n=20,N=1000,p=0.52,p0=0.5,alpha=0.05){
-  r <- rbinom(n=N,size=n,prob=p)
-  npass <- 0
-  for (i in 1:N){
-    h <- binom.test(x=r[i],n=n,p=p0)
-    if (h$p.value>alpha) npass <- npass + 1
-  }
-  npass/N
-}
+   ```{r binomialtest4}
+   # write a function to avoid duplicate code:
+   btest <- function(n=20,N=1000,p=0.52,p0=0.5,alpha=0.05){
+      r <- rbinom(n=N,size=n,prob=p)
+      npass <- 0
+      for (i in 1:N){
+         h <- binom.test(x=r[i],n=n,p=p0)
+      	 if (h$p.value>alpha) npass <- npass + 1
+      }
+      npass/N
+   }
 
-# use the function
-btest(n=200,p=p)
-```
+   # use the function
+   btest(n=200,p=p)
+   ```
 
 5. Repeat step \ref{it:binomialtest4} for a range of values from
 $n=20$ to $n=2000$. Plot the probability of rejection against
 $n$. \label{it:binomialtest5}
-```{r binomialtest5, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
-nt <- 10 # number of tests
-nn <- seq(from=20,to=20000,length.out=nt)
-pp <- rep(0,nt)
-for (i in 1:nt){
-  pp[i] <- btest(n=nn[i],p=p)
-}
-plot(x=nn,y=pp,type='b',xlab='sample size',ylab='probability of type-2 error')
-```
+
+   ```{r out.width="50%", out.height="50%", fig.width=5, fig.height=5}
+   nt <- 10 # number of tests
+   nn <- seq(from=20,to=20000,length.out=nt)
+   pp <- rep(0,nt)
+   for (i in 1:nt){
+      pp[i] <- btest(n=nn[i],p=p)
+   }
+   plot(x=nn,y=pp,type='b',xlab='sample size',ylab='probability of type-2 error')
+   ```
 
 6. Compare the results of step \ref{it:binomialtest5} with a manual
 calculation of the probability of committing a Type-2 error as a
 function of sample size. \label{it:binomialtest6}
 
-```{r binomialtest6, fig.width=10, fig.height=5}
-type2 <- function(n=20,p=0.52,p0=0.5){
-  # rejection region of a two-sided binomial test for p=0.5
-  ll <- qbinom(p=0.025,size=n,prob=p0) # lower limit
-  ul <- qbinom(p=0.975,size=n,prob=p0) # upper limit
-  # compute the probabilities of erroneously accepted values
-  return(pbinom(q=ul,size=n,prob=p)-pbinom(q=ll,size=n,prob=p))
-}
+   ```{r binomialtest6, fig.width=10, fig.height=5}
+   type2 <- function(n=20,p=0.52,p0=0.5){
+      # rejection region of a two-sided binomial test for p=0.5
+      ll <- qbinom(p=0.025,size=n,prob=p0) # lower limit
+      ul <- qbinom(p=0.975,size=n,prob=p0) # upper limit
+      # compute the probabilities of erroneously accepted values
+      return(pbinom(q=ul,size=n,prob=p)-pbinom(q=ll,size=n,prob=p))
+   }
 
-pp2 <- rep(0,nt)
-for (i in 1:nt){
-  pp2[i] <- type2(n=nn[i],p=p)
-}
-par(mfrow=c(1,2))
-plot(x=nn,y=pp2,type='b',xlab='sample size',ylab='probability of type-2 error')
-plot(x=pp,y=pp2,xlab='numerical',ylab='analytical')
-lines(range(pp),range(pp))
-```
+   pp2 <- rep(0,nt)
+   for (i in 1:nt){
+      pp2[i] <- type2(n=nn[i],p=p)
+   }
+   par(mfrow=c(1,2))
+   plot(x=nn,y=pp2,type='b',xlab='sample size',ylab='probability of type-2 error')
+   plot(x=pp,y=pp2,xlab='numerical',ylab='analytical')
+   lines(range(pp),range(pp))
+   ```
 
+\ifmulti\clearpage\fi
 # Confidence intervals \label{sec:binomialci}
 
 1. Draw $N=10$ random numbers from a binomial distribution with
 $p=0.55$ and $n=20$. Construct 95% confidence intervals for $p$ for
 each of these numbers. \label{it:binomialci1}
 
-```{r binomialci1}
-# define a function to avoid future duplication of code:
-bci <- function(n=20,N=10,p=0.5){
-  out <- matrix(0,nrow=3,ncol=N)
-  rownames(out) <- c('r','ll','ul')
-  out['r',] <- rbinom(n=N,size=n,prob=p)
-  for (i in 1:N){
-    h <- binom.test(out['r',i],n=n)
-    out[c('ll','ul'),i] <- h$conf.int
-  }
-  return(out)
-}
+   ```{r binomialci1}
+   # define a function to avoid future duplication of code:
+   bci <- function(n=20,N=10,p=0.5){
+      out <- matrix(0,nrow=3,ncol=N)
+      rownames(out) <- c('r','ll','ul')
+      out['r',] <- rbinom(n=N,size=n,prob=p)
+      for (i in 1:N){
+         h <- binom.test(out['r',i],n=n)
+	 out[c('ll','ul'),i] <- h$conf.int
+      }
+      return(out)
+   }
 
-# use the new function:
-rci <- bci(p=0.55)
-print(rci)
-```
+   # use the new function:
+   rci <- bci(p=0.55)
+   print(rci)
+   ```
 
 2. Plot these confidence intervals against $n$ as error bars using
 \texttt{R}'s \texttt{arrows()} function. \label{it:binomialci2}
 
-```{r binomialci2, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
-plotrci <- function(rci,...){
-  N <- ncol(rci)
-  plot(1:N,rci['r',]/n,pch=16,ylim=c(0,1),bty='n',xlab='i',ylab='p',...)
-  arrows(x0=1:N,y0=rci['ll',],y1=rci['ul',],length=0.1,angle=90,code=3)
-}
-plotrci(rci)
-```
+   ```{r out.width="50%", out.height="50%", fig.width=5, fig.height=5}
+   plotrci <- function(rci,...){
+      N <- ncol(rci)
+      plot(1:N,rci['r',]/n,pch=16,ylim=c(0,1),bty='n',xlab='i',ylab='p',...)
+      arrows(x0=1:N,y0=rci['ll',],y1=rci['ul',],length=0.1,angle=90,code=3)
+   }
+   plotrci(rci)
+   ```
 
 3. How many of the confidence intervals in step \ref{it:binomialci2}
 overlap with $p_0=0.5$?
 
-```{r binomialci3, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
-# write function to avoid future duplication:
-bciexplorer <- function(n=20,N=10,p=0.5,p0=0.5){
-  rci <- bci(n=n,N=N,p=p)
-  overlap <- sum(p0>rci['ll',] & p0<rci['ul',])
-  tit <- paste0(overlap,'/',N,' overlapping') # title
-  plotrci(rci,main=tit)
-  lines(x=1:N,y=rep(p0,N),lty=2)
-}
+   ```{r out.width="50%", out.height="50%", fig.width=5, fig.height=5}
+   # write function to avoid future duplication:
+   bciexplorer <- function(n=20,N=10,p=0.5,p0=0.5){
+      rci <- bci(n=n,N=N,p=p)
+      overlap <- sum(p0>rci['ll',] & p0<rci['ul',])
+      tit <- paste0(overlap,'/',N,' overlapping') # title
+      plotrci(rci,main=tit)
+      lines(x=1:N,y=rep(p0,N),lty=2)
+   }
 
-# use the function:
-bciexplorer(n=20,N=10,p=0.55,p0=0.5)
-```
+   # use the function:
+   bciexplorer(n=20,N=10,p=0.55,p0=0.5)
+   ```
 
 4. Repeat step \ref{it:binomialci2} for $n=200$. How many of these new
 confidence intervals fall outside $p=0.5$? Do so again for $n=2000$.
 
-```{r binomialci4, fig.width=10, fig.height=5}
-par(mfrow=c(1,2))
-bciexplorer(n=200,N=10,p=0.55,p0=0.5)
-bciexplorer(n=2000,N=10,p=0.55,p0=0.5)
-```
+   ```{r binomialci4, fig.width=10, fig.height=5}
+   par(mfrow=c(1,2))
+   bciexplorer(n=200,N=10,p=0.55,p0=0.5)
+   bciexplorer(n=2000,N=10,p=0.55,p0=0.5)
+   ```
 
-# Random sampling in 2D \label{sec:FT}
+\ifmulti\clearpage\fi
+# Poisson sampling \label{sec:FT}
 
 1. Generate two vectors ($x$ and $y$, say) of 1000 random numbers
 between 0 and 500 and visualise them on a scatter plot. Add a grid of
 lines at every 20 units of $x$ and $y$. \label{it:FT1}
 
-```{r FT1, out.width="70%", out.height="70%", fig.width=10, fig.height=10}
-randgrid <- function(n=1000,m=0,M=500,bw=20){
-  x <- runif(n,min=m,max=M)
-  y <- runif(n,min=m,max=M)
-  plot(x=x,y=y,pch=16)
-  g <- seq(from=m,to=M,by=bw)
-  ng <- length(g)
-  matlines(x=rbind(rep(m,ng),rep(M,ng)),y=rbind(g,g),lty=3,col='black')
-  matlines(x=rbind(g,g),y=rbind(rep(m,ng),rep(M,ng)),lty=3,col='black')
-  xy <- cbind(x,y)
-  invisible(xy)
-}
-randgrid()
-```
+   ```{r FT1, out.width="70%", out.height="70%", fig.width=10, fig.height=10}
+   randgrid <- function(n=1000,m=0,M=500,bw=20){
+      x <- runif(n,min=m,max=M)
+      y <- runif(n,min=m,max=M)
+      plot(x=x,y=y,pch=16)
+      g <- seq(from=m,to=M,by=bw)
+      ng <- length(g)
+      matlines(x=rbind(rep(m,ng),rep(M,ng)),y=rbind(g,g),lty=3,col='black')
+      matlines(x=rbind(g,g),y=rbind(rep(m,ng),rep(M,ng)),lty=3,col='black')
+      xy <- cbind(x,y)
+      invisible(xy)
+   }
+   randgrid()
+   ```
 
 2. Count the number of items falling in each square bin of the
 graticule contained in the interval from $x=0$ to $x=100$ and from
 $y=0$ to $y=100$. Plot these numbers as a histogram. \label{it:FT2}
 
-```{r FT2, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
-# this function solves the problem with a for-loop
-# this is not the fastest solution, but it is the easiest:
-bingrid <- function(xy,bw=20){
-  breaks <- seq(from=0,to=100,by=bw)
-  nbins <- length(breaks)-1
-  counts <- rep(NA,nbins^2)
-  for (i in 1:nbins){
-    for (j in 1:nbins){
-      xinbin <- (xy[,1]>=breaks[i] & xy[,1]<breaks[i+1])
-      yinbin <- (xy[,2]>=breaks[j] & xy[,2]<breaks[j+1])
-      ii <- (i-1)*nbins + j
-      counts[ii] <- sum(xinbin & yinbin)
-    }
-  }
-  hist(counts,breaks=max(counts)+1)
-  invisible(counts)
-}
-bingrid(xy)
-```
+   ```{r FT2, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
+   # this function solves the problem with a for-loop
+   # this is not the fastest solution, but it is the easiest:
+   bingrid <- function(xy,bw=20){
+      breaks <- seq(from=0,to=100,by=bw)
+      nbins <- length(breaks)-1
+      counts <- rep(NA,nbins^2)
+      for (i in 1:nbins){
+         for (j in 1:nbins){
+	    xinbin <- (xy[,1]>=breaks[i] & xy[,1]<breaks[i+1])
+	    yinbin <- (xy[,2]>=breaks[j] & xy[,2]<breaks[j+1])
+	    ii <- (i-1)*nbins + j
+	    counts[ii] <- sum(xinbin & yinbin)
+         }
+      }
+      hist(counts,breaks=max(counts)+1)
+      invisible(counts)
+   }
+   bingrid(xy)
+   ```
 
 3. Calculate the mean and variance of the resulting dataset of
 counts. Repeat steps \ref{it:FT1} and \ref{it:FT2} several times
 before drawing conclusions.
 
-```{r FT3, fig.width=10, fig.height=5}
-par(mfcol=c(2,3))
-for (i in 1:3){
-  counts <- bingrid(xy=randgrid())
-  message('mean=',mean(counts),', var=',var(counts))
-}
-```
+   ```{r FT3, fig.width=10, fig.height=5}
+   par(mfcol=c(2,3))
+   for (i in 1:3){
+      counts <- bingrid(xy=randgrid())
+      m <- mean(counts)
+      v <- var(counts)
+      message('mean=',signif(m,2),', var=',signif(v,2))
+   }
+   ```
+
+\ifmulti\clearpage\fi
+# The normal distribution \label{sec:normal}
+
+1. Modify the Brownian motion code of exercise \ref{sec:Brownian} so
+that the random displacements are not defined by a unit circle but by
+an ellipse with major axis $a=2$, minor axis $b=0.5$ and rotation
+angle $\alpha=\pi/4$. See exercise 18.1.2 of the notes for the
+relevant equations.
+
+   ```{r out.width="50%", out.height="50%", fig.width=5, fig.height=5}
+   ell <- function(n=1,a=1,b=1,alpha=0){
+      beta <- runif(n,min=0,max=2*pi) # random directions
+      dx <- a*cos(alpha)*cos(beta) - b*sin(alpha)*sin(beta)
+      dy <- a*sin(alpha)*cos(beta) + b*cos(alpha)*sin(beta)
+      cbind(dx,dy)
+   }
+
+   # brownian motion for one particle:
+   brown <- function(xy0=rep(0,2),n=1000,a=1,b=1,alpha=0){
+      xy <- matrix(rep(xy0,n),ncol=2,byrow=TRUE)
+      dxy <- ell(n=n,a=a,b=b,alpha=alpha)
+      for (i in 2:n){
+         xy[i,1] <- xy[i-1,1] + dxy[i,1]
+         xy[i,2] <- xy[i-1,2] + dxy[i,2]
+      }
+      return(xy)
+   }
+   xy <- brown(a=2,b=0.5,alpha=pi/4)
+   plot(xy,type='l',xlab='x',ylab='y',asp=1)
+
+   n <- 1000
+   N <- 500
+   xyf <- matrix(NA,nrow=N,ncol=2)
+   for (i in 1:N){
+      xyf[i,] <- brown(n=n,a=2,b=0.5,alpha=pi/4)[n,]
+   }
+   plot(xyf,type='p',pch=16,xlab='x',ylab='y',asp=1)
+   ```
+
+2. Explore the effects of different values for $a$, $b$ and $\alpha$.
+Brownian motion leads to diffusion, which gives rise to bivariate
+normal distributions.  In exercise \ref{sec:diffusion}, this diffusion
+was _isotropic_. The elliptical modification is one way to simulate
+_anisotropic_ diffusion.
+
+   ```{r out.width="50%", out.height="50%", fig.width=5, fig.height=5}
+   cloud <- function(n=1000,N=500,plot=TRUE,a=1,b=1,alpha=0,...){
+      xyf <- matrix(NA,nrow=N,ncol=2)
+      for (i in 1:N){
+         xyf[i,] <- brown(n=n,a=a,b=b,alpha=alpha)[n,]
+      }
+      if (plot) plot(xyf,pch=16,xlab='x',ylab='y',...)
+      invisible(xyf)
+   }
+
+   par(mfrow=c(2,2),mar=rep(2,4))
+   lims <- c(-150,150)
+   a <- c(1,2  ,2  ,2)
+   b <- c(1,0.5,0.5,0.5)
+   alpha <- c(0,pi/4,-pi/4,0)
+   n <- 1000
+   for (i in 1:4){
+      cloud(n=n,xlim=lims,ylim=lims,a=a[i],b=b[i],alpha=alpha[i],asp=1)
+      mtext(text=paste0('a=',a[i],', b=',b[i]),line=1)
+      adeg <- signif(alpha[i]*180/pi,2)
+      mtext(text=substitute(alpha~'='~a~degree,list(a=adeg)),line=0)
+   }
+   ```
+
+\ifmulti\clearpage\fi
+# Error propagation
+
+1. Consider a bivariate normal distribution with the following
+mean vector and covariance matrix:
+$$
+\mu = 
+\left[
+\begin{array}{c}
+x = -2 \\
+y = 5
+\end{array}
+\right] \mbox{,~}
+\Sigma = 
+\left[
+\begin{array}{cc}
+10 & -12\\
+-12 & 20
+\end{array}
+\right]
+$$
+
+2. Predict $z = xy$ and estimate its standard error.
+
+3. Draw $n=1000$ pairs of random numbers from the bivariate normal
+distribution. Compute $z$ for each pair and calculate the mean and
+standard error of the resulting vector. How does it compare with your
+analytical solution?
+
+4. Repeat steps 2 and 3 for $z = x^2 y^3$.
+
+\ifmulti\clearpage\fi
+# Comparing distributions \label{sec:comparingdistributions}
+
+1. Compare the marginal distributions of exercise \ref{sec:normal}
+with a normal distribution using Q-Q plots.
+
+2. Formalise the comparisons using a Kolmogorov-Smirnov test. See the
+documentation of the `ks.test()` function for help.
+
+\ifmulti\clearpage\fi
+# Regression \label{sec:regression}
+
+1. Calculate the correlation coefficients of the bivariate normal
+distributions of exercise \ref{sec:normal}.2
+
+   ```{r out.width="50%", out.height="50%", fig.width=5, fig.height=5}
+   a <- c(1,2  ,2  ,2)
+   b <- c(1,0.5,0.5,0.5)
+   alpha <- c(0,pi/4,-pi/4,0)
+   n <- 1000
+   N <- 500
+   xyf <- matrix(NA,nrow=N,ncol=2)
+   for (i in 1:4){
+      for (j in 1:N){
+         xyf[j,] <- brown(n=n,a=a[i],b=b[i],alpha=alpha[i])[n,]
+      }
+      adeg <- alpha[i]*180/pi
+      message('a=',a[i],', b=',b[i],', alpha=',signif(adeg,2),'deg')
+      r <- cor(xyf[,1],xyf[,2])
+      message('r[x,y]=',signif(r,2))
+   }
+   ```

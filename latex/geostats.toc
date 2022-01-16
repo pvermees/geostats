@@ -5,7 +5,7 @@
 \contentsline {section}{\numberline {2.3}Continuous data}{13}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Data transformations}{16}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Multivariate distributions}{18}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Empirical cumulative distribution fuctions}{19}{section.2.6}%
+\contentsline {section}{\numberline {2.6}Empirical cumulative distribution functions}{19}{section.2.6}%
 \contentsline {chapter}{\numberline {3}Summary statistics}{21}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Location}{21}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Dispersion}{23}{section.3.2}%
