@@ -1,5 +1,5 @@
 idir <- "~/Documents/Programming/R/geostats/quizzes/"
-odir <- "~/Desktop/extra/"
+odir <- "~/Desktop/GEOL0061/"
 rmarkdown::render(paste0(idir,"extra.Rmd"))
 pages <- c(2,4,7,8,9,11,13,16,19,22)
 np <- length(pages)

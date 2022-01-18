@@ -18,7 +18,7 @@ set.seed(1)
 ```
 
 \newif\ifsol\sol`r ifelse(solution, 'true', 'false')`
-\newif\ifmulti\multi`r ifelse(solution, 'true', 'false')`
+\newif\ifmulti\multifalse
 \ifmulti\pagestyle{empty}\fi
 
 Unlike the exercises in the notes, whose solutions are provided in
@@ -348,10 +348,9 @@ for $n=200$. \label{it:binomialtest4}
    btest(n=200,p=p)
    ```
 
-5. Repeat step \ref{it:binomialtest4} for a range of values from
-$n=20$ to $n=2000$. Plot the probability of rejection against
-$n$. \label{it:binomialtest5}
-
+5. \label{it:binomialtest5} Repeat step \ref{it:binomialtest4} for a
+range of values from $n=20$ to $n=2000$. Plot the probability of
+rejection against $n$.
    ```{r out.width="50%", out.height="50%", fig.width=5, fig.height=5}
    nt <- 10 # number of tests
    nn <- seq(from=20,to=20000,length.out=nt)
@@ -365,7 +364,6 @@ $n$. \label{it:binomialtest5}
 6. Compare the results of step \ref{it:binomialtest5} with a manual
 calculation of the probability of committing a Type-2 error as a
 function of sample size. \label{it:binomialtest6}
-
    ```{r binomialtest6, fig.width=10, fig.height=5}
    type2 <- function(n=20,p=0.52,p0=0.5){
       # rejection region of a two-sided binomial test for p=0.5
@@ -374,7 +372,7 @@ function of sample size. \label{it:binomialtest6}
       # compute the probabilities of erroneously accepted values
       return(pbinom(q=ul,size=n,prob=p)-pbinom(q=ll,size=n,prob=p))
    }
-
+   
    pp2 <- rep(0,nt)
    for (i in 1:nt){
       pp2[i] <- type2(n=nn[i],p=p)
