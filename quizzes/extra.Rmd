@@ -464,65 +464,51 @@ confidence intervals fall outside $p=0.5$? Do so again for $n=2000$.
    ```
 
 \ifmulti\clearpage\fi
-# Poisson sampling \label{sec:FT}
+# Radioactive decay \label{sec:FT}
 
-1. Generate two vectors ($x$ and $y$, say) of 1000 random numbers
-between 0 and 500 and visualise them on a scatter plot. Add a grid of
-lines at every 20 units of $x$ and $y$. \label{it:FT1}
+1. Radioactive decay is the process whereby a _parent_ isotope $P$
+transforms to a _daughter_ isotope $D$ at a rate that is controlled by
+the amount of parent and a _decay constant_ $\lambda_P$:
+   \[
+   \partial{D}/\partial{t} = -\partial{P}/\partial{t} = \lambda_P{P}
+   \]
+   
+   The rate of decay ($\partial{D}/\partial{t}$) can be measured with a
+   Geyger counter. In this exercise, you will simulate radioactive decay
+   using a finite differences approximation to the decay equation:
+   \[
+   \Delta{D}/\Delta{t} = -\Delta{P}/\Delta{t} \approx \lambda_P{P}
+   \]
+   
+   Then the expected number of parent atoms that are lost (and
+   daughter atoms that are gained) per time interval $\Delta{t}$
+   follows a Poisson distribution with parameter $\lambda_P P
+   \Delta{t}$.
 
-   ```{r FT1, out.width="70%", out.height="70%", fig.width=10, fig.height=10}
-   randgrid <- function(n=1000,m=0,M=500,bw=20){
-      x <- runif(n,min=m,max=M)
-      y <- runif(n,min=m,max=M)
-      plot(x=x,y=y,pch=16)
-      g <- seq(from=m,to=M,by=bw)
-      ng <- length(g)
-      # instead of 'matlines' you could also use a for loop of 'lines'
-      matlines(x=rbind(rep(m,ng),rep(M,ng)),y=rbind(g,g),lty=3,col='black')
-      matlines(x=rbind(g,g),y=rbind(rep(m,ng),rep(M,ng)),lty=3,col='black')
-      xy <- cbind(x,y)
-      invisible(xy)
+   Suppose that you start off with $P=10 000$ atoms of a parent isotope
+   with decay constant $\lambda_P=1/100$. Then simulate the evolution of
+   $P$, $D$ and $\Delta{D}$ from as a function of discretised time
+   from $t={0}\rightarrow{500}$ with $\Delta{t}=1$.
+
+   ```{r fig.width=8, fig.height=4}
+   dt <- 1                             # time step
+   lamp <- 1/100                       # decay constant
+   tt <- seq(from=0,to=500,by=dt)      # time vector
+   nt <- length(tt)                    # number of steps
+   P <- rep(10000,nt)                  # parent atoms
+   D <- rep(0,nt)                      # daughter atoms
+   dD <- rep(0,nt)                     # lost daughter atoms per step
+   for (i in 1:(nt-1)){
+      dD[i] <- rpois(n=1,lambda=lamp*P[i]*dt)
+      D[i+1] <- D[i] + dD[i]
+      P[i+1] <- P[i] - dD[i]
    }
-   randgrid()
-   ```
-
-2. Count the number of items falling in each square bin of the
-graticule contained in the interval from $x=0$ to 100 and from $y=0$
-to 100. Plot these numbers as a histogram. \label{it:FT2}
-
-   ```{r FT2, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
-   # this function solves the problem with a for-loop
-   # this is not the fastest solution, but it is the easiest:
-   bingrid <- function(xy,bw=20){
-      breaks <- seq(from=0,to=100,by=bw)
-      nbins <- length(breaks)-1
-      counts <- rep(NA,nbins^2)
-      for (i in 1:nbins){
-         for (j in 1:nbins){
-            xinbin <- (xy[,1]>=breaks[i] & xy[,1]<breaks[i+1])
-            yinbin <- (xy[,2]>=breaks[j] & xy[,2]<breaks[j+1])
-            ii <- (i-1)*nbins + j
-            counts[ii] <- sum(xinbin & yinbin)
-         }
-      }
-      hist(counts,breaks=max(counts)+1)
-      invisible(counts)
-   }
-   bingrid(xy)
-   ```
-
-3. Calculate the mean and variance of the resulting dataset of
-counts. Repeat steps \ref{it:FT1} and \ref{it:FT2} several times
-before drawing conclusions.
-
-   ```{r FT3, fig.width=10, fig.height=5}
-   par(mfcol=c(2,3))
-   for (i in 1:3){
-      counts <- bingrid(xy=randgrid())
-      m <- mean(counts)
-      v <- var(counts)
-      message('mean=',signif(m,2),', var=',signif(v,2))
-   }
+   dD[nt] <- rpois(n=1,lambda=lamp*P[nt]*dt) # final step
+   par(mfrow=c(1,2))
+   plot(x=tt,y=P,type='l',col='red',xlab='time',ylab='atoms')
+   lines(x=tt,y=D,col='blue')
+   legend('right',legend=c('P','D'),lty=1,col=col,text.col=col,bty='n')
+   plot(tt,dD,type='l',xlab='time',ylab=expression(Delta*'D'))
    ```
 
 \ifmulti\clearpage\fi
@@ -572,12 +558,13 @@ _anisotropic_ diffusion.
 
    ```{r out.width="50%", out.height="50%", fig.width=5, fig.height=5}
    cloud <- function(n=1000,N=500,plot=TRUE,a=1,b=1,alpha=0,...){
-      xyf <- matrix(NA,nrow=N,ncol=2)
+      xy <- matrix(NA,nrow=N,ncol=2)
       for (i in 1:N){
-         xyf[i,] <- brown(n=n,a=a,b=b,alpha=alpha)[n,]
+         xy[i,] <- brown(n=n,a=a,b=b,alpha=alpha)[n,]
       }
-      if (plot) plot(xyf,pch=16,xlab='x',ylab='y',...)
-      invisible(xyf)
+      # the optional plot argument will be used in exercise 11 below
+      if (plot) plot(xy,pch=16,xlab='x',ylab='y',...)
+      invisible(xy)
    }
 
    par(mfrow=c(2,2),mar=rep(2,4))
@@ -597,33 +584,107 @@ _anisotropic_ diffusion.
 \ifmulti\clearpage\fi
 # Error propagation
 
-1. Consider a bivariate normal distribution with the following
+Consider a bivariate normal distribution with the following
 mean vector and covariance matrix:
 $$
 \mu = 
 \left[
-\begin{array}{c}
+\begin{array}{@{}c@{}}
 x = -2 \\
-y = 5
+y = 3
 \end{array}
 \right] \mbox{,~}
 \Sigma = 
 \left[
-\begin{array}{cc}
-10 & -12\\
--12 & 20
+\begin{array}{@{}cc@{}}
+1 & -2\\
+-2 & 5
 \end{array}
 \right]
 $$
 
-2. Predict $z = xy$ and estimate its standard error.
+1. Predict $z = x + 2y$ and estimate its standard error.
 
-3. Draw $n=1000$ pairs of random numbers from the bivariate normal
+   ```{r}
+   mu <- c(-2,3)
+   Sigma <- matrix(c(1,-2,-2,5),nrow=2,ncol=2)
+   x <- mu[1]
+   y <- mu[2]
+   sx <- sqrt(Sigma[1,1])
+   sy <- sqrt(Sigma[2,2])
+   sxy <- Sigma[1,2]
+   z <- x + 2*y
+   # using equation 8.10:
+   sz <- sqrt( sx^2 + (2*sy)^2 + 2*2*sxy )
+   message('z=',signif(z,2),', s[z]=',signif(sz,2))
+   ```
+
+2. Draw $n=1000$ pairs of random numbers from the bivariate normal
 distribution. Compute $z$ for each pair and calculate the mean and
 standard error of the resulting vector. How does it compare with your
 analytical solution?
 
-4. Repeat steps 2 and 3 for $z = x^2 y^3$.
+   ```{r}
+   # instead of loading the entire MASS package,
+   # you can also call one of its functions like this:
+   xy <- MASS::mvrnorm(n=1000,mu=mu,Sigma=Sigma)
+   Z <- xy[,1] + 2*xy[,2]
+   sZ <- sd(Z)
+   message('z=',signif(mean(Z),2),', s[z]=',signif(sZ,2))
+   ```
+
+3. Repeat steps 1 and 2 for $z = x^2 y^3$.
+
+   ```{r}
+   # step 1:
+   z <- (x^2)*(y^3)
+   dzdx <- 2*x*y^3
+   dzdy <- 3*(x^2)*(y^2)
+   # using equation 8.8:
+   sz <- sqrt( (dzdx*sx)^2 + (dzdy*sy)^2 + 2*dzdx*dzdy*sxy )
+   message('z=',signif(z,2),', s[z]=',signif(sz,2))
+   # step 2:
+   xy <- MASS::mvrnorm(n=1000,mu=mu,Sigma=Sigma)
+   Z <- (xy[,1]^2)*(xy[,2]^3)
+   sZ <- sd(Z)
+   message('z=',signif(mean(Z),2),', s[z]=',signif(sZ,2))
+   ```
+
+4. Repeat step 4 for
+   \[
+   \Sigma =
+   \left[
+   \begin{array}{@{}cc@{}}
+   0.01 & -0.02\\
+   -0.02 & 0.05
+   \end{array}
+   \right]
+   \]
+
+   ```{r}
+   Sigma <- matrix(c(.01,-.02,-.02,.05),nrow=2,ncol=2)
+   sx <- sqrt(Sigma[1,1])
+   sy <- sqrt(Sigma[2,2])
+   sxy <- Sigma[1,2]
+   # step 1:
+   z <- (x^2)*(y^3)
+   dzdx <- 2*x*y^3
+   dzdy <- 3*(x^2)*(y^2)
+   # using equation 8.8:
+   sz <- sqrt( (dzdx*sx)^2 + (dzdy*sy)^2 + 2*dzdx*dzdy*sxy )
+   message('z=',signif(z,2),', s[z]=',signif(sz,2))
+   # step 2:
+   xy <- MASS::mvrnorm(n=1000,mu=mu,Sigma=Sigma)
+   Z <- (xy[,1]^2)*(xy[,2]^3)
+   sZ <- sd(Z)
+   message('z=',signif(mean(Z),2),', s[z]=',signif(sZ,2))
+   ```
+
+   \ifsol
+   Conclusion: the error propagation formulas work well for linear
+   functions but not for strongly non-linear ones, unless the measurements
+   are precise.
+   \fi
 
 \ifmulti\clearpage\fi
 # Comparing distributions \label{sec:comparingdistributions}
@@ -631,8 +692,45 @@ analytical solution?
 1. Compare the marginal distributions of exercise \ref{sec:normal}
 with a normal distribution using Q-Q plots.
 
+   ```{r}
+   a <- c(1,2 ,2 ,2)
+   b <- c(1,0.5,0.5,0.5)
+   alpha <- c(0,pi/4,-pi/4,0)
+   n <- 1000
+   N <- 100
+   nc <- length(a)
+   par(mfcol=c(2,nc),mar=rep(2,4))
+   xy <- list() # storing the matrices in a list will save trouble later
+   for (i in 1:nc){
+      xy[[i]] <- cloud(n=n,N=N,a=a[i],b=b[i],alpha=alpha[i],plot=FALSE)
+      qqnorm(xy[[i]][,1],main=paste0('x',i))
+      qqnorm(xy[[i]][,2],main=paste0('y',i))
+   }
+   ```
+   
 2. Formalise the comparisons using a Kolmogorov-Smirnov test. See the
-documentation of the `ks.test()` function for help.
+documentation of the `ks.test()` function for help. Note: you should
+_normalise_ the data by specifying the mean and standard deviation of
+the marginal distributions to the ks.test function. See the
+documentation for the ellipsis (`...`) in said documentation.
+
+   ```{r}
+   pvals <- matrix(0,nrow=2,ncol=nc)
+   rownames(pvals) <- c('x','y')
+   for (i in 1:nc){
+      x <- xy[[i]][,1]
+      y <- xy[[i]][,2]
+      ksx <- ks.test(x=x,y='pnorm',mean=mean(x),sd=sd(x))
+      ksy <- ks.test(x=y,y='pnorm',mean=mean(x),sd=sd(y))
+      pvals['x',i] <- ksx$p.value
+      pvals['y',i] <- ksy$p.value
+   }
+   signif(pvals,2)
+   ```
+   \ifsol
+   Conclusion: the marginal distributions are Gaussian.
+   \fi
+
 
 \ifmulti\clearpage\fi
 # Regression \label{sec:regression}
