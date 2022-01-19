@@ -8,8 +8,8 @@ output:
 ---
 
 ```{r setup, include = FALSE}
-solution <- FALSE
-results <- FALSE
+solution <- TRUE
+results <- TRUE
 knitr::opts_chunk$set(echo=solution,include=results)
 set.seed(1)
 # to render:
@@ -18,7 +18,7 @@ set.seed(1)
 ```
 
 \newif\ifsol\sol`r ifelse(solution, 'true', 'false')`
-\newif\ifmulti\multifalse
+\newif\ifmulti\multitrue
 \ifmulti\pagestyle{empty}\fi
 
 Unlike the exercises in the notes, whose solutions are provided in
@@ -45,9 +45,9 @@ line. \label{it:Brownian2}
       d <- runif(n,min=0,max=2*pi) # random directions
       for (i in 2:n){
          dx <- cos(d[i])
-	 dy <- sin(d[i])
-	 xy[i,1] <- xy[i-1,1] + dx
-	 xy[i,2] <- xy[i-1,2] + dy
+         dy <- sin(d[i])
+         xy[i,1] <- xy[i-1,1] + dx
+         xy[i,2] <- xy[i-1,2] + dy
       }
       return(xy)
    }
@@ -173,14 +173,23 @@ Suppose that a password needs to contain exactly 8 characters and must
 include at least one lowercase letter, uppercase letter and digit. How
 many such passwords are possible?
 
-\ifsol The solution to this problem requires the
-\emph{inclusion-exclusion principle}, which can be derived from the
-additive rule of probability (Equation 4.4 of the notes). Let $u$, $l$
-and $d$ represent outcomes containing uppercase letters, lowercase
-letters and digits, respectively. Then we are looking for all possible
-combinations of those three outcomes:
+\ifsol Let $|x|$ stand for `the number of outcomes for $x$'. Then
 \[
-\left| u \cup l \cup d \right|
+|\mbox{good passwords}| = |\mbox{all passwords}| - |\mbox{bad passwords}|
+\]
+where
+\[
+|\mbox{all passwords}| = (26+26+10)^8
+\]
+
+The number of bad passwords requires the \emph{inclusion-exclusion
+principle}, which is similar to the additive rule of probability
+(Equation 4.4 of the notes). Let $u$, $l$ and $d$ represent outcomes
+_lacking_ uppercase letters, lowercase letters and digits,
+respectively. Then we are looking for all possible combinations of
+those three outcomes:
+\[
+|\mbox{bad passwords}| = \left| u \cup l \cup d \right|
 \]
 \[
 = \left| u \cup l \right| + \left| d \right| - \left| u \cup l \cap d \right|
@@ -193,6 +202,10 @@ combinations of those three outcomes:
 = \left| u \right| + \left| l \right| + \left| d \right|
 - \left| u \cap l \right| - \left| u \cap d \right| - \left| l \cap d \right|
 + \left| u \cap l \cap d \right|
+\]
+where $\left| u \cap l \cap d \right| = 0$ so that
+\[
+|\mbox{good passwords}| = (26+26+10)^8 - (26+26)^8 - (26+10)^8 - (26+10)^8 + 26^8 + 26^8 + 10^8
 \]
 
 In \texttt{R}:
@@ -326,7 +339,8 @@ $N=1000$ times. What percentage of the datasets pass the test?
       h <- binom.test(x=r[i],n=n,p=p0)
       if (h$p.value>alpha) npass <- npass + 1
    }
-   npass/N
+   prob <- npass/N
+   message(signif(100*prob,2),'%')
    ```
 
 4. Repeat steps \ref{it:binomialtest1} through \ref{it:binomialtest3}
@@ -341,15 +355,16 @@ for $n=200$. \label{it:binomialtest4}
          h <- binom.test(x=r[i],n=n,p=p0)
       	 if (h$p.value>alpha) npass <- npass + 1
       }
-      npass/N
+      return(npass/N)
    }
 
    # use the function
-   btest(n=200,p=p)
+   prob <- btest(n=200,p=p)
+   message(signif(100*prob,2),'%')
    ```
 
 5. \label{it:binomialtest5} Repeat step \ref{it:binomialtest4} for a
-range of values from $n=20$ to $n=2000$. Plot the probability of
+range of values between $n=20$ and $n=2000$. Plot the probability of
 rejection against $n$.
    ```{r out.width="50%", out.height="50%", fig.width=5, fig.height=5}
    nt <- 10 # number of tests
@@ -370,7 +385,9 @@ function of sample size. \label{it:binomialtest6}
       ll <- qbinom(p=0.025,size=n,prob=p0) # lower limit
       ul <- qbinom(p=0.975,size=n,prob=p0) # upper limit
       # compute the probabilities of erroneously accepted values
-      return(pbinom(q=ul,size=n,prob=p)-pbinom(q=ll,size=n,prob=p))
+      pu <- pbinom(q=ul,size=n,prob=p)
+      pl <- pbinom(q=ll,size=n,prob=p)
+      return(pu-pl)
    }
    
    pp2 <- rep(0,nt)
@@ -398,26 +415,26 @@ each of these numbers. \label{it:binomialci1}
       out['r',] <- rbinom(n=N,size=n,prob=p)
       for (i in 1:N){
          h <- binom.test(out['r',i],n=n)
-	 out[c('ll','ul'),i] <- h$conf.int
+         out[c('ll','ul'),i] <- h$conf.int
       }
       return(out)
    }
 
    # use the new function:
-   rci <- bci(p=0.55)
-   print(rci)
+   ci <- bci(p=0.55)
+   print(ci)
    ```
 
 2. Plot these confidence intervals against $n$ as error bars using
 \texttt{R}'s \texttt{arrows()} function. \label{it:binomialci2}
 
    ```{r out.width="50%", out.height="50%", fig.width=5, fig.height=5}
-   plotrci <- function(rci,...){
-      N <- ncol(rci)
-      plot(1:N,rci['r',]/n,pch=16,ylim=c(0,1),bty='n',xlab='i',ylab='p',...)
-      arrows(x0=1:N,y0=rci['ll',],y1=rci['ul',],length=0.1,angle=90,code=3)
+   plotci <- function(ci,...){
+      N <- ncol(ci)
+      plot(1:N,ci['r',]/n,pch=16,ylim=c(0,1),bty='n',xlab='i',ylab='p',...)
+      arrows(x0=1:N,y0=ci['ll',],y1=ci['ul',],length=0.1,angle=90,code=3)
    }
-   plotrci(rci)
+   plotci(ci)
    ```
 
 3. How many of the confidence intervals in step \ref{it:binomialci2}
@@ -426,10 +443,10 @@ overlap with $p_0=0.5$?
    ```{r out.width="50%", out.height="50%", fig.width=5, fig.height=5}
    # write function to avoid future duplication:
    bciexplorer <- function(n=20,N=10,p=0.5,p0=0.5){
-      rci <- bci(n=n,N=N,p=p)
-      overlap <- sum(p0>rci['ll',] & p0<rci['ul',])
+      ci <- bci(n=n,N=N,p=p)
+      overlap <- sum(p0>ci['ll',] & p0<ci['ul',])
       tit <- paste0(overlap,'/',N,' overlapping') # title
-      plotrci(rci,main=tit)
+      plotci(ci,main=tit)
       lines(x=1:N,y=rep(p0,N),lty=2)
    }
 
@@ -460,6 +477,7 @@ lines at every 20 units of $x$ and $y$. \label{it:FT1}
       plot(x=x,y=y,pch=16)
       g <- seq(from=m,to=M,by=bw)
       ng <- length(g)
+      # instead of 'matlines' you could also use a for loop of 'lines'
       matlines(x=rbind(rep(m,ng),rep(M,ng)),y=rbind(g,g),lty=3,col='black')
       matlines(x=rbind(g,g),y=rbind(rep(m,ng),rep(M,ng)),lty=3,col='black')
       xy <- cbind(x,y)
@@ -469,8 +487,8 @@ lines at every 20 units of $x$ and $y$. \label{it:FT1}
    ```
 
 2. Count the number of items falling in each square bin of the
-graticule contained in the interval from $x=0$ to $x=100$ and from
-$y=0$ to $y=100$. Plot these numbers as a histogram. \label{it:FT2}
+graticule contained in the interval from $x=0$ to 100 and from $y=0$
+to 100. Plot these numbers as a histogram. \label{it:FT2}
 
    ```{r FT2, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
    # this function solves the problem with a for-loop
@@ -481,10 +499,10 @@ $y=0$ to $y=100$. Plot these numbers as a histogram. \label{it:FT2}
       counts <- rep(NA,nbins^2)
       for (i in 1:nbins){
          for (j in 1:nbins){
-	    xinbin <- (xy[,1]>=breaks[i] & xy[,1]<breaks[i+1])
-	    yinbin <- (xy[,2]>=breaks[j] & xy[,2]<breaks[j+1])
-	    ii <- (i-1)*nbins + j
-	    counts[ii] <- sum(xinbin & yinbin)
+            xinbin <- (xy[,1]>=breaks[i] & xy[,1]<breaks[i+1])
+            yinbin <- (xy[,2]>=breaks[j] & xy[,2]<breaks[j+1])
+            ii <- (i-1)*nbins + j
+            counts[ii] <- sum(xinbin & yinbin)
          }
       }
       hist(counts,breaks=max(counts)+1)

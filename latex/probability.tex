@@ -127,7 +127,7 @@ be selected in one of two ways:
   multiplicative rule of probability, there are $(n\times{n})$
   possible outcomes for the two numbers. Repeat until you have drawn
   $k$ balls (where $k \leq n$). Then the number of possible
-  combinations of numbers is
+  sequences of numbers is
   \begin{equation}
   \overset{k \mbox{~times}}{\overbrace{n\times{n}\times{\ldots}\times{n}}} = n^k
   \end{equation}
@@ -137,12 +137,13 @@ be selected in one of two ways:
   outcomes.  However this time we do not put the ball back into the
   urn. With the first ball removed, draw a second number. This time
   there are only $(n - 1)$ possible outcomes. Thus, the total number
-  of combinations for the first two numbers is $n \times (n-1)$. Continuing
-  the experiment until you have drawn $k$ balls yields 
+  of outcomes for the first two numbers is $n \times
+  (n-1)$. Continuing the experiment until you have drawn $k$ balls
+  yields
   \begin{equation}
   n\times(n-1)\times(n-2)\times{\ldots}\times(n-k+1) = \frac{n!}{(n-k)!}
   \end{equation}
-  possible combinations, where `!' is the factorial operator.
+  possible sequences, where `!' is the factorial operator.
 
 \end{enumerate}
 
@@ -160,10 +161,10 @@ follows.
 \item There are another 365 possible days on which the third person
   might celebrate their birthday, but only 363 of these do not overlap
   with the birthdays of the first two people.
-\item For $k$ people, there are $365^k$ possible combinations of
-  birthdays (sampling with replacement), but only
-  $365\times{364}\times{\ldots}(k+1) = 365!/(365-k)!$ of these combinations
-  do not overlap (sampling without replacement).
+\item For $k$ people, there are $365^k$ possible sets of birthdays
+  (sampling with replacement), but only
+  $365\times{364}\times{\ldots}(k+1) = 365!/(365-k)!$ of these sets do
+  not overlap (sampling without replacement).
 \item Therefore, the probability that two people's birthdays do
   not overlap is given by
   \[
