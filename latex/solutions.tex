@@ -912,7 +912,9 @@ dat <- cbind(abundant,other)
 h <- chisq.test(dat)
 \end{script}
 
-Probing the outcome of these calculations:
+\noindent where \texttt{cbind} binds two columns together into a
+matrix (you could also do this with the \texttt{matrix}
+function). Probing the outcome of these calculations:
 
 \begin{console}
 > h$p.value
