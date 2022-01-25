@@ -770,6 +770,7 @@ using a t-distribution with $n-2=3$ degree of freedom. Note that
    tab <- cbind(x,sx,y,sy,rxy)
    yfit <- geostats::york(tab)
    abline(lmfit$coefficients,lty=2)
+   xnew <- 20
    ynew <- yfit$coef[1] + yfit$coef[2]*xnew
    # error propagation formula 8.10 of the notes:
    synew <- sqrt( yfit$cov[1,1] + yfit$cov[2,2]*xnew^2 + 2*xnew*yfit$cov[1,2])
