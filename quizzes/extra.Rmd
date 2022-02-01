@@ -24,24 +24,28 @@ set.seed(1)
 
 Unlike the exercises in the notes, whose solutions are provided in
 Chapter 19, you must attempt these questions yourself before I will
-share my answer with you. You can do so during the live sessions,
-either in person or via Zoom. Try, struggle, ask questions, and learn!
+share my answer with you. Please ask questions either in class or via
+Zoom. Then upload your solution to
+[`http://doubleblind.dynu.net/GEOL0061`](http://doubleblind.dynu.net/GEOL0061)
+to download the model answer. Submissions won't be formally assessed,
+so there is no need to worry if your answer is wrong. Try, struggle,
+ask questions, and learn!
 
 \ifmulti\clearpage\fi
-# Brownian motion \label{sec:Brownian}
+# Random walk \label{sec:randomwalk}
 
 Write a function that simulates a random walk:
 
 1. From a starting position of $x=0$ and $y=0$, move a virtual
 particle by a distance of 1 in a random
-direction. \label{it:Brownian1}
+direction. \label{it:randomwalk1}
 
 2. Repeat $n=1000$ times and plot the track of the particle as a
-line. \label{it:Brownian2}
+line. \label{it:randomwalk2}
 
-   ```{r brown, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
-   # brownian motion for one particle:
-   brown <- function(xy0=rep(0,2),n=1000){
+   ```{r out.width="50%", out.height="50%", fig.width=5, fig.height=5}
+   # random walk for one particle:
+   walk <- function(xy0=rep(0,2),n=1000){
       xy <- matrix(rep(xy0,n),ncol=2,byrow=TRUE)
       d <- runif(n,min=0,max=2*pi) # random directions
       for (i in 2:n){
@@ -52,20 +56,20 @@ line. \label{it:Brownian2}
       }
       return(xy)
    }
-   xy <- brown()
+   xy <- walk()
    plot(xy,type='l',xlab='x',ylab='y')
    ```
 
-3. Repeat steps \ref{it:Brownian1} and \ref{it:Brownian2} for $N=500$
+3. Repeat steps \ref{it:randomwalk1} and \ref{it:randomwalk2} for $N=500$
 virtual particles and visualise their final positions on a scatter
-plot. \label{it:Brownian3}
+plot. \label{it:randomwalk3}
 
-   ```{r browngauss, out.width="50%", out.height="50%", fig.width=5, fig.height=5}
+   ```{r out.width="50%", out.height="50%", fig.width=5, fig.height=5}
    n <- 1000
    N <- 500
    xyf <- matrix(NA,nrow=N,ncol=2)
    for (i in 1:N){
-      xyf[i,] <- brown(n=n)[n,]
+      xyf[i,] <- walk(n=n)[n,]
    }
    plot(xyf,type='p',pch=16,xlab='x',ylab='y')
    ```
@@ -73,9 +77,9 @@ plot. \label{it:Brownian3}
 \ifmulti\clearpage\fi
 # Diffusion \label{sec:diffusion}
 
-Using the code from exercise \ref{sec:Brownian}:
+Using the code from exercise \ref{sec:randomwalk}:
 
-1. Repeat step \ref{sec:Brownian}.\ref{it:Brownian3} for $n=250$, 500,
+1. Repeat step \ref{sec:randomwalk}.\ref{it:randomwalk3} for $n=250$, 500,
 1000 and 2000 iterations and visualise the final positions on a
 ${2}\times{2}$ panel grid of scatter plots. Adjust the axis limits so
 that all four panels are plotted at the same scale. \label{it:diffusion1}
@@ -84,7 +88,7 @@ that all four panels are plotted at the same scale. \label{it:diffusion1}
    cloud <- function(n=1000,N=500,plot=TRUE,...){
       xyf <- matrix(NA,nrow=N,ncol=2)
       for (i in 1:N){
-         xyf[i,] <- brown(n=n)[n,]
+         xyf[i,] <- walk(n=n)[n,]
       }
       if (plot) plot(xyf,pch=16,xlab='x',ylab='y',...)
       invisible(xyf) # returns the values without printing them at the console
@@ -97,7 +101,7 @@ that all four panels are plotted at the same scale. \label{it:diffusion1}
       cloud(n=n,xlim=lims,ylim=lims)
       legend('topleft',legend=paste('n=',n),bty='n')
    }
-```
+   ```
 
 2. Plot the marginal distributions of the $x$-values as kernel density
 estimates and empirical cumulative distribution functions.
@@ -377,7 +381,7 @@ rejection against $n$.
    plot(x=nn,y=pp,type='b',xlab='sample size',ylab='probability of type-2 error')
    ```
 
-6. Compare the results of step \ref{it:binomialtest5} with a manual
+6. Compare the results of step \ref{it:binomialtest5} with an analytical
 calculation of the probability of committing a Type-2 error as a
 function of sample size. \label{it:binomialtest6}
    ```{r binomialtest6, fig.width=10, fig.height=5}
@@ -412,10 +416,11 @@ each of these numbers. \label{it:binomialci1}
    # define a function to avoid future duplication of code:
    bci <- function(n=20,N=10,p=0.5){
       out <- matrix(0,nrow=3,ncol=N)
-      rownames(out) <- c('r','ll','ul')
-      out['r',] <- rbinom(n=N,size=n,prob=p)
+      rownames(out) <- c('p','ll','ul')
+      k <- rbinom(n=N,size=n,prob=p)
+      out['p',] <- k/n
       for (i in 1:N){
-         h <- binom.test(out['r',i],n=n)
+         h <- binom.test(k[i],n=n)
          out[c('ll','ul'),i] <- h$conf.int
       }
       return(out)
@@ -432,9 +437,10 @@ each of these numbers. \label{it:binomialci1}
    ```{r out.width="50%", out.height="50%", fig.width=5, fig.height=5}
    plotci <- function(ci,...){
       N <- ncol(ci)
-      plot(1:N,ci['r',]/n,pch=16,ylim=c(0,1),bty='n',xlab='i',ylab='p',...)
+      plot(1:N,ci['p',],pch=16,ylim=c(0,1),bty='n',xlab='i',ylab='p',...)
       arrows(x0=1:N,y0=ci['ll',],y1=ci['ul',],length=0.1,angle=90,code=3)
    }
+   set.seed(1) # set the random seed for the sake of reproducibility
    plotci(ci)
    ```
 
@@ -452,6 +458,7 @@ overlap with $p_0=0.5$?
    }
 
    # use the function:
+   set.seed(1)
    bciexplorer(n=20,N=10,p=0.55,p0=0.5)
    ```
 
@@ -514,7 +521,7 @@ plot(tt,dD,type='l',xlab='time',ylab=expression(Delta*'D'))
 \ifmulti\clearpage\fi
 # The normal distribution \label{sec:normal}
 
-1. Modify the Brownian motion code of exercise \ref{sec:Brownian} so
+1. Modify the random walk code of exercise \ref{sec:randomwalk} so
 that the random displacements are not defined by a unit circle but by
 an ellipse with major axis $a=2$, minor axis $b=0.5$ and rotation
 angle $\alpha=\pi/4$. See exercise 18.1.2 of the notes for the
@@ -528,8 +535,8 @@ relevant equations.
       cbind(dx,dy)
    }
 
-   # brownian motion for one particle:
-   brown <- function(xy0=rep(0,2),n=1000,a=1,b=1,alpha=0){
+   # random walk for one particle:
+   walk <- function(xy0=rep(0,2),n=1000,a=1,b=1,alpha=0){
       xy <- matrix(rep(xy0,n),ncol=2,byrow=TRUE)
       dxy <- ell(n=n,a=a,b=b,alpha=alpha)
       for (i in 2:n){
@@ -538,29 +545,30 @@ relevant equations.
       }
       return(xy)
    }
-   xy <- brown(a=2,b=0.5,alpha=pi/4)
+   xy <- walk(a=2,b=0.5,alpha=pi/4)
    plot(xy,type='l',xlab='x',ylab='y',asp=1)
 
    n <- 1000
    N <- 500
    xyf <- matrix(NA,nrow=N,ncol=2)
    for (i in 1:N){
-      xyf[i,] <- brown(n=n,a=2,b=0.5,alpha=pi/4)[n,]
+      xyf[i,] <- walk(n=n,a=2,b=0.5,alpha=pi/4)[n,]
    }
    plot(xyf,type='p',pch=16,xlab='x',ylab='y',asp=1)
    ```
 
 2. Explore the effects of different values for $a$, $b$ and $\alpha$.
-Brownian motion leads to diffusion, which gives rise to bivariate
-normal distributions.  In exercise \ref{sec:diffusion}, this diffusion
-was _isotropic_. The elliptical modification is one way to simulate
-_anisotropic_ diffusion.
+No-one less than _Albert Einstein_ showed that random walks (which are
+also known as `Brownian motion') lead to diffusion, which gives rise
+to bivariate normal distributions.  In exercise \ref{sec:diffusion},
+this diffusion was _isotropic_. The elliptical modification is one way
+to simulate _anisotropic_ diffusion.
 
    ```{r out.width="50%", out.height="50%", fig.width=5, fig.height=5}
    cloud <- function(n=1000,N=500,plot=TRUE,a=1,b=1,alpha=0,...){
       xy <- matrix(NA,nrow=N,ncol=2)
       for (i in 1:N){
-         xy[i,] <- brown(n=n,a=a,b=b,alpha=alpha)[n,]
+         xy[i,] <- walk(n=n,a=a,b=b,alpha=alpha)[n,]
       }
       # the optional plot argument will be used in exercise 11 below
       if (plot) plot(xy,pch=16,xlab='x',ylab='y',...)
@@ -770,6 +778,7 @@ using a t-distribution with $n-2=3$ degree of freedom. Note that
    tab <- cbind(x,sx,y,sy,rxy)
    yfit <- geostats::york(tab)
    abline(lmfit$coefficients,lty=2)
+   xnew <- 20
    ynew <- yfit$coef[1] + yfit$coef[2]*xnew
    # error propagation formula 8.10 of the notes:
    synew <- sqrt( yfit$cov[1,1] + yfit$cov[2,2]*xnew^2 + 2*xnew*yfit$cov[1,2])
@@ -784,6 +793,7 @@ using a t-distribution with $n-2=3$ degree of freedom. Note that
    more precise predictions.
    \fi
 
+\ifmulti\clearpage\fi
 # Fractals
 
 1. What is the fractal dimension of the following pattern?
@@ -802,27 +812,63 @@ using a t-distribution with $n-2=3$ degree of freedom. Note that
    \frac{\ln(7)}{\ln(3)} = 1.77
    \]
    \fi
-   ```{r out.width='70%', fig.width=5, fig.height=4}
+   ```{r out.width='50%', fig.width=5, fig.height=4}
    d <- c(1,1/3)
    n <- c(1,7)
    fdim <- (log(n[2])-log(n[1]))/(log(d[2])-log(d[1]))
    plot(log(d),log(n),type='b',main=paste('slope=',signif(fdim,3)))
    ```
 
-1. Using your code from exercise \ref{sec:Brownian}:
+1. Using your code from exercise \ref{sec:randomwalk}:
 
-   (a) Create Brownian walk of 512 steps and plot the x-position of a
-   virtual particle against time.
+   (a) Create a random walk of 1024 steps and plot the x-position of a
+   virtual particle against time (where time goes from 0 to 1024).
 
-   (b) Subsample the vector of x-positions into $n$ equally spaced
-   segments (for $n=2,4,8,16,...,5012$) and add up their respective
+   ```{r out.width='60%', fig.width=6, fig.height=5}
+   x <- walk(n=1024)[,1]
+   nx <- length(x)
+   t <- 1:nx
+   plot(t,x,type='l')
+   ```
+   
+   (b) Subsample the vector of x-positions into $N$ equally spaced
+   segments (for $N=2,4,8,16,...,1024$) and add up their respective
    lengths.
 
-   (c) Plot the lengths of the curve against the corresponding number
-   of segments on a log-log plot. What is the fractal dimension of the
-   curve?
+   (c) Plot the lengths of the curve against the duration of the
+   corresponding time steps, on a log-log plot. What is the slope?
+
+   ```{r out.width='60%', fig.width=6, fig.height=5}
+   walklength <- function(x,N=1){
+      nx <- length(x)
+      i <- seq(from=1,to=nx,length.out=N+1)
+      dx <- abs(diff(x[i]))
+      sum(dx)
+   }
+   walkdim <- function(x){
+      N <- 2^(1:10)
+      nN <- length(N)
+      L <- rep(0,nN)
+      for (i in 1:nN){
+         L[i] <- walklength(x,N=N[i])
+      }
+      dt <- 1/N
+      plot(log(dt),log(L))
+      fit <- lm(log(L) ~ log(dt))
+      abline(fit)
+      slope <- fit$coefficients[2]
+      mtext(paste0('slope=',signif(slope,2)))
+   }
+   walkdim(x)
+   ```
 
    (d) Repeat steps (a)--(c) several times to assess the robustness of
    the result.
-   
-   
+
+   ```{r out.width='80%'}
+   par(mfrow=c(2,2),mar=c(4,4,1,1))
+   for (i in 1:4){
+      x <- walk(n=1024)[,1]
+      walkdim(x)
+   }
+   ```
