@@ -575,7 +575,7 @@ during the next century is:
   \[
   P\left(k=0|\lambda=\frac{100}{13.5}\right) =
   \exp\left[{-\frac{100}{13.5}}\right] =
-  0.000607 (0.0607\%)
+  0.000607 ~ (0.0607\%)
   \]
 
 \item The expected number of fission tracks is
@@ -607,7 +607,7 @@ The probability that it contains 41 to 60 fission tracks is:
   $H_\circ: \lambda=2$\\
   $H_a: \lambda<2$
 
-  In \texttt{R}:
+In \texttt{R}:
 
 \begin{console}
 > h <- poisson.test(x=12,T=10,r=2,alternative='less')

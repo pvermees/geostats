@@ -7,7 +7,8 @@ example:
 \begin{enumerate}
 \item a coin may land on its head (1) or tail (0);
 \item a die may land on $\raisebox{-2pt}{\Cube{6}}$ (1) or not (0);
-\item a `wildcat' exploration well may find petroleum (1) or be dry (0).
+\item a `wildcat' exploration well may produce petroleum (1) or be dry
+  (0).
 \end{enumerate}
 
 Consider five gold diggers during the 1849 California gold rush, who
@@ -168,7 +169,7 @@ mentioned that geological evidence suggests that 2/3 (67\%) of the
 claims should contain gold. Can the discrepancy between the predicted
 and the observed number of successes by attributed to bad luck, or
 does it mean that the geological estimates were wrong? To answer this
-question, we follow the following sequence of steps:
+question, we follow a sequence of six steps:
 
 \begin{enumerate}
 
@@ -194,7 +195,7 @@ question, we follow the following sequence of steps:
 \end{minipage}\medskip
 
 \item Calculate the \textbf{test statistic} $T$, which in this case is
-  the number of success ($k$).
+  the number of successes ($k$).
 
 \item Determine the \textbf{null distribution} of $T$ under
   $H_\circ$. In our example this is the binomial distribution, as
@@ -209,15 +210,14 @@ question, we follow the following sequence of steps:
   \end{tabular}
   \end{center}
 
-
 The \textbf{p-value}\footnote{The term `p-value' is not to be confused
   with the value of our unknown binomial parameter $p$. The p-value
   would exist even if we had named the binomial parameter something
   else (e.g., $q$).} is the probability of obtaining test results at
-least as extreme as the results actually observed, under the
-assumption that the null hypothesis is correct. For our one-sided
-test, the p-value is 0.2099, which corresponds the probability of
-observing $k\leq{2}$ successful claims if $p=2/3$.
+least as extreme as the result actually observed, under the assumption
+that the null hypothesis is correct. For our one-sided test, the
+p-value is 0.2099, which corresponds the probability of observing
+$k\leq{2}$ successful claims if $p=2/3$.
   
 \item Choose a \textbf{significance level $\alpha$}. It is customary
   to choose $\alpha=0.05$.
@@ -744,7 +744,7 @@ expect that $p$ is exactly equal to 2/3, down to the
 proportion of gold in the area to better than 10\% would already be a
 remarkable achievement. Yet given enough data, there will always come
 a point where the geological prediction is disproved. Given a large
-enough dataset, even a 1\% deviation from the predicted value would be
+enough dataset, even a 1\% deviation from the predicted value would
 yield an unacceptably small p-value:
 
 \noindent\begin{minipage}[t][][b]{.45\textwidth}
@@ -757,12 +757,12 @@ yield an unacceptably small p-value:
     sizes.  The horizontal dotted line marks the 5\% significance
     level. No matter how little the observed $k/n$-ratio differs from
     2/3, this difference always becomes `significant' given a large
-    enough sample size.}
+    enough sample.}
   \label{fig:binomnvsp}
 \end{minipage}
 
 As another example, suppose that we have analysed the mineralogical
-composition of two samples of sand that were collected 10cm apart on
+composition of two samples of sand that were collected 10~cm apart on
 the same beach. Our null hypothesis is that the composition of the two
 samples is the same. Plausible though this hypothesis may seem, it
 will always be possible to reject it, given a large enough
@@ -783,8 +783,7 @@ useful purpose:
 \item We can calculate the sample size that would be required to
   detect a pre-specified deviation from the null hypothesis.  This
   approach is used in the pharmaceutical industry to test the efficacy
-  of drugs. However this approach is seldom or never available to
-  geologists.
+  of drugs. However it is seldom or never available to geologists.
 \end{enumerate}
 
 \section{Confidence intervals}
