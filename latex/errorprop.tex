@@ -40,8 +40,8 @@ following sections.
 \section{Error propagation}
 \label{sec:linearerrorprop}
 
-Suppose that the geological age or any other physical quantity ($z$)
-is calculated as a function ($g$) of some measurements ($x$):
+Suppose that physical quantity ($z$) is calculated as a function ($g$)
+of some measurements ($x$):
 \begin{equation}
 z = g(x)
 \label{eq:zgx}
@@ -115,13 +115,13 @@ z = g(x,y)
 \label{eq:zfxy}
 \end{equation}
 
-and further suppose that $x$ and $y$ follow a bivariate normal
-distribution (Equation~\ref{eq:2dgauss}), then $\mu_x$, $\mu_{y}$,
-$\sigma_{x}$, $\sigma_{y}$ and $\sigma_{x,y}$ can all be estimated (as
-$\bar{x}, \bar{y}, s[x], s[y]$ and $s[x,y]$) from the input data
-($\{x_i, y_i\}$, for $i~=~1...n$). These values can then be used to
-infer $s[z]$, the standard error of $z$, in exactly the same way as
-for the one dimensional case.\medskip
+\noindent and further suppose that $x$ and $y$ follow a bivariate
+normal distribution (Equation~\ref{eq:2dgauss}), then $\mu_x$,
+$\mu_{y}$, $\sigma_{x}$, $\sigma_{y}$ and $\sigma_{x,y}$ can all be
+estimated (as $\bar{x}, \bar{y}, s[x], s[y]$ and $s[x,y]$) from the
+input data ($\{x_i, y_i\}$, for $i~=~1...n$). These values can then be
+used to infer $s[z]$, the standard error of $z$, in exactly the same
+way as for the one dimensional case.\medskip
 
 Differentiating $g$ with respect to $x$ and $y$:
 \begin{equation}

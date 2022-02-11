@@ -700,7 +700,9 @@ The probability that an American female is more than 72 inches tall is
 [1] 0.002137367
 \end{console}
 
-The sum of these two values is 17.0\%. The 90 percentile for men is
+Assuming that the American population consists of 50\% men and 50\%
+women, the total percentage of Americans taller than 72 inches is the
+mean of these two values, i.e. 8.5\%. The 90 percentile for men is
 
 \begin{console}
 > p90 <- qnorm(p=0.9,mean=69.3,sd=2.8)
@@ -806,8 +808,8 @@ and $s[\mbox{density}(B)] =
   \[
   \begin{split}
     x & = \rho_z-1 = 3.85 \mbox{~and~} y = \rho_q-1 = 1.65 \\
-    z & = \frac{x}{y} = \frac{3.85}{1.65} = 2.333\\
-    SS & = a \ln\left(z\right) = \frac{1}{0.69}\ln(2.33) = 1.228
+    w & = \frac{x}{y} = \frac{3.85}{1.65} = 2.333\\
+    SS & = a \ln\left(w\right) = \frac{1}{0.69}\ln(2.33) = 1.228
   \end{split}
   \]
   Following the same steps for the error propagation:
@@ -815,11 +817,11 @@ and $s[\mbox{density}(B)] =
   \begin{split}
     s[x] & = s[\rho_z] = 0.10 \mbox{~and~} s[y] = s[\rho_q] = 0.05 \mbox{~(using
       Equation~\ref{eq:subtraction})}\\
-    s[z] & = z\sqrt{\left(\frac{s[x]}{x}\right)^2+\left(\frac{s[y]}{y}\right)^2}
+    s[w] & = w\sqrt{\left(\frac{s[x]}{x}\right)^2+\left(\frac{s[y]}{y}\right)^2}
     = \frac{3.85}{1.65}
     \sqrt{\left(\frac{0.10}{3.85}\right)^2+\left(\frac{0.05}{1.65}\right)^2}
     = 0.093 \mbox{~(using Equation~\ref{eq:division})}\\
-    s[SS] & = a\frac{s[z]}{z} = \frac{1}{0.69}\frac{0.093}{2.333} = 0.058
+    s[SS] & = a\frac{s[w]}{w} = \frac{1}{0.69}\frac{0.093}{2.333} = 0.058
     \mbox{~(using Equation~\ref{eq:logarithms})}
   \end{split}
   \]
