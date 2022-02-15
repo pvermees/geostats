@@ -872,3 +872,121 @@ using a t-distribution with $n-2=3$ degree of freedom. Note that
       walkdim(x)
    }
    ```
+
+\ifmulti\clearpage\fi
+# Unsupervised learning
+
+Consider three multivariate normal distributions with the following
+mean vectors and covariance matrices:
+
+\[
+\mu_{A} =
+\left[
+\begin{array}{c}
+0 \\
+0 \\
+0 \\
+0 \\
+0
+\end{array}
+\right],
+\mu_{B} =
+\left[
+\begin{array}{c}
+5 \\
+5 \\
+5 \\
+0 \\
+0
+\end{array}
+\right],
+\mu_{C} =
+\left[
+\begin{array}{c}
+10 \\
+0 \\
+0 \\
+-5 \\
+-5
+\end{array}
+\right]
+, \Sigma_A = \Sigma_B = \Sigma_C =
+\left[
+\begin{array}{ccccc}
+5 & 1 & 2 & 3 & 4 \\
+1 & 5 & 2 & 3 & 4 \\
+2 & 2 & 5 & 3 & 4 \\
+3 & 3 & 3 & 5 & 4 \\
+4 & 4 & 4 & 4 & 5
+\end{array}
+\right]
+\]
+
+1. Draw 10 sets of random values from each of these 3
+   distributions and store them in a data frame. Name the variables
+   $a$, $b$, $c$, $d$ and $e$.
+
+   ```{r}
+   n <- 10
+   muA <- rep(0,5)
+   muB <- c(5,5,5,0,0)
+   muC <- c(10,0,0,-5,-5)
+   E <- rbind(c(5,1,2,3,4),
+              c(1,5,2,3,4),
+              c(1,2,5,3,4),
+              c(1,2,3,5,4),
+              c(1,2,3,4,5))
+   library(MASS)
+   A <- mvrnorm(n=n,mu=muA,Sigma=E)
+   B <- mvrnorm(n=n,mu=muB,Sigma=E)
+   C <- mvrnorm(n=n,mu=muC,Sigma=E)
+   dat <- rbind(A,B,C)
+   colnames(dat) <- c('a','b','c','d','e')
+   ```
+
+1. Analyse the dataset by principal component analysis and present the
+   results as a biplot.
+   
+   ```{r}
+   pc <- prcomp(dat)
+   biplot(pc)
+   ```
+
+1. Analyse the dataset by classical multidimensional scaling. Plot the
+results as a scatter plot.
+
+   ```{r out.width="50%", fig.width=5, fig.height=5}
+   mds <- cmdscale(dist(dat))
+   plot(mds,type='n')
+   text(mds,labels=1:(3*n))
+   ```
+
+1. Classify the dataset by k-means clustering with $k=3$. Use the
+results to add text labels to the MDS configuration.
+
+   ```{r out.width="50%", fig.width=5, fig.height=5}
+   fit <- kmeans(dat,centers=3)
+   plot(mds,type='n')
+   text(mds,labels=fit$cluster)
+   ```
+
+1. Create a hierarchical dendrogram for the dataset. Would you
+   have found the three groups?
+
+   ```{r out.width="50%", fig.width=5, fig.height=5}
+   tree <- hclust(dist(dat))
+   plot(tree)
+   ```
+
+\ifmulti\clearpage\fi
+# Supervised learning
+
+Create a new dataset of ${3}\times{10}$ samples, but now label the
+rows of your dataset with $A1,\ldots,A10$, $B1,\ldots,B10$, and
+$C1,\ldots,C10$. Use the `paste0()` function to create the labels.
+```{r}
+rownames(dat) <- c(paste0('A',1:n),
+                   paste0('B',1:n),
+                   paste0('C',1:n))
+```
+

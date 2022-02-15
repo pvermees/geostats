@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.8)  11 FEB 2022 17:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.8)  11 FEB 2022 17:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3989,7 +3989,7 @@ Overfull \hbox (27.37506pt too wide) detected at line 827
  []
 
 [207] [208] [209] [210] [211] [212]
-<../figures/PCAiris.pdf, id=4864, 216.81pt x 216.81pt>
+<../figures/PCAiris.pdf, id=4866, 216.81pt x 216.81pt>
 File: ../figures/PCAiris.pdf Graphic file (type pdf)
 <use ../figures/PCAiris.pdf>
 Package pdftex.def Info: ../figures/PCAiris.pdf  used on input line 1248.
@@ -4006,7 +4006,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 1247--1263
  []
 
 [213 <../figures/PCAiris.pdf>]
-<../figures/elbow.pdf, id=4884, 216.81pt x 216.81pt>
+<../figures/elbow.pdf, id=4886, 216.81pt x 216.81pt>
 File: ../figures/elbow.pdf Graphic file (type pdf)
 <use ../figures/elbow.pdf>
 Package pdftex.def Info: ../figures/elbow.pdf  used on input line 1291.
@@ -4022,7 +4022,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 1290--1300
 [] [] 
  []
 
-<../figures/DZtree.pdf, id=4885, 216.81pt x 144.54pt>
+<../figures/DZtree.pdf, id=4887, 216.81pt x 144.54pt>
 File: ../figures/DZtree.pdf Graphic file (type pdf)
 <use ../figures/DZtree.pdf>
 Package pdftex.def Info: ../figures/DZtree.pdf  used on input line 1313.
@@ -4042,7 +4042,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 1312--1323
 pdfTeX warning: pdflatex (file ../figures/DZtree.pdf): PDF inclusion: multiple 
 pdfs with page group included in a single page
 >] [215] [216]
-<../figures/testPCA.pdf, id=4934, 289.08pt x 289.08pt>
+<../figures/testPCA.pdf, id=4936, 289.08pt x 289.08pt>
 File: ../figures/testPCA.pdf Graphic file (type pdf)
 <use ../figures/testPCA.pdf>
 Package pdftex.def Info: ../figures/testPCA.pdf  used on input line 1540.
@@ -4059,7 +4059,7 @@ Overfull \hbox (2.43333pt too wide) in paragraph at lines 1539--1556
  []
 
 [217 <../figures/testPCA.pdf>] [218] [219]
-<../figures/hills.pdf, id=4972, 505.89pt x 144.54pt>
+<../figures/hills.pdf, id=4974, 505.89pt x 144.54pt>
 File: ../figures/hills.pdf Graphic file (type pdf)
 <use ../figures/hills.pdf>
 Package pdftex.def Info: ../figures/hills.pdf  used on input line 1723.
@@ -4071,7 +4071,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [220 <../figures/hills.pdf>]
-<../figures/sphvsexp.pdf, id=5005, 361.35pt x 289.08pt>
+<../figures/sphvsexp.pdf, id=5007, 361.35pt x 289.08pt>
 File: ../figures/sphvsexp.pdf Graphic file (type pdf)
 <use ../figures/sphvsexp.pdf>
 Package pdftex.def Info: ../figures/sphvsexp.pdf  used on input line 1794.
@@ -4099,8 +4099,8 @@ Package rerunfilecheck Info: File `geostats.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 123.
  ) 
 Here is how much of TeX's memory you used:
- 11761 strings out of 481239
- 189031 string characters out of 5920378
+ 11762 strings out of 481239
+ 189043 string characters out of 5920378
  525718 words of memory out of 5000000
  25455 multiletter control sequences out of 15000+600000
  547016 words of font info for 76 fonts, out of 8000000 for 9000
@@ -4134,10 +4134,10 @@ cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on geostats.pdf (221 pages, 3501358 bytes).
+Output written on geostats.pdf (221 pages, 3502575 bytes).
 PDF statistics:
- 5370 PDF objects out of 6186 (max. 8388607)
- 4351 compressed objects within 44 object streams
- 1170 named destinations out of 1200 (max. 500000)
+ 5373 PDF objects out of 6186 (max. 8388607)
+ 4354 compressed objects within 44 object streams
+ 1171 named destinations out of 1200 (max. 500000)
  2013 words of extra memory for PDF output out of 10000 (max. 10000000)
 
