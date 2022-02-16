@@ -8,9 +8,9 @@ output:
 ---
 
 ```{r setup, include = FALSE}
-solution <- TRUE
-results <- TRUE
-multi <- TRUE
+solution <- FALSE
+results <- FALSE
+multi <- FALSE
 knitr::opts_chunk$set(echo=solution,include=results)
 set.seed(1)
 # to render:
@@ -875,6 +875,7 @@ using a t-distribution with $n-2=3$ degree of freedom. Note that
 
 \ifmulti\clearpage\fi
 # Unsupervised learning
+\label{sec:unsupervised}
 
 Consider three multivariate normal distributions with the following
 mean vectors and covariance matrices:
@@ -893,9 +894,9 @@ mean vectors and covariance matrices:
 \mu_{B} =
 \left[
 \begin{array}{c}
-5 \\
-5 \\
-5 \\
+2 \\
+2 \\
+2 \\
 0 \\
 0
 \end{array}
@@ -903,11 +904,11 @@ mean vectors and covariance matrices:
 \mu_{C} =
 \left[
 \begin{array}{c}
-10 \\
+4 \\
 0 \\
 0 \\
--5 \\
--5
+-2 \\
+-2
 \end{array}
 \right]
 , \Sigma_A = \Sigma_B = \Sigma_C =
@@ -929,25 +930,30 @@ mean vectors and covariance matrices:
    ```{r}
    n <- 10
    muA <- rep(0,5)
-   muB <- c(5,5,5,0,0)
-   muC <- c(10,0,0,-5,-5)
-   E <- rbind(c(5,1,2,3,4),
+   muB <- c(2,2,2,0,0)
+   muC <- c(4,0,0,-2,-2)
+   S <- rbind(c(5,1,2,3,4),
               c(1,5,2,3,4),
               c(1,2,5,3,4),
               c(1,2,3,5,4),
               c(1,2,3,4,5))
    library(MASS)
-   A <- mvrnorm(n=n,mu=muA,Sigma=E)
-   B <- mvrnorm(n=n,mu=muB,Sigma=E)
-   C <- mvrnorm(n=n,mu=muC,Sigma=E)
-   dat <- rbind(A,B,C)
-   colnames(dat) <- c('a','b','c','d','e')
+   # defining a function because we will use this code again in a later exercise:
+   ABC <- function(n,muA,muB,muC,S){
+      A <- mvrnorm(n=n,mu=muA,Sigma=S)
+      B <- mvrnorm(n=n,mu=muB,Sigma=S)
+      C <- mvrnorm(n=n,mu=muC,Sigma=S)
+      out <- rbind(A,B,C)
+      colnames(out) <- c('a','b','c','d','e')
+      return(out)
+   }
+   dat <- ABC(n,muA,muB,muC,S)
    ```
 
 1. Analyse the dataset by principal component analysis and present the
    results as a biplot.
    
-   ```{r}
+   ```{r out.width="50%", fig.width=5, fig.height=5}
    pc <- prcomp(dat)
    biplot(pc)
    ```
@@ -962,7 +968,8 @@ results as a scatter plot.
    ```
 
 1. Classify the dataset by k-means clustering with $k=3$. Use the
-results to add text labels to the MDS configuration.
+results to add text labels to the MDS configuration. How successful
+was the clustering?
 
    ```{r out.width="50%", fig.width=5, fig.height=5}
    fit <- kmeans(dat,centers=3)
@@ -981,12 +988,98 @@ results to add text labels to the MDS configuration.
 \ifmulti\clearpage\fi
 # Supervised learning
 
-Create a new dataset of ${3}\times{10}$ samples, but now label the
-rows of your dataset with $A1,\ldots,A10$, $B1,\ldots,B10$, and
-$C1,\ldots,C10$. Use the `paste0()` function to create the labels.
+
 ```{r}
-rownames(dat) <- c(paste0('A',1:n),
-                   paste0('B',1:n),
-                   paste0('C',1:n))
+groups <- c(rep('A',n),rep('B',n),rep('C',n))
 ```
 
+1. Create a 30-element vector with the names of the known classes
+($A$, $B$, $C$) of the ${3}\times{10}$ samples generated in the
+previous exercise. Build a linear discriminant model for the data
+given the group names. Plot the first two linear discriminants on a
+scatter plot.
+
+   ```{r out.width="50%", fig.width=5, fig.height=5}
+   library(MASS)
+   ld <- lda(groups ~ dat)
+   plot(ld)
+   ```
+
+1. Create a new dataset of ${3}\times{10}$ samples from the
+multivariate distributions of Exercise \ref{sec:unsupervised}.
+Classify the new data using the linear discriminants generated in the
+previous step. What is the misclassification rate?
+
+   ```{r}
+   newdat <- ABC(n,muA,muB,muC,S)
+   pred <- predict(ld,newdata=as.data.frame(newdat))
+   table(pred$class,groups)
+   message(sum(pred$class != groups),' samples were misclassified.')
+   ```
+
+1. Build a decision tree using the same training data as before. How
+many branches does the default tree have?
+
+   ```{r out.width="40%", fig.width=5, fig.height=5}
+   library(rpart)
+   tree <- rpart(groups ~ dat, method='class')
+   plot(tree)
+   text(tree,xpd=NA)
+   ```
+
+1. If your tree is too small then this is probably because, by
+default, `rpart` expects at least 20 items per branch. You can
+override this default setting with the optional `control` argument to
+the `rpart` function.  Using the `iris` dataset to illustrate this:
+
+   ```{r echo=TRUE, eval=FALSE}
+   my.control <- rpart.control(minsplit=1)
+   iristree <- rpart(Species ~ ., data=iris, method="class", control=my.control)
+   ```
+
+   Apply the same procedure to your mixture of multivariate normal
+   distributions.
+
+   ```{r out.width="80%", fig.width=10, fig.height=5}
+   my.control <- rpart.control(minsplit=1)
+   tree <- rpart(groups ~ dat, method="class", control=my.control)
+   plot(tree)
+   text(tree,xpd=NA)
+   ```
+
+1. The `rpart.control` function can also be used to change other
+settings as well. For example, you can use it to build a maximum sized
+tree with `pure' nodes:
+
+   ```{r echo=TRUE, eval=FALSE}
+   my.control <- rpart.control(cp=0,minsplit=1)
+   iristree.unpruned <- rpart(Species ~ ., data=iris,
+                              method="class", control=my.control)
+   ```
+
+   You can then retrieve a nested set of subtrees by inspecting the
+   cost-complexity table as follows (try it!):
+
+   ```{r echo=TRUE, eval=FALSE}
+   printcp(iristree.unpruned)
+   plotcp(iristree.unpruned)
+   ```
+
+   Finally, you can prune the tree using the, guess what, `prune`
+   function. For example:
+
+   ```{r echo=TRUE, eval=FALSE}
+   iristree.pruned <- prune(iristree, cp=.08)
+   ```
+
+   Apply the above functions to your multivariate normal mixture.
+
+   ```{r out.width="50%", fig.width=5, fig.height=5}
+   my.control <- rpart.control(cp=0,minsplit=1)
+   tree.unpruned <- rpart(groups ~ dat, method="class", control=my.control)
+   printcp(tree.unpruned)
+   plotcp(tree.unpruned)
+   tree.pruned <- prune(tree.unpruned, cp=.13)
+   plot(tree.pruned)
+   text(tree.pruned,xpd=NA)
+   ```
