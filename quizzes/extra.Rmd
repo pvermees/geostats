@@ -8,9 +8,9 @@ output:
 ---
 
 ```{r setup, include = FALSE}
-solution <- FALSE
-results <- FALSE
-multi <- FALSE
+solution <- TRUE
+results <- TRUE
+multi <- TRUE
 knitr::opts_chunk$set(echo=solution,include=results)
 set.seed(1)
 # to render:
@@ -695,6 +695,65 @@ analytical solution?
    \fi
 
 \ifmulti\clearpage\fi
+# Degrees of freedom \label{sec:dof}
+
+The degrees of freedom of a problem represents the number of
+independent ways in which a system can vary. In most cases, the
+degrees of freedom represents the number of measurements, adjusted for
+the number of parameters. In the context of the t-test, we use $n$
+measurements to estimate the one-sample t-statistic $t$. But to do so
+we also have to calculate $\bar{x}$. So there is some redundancy in
+the system, which is reducing the apparent dispersion of the
+t-statistic. To account for this, we subtract one degree of freedom,
+in exactly the same way as the Bessel correction, which is briefly
+discussed at the end of Chapter 7 of the notes. See
+[Wikipedia](https://en.wikipedia.org/wiki/Bessel%27s_correction#Proof_of_correctness_%E2%80%93_Alternative_1)
+for a derivation of the Bessel correction. It is a useful exercise to
+simulate the t-distribution on your computer:
+
+   1. Draw $N=1000$ times $n=2$ random numbers from a standard normal
+   distribution and calculate their means.
+
+   1. Compute the t-statistics of the 1000 resulting values, using
+   Equation 9.2 of the notes. Visualise as an ECDF.
+
+   1. Superimpose the CDF of the t-distribution with $n-1$ degrees of
+   freedom on the existing plot, and then again with $n$ degrees of
+   freedom. Which curve fits the simulated results best?
+
+   ```{r out.width="70%", fig.width=6, fig.height=5}
+   ns <- 1000      # number of samples
+   nv <- 2         # number of values per sample
+   # 1000 samples of 2 values drawn from a standard normal distribution:
+   obs <- matrix(rnorm(nv*ns),nrow=ns,ncol=nv)
+   tstat <- rep(NA,ns)  # initialise the t-statistic
+   for (i in 1:ns){     # loop through the samples
+      tstat[i] <- sqrt(nv)*mean(obs[i,])/sd(obs[i,])  # equation 9.2 of the notes
+   }
+   # predicted quantiles of the t-distribution with nv-1 degrees of freedom:
+   pred1 <- qt(seq(from=0,to=1,length.out=ns),df=nv-1)
+   # predicted quantiles of the t-distribution with nv degrees of freedom:
+   pred2 <- qt(seq(from=0,to=1,length.out=ns),df=nv)
+   # plot the empirical cumulative distribution function of the 1000 t-statistics:
+   plot(ecdf(tstat),verticals=TRUE,pch=NA,col='blue',xlim=c(-5,5),xlab='t',main='')
+   # add the predicted distribution:
+   lines(ecdf(pred1),verticals=TRUE,pch=NA,col='black')
+   # add the second predicted distribution:
+   lines(ecdf(pred2),verticals=TRUE,pch=NA,col='red')
+   legend('topleft',legend=c('measured','n-1 d.o.f','n d.o.f'),
+          lty=1,col=c('blue','black','red'))
+   ```
+
+
+   \ifsol
+   In the two-sample t-test (Equation 9.4), we have $n_1$ + $n_2$
+   measurements, and have to estimate two parameters, $\bar{x}_1$ and
+   $\bar{x}_2$. Hence the number of degrees of freedom is $n_1 + n_2 -
+   2$.  If you want you can modify this code for the two-sample case
+   to verify that this requires $n_1+n_2-2$ degrees of freedom.
+   \fi
+
+\ifmulti\clearpage\fi
 # Comparing distributions \label{sec:comparingdistributions}
 
 1. Compare the marginal distributions of exercise \ref{sec:normal}
@@ -729,7 +788,7 @@ documentation for the ellipsis (`...`) in said documentation.
       x <- xy[[i]][,1]
       y <- xy[[i]][,2]
       ksx <- ks.test(x=x,y='pnorm',mean=mean(x),sd=sd(x))
-      ksy <- ks.test(x=y,y='pnorm',mean=mean(x),sd=sd(y))
+      ksy <- ks.test(x=y,y='pnorm',mean=mean(y),sd=sd(y))
       pvals['x',i] <- ksx$p.value
       pvals['y',i] <- ksy$p.value
    }
@@ -738,6 +797,62 @@ documentation for the ellipsis (`...`) in said documentation.
    \ifsol
    Conclusion: the marginal distributions are Gaussian.
    \fi
+
+\ifmulti\clearpage\fi
+# Effect size \label{sec:effect-size}
+
+The optional arguments of `R`\'s `rchisq`, `dchisq`, `pchisq` and
+`qchisq` functions include a 'noncentrality parameter' (`ncp`), which
+is related to the effect size ($w$) as follows:
+
+`ncp` = $n \times w^2$
+
+where $n$ is the sample size. By default, the noncentrality parameter
+is zero, which is generally used as a null distribution. Changing
+`ncp` to a positive number allows the user to explore different
+alternative distributions.
+
+   1. Plot the PDFs of (non-central) chi-square distributions with 10
+   degrees of freedom (i.e. $n=12$) and effect sizes of 0, 0.1, 0.3
+   and 0.5.
+
+   ```{r out.width="60%", fig.width=6, fig.height=5}
+   # (a)
+   n <- 12
+   w <- c(0,0.1,0.3,0.5)
+   nw <- length(w)
+   nn <- 100
+   x <- seq(from=0,to=30,length.out=nn)
+   y <- matrix(0,nn,nw)
+   for (i in 1:nw){
+   y[,i] <- dchisq(x,df=n-2,ncp=n*w[i]^2)
+   }
+   matplot(x,y,type='l',xlab=expression(chi^2),ylab='f')
+   legend('topright',legend=w,lty=1:nw,col=1:nw)
+   ```
+
+   1. What is the probability of committing a type-II error for $w
+   \in \{0.1,0.3,0.5\}$ with $\alpha=0.05$?
+
+   1. What is the probability of committing a type-II error for the
+   same values of $w$ when $n=1000$?
+
+   ```{r}
+   # (b)
+   type2 <- function(n,w){
+   # Calculate the 95-precentile of the central chi-square distribution:
+   cutoff <- qchisq(0.95,df=n-2)
+   # Calculate the probability of exceeding this value for different values of w:
+   for (i in 2:length(w)){
+   prob <- pchisq(cutoff,df=n-1,ncp=n*w[i]^2)
+   message('p(type-2 error | w=',w[i],') = ',signif(prob,2))
+   }
+   }
+   type2(n,w)
+
+   # (c)
+   type2(1000,w)
+   ```
 
 \ifmulti\clearpage\fi
 # Regression \label{sec:regression}
@@ -923,9 +1038,9 @@ mean vectors and covariance matrices:
 \right]
 \]
 
-1. Draw 10 sets of random values from each of these 3
-   distributions and store them in a data frame. Name the variables
-   $a$, $b$, $c$, $d$ and $e$.
+1. Draw 10 sets of random values from each of these 3 distributions
+   and store them in a matrix. Name the variables $a$, $b$, $c$, $d$
+   and $e$.
 
    ```{r}
    n <- 10
@@ -1028,11 +1143,11 @@ many branches does the default tree have?
    ```
 
 1. If your tree is too small then this is probably because, by
-default, `rpart` expects at least 20 items per branch. You can
+default, `rpart` aims to have at least 20 items per branch. You can
 override this default setting with the optional `control` argument to
 the `rpart` function.  Using the `iris` dataset to illustrate this:
 
-   ```{r echo=TRUE, eval=FALSE}
+   ```{r echo=TRUE, include=TRUE, eval=FALSE}
    my.control <- rpart.control(minsplit=1)
    iristree <- rpart(Species ~ ., data=iris, method="class", control=my.control)
    ```
@@ -1051,7 +1166,7 @@ the `rpart` function.  Using the `iris` dataset to illustrate this:
 settings as well. For example, you can use it to build a maximum sized
 tree with `pure' nodes:
 
-   ```{r echo=TRUE, eval=FALSE}
+   ```{r echo=TRUE, include=TRUE, eval=FALSE}
    my.control <- rpart.control(cp=0,minsplit=1)
    iristree.unpruned <- rpart(Species ~ ., data=iris,
                               method="class", control=my.control)
@@ -1060,7 +1175,7 @@ tree with `pure' nodes:
    You can then retrieve a nested set of subtrees by inspecting the
    cost-complexity table as follows (try it!):
 
-   ```{r echo=TRUE, eval=FALSE}
+   ```{r echo=TRUE, include=TRUE, eval=FALSE}
    printcp(iristree.unpruned)
    plotcp(iristree.unpruned)
    ```
@@ -1068,7 +1183,7 @@ tree with `pure' nodes:
    Finally, you can prune the tree using the, guess what, `prune`
    function. For example:
 
-   ```{r echo=TRUE, eval=FALSE}
+   ```{r echo=TRUE, include=TRUE, eval=FALSE}
    iristree.pruned <- prune(iristree, cp=.08)
    ```
 

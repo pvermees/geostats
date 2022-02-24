@@ -4,7 +4,7 @@ rmarkdown::render(input=paste0(idir,"extra.Rmd"),
                   output_file=paste0(odir,"extra.pdf"))
 
 if (TRUE){ # parse
-    pages <- c(2,4,7,8,9,11,14,17,18,21,23,25,27,31,34,38)
+    pages <- c(2,4,7,8,9,11,14,17,18,21,23,25,27,29,31,35,38,42)
     np <- length(pages)
     set.seed(1)
     if (TRUE){ # randomise
