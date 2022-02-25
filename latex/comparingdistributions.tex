@@ -7,7 +7,7 @@ precision of experimental results. However these inferences are only
 as strong as the assumptions on which they are based.  For example,
 Chapter~\ref{ch:binomial} used a binomial distribution to assess the
 occurrence of gold in a prospecting area, assuming that the gold was
-randomly distributed across all the claims.  And
+randomly distributed across all the claims; and
 Chapter~\ref{ch:poisson} used a Poisson distribution to model
 earthquakes, assuming that the earthquake catalog was free of clusters
 and that all aftershocks had been removed from it. This chapter will
@@ -110,11 +110,11 @@ gold coins as an example:
 
 The density of pure gold is 19.30~g/cm\textsuperscript{3}. We might
 ask ourselves the question if the five coins are made of pure gold, or
-if they consist of a mixture with a less dense metal? To answer this
-question, we assume that the sample mean $\bar{x}$ follows a normal
-distribution with mean $\mu$ and standard deviation $\sigma/\sqrt{n}$
-(following the same derivation as Equation~\ref{eq:stderrmean}). Thus,
-the parameter
+if they consist of an allow that mixes gold with a less dense metal?
+To answer this question, we assume that the sample mean $\bar{x}$
+follows a normal distribution with mean $\mu$ and standard deviation
+$\sigma/\sqrt{n}$ (following the same derivation as
+Equation~\ref{eq:stderrmean}). Thus, the parameter
 \begin{equation}
   z = \frac{\bar{x}-\mu}{\sigma/\sqrt{n}}
   \label{eq:z}
@@ -293,8 +293,9 @@ difference between the two means is significant or not.
 \item Under $H_\circ$, Equation~\ref{eq:t2} follows a Student
   t-distribution with $(n_1+n_2-2)$ degrees of freedom\footnote{Two
     degrees of freedom have been removed because we estimated two
-    parameters from the data: $\bar{x}_1$ and $\bar{x}_2$}. Tabulating
-  some key quantiles of the t-distribution with 7 degrees of freedom:
+    parameters from the data: $\bar{x}_1$ and
+    $\bar{x}_2$.}. Tabulating some key quantiles of the t-distribution
+  with 7 degrees of freedom:
 
   \begin{center}
     \begin{tabular}{c|c@{\gap}c@{\gap}c@{\gap}c@{\gap}
@@ -424,7 +425,7 @@ $19.16\pm{0.12}$~g/cm\textsuperscript{3}. Note that this interval does
 (19.30~g/cm\textsuperscript{3}), confirming again that the coins are
 not made of pure gold. However, the upper limit of the 95\% confidence
 interval is 19.28~g/cm\textsuperscript{3}, which is not far off the
-19.30~cm\textsuperscript{3} value. Therefore it is possible that the
+19.30~g/cm\textsuperscript{3} value. Therefore it is possible that the
 amount of light contaminant is minor.\medskip
 
 With increasing sample size, the t-distribution converges towards the
@@ -482,7 +483,7 @@ Equation~\ref{eq:tci} simplifies to approximately
 It is important to bear in mind that this procedure only works for
 sufficiently large samples sizes. For samples sizes of $n<30$, the
 `2-sigma' interval must be replaced with a `studentised' confidence
-interval (i.e. Equation~\ref{eq:tci}).
+interval (i.e., Equation~\ref{eq:tci}).
 
 \section{The $\chi^2$-test}
 \label{sec:chi2}
@@ -511,25 +512,10 @@ Figure~\ref{fig:declusteredquakesperyear}:
 \begin{center}
   \begin{tabular}{r|c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}
       c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
-    number of earthquakes per year &
+    earthquakes/year &
     0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
     number of years &
     0 & 3 & 8 & 13 & 17 & 13 & 14 & 13 & 5 & 8 & 3 & 1 & 2 
-  \end{tabular}
-\end{center}
-
-In order for the $\chi^2$-test to work, all the bins should contain
-$>0$ items and 4/5\textsuperscript{th}s of them should contain at
-least 4 items. We can fulfil these requirements by \emph{pooling} the
-smallest bins.
-
-\begin{center}
-  \begin{tabular}{r|c@{\gap}c@{\gap}c@{\gap}
-      c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
-    number of earthquakes per year &
-    $\leq{2}$ & 3 & 4 & 5 & 6 & 7 & 8 & 9 & $\geq{10}$ \\
-    number of years &
-    11 & 13 & 17 & 13 & 14 & 13 & 5 & 8 & 6
   \end{tabular}
 \end{center}
 
@@ -538,25 +524,41 @@ using the probability mass function of the Poisson distribution with
 $\lambda=5.43$ (Equation~\ref{eq:poispmf}):
 
 \begin{center}
-  \begin{tabular}{r|c@{\gap}c@{\gap}c@{\gap}
-      c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
-    number of earthquakes per year ($k$) &
-    $\leq{2}$ & 3 & 4 & 5 & 6 & 7 & 8 & 9 & $\geq{10}$ \\
-    $N\times{P}(k|\lambda=5.43)$ & 9.28 & 11.7 & 15.9 & 17.2 &
-    15.6 & 12.1 & 8.22 & 4.96 & 5.02
+  \begin{tabular}{r|c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}
+      c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
+    earthquakes/year ($k$) &
+    0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+    $N\times{P}(k|\lambda=5.43)$ &
+    0.438 & 2.38 & 6.46 & 11.7 & 15.9 & 17.2 & 15.6 & 12.1 &
+    8.22 & 4.96 & 2.69 & 1.33 & 0.601
   \end{tabular}
 \end{center}
 
-\noindent where $N=100$ years. We can then compute the
-$\chi^2$-statistic:
+\noindent where $N=100$ years. In order for the $\chi^2$-test to work,
+the bins should contain at least 5 items. We can fulfil these
+requirements by \emph{pooling} the smallest bins.
+
+\begin{center}
+  \begin{tabular}{r|c@{\gap}c@{\gap}c@{\gap}
+      c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
+    earthquakes/year &
+    $\leq{2}$ & 3 & 4 & 5 & 6 & 7 & 8 & $\geq{9}$ \\
+    observed counts &
+    11 & 13 & 17 & 13 & 14 & 13 & 5 & 14 \\
+    predicted counts & 9.28 & 11.7 &
+    15.9 & 17.2 & 15.6 & 12.1 & 8.22 & 9.98
+  \end{tabular}
+\end{center}
+
+We can then compute the $\chi^2$-statistic:
 \begin{equation}
   \chi^2 = \sum\limits_{i=1}^{n} \frac{(O_i-E_i)^2}{E_i}
   \label{eq:chi2}
 \end{equation}
 
-\noindent where $O_i$ stands for the `observed' and $E_i$ for the
-`expected' number of counts in the $i$\textsuperscript{th} out of
-$n=9$ bins.\medskip
+\noindent where $O_i$ stands for the observed and $E_i$ for the
+expected number of counts in the $i$\textsuperscript{th} out of $n=8$
+bins.\medskip
 
 Finally we compare the value of $\chi^2$ with a chi-square
 distribution with $n-2$ degrees of freedom, where one degree of
@@ -583,24 +585,23 @@ Applying the $\chi^2$-test to the earthquake data:
       \frac{(11-9.28)^2}{9.28} + \frac{(13-11.7)^2}{11.7} +
       \frac{(17-15.9)^2}{15.9} + \frac{(13-17.2)^2}{17.2} + \\
       & \frac{(14-15.6)^2}{15.6} + \frac{(13-12.1)^2}{12.1} +
-      \frac{(5-8.22)^2}{8.22} + \frac{(8-4.96)^2}{4.96} +
-      \frac{(6-5.02)^2}{5.02} = 5.14
+      \frac{(5-8.22)^2}{8.22} + \frac{(14-9.98)^2}{9.98} = 4.70
     \end{split}
   \end{equation}
 
 \item Under $H_\circ$, Equation~\ref{eq:chi2} follows a
-  $\chi^2$-distribution 7 degrees of freedom. Tabulating some key
+  $\chi^2$-distribution 6 degrees of freedom. Tabulating some key
   quantiles for this distribution:
 
   \begin{center}
     \begin{tabular}{c|c@{\gap}c@{\gap}c@{\gap}c@{\gap}
         c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
-      $\chi^2$ & 1.24 & 1.69 & 2.17 & 2.83 & 4.25 & \textit{5.14} &
-      6.35 & 9.04 & 12.0 & 14.1 & 16.0 & 18.5 \\ \hline
+      $\chi^2$ & 0.872 & 1.24 & 1.64 & 2.20 & 3.45 & \textit{4.70} &
+      5.35 & 7.84 & 10.6 & 12.6 & 14.4 & 16.8 \\ \hline
       $P(X\leq{\chi^2})$ & 0.01 & 0.025 & 0.05 & 0.1 & 0.25 &
-      \textit{0.36} & 0.5 & 0.75 & 0.9 & 0.95 & 0.975 & 0.99 \\
+      \textit{0.417} & 0.5 & 0.75 & 0.9 & 0.95 & 0.975 & 0.99 \\
       $P(X\geq{\chi^2})$ & 0.99 & 0.975 & 0.95 & 0.9 & 0.75 &
-      \textit{0.743} & 0.5 & 0.25 & 0.1 & 0.05 & 0.025 & 0.01
+      \textit{0.583} & 0.5 & 0.25 & 0.1 & 0.05 & 0.025 & 0.01
     \end{tabular}
   \end{center}
 
@@ -618,17 +619,18 @@ Applying the $\chi^2$-test to the earthquake data:
   \begin{center}
     \begin{tabular}{c|c@{\gap}c@{\gap}c@{\gap}c@{\gap}
         c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
-      $\chi^2$ & 1.24 & 1.69 & 2.17 & 2.83 & 4.25 & \textit{5.14} &
-      6.35 & 9.04 & 12.0 & \textbf{14.1} & \textbf{16.0} & \textbf{18.5} \\ \hline
+      $\chi^2$ & 0.872 & 1.24 & 1.64 & 2.20 & 3.45 & \textit{4.70} &
+      5.35 & 7.84 & 10.6 & \textbf{12.6} &
+      \textbf{14.4} & \textbf{16.8} \\ \hline
       $P(X\geq{\chi^2})$ & 0.99 & 0.975 & 0.95 & 0.9 & 0.75 &
       \textit{0.743} & 0.5 & 0.25 & 0.1 & \textbf{0.05} &
       \textbf{0.025} & \textbf{0.01}
     \end{tabular}
   \end{center}
 
-  The one-sided rejection region consists of all $\chi^2\geq{14.1}$. 
+  The one-sided rejection region consists of all $\chi^2>{12.6}$. 
 
-\item Because the observed value of $\chi^2=5.14$ falls outside the
+\item Because the observed value of $\chi^2=4.70$ falls outside the
   rejection region, we cannot reject the null hypothesis.
 
 \end{enumerate}
@@ -638,8 +640,8 @@ Applying the $\chi^2$-test to the earthquake data:
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{a) PDF and b) CDF of the $\chi^2$-distribution
-    with 7 degrees of freedom. The rejection region is marked in
-    black.  The observed value for the earthquake data ($\chi^2=5.14$)
+    with 6 degrees of freedom. The rejection region is marked in
+    black.  The observed value for the earthquake data ($\chi^2=4.70$)
     is shown as a vertical dashed line.  It plots outside the
     rejection region, indicating that the histogram of the data falls
     within the expected range of the hypothesised (Poisson)
