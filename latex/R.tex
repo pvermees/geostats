@@ -1192,25 +1192,16 @@ because $\{-0.24136871\leq{0}\leq{0.01936871}\}$.
 \begin{script}
 data(declustered,package='geostats')
 quakesperyear <- countQuakes(declustered,minmag=5.0,from=1917,to=2016)
-quaketab <- table(quakesperyear)
+obs <- table(quakesperyear)
 \end{script}
 
 Printing the table of earthquake counts per year at the console
 
 \begin{console}
-> table(quakesperyear)
-quakesperyear
+> obs
  1  2  3  4  5  6  7  8  9 10 11 12 
  3  8 13 17 13 14 13  5  8  3  1  2 
 \end{console}
-
-\noindent shows that there are four bins with fewer than 4 items. In
-order for the $\chi^2$-approximation to be valid, we must merge some
-of these categories:
-
-\begin{script}[firstnumber=3]
-obs <- c( sum(quaketab[1:2]), quaketab[3:9], sum(quaketab[10:12]) )
-\end{script}
 
 The corresponding predicted probabilities are obtained using a Poisson
 distribution with parameter given by the mean of the earthquake
@@ -1218,26 +1209,49 @@ counts:
 
 \begin{script}[firstnumber=4]
 lam <- mean(quakesperyear)
-pred <- c(ppois(q=2,lambda=lam),                  # lower tail
-          dpois(x=3:9,lambda=lam),                # central segment
-          ppois(q=9,lambda=lam,lower.tail=FALSE)) # upper tail
+# expected probabilities:
+p <- c(ppois(q=1,lambda=lam),                   # lower tail
+       dpois(x=2:11,lambda=lam),                # central segment
+       ppois(q=11,lambda=lam,lower.tail=FALSE)) # upper tail
+names(p) <- c('<2',2:11,'>11')
 \end{script}
 
-\noindent which add up to 1. Then the $\chi^2$-test proceeds as
-follows:
+\noindent which produces the following set of expected counts:
 
-\begin{script}[firstnumber=9]
-h <- chisq.test(x=obs,p=pred)
+\begin{script}[firstnumber=10]
+pred <- p*length(quakesperyear)       
 \end{script}
-
-Querying the p-value:
 
 \begin{console}
-> h$p.value
-[1] 0.7429772
+> signif(pred,2)
+  <2    2    3    4    5    6    7    8     9   10   11  >11 
+ 2.8  6.5 12.0 16.0 17.0 16.0 12.0  8.2  4.96  2.7  1.3  0.4
 \end{console}
 
-$0.7429772>0.05$, hence $H_\circ$ is not rejected.
+There are five bins with fewer than 5 items. In order for the
+$\chi^2$-approximation to be valid, we must merge some of the
+categories:
+
+\begin{script}[firstnumber=11]
+O <- c(sum(obs[1:2]),obs[3:8],sum(obs[9:12]))
+E <- c(sum(pred[1:2]),pred[3:8],sum(pred[9:12]))
+\end{script}
+
+Calculating the $\chi^2$-statistic and p-value:
+
+\begin{script}[firstnumber=13]
+X2 <- sum((O-E)^2/E)
+pval <- pchisq(X2,df=length(E)-2,lower.tail=FALSE)
+\end{script}
+
+\begin{console}
+> X2
+[1] 4.697049
+> pval
+[1] 0.5832134
+\end{console}
+
+$0.5832134>0.05$, hence $H_\circ$ is not rejected.
 
 \item Comparing the two collections of gold coins from
   item~\ref{it:2sided2samplettest} above but this time using a

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.8)  25 FEB 2022 21:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.8)  26 FEB 2022 11:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3955,22 +3955,22 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 1064--1074
  []
 
 [173 <../figures/LLpois.pdf>] [174] [175] [176] [177] [178] [179] [180]
-[181] [182] [183] [184] [185]) (./exercises.tex [186]
-Chapter 18.
-[187
+[181] [182] [183] [184] [185] [186]) (./exercises.tex [187] [188
 
-] [188] [189] [190] [191]
+]
+Chapter 18.
+[189] [190] [191] [192] [193]
 Overfull \hbox (4.7468pt too wide) in paragraph at lines 467--473
 []\OT1/cmr/m/n/10.95 Use the \OT1/cmtt/m/n/10.95 ksdist \OT1/cmr/m/n/10.95 func
 -tion of the \OT1/cmtt/m/n/10.95 geostats \OT1/cmr/m/n/10.95 pack-age to cre-at
 e a dis-tance ma-trix of Kolmogorov-
  []
 
-[192] [193]) (./solutions.tex [194]
+[194] [195]) (./solutions.tex [196]
 Chapter 19.
-[195
+[197
 
-] [196] [197] [198] [199] [200] [201] [202] [203] [204] [205]
+] [198] [199] [200] [201] [202] [203] [204] [205] [206] [207]
 Overfull \hbox (23.66835pt too wide) in paragraph at lines 789--795
 \OT1/cmr/m/n/10.95 where $\OML/cmm/m/it/10.95 z$ \OT1/cmr/m/n/10.95 is den-sity
 , $\OML/cmm/m/it/10.95 x$ \OT1/cmr/m/n/10.95 is mass and $\OML/cmm/m/it/10.95 y
@@ -3978,7 +3978,7 @@ $ \OT1/cmr/m/n/10.95 is vol-ume. Thus $\OML/cmm/m/it/10.95 s\OT1/cmr/m/n/10.95
 [[](\OML/cmm/m/it/10.95 A\OT1/cmr/m/n/10.95 )] = [][] =
  []
 
-[206]
+[208]
 Overfull \hbox (19.49991pt too wide) detected at line 827
 []
  []
@@ -3988,8 +3988,8 @@ Overfull \hbox (27.37506pt too wide) detected at line 827
 []
  []
 
-[207] [208] [209] [210] [211] [212]
-<../figures/PCAiris.pdf, id=4866, 216.81pt x 216.81pt>
+[209] [210] [211] [212] [213] [214]
+<../figures/PCAiris.pdf, id=4874, 216.81pt x 216.81pt>
 File: ../figures/PCAiris.pdf Graphic file (type pdf)
 <use ../figures/PCAiris.pdf>
 Package pdftex.def Info: ../figures/PCAiris.pdf  used on input line 1248.
@@ -4005,8 +4005,8 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 1247--1263
 [] [] 
  []
 
-[213 <../figures/PCAiris.pdf>]
-<../figures/elbow.pdf, id=4886, 216.81pt x 216.81pt>
+[215 <../figures/PCAiris.pdf>]
+<../figures/elbow.pdf, id=4894, 216.81pt x 216.81pt>
 File: ../figures/elbow.pdf Graphic file (type pdf)
 <use ../figures/elbow.pdf>
 Package pdftex.def Info: ../figures/elbow.pdf  used on input line 1291.
@@ -4022,7 +4022,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 1290--1300
 [] [] 
  []
 
-<../figures/DZtree.pdf, id=4887, 216.81pt x 144.54pt>
+<../figures/DZtree.pdf, id=4895, 216.81pt x 144.54pt>
 File: ../figures/DZtree.pdf Graphic file (type pdf)
 <use ../figures/DZtree.pdf>
 Package pdftex.def Info: ../figures/DZtree.pdf  used on input line 1313.
@@ -4037,12 +4037,12 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 1312--1323
 [] [] 
  []
 
-[214 <../figures/elbow.pdf> <../figures/DZtree.pdf
+[216 <../figures/elbow.pdf> <../figures/DZtree.pdf
 
 pdfTeX warning: pdflatex (file ../figures/DZtree.pdf): PDF inclusion: multiple 
 pdfs with page group included in a single page
->] [215] [216]
-<../figures/testPCA.pdf, id=4936, 289.08pt x 289.08pt>
+>] [217] [218]
+<../figures/testPCA.pdf, id=4945, 289.08pt x 289.08pt>
 File: ../figures/testPCA.pdf Graphic file (type pdf)
 <use ../figures/testPCA.pdf>
 Package pdftex.def Info: ../figures/testPCA.pdf  used on input line 1540.
@@ -4058,8 +4058,8 @@ Overfull \hbox (2.43333pt too wide) in paragraph at lines 1539--1556
 [] [] 
  []
 
-[217 <../figures/testPCA.pdf>] [218] [219]
-<../figures/hills.pdf, id=4974, 505.89pt x 144.54pt>
+[219 <../figures/testPCA.pdf>] [220] [221]
+<../figures/hills.pdf, id=4982, 505.89pt x 144.54pt>
 File: ../figures/hills.pdf Graphic file (type pdf)
 <use ../figures/hills.pdf>
 Package pdftex.def Info: ../figures/hills.pdf  used on input line 1723.
@@ -4070,8 +4070,8 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 1727.
 See the caption package documentation for explanation.
 
-[220 <../figures/hills.pdf>]
-<../figures/sphvsexp.pdf, id=5007, 361.35pt x 289.08pt>
+[222 <../figures/hills.pdf>]
+<../figures/sphvsexp.pdf, id=5015, 361.35pt x 289.08pt>
 File: ../figures/sphvsexp.pdf Graphic file (type pdf)
 <use ../figures/sphvsexp.pdf>
 Package pdftex.def Info: ../figures/sphvsexp.pdf  used on input line 1794.
@@ -4089,7 +4089,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 1793--1806
 
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 123.
- [221 <../figures/sphvsexp.pdf>]
+ [223 <../figures/sphvsexp.pdf>]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 123.
  (./geostats.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 123.
@@ -4099,13 +4099,13 @@ Package rerunfilecheck Info: File `geostats.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 123.
  ) 
 Here is how much of TeX's memory you used:
- 11762 strings out of 481239
- 189043 string characters out of 5920378
+ 11764 strings out of 481239
+ 189059 string characters out of 5920378
  525718 words of memory out of 5000000
  25455 multiletter control sequences out of 15000+600000
  547016 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,26n,42p,1096b,665s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,26n,42p,1096b,661s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/pvermees/.texlive2019/texmf-var/fonts/pk/ljfour/public/ifsym/ifsym10.
 657pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/
@@ -4134,10 +4134,10 @@ cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on geostats.pdf (221 pages, 3502235 bytes).
+Output written on geostats.pdf (223 pages, 3503553 bytes).
 PDF statistics:
- 5373 PDF objects out of 6186 (max. 8388607)
- 4354 compressed objects within 44 object streams
- 1171 named destinations out of 1200 (max. 500000)
+ 5382 PDF objects out of 6186 (max. 8388607)
+ 4361 compressed objects within 44 object streams
+ 1173 named destinations out of 1200 (max. 500000)
  2013 words of extra memory for PDF output out of 10000 (max. 10000000)
 
