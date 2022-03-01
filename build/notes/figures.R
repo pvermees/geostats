@@ -1853,7 +1853,7 @@ X <- chisq.test(AB,expected/sum(expected))
 
 cairo(file='../../figures/wilcox.pdf',width=6,height=3)
 pars(mfrow=c(1,2))
-x <- 9:36
+x <- 9:31
 y <- dwilcox(x-10,m=5,n=4)
 llim <- qwilcox(0.025,m=4,n=5)+1
 ulim <- qwilcox(0.975,m=4,n=5)+3

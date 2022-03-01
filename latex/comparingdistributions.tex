@@ -707,7 +707,8 @@ sample B & 23.3 & 11.30 & 10.70 & 36.7
   \label{tab:expectedclasts}
 \end{center}
 
-The observed (table~\ref{tab:observedclasts}) and expected
+All the cells in this table exceed 5. Therefore, the observed
+(table~\ref{tab:observedclasts}) and expected
 (table~\ref{tab:expectedclasts}) clast counts can be plugged into
 Equation~\ref{eq:chi2} to calculate a $\chi^2$-value. The null
 distribution of this statistic is $\chi^2$ with $(n_r-1)\times(n_c-1)$
@@ -798,8 +799,8 @@ $\infty$. Low $\chi^2$-values indicate a good fit of the data to the
 proposed distribution, and high $\chi^2$-values indicate a bad fit.
 This is why the $\chi^2$-tests of Section~\ref{sec:chi2} were
 one-tailed tests: we want to identify the bad fits in order to reject
-the null hypothesis. However it would be wrong to ignore the good
-fits.\medskip
+the null hypothesis. However it would be wrong to completely ignore
+the good fits.\medskip
 
 Section~\ref{sec:pitfalls} made the case that, in general, the desired
 outcome of a statistical test is the rejection of the null hypothesis.
@@ -820,7 +821,7 @@ that, even if the null hypothesis is true, we should still expect 5\%
 there is always a 5\% chance of committing a Type-I error
 (Section~\ref{sec:typeI&II}).\medskip
 
-If all samples in a study have p-values of well over 0.05, then this
+If all samples in a study have p-values exceeding 0.05, then this
 should raise suspicion. For example, comparing a Poisson null
 distribution (a) with three samples (b--d):
 
@@ -842,8 +843,8 @@ distribution (a) with three samples (b--d):
 \endgroup
 
 The first sample is identical to the predicted distribution
-($\chi^2$-statistic = 0.0, p-value = 1.0).  Such a `good' result would
-be extremely unlikely to happen by chance.
+($\chi^2$-statistic = 0.0, p-value = 1.0).  Such an extraordinarily
+`good' result would be extremely unlikely to happen by chance.
 
 \section{Effect size (Type-II errors revisited)}
 \label{sec:effectsize}
@@ -954,17 +955,17 @@ B in table~\ref{tab:observedsand}, the $\chi^2$-test convincingly
 rejects the null hypothesis that they were drawn from the same
 population. To understand what is going on, we need to go back to
 Section~\ref{sec:pitfalls}. This section explained that the power of a
-statistical test to evaluate a null hypothesis monotonically increase
+statistical test to evaluate a null hypothesis monotonically increases
 with sample size.\medskip
 
-With a sample size of more than 100,000 counts per sample, it is not
-surprising that the $\chi^2$-test is able to detect even the tiniest
-difference between samples A and B.  In comparison, the two samples of
+With more than 100,000 counts per sample, it is not surprising that
+the $\chi^2$-test is able to detect even the tiniest difference
+between samples A and B.  In comparison, the two samples of
 Section~\ref{sec:contingency} only contain 41 and 82 samples,
 respectively. Consequently, it is more difficult to detect a small
 difference in composition between them.\medskip
 
-The power of a statistical test actually depends on two things:
+The power of a statistical test depends on two things:
 
 \begin{enumerate}
   \item Sample size: the larger the sample size, the easier it is to
@@ -974,8 +975,8 @@ The power of a statistical test actually depends on two things:
     easier it is to recognise this difference in the samples.
 \end{enumerate}
 
-The second factor is also known as the \textbf{effect size}. In the
-case of the $\chi^2$-distribution, the effect size is defined as:
+The second aspect can be quantified as the \textbf{effect size}. In
+the case of the $\chi^2$-distribution, the effect size is defined as:
 \begin{equation}
   w = \sqrt{\sum\limits_{i=1}^{n}\frac{\left(o_i-e_i\right)^2}{e_i}}
   \label{eq:effectsize}
@@ -1030,9 +1031,9 @@ about the data:
 
 \begin{itemize}
   \item The t-test assumes that the population mean follows a normal
-    distribution. This may not be correct for small samples from
-    multimodal distributions. For example, when averaging $n=2$ or
-    $n=3$ values from the bimodal geyser data
+    distribution. This assumption may not be correct for small samples
+    from multimodal distributions. For example, when averaging $n=2$
+    or $n=3$ values from the bimodal geyser data
     (Figures~\ref{fig:CLTfaithful2} and \ref{fig:CLTfaithful3}), the
     assumption of normality is clearly incorrect.
   \item The $\chi^2$-test requires binning the data into a
@@ -1084,7 +1085,7 @@ W = 4 + 6 + 7 + 9 = 26
 \]
 
 For sample sizes of $n_A=5$ and $n_B=4$, $W$ takes on values between
-$\sum_{i=1}^{4}i=10$ and $\sum_{i=5}^{9}i=35$. The closer the
+$\sum_{i=1}^{4}i=10$ and $\sum_{i=6}^{9}i=30$. The closer the
 $W$-value is to these extremes, the less likely it is that samples $A$
 and $B$ were drawn from the same distribution. The hypothesis test is
 carried out by comparing $W$ with a lookup table. To understand how
@@ -1163,16 +1164,17 @@ example of table~\ref{tab:2setcoins}:
     \end{tabular}
   \end{center}
 
-  The test statistic is then simply the sum of the ranks for the
-  smallest sample:
+  \noindent where tied values have been given an average rank. The
+  test statistic is then simply the sum of the ranks for the smallest
+  sample:
   \begin{equation*}
     \begin{split}
       W = & 3.5 + 6 + 7.5 + 9 = 26
     \end{split}
   \end{equation*}
 
-  Which (intentionally) is the same value for the earlier generic
-  example.
+  \noindent which (intentionally) is the same value as the earlier
+  generic example.
 
 \item Under $H_\circ$, the test statistic follows a Wilcoxon rank-sum
   distribution for $n_1=5$ and $n_2=4$. Tabulating some key quantiles
@@ -1209,8 +1211,8 @@ example of table~\ref{tab:2setcoins}:
 
   The rejection region consists of $W={10}$ and $W>{27}$.
 
-\item The observed value of $W=26$ falls outside the rejection region,
-  and so we cannot reject $H_\circ$.
+\item The observed value of $W (=26)$ falls outside the rejection
+  region, and so we cannot reject $H_\circ$.
 
 \end{enumerate}
 
@@ -1228,8 +1230,8 @@ example of table~\ref{tab:2setcoins}:
   \label{fig:wilcox}
 \end{minipage}
 
-The \textbf{Kolmogorov-Smirnov test} is non-parametric alternative to
-the $\chi^2$-test that does not require binning. Given two sets of
+The \textbf{Kolmogorov-Smirnov test} is a non-parametric alternative
+to the $\chi^2$-test that does not require binning. Given two sets of
 numbers:
 \[
 x = \{x_1,x_2,\ldots,x_n\} \mbox{~and~} y = \{y_1,y_2,\ldots,y_m\}
@@ -1251,7 +1253,7 @@ To illustrate the Kolmogorov-Smirnov method, consider two sand samples
 from China: one sample from the Yellow River, and one sample from a
 sand dune in the nearby Mu Us desert. We have separated the mineral
 zircon from the sand and analysed the crystallisation age of $>100$
-randomly selected zircon grains with the U--Pb method.  The
+randomly selected zircon grains with the U--Pb method.  The frequency
 distribution of the zircon dates serves as a characteristic
 `fingerprint' that can be used to compare the different samples.
 
@@ -1283,35 +1285,33 @@ The hypothesis test then proceeds as always:
 
 \item Under $H_\circ$, the Kolmogorov-Smirnov statistic can be
   compared to a look-up table similar to the one that was used for the
-  Wilcoxon test. Tabulating some key quantiles:
-  \begin{center}
-    \begin{tabular}{c|c@{\gap}c@{\gap}c@{\gap}c@{\gap}
-        c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
-      $D$ & 0.061 & 0.061 & 0.070 & 0.078 & 0.087 & 0.104 &
-      0.130 & 0.157 & 0.174 & 0.191 & 0.209 & \textit{0.301}\\ \hline
-      $P(d\leq{D})$ & 0.01 & 0.025 & 0.05 & 0.1 & 0.25 &
-      0.5 & 0.75 & 0.9 & 0.95 & 0.975 & 0.99 & \textit{0.99996}\\
-      $P(d\geq{D})$ & 0.99 & 0.975 & 0.95 & 0.9 & 0.75 & 0.5 &
-      0.25 & 0.1 & 0.05 & 0.025 & 0.010 & \textit{0.000045}
-    \end{tabular}
-  \end{center}
+  Wilcoxon test. Tabulating some key quantiles:\medskip
+
+  \begin{tabular}{c|c@{\gap}c@{\gap}c@{\gap}c@{\gap}
+      c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
+    $D$ & 0.061 & 0.061 & 0.070 & 0.078 & 0.087 & 0.104 &
+    0.130 & 0.157 & 0.174 & 0.191 & 0.209 & \textit{0.301}\\ \hline
+    $P(d\leq{D})$ & 0.01 & 0.025 & 0.05 & 0.1 & 0.25 &
+    0.5 & 0.75 & 0.9 & 0.95 & 0.975 & 0.99 & \textit{0.99996}\\
+    $P(d\geq{D})$ & 0.99 & 0.975 & 0.95 & 0.9 & 0.75 & 0.5 &
+    0.25 & 0.1 & 0.05 & 0.025 & 0.010 & \textit{0.000045}
+  \end{tabular}\medskip
 
   \noindent where the observed value is marked in italics.
   
 \item The confidence level $\alpha = 0.05$.
 
-\item Marking the one-sided rejection region in bold:
-  \begin{center}
-    \begin{tabular}{c|c@{\gap}c@{\gap}c@{\gap}c@{\gap}
-        c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
-      $D$ & 0.061 & 0.061 & 0.070 & 0.078 & 0.087 & 0.104 &
-      0.130 & 0.157 & \textbf{0.174} & \textbf{0.191} &
-      \textbf{0.209} & \textbf{\textit{0.301}}\\ \hline
-      $P(d\geq{D})$ & 0.99 & 0.975 & 0.95 & 0.9 & 0.75 & 0.5 &
-      0.25 & 0.1 & \textbf{0.05} & \textbf{0.025} & \textbf{0.010} &
-      \textbf{\textit{0.000045}}
-    \end{tabular}
-  \end{center}
+\item Marking the one-sided rejection region in bold:\medskip
+
+  \begin{tabular}{c|c@{\gap}c@{\gap}c@{\gap}c@{\gap}
+      c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
+    $D$ & 0.061 & 0.061 & 0.070 & 0.078 & 0.087 & 0.104 &
+    0.130 & 0.157 & \textbf{0.174} & \textbf{0.191} &
+    \textbf{0.209} & \textbf{\textit{0.301}}\\ \hline
+    $P(d\geq{D})$ & 0.99 & 0.975 & 0.95 & 0.9 & 0.75 & 0.5 &
+    0.25 & 0.1 & \textbf{0.05} & \textbf{0.025} & \textbf{0.010} &
+    \textbf{\textit{0.000045}}
+  \end{tabular}\medskip
 
   The rejection region consists of all $D>{0.174}$.
 

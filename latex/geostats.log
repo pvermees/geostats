@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.8)  26 FEB 2022 11:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.8)  1 MAR 2022 11:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1738,87 +1738,89 @@ See the caption package documentation for explanation.
 <../figures/chi22.pdf, id=2296, 433.62pt x 216.81pt>
 File: ../figures/chi22.pdf Graphic file (type pdf)
 <use ../figures/chi22.pdf>
-Package pdftex.def Info: ../figures/chi22.pdf  used on input line 781.
+Package pdftex.def Info: ../figures/chi22.pdf  used on input line 782.
 (pdftex.def)             Requested size: 273.14923pt x 136.58109pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 789.
+(caption)                particular \caption on input line 790.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 780--792
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 781--793
 [] [] 
  []
 
 <../figures/cherrypicking.pdf, id=2300, 722.7pt x 361.35pt>
 File: ../figures/cherrypicking.pdf Graphic file (type pdf)
 <use ../figures/cherrypicking.pdf>
-Package pdftex.def Info: ../figures/cherrypicking.pdf  used on input line 827.
+Package pdftex.def Info: ../figures/cherrypicking.pdf  used on input line 828.
 (pdftex.def)             Requested size: 455.24411pt x 227.62413pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 840.
+(caption)                particular \caption on input line 841.
 See the caption package documentation for explanation.
 
 [82 <../figures/chi22.pdf>]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 862.
+(caption)                particular \caption on input line 863.
 See the caption package documentation for explanation.
 
 [83 <../figures/cherrypicking.pdf>]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 901.
+(caption)                particular \caption on input line 902.
 See the caption package documentation for explanation.
 
 [84] [85]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1130.
+(caption)                particular \caption on input line 1131.
 See the caption package documentation for explanation.
 
 [86]
 <../figures/wilcox.pdf, id=2389, 433.62pt x 216.81pt>
 File: ../figures/wilcox.pdf Graphic file (type pdf)
 <use ../figures/wilcox.pdf>
-Package pdftex.def Info: ../figures/wilcox.pdf  used on input line 1218.
+Package pdftex.def Info: ../figures/wilcox.pdf  used on input line 1220.
 (pdftex.def)             Requested size: 273.14923pt x 136.58109pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1227.
+(caption)                particular \caption on input line 1229.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 1217--1230
-[] [] 
- []
-
-<../figures/KS.pdf, id=2391, 252.945pt x 252.945pt>
-File: ../figures/KS.pdf Graphic file (type pdf)
-<use ../figures/KS.pdf>
-Package pdftex.def Info: ../figures/KS.pdf  used on input line 1259.
-(pdftex.def)             Requested size: 159.33821pt x 159.34074pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1267.
-See the caption package documentation for explanation.
-
-
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 1258--1270
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 1219--1232
 [] [] 
  []
 
 [87 <../figures/wilcox.pdf>]
-Overfull \hbox (5.24522pt too wide) in paragraph at lines 1288--1297
- [] 
+<../figures/KS.pdf, id=2409, 252.945pt x 252.945pt>
+File: ../figures/KS.pdf Graphic file (type pdf)
+<use ../figures/KS.pdf>
+Package pdftex.def Info: ../figures/KS.pdf  used on input line 1261.
+(pdftex.def)             Requested size: 159.33821pt x 159.34074pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 1269.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 1260--1272
+[] [] 
  []
 
 
-Overfull \hbox (23.09273pt too wide) in paragraph at lines 1305--1314
- [] 
+Overfull \hbox (5.24522pt too wide) in paragraph at lines 1290--1299
+[][] 
+ []
+
+
+Overfull \hbox (23.09273pt too wide) in paragraph at lines 1306--1315
+[][] 
  []
 
 <../figures/KSdens.pdf, id=2411, 433.62pt x 216.81pt>
@@ -4134,7 +4136,7 @@ cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on geostats.pdf (223 pages, 3503553 bytes).
+Output written on geostats.pdf (223 pages, 3503598 bytes).
 PDF statistics:
  5382 PDF objects out of 6186 (max. 8388607)
  4361 compressed objects within 44 object streams
