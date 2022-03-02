@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.8)  1 MAR 2022 11:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.6.4)  2 MAR 2022 17:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -4103,7 +4103,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 123.
 Here is how much of TeX's memory you used:
  11764 strings out of 481239
  189059 string characters out of 5920378
- 525718 words of memory out of 5000000
+ 525719 words of memory out of 5000000
  25455 multiletter control sequences out of 15000+600000
  547016 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -4136,7 +4136,7 @@ cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on geostats.pdf (223 pages, 3503598 bytes).
+Output written on geostats.pdf (223 pages, 3503409 bytes).
 PDF statistics:
  5382 PDF objects out of 6186 (max. 8388607)
  4361 compressed objects within 44 object streams

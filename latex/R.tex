@@ -1144,7 +1144,7 @@ qqline(dat)
   (page~\pageref{eq:t}):
 
 \begin{script}
-gold1 <- c(19.07,19.09,19.17,19.18,19.31)
+gold1 <- c(19.09,19.17,19.31,19.07,19.18)
 h <- t.test(gold1,mu=19.30,alternative='less')
 \end{script}
 
@@ -1170,7 +1170,7 @@ null hypothesis.
   two-sided, two-sample test:
 
 \begin{script}[firstnumber=2]
-gold2 <- c(19.17,19.30,19.31,19.32)
+gold2 <- c(19.30,19.33,19.15,19.32)
 h <- t.test(gold1,gold2)
 \end{script}
 
@@ -1178,13 +1178,13 @@ Inspecting the p-value and two-sided 95\% confidence interval:
 
 \begin{console}
 > h$p.value
-[1] 0.0839384
+[1] 0.1064068
 > h$conf.int
-[1] -0.24136871  0.01936871
+[1] -0.25285536  0.03085536
 \end{console}
 
-We cannot reject $H_\circ: \mu_1=\mu_2$ because $0.0839384>0.05$, and
-because $\{-0.24136871\leq{0}\leq{0.01936871}\}$.
+We cannot reject $H_\circ: \mu_1=\mu_2$ because $0.1064068>0.05$, and
+because $\{-0.25285536\leq{0}\leq{0.03085536}\}$.
 
 \item To carry out the $\chi^2$-test of Section~\ref{sec:chi2}, we
   first calculate the declustered earthquake frequencies.
@@ -1258,8 +1258,8 @@ $0.5832134>0.05$, hence $H_\circ$ is not rejected.
   Wilcoxon test instead of a t-test:
 
 \begin{script}
-gold1 <- c(19.07,19.09,19.17,19.18,19.31)
-gold2 <- c(19.17,19.30,19.31,19.32)
+gold1 <- c(19.09,19.17,19.31,19.07,19.18)
+gold2 <- c(19.30,19.33,19.15,19.32)
 h <- wilcox.test(x=gold1,y=gold2)
 \end{script}
 
@@ -1267,10 +1267,10 @@ Querying the p-value:
 
 \begin{console}
 > h$p.value
-[1] 0.174277
+[1] 0.1904762
 \end{console}
 
-We cannot reject $H_\circ$ because $0.174277>0.05$.
+We cannot reject $H_\circ$ because $0.1904762>0.05$.
 
 \item Load two detrital zircon U--Pb age distributions from the Mu Us
   desert and Yellow River into memory, and compare them with the

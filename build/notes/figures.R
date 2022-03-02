@@ -1595,7 +1595,7 @@ cairo(file='../../figures/1samplettest.pdf',width=6,height=3)
 set.seed(1)
 n <- 5
 df <- n-1
-gold1 <- signif(sort(rnorm(n,19.15,0.1)),df)
+gold1 <- c(19.09,19.17,19.31,19.07,19.18) # signif(sort(rnorm(n,19.15,0.1)),df)
 tt <- t.test(gold1,mu=19.3)
 pars(mfrow=c(1,2))
 x <- seq(from=qt(0.001,df=tt$parameter),
@@ -1615,7 +1615,7 @@ lines(range(x),rep(0.05,2),lty=3)
 lines(rep(qt(0.05,df=tt$parameter),2),range(Y),lty=3)
 dev.off()
 
-gold2 <- signif(sort(rnorm(n-1,19.25,0.1)),df)
+gold2 <- c(19.30,19.33,19.15,19.32) # signif(sort(rnorm(n-1,19.25,0.1)),df)
 
 cairo(file='../../figures/2samplettest.pdf',width=6,height=3)
 set.seed(1)

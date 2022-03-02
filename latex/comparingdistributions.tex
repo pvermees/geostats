@@ -103,7 +103,7 @@ gold coins as an example:
 \begin{center}
 \begin{tabular}{c|ccccc}
   coin \# & 1 & 2 & 3 & 4 & 5 \\ \hline
-  density (g/cm\textsuperscript{3}) & 19.07 & 19.09 & 19.17 & 19.18 & 19.31
+  density (g/cm\textsuperscript{3}) & 19.09 & 19.17 & 19.31 & 19.07 & 19.18
   \label{tab:coins}
 \end{tabular}
 \end{center}
@@ -237,9 +237,9 @@ coins:
 \begin{tabular}{c|ccccc}
   coin \# & 1 & 2 & 3 & 4 & 5 \\ \hline
   density (1\textsuperscript{st} collection) &
-  19.07 & 19.09 & 19.17 & 19.18 & 19.31 \\
+  19.09 & 19.17 & 19.31 & 19.07 & 19.18 \\
   density (2\textsuperscript{nd} collection) &
-  19.17 & 19.30 & 19.31 & 19.32
+  19.30 & 19.33 & 19.15 & 19.32
   \label{tab:2setcoins}
 \end{tabular}
 \end{center}
@@ -285,10 +285,10 @@ difference between the two means is significant or not.
     \label{eq:sp}
   \end{equation}
 
-  \noindent in which $s[x_1]=0.095$ and $s[x_2]=0.070$ are the
+  \noindent in which $s[x_1]=0.095$ and $s[x_2]=0.084$ are the
   standard deviations of the first and second coin collection,
   respectively. Plugging the data into equations \ref{eq:t2} and
-  \ref{eq:sp} yields $t=-2.014$.
+  \ref{eq:sp} yields $t=-1.857$.
 
 \item Under $H_\circ$, Equation~\ref{eq:t2} follows a Student
   t-distribution with $(n_1+n_2-2)$ degrees of freedom\footnote{Two
@@ -300,11 +300,11 @@ difference between the two means is significant or not.
   \begin{center}
     \begin{tabular}{c|c@{\gap}c@{\gap}c@{\gap}c@{\gap}
         c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
-      $t$ & -3.00 & -2.36 & \textit{-2.014} & -1.89 & -1.41 & -0.71 &
+      $t$ & -3.00 & -2.36 & -1.89 & \textit{-1.857} & -1.41 & -0.71 &
       0.00 & 0.71 & 1.41 & 1.89 & 2.36 & 3.00 \\ \hline
-      $P(T\leq{t})$ & 0.01 & 0.025 & \textit{0.042} & 0.05 & 0.1 & 0.25 &
+      $P(T\leq{t})$ & 0.01 & 0.025 & 0.05 & \textit{0.053} & 0.1 & 0.25 &
       0.5 & 0.75 & 0.9 & 0.95 & 0.975 & 0.99 \\
-      $P(T\geq{t})$ & 0.99 & 0.975 & \textit{0.958} & 0.95 & 0.9 & 0.75 & 0.5 &
+      $P(T\geq{t})$ & 0.99 & 0.975 & 0.95 & \textit{0.947} & 0.9 & 0.75 & 0.5 &
       0.25 & 0.1 & 0.05 & 0.025 & 0.01
     \end{tabular}
   \end{center}
@@ -321,13 +321,13 @@ difference between the two means is significant or not.
   \begin{center}
     \begin{tabular}{c|c@{\gap}c@{\gap}c@{\gap}c@{\gap}
         c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
-      $t$ & \textbf{-3.00} & \textbf{-2.36} & \emph{-2.014} &
-      -1.89 & -1.41 & -0.71 & 0.00 & 0.71 & 1.41 & 1.89 &
+      $t$ & \textbf{-3.00} & \textbf{-2.36} & 
+      -1.89 & \emph{-1.857} & -1.41 & -0.71 & 0.00 & 0.71 & 1.41 & 1.89 &
       \textbf{2.36} & \textbf{3.00} \\ \hline
       $P(T\leq{t})$ & \textbf{0.01} & \textbf{0.025} &
-      \textit{0.042} & 0.05 & 0.1 & 0.25 &
+      0.05 & \textit{0.053} & 0.1 & 0.25 &
       0.5 & 0.75 & 0.9 & 0.95 & 0.975 & 0.99 \\
-      $P(T\geq{t})$ & 0.99 & 0.975 & \textit{0.958} & 0.95 & 0.9 & 0.75 & 0.5 &
+      $P(T\geq{t})$ & 0.99 & 0.975 & 0.95 & \textit{0.947} & 0.9 & 0.75 & 0.5 &
       0.25 & 0.1 & 0.05 & \textbf{0.025} & \textbf{0.01}
     \end{tabular}
   \end{center}
@@ -335,7 +335,7 @@ difference between the two means is significant or not.
   The two-sided rejection region consists of all $t<-2.40$ and all
   $t>{2.40}$.
 
-\item Because the observed value of $t=-2.014$ falls outside the
+\item Because the observed value of $t=-1.857$ falls outside the
   rejection region, we cannot reject the null hypothesis.
 
 \end{enumerate}
@@ -347,7 +347,7 @@ difference between the two means is significant or not.
   \captionof{figure}{a) PDF and b) CDF of a t-distribution with 7
     degrees of freedom. The two-sided rejection region (for
     $\alpha=0.05$) is marked in black. The vertical dashed line marks
-    the observed value of $t=-2.014$ and plots outside the rejection
+    the observed value of $t=-1.857$ and plots outside the rejection
     region. Therefore the test does not allow us to conclude that
     $\mu_1\neq\mu_2$. }
   \label{fig:2samplettest}
@@ -1063,13 +1063,13 @@ of numbers, representing two different samples:
 \end{center}
 
 \noindent To calculate the test statistic, merge the two samples and
-rank them.  For example, suppose that $A_4 < A_1 < A_2 < B_3 < A_5 <
-B_1 < B_4 < A_3 < B_2$. Then
+rank them.  For example, suppose that $A_4 < A_1 < B_3 < A_2  < A_5 <
+B_1 < A_3 < B_4 < B_2$. Then
 
 \begin{center}
 \begin{tabular}{c|ccccccccc}
   rank & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\ \hline
-  value & $A_4$ & $A_1$ & $A_2$ & $B_3$ & $A_5$ & $B_1$ & $B_4$ & $A_3$ & $B_2$
+  value & $A_4$ & $A_1$ & $B_3$ & $A_2$ & $A_5$ & $B_1$ & $A_3$ & $B_4$ & $B_2$
 \end{tabular}
 \end{center}
 
@@ -1081,7 +1081,7 @@ test statistic is given by the sum of the ranks of the smallest
 sample. In our case, sample $A$ contains 5 and sample $B$ 4 items.
 Thus we calculate sum of the ranks of sample $B$:
 \[
-W = 4 + 6 + 7 + 9 = 26
+W = 3 + 6 + 8 + 9 = 26
 \]
 
 For sample sizes of $n_A=5$ and $n_B=4$, $W$ takes on values between
@@ -1123,9 +1123,9 @@ example of table~\ref{tab:2setcoins}:
 \begin{tabular}{c|ccccc}
   coin \# & 1 & 2 & 3 & 4 & 5 \\ \hline
   density (1\textsuperscript{st} collection) &
-  19.07 & 19.09 & 19.17 & 19.18 & 19.31 \\
-  \textbf{density (2\textsuperscript{nd} collection)} &
-  \textbf{19.17} & \textbf{19.30} & \textbf{19.31} & \textbf{19.32}
+  19.09 & 19.17 & 19.31 & 19.07 & 19.18 \\
+  density (2\textsuperscript{nd} collection) &
+  \textbf{19.30} & \textbf{19.33} & \textbf{19.15} & \textbf{19.32}
 \end{tabular}
 \captionof{table}{The same data as table~\ref{tab:2setcoins} but with
   the second sample marked in bold for future use.}
@@ -1157,10 +1157,10 @@ example of table~\ref{tab:2setcoins}:
 
   \begin{center}
     \begin{tabular}{c|ccccccccc}
-      rank & 1 & 2 & 3.5 & \textbf{3.5} & 5 & \textbf{6} & 7.5 &
-      \textbf{7.5} & \textbf{9} \\ \hline
-      density & 19.07 & 19.09 & 19.17 & \textbf{19.17} & 19.18 &
-      \textbf{19.30} & \textbf{19.31} & 19.31 & \textbf{19.32}
+      rank & 1 & 2 & \textbf{3} & 4 & 5 & \textbf{6} & 7 &
+      \textbf{8} & \textbf{9} \\ \hline
+      density & 19.07 & 19.09 & \textbf{19.15} & 19.17 & 19.18 &
+      \textbf{19.30} & 19.31 & \textbf{19.32} & \textbf{19.33}
     \end{tabular}
   \end{center}
 
@@ -1169,7 +1169,7 @@ example of table~\ref{tab:2setcoins}:
   sample:
   \begin{equation*}
     \begin{split}
-      W = & 3.5 + 6 + 7.5 + 9 = 26
+      W = & 3 + 6 + 8 + 9 = 26
     \end{split}
   \end{equation*}
 
