@@ -1213,7 +1213,7 @@ download
 code the samples by group ('basaltic', 'feldspathic', ...).
 
    ```{r out.width="50%", fig.width=6, fig.height=6}
-   dat <- read.csv('Nemchin2022trace.csv',header=TRUE)
+   dat <- read.csv('Nemchin2022trace.csv')
    ternary(dat[,c('Th','U','Ba')],f=c(100,500,1),pch=21,bg=dat$group)
    groups <- unique(dat$group)
    legend('topright',legend=groups,pch=21,pt.bg=groups)
@@ -1260,22 +1260,32 @@ code the samples by group ('basaltic', 'feldspathic', ...).
 
 # Directional data
 
-Table 2 of Jost et al. (2002,
-[__https://doi.org/10.1016/S0040-1951(02)00378-5__](https://doi.org/10.1016/S0040-1951(02)00378-5))
-presents the following fault-plane measurements for Greek
-micro-earthquakes:
+Table 7 of Ali and Badrelin (2019,
+[__https://doi.org/10.1007/s00024-019-02262-9__](https://doi.org/10.1007/s00024-019-02262-9))
+presents earthquake focal mechanism parameters for Aswan, Egypt. You
+can also download the data
+[here](https://github.com/pvermees/geostats/tree/main/quizzes/Ali2019.csv).
 
-| ID | strike | dip | T-trd | T-plg | P-trd | P-plg |
-|----|--------|-----|-------|-------|-------|-------|
-|683 |214 | 67 | 274 | 11 | 171 | 48 |
-|755 | 201 | 83 | 258 | 24 | 149 | 36
-|415 | 136 | 71 | 242 | 23 | 17 | 58
-|419 | 106 | 76 | 329 | 15 | 61 | 5
-|418 | 358 | 86 | 244 | 44 | 110 | 36
-|317 | 99 | 85 | 145 | 3 | 54 | 10
-|79 | 194 | 42 | 65 | 16 | 176 | 50
-|83 | 42 | 86 | 267 | 13 | 176 | 8
-|154 | 312 | 85 | 206 | 48 | 55 | 38
-|166 | 209 | 69 | 70 | 30 | 160 | 0
-|179 | 51 | 87 | 104 | 25 | 359 | 29
-|227 | 2 | 65 | 84 | 19 | 293 | 68
+1. Plot the data on a Wulff equal angle diagram, marking the P- and
+T-axis orientations as white and black circles, respectively, and the
+strike and dip measurements as great circles.
+
+```{r}
+library(geostats)
+ddat <- read.csv('Ali2019.csv',check.names=FALSE)
+stereonet(trd=ddat[,'P-trd'],plg=ddat[,'P-plg'],option=1,
+          degrees=TRUE,pch=21,bg='white')
+stereonet(trd=ddat[,'T-trd'],plg=ddat[,'T-plg'],option=1,
+          degrees=TRUE,pch=21,bg='black',add=TRUE)
+stereonet(trd=ddat[,'str'],plg=ddat[,'dip'],option=2,
+          degrees=TRUE,pch=NA,add=TRUE)
+```
+
+1. Calculate the average strike and dip of the first nodal plane. Add
+this line to the stereoplot.
+
+```{r}
+mangle <- meanangle(trd=ddat[,'str'],plg=ddat[,'dip'],option=2,degrees=TRUE)
+stereonet(trd=mangle[1],plg=mangle[2],option=2,lwd=2,
+          degrees=TRUE,pch=NA,col='blue',add=TRUE)
+```
