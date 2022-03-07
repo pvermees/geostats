@@ -1,3 +1,27 @@
+#' AFM data
+#'
+#' 1104 calc-alkaline and tholeiitic basalt compositions
+#' 
+#' @name AFM
+#' @docType data
+#' @keywords data
+#' @examples
+#' data(AFM,package='geostats')
+#' ternary(AFM[,-1],pch=21,bg=AFM[,1])
+NULL
+
+#' pop
+#'
+#' The world population from 1750 until 2014
+#' 
+#' @name pop
+#' @docType data
+#' @keywords data
+#' @examples
+#' data(pop,package='geostats')
+#' plot(population ~ year, data=pop, type='b')
+NULL
+
 #' pH data
 #'
 #' pH measurements in 20 samples of rain water.

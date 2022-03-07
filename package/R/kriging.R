@@ -166,7 +166,7 @@ kriging <- function(x,y,z,xi,yi,svm,grid=FALSE,err=FALSE){
     for (i in good){
         h <- sqrt((Xi[i]-x)^2+(Yi[i]-y)^2)
         B <- c(semivarmod(h=h,lsnr=lsnr,model=svm$model),1)
-        L <- solve(W,B)
+        L <- MASS::ginv(W) %*% B
         if (err)
             vzi[i] <- t(B) %*% L
         else

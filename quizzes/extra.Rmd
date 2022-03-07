@@ -13,6 +13,7 @@ solution <- TRUE
 results <- TRUE
 multi <- TRUE
 knitr::opts_chunk$set(echo=solution,include=results)
+knitr::opts_knit$set(global.device=FALSE)
 set.seed(2)
 # to render:
 # rmarkdown::render("~/Documents/Programming/R/geostats/quizzes/extra.Rmd")
@@ -1264,28 +1265,92 @@ Table 7 of Ali and Badrelin (2019,
 [__https://doi.org/10.1007/s00024-019-02262-9__](https://doi.org/10.1007/s00024-019-02262-9))
 presents earthquake focal mechanism parameters for Aswan, Egypt. You
 can also download the data
-[here](https://github.com/pvermees/geostats/tree/main/quizzes/Ali2019.csv).
+[__here__](https://github.com/pvermees/geostats/tree/main/quizzes/Ali2019.csv).
 
 1. Plot the data on a Wulff equal angle diagram, marking the P- and
 T-axis orientations as white and black circles, respectively, and the
 strike and dip measurements as great circles.
 
-```{r}
-library(geostats)
-ddat <- read.csv('Ali2019.csv',check.names=FALSE)
-stereonet(trd=ddat[,'P-trd'],plg=ddat[,'P-plg'],option=1,
-          degrees=TRUE,pch=21,bg='white')
-stereonet(trd=ddat[,'T-trd'],plg=ddat[,'T-plg'],option=1,
-          degrees=TRUE,pch=21,bg='black',add=TRUE)
-stereonet(trd=ddat[,'str'],plg=ddat[,'dip'],option=2,
-          degrees=TRUE,pch=NA,add=TRUE)
-```
+   ```{r include=FALSE, echo=FALSE}
+   knitr::opts_knit$set(global.device = TRUE)
+   ```
+   ```{r out.width="50%", fig.width=7, fig.height=7}
+   library(geostats)
+   ddat <- read.csv('Ali2019.csv',check.names=FALSE)
+   stereonet(trd=ddat[,'P-trd'],plg=ddat[,'P-plg'],option=1,
+             degrees=TRUE,pch=21,bg='white')
+   stereonet(trd=ddat[,'T-trd'],plg=ddat[,'T-plg'],option=1,
+             degrees=TRUE,pch=21,bg='black',add=TRUE)
+   stereonet(trd=ddat[,'str'],plg=ddat[,'dip'],option=2,
+             degrees=TRUE,pch=NA,add=TRUE)
+   ```
 
 1. Calculate the average strike and dip of the first nodal plane. Add
 this line to the stereoplot.
 
-```{r}
-mangle <- meanangle(trd=ddat[,'str'],plg=ddat[,'dip'],option=2,degrees=TRUE)
-stereonet(trd=mangle[1],plg=mangle[2],option=2,lwd=2,
-          degrees=TRUE,pch=NA,col='blue',add=TRUE)
-```
+   ```{r out.width="50%", fig.width=7, fig.height=7}
+   mangle <- meanangle(trd=ddat[,'str'],plg=ddat[,'dip'],option=2,degrees=TRUE)
+   stereonet(trd=mangle[1],plg=mangle[2],option=2,lwd=2,
+             degrees=TRUE,pch=NA,col='blue',add=TRUE)
+   ```
+
+1. Add the average orientation of the P- and T-axes to the existing
+plot. Do you notice any problems?
+
+   ```{r out.width="50%", fig.width=7, fig.height=7}
+   meanP <- meanangle(trd=ddat[,'P-trd'],plg=ddat[,'P-plg'],option=2,degrees=TRUE)
+   meanT <- meanangle(trd=ddat[,'T-trd'],plg=ddat[,'T-plg'],option=2,degrees=TRUE)
+   stereonet(trd=meanP[1],plg=meanP[2],option=2,degrees=TRUE,
+             cex=2,pch=22,col='blue',bg='white',add=TRUE)
+   stereonet(trd=meanT[1],plg=meanT[2],option=2,degrees=TRUE,
+             cex=2,pch=22,col='blue',bg='black',add=TRUE)
+   ```
+   ```{r include=FALSE, echo=FALSE}
+   knitr::opts_knit$set(global.device = FALSE)
+   ```
+   
+   \ifsol
+   The mean azimuth and dip of the P- and T-axes do not plot in their
+   respective data clouds. These data are regarded as nondirectional
+   axes rather than vectors. For information about this situation,
+   and a solution, see pages 334-337 of Davis, 2002 ('Statistics and
+   Data Analysis in Geology', as mentioned in the Introduction chapter
+   of the notes).
+   \fi
+
+# Spatial data
+
+The Supplementary Information of Baird et
+al. (2021,[__https://doi.org/10.3389/feart.2021.669440__](https://doi.org/10.3389/feart.2021.669440))]
+contains a data table with soil depth measurements (in cm) in the
+apron of a blowout dune on the Gong He Plateau in China. You can
+download this dataset
+(_here_)[https://github.com/pvermees/geostats/tree/main/quizzes/Baird2021.csv].
+
+1. Reproduce Figure 8 of the paper by kriging interpolation of the
+soil depth measurements.
+
+   ```{r out.width="50%", fig.width=7, fig.height=7}
+   pits <- read.csv('Baird2021.csv')
+   resolution <- 20
+   svm <- semivariogram(x=pits$lon,y=pits$lat,z=pits$depth)
+   xi <- seq(from=min(pits$lon),to=max(pits$lon),length.out=resolution)
+   yi <- seq(from=min(pits$lat),to=max(pits$lat),length.out=resolution)
+   zi <- kriging(x=pits$lon,y=pits$lat,z=pits$depth,svm=svm,xi=xi,yi=yi,grid=TRUE)
+   colourplot(x=xi,y=yi,z=zi,X=pits$lon,Y=pits$lat,Z=pits$depth)
+   ```
+
+1. Estimate the approximate volume of the apron by evaluating the soil
+thickness along a regular grid of points, and using the relationship
+that 1 degree latitude equals 111 km, and 1 degree of longitude equals
+($111 \times \cos[lat]$) km.
+
+   ```{r out.width="50%", fig.width=7, fig.height=7}
+   dx <- (xi[2]-xi[1])*pi/180 # pixel width in radians
+   dy <- (yi[2]-yi[1])*pi/180 # pixel height in radians
+   mperrad <- 111e3*180/pi    # metres per radian of latitude
+   mx <- dx*cos(meanangle(yi))*mperrad # pixel width in metres
+   my <- dy*mperrad                    # pixel width in metres
+   vol <- sum(zi,na.rm=TRUE)*mx*my/100 # volume in m^3
+   message('the volume of the apron is', signif(vol,3),' m^3')
+   ```
