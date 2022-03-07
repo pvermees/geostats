@@ -8,6 +8,7 @@ output:
 ---
 
 ```{r setup, include = FALSE}
+setwd('~/Documents/Programming/R/geostats/quizzes')
 solution <- TRUE
 results <- TRUE
 multi <- TRUE
@@ -1200,63 +1201,81 @@ tree with `pure' nodes:
 \ifmulti\clearpage\fi
 # Compositional data
 
-Table 2 of [Nemchin et
-al. (2022)](https://www.sciencedirect.com/science/article/pii/S0016703721007158)
+Table 2 of Nemchin et al. (2022,
+[__https://doi.org/10.1016/j.gca.2021.12.013__](https://doi.org/10.1016/j.gca.2021.12.013))
 presents the major and trace element composition of 139 lunar
 spherules from the Apollo 14 mission. I have extracted the trace
 element columns from this table for you as a csv file, which you can
 download
-[here](https://github.com/pvermees/geostats/tree/main/quizzes/Nemchin2022trace.csv).
+[__here__](https://github.com/pvermees/geostats/tree/main/quizzes/Nemchin2022trace.csv).
 
 1. Plot the data on a ternary diagram containing Th, U and Ba. Colour
 code the samples by group ('basaltic', 'feldspathic', ...).
 
-1. Visualise the data on a compositional biplot.
-
-Generate a compositional dataset by applying an inverse logratio
-transformation to the multivariate normal dataset of exercise
-\ref{sec:unsupervised}. Label the resulting 6 components $A$, $B$,
-$C$, $D$, $E$ and $F$.
-
-   ```{r}
-   cdat <- geostats::alr(dat,inverse=TRUE)
-   colnames(cdat) <- c('A','B','C','D','E','F')
+   ```{r out.width="50%", fig.width=6, fig.height=6}
+   dat <- read.csv('Nemchin2022trace.csv',header=TRUE)
+   ternary(dat[,c('Th','U','Ba')],f=c(100,500,1),pch=21,bg=dat$group)
+   groups <- unique(dat$group)
+   legend('topright',legend=groups,pch=21,pt.bg=groups)
    ```
 
-1. Plot the compositional data on two ternary diagrams, grouping
-components $\{A,B,C\}$ and $\{D,E,F\}$, respectively.
+1. Analyse the dataset by compositional PCA.
 
-   ```{r out.width="85%", fig.width=8, fig.height=4}
-   par(mfrow=c(1,2))
-   ternary(cdat[,1:3],pch=16)
-   ternary(cdat[,4:6],pch=16)
+   ```{r out.width="50%", fig.width=6, fig.height=6}
+   trace_elements <- dat[,-c(1,2)]
+   trace_comp <- clr(trace_elements)
+   pc <- prcomp(trace_comp)
+   # plot the results as a biplot
+   biplot(pc)
    ```
 
-1. Carry out a 'naive' PCA analysis, ignoring the compositional nature
-of the transformed dataset. Then repeat the analysis using
-compositional PCA. Plot the results of both analyses as biplots.  Do
-you note any differences?
+   \ifsol
+   Alternatively, you can also show the first two principal components on
+   a colour-coded scatter plot:
+   \fi
 
-   ```{r out.width="90%", fig.width=10, fig.height=5}
-   par(mfrow=c(1,2))
-   biplot(prcomp(cdat))
-   biplot(prcomp(clr(cdat)))
+   ```{r out.width="50%", fig.width=6, fig.height=6}
+   plot(pc$x,pch=21,bg=dat$group)
+   legend('topleft',legend=groups,pch=21,pt.bg=groups)
    ```
 
-1. Using the known groups ($X$, $Y$ and $Z$) of the synthetic data,
-carry out a 'naive' LDA analysis, ignoring the compositional nature of
-the transformed dataset. Do you get any warnings? Then repeat the
-analysis using compositional LDA.
+1. Analyse the lunar spherule data by LDA.
 
-   ```{r out.width="85%", fig.width=8, fig.height=4}
-   par(mfrow=c(1,2))
-   nldat <- data.frame(groups=groups,cdat)
-   nld <- MASS::lda(groups ~ ., data=nldat)
-   cldat <- data.frame(groups=groups,alr(cdat))
-   cld <- MASS::lda(groups ~ ., data=cldat)
-   plot(nld)
-   plot(cld)
+   ```{r out.width="50%", fig.width=6, fig.height=6}
+   train_trace_comp <- data.frame(group=dat$group,alr(trace_elements))
+   ld <- MASS::lda(group ~ ., data=train_trace_comp)
+   plot(ld,dimen=2,abbrev=TRUE)
+   ```
+
+   \ifsol
+   You can also plot the results on a scatter plot using the output of
+   the `predict()` function applied to the output of the `lda()`
+   function:
+   \fi
+
+   ```{r out.width="50%", fig.width=6, fig.height=6}
+   plot(predict(ld)$x[,1:2],pch=21,bg=dat$group)
+   legend('topright',legend=groups,pch=21,pt.bg=groups)
    ```
 
 # Directional data
 
+Table 2 of Jost et al. (2002,
+[__https://doi.org/10.1016/S0040-1951(02)00378-5__](https://doi.org/10.1016/S0040-1951(02)00378-5))
+presents the following fault-plane measurements for Greek
+micro-earthquakes:
+
+| ID | strike | dip | T-trd | T-plg | P-trd | P-plg |
+|----|--------|-----|-------|-------|-------|-------|
+|683 |214 | 67 | 274 | 11 | 171 | 48 |
+|755 | 201 | 83 | 258 | 24 | 149 | 36
+|415 | 136 | 71 | 242 | 23 | 17 | 58
+|419 | 106 | 76 | 329 | 15 | 61 | 5
+|418 | 358 | 86 | 244 | 44 | 110 | 36
+|317 | 99 | 85 | 145 | 3 | 54 | 10
+|79 | 194 | 42 | 65 | 16 | 176 | 50
+|83 | 42 | 86 | 267 | 13 | 176 | 8
+|154 | 312 | 85 | 206 | 48 | 55 | 38
+|166 | 209 | 69 | 70 | 30 | 160 | 0
+|179 | 51 | 87 | 104 | 25 | 359 | 29
+|227 | 2 | 65 | 84 | 19 | 293 | 68
