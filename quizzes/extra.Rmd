@@ -8,6 +8,7 @@ output:
 ---
 
 ```{r setup, include = FALSE}
+graphics.off()
 setwd('~/Documents/Programming/R/geostats/quizzes')
 solution <- TRUE
 results <- TRUE
@@ -1259,6 +1260,7 @@ code the samples by group ('basaltic', 'feldspathic', ...).
    legend('topright',legend=groups,pch=21,pt.bg=groups)
    ```
 
+\ifmulti\clearpage\fi
 # Directional data
 
 Table 7 of Ali and Badrelin (2019,
@@ -1318,6 +1320,7 @@ plot. Do you notice any problems?
    of the notes).
    \fi
 
+\ifmulti\clearpage\fi
 # Spatial data
 
 The Supplementary Information of Baird et
@@ -1325,7 +1328,7 @@ al. (2021,[__https://doi.org/10.3389/feart.2021.669440__](https://doi.org/10.338
 contains a data table with soil depth measurements (in cm) in the
 apron of a blowout dune on the Gong He Plateau in China. You can
 download this dataset
-(_here_)[https://github.com/pvermees/geostats/tree/main/quizzes/Baird2021.csv].
+(__here__)[https://github.com/pvermees/geostats/tree/main/quizzes/Baird2021.csv].
 
 1. Reproduce Figure 8 of the paper by kriging interpolation of the
 soil depth measurements.
