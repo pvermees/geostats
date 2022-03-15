@@ -39,7 +39,7 @@ further away:
   \includegraphics[width=\textwidth]{../figures/PCA2Ddata.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.75\textwidth}
-  \captionof{figure}{Simple toy example of three samples that can be
+  \captionof{figure}{Three bivariate data points that can be
     visualised on a two-dimensional scatter plot. There is no need to
     use unsupervised learning in this case. But we will use this
     simple dataset as a toy example to understand how Principal
@@ -144,7 +144,7 @@ simplification of the data:
 \begin{minipage}[t][][t]{.75\textwidth}
   \captionof{figure}{Projection of the three data points on the two
     principal directions yields two principal components ($P$ in
-    Equation~\ref{eq:P}), representing a one dimensional
+    Equation~\ref{eq:P}), representing a one-dimensional
     representation of the two-dimensional data\medskip}
   \label{fig:PCA2D2}
 \end{minipage}
@@ -236,8 +236,8 @@ biplot:
 States that plot close together (such as West Virginia \& Vermont, or
 Arizona \& New York, etc.)  have similar crime and urbanisation
 statistics.  States that plot at opposite ends of the diagram (such as
-Mississipi \& California, or North Dakota \& Florida) have contrasting
-crime and urbanisation statistics.  The vectors for murder, assault
+North Dakota \& Florida, or Mississipi \& California) have contrasting
+crime and/or urbanisation statistics.  The vectors for murder, assault
 and rape all point in approximately the same direction, towards the
 left hand side of the diagram. This tells us that the crimes are all
 correlated with each other. So states that have a lot of assaults
@@ -392,11 +392,12 @@ corresponds to a `good' fit:
 So far we have only discussed the graphical output of MDS, but we have
 not yet explained how this output is produced. It turns out that there
 are several ways to do so. In its simplest form (\textbf{classical
-  MDS}), MDS consists of a simple sequence of matrix operations that
-are similar in many ways to the PCA algorithm outlined in
+  MDS}), the method consists of a simple sequence of matrix operations
+that are similar to the PCA algorithm outlined in
 Equations~\ref{eq:PCA}, \ref{eq:P} and \ref{eq:L}. An alternative and
 more widely used approach (\textbf{nonmetric MDS}) uses an iterative
-gradient search algorithm to minimise Equation~\ref{eq:stress}.\medskip
+gradient search algorithm to minimise
+Equation~\ref{eq:stress}.\medskip
 
 Nonmetric MDS is more flexible than classical MDS because it
 accommodates unconventional `dissimilarity' measures that do not
@@ -493,8 +494,8 @@ The k-means algorithm then proceeds as follows:
   \end{minipage}
   \begin{minipage}[t][][t]{.75\linewidth}
     \captionof{figure}{Replace each of the question marks in
-      Figure~\ref{fig:kmeans2} with the symbol (circles, triangles or
-      crosses) that is closest to it, using the Euclidean distance of
+      Figure~\ref{fig:kmeans2} with the symbol (circle, triangle or
+      cross) that is closest to it, using the Euclidean distance of
       Equation~\ref{eq:euclidean}.}
     \label{fig:kmeans3}
   \end{minipage}
@@ -521,9 +522,9 @@ The k-means algorithm then proceeds as follows:
   \includegraphics[width=\textwidth]{../figures/kmeans5.pdf}\medskip
   \end{minipage}
   \begin{minipage}[t][][t]{.75\linewidth}
-    \captionof{figure}{Final classification of the data. Each of the 150
-      data points has been assigned to a particular cluster whose
-      centroids are marked as large and bold symbols.}
+    \captionof{figure}{Final classification of the data. Each of the
+      150 data points has been assigned to one of the three clusters
+      whose centroids are marked as large and bold symbols.}
     \label{fig:kmeans5}
   \end{minipage}
 
@@ -531,8 +532,8 @@ The k-means algorithm then proceeds as follows:
 
 The k-means algorithm can easily be generalised from two to more
 dimensions because the Euclidean distance
-(Equation~\ref{eq:euclidean}) can easily generalised to any number of
-dimensions.\medskip
+(Equation~\ref{eq:euclidean}) can easily be generalised to any number
+of dimensions.\medskip
 
 The k-means algorithm is an unsupervised learning algorithm. This
 means that it is meant to be applied to data for which we do not know
@@ -554,7 +555,7 @@ flowers from each of 3 species of iris:
     species: \emph{setosa} (circles), \emph{versicolor} (triangles)
     and \emph{virginica} (crosses). The two-dimensional dataset of
     Figures~\ref{fig:kmeans1}--\ref{fig:kmeans5} was derived from
-    panel (4,2), which sets out Petal Width against Sepal Width.  The
+    panel (4,2), which sets out petal width against sepal width.  The
     classification shown in Figure~\ref{fig:kmeans5} does a decent job
     at classifying the 150 flowers into three groups but the
     classification is not perfect. For example, the flower in the
@@ -599,12 +600,12 @@ dimensional data clouds of measurements.
 
 The k-means clustering algorithm of Section~\ref{sec:kmeans} requires
 that we pre-specify the number of groups.  It is not always obvious
-how to choose this number, although exercise~\ref{it:ex-withinss}
-explores a method to help pick an optimal number of clusters.
-Hierarchical clustering is an alternative approach that builds a
-hierarchy from the bottom-up, and does not require us to specify the
-number of groups beforehand. Let us again use a simple 2-dimensional
-example to introduce the method:
+how to choose this number, although exercise~\ref{it:ex-withinss} of
+Chapter~\ref{sec:ex-unsupervised} explores a method to help pick an
+optimal number of clusters.  Hierarchical clustering is an alternative
+approach that builds a hierarchy from the bottom-up, and does not
+require us to specify the number of groups beforehand. Let us again
+use a simple 2-dimensional example to introduce the method:
 
 \noindent\begin{minipage}[t][][b]{.25\textwidth}
   \begin{equation*}
@@ -669,8 +670,8 @@ The algorithm works as follows:
       5 & 112 & 38.6 & 87.7 & 0
     }
   \end{equation*}
-  \noindent where the distance between cluster 13 and the other points
-  is calculated as
+  \noindent where the distance between cluster~13 (which groups
+  samples~1 and 3) and the other points is calculated as
   \[
   d[13,i] = \max(d[1,i],d[3,i]) \mbox{~for~}i\in\{2,4,5\}
   \]

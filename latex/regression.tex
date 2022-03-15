@@ -103,15 +103,15 @@ data using Equations~\ref{eq:stdevrepeat} and \ref{eq:sxy}:
   \end{split}
 \end{equation*}
 
-\noindent where $\bar{x}$ and $\bar{y}$ are the mean of $x$ and $y$,
-respectively. Then Pearson's correlation coefficient \emph{for
-  samples} is defined as:
+\noindent where $\bar{x}$ and $\bar{y}$ are the arithmetic means of
+$x$ and $y$, respectively. Then Pearson's correlation coefficient
+\emph{for samples} is defined as:
 \begin{equation}
   r = \frac{s[x,y]}{s[x]s[y]}
   \label{eq:r}
 \end{equation}
 
-Both $\rho$ and $r$ take on values between -1 and +1. It is also
+Both $\rho$ and $r$ take on values between $-1$ and $+1$. It is also
 common for the degree of correlation to be quantified as $r^2$, which
 produces values between 0 and 1. $r^2$ is also known as the
 \textbf{coefficient of determination}.
@@ -178,9 +178,9 @@ it to a hypothesis test anyway:
         c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
       $t$ & -3.10 & -2.40 & -1.90 & -1.40 & -0.72 &
       0 & 0.72 & 1.40 & 1.90 & 2.40 & 3.10 & \emph{13.98}\\
-      $P(t\leq{T})$ & 0.01 & 0.025 & 0.05 & 0.1 & 0.25 &
+      $P(t<T)$ & 0.01 & 0.025 & 0.05 & 0.1 & 0.25 &
       0.5 & 0.75 & 0.9 & 0.95 & 0.975 & 0.99 & \emph{0.9999958}\\
-      $P(t\geq{T})$ & 0.99 & 0.975 & 0.95 & 0.9 & 0.75 & 0.5 &
+      $P(t>T)$ & 0.99 & 0.975 & 0.95 & 0.9 & 0.75 & 0.5 &
       0.25 & 0.1 & 0.05 & 0.025 & 0.010 & \emph{0.0000042}
     \end{tabular}
   \end{center}
@@ -197,9 +197,9 @@ it to a hypothesis test anyway:
       $t$ & \textbf{-3.10} & \textbf{-2.40} & -1.90 & -1.40 & -0.72 &
       0 & 0.72 & 1.40 & 1.90 & \textbf{2.40} &
       \textbf{3.10} & \textbf{\emph{13.98}}\\
-      $P(t\leq{T})$ & \textbf{0.01} & \textbf{0.025} & 0.05 & 0.1 & 0.25 &
+      $P(t<T)$ & \textbf{0.01} & \textbf{0.025} & 0.05 & 0.1 & 0.25 &
       0.5 & 0.75 & 0.9 & 0.95 & 0.975 & 0.99 & \emph{0.9999958}\\
-      $P(t\geq{T})$ & 0.99 & 0.975 & 0.95 & 0.9 & 0.75 & 0.5 &
+      $P(t>T)$ & 0.99 & 0.975 & 0.95 & 0.9 & 0.75 & 0.5 &
       0.25 & 0.1 & 0.05 & \textbf{0.025} & \textbf{0.010} &
       \textbf{\emph{0.0000042}}
     \end{tabular}
@@ -263,9 +263,8 @@ $\beta_1=0.03$:
     differences between these two sets of numbers.}
 \end{center}
 
-The next figure evaluates the $\epsilon_i$-values into
-Equation~\ref{eq:ss} yields a sum of squares $ss=0.013$. Evaluating
-some other values:
+Plugging the $\epsilon_i$-values into Equation~\ref{eq:ss} yields a
+sum of squares $ss=0.013$. Evaluating some other values:
 
 \noindent\includegraphics[width=\textwidth]{../figures/tryRbSr.pdf}
 \begingroup \captionof{figure}{Three guesses for the intercept
@@ -277,9 +276,9 @@ some other values:
   squares.\\} \endgroup
 
 Instead of minimising $ss$ by iterating over all possible values of
-$\beta_0$ and $\beta_1$, we can find the optimal solution by taking
-the partial derivatives of Equation~\ref{eq:ss} w.r.t. $\beta_0$ and
-$\beta_1$ and setting them to zero:
+$\beta_0$ and $\beta_1$, we can find the optimal solution directly by
+taking the partial derivatives of Equation~\ref{eq:ss}
+w.r.t. $\beta_0$ and $\beta_1$ and setting them to zero:
 
 \begin{equation}
 \begin{cases}
@@ -437,7 +436,7 @@ $\hat{\beta}_1$) instead of one ($\bar{x}$).\\
 
 Equation~\ref{eq:sigmabeta} can be used to construct a
 \textbf{confidence interval} for the regression coefficients. The
-prodedure for doing this is analogous to the construction of
+procedure for doing this is analogous to the construction of
 confidence intervals around the mean (Equation~\ref{eq:tci}):
 
 \begin{equation}
@@ -629,8 +628,8 @@ can show that:
   \label{eq:spuriousxzyz}
 \end{equation}
 
-Similarly, substituting $y$ for $w$, and setting $z=1$ and
-$\sigma_z=0$ in Equation~\ref{eq:spurious}:
+Similarly, substituting $w$ for $z$, and setting $y=1$ and
+$\sigma_y=0$ in Equation~\ref{eq:spurious}:
 
 \begin{equation}
   \noindent \rho_{z,\frac{x}{z}} \approx
@@ -720,8 +719,8 @@ is based on \textsuperscript{87}Rb/\textsuperscript{86}Sr and
 that are obtained by mass spectrometry. The uncertainties of these
 measurements may vary significantly between aliquots. And due to the
 spurious correlation issue of Section~\ref{sec:regression-caveats}.3,
-these uncertainties may be correlated. To illustrate the effect of
-these complications, consider a simple three-point example:
+these uncertainties may also be correlated. To illustrate the effect
+of these complications, consider a simple three-point example:
 
 \begin{center}
 \begin{tabular}{c|cc|ccccc}
@@ -761,9 +760,9 @@ Figures~\ref{fig:norm2dmarginal} and \ref{fig:cov}):
   \label{fig:errorfit}
 \end{minipage}
 
-In order to account for the unequal uncertainties of the three aliquots,
-we need to replace the likelihood function of the unweighted
-regression algorithm (Equation~\ref{eq:Lregression}):
+To account for the unequal uncertainties of the three aliquots, we
+need to replace the likelihood function of the unweighted regression
+algorithm (Equation~\ref{eq:Lregression}):
 \begin{equation*}
   \mathcal{L}(\beta_0,\beta_1,\sigma|x_1,y_1,\ldots,x_n,y_n) =
   \prod\limits_{i=1}^{n}\frac{1}{\sigma\sqrt{2\pi}}

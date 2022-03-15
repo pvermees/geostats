@@ -1032,11 +1032,11 @@ mean vectors and covariance matrices:
 , \Sigma_X = \Sigma_Y = \Sigma_Z =
 \left[
 \begin{array}{ccccc}
-5 & 1 & 2 & 3 & 4 \\
-1 & 5 & 2 & 3 & 4 \\
-2 & 2 & 5 & 3 & 4 \\
-3 & 3 & 3 & 5 & 4 \\
-4 & 4 & 4 & 4 & 5
+5 & 1 & 1 & 1 & 1 \\
+1 & 5 & 2 & 2 & 2 \\
+1 & 2 & 5 & 3 & 3 \\
+1 & 2 & 3 & 5 & 4 \\
+1 & 2 & 3 & 4 & 5
 \end{array}
 \right]
 \]
@@ -1050,9 +1050,9 @@ mean vectors and covariance matrices:
    muX <- rep(0,5)
    muY <- c(2,2,2,0,0)
    muZ <- c(4,0,0,-2,-2)
-   S <- rbind(c(5,1,2,3,4),
-              c(1,5,2,3,4),
-              c(1,2,5,3,4),
+   S <- rbind(c(5,1,1,1,1),
+              c(1,5,2,2,2),
+              c(1,2,5,3,3),
               c(1,2,3,5,4),
               c(1,2,3,4,5))
    library(MASS)
