@@ -1215,6 +1215,7 @@ download
 code the samples by group ('basaltic', 'feldspathic', ...).
 
    ```{r out.width="50%", fig.width=6, fig.height=6}
+   library(geostats)
    dat <- read.csv('Nemchin2022trace.csv')
    ternary(dat[,c('Th','U','Ba')],f=c(100,500,1),pch=21,bg=dat$group)
    groups <- unique(dat$group)

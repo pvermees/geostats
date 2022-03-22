@@ -21,8 +21,8 @@ sample of unknown affinity to one of these categories.\\
 This chapter will introduce two supervised learning techniques.
 Discriminant analysis (Section~\ref{sec:LDA}) is a method that is
 similar in some ways to PCA (Section~\ref{sec:PCA}), whereas decision
-trees (Section~\ref{sec:CART}) are similar to some ways to the
-hierarchical clustering algorithm of Section~\ref{sec:CART}.
+trees (Section~\ref{sec:CART}) are similar in some ways to the
+hierarchical clustering algorithm of Section~\ref{sec:hierarchical}.
 
 \section{Discriminant Analysis}
 \label{sec:LDA}
@@ -55,7 +55,7 @@ likelihoods.  We now make the simplifying assumption of multivariate
 normality:
 \begin{equation}
   \label{eq:multiNorm}
-  P(X=x|G=k) = \frac{\exp \left( -\frac{1}{2}(x-\mu_k)^T\Sigma_k^{-1}(x-\mu_k) \right)}{\sqrt{(2\pi)^N|\Sigma_k|}}
+  P(X=x|G=k) = \frac{\exp \left[ -\frac{1}{2}(x-\mu_k)^T\Sigma_k^{-1}(x-\mu_k) \right]}{\sqrt{(2\pi)^N|\Sigma_k|}}
 \end{equation}
 
 Where $\mu_k$ and $\Sigma_k$ are the mean and covariance of the
@@ -77,8 +77,10 @@ a simple bivariate dataset comprising three classes:\\
 \noindent\includegraphics[width=\linewidth]{../figures/QDA.pdf}
 \begingroup \captionof{figure}{Quadratic discriminant analysis of
   synthetic data: a) the bivariate training data comprise three
-  classes; b) fitting three bivariate normal distributions to the
-  data; c) decision boundaries between the three distributions.\\}
+  classes that are marked by crosses, circles and triangles,
+  respectively; b) fitting three bivariate normal distributions to the
+  data c) produces curved decision boundaries between the three
+  distributions.\\}
 \label{fig:QDA}\endgroup
 
 If we have a new sample of unknown affinity, then we can simply plot
@@ -104,9 +106,10 @@ illustrates this with a second bivariate dataset:\\
 \noindent\includegraphics[width=\linewidth]{../figures/LDA.pdf}
 \begingroup \captionof{figure}{Linear discriminant analysis of a
   second synthetic dataset: a) the bivariate training data comprise
-  three classes; b) fitting three bivariate normal distributions to
-  the data with the same covariance matrix; c) decision boundaries
-  between the three distributions.\\}
+  the same three classes as Figure~\ref{fig:QDA}; b) fitting three
+  bivariate normal distributions to the data with the same covariance
+  matrix c) produces linear decision boundaries between the three
+  distributions.\\}
 \label{fig:LDA}
 \endgroup
 
@@ -288,19 +291,19 @@ tree. Another method is \textbf{cross validation}. This method works
 as follows:
 
 \begin{enumerate}
-\item divide the training data into 10 equal parts;
+\item divide the training data into ten equal parts;
 \item\label{it:cv1} remove one of the parts, and use the remaining
   nine to create a decision tree;
-\item\label{it:cv2} enter the fraction removed into the tree and count
-  the number of misclassified samples in it;
+\item\label{it:cv2} put the removed part in the tree and count the
+  number of misclassified samples;
 \item repeat steps~\ref{it:cv1} and \ref{it:cv2}, but this time
   removing the second fraction;
-\item repeat until all 10 parts have been assessed.
+\item repeat until all ten parts have been assessed.
 \end{enumerate}
 
 The tree with optimal \textbf{predictive power} is smaller than the
-largest possible tree, and can be found by `pruning' the tree. Define
-the ``cost-complexity criterion'' of a tree $T$ as
+largest possible tree, and can be found by `pruning' it. Define the
+``cost-complexity criterion'' of a tree $T$ as
 
 \begin{equation}
   \label{eq:cp}
@@ -308,12 +311,12 @@ the ``cost-complexity criterion'' of a tree $T$ as
 \end{equation}
 
 with $|T|$ the number of terminal nodes in the tree $T$, $N_m$ the
-number of observations in the $m^{th}$ terminal node; $Q_m$ the
-impurity of the $m$\textsuperscript{th} node, defined by
+number of observations in the $m$\textsuperscript{th} terminal node;
+$Q_m$ the impurity of the $m$\textsuperscript{th} node, defined by
 Equation~\ref{eq:Q}; and $\alpha$ a tuning parameter.  For a given
 $\alpha \geq 0$, it is possible to find the subtree $T_{\alpha}
-\subset T_0$ that minimizes $cp_{\alpha}(T)$ over all possible
-subtrees of the largest possible tree $T_0$
+\subset T_0$ that minimises $cp_{\alpha}(T)$ over all possible
+subtrees of the largest possible tree $T_0$:
 
 \begin{equation}
   \label{eq:Ta}
@@ -323,9 +326,9 @@ subtrees of the largest possible tree $T_0$
 Repeating this procedure for a range of values $0 \leq \alpha <
 \infty$ produces a finite nested sequence of trees
 $\{T_0,T_{\alpha_1},...,T_{\alpha_{max}}\}$.  Except for $T_0$, these
-trees will no longer have only pure end-nodes. Impure end-nodes are
-assigned the class that dominates in them.  We then choose the value
-$\alpha^*$ that minimises the cross validation error. For our
+trees no longer have only pure end-nodes. Impure end-nodes are
+assigned to the class that dominates in them.  We then choose the
+value $\alpha^*$ that minimises the cross validation error. For the
 bivariate example dataset:
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
@@ -335,17 +338,16 @@ bivariate example dataset:
   \captionof{figure}{A plot of cross validated (CV) prediction error
     versus the number of nodes in the collection of nested subtrees
     shows a minimum at five splits.  The CV error of small trees is
-    caused by bias, while the CV error of large tree is a result of
+    caused by bias, whereas the CV error of large tree is a result of
     variance.  There typically exist several trees with CV errors
     close to the minimum. Therefore, a `1-SE rule' is used, i.e.,
     choosing the smallest tree whose misclassification rate does not
     exceed the minimum CV error plus one standard error of the
-    smallest CV error (dotted line). For the example dataset, this
-    supports an optimal tree with four splits.\\}
+    smallest CV error (dotted line).\\}
   \label{fig:cvCART}
 \end{minipage}
 
-For our bivariate example, this procedure produces a tree with four
+For the bivariate example, this procedure produces a tree with four
 splits and five terminal nodes:
 
 \noindent\begin{minipage}[t][][b]{.7\textwidth}
@@ -377,12 +379,12 @@ iris data:
 
 Suppose that we have a new flower with a sepal length of 6.0~cm, a
 sepal width of 3.0~cm, a petal length of 5.0~cm and a petal width of
-1.5~cm. Which species is the flower? The petal length of the new
-flower is greater than the 2.45~cm cutoff of the first split and its
-petal width is less than the 1.75~cm cutoff of the second
+1.5~cm. To which species does the flower belong? The petal length of
+the new flower is greater than the 2.45~cm cutoff of the first split
+and its petal width is less than the 1.75~cm cutoff of the second
 split. Therefore the flower ends up in second terminal node of the
-tree, suggesting that it belongs to species \emph{versicolor}.
-This is the same conclusion as the LDA classification shown in
+tree, suggesting that it belongs to species \emph{versicolor}.  This
+is the same conclusion as the LDA classification shown in
 Figure~\ref{fig:LDAnewiris}.
 
 
