@@ -130,14 +130,15 @@ constraint:
 \sum_{i=1}^n C_i = 1
 \]
 
-for an $n$-component system. Consider, for example, a three-component
-system $\{x,y,z\}$, where $x+y+z~=~1$. Such compositions can be
-plotted on ternary diagrams, which are very popular in geology.  Well
-known examples are the Q--F--L diagram of sedimentary petrography, the
-A--CN--K diagram in weathering studies, and the A--F--M, Q--A--P and
-Q--P--F diagrams of igneous petrology. Treating the ternary data space
-as a regular Euclidean space with Gaussian statistics leads to wrong
-results, as illustrated by the following example:
+\noindent for an $n$-component system. Consider, for example, a
+three-component system $\{x,y,z\}$, where $x+y+z~=~1$. Such
+compositions can be plotted on ternary diagrams, which are very
+popular in geology.  Well known examples are the Q--F--L diagram of
+sedimentary petrography, the A--CN--K diagram in weathering studies,
+and the A--F--M, Q--A--P and Q--P--F diagrams of igneous
+petrology. Treating the ternary data space as a regular Euclidean
+space with Gaussian statistics leads to wrong results, as illustrated
+by the following example:
 
 \noindent\begin{minipage}[t][][b]{.4\textwidth}
 \includegraphics[width=\textwidth]{../figures/ACNK.pdf}\medskip
@@ -158,8 +159,8 @@ results, as illustrated by the following example:
   \label{fig:ACNK}
 \end{minipage}
 
-To obtain an average composition for the 20 samples, we calculate the
-arithmetic mean of their A--CN--K values:
+To obtain an average composition for the 20 samples, our natural
+instinct is to calculate the arithmetic mean of their A--CN--K values:
 \[
 \begin{split}
   &\overline{\mbox{Al}_2\mbox{O}_3} =
@@ -190,19 +191,19 @@ physically meaningless:
   \label{fig:ACNKarithmeticmean}
 \end{minipage}
 
-To quantify the dispersion of the data, we calculate the standard
-deviation of the A--CN--K values:
+To quantify the dispersion of the data, we might be tempted to
+calculate the standard deviation of the A--CN--K values:
 \[
 \begin{split}
   &s[\mbox{Al}_2\mbox{O}_3] =
   \sqrt{\sum\limits_{i=1}^{20}
-    \frac{((\mbox{Al}_2\mbox{O}_3)_i - 0.763)^2}{19}} = 0.0975 \\
+    \frac{\left[(\mbox{Al}_2\mbox{O}_3)_i - 0.763\right]^2}{19}} = 0.0975 \\
   &s[\mbox{CaO} + \mbox{Na}_2\mbox{O}] =
   \sqrt{\sum\limits_{i=1}^{20}
-    \frac{((\mbox{CaO}_2+\mbox{Na}_2\mbox{O})_i - 0.141)^2}{19} } = 0.142 \\
+    \frac{\left[(\mbox{CaO}_2+\mbox{Na}_2\mbox{O})_i - 0.141\right]^2}{19} } = 0.142 \\
   &s[\mbox{K}_2\mbox{O}] =
   \sqrt{\sum\limits_{i=1}^{20}
-    \frac{((\mbox{K}_2\mbox{O})_i - 0.096)^2}{19}} = 0.0926
+    \frac{\left[(\mbox{K}_2\mbox{O})_i - 0.096\right]^2}{19}} = 0.0926
 \end{split}
 \]
 
@@ -226,17 +227,16 @@ impossible negative values. Visualising these limits as a 2-sigma
 \includegraphics[width=\textwidth]{../figures/ACNKnaive.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.6\textwidth}
-  \captionof{figure}{The black polygon represents a `95\% confidence
-    region' for the arithmetic mean of
-    Figure~\ref{fig:ACNKarithmeticmean}. It is obtained by 1)
-    calculating the standard deviations of the
+  \captionof{figure}{The polygon represents a `95\% confidence region'
+    for the arithmetic mean of Figure~\ref{fig:ACNKarithmeticmean}. It
+    is obtained by 1) calculating the standard deviations of the
     Al\textsubscript{2}O\textsubscript{3}, (CaO +
     Na\textsubscript{2}O) and K\textsubscript{2}O concentrations using
     Equation~\ref{eq:stdev}; 2) multiplying these values by two; and
     3) subtracting or adding these values to the arithmetic mean of
     Figure~\ref{fig:ACNKarithmeticmean}. The resulting `2-sigma'
-    confidence polygon plots outside the ternary diagram, in
-    physically impossible negative data space.\medskip}
+    bounds plot outside the ternary diagram, in physically impossible
+    negative data space.\medskip}
   \label{fig:ACNKnaive}
 \end{minipage}
 
@@ -283,9 +283,9 @@ Applying this method to the A--CN--K dataset:\medskip
   the A--CN--K data, it maps the data from a ternary diagram ($n=3$)
   to a bivariate ($n-1=2$) dataspace using Equation~\ref{eq:alr}. In
   this transformed space, it is safe to calculate the arithmetic mean
-  (black square) and confidence regions (black ellipse). After
-  completion of these calculations, the result can be mapped back to
-  the ternary diagram using the inverse logratio transformation
+  (square) and confidence regions (ellipse). After completion of these
+  calculations, the result can be mapped back to the ternary diagram
+  using the inverse logratio transformation
   (Equation~\ref{eq:inverse-logratio-transformation}).\medskip}
 \label{fig:alr}\endgroup
 
@@ -501,7 +501,7 @@ components:
     clr transformation. The principal components are identical to
     Figure~\ref{fig:alrPCA}, but the vector loadings are labelled with
     the raw variable names, rather than the additive logratios. The
-    biplot tells use that sample~1 is rich in component $b$, whereas
+    biplot tells us that sample~1 is rich in component $b$, whereas
     samples~2 and 3 are rich in component $a$. The difference between
     samples~2 and 3 is due to a small difference in component $c$.
     Compare with the ternary diagram (Figure~\ref{fig:abc}) to verify
@@ -546,18 +546,19 @@ MgO. This indicates that the TiO\textsubscript{2} -- CaO -- MnO -- MgO
 \textbf{subcomposition} forms a one dimensional pattern. The link
 between K\textsubscript{2}O and CaO is perpendicular to that between
 TiO\textsubscript{2} and P\textsubscript{2}O\textsubscript{5},
-suggesting that the corresponding subcompositions are independent.
+suggesting that the corresponding subcompositions are independent:
 \begin{center}
 \noindent\includegraphics[width=.95\textwidth]{../figures/links.pdf}
 \captionof{figure}{Subcompositional analysis of
   Figure~\ref{fig:majorPCA}. a) Box plots of the CaO/MgO-logratio
   (short link) and the K\textsubscript{2}O/MgO-logratio (long link);
   b) The collinearity of the links between TiO\textsubscript{2}, CaO,
-  MnO and MgO causes strong correlation of the samples in ln[MnO/MgO]
-  -- ln[TiO\textsubscript{2}/CaO] space; c) The link between
-  P\textsubscript{2}O\textsubscript{5} and TiO\textsubscript{2} is
-  orthogonal to that between between K\textsubscript{2}O and CaO,
-  causing independence of the corresponding logratios.}
+  MnO and MgO indicates strong correlation of the samples in
+  ln[MnO/MgO] -- ln[TiO\textsubscript{2}/CaO] space; c) The link
+  between P\textsubscript{2}O\textsubscript{5} and
+  TiO\textsubscript{2} is orthogonal to that between between
+  K\textsubscript{2}O and CaO, reflecting independence of the
+  corresponding logratios.}
   \label{fig:links}
 \end{center}
 
@@ -572,7 +573,7 @@ including not only PCA, but also clustering and discriminant analysis.
 \section{LDA of compositional data}
 \label{sec:compositionalLDA}
 
-Section~\ref{sec:compositionalPCA} showed how we can safely use
+Section~\ref{sec:compositionalPCA} showed how we can safely apply
 unsupervised learning techniques such as PCA to compositional data
 after performing a logratio transformation. Exactly the same procedure
 can be applied to supervised learning techniques such as LDA. We will
@@ -712,4 +713,4 @@ and Bowen trends of the tholeiitic and calc-alkaline magma series,
 respectively. This makes geological sense because it is not hard to
 imagine how $\lambda_F$ could depend on the oxygen fugacity in the
 magma, which controls the valence state of the Fe-ions and, hence, the
-minerals that it forms.
+minerals that they form.

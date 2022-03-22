@@ -42,8 +42,11 @@ was taken. The question that this chapter addresses is: can we use the
 surrounding data to estimate the Zn-concentration at this new
 location? Or, bearing in mind the idiosyncrasies of compositional data
 that were discussed in chapter~\ref{ch:compositional}: can we estimate
-the logarithm of the Zr-concentration ($z$ in Table~\ref{tab:Meuse})
-at this new location?
+the logarithm\footnote{Strictly speaking, a logratio transformation
+  ($z = \ln[Zn] - \ln[10^6 - Zn]$)} would be even better but because
+the Zn-concentrations are so low, we can ignore the theoretical upper
+limit of the concentration range.} of the Zr-concentration ($z$ in
+  Table~\ref{tab:Meuse}) at this new location?
 
 \noindent\begin{minipage}[t][][b]{.55\textwidth}
 \includegraphics[width=\textwidth]{../figures/meusepoints.pdf}
@@ -109,9 +112,9 @@ $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & ~ \\
 \end{center}
 
 \noindent where we show only the lower triangle because the upper
-triangle contains exactly the same values. We can then merge the two
-tables and select all the pairs of samples that are within a distance
-of 150~m from each other:
+triangle contains exactly the same values. Merging the two tables and
+selecting all the pairs of samples that are within a distance of 150~m
+from each other:
 
 \begin{center}
 \begin{tabular}{@{}c@{~~}|@{~~}c@{~~}c@{~~}c@{~~}c@{~~}c@{~~}c@{~~}c@{~~}c@{~~}c@{~~}c@{~~}c@{~~}c@{}}
@@ -264,7 +267,7 @@ contain three parameters:
   distance. In principle samples that are co-located should have the
   same value, but in practice this is not always the case and the
   semivariogram may have a non-zero intercept. This \textit{nugget
-    effect} may be caused by measurement errors, or by features
+    effect} may be caused by measurement errors, or by processes
   occurring at scales smaller than the sample.
 \end{enumerate}
 
@@ -273,10 +276,10 @@ contain three parameters:
 \end{minipage}
 \begin{minipage}[t][][t]{.65\textwidth}
   \captionof{figure}{Illustration of the range, sill and nugget of a
-    generic spherical semivariogram model. The same three parameters
-    also control the shape of the exponential and Gaussian models. In
-    the case of the Meuse dataset, the nugget effect is likely caused
-    by the fact that the zinc concentrations were averaged over a
+    spherical semivariogram model. The same three parameters also
+    control the shape of the exponential and Gaussian models. In the
+    case of the Meuse dataset, the nugget effect is likely caused by
+    the fact that the zinc concentrations were averaged over a
     15$\times$15~metre area, and that the variability within this
     sampling area is not captured by the semivariogram.}
   \label{fig:snr}
@@ -421,14 +424,12 @@ entire sampling area:
 \includegraphics[width=\textwidth]{../figures/meusecontour.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.39\textwidth}
-  \captionof{figure}{
-    The kriging interpolation results for the Meuse
+  \captionof{figure}{ The kriging interpolation results for the Meuse
     dataset shown as a filled contour plot, with the measurements of
     Figure~\ref{fig:meusepoints} added as points of comparison. The
-    extent of the contour plot is limited to immediate vicinity of the
-    measurements because kriging is an interpolation method and
-    \emph{not} an \emph{extrapolation} method.\medskip
-  }
+    extent of the contour plot is limited to the immediate vicinity of
+    the measurements because kriging is an interpolation method and
+    \emph{not} an \emph{extrapolation} method.\medskip }
   \label{fig:meusecontour}
 \end{minipage}
 

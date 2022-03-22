@@ -105,7 +105,7 @@ clr <- function(dat,inverse=FALSE){
 #' @description Maps compositional data from an \eqn{n}-dimensional
 #'     simplex to an (\eqn{n-1})-dimensional Euclidean space with
 #'     Aitchison's additive logratio transformation.
-#' @param dat an \eqn{n \times m} matrix
+#' @param dat an \eqn{n} column data frame or matrix
 #' @param inverse if \code{TRUE}, applies the inverse alr
 #'     tranformation
 #' @return If \code{inverse=FALSE}, returns an \eqn{(n-1) \times m}

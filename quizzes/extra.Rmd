@@ -1300,8 +1300,8 @@ this line to the stereoplot.
 plot. Do you notice any problems?
 
    ```{r out.width="50%", fig.width=7, fig.height=7}
-   meanP <- meanangle(trd=ddat[,'P-trd'],plg=ddat[,'P-plg'],option=2,degrees=TRUE)
-   meanT <- meanangle(trd=ddat[,'T-trd'],plg=ddat[,'T-plg'],option=2,degrees=TRUE)
+   meanP <- meanangle(trd=ddat[,'P-trd'],plg=ddat[,'P-plg'],option=1,degrees=TRUE)
+   meanT <- meanangle(trd=ddat[,'T-trd'],plg=ddat[,'T-plg'],option=1,degrees=TRUE)
    stereonet(trd=meanP[1],plg=meanP[2],option=2,degrees=TRUE,
              cex=2,pch=22,col='blue',bg='white',add=TRUE)
    stereonet(trd=meanT[1],plg=meanT[2],option=2,degrees=TRUE,
