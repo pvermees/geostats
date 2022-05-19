@@ -1056,7 +1056,7 @@ Hence Volume = 5.065856 - 36.943459 $\times$ Girth.
 
 \begin{script}
 data(worldpop,package='geostats')
-recent <- worldpop[worldpop$year>1960,]
+recent <- worldpop[worldpop$year>=1960,]
 fit <- lm(population~year,data=recent)
 pred <- predict(fit,newdata=data.frame(year=2020),interval='prediction')
 \end{script}
