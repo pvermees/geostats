@@ -68,7 +68,7 @@
 \contentsline {section}{\numberline {13.1}Discriminant Analysis}{123}{section.13.1}%
 \contentsline {section}{\numberline {13.2}Decision trees}{126}{section.13.2}%
 \contentsline {chapter}{\numberline {14}Compositional data}{131}{chapter.14}%
-\contentsline {section}{\numberline {14.1}Ratios of interval data}{131}{section.14.1}%
+\contentsline {section}{\numberline {14.1}Ratios of Jeffreys quantities}{131}{section.14.1}%
 \contentsline {section}{\numberline {14.2}Logratio transformations}{132}{section.14.2}%
 \contentsline {section}{\numberline {14.3}PCA of compositional data}{135}{section.14.3}%
 \contentsline {section}{\numberline {14.4}LDA of compositional data}{139}{section.14.4}%

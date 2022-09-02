@@ -135,9 +135,14 @@ values.  Many are free to take on decimal values. We can also
 subdivide these continuous data into further classes, such as:
 
 \begin{enumerate}
-\item\textbf{Balances} (a.k.a. \textbf{ratio data}) can take on any
-  decimal value, including both positive and negative
-  values. Geological examples of this data type include the magnitude
+\item\textbf{Cartesian quantities}\footnote{The terms Cartesian and
+Jeffreys quantities were coined by Mosegaard and Tarantola (2002,
+doi:10.1016/S0074-6142(02)80219-4), in honour of French mathematician
+Ren\'{e} Descartes and British geophysicist Sir Harold Jeffreys. They
+are also referred to as balances and amounts, respectively, by
+Mosteller and Tukey (1977, ISBN:0-201-04854-X).\label{ftn:Tarantola}}
+  can have any decimal value, including positive and negative
+  ones. Geoscientific examples of this data type include the magnitude
   of earthquakes; the spontaneous electrical potential between
   geological strata; or the pH of aqueous
   solutions. Figure~\ref{fig:continuous}.a shows a dataset with pH
@@ -146,21 +151,19 @@ subdivide these continuous data into further classes, such as:
     6.2, 4.4, 5.6, 5.2, 4.5, 5.4, 4.8, 5.9, 3.9, 3.8, 5.1, 4.1, 5.1, 5.5,
     5.1, 4.6, 5.7, 4.6, 4.6, 5.6
   \end{center}
-\item\textbf{Amounts} (a.k.a. \textbf{interval data}) are non-negative
-  numbers (from 0 to +$\infty$).  In geophysics, they are sometimes
-  called \emph{Jeffreys quantities} (so named after the British
-  geophysicist Sir Harold Jeffreys). Examples of this type of data
-  mass, volume, density, speed, etc. Figure~\ref{fig:continuous}.b
-  shows 20 sedimentary clast size measurements, in centimetres:
+\item\textbf{Jeffreys quantities}\textsuperscript{\ref{ftn:Tarantola}}
+  can only have positive values. Examples of this include mass,
+  volume, density, speed, etc. Figure~\ref{fig:continuous}.b shows 20
+  sedimentary clast size measurements, in centimetres:
   \begin{center}
     0.35, 11.00, 6.00, 1.80, 2.30, 0.59, 8.40, 2.90, 5.90, 2.10,\\
     1.20, 2.10, 1.10, 1.60, 0.90, 1.70, 3.40, 0.53, 2.20, 7.70
   \end{center}
 \item\textbf{Proportions} are quantities that are constrained to a
-  finite interval from 0 to 1 (or from 0 to 100\%). Geological
-  examples of this include chemical concentrations; volume fractions;
-  and porosities.  Figure~\ref{fig:continuous}.c shows a dataset of
-  twenty porosity measurements in limestone:
+  finite interval from 0 to 1 (or from 0 to 100\%). Examples of this
+  include chemical concentrations; volume fractions; and porosities.
+  Figure~\ref{fig:continuous}.c shows a dataset of twenty porosity
+  measurements in limestone:
   \begin{center}
     0.058, 0.28, 0.12, 0.27, 0.40, 0.12, 0.038, 0.063, 0.17, 0.16,\\
     0.95, 0.94, 0.92, 0.88, 0.88, 0.70, 0.92, 0.72, 0.74, 0.84
