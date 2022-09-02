@@ -16,7 +16,7 @@ pendulum(
 
 \item{startvel}{2-element vector with the initial velocity}
 
-\item{src}{\eqn{n \time 2} matrix with the positions of the magnets}
+\item{src}{\eqn{n \times 2} matrix with the positions of the magnets}
 
 \item{plot}{logical. If \code{TRUE}, generates a plot with the
 trajectory of the pendulum.}

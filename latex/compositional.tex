@@ -10,11 +10,11 @@ normality for all datasets. In fact, more often than not, the
 normality assumption is invalid for geological data. Ignoring this
 non-normality can lead to counter-intuitive and plainly wrong results.
 
-\section{Ratio data}
+\section{Ratios of interval data}
 \label{sec:ratios}
 
 To illustrate the dangers of blindly assuming normality, let us
-consider the simple case of \textbf{ratio data}, which are quite
+consider the simple case of positive ratio data, which are quite
 common in the Earth Sciences.  Take, for example, the ratio of apatite
 to tourmaline in heavy mineral analysis, which has been used to
 indicate the duration of transport and storage prior to deposition.
@@ -24,8 +24,8 @@ We have already seen that ratios can lead to spurious correlations in
 regression analysis (section~\ref{sec:regression-caveats}).  This
 section will show that even basic summary statistics such as the mean
 and standard deviation can produce counter-intuitive results when
-applied to ratios. Consider the following two datasets of ten random
-numbers between 0 and 1:
+applied to ratios of interval data. Consider the following two
+datasets of ten random numbers between 0 and 1:
 
 \begin{center}
   \begin{tabular}{c|cccccccccc}

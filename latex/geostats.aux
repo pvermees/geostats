@@ -29,50 +29,52 @@
 \newlabel{pg:anscombe}{{2}{11}{Plotting data}{table.2.1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Anscombe's quartet shown as bivariate scatter plots.\vspace  \medskipamount \relax }}{12}{figure.2.1}\protected@file@percent }
 \newlabel{fig:anscombe}{{2.1}{12}{Anscombe's quartet shown as bivariate scatter plots.\medskip \relax }{figure.2.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}Categorical data}{12}{section.2.1}\protected@file@percent }
-\newlabel{sec:categorical}{{2.1}{12}{Categorical data}{section.2.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Bar chart of clast counts. The vertical axis labels the number of objects counted in each category. The order of the categories along the horizontal axis is completely arbitrary and can be changed without loss of information.\relax }}{12}{figure.2.2}\protected@file@percent }
-\newlabel{fig:clasts}{{2.2}{12}{Bar chart of clast counts. The vertical axis labels the number of objects counted in each category. The order of the categories along the horizontal axis is completely arbitrary and can be changed without loss of information.\relax }{figure.2.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}Count data}{12}{section.2.2}\protected@file@percent }
-\newlabel{sec:counts}{{2.2}{12}{Count data}{section.2.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Histogram of magnitude $\geq {5.0}$ earthquakes per year between 1917 and 2016. The vertical axis labels the number of years. The horizontal axis shows the number of earthquakes. In contrast with Figure\nobreakspace  {}\ref  {fig:clasts}, the order of the four categories along the horizontal axis matters and cannot be changed without loss of information. Categorical data whose order matters are also known as \emph  {ordinal} data.\relax }}{13}{figure.2.3}\protected@file@percent }
-\newlabel{fig:quakecounts}{{2.3}{13}{Histogram of magnitude $\geq {5.0}$ earthquakes per year between 1917 and 2016. The vertical axis labels the number of years. The horizontal axis shows the number of earthquakes. In contrast with Figure~\ref {fig:clasts}, the order of the four categories along the horizontal axis matters and cannot be changed without loss of information. Categorical data whose order matters are also known as \emph {ordinal} data.\relax }{figure.2.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}Continuous data}{13}{section.2.3}\protected@file@percent }
-\newlabel{sec:continuous}{{2.3}{13}{Continuous data}{section.2.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces  Two histograms of the same pH data, with the individual measurements marked as vertical ticks underneath. This is also known as a \emph  {rug plot}, and allows us to better assess the effect of bin width on the appearance of histograms. Histogram a) uses a bin width of 1\nobreakspace  {}pH unit whereas histogram b) uses a bin width of 0.5\nobreakspace  {}pH units. The two histograms look considerably different and it is not immediately clear which choice of bin width is best.\relax }}{13}{figure.2.4}\protected@file@percent }
-\newlabel{fig:binwidth}{{2.4}{13}{Two histograms of the same pH data, with the individual measurements marked as vertical ticks underneath. This is also known as a \emph {rug plot}, and allows us to better assess the effect of bin width on the appearance of histograms. Histogram a) uses a bin width of 1~pH unit whereas histogram b) uses a bin width of 0.5~pH units. The two histograms look considerably different and it is not immediately clear which choice of bin width is best.\relax }{figure.2.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Two histograms of the pH data whose bin widths are the same, but whose bins have been offset by 0.25 pH units. This arbitrary decision strongly affects the appearance of the histogram.\relax }}{14}{figure.2.5}\protected@file@percent }
-\newlabel{fig:binpos}{{2.5}{14}{Two histograms of the pH data whose bin widths are the same, but whose bins have been offset by 0.25 pH units. This arbitrary decision strongly affects the appearance of the histogram.\relax }{figure.2.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.6}{\ignorespaces The rug plot along the bottom axis represents three data points. The grey dashed lines mark rectangular boxes (`kernels') that are centred around each of these data points. The black step function is obtained by taking the sum of these boxes. This procedure removes the need to choose bin locations.\relax }}{14}{figure.2.6}\protected@file@percent }
-\newlabel{fig:rectangles}{{2.6}{14}{The rug plot along the bottom axis represents three data points. The grey dashed lines mark rectangular boxes (`kernels') that are centred around each of these data points. The black step function is obtained by taking the sum of these boxes. This procedure removes the need to choose bin locations.\relax }{figure.2.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.7}{\ignorespaces Rectangular KDE of the pH data, constructed using the same procedure as shown in Figure\nobreakspace  {}\ref  {fig:rectangles}. The area under this curve has been normalised to unity.\relax }}{15}{figure.2.7}\protected@file@percent }
-\newlabel{fig:pHrectKDE}{{2.7}{15}{Rectangular KDE of the pH data, constructed using the same procedure as shown in Figure~\ref {fig:rectangles}. The area under this curve has been normalised to unity.\relax }{figure.2.7}{}}
-\newlabel{eq:gaussiankernel}{{2.5}{15}{ii. Where to place the bins?}{equation.2.3.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.8}{\ignorespaces Using a Gaussian kernel instead of a rectangular kernel on the three data points of Figure\nobreakspace  {}\ref  {fig:rectangles}. This produces a smooth KDE.\relax }}{15}{figure.2.8}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2.9}{\ignorespaces Gaussian KDE of the pH data. The continuous curve does more justice to the continuous data than the discrete step function of Figures\nobreakspace  {}\ref  {fig:binwidth}, \ref  {fig:binpos} or \ref  {fig:pHrectKDE}.\relax }}{15}{figure.2.9}\protected@file@percent }
-\newlabel{fig:pHgaussKDE}{{2.9}{15}{Gaussian KDE of the pH data. The continuous curve does more justice to the continuous data than the discrete step function of Figures~\ref {fig:binwidth}, \ref {fig:binpos} or \ref {fig:pHrectKDE}.\relax }{figure.2.9}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.10}{\ignorespaces KDEs of the pH data with a) a kernel bandwidth of $h=0.1$; and b) a bandwidth of $h=1$. Using a narrow bandwidth undermooths the data, whereas a wide bandwidth produces an oversmoothed distribution.\relax }}{16}{figure.2.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}Data transformations}{16}{section.2.4}\protected@file@percent }
-\newlabel{sec:transformations}{{2.4}{16}{Data transformations}{section.2.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.11}{\ignorespaces KDE of 20 clast size measurements. Even though all the measurements are strictly positive, the curve extends into negative data space.\relax }}{16}{figure.2.11}\protected@file@percent }
-\newlabel{fig:negativeKDE}{{2.11}{16}{KDE of 20 clast size measurements. Even though all the measurements are strictly positive, the curve extends into negative data space.\relax }{figure.2.11}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.12}{\ignorespaces a) KDE of the clast size measurements, after applying a (natural) logarithmic transformation. Note how the distribution has become more symmetric compared to the linear scale of Figure\nobreakspace  {}\ref  {fig:negativeKDE}. b) The same KDE mapped back to linear scale. Unlike Figure\nobreakspace  {}\ref  {fig:negativeKDE}, the mapped distribution does not cross over into negative values.\relax }}{17}{figure.2.12}\protected@file@percent }
-\newlabel{fig:logKDE}{{2.12}{17}{a) KDE of the clast size measurements, after applying a (natural) logarithmic transformation. Note how the distribution has become more symmetric compared to the linear scale of Figure~\ref {fig:negativeKDE}. b) The same KDE mapped back to linear scale. Unlike Figure~\ref {fig:negativeKDE}, the mapped distribution does not cross over into negative values.\relax }{figure.2.12}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.13}{\ignorespaces KDE of 20 porosity measurements. Even though all the measurements are between 0 and 1, the KDE extends beyond these hard limits.\relax }}{17}{figure.2.13}\protected@file@percent }
-\newlabel{fig:porosityKDE}{{2.13}{17}{KDE of 20 porosity measurements. Even though all the measurements are between 0 and 1, the KDE extends beyond these hard limits.\relax }{figure.2.13}{}}
-\newlabel{eq:logit}{{2.6}{17}{Data transformations}{equation.2.4.6}{}}
-\newlabel{eq:invlogit}{{2.7}{17}{Data transformations}{equation.2.4.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Discrete data}{12}{section.2.1}\protected@file@percent }
+\newlabel{sec:discrete}{{2.1}{12}{Discrete data}{section.2.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Examples of discrete datasets, shown as bar charts. a) Categorical dataset of 41 random clast counts in a river bed. The order of the categories along the horizontal axis is completely arbitrary and can be changed without loss of information. b) Ordinal dataset summarising the surficial geology of Germany, expressed as the total percentage of areas covered by Precambrian (pC), Palaeozoic (Pz), Mesozoic (Mz), Tertiary (T) and Quaternary (Q) rocks. These five categories are listed in chronological order, but span vastly different lengths of time; c) The number of discovery wells per tract in an area of the Permian Basin (Texas) that was subdivided into 168 equally sized quadrats.\relax }}{13}{figure.2.2}\protected@file@percent }
+\newlabel{fig:discrete}{{2.2}{13}{Examples of discrete datasets, shown as bar charts. a) Categorical dataset of 41 random clast counts in a river bed. The order of the categories along the horizontal axis is completely arbitrary and can be changed without loss of information. b) Ordinal dataset summarising the surficial geology of Germany, expressed as the total percentage of areas covered by Precambrian (pC), Palaeozoic (Pz), Mesozoic (Mz), Tertiary (T) and Quaternary (Q) rocks. These five categories are listed in chronological order, but span vastly different lengths of time; c) The number of discovery wells per tract in an area of the Permian Basin (Texas) that was subdivided into 168 equally sized quadrats.\relax }{figure.2.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Continuous data}{13}{section.2.2}\protected@file@percent }
+\newlabel{sec:continuous}{{2.2}{13}{Continuous data}{section.2.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Three continuous datasets, shown as histograms. a) pH measurements of river water (free to take on positive and negative values); b) clast size measurements (non-negative numbers); and c) porosity measurements of limestone (values between 0 and 1).\relax }}{14}{figure.2.3}\protected@file@percent }
+\newlabel{fig:continuous}{{2.3}{14}{Three continuous datasets, shown as histograms. a) pH measurements of river water (free to take on positive and negative values); b) clast size measurements (non-negative numbers); and c) porosity measurements of limestone (values between 0 and 1).\relax }{figure.2.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Histograms}{14}{section.2.3}\protected@file@percent }
+\newlabel{sec:histogram}{{2.3}{14}{Histograms}{section.2.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Histogram a) uses a bin width of 1\nobreakspace  {}pH unit whereas histogram b) uses a bin width of 0.5\nobreakspace  {}pH units. The two histograms look considerably different and it is not immediately clear which choice of bin width is best.\relax }}{14}{figure.2.4}\protected@file@percent }
+\newlabel{fig:binwidth}{{2.4}{14}{Histogram a) uses a bin width of 1~pH unit whereas histogram b) uses a bin width of 0.5~pH units. The two histograms look considerably different and it is not immediately clear which choice of bin width is best.\relax }{figure.2.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Two histograms of the pH data whose bin widths are the same, but whose bins have been offset by 0.25 pH units. This arbitrary decision strongly affects the appearance of the histogram.\relax }}{15}{figure.2.5}\protected@file@percent }
+\newlabel{fig:binpos}{{2.5}{15}{Two histograms of the pH data whose bin widths are the same, but whose bins have been offset by 0.25 pH units. This arbitrary decision strongly affects the appearance of the histogram.\relax }{figure.2.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Kernel density estimation}{15}{section.2.4}\protected@file@percent }
+\newlabel{sec:KDE}{{2.4}{15}{Kernel density estimation}{section.2.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.6}{\ignorespaces The rug plot along the bottom axis represents three data points. The grey dashed lines mark rectangular boxes (`kernels') that are centred around each of these data points. The black step function is obtained by taking the sum of these boxes. This procedure removes the need to choose bin locations.\relax }}{15}{figure.2.6}\protected@file@percent }
+\newlabel{fig:rectangles}{{2.6}{15}{The rug plot along the bottom axis represents three data points. The grey dashed lines mark rectangular boxes (`kernels') that are centred around each of these data points. The black step function is obtained by taking the sum of these boxes. This procedure removes the need to choose bin locations.\relax }{figure.2.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.7}{\ignorespaces Rectangular KDE of the pH data, constructed using the same procedure as shown in Figure\nobreakspace  {}\ref  {fig:rectangles}. The area under this curve has been normalised to unity.\relax }}{16}{figure.2.7}\protected@file@percent }
+\newlabel{fig:pHrectKDE}{{2.7}{16}{Rectangular KDE of the pH data, constructed using the same procedure as shown in Figure~\ref {fig:rectangles}. The area under this curve has been normalised to unity.\relax }{figure.2.7}{}}
+\newlabel{eq:gaussiankernel}{{2.5}{16}{Kernel density estimation}{equation.2.4.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.8}{\ignorespaces Using a Gaussian kernel instead of a rectangular kernel on the three data points of Figure\nobreakspace  {}\ref  {fig:rectangles}. This produces a smooth KDE.\relax }}{16}{figure.2.8}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2.9}{\ignorespaces Gaussian KDE of the pH data. The continuous curve does more justice to the continuous data than the discrete step function of Figures\nobreakspace  {}\ref  {fig:binwidth}, \ref  {fig:binpos} or \ref  {fig:pHrectKDE}.\relax }}{16}{figure.2.9}\protected@file@percent }
+\newlabel{fig:pHgaussKDE}{{2.9}{16}{Gaussian KDE of the pH data. The continuous curve does more justice to the continuous data than the discrete step function of Figures~\ref {fig:binwidth}, \ref {fig:binpos} or \ref {fig:pHrectKDE}.\relax }{figure.2.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.10}{\ignorespaces KDEs of the pH data with a) a kernel bandwidth of $h=0.1$; and b) a bandwidth of $h=1$. Using a narrow bandwidth undermooths the data, whereas a wide bandwidth produces an oversmoothed distribution.\relax }}{17}{figure.2.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}Data transformations}{17}{section.2.5}\protected@file@percent }
+\newlabel{sec:transformations}{{2.5}{17}{Data transformations}{section.2.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.11}{\ignorespaces KDE of 20 clast size measurements. Even though all the measurements are strictly positive, the curve extends into negative data space.\relax }}{17}{figure.2.11}\protected@file@percent }
+\newlabel{fig:negativeKDE}{{2.11}{17}{KDE of 20 clast size measurements. Even though all the measurements are strictly positive, the curve extends into negative data space.\relax }{figure.2.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.12}{\ignorespaces a) KDE of the clast size measurements, after applying a logarithmic transformation. Note how the distribution has become more symmetric compared to the linear scale of Figure\nobreakspace  {}\ref  {fig:negativeKDE}. b) The same KDE mapped back to linear scale. Unlike Figure\nobreakspace  {}\ref  {fig:negativeKDE}, the mapped distribution does not cross over into negative values.\relax }}{18}{figure.2.12}\protected@file@percent }
+\newlabel{fig:logKDE}{{2.12}{18}{a) KDE of the clast size measurements, after applying a logarithmic transformation. Note how the distribution has become more symmetric compared to the linear scale of Figure~\ref {fig:negativeKDE}. b) The same KDE mapped back to linear scale. Unlike Figure~\ref {fig:negativeKDE}, the mapped distribution does not cross over into negative values.\relax }{figure.2.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.13}{\ignorespaces KDE of 20 porosity measurements. Even though all the measurements are between 0 and 1, the KDE extends beyond these hard limits.\relax }}{18}{figure.2.13}\protected@file@percent }
+\newlabel{fig:porosityKDE}{{2.13}{18}{KDE of 20 porosity measurements. Even though all the measurements are between 0 and 1, the KDE extends beyond these hard limits.\relax }{figure.2.13}{}}
+\newlabel{eq:logit}{{2.8}{18}{Data transformations}{equation.2.5.8}{}}
+\newlabel{eq:invlogit}{{2.9}{18}{Data transformations}{equation.2.5.9}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.14}{\ignorespaces a) KDE of the porosity data, after applying a logistic transformation. Note the two horizonal axes. The top axis marks the transformed values on a linear scale that extends from $-\infty $ to $+\infty $. The bottom axis is labeled by the actual porosity values on a non-linear scale that extends from 0 to 1. b) The same distribution mapped back to the 0 -- 1 interval.\relax }}{18}{figure.2.14}\protected@file@percent }
 \newlabel{fig:logitKDE}{{2.14}{18}{a) KDE of the porosity data, after applying a logistic transformation. Note the two horizonal axes. The top axis marks the transformed values on a linear scale that extends from $-\infty $ to $+\infty $. The bottom axis is labeled by the actual porosity values on a non-linear scale that extends from 0 to 1. b) The same distribution mapped back to the 0 -- 1 interval.\relax }{figure.2.14}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.5}Multivariate distributions}{18}{section.2.5}\protected@file@percent }
-\newlabel{sec:multivariate}{{2.5}{18}{Multivariate distributions}{section.2.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.15}{\ignorespaces Old Faithful eruption measurements. The dataset records 272 observations of 2 variables: the duration of each eruption, and the waiting time between them. Both variables are expressed in minutes. The lower left panel shows the bivariate measurements as grey circles. The contour lines represent a 2-dimensional KDE. The marginal distributions of the waiting times (top) and eruption durations (right) are shown as 1-dimensional KDEs.\relax }}{18}{figure.2.15}\protected@file@percent }
-\newlabel{fig:KDE2D}{{2.15}{18}{Old Faithful eruption measurements. The dataset records 272 observations of 2 variables: the duration of each eruption, and the waiting time between them. Both variables are expressed in minutes. The lower left panel shows the bivariate measurements as grey circles. The contour lines represent a 2-dimensional KDE. The marginal distributions of the waiting times (top) and eruption durations (right) are shown as 1-dimensional KDEs.\relax }{figure.2.15}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.6}Empirical cumulative distribution functions}{19}{section.2.6}\protected@file@percent }
-\newlabel{sec:ECDF}{{2.6}{19}{Empirical cumulative distribution functions}{section.2.6}{}}
-\newlabel{eq:ECDF}{{2.8}{19}{Empirical cumulative distribution functions}{equation.2.6.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.16}{\ignorespaces Empirical cumulative distribution functions (ECDFs) of, from left to right: a) the pH data (whose KDE is shown in Figure\nobreakspace  {}\ref  {fig:pHgaussKDE}); b) the clast size data of Figure\nobreakspace  {}\ref  {fig:negativeKDE}; c) the porosity data of Figure\nobreakspace  {}\ref  {fig:porosityKDE}; and d) the eruption time data of Figure\nobreakspace  {}\ref  {fig:KDE2D}. Note that ECDFs are only applicable to 1-dimensional datasets.\vspace  \medskipamount \relax }}{19}{figure.2.16}\protected@file@percent }
-\newlabel{fig:ECDFs}{{2.16}{19}{Empirical cumulative distribution functions (ECDFs) of, from left to right: a) the pH data (whose KDE is shown in Figure~\ref {fig:pHgaussKDE}); b) the clast size data of Figure~\ref {fig:negativeKDE}; c) the porosity data of Figure~\ref {fig:porosityKDE}; and d) the eruption time data of Figure~\ref {fig:KDE2D}. Note that ECDFs are only applicable to 1-dimensional datasets.\medskip \relax }{figure.2.16}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.6}Multivariate distributions}{19}{section.2.6}\protected@file@percent }
+\newlabel{sec:multivariate}{{2.6}{19}{Multivariate distributions}{section.2.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.15}{\ignorespaces Old Faithful eruption measurements. The dataset records 272 observations of 2 variables: the duration of each eruption, and the waiting time between them. Both variables are expressed in minutes. The lower left panel shows the bivariate measurements as grey circles. The contour lines represent a 2-dimensional KDE. The marginal distributions of the waiting times (top) and eruption durations (right) are shown as 1-dimensional KDEs.\relax }}{19}{figure.2.15}\protected@file@percent }
+\newlabel{fig:KDE2D}{{2.15}{19}{Old Faithful eruption measurements. The dataset records 272 observations of 2 variables: the duration of each eruption, and the waiting time between them. Both variables are expressed in minutes. The lower left panel shows the bivariate measurements as grey circles. The contour lines represent a 2-dimensional KDE. The marginal distributions of the waiting times (top) and eruption durations (right) are shown as 1-dimensional KDEs.\relax }{figure.2.15}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.7}Empirical cumulative distribution functions}{19}{section.2.7}\protected@file@percent }
+\newlabel{sec:ECDF}{{2.7}{19}{Empirical cumulative distribution functions}{section.2.7}{}}
+\newlabel{eq:ECDF}{{2.10}{19}{Empirical cumulative distribution functions}{equation.2.7.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.16}{\ignorespaces Empirical cumulative distribution functions (ECDFs) of, from left to right: a) the pH data (whose KDE is shown in Figure\nobreakspace  {}\ref  {fig:pHgaussKDE}); b) the clast size data of Figure\nobreakspace  {}\ref  {fig:negativeKDE}; c) the porosity data of Figure\nobreakspace  {}\ref  {fig:porosityKDE}; and d) the eruption time data of Figure\nobreakspace  {}\ref  {fig:KDE2D}. Note that ECDFs are only applicable to 1-dimensional datasets.\vspace  \medskipamount \relax }}{20}{figure.2.16}\protected@file@percent }
+\newlabel{fig:ECDFs}{{2.16}{20}{Empirical cumulative distribution functions (ECDFs) of, from left to right: a) the pH data (whose KDE is shown in Figure~\ref {fig:pHgaussKDE}); b) the clast size data of Figure~\ref {fig:negativeKDE}; c) the porosity data of Figure~\ref {fig:porosityKDE}; and d) the eruption time data of Figure~\ref {fig:KDE2D}. Note that ECDFs are only applicable to 1-dimensional datasets.\medskip \relax }{figure.2.16}{}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {3}Summary statistics}{21}{chapter.3}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -133,9 +135,9 @@
 \newlabel{eq:phat}{{5.4}{35}{Parameter estimation}{equation.5.1.4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5.2}Hypothesis tests}{35}{section.5.2}\protected@file@percent }
 \newlabel{sec:binomH}{{5.2}{35}{Hypothesis tests}{section.5.2}{}}
-\newlabel{it:rejection}{{5}{36}{Hypothesis tests}{Item.42}{}}
-\newlabel{it:decision}{{6}{36}{Hypothesis tests}{Item.43}{}}
-\newlabel{pag:notaccepted}{{6}{36}{Hypothesis tests}{Item.43}{}}
+\newlabel{it:rejection}{{5}{36}{Hypothesis tests}{Item.50}{}}
+\newlabel{it:decision}{{6}{36}{Hypothesis tests}{Item.51}{}}
+\newlabel{pag:notaccepted}{{6}{36}{Hypothesis tests}{Item.51}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces a) PMF and b) CDF of a binomial null distribution with $p=2/3$ and $n=5$. The rejection region is marked in black on a). The horizontal dotted line in b) shows the $\alpha =0.05$ cutoff mark. The horizontal dashed line in b) marks the p-value for $k=2$, which is greater than 0.05. Therefore, the null hypothesis cannot be rejected.\relax }}{36}{figure.5.3}\protected@file@percent }
 \newlabel{fig:1sidedbinomialrejection5}{{5.3}{36}{a) PMF and b) CDF of a binomial null distribution with $p=2/3$ and $n=5$. The rejection region is marked in black on a). The horizontal dotted line in b) shows the $\alpha =0.05$ cutoff mark. The horizontal dashed line in b) marks the p-value for $k=2$, which is greater than 0.05. Therefore, the null hypothesis cannot be rejected.\relax }{figure.5.3}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces a) the same PMF and b) CDF as Figure\nobreakspace  {}\ref  {fig:1sidedbinomialrejection5}. The black bar marks the rejection region for $H_\circ : p=2/3$ vs $H_a: p\neq  {2/3}$. Horizontal dotted lines mark $\alpha /2=0.025$ and $(1-\alpha /2)=0.975$. Their intersections with the CDF are shown as vertical dotted lines and mark the outer edges of the rejection region. The dashed lines mark the observed value and probability, which fall outside the rejection region. Therefore $H_\circ $ stands.\relax }}{37}{figure.5.4}\protected@file@percent }
@@ -196,7 +198,7 @@
 \newlabel{eq:lambda=k}{{6.8}{50}{Parameter estimation}{equation.6.2.8}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {6.3}Hypothesis tests}{50}{section.6.3}\protected@file@percent }
 \newlabel{sec:poishyp}{{6.3}{50}{Hypothesis tests}{section.6.3}{}}
-\newlabel{it:poisl351sided}{{6}{51}{Hypothesis tests}{Item.82}{}}
+\newlabel{it:poisl351sided}{{6}{51}{Hypothesis tests}{Item.90}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {6.7}{\ignorespaces a) PMF and b) CDF of a Poissonian null distribution with $\lambda =3.5$. The rejection region is marked in black on a). The horizontal dotted line in b) shows the $1-\alpha =0.95$ mark. The horizontal dashed line in the CDF marks the cumulative probability for $k=9$, which is greater than the 0.95 cutoff. Therefore the one-sided null hypothesis is rejected.\relax }}{51}{figure.6.7}\protected@file@percent }
 \newlabel{fig:poishyp}{{6.7}{51}{a) PMF and b) CDF of a Poissonian null distribution with $\lambda =3.5$. The rejection region is marked in black on a). The horizontal dotted line in b) shows the $1-\alpha =0.95$ mark. The horizontal dashed line in the CDF marks the cumulative probability for $k=9$, which is greater than the 0.95 cutoff. Therefore the one-sided null hypothesis is rejected.\relax }{figure.6.7}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {6.4}Multiple testing}{51}{section.6.4}\protected@file@percent }
@@ -390,7 +392,7 @@
 \newlabel{fig:tr}{{10.3}{93}{a) PDF and b) CDF of a t-distribution with 6 degrees of freedom. The two-sided rejection region (for $\alpha = 0.05$) is marked in black. The vertical dashed line marks the observed value of t = 13.98 and plots inside the rejection region. Therefore the test rejects the null hypothesis that $\rho =0$, leading to the conclusion that the data are significantly correlated.\relax }{figure.10.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {10.2}Least Squares}{93}{section.10.2}\protected@file@percent }
 \newlabel{sec:leastsquares}{{10.2}{93}{Least Squares}{section.10.2}{}}
-\newlabel{eq:ss}{{10.7}{93}{Least Squares}{equation.10.2.7}{}}
+\newlabel{eq:ss}{{10.7}{94}{Least Squares}{equation.10.2.7}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {10.2}{\ignorespaces The same data as Table\nobreakspace  {}\ref  {tab:Rb-Sr}. $y_i$ are the observed and $\beta _0 + \beta _1 x_i$ the \emph  {fitted} values of the dependent variable. The residuals $\epsilon _i$ are the differences between these two sets of numbers.\relax }}{94}{table.10.2}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {10.4}{\ignorespaces Three guesses for the intercept ($\beta _0$) and slope ($\beta _1$) of the Rb--Sr isochron data of Figure\nobreakspace  {}\ref  {fig:Rb-Sr}. Dashed lines mark the residuals. The lines in panels a) and b) are too steep and too shallow, respectively. Consequently, the sum of their squared residuals ($ss$) is non-zero. Panel c) shows a better fit and a lower sum of squares. \relax }}{94}{figure.10.4}\protected@file@percent }
 \newlabel{eq:fitab}{{10.9}{94}{Least Squares}{equation.10.2.9}{}}
@@ -399,7 +401,7 @@
 \newlabel{eq:normalresid}{{10.10}{95}{Maximum Likelihood}{equation.10.3.10}{}}
 \newlabel{eq:Lregression}{{10.11}{95}{Maximum Likelihood}{equation.10.3.11}{}}
 \newlabel{eq:sigmabeta}{{10.13}{95}{Maximum Likelihood}{equation.10.3.13}{}}
-\newlabel{eq:sigmahatregression}{{10.14}{95}{Maximum Likelihood}{equation.10.3.14}{}}
+\newlabel{eq:sigmahatregression}{{10.14}{96}{Maximum Likelihood}{equation.10.3.14}{}}
 \newlabel{eq:ciregression}{{10.15}{96}{Maximum Likelihood}{equation.10.3.15}{}}
 \newlabel{eq:envelope}{{10.16}{96}{Maximum Likelihood}{equation.10.3.16}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {10.5}{\ignorespaces The grey area represents a 95\% confidence envelope for the least squares regression of the Rb--Sr data. The curvature of this envelope reflects the increased uncertainty that is caused by \textbf  {extrapolating} the data. The width of the confidence envelope is the smallest near the average of the measurements ($\bar  {x}$, $\bar  {y}$) and increases indefinitely beyond that.\relax }}{96}{figure.10.5}\protected@file@percent }
@@ -553,13 +555,13 @@
 \newlabel{sec:hierarchical}{{12.4}{119}{Hierarchical clustering}{section.12.4}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {12.15}{\ignorespaces A simple bivariate dataset that will be used to illustrate the hierarchical clustering algorithm:\relax }}{119}{figure.12.15}\protected@file@percent }
 \newlabel{fig:hierarchical1}{{12.15}{119}{A simple bivariate dataset that will be used to illustrate the hierarchical clustering algorithm:\relax }{figure.12.15}{}}
-\newlabel{it:hierachical1}{{1}{119}{Hierarchical clustering}{Item.159}{}}
+\newlabel{it:hierachical1}{{1}{119}{Hierarchical clustering}{Item.167}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {12.16}{\ignorespaces First step of the hierarchical clustering process. The closest two samples (1 and 3) have been grouped together into a new cluster (grey line, left). The results can also be visualised as a tree or \textbf  {dendrogram} (right).\vspace  \medskipamount \relax }}{119}{figure.12.16}\protected@file@percent }
 \newlabel{fig:hierarchical2}{{12.16}{119}{First step of the hierarchical clustering process. The closest two samples (1 and 3) have been grouped together into a new cluster (grey line, left). The results can also be visualised as a tree or \textbf {dendrogram} (right).\medskip \relax }{figure.12.16}{}}
-\newlabel{it:hierarchical2}{{3}{120}{Hierarchical clustering}{Item.161}{}}
+\newlabel{it:hierarchical2}{{3}{120}{Hierarchical clustering}{Item.169}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {12.17}{\ignorespaces The second step of the hierarchical clustering process shown as a scatter plot (left) and a dendrogram (right). The first order cluster is nested inside the second order one.\vspace  \medskipamount \relax }}{120}{figure.12.17}\protected@file@percent }
 \newlabel{fig:hierarchical3}{{12.17}{120}{The second step of the hierarchical clustering process shown as a scatter plot (left) and a dendrogram (right). The first order cluster is nested inside the second order one.\medskip \relax }{figure.12.17}{}}
-\newlabel{it:hierarchical3}{{5}{120}{Hierarchical clustering}{Item.163}{}}
+\newlabel{it:hierarchical3}{{5}{120}{Hierarchical clustering}{Item.171}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {12.18}{\ignorespaces The third step of the hierarchical clustering process shown as a scatter plot (left) and a dendrogram (right). The third cluster does not share any elements with the first two clusters.\vspace  \medskipamount \relax }}{120}{figure.12.18}\protected@file@percent }
 \newlabel{fig:hierarchical4}{{12.18}{120}{The third step of the hierarchical clustering process shown as a scatter plot (left) and a dendrogram (right). The third cluster does not share any elements with the first two clusters.\medskip \relax }{figure.12.18}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {12.19}{\ignorespaces Final results of the hierarchical cluster analysis. The tree consists of four nested clusters. The y-axis has units of distance: the longer the branch, the greater the difference between the corresponding clusters.\relax }}{121}{figure.12.19}\protected@file@percent }
@@ -599,8 +601,8 @@
 \newlabel{fig:Q2}{{13.8}{127}{Second order partition of the right hand side of Figure~\ref {fig:Qtries}.c). The results can be visualised as a dendrogram or tree (right). The `leaves' of this tree are annotated as $n_\circ /n_\bullet $ where $n_\circ $ is the number of training data of class $\circ $ and $n_\bullet $ is the number of training data of class $\bullet $.\\\relax }{figure.13.8}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {13.9}{\ignorespaces A recursive binary partition tree that perfectly classifies all the samples in Figure\nobreakspace  {}\ref  {fig:CARTdata}. The annotations of the dendrogram have been removed to reduce clutter.  \relax }}{128}{figure.13.9}\protected@file@percent }
 \newlabel{fig:overfittedCARTscatter}{{13.9}{128}{A recursive binary partition tree that perfectly classifies all the samples in Figure~\ref {fig:CARTdata}. The annotations of the dendrogram have been removed to reduce clutter. \\\relax }{figure.13.9}{}}
-\newlabel{it:cv1}{{2}{128}{Decision trees}{Item.167}{}}
-\newlabel{it:cv2}{{3}{128}{Decision trees}{Item.168}{}}
+\newlabel{it:cv1}{{2}{128}{Decision trees}{Item.175}{}}
+\newlabel{it:cv2}{{3}{128}{Decision trees}{Item.176}{}}
 \newlabel{eq:cp}{{13.7}{128}{Decision trees}{equation.13.2.7}{}}
 \newlabel{eq:Ta}{{13.8}{128}{Decision trees}{equation.13.2.8}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {13.10}{\ignorespaces A plot of cross validated (CV) prediction error versus the number of nodes in the collection of nested subtrees shows a minimum at five splits. The CV error of small trees is caused by bias, whereas the CV error of large tree is a result of variance. There typically exist several trees with CV errors close to the minimum. Therefore, a `1-SE rule' is used, i.e., choosing the smallest tree whose misclassification rate does not exceed the minimum CV error plus one standard error of the smallest CV error (dotted line). \relax }}{129}{figure.13.10}\protected@file@percent }
@@ -613,8 +615,8 @@
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \newlabel{ch:compositional}{{14}{131}{Compositional data}{chapter.14}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {14.1}Ratio data}{131}{section.14.1}\protected@file@percent }
-\newlabel{sec:ratios}{{14.1}{131}{Ratio data}{section.14.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {14.1}Ratios of interval data}{131}{section.14.1}\protected@file@percent }
+\newlabel{sec:ratios}{{14.1}{131}{Ratios of interval data}{section.14.1}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {14.2}Logratio transformations}{132}{section.14.2}\protected@file@percent }
 \newlabel{sec:logratios}{{14.2}{132}{Logratio transformations}{section.14.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {14.1}{\ignorespaces The A--CN--K diagram is a widely used graphical device in chemical weathering studies. It is a ternary diagram of Al\textsubscript  {2}O\textsubscript  {3}, CaO + Na\textsubscript  {2}O and K\textsubscript  {2}O, where the CaO refers to the silicate component of the sediment only (ignoring carbonates). The composition on the diagram results from the competing effects of initial starting composition and chemical weathering. With increasing weathering intensity, A--CN--K compositions get pulled towards the Al\textsubscript  {2}O\textsubscript  {3} apex of the ternary diagram. This figure shows a synthetic dataset of 20 A--CN--K measurements that have been affected by variable weathering intensities.\vspace  \medskipamount \relax }}{133}{figure.14.1}\protected@file@percent }
@@ -748,25 +750,25 @@
 \newlabel{ch:R}{{17}{157}{An introduction to \texttt {R}}{chapter.17}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.1}The basics}{157}{section.17.1}\protected@file@percent }
 \newlabel{sec:R-basics}{{17.1}{157}{The basics}{section.17.1}{}}
-\newlabel{it:geostats}{{13}{162}{The basics}{Item.192}{}}
+\newlabel{it:geostats}{{13}{162}{The basics}{Item.200}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.2}Plotting data}{163}{section.17.2}\protected@file@percent }
 \newlabel{sec:R-plotting}{{17.2}{163}{Plotting data}{section.17.2}{}}
-\newlabel{it:anscombe}{{1}{163}{Plotting data}{Item.193}{}}
-\newlabel{it:KDE}{{3}{164}{Plotting data}{Item.195}{}}
+\newlabel{it:anscombe}{{1}{163}{Plotting data}{Item.201}{}}
+\newlabel{it:KDE}{{3}{164}{Plotting data}{Item.203}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.3}Summary Statistics}{166}{section.17.3}\protected@file@percent }
 \newlabel{sec:R-summary-statistics}{{17.3}{166}{Summary Statistics}{section.17.3}{}}
-\newlabel{it:mode}{{2}{166}{Summary Statistics}{Item.199}{}}
+\newlabel{it:mode}{{2}{166}{Summary Statistics}{Item.207}{}}
 \newlabel{fn:mode}{{2}{166}{}{Hfootnote.15}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.4}Probability}{167}{section.17.4}\protected@file@percent }
 \newlabel{sec:R-probability}{{17.4}{167}{Probability}{section.17.4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.5}The binomial distribution}{168}{section.17.5}\protected@file@percent }
 \newlabel{sec:R-binomial}{{17.5}{168}{The binomial distribution}{section.17.5}{}}
-\newlabel{it:1sidedbinomR}{{4}{168}{The binomial distribution}{Item.206}{}}
-\newlabel{it:2sidedbinomR}{{5}{169}{The binomial distribution}{Item.207}{}}
+\newlabel{it:1sidedbinomR}{{4}{168}{The binomial distribution}{Item.214}{}}
+\newlabel{it:2sidedbinomR}{{5}{169}{The binomial distribution}{Item.215}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.6}The Poisson distribution}{170}{section.17.6}\protected@file@percent }
 \newlabel{sec:R-poisson}{{17.6}{170}{The Poisson distribution}{section.17.6}{}}
-\newlabel{it:1sidedpoisR}{{4}{171}{The Poisson distribution}{Item.213}{}}
-\newlabel{it:2sidedpoisR}{{5}{171}{The Poisson distribution}{Item.214}{}}
+\newlabel{it:1sidedpoisR}{{4}{171}{The Poisson distribution}{Item.221}{}}
+\newlabel{it:2sidedpoisR}{{5}{171}{The Poisson distribution}{Item.222}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.7}The normal distribution}{172}{section.17.7}\protected@file@percent }
 \newlabel{sec:R-gauss}{{17.7}{172}{The normal distribution}{section.17.7}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.8}Error propagation}{172}{section.17.8}\protected@file@percent }
@@ -775,26 +777,26 @@
 \newlabel{fig:LLpois}{{17.1}{173}{Log-likelihood function for the Poisson distribution, evaluated at different values for the parameter $\lambda $, given an observation of $k=4$ successes. The function reaches a maximum value at $\hat {\lambda }=4$. \relax }{figure.17.1}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.9}Comparing distributions}{174}{section.17.9}\protected@file@percent }
 \newlabel{sec:R-comparingdistributions}{{17.9}{174}{Comparing distributions}{section.17.9}{}}
-\newlabel{it:2sided2samplettest}{{3}{174}{Comparing distributions}{Item.226}{}}
+\newlabel{it:2sided2samplettest}{{3}{174}{Comparing distributions}{Item.234}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.10}Regression}{176}{section.17.10}\protected@file@percent }
 \newlabel{sec:R-regression}{{17.10}{176}{Regression}{section.17.10}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.11}Fractals and chaos}{179}{section.17.11}\protected@file@percent }
 \newlabel{sec:R-fractals}{{17.11}{179}{Fractals and chaos}{section.17.11}{}}
-\newlabel{it:finland}{{1}{179}{Fractals and chaos}{Item.236}{}}
+\newlabel{it:finland}{{1}{179}{Fractals and chaos}{Item.244}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.12}Unsupervised learning}{180}{section.17.12}\protected@file@percent }
 \newlabel{sec:R-unsupervised}{{17.12}{180}{Unsupervised learning}{section.17.12}{}}
-\newlabel{it:R-kmeans}{{5}{181}{Unsupervised learning}{Item.243}{}}
+\newlabel{it:R-kmeans}{{5}{181}{Unsupervised learning}{Item.251}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.13}Supervised learning}{181}{section.17.13}\protected@file@percent }
 \newlabel{sec:R-supervised}{{17.13}{181}{Supervised learning}{section.17.13}{}}
-\newlabel{it:LDA}{{1}{181}{Supervised learning}{Item.245}{}}
+\newlabel{it:LDA}{{1}{181}{Supervised learning}{Item.253}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.14}Compositional data}{183}{section.17.14}\protected@file@percent }
 \newlabel{sec:R-compositional}{{17.14}{183}{Compositional data}{section.17.14}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.15}Directional data}{184}{section.17.15}\protected@file@percent }
 \newlabel{sec:R-directional}{{17.15}{184}{Directional data}{section.17.15}{}}
-\newlabel{it:Rbar}{{2}{185}{Directional data}{Item.253}{}}
+\newlabel{it:Rbar}{{2}{185}{Directional data}{Item.261}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.16}Spatial data}{186}{section.17.16}\protected@file@percent }
 \newlabel{sec:R-spatial}{{17.16}{186}{Spatial data}{section.17.16}{}}
-\newlabel{it:R-meuse-contour}{{4}{187}{Spatial data}{Item.259}{}}
+\newlabel{it:R-meuse-contour}{{4}{187}{Spatial data}{Item.267}{}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {18}Exercises}{189}{chapter.18}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -803,8 +805,8 @@
 \newlabel{sec:ex-basics}{{18.1}{189}{The basics}{section.18.1}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {18.2}Plotting data}{189}{section.18.2}\protected@file@percent }
 \newlabel{sec:ex-plotting}{{18.2}{189}{Plotting data}{section.18.2}{}}
-\newlabel{it:AB}{{2}{189}{Plotting data}{Item.265}{}}
-\newlabel{it:randxy}{{3}{189}{Plotting data}{Item.266}{}}
+\newlabel{it:AB}{{2}{189}{Plotting data}{Item.273}{}}
+\newlabel{it:randxy}{{3}{189}{Plotting data}{Item.274}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {18.3}Summary statistics}{190}{section.18.3}\protected@file@percent }
 \newlabel{sec:ex-summary-statistics}{{18.3}{190}{Summary statistics}{section.18.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {18.4}Probability}{190}{section.18.4}\protected@file@percent }
@@ -825,25 +827,25 @@
 \newlabel{sec:ex-fractals}{{18.11}{194}{Fractals and chaos}{section.18.11}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {18.12}Unsupervised learning}{194}{section.18.12}\protected@file@percent }
 \newlabel{sec:ex-unsupervised}{{18.12}{194}{Unsupervised learning}{section.18.12}{}}
-\newlabel{it:ex-withinss}{{3}{194}{Unsupervised learning}{Item.314}{}}
+\newlabel{it:ex-withinss}{{3}{194}{Unsupervised learning}{Item.322}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {18.13}Supervised learning}{194}{section.18.13}\protected@file@percent }
 \newlabel{sec:ex-supervised}{{18.13}{194}{Supervised learning}{section.18.13}{}}
-\newlabel{it:LDA-training}{{1}{194}{Supervised learning}{Item.316}{}}
-\newlabel{it:LDA-test}{{2}{194}{Supervised learning}{Item.317}{}}
-\newlabel{it:rpart-training}{{3}{194}{Supervised learning}{Item.318}{}}
-\newlabel{it:rpart-test}{{4}{194}{Supervised learning}{Item.319}{}}
+\newlabel{it:LDA-training}{{1}{194}{Supervised learning}{Item.324}{}}
+\newlabel{it:LDA-test}{{2}{194}{Supervised learning}{Item.325}{}}
+\newlabel{it:rpart-training}{{3}{194}{Supervised learning}{Item.326}{}}
+\newlabel{it:rpart-test}{{4}{194}{Supervised learning}{Item.327}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {18.14}Compositional data}{195}{section.18.14}\protected@file@percent }
 \newlabel{sec:ex-compositional}{{18.14}{195}{Compositional data}{section.18.14}{}}
-\newlabel{it:mpg1}{{1a}{195}{Compositional data}{Item.321}{}}
-\newlabel{it:mpg2}{{1b}{195}{Compositional data}{Item.322}{}}
-\newlabel{it:mpg3}{{1c}{195}{Compositional data}{Item.323}{}}
-\newlabel{it:mpg4}{{1d}{195}{Compositional data}{Item.324}{}}
-\newlabel{it:mpg5}{{1e}{195}{Compositional data}{Item.325}{}}
+\newlabel{it:mpg1}{{1a}{195}{Compositional data}{Item.329}{}}
+\newlabel{it:mpg2}{{1b}{195}{Compositional data}{Item.330}{}}
+\newlabel{it:mpg3}{{1c}{195}{Compositional data}{Item.331}{}}
+\newlabel{it:mpg4}{{1d}{195}{Compositional data}{Item.332}{}}
+\newlabel{it:mpg5}{{1e}{195}{Compositional data}{Item.333}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {18.15}Directional data}{195}{section.18.15}\protected@file@percent }
 \newlabel{sec:ex-directional}{{18.15}{195}{Directional data}{section.18.15}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {18.16}Spatial data}{196}{section.18.16}\protected@file@percent }
 \newlabel{sec:ex-spatial}{{18.16}{196}{Spatial data}{section.18.16}{}}
-\newlabel{it:hillsemivariogram}{{1}{196}{Spatial data}{Item.333}{}}
+\newlabel{it:hillsemivariogram}{{1}{196}{Spatial data}{Item.341}{}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {19}Solutions}{197}{chapter.19}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -852,15 +854,15 @@
 \newlabel{sec:sol-basics}{{19.1}{197}{The basics}{section.19.1}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.2}Plotting data}{198}{section.19.2}\protected@file@percent }
 \newlabel{sec:sol-plotting}{{19.2}{198}{Plotting data}{section.19.2}{}}
-\newlabel{it:ABsol}{{2}{198}{Plotting data}{Item.342}{}}
-\newlabel{it:xyrandsol}{{3}{199}{Plotting data}{Item.343}{}}
+\newlabel{it:ABsol}{{2}{198}{Plotting data}{Item.350}{}}
+\newlabel{it:xyrandsol}{{3}{199}{Plotting data}{Item.351}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.3}Summary statistics}{199}{section.19.3}\protected@file@percent }
 \newlabel{sec:sol-summary-statistics}{{19.3}{199}{Summary statistics}{section.19.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.4}Probability}{201}{section.19.4}\protected@file@percent }
 \newlabel{sec:sol-probability}{{19.4}{201}{Probability}{section.19.4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.5}The binomial distribution}{203}{section.19.5}\protected@file@percent }
 \newlabel{sec:sol-binomial}{{19.5}{203}{The binomial distribution}{section.19.5}{}}
-\newlabel{it:binomtest}{{4}{205}{The binomial distribution}{Item.356}{}}
+\newlabel{it:binomtest}{{4}{205}{The binomial distribution}{Item.364}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.6}The Poisson distribution}{205}{section.19.6}\protected@file@percent }
 \newlabel{sec:sol-poisson}{{19.6}{205}{The Poisson distribution}{section.19.6}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.7}The normal distribution}{206}{section.19.7}\protected@file@percent }
@@ -869,7 +871,7 @@
 \newlabel{sec:sol-errorprop}{{19.8}{208}{Error propagation}{section.19.8}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.9}Comparing distributions}{210}{section.19.9}\protected@file@percent }
 \newlabel{sec:sol-comparingdistributions}{{19.9}{210}{Comparing distributions}{section.19.9}{}}
-\newlabel{it:sol-DZ-MDS}{{4}{211}{Comparing distributions}{Item.380}{}}
+\newlabel{it:sol-DZ-MDS}{{4}{211}{Comparing distributions}{Item.388}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.10}Regression}{212}{section.19.10}\protected@file@percent }
 \newlabel{sec:sol-regression}{{19.10}{212}{Regression}{section.19.10}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.11}Fractals and chaos}{213}{section.19.11}\protected@file@percent }
@@ -884,22 +886,23 @@
 \newlabel{fig:DZtree}{{19.3}{216}{Hierarchical clustering tree for the detrital zircon data. The tree conveys the same information as the MDS configuration of Figure~\ref {fig:DZmds}: there are two main clusters; T and Y are the two most similar samples; whilst L and 8 are the two most dissimilar samples.\relax }{figure.19.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.13}Supervised learning}{216}{section.19.13}\protected@file@percent }
 \newlabel{sec:sol-supervised}{{19.13}{216}{Supervised learning}{section.19.13}{}}
-\newlabel{it:sol-LDA-training}{{1}{216}{Supervised learning}{Item.393}{}}
-\newlabel{it:sol-LDA-test}{{2}{217}{Supervised learning}{Item.394}{}}
+\newlabel{it:sol-LDA-training}{{1}{216}{Supervised learning}{Item.401}{}}
+\newlabel{it:sol-LDA-test}{{2}{217}{Supervised learning}{Item.402}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.14}Compositional data}{218}{section.19.14}\protected@file@percent }
 \newlabel{sec:sol-compositional}{{19.14}{218}{Compositional data}{section.19.14}{}}
-\newlabel{it:sol-mpg1}{{1a}{218}{Compositional data}{Item.398}{}}
-\newlabel{it:sol-mpg2}{{1b}{218}{Compositional data}{Item.399}{}}
-\newlabel{it:sol-mpg3}{{1c}{218}{Compositional data}{Item.400}{}}
-\newlabel{it:sol-mpg4}{{1d}{218}{Compositional data}{Item.401}{}}
-\newlabel{it:sol-mpg5}{{1e}{218}{Compositional data}{Item.402}{}}
-\newlabel{it:sol-ternary-test}{{2}{219}{Compositional data}{Item.403}{}}
+\newlabel{it:sol-mpg1}{{1a}{218}{Compositional data}{Item.406}{}}
+\newlabel{it:sol-mpg2}{{1b}{218}{Compositional data}{Item.407}{}}
+\newlabel{it:sol-mpg3}{{1c}{218}{Compositional data}{Item.408}{}}
+\newlabel{it:sol-mpg4}{{1d}{218}{Compositional data}{Item.409}{}}
+\newlabel{it:sol-mpg5}{{1e}{218}{Compositional data}{Item.410}{}}
+\newlabel{it:sol-ternary-test}{{2}{219}{Compositional data}{Item.411}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {19.4}{\ignorespaces PCA biplot of the oceanic basalt compositions. The data roughly fall into three clusters, corresponding to OIB, MORB and IAB. OIBs are relatively rich in K\textsubscript  {2}O and poor in CaO; MORBs are rich in MgO and TiO\textsubscript  {2}; and IABs are rich in MnO and poor in TiO\textsubscript  {2}. K\textsubscript  {2}O and CaO are anti-correlated, and so are TiO\textsubscript  {2} and MnO. The variability in MnO/CaO is independent of the variability in TiO\textsubscript  {2}/MnO. The `outliers' on the ternary diagram of exercise\nobreakspace  {}\ref  {it:sol-ternary-test} are OIBs that are particularly poor in CaO.\relax }}{219}{figure.19.4}\protected@file@percent }
 \newlabel{fig:testPCA}{{19.4}{219}{PCA biplot of the oceanic basalt compositions. The data roughly fall into three clusters, corresponding to OIB, MORB and IAB. OIBs are relatively rich in K\textsubscript {2}O and poor in CaO; MORBs are rich in MgO and TiO\textsubscript {2}; and IABs are rich in MnO and poor in TiO\textsubscript {2}. K\textsubscript {2}O and CaO are anti-correlated, and so are TiO\textsubscript {2} and MnO. The variability in MnO/CaO is independent of the variability in TiO\textsubscript {2}/MnO. The `outliers' on the ternary diagram of exercise~\ref {it:sol-ternary-test} are OIBs that are particularly poor in CaO.\relax }{figure.19.4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.15}Directional data}{220}{section.19.15}\protected@file@percent }
 \newlabel{sec:sol-directional}{{19.15}{220}{Directional data}{section.19.15}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.16}Spatial data}{222}{section.19.16}\protected@file@percent }
 \newlabel{sec:sol-spatial}{{19.16}{222}{Spatial data}{section.19.16}{}}
-\newlabel{it:normodel}{{1}{222}{Spatial data}{Item.410}{}}
+\newlabel{it:normodel}{{1}{222}{Spatial data}{Item.418}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {19.5}{\ignorespaces a) exponential; b) Gaussian; and c) spherical semivariogram fits to the \texttt  {hills} data.\relax }}{222}{figure.19.5}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {19.6}{\ignorespaces Log-contrast between two kriging interpolations for the Meuse data, using the spherical and exponential semivariogram models. The 155 measurements locations are marked by white circles. The smallest discrepancies ($<10\%$) are found in densely sampled areas. In more sparsely sampled parts of the contour plot, and especially near the edges, the disagreement between the spherical and exponential models increases to up to $40\%$.\relax }}{223}{figure.19.6}\protected@file@percent }
+\gdef \@abspage@last{223}

@@ -60,162 +60,198 @@ Many other graphical devices exist, each of which is appropriate for a
 particular type of data. The following sections of this chapter will
 introduce a number of these data types, and the associated plots.
 
-\section{Categorical data}
-\label{sec:categorical}
+\section{Discrete data}
+\label{sec:discrete}
 
-Categorical data take one of a limited number of values, assigning
-each `object' to a particular class or category. Geological examples
-of categorical data are:
+Some geological datasets take on discrete values and can be visualised
+as bar charts or histograms. We can distinguish between three such
+types of data.
 
-\begin{itemize}
-\item rock types in a mapping area;
-\item animal species in a bone bed;
-\item the modal composition of a thin section.
-\end{itemize}
+\begin{enumerate}
 
-Consider, for example, the following 41 clast counts:
+\item\textbf{Categorical} data take on a limited number of values,
+  assigning each `object' to a particular \emph{unordered} class or
+  category. Geological examples of categorical data include animal
+  species in a bone bed; the modal composition of a thin section; and
+  lithologies in a mapping area. Figure~\ref{fig:discrete}.a shows a
+  dataset of 41 clast counts in a river bed:
+  \begin{center}
+    \begin{tabular}{cccc}
+      granite & basalt & gneiss & quartzite \\ \hline
+      10 & 5 & 6 & 20  
+    \end{tabular}
+  \end{center}
 
-\begin{center}
-  \begin{tabular}{cccc}
-    granite & basalt & gneiss & quartzite \\ \hline
-    10 & 5 & 6 & 20  
-  \end{tabular}
-\end{center}
+\item\textbf{Ordinal} data are a special type of categorical data, in
+  which the classes are \emph{ordered} but the distances between them
+  are either irregular or unknown. Geological examples of ordinal
+  quantities include Moh's hardness scale; metamorphic grade; and the
+  geologic timescale. Figure~\ref{fig:discrete}.b tallies the relative
+  areas (normalised to 100\%) covered by rocks of different
+  biostratigraphic age, in Germany:
+  \begin{center}
+    \begin{tabular}{ccccc}
+      Precambrian & Palaeozoic & Mesozoic & Tertiary & Quaternary\\ \hline
+      6.6\% & 16.9 \% & 29.4\% & 7.2\% & 39.9\%
+    \end{tabular}
+  \end{center}
 
-A bar chart is the natural way to visualise these data:\medskip
+\item\textbf{Count} data are a special type of ordinal data in which
+  the categories are evenly spaced into integer intervals. Geological
+  examples of count data include the number of gold chips found in a
+  panning session; the annual number of earthquakes that exceed a
+  certain magnitude; and the number of dry wells in a wildcat drilling
+  survey. Figure~\ref{fig:discrete}.c shows the number of discovery
+  wells in 160 equally sized tracts of the Permian Basin in Texas:
+  \begin{center}
+    \begin{tabular}{ccccccc}
+      0 & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+      70 & 42 & 26 & 17 & 3 & 1 & 1
+    \end{tabular}
+  \end{center}
 
-\noindent\begin{minipage}[t][][b]{.4\textwidth}
-  \includegraphics[width=\textwidth]{../figures/clasts.pdf}
-\end{minipage}
-\begin{minipage}[t][][t]{.6\textwidth}
-  \captionof{figure}{Bar chart of clast counts. The vertical axis
-    labels the number of objects counted in each category. The order
-    of the categories along the horizontal axis is completely
-    arbitrary and can be changed without loss of information.}
-  \label{fig:clasts}
-\end{minipage}
+\end{enumerate}
 
-\section{Count data}
-\label{sec:counts}
-
-Count data are closely related to categorical data. Geological
-examples of this type of data include:
-
-\begin{itemize}
-\item the annual number of earthquakes that exceed a certain
-  magnitude;
-\item the number of gold chips found in a panning session;
-\item the number of dry wells in a wildcat drilling survey.
-\end{itemize}
-
-The crucial difference between count data and categorical data is that
-the order of the categories matters for the count data, whereas it
-does not for categorical data.  As an example, consider the number of
-earthquakes of magnitude 5.0 or greater between 1917 and 2016:
-
-\noindent\begin{minipage}[t][][b]{.4\textwidth}
-  \includegraphics[width=\textwidth]{../figures/declusteredquakesperyear.pdf}
-\end{minipage}
-\begin{minipage}[t][][t]{.6\textwidth}
-  \captionof{figure}{Histogram of magnitude $\geq{5.0}$ earthquakes per
-    year between 1917 and 2016. The vertical axis labels the number of
-    years. The horizontal axis shows the number of earthquakes. In
-    contrast with Figure~\ref{fig:clasts}, the order of the four
-    categories along the horizontal axis matters and cannot be changed
-    without loss of information. Categorical data whose order matters
-    are also known as \emph{ordinal} data.}
-  \label{fig:quakecounts}
-\end{minipage}
+\noindent\includegraphics[width=\textwidth]{../figures/discrete.pdf}\medskip
+\begingroup \captionof{figure}{Examples of discrete datasets, shown as
+  bar charts. a) Categorical dataset of 41 random clast counts in a
+  river bed. The order of the categories along the horizontal axis is
+  completely arbitrary and can be changed without loss of
+  information. b) Ordinal dataset summarising the surficial geology of
+  Germany, expressed as the total percentage of areas covered by
+  Precambrian (pC), Palaeozoic (Pz), Mesozoic (Mz), Tertiary (T) and
+  Quaternary (Q) rocks. These five categories are listed in
+  chronological order, but span vastly different lengths of time; c)
+  The number of discovery wells per tract in an area of the Permian
+  Basin (Texas) that was subdivided into 168 equally sized quadrats.}
+\label{fig:discrete}
+\endgroup
 
 \section{Continuous data}
 \label{sec:continuous}
 
-Not all geological or geophysical measurements take integer values.
-Many are free to take on any decimal value. A few examples of such
-continuous data are:
+Not all geological or geophysical measurements take on discrete
+values.  Many are free to take on decimal values. We can also
+subdivide these continuous data into further classes, such as:
 
-\begin{itemize}
-\item the magnitude of earthquakes;
-\item the spontaneous electrical potential between geological strata;
-\item the density of minerals;
-\item the porosity of a sedimentary rock.
-\end{itemize}
+\begin{enumerate}
+\item\textbf{Balances} (a.k.a. \textbf{ratio data}) can take on any
+  decimal value, including both positive and negative
+  values. Geological examples of this data type include the magnitude
+  of earthquakes; the spontaneous electrical potential between
+  geological strata; or the pH of aqueous
+  solutions. Figure~\ref{fig:continuous}.a shows a dataset with pH
+  measurements in 20~samples of rain water:
+  \begin{center}
+    6.2, 4.4, 5.6, 5.2, 4.5, 5.4, 4.8, 5.9, 3.9, 3.8, 5.1, 4.1, 5.1, 5.5,
+    5.1, 4.6, 5.7, 4.6, 4.6, 5.6
+  \end{center}
+\item\textbf{Amounts} (a.k.a. \textbf{interval data}) are non-negative
+  numbers (from 0 to +$\infty$).  In geophysics, they are sometimes
+  called \emph{Jeffreys quantities} (so named after the British
+  geophysicist Sir Harold Jeffreys). Examples of this type of data
+  mass, volume, density, speed, etc. Figure~\ref{fig:continuous}.b
+  shows 20 sedimentary clast size measurements, in centimetres:
+  \begin{center}
+    0.35, 11.00, 6.00, 1.80, 2.30, 0.59, 8.40, 2.90, 5.90, 2.10,\\
+    1.20, 2.10, 1.10, 1.60, 0.90, 1.70, 3.40, 0.53, 2.20, 7.70
+  \end{center}
+\item\textbf{Proportions} are quantities that are constrained to a
+  finite interval from 0 to 1 (or from 0 to 100\%). Geological
+  examples of this include chemical concentrations; volume fractions;
+  and porosities.  Figure~\ref{fig:continuous}.c shows a dataset of
+  twenty porosity measurements in limestone:
+  \begin{center}
+    0.058, 0.28, 0.12, 0.27, 0.40, 0.12, 0.038, 0.063, 0.17, 0.16,\\
+    0.95, 0.94, 0.92, 0.88, 0.88, 0.70, 0.92, 0.72, 0.74, 0.84
+  \end{center}
+\end{enumerate}
 
-Consider the following dataset of pH measurements in 20~samples of
-rain water:
+\noindent\includegraphics[width=\textwidth]{../figures/continuous.pdf}\medskip
+\begingroup \captionof{figure}{Three continuous datasets, shown as
+  histograms. a) pH measurements of river water (free to take on
+  positive and negative values); b) clast size measurements
+  (non-negative numbers); and c) porosity measurements of limestone
+  (values between 0 and 1).}
+\label{fig:continuous}
+\endgroup
 
-\begin{center}
-6.2, 4.4, 5.6, 5.2, 4.5, 5.4, 4.8, 5.9, 3.9, 3.8, 5.1, 4.1, 5.1, 5.5,
-5.1, 4.6, 5.7, 4.6, 4.6, 5.6
-\end{center}
+\section{Histograms}\label{sec:histogram}
 
-These values can be collected into bins and plotted as a histogram,
-just like the count data in Section~\ref{sec:counts}. However this
+The discrete values of Section~\ref{sec:discrete} naturally fall into
+bins and the most obvious way to visualise them is as bar charts.
+Likewise, the continuous data of Section~\ref{sec:continuous} can also
+be collected into bins and plotted as histograms. However, this
 binning exercise poses two practical problems.
 
-\subsection*{i. How many bins should we use, and how wide should they be?}
+\begin{enumerate}
 
-The number of bins strongly affects the appearance of a histogram:
+\item\textbf{How many bins should be used, and how wide should they be?}
 
-\noindent\begin{minipage}[t][][b]{.5\textwidth}
+  The number of bins strongly affects the appearance of a histogram.
+  Figure~\ref{fig:binwidth} shows the pH data on two histograms with
+  the individual measurements marked as vertical ticks
+  underneath. This is also known as a \emph{rug plot}, and allows us
+  to better assess the effect of bin width on the appearance of
+  histograms:
+  
+  \noindent\begin{minipage}[t][][b]{.55\linewidth}
   \includegraphics[width=\textwidth]{../figures/binwidth.pdf}\medskip
-\end{minipage}
-\begin{minipage}[t][][t]{.5\textwidth}
-  \captionof{figure}{ Two histograms of the same pH data, with the
-    individual measurements marked as vertical ticks underneath. This
-    is also known as a \emph{rug plot}, and allows us to better assess
-    the effect of bin width on the appearance of histograms.
-    Histogram a) uses a bin width of 1~pH unit whereas histogram b)
-    uses a bin width of 0.5~pH units. The two histograms look
-    considerably different and it is not immediately clear which
-    choice of bin width is best.}
-  \label{fig:binwidth}
-\end{minipage}
+  \end{minipage}
+  \begin{minipage}[t][][t]{.45\linewidth}
+    \captionof{figure}{Histogram a) uses a bin width of 1~pH unit
+      whereas histogram b) uses a bin width of 0.5~pH units. The two
+      histograms look considerably different and it is not immediately
+      clear which choice of bin width is best.}
+    \label{fig:binwidth}
+  \end{minipage}
 
-A number of rules of thumb are available to choose the optimal number
-of bins. For example, \texttt{Excel} uses a simple square root rule:
+  A number of rules of thumb are available to choose the optimal number
+  of bins. For example, \texttt{Excel} uses a simple square root rule:
 
-\begin{equation}
-  \mbox{\#{bins} = } \sqrt{n}
-\end{equation}
+  \begin{equation}
+    \mbox{\#{bins} = } \sqrt{n}
+  \end{equation}
 
-\noindent where $n$ is the number of observations (i.e. $n = 20$ for
-the pH example). \texttt{R} uses Sturges' Rule:
+  \noindent where $n$ is the number of observations (i.e. $n = 20$ for
+  the pH example). \texttt{R} uses Sturges' Rule:
 
-\begin{equation}
-  \mbox{\#{bins} = } \log_2(n) + 1
-\end{equation}
+  \begin{equation}
+    \mbox{\#{bins} = } \log_2(n) + 1
+  \end{equation}
 
-\noindent however no rule of thumb is optimal in all situations.
+  \noindent however no rule of thumb is optimal in all situations.
 
-\subsection*{ii. Where to place the bins?}
+\item\textbf{Where to place the bins?}
 
 Even when the number of bins has been fixed, just shifting them
 slightly to the left or to the right can have a significant effect on
 the appearance of the histogram. For example:
 
-\noindent\begin{minipage}[t][][b]{.5\textwidth}
+\noindent\begin{minipage}[t][][b]{.55\linewidth}
   \includegraphics[width=\textwidth]{../figures/binpos.pdf}\medskip
 \end{minipage}
-\begin{minipage}[t][][t]{.5\textwidth}
+\begin{minipage}[t][][t]{.45\linewidth}
   \captionof{figure}{Two histograms of the pH data whose bin widths
     are the same, but whose bins have been offset by 0.25 pH units.
     This arbitrary decision strongly affects the appearance of the
     histogram.}
   \label{fig:binpos}
 \end{minipage}
-  
+
+\end{enumerate}
+
+\section{Kernel density estimation}\label{sec:KDE}
+
 To solve the bin placement problem, let us explore a variant of the
 ordinary histogram that is constructed as follows:
-
 \begin{enumerate}
 \item Rank the measurements from low to high along a line.
 \item Place a rectangular `box' on top of each measurement.
 \item Stack the boxes to create one connected line.
 \end{enumerate}
-
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-  \includegraphics[width=\textwidth]{../figures/rectKDE.pdf}
+  \includegraphics[width=\textwidth]{../figures/rectKDE.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{The rug plot along the bottom axis represents
@@ -245,7 +281,7 @@ $K(u)$ is the `kernel' function. For the rectangular kernel:
 Applying this method to the pH data:
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-  \includegraphics[width=\textwidth]{../figures/pHrectKDE.pdf}
+  \includegraphics[width=\textwidth]{../figures/pHrectKDE.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{Rectangular KDE of the pH data, constructed using
@@ -266,7 +302,7 @@ popular choice is the Gaussian function:
 \noindent which produces a continuous KDE function:\medskip
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-  \includegraphics[width=\textwidth]{../figures/gaussKDE.pdf}
+  \includegraphics[width=\textwidth]{../figures/gaussKDE.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{Using a Gaussian kernel instead of a rectangular
@@ -292,10 +328,10 @@ it is not entirely free of design decisions. The bandwidth $h$ of a
 KDE fulfils a similar role as the bin width of a histogram. Changes in
 $h$ affect the \emph{smoothness} of the KDE curve:\medskip
 
-\noindent\begin{minipage}[t][][b]{.55\textwidth}
+\noindent\begin{minipage}[t][][b]{.6\textwidth}
   \includegraphics[width=\textwidth]{../figures/bandwidth.pdf}\medskip
 \end{minipage}
-\begin{minipage}[t][][t]{.45\textwidth}
+\begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{KDEs of the pH data with a) a kernel bandwidth of
     $h=0.1$; and b) a bandwidth of $h=1$. Using a narrow bandwidth
     undermooths the data, whereas a wide bandwidth produces an
@@ -311,13 +347,12 @@ these values can be easily overruled by the user.
 \section{Data transformations}
 \label{sec:transformations}
 
-Consider the following dataset of 20 measurements of sedimentary
-clast sizes, in centimetres:
-
-\begin{center}
-0.35, 11.00, 6.00, 1.80, 2.30, 0.59, 8.40, 2.90, 5.90, 2.10,\\
-1.20, 2.10, 1.10, 1.60, 0.90, 1.70, 3.40, 0.53, 2.20, 7.70
-\end{center}
+As discussed in Section~\ref{sec:continuous}, interval data such as
+the clast sizes of Figure~\ref{fig:continuous}.b exist within an
+infinite half space between 0 and $+\infty$. However, when we
+visualise them as a KDE, the left tail of this curve may extend into
+negative data space, implying that there is a finite chance of
+observing negative clast sizes:
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
   \includegraphics[width=\textwidth]{../figures/negativeKDE.pdf}\medskip
@@ -329,43 +364,36 @@ clast sizes, in centimetres:
   \label{fig:negativeKDE}
 \end{minipage}
 
-Clast sizes are strictly positive values. Yet the left tail of the KDE
-extends into negative data space, implying that there is a finite
-chance of observing negative sizes.  This is clearly nonsense.  In
-geophysics, positive quantities are sometimes called \emph{Jeffreys
-  quantities} (so named after the British geophysicist Sir Harold
-Jeffreys). In addition to length, other examples of Jeffreys
-quantities are mass, volume, density, speed, etc. These parameters
-exist within an infinite half space between 0 and $+\infty$. We can
-transform them to the entire infinite space of numbers by applying a
-logarithmic transformation:\medskip
+This problem can be solved by transforming the interval data to the
+entire infinite space of numbers by applying a logarithmic
+transformation:
+\begin{equation}
+  u = \ln[x]
+\end{equation}
+
+After constructing the KDE, the results can then be mapped back to
+linear space using an exponential transformation:
+\begin{equation}
+  x = \exp[u]
+\end{equation}
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
   \includegraphics[width=\textwidth]{../figures/logKDE.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{a) KDE of the clast size measurements, after
-    applying a (natural) logarithmic transformation.  Note how the
-    distribution has become more symmetric compared to the linear
-    scale of Figure~\ref{fig:negativeKDE}. b) The same KDE mapped back
-    to linear scale. Unlike Figure~\ref{fig:negativeKDE}, the mapped
+    applying a logarithmic transformation.  Note how the distribution
+    has become more symmetric compared to the linear scale of
+    Figure~\ref{fig:negativeKDE}. b) The same KDE mapped back to
+    linear scale. Unlike Figure~\ref{fig:negativeKDE}, the mapped
     distribution does not cross over into negative values.}
   \label{fig:logKDE}
 \end{minipage}
 
-Jeffreys quantities are just one example of constrained measurements.
-As another example, consider the following twenty porosity
-measurements in limestone:\medskip
-
-\begin{center}
-  5.8, 28.0, 12.0, 27.0, 40.0, 12.0, 3.8, 6.3, 17.0, 16.0,\\
-  95.0, 94.0, 92.0, 88.0, 88.0, 70.0, 92.0, 72.0, 74.0, 84.0
-\end{center}
-
-Porosity takes on values between 0 and 1 (if expressed as fractions,
-or between 0 and 100 if expressed as percentages). Yet again the
-Gaussian KDE of the data plot into physically impossible values of
-$<0$ and $>1$:\medskip
+Interval data are just one example of constrained measurements.  As
+another example, consider the porosity data of
+Figure~\ref{fig:continuous}.c. Again, the Gaussian KDE of the data
+plots into physically impossible values of $<0$ and $>1$:\medskip
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
   \includegraphics[width=\textwidth]{../figures/porosityKDE.pdf}\medskip

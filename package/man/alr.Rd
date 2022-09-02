@@ -7,7 +7,7 @@
 alr(dat, inverse = FALSE)
 }
 \arguments{
-\item{dat}{an \eqn{n \times m} matrix}
+\item{dat}{an \eqn{n} column data frame or matrix}
 
 \item{inverse}{if \code{TRUE}, applies the inverse alr
 tranformation}

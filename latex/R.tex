@@ -441,7 +441,8 @@ for (i in 1:np){
 }
 \end{script}
 
-\item Creating a histogram of clast counts (Figure~\ref{fig:clasts}):
+\item Creating a bar chart of clast counts
+  (Figure~\ref{fig:discrete}.a):
 
 \begin{script}
 counts <- c(10,5,6,20)
@@ -611,7 +612,7 @@ fraction of pH values that are less than 4.5:
     function but it does something different.\label{fn:mode}} so we
   have to write our own.  For categorical data, the mode is the most
   frequently occurring value. Using the declustered earthquake counts
-  of Figure~\ref{fig:quakecounts} as an example:
+  of Figure~\ref{fig:declusteredquakesperyear} as an example:
 
 \begin{script}
 data(declustered,package='geostats')

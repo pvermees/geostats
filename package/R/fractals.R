@@ -292,7 +292,7 @@ sizefrequency <- function(dat,n=10,log=TRUE){
 #'     at a specified position with a given start velocity.
 #' @param startpos 2-element vecotor with the initial position
 #' @param startvel 2-element vector with the initial velocity
-#' @param src \eqn{n \time 2} matrix with the positions of the magnets
+#' @param src \eqn{n \times 2} matrix with the positions of the magnets
 #' @param plot logical. If \code{TRUE}, generates a plot with the
 #'     trajectory of the pendulum.
 #' @return the end position of the pendulum
