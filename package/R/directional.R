@@ -164,7 +164,7 @@ vectorsum <- function(trd,plg=0,option=0,degrees=FALSE,Rbar=TRUE){
     } else {
         if (option==1){
             az <- trd
-            dip <- abs(plg)
+            dip <- plg
             x <- cos(dip)*cos(az)
             y <- cos(dip)*sin(az)
             z <- sin(dip)

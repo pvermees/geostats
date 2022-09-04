@@ -506,70 +506,70 @@
 \newlabel{eq:X}{{12.1}{111}{Principal Component Analysis}{equation.12.1.1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {12.1}{\ignorespaces Three bivariate data points that can be visualised on a two-dimensional scatter plot. There is no need to use unsupervised learning in this case. But we will use this simple dataset as a toy example to understand how Principal Component Analysis works.\vspace  \medskipamount \relax }}{111}{figure.12.1}\protected@file@percent }
 \newlabel{fig:PCA2Ddata}{{12.1}{111}{Three bivariate data points that can be visualised on a two-dimensional scatter plot. There is no need to use unsupervised learning in this case. But we will use this simple dataset as a toy example to understand how Principal Component Analysis works.\medskip \relax }{figure.12.1}{}}
-\newlabel{eq:PCA}{{12.2}{112}{Principal Component Analysis}{equation.12.1.2}{}}
-\newlabel{eq:P}{{12.3}{112}{Principal Component Analysis}{equation.12.1.3}{}}
-\newlabel{eq:L}{{12.4}{112}{Principal Component Analysis}{equation.12.1.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12.2}{\ignorespaces PCA decomposition of Figure\nobreakspace  {}\ref  {fig:PCA2Ddata}. The data $X$ are shown as numbers, $C$ as a square, and $1_{2,1}C \pm L$ as a cross. The first principal direction (running from the upper left to the lower right) has been stretched by a factor of $(3.67/0.71) = 5.2$ w.r.t the second principal direction, which runs perpendicular to it.\vspace  \medskipamount \relax }}{112}{figure.12.2}\protected@file@percent }
-\newlabel{fig:PCA2D1}{{12.2}{112}{PCA decomposition of Figure~\ref {fig:PCA2Ddata}. The data $X$ are shown as numbers, $C$ as a square, and $1_{2,1}C \pm L$ as a cross. The first principal direction (running from the upper left to the lower right) has been stretched by a factor of $(3.67/0.71) = 5.2$ w.r.t the second principal direction, which runs perpendicular to it.\medskip \relax }{figure.12.2}{}}
+\newlabel{eq:XMY}{{12.2}{112}{Principal Component Analysis}{equation.12.1.2}{}}
+\newlabel{eq:eigen}{{12.4}{112}{Principal Component Analysis}{equation.12.1.4}{}}
+\newlabel{eq:P}{{12.5}{112}{Principal Component Analysis}{equation.12.1.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12.2}{\ignorespaces PCA decomposition of Figure\nobreakspace  {}\ref  {fig:PCA2Ddata}. The data $X$ are shown as numbers, $M$ as a square, and $1_{2,1}M \pm Q \sqrt  {\Lambda }$ as a cross. The first principal direction (running from the upper left to the lower right) has been stretched by a factor of $\sqrt  {13.5/0.5} = 5.2$ w.r.t the second principal direction, which runs perpendicular to it.\vspace  \medskipamount \relax }}{112}{figure.12.2}\protected@file@percent }
+\newlabel{fig:PCA2D1}{{12.2}{112}{PCA decomposition of Figure~\ref {fig:PCA2Ddata}. The data $X$ are shown as numbers, $M$ as a square, and $1_{2,1}M \pm Q \sqrt {\Lambda }$ as a cross. The first principal direction (running from the upper left to the lower right) has been stretched by a factor of $\sqrt {13.5/0.5} = 5.2$ w.r.t the second principal direction, which runs perpendicular to it.\medskip \relax }{figure.12.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {12.3}{\ignorespaces Projection of the three data points on the two principal directions yields two principal components ($P$ in Equation\nobreakspace  {}\ref  {eq:P}), representing a one-dimensional representation of the two-dimensional data\vspace  \medskipamount \relax }}{112}{figure.12.3}\protected@file@percent }
 \newlabel{fig:PCA2D2}{{12.3}{112}{Projection of the three data points on the two principal directions yields two principal components ($P$ in Equation~\ref {eq:P}), representing a one-dimensional representation of the two-dimensional data\medskip \relax }{figure.12.3}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {12.4}{\ignorespaces A biplot of both principal components along with the loadings of the two variables shown as arrows. The first principal component shows that the most important difference is that between sample\nobreakspace  {}1 (which is rich in $b$ and poor in $a$) and samples 2 \& 3 (which are poor in $b$ and rich in $a$). The second principal component captures the remaining variance, with sample\nobreakspace  {}3 begin slightly richer in $a$ and $b$ than sample\nobreakspace  {}2.\vspace  \medskipamount \relax }}{113}{figure.12.4}\protected@file@percent }
 \newlabel{fig:PCA2D3}{{12.4}{113}{A biplot of both principal components along with the loadings of the two variables shown as arrows. The first principal component shows that the most important difference is that between sample~1 (which is rich in $b$ and poor in $a$) and samples 2 \& 3 (which are poor in $b$ and rich in $a$). The second principal component captures the remaining variance, with sample~3 begin slightly richer in $a$ and $b$ than sample~2.\medskip \relax }{figure.12.4}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {12.1}{\ignorespaces \texttt  {USArrests} is a dataset that is built into the \texttt  {R} programming environment. It contains crime statistics (in arrests per 100,000 residents) for murder, assault and rape in each of the 50 US states in 1973. Also given is the percentage of the population living in urban areas. Thus, \texttt  {USArrests} is a four-column table that cannot readily be visualised on a two-dimensional surface.\relax }}{113}{table.12.1}\protected@file@percent }
 \newlabel{tab:USArrests}{{12.1}{113}{\texttt {USArrests} is a dataset that is built into the \texttt {R} programming environment. It contains crime statistics (in arrests per 100,000 residents) for murder, assault and rape in each of the 50 US states in 1973. Also given is the percentage of the population living in urban areas. Thus, \texttt {USArrests} is a four-column table that cannot readily be visualised on a two-dimensional surface.\relax }{table.12.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12.5}{\ignorespaces  PCA biplot of American crime statistics. The grey labels mark the different states, whilst the black vectors mark the crimes and the percentage of the population that lives in urban areas. States that have a lot of crime plot on the left hand side of the diagram, states with little crime plot towards the right. Heavily urbanised states plot at the bottom of the diagram, rural states plot near the top.\vspace  \medskipamount \relax }}{113}{figure.12.5}\protected@file@percent }
-\newlabel{fig:USArrests}{{12.5}{113}{PCA biplot of American crime statistics. The grey labels mark the different states, whilst the black vectors mark the crimes and the percentage of the population that lives in urban areas. States that have a lot of crime plot on the left hand side of the diagram, states with little crime plot towards the right. Heavily urbanised states plot at the bottom of the diagram, rural states plot near the top.\medskip \relax }{figure.12.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12.5}{\ignorespaces  PCA biplot of American crime statistics. The grey labels mark the different states, whilst the black vectors mark the crimes and the percentage of the population that lives in urban areas. States that have a lot of crime plot on the left hand side of the diagram, states with little crime plot towards the right. Heavily urbanised states plot at the bottom of the diagram, rural states plot near the top.\vspace  \medskipamount \relax }}{114}{figure.12.5}\protected@file@percent }
+\newlabel{fig:USArrests}{{12.5}{114}{PCA biplot of American crime statistics. The grey labels mark the different states, whilst the black vectors mark the crimes and the percentage of the population that lives in urban areas. States that have a lot of crime plot on the left hand side of the diagram, states with little crime plot towards the right. Heavily urbanised states plot at the bottom of the diagram, rural states plot near the top.\medskip \relax }{figure.12.5}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {12.2}Multidimensional Scaling}{114}{section.12.2}\protected@file@percent }
 \newlabel{sec:MDS}{{12.2}{114}{Multidimensional Scaling}{section.12.2}{}}
-\newlabel{eq:euclidean}{{12.5}{114}{Multidimensional Scaling}{equation.12.2.5}{}}
-\newlabel{eq:d}{{12.6}{114}{Multidimensional Scaling}{equation.12.2.6}{}}
-\newlabel{eq:m}{{12.7}{114}{Multidimensional Scaling}{equation.12.2.7}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {12.2}{\ignorespaces Table of road distances (in km) between European cities. The full dataset comprises 21 cities.\relax }}{114}{table.12.2}\protected@file@percent }
+\newlabel{eq:euclidean}{{12.6}{114}{Multidimensional Scaling}{equation.12.2.6}{}}
+\newlabel{eq:d}{{12.7}{114}{Multidimensional Scaling}{equation.12.2.7}{}}
+\newlabel{eq:m}{{12.8}{115}{Multidimensional Scaling}{equation.12.2.8}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {12.2}{\ignorespaces Table of road distances (in km) between European cities. The full dataset comprises 21 cities.\relax }}{115}{table.12.2}\protected@file@percent }
 \newlabel{tab:eurodist}{{12.2}{115}{Table of road distances (in km) between European cities. The full dataset comprises 21 cities.\relax }{table.12.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {12.6}{\ignorespaces MDS configuration of the European city distance data (Table\nobreakspace  {}\ref  {tab:eurodist}). Cities (such as Lyon and Geneva) that are close together in the real world plot close together on the MDS configuration. And cities (such as Stockholm and Athens) that are far apart in the real world plot on opposite ends of the MDS configuration. But whilst the MDS configuration preserves the distances, it does not preserve the orientation of the cities. In this figure, the y-axis has been flipped, and the city locations are rotated $\sim 15^\circ $ in a clockwise sense compared to the real map of Europe.\vspace  \medskipamount \relax }}{115}{figure.12.6}\protected@file@percent }
 \newlabel{fig:eurodist}{{12.6}{115}{MDS configuration of the European city distance data (Table~\ref {tab:eurodist}). Cities (such as Lyon and Geneva) that are close together in the real world plot close together on the MDS configuration. And cities (such as Stockholm and Athens) that are far apart in the real world plot on opposite ends of the MDS configuration. But whilst the MDS configuration preserves the distances, it does not preserve the orientation of the cities. In this figure, the y-axis has been flipped, and the city locations are rotated $\sim 15^\circ $ in a clockwise sense compared to the real map of Europe.\medskip \relax }{figure.12.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12.7}{\ignorespaces The Shepard plot of the European city distances shows a good agreement between the true input distances from Table\nobreakspace  {}\ref  {tab:eurodist} (x-axis) and the fitted distances measured on the MDS configuration of Figure\nobreakspace  {}\ref  {fig:eurodist} (y-axis). There are 21 cities in the dataset, resulting in $21\times {20}/2=210$ pairwise distances. Hence there are 210 data points on this scatter plot. Most of the scatter of the data around the best fit line is caused by the fact that the input data are \emph  {road distances}, which do not perfectly agree with the straight line map distances.\vspace  \medskipamount \relax }}{115}{figure.12.7}\protected@file@percent }
-\newlabel{fig:Shepard}{{12.7}{115}{The Shepard plot of the European city distances shows a good agreement between the true input distances from Table~\ref {tab:eurodist} (x-axis) and the fitted distances measured on the MDS configuration of Figure~\ref {fig:eurodist} (y-axis). There are 21 cities in the dataset, resulting in $21\times {20}/2=210$ pairwise distances. Hence there are 210 data points on this scatter plot. Most of the scatter of the data around the best fit line is caused by the fact that the input data are \emph {road distances}, which do not perfectly agree with the straight line map distances.\medskip \relax }{figure.12.7}{}}
-\newlabel{eq:stress}{{12.8}{115}{Multidimensional Scaling}{equation.12.2.8}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {12.3}{\ignorespaces Rule of thumb for interpreting the goodness of fit of an MDS configuration.\relax }}{115}{table.12.3}\protected@file@percent }
-\newlabel{tab:S}{{12.3}{115}{Rule of thumb for interpreting the goodness of fit of an MDS configuration.\relax }{table.12.3}{}}
-\newlabel{eq:DZd}{{12.9}{116}{Multidimensional Scaling}{equation.12.2.9}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12.8}{\ignorespaces MDS configuration of the detrital zircon U--Pb data. Samples that have similar age distributions (such as `Y' and `T') are characterised by low K-S statistics (e.g., $d[Y,T]=0.07$) and plot close together. Samples that have greatly differing age distributions (such as `Y' and `8') are characterised by high K-S statistics (e.g., $d[Y,5]=0.62$) and plot far apart on the MDS map.\vspace  \medskipamount \relax }}{116}{figure.12.8}\protected@file@percent }
-\newlabel{fig:DZmds}{{12.8}{116}{MDS configuration of the detrital zircon U--Pb data. Samples that have similar age distributions (such as `Y' and `T') are characterised by low K-S statistics (e.g., $d[Y,T]=0.07$) and plot close together. Samples that have greatly differing age distributions (such as `Y' and `8') are characterised by high K-S statistics (e.g., $d[Y,5]=0.62$) and plot far apart on the MDS map.\medskip \relax }{figure.12.8}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {12.3}K-means clustering}{116}{section.12.3}\protected@file@percent }
-\newlabel{sec:kmeans}{{12.3}{116}{K-means clustering}{section.12.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12.7}{\ignorespaces The Shepard plot of the European city distances shows a good agreement between the true input distances from Table\nobreakspace  {}\ref  {tab:eurodist} (x-axis) and the fitted distances measured on the MDS configuration of Figure\nobreakspace  {}\ref  {fig:eurodist} (y-axis). There are 21 cities in the dataset, resulting in $21\times {20}/2=210$ pairwise distances. Hence there are 210 data points on this scatter plot. Most of the scatter of the data around the best fit line is caused by the fact that the input data are \emph  {road distances}, which do not perfectly agree with the straight line map distances.\vspace  \medskipamount \relax }}{116}{figure.12.7}\protected@file@percent }
+\newlabel{fig:Shepard}{{12.7}{116}{The Shepard plot of the European city distances shows a good agreement between the true input distances from Table~\ref {tab:eurodist} (x-axis) and the fitted distances measured on the MDS configuration of Figure~\ref {fig:eurodist} (y-axis). There are 21 cities in the dataset, resulting in $21\times {20}/2=210$ pairwise distances. Hence there are 210 data points on this scatter plot. Most of the scatter of the data around the best fit line is caused by the fact that the input data are \emph {road distances}, which do not perfectly agree with the straight line map distances.\medskip \relax }{figure.12.7}{}}
+\newlabel{eq:stress}{{12.9}{116}{Multidimensional Scaling}{equation.12.2.9}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {12.3}{\ignorespaces Rule of thumb for interpreting the goodness of fit of an MDS configuration.\relax }}{116}{table.12.3}\protected@file@percent }
+\newlabel{tab:S}{{12.3}{116}{Rule of thumb for interpreting the goodness of fit of an MDS configuration.\relax }{table.12.3}{}}
+\newlabel{eq:DZd}{{12.10}{117}{Multidimensional Scaling}{equation.12.2.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12.8}{\ignorespaces MDS configuration of the detrital zircon U--Pb data. Samples that have similar age distributions (such as `Y' and `T') are characterised by low K-S statistics (e.g., $d[Y,T]=0.07$) and plot close together. Samples that have greatly differing age distributions (such as `Y' and `8') are characterised by high K-S statistics (e.g., $d[Y,5]=0.62$) and plot far apart on the MDS map.\vspace  \medskipamount \relax }}{117}{figure.12.8}\protected@file@percent }
+\newlabel{fig:DZmds}{{12.8}{117}{MDS configuration of the detrital zircon U--Pb data. Samples that have similar age distributions (such as `Y' and `T') are characterised by low K-S statistics (e.g., $d[Y,T]=0.07$) and plot close together. Samples that have greatly differing age distributions (such as `Y' and `8') are characterised by high K-S statistics (e.g., $d[Y,5]=0.62$) and plot far apart on the MDS map.\medskip \relax }{figure.12.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {12.3}K-means clustering}{117}{section.12.3}\protected@file@percent }
+\newlabel{sec:kmeans}{{12.3}{117}{K-means clustering}{section.12.3}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {12.9}{\ignorespaces A two-dimensional dataset to illustrate the k-means clustering algorithm. There are 150 data points. In this first exercise we will try to classify them into three groups.\relax }}{117}{figure.12.9}\protected@file@percent }
 \newlabel{fig:kmeans1}{{12.9}{117}{A two-dimensional dataset to illustrate the k-means clustering algorithm. There are 150 data points. In this first exercise we will try to classify them into three groups.\relax }{figure.12.9}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12.10}{\ignorespaces Data points 48, 100 and 130 were randomly selected from the dataset and assigned as the centroids of clusters 1 (circle), 2 (triangle) and 3 (cross).\relax }}{117}{figure.12.10}\protected@file@percent }
-\newlabel{fig:kmeans2}{{12.10}{117}{Data points 48, 100 and 130 were randomly selected from the dataset and assigned as the centroids of clusters 1 (circle), 2 (triangle) and 3 (cross).\relax }{figure.12.10}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12.11}{\ignorespaces Replace each of the question marks in Figure\nobreakspace  {}\ref  {fig:kmeans2} with the symbol (circle, triangle or cross) that is closest to it, using the Euclidean distance of Equation\nobreakspace  {}\ref  {eq:euclidean}.\relax }}{117}{figure.12.11}\protected@file@percent }
-\newlabel{fig:kmeans3}{{12.11}{117}{Replace each of the question marks in Figure~\ref {fig:kmeans2} with the symbol (circle, triangle or cross) that is closest to it, using the Euclidean distance of Equation~\ref {eq:euclidean}.\relax }{figure.12.11}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12.12}{\ignorespaces The grey symbols are the same as the black symbols in Figure\nobreakspace  {}\ref  {fig:kmeans3}. The black symbols are the average $\{x,y\}$-positions of all the samples within each cluster. These are different than the previous values shown in Figure\nobreakspace  {}\ref  {fig:kmeans2}. The new values form the centroid of the clusters that will be used in the next iteration of the k-means algorithm.\relax }}{117}{figure.12.12}\protected@file@percent }
-\newlabel{fig:kmeans4}{{12.12}{117}{The grey symbols are the same as the black symbols in Figure~\ref {fig:kmeans3}. The black symbols are the average $\{x,y\}$-positions of all the samples within each cluster. These are different than the previous values shown in Figure~\ref {fig:kmeans2}. The new values form the centroid of the clusters that will be used in the next iteration of the k-means algorithm.\relax }{figure.12.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12.10}{\ignorespaces Data points 48, 100 and 130 were randomly selected from the dataset and assigned as the centroids of clusters 1 (circle), 2 (triangle) and 3 (cross).\relax }}{118}{figure.12.10}\protected@file@percent }
+\newlabel{fig:kmeans2}{{12.10}{118}{Data points 48, 100 and 130 were randomly selected from the dataset and assigned as the centroids of clusters 1 (circle), 2 (triangle) and 3 (cross).\relax }{figure.12.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12.11}{\ignorespaces Replace each of the question marks in Figure\nobreakspace  {}\ref  {fig:kmeans2} with the symbol (circle, triangle or cross) that is closest to it, using the Euclidean distance of Equation\nobreakspace  {}\ref  {eq:euclidean}.\relax }}{118}{figure.12.11}\protected@file@percent }
+\newlabel{fig:kmeans3}{{12.11}{118}{Replace each of the question marks in Figure~\ref {fig:kmeans2} with the symbol (circle, triangle or cross) that is closest to it, using the Euclidean distance of Equation~\ref {eq:euclidean}.\relax }{figure.12.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12.12}{\ignorespaces The grey symbols are the same as the black symbols in Figure\nobreakspace  {}\ref  {fig:kmeans3}. The black symbols are the average $\{x,y\}$-positions of all the samples within each cluster. These are different than the previous values shown in Figure\nobreakspace  {}\ref  {fig:kmeans2}. The new values form the centroid of the clusters that will be used in the next iteration of the k-means algorithm.\relax }}{118}{figure.12.12}\protected@file@percent }
+\newlabel{fig:kmeans4}{{12.12}{118}{The grey symbols are the same as the black symbols in Figure~\ref {fig:kmeans3}. The black symbols are the average $\{x,y\}$-positions of all the samples within each cluster. These are different than the previous values shown in Figure~\ref {fig:kmeans2}. The new values form the centroid of the clusters that will be used in the next iteration of the k-means algorithm.\relax }{figure.12.12}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {12.13}{\ignorespaces Final classification of the data. Each of the 150 data points has been assigned to one of the three clusters whose centroids are marked as large and bold symbols.\relax }}{118}{figure.12.13}\protected@file@percent }
 \newlabel{fig:kmeans5}{{12.13}{118}{Final classification of the data. Each of the 150 data points has been assigned to one of the three clusters whose centroids are marked as large and bold symbols.\relax }{figure.12.13}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12.14}{\ignorespaces Two-dimensional marginal distributions of R.A. Fisher's iris dataset, which comprises four variables measured in 150 different flowers belonging to three different species: \emph  {setosa} (circles), \emph  {versicolor} (triangles) and \emph  {virginica} (crosses). The two-dimensional dataset of Figures\nobreakspace  {}\ref  {fig:kmeans1}--\ref  {fig:kmeans5} was derived from panel (4,2), which sets out petal width against sepal width. The classification shown in Figure\nobreakspace  {}\ref  {fig:kmeans5} does a decent job at classifying the 150 flowers into three groups but the classification is not perfect. For example, the flower in the lower left corner of panel (4,2) belongs to \emph  {setosa} but was incorrectly classified as \emph  {versicolor} in Figure\nobreakspace  {}\ref  {fig:kmeans5}. \vspace  \medskipamount \relax }}{118}{figure.12.14}\protected@file@percent }
-\newlabel{fig:Iris}{{12.14}{118}{Two-dimensional marginal distributions of R.A. Fisher's iris dataset, which comprises four variables measured in 150 different flowers belonging to three different species: \emph {setosa} (circles), \emph {versicolor} (triangles) and \emph {virginica} (crosses). The two-dimensional dataset of Figures~\ref {fig:kmeans1}--\ref {fig:kmeans5} was derived from panel (4,2), which sets out petal width against sepal width. The classification shown in Figure~\ref {fig:kmeans5} does a decent job at classifying the 150 flowers into three groups but the classification is not perfect. For example, the flower in the lower left corner of panel (4,2) belongs to \emph {setosa} but was incorrectly classified as \emph {versicolor} in Figure~\ref {fig:kmeans5}. \medskip \relax }{figure.12.14}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {12.4}{\ignorespaces Classification results of the k-means algorithm applied to Fisher's iris data.\relax }}{118}{table.12.4}\protected@file@percent }
-\newlabel{tab:kmeansIris}{{12.4}{118}{Classification results of the k-means algorithm applied to Fisher's iris data.\relax }{table.12.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12.14}{\ignorespaces Two-dimensional marginal distributions of R.A. Fisher's iris dataset, which comprises four variables measured in 150 different flowers belonging to three different species: \emph  {setosa} (circles), \emph  {versicolor} (triangles) and \emph  {virginica} (crosses). The two-dimensional dataset of Figures\nobreakspace  {}\ref  {fig:kmeans1}--\ref  {fig:kmeans5} was derived from panel (4,2), which sets out petal width against sepal width. The classification shown in Figure\nobreakspace  {}\ref  {fig:kmeans5} does a decent job at classifying the 150 flowers into three groups but the classification is not perfect. For example, the flower in the lower left corner of panel (4,2) belongs to \emph  {setosa} but was incorrectly classified as \emph  {versicolor} in Figure\nobreakspace  {}\ref  {fig:kmeans5}. \vspace  \medskipamount \relax }}{119}{figure.12.14}\protected@file@percent }
+\newlabel{fig:Iris}{{12.14}{119}{Two-dimensional marginal distributions of R.A. Fisher's iris dataset, which comprises four variables measured in 150 different flowers belonging to three different species: \emph {setosa} (circles), \emph {versicolor} (triangles) and \emph {virginica} (crosses). The two-dimensional dataset of Figures~\ref {fig:kmeans1}--\ref {fig:kmeans5} was derived from panel (4,2), which sets out petal width against sepal width. The classification shown in Figure~\ref {fig:kmeans5} does a decent job at classifying the 150 flowers into three groups but the classification is not perfect. For example, the flower in the lower left corner of panel (4,2) belongs to \emph {setosa} but was incorrectly classified as \emph {versicolor} in Figure~\ref {fig:kmeans5}. \medskip \relax }{figure.12.14}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {12.4}{\ignorespaces Classification results of the k-means algorithm applied to Fisher's iris data.\relax }}{119}{table.12.4}\protected@file@percent }
+\newlabel{tab:kmeansIris}{{12.4}{119}{Classification results of the k-means algorithm applied to Fisher's iris data.\relax }{table.12.4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {12.4}Hierarchical clustering}{119}{section.12.4}\protected@file@percent }
 \newlabel{sec:hierarchical}{{12.4}{119}{Hierarchical clustering}{section.12.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12.15}{\ignorespaces A simple bivariate dataset that will be used to illustrate the hierarchical clustering algorithm:\relax }}{119}{figure.12.15}\protected@file@percent }
-\newlabel{fig:hierarchical1}{{12.15}{119}{A simple bivariate dataset that will be used to illustrate the hierarchical clustering algorithm:\relax }{figure.12.15}{}}
-\newlabel{it:hierachical1}{{1}{119}{Hierarchical clustering}{Item.167}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12.16}{\ignorespaces First step of the hierarchical clustering process. The closest two samples (1 and 3) have been grouped together into a new cluster (grey line, left). The results can also be visualised as a tree or \textbf  {dendrogram} (right).\vspace  \medskipamount \relax }}{119}{figure.12.16}\protected@file@percent }
-\newlabel{fig:hierarchical2}{{12.16}{119}{First step of the hierarchical clustering process. The closest two samples (1 and 3) have been grouped together into a new cluster (grey line, left). The results can also be visualised as a tree or \textbf {dendrogram} (right).\medskip \relax }{figure.12.16}{}}
-\newlabel{it:hierarchical2}{{3}{120}{Hierarchical clustering}{Item.169}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12.17}{\ignorespaces The second step of the hierarchical clustering process shown as a scatter plot (left) and a dendrogram (right). The first order cluster is nested inside the second order one.\vspace  \medskipamount \relax }}{120}{figure.12.17}\protected@file@percent }
-\newlabel{fig:hierarchical3}{{12.17}{120}{The second step of the hierarchical clustering process shown as a scatter plot (left) and a dendrogram (right). The first order cluster is nested inside the second order one.\medskip \relax }{figure.12.17}{}}
-\newlabel{it:hierarchical3}{{5}{120}{Hierarchical clustering}{Item.171}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12.18}{\ignorespaces The third step of the hierarchical clustering process shown as a scatter plot (left) and a dendrogram (right). The third cluster does not share any elements with the first two clusters.\vspace  \medskipamount \relax }}{120}{figure.12.18}\protected@file@percent }
-\newlabel{fig:hierarchical4}{{12.18}{120}{The third step of the hierarchical clustering process shown as a scatter plot (left) and a dendrogram (right). The third cluster does not share any elements with the first two clusters.\medskip \relax }{figure.12.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12.15}{\ignorespaces A simple bivariate dataset that will be used to illustrate the hierarchical clustering algorithm:\relax }}{120}{figure.12.15}\protected@file@percent }
+\newlabel{fig:hierarchical1}{{12.15}{120}{A simple bivariate dataset that will be used to illustrate the hierarchical clustering algorithm:\relax }{figure.12.15}{}}
+\newlabel{it:hierachical1}{{1}{120}{Hierarchical clustering}{Item.171}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12.16}{\ignorespaces First step of the hierarchical clustering process. The closest two samples (1 and 3) have been grouped together into a new cluster (grey line, left). The results can also be visualised as a tree or \textbf  {dendrogram} (right).\vspace  \medskipamount \relax }}{120}{figure.12.16}\protected@file@percent }
+\newlabel{fig:hierarchical2}{{12.16}{120}{First step of the hierarchical clustering process. The closest two samples (1 and 3) have been grouped together into a new cluster (grey line, left). The results can also be visualised as a tree or \textbf {dendrogram} (right).\medskip \relax }{figure.12.16}{}}
+\newlabel{it:hierarchical2}{{3}{120}{Hierarchical clustering}{Item.173}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12.17}{\ignorespaces The second step of the hierarchical clustering process shown as a scatter plot (left) and a dendrogram (right). The first order cluster is nested inside the second order one.\vspace  \medskipamount \relax }}{121}{figure.12.17}\protected@file@percent }
+\newlabel{fig:hierarchical3}{{12.17}{121}{The second step of the hierarchical clustering process shown as a scatter plot (left) and a dendrogram (right). The first order cluster is nested inside the second order one.\medskip \relax }{figure.12.17}{}}
+\newlabel{it:hierarchical3}{{5}{121}{Hierarchical clustering}{Item.175}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12.18}{\ignorespaces The third step of the hierarchical clustering process shown as a scatter plot (left) and a dendrogram (right). The third cluster does not share any elements with the first two clusters.\vspace  \medskipamount \relax }}{121}{figure.12.18}\protected@file@percent }
+\newlabel{fig:hierarchical4}{{12.18}{121}{The third step of the hierarchical clustering process shown as a scatter plot (left) and a dendrogram (right). The third cluster does not share any elements with the first two clusters.\medskip \relax }{figure.12.18}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {12.19}{\ignorespaces Final results of the hierarchical cluster analysis. The tree consists of four nested clusters. The y-axis has units of distance: the longer the branch, the greater the difference between the corresponding clusters.\relax }}{121}{figure.12.19}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {12.20}{\ignorespaces Hierarchical clustering tree of R.A. Fisher's iris data. Labels have been omitted to reduce clutter.\vspace  \medskipamount \relax }}{121}{figure.12.20}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {12.21}{\ignorespaces Cutting the tree at height=3.6 (dashed line) produces a simple tree with three branches, which can be used to classify the iris flowers into three groups.\vspace  \medskipamount \relax }}{121}{figure.12.21}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {12.5}{\ignorespaces Classification results of the hierarchical clustering algorithm applied to Fisher's iris data.\relax }}{121}{table.12.5}\protected@file@percent }
-\newlabel{tab:hclustIris}{{12.5}{121}{Classification results of the hierarchical clustering algorithm applied to Fisher's iris data.\relax }{table.12.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12.20}{\ignorespaces Hierarchical clustering tree of R.A. Fisher's iris data. Labels have been omitted to reduce clutter.\vspace  \medskipamount \relax }}{122}{figure.12.20}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {12.21}{\ignorespaces Cutting the tree at height=3.6 (dashed line) produces a simple tree with three branches, which can be used to classify the iris flowers into three groups.\vspace  \medskipamount \relax }}{122}{figure.12.21}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {12.5}{\ignorespaces Classification results of the hierarchical clustering algorithm applied to Fisher's iris data.\relax }}{122}{table.12.5}\protected@file@percent }
+\newlabel{tab:hclustIris}{{12.5}{122}{Classification results of the hierarchical clustering algorithm applied to Fisher's iris data.\relax }{table.12.5}{}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {13}Supervised learning}{123}{chapter.13}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -602,8 +602,8 @@
 \newlabel{fig:Q2}{{13.8}{127}{Second order partition of the right hand side of Figure~\ref {fig:Qtries}.c). The results can be visualised as a dendrogram or tree (right). The `leaves' of this tree are annotated as $n_\circ /n_\bullet $ where $n_\circ $ is the number of training data of class $\circ $ and $n_\bullet $ is the number of training data of class $\bullet $.\\\relax }{figure.13.8}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {13.9}{\ignorespaces A recursive binary partition tree that perfectly classifies all the samples in Figure\nobreakspace  {}\ref  {fig:CARTdata}. The annotations of the dendrogram have been removed to reduce clutter.  \relax }}{128}{figure.13.9}\protected@file@percent }
 \newlabel{fig:overfittedCARTscatter}{{13.9}{128}{A recursive binary partition tree that perfectly classifies all the samples in Figure~\ref {fig:CARTdata}. The annotations of the dendrogram have been removed to reduce clutter. \\\relax }{figure.13.9}{}}
-\newlabel{it:cv1}{{2}{128}{Decision trees}{Item.175}{}}
-\newlabel{it:cv2}{{3}{128}{Decision trees}{Item.176}{}}
+\newlabel{it:cv1}{{2}{128}{Decision trees}{Item.179}{}}
+\newlabel{it:cv2}{{3}{128}{Decision trees}{Item.180}{}}
 \newlabel{eq:cp}{{13.7}{128}{Decision trees}{equation.13.2.7}{}}
 \newlabel{eq:Ta}{{13.8}{128}{Decision trees}{equation.13.2.8}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {13.10}{\ignorespaces A plot of cross validated (CV) prediction error versus the number of nodes in the collection of nested subtrees shows a minimum at five splits. The CV error of small trees is caused by bias, whereas the CV error of large tree is a result of variance. There typically exist several trees with CV errors close to the minimum. Therefore, a `1-SE rule' is used, i.e., choosing the smallest tree whose misclassification rate does not exceed the minimum CV error plus one standard error of the smallest CV error (dotted line). \relax }}{129}{figure.13.10}\protected@file@percent }
@@ -751,25 +751,25 @@
 \newlabel{ch:R}{{17}{157}{An introduction to \texttt {R}}{chapter.17}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.1}The basics}{157}{section.17.1}\protected@file@percent }
 \newlabel{sec:R-basics}{{17.1}{157}{The basics}{section.17.1}{}}
-\newlabel{it:geostats}{{13}{162}{The basics}{Item.200}{}}
+\newlabel{it:geostats}{{13}{162}{The basics}{Item.204}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.2}Plotting data}{163}{section.17.2}\protected@file@percent }
 \newlabel{sec:R-plotting}{{17.2}{163}{Plotting data}{section.17.2}{}}
-\newlabel{it:anscombe}{{1}{163}{Plotting data}{Item.201}{}}
-\newlabel{it:KDE}{{3}{164}{Plotting data}{Item.203}{}}
+\newlabel{it:anscombe}{{1}{163}{Plotting data}{Item.205}{}}
+\newlabel{it:KDE}{{3}{164}{Plotting data}{Item.207}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.3}Summary Statistics}{166}{section.17.3}\protected@file@percent }
 \newlabel{sec:R-summary-statistics}{{17.3}{166}{Summary Statistics}{section.17.3}{}}
-\newlabel{it:mode}{{2}{166}{Summary Statistics}{Item.207}{}}
-\newlabel{fn:mode}{{2}{166}{}{Hfootnote.16}{}}
+\newlabel{it:mode}{{2}{166}{Summary Statistics}{Item.211}{}}
+\newlabel{fn:mode}{{2}{166}{}{Hfootnote.17}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.4}Probability}{167}{section.17.4}\protected@file@percent }
 \newlabel{sec:R-probability}{{17.4}{167}{Probability}{section.17.4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.5}The binomial distribution}{168}{section.17.5}\protected@file@percent }
 \newlabel{sec:R-binomial}{{17.5}{168}{The binomial distribution}{section.17.5}{}}
-\newlabel{it:1sidedbinomR}{{4}{168}{The binomial distribution}{Item.214}{}}
-\newlabel{it:2sidedbinomR}{{5}{169}{The binomial distribution}{Item.215}{}}
+\newlabel{it:1sidedbinomR}{{4}{168}{The binomial distribution}{Item.218}{}}
+\newlabel{it:2sidedbinomR}{{5}{169}{The binomial distribution}{Item.219}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.6}The Poisson distribution}{170}{section.17.6}\protected@file@percent }
 \newlabel{sec:R-poisson}{{17.6}{170}{The Poisson distribution}{section.17.6}{}}
-\newlabel{it:1sidedpoisR}{{4}{171}{The Poisson distribution}{Item.221}{}}
-\newlabel{it:2sidedpoisR}{{5}{171}{The Poisson distribution}{Item.222}{}}
+\newlabel{it:1sidedpoisR}{{4}{171}{The Poisson distribution}{Item.225}{}}
+\newlabel{it:2sidedpoisR}{{5}{171}{The Poisson distribution}{Item.226}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.7}The normal distribution}{172}{section.17.7}\protected@file@percent }
 \newlabel{sec:R-gauss}{{17.7}{172}{The normal distribution}{section.17.7}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.8}Error propagation}{172}{section.17.8}\protected@file@percent }
@@ -778,26 +778,26 @@
 \newlabel{fig:LLpois}{{17.1}{173}{Log-likelihood function for the Poisson distribution, evaluated at different values for the parameter $\lambda $, given an observation of $k=4$ successes. The function reaches a maximum value at $\hat {\lambda }=4$. \relax }{figure.17.1}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.9}Comparing distributions}{174}{section.17.9}\protected@file@percent }
 \newlabel{sec:R-comparingdistributions}{{17.9}{174}{Comparing distributions}{section.17.9}{}}
-\newlabel{it:2sided2samplettest}{{3}{174}{Comparing distributions}{Item.234}{}}
+\newlabel{it:2sided2samplettest}{{3}{174}{Comparing distributions}{Item.238}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.10}Regression}{176}{section.17.10}\protected@file@percent }
 \newlabel{sec:R-regression}{{17.10}{176}{Regression}{section.17.10}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.11}Fractals and chaos}{179}{section.17.11}\protected@file@percent }
 \newlabel{sec:R-fractals}{{17.11}{179}{Fractals and chaos}{section.17.11}{}}
-\newlabel{it:finland}{{1}{179}{Fractals and chaos}{Item.244}{}}
+\newlabel{it:finland}{{1}{179}{Fractals and chaos}{Item.248}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.12}Unsupervised learning}{180}{section.17.12}\protected@file@percent }
 \newlabel{sec:R-unsupervised}{{17.12}{180}{Unsupervised learning}{section.17.12}{}}
-\newlabel{it:R-kmeans}{{5}{181}{Unsupervised learning}{Item.251}{}}
+\newlabel{it:R-kmeans}{{5}{181}{Unsupervised learning}{Item.255}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.13}Supervised learning}{181}{section.17.13}\protected@file@percent }
 \newlabel{sec:R-supervised}{{17.13}{181}{Supervised learning}{section.17.13}{}}
-\newlabel{it:LDA}{{1}{181}{Supervised learning}{Item.253}{}}
+\newlabel{it:LDA}{{1}{181}{Supervised learning}{Item.257}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.14}Compositional data}{183}{section.17.14}\protected@file@percent }
 \newlabel{sec:R-compositional}{{17.14}{183}{Compositional data}{section.17.14}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.15}Directional data}{184}{section.17.15}\protected@file@percent }
 \newlabel{sec:R-directional}{{17.15}{184}{Directional data}{section.17.15}{}}
-\newlabel{it:Rbar}{{2}{185}{Directional data}{Item.261}{}}
+\newlabel{it:Rbar}{{2}{185}{Directional data}{Item.265}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.16}Spatial data}{186}{section.17.16}\protected@file@percent }
 \newlabel{sec:R-spatial}{{17.16}{186}{Spatial data}{section.17.16}{}}
-\newlabel{it:R-meuse-contour}{{4}{187}{Spatial data}{Item.267}{}}
+\newlabel{it:R-meuse-contour}{{4}{187}{Spatial data}{Item.271}{}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {18}Exercises}{189}{chapter.18}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -806,8 +806,8 @@
 \newlabel{sec:ex-basics}{{18.1}{189}{The basics}{section.18.1}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {18.2}Plotting data}{189}{section.18.2}\protected@file@percent }
 \newlabel{sec:ex-plotting}{{18.2}{189}{Plotting data}{section.18.2}{}}
-\newlabel{it:AB}{{2}{189}{Plotting data}{Item.273}{}}
-\newlabel{it:randxy}{{3}{189}{Plotting data}{Item.274}{}}
+\newlabel{it:AB}{{2}{189}{Plotting data}{Item.277}{}}
+\newlabel{it:randxy}{{3}{189}{Plotting data}{Item.278}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {18.3}Summary statistics}{190}{section.18.3}\protected@file@percent }
 \newlabel{sec:ex-summary-statistics}{{18.3}{190}{Summary statistics}{section.18.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {18.4}Probability}{190}{section.18.4}\protected@file@percent }
@@ -828,25 +828,25 @@
 \newlabel{sec:ex-fractals}{{18.11}{194}{Fractals and chaos}{section.18.11}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {18.12}Unsupervised learning}{194}{section.18.12}\protected@file@percent }
 \newlabel{sec:ex-unsupervised}{{18.12}{194}{Unsupervised learning}{section.18.12}{}}
-\newlabel{it:ex-withinss}{{3}{194}{Unsupervised learning}{Item.322}{}}
+\newlabel{it:ex-withinss}{{3}{194}{Unsupervised learning}{Item.326}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {18.13}Supervised learning}{194}{section.18.13}\protected@file@percent }
 \newlabel{sec:ex-supervised}{{18.13}{194}{Supervised learning}{section.18.13}{}}
-\newlabel{it:LDA-training}{{1}{194}{Supervised learning}{Item.324}{}}
-\newlabel{it:LDA-test}{{2}{194}{Supervised learning}{Item.325}{}}
-\newlabel{it:rpart-training}{{3}{194}{Supervised learning}{Item.326}{}}
-\newlabel{it:rpart-test}{{4}{194}{Supervised learning}{Item.327}{}}
+\newlabel{it:LDA-training}{{1}{194}{Supervised learning}{Item.328}{}}
+\newlabel{it:LDA-test}{{2}{194}{Supervised learning}{Item.329}{}}
+\newlabel{it:rpart-training}{{3}{194}{Supervised learning}{Item.330}{}}
+\newlabel{it:rpart-test}{{4}{194}{Supervised learning}{Item.331}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {18.14}Compositional data}{195}{section.18.14}\protected@file@percent }
 \newlabel{sec:ex-compositional}{{18.14}{195}{Compositional data}{section.18.14}{}}
-\newlabel{it:mpg1}{{1a}{195}{Compositional data}{Item.329}{}}
-\newlabel{it:mpg2}{{1b}{195}{Compositional data}{Item.330}{}}
-\newlabel{it:mpg3}{{1c}{195}{Compositional data}{Item.331}{}}
-\newlabel{it:mpg4}{{1d}{195}{Compositional data}{Item.332}{}}
-\newlabel{it:mpg5}{{1e}{195}{Compositional data}{Item.333}{}}
+\newlabel{it:mpg1}{{1a}{195}{Compositional data}{Item.333}{}}
+\newlabel{it:mpg2}{{1b}{195}{Compositional data}{Item.334}{}}
+\newlabel{it:mpg3}{{1c}{195}{Compositional data}{Item.335}{}}
+\newlabel{it:mpg4}{{1d}{195}{Compositional data}{Item.336}{}}
+\newlabel{it:mpg5}{{1e}{195}{Compositional data}{Item.337}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {18.15}Directional data}{195}{section.18.15}\protected@file@percent }
 \newlabel{sec:ex-directional}{{18.15}{195}{Directional data}{section.18.15}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {18.16}Spatial data}{196}{section.18.16}\protected@file@percent }
 \newlabel{sec:ex-spatial}{{18.16}{196}{Spatial data}{section.18.16}{}}
-\newlabel{it:hillsemivariogram}{{1}{196}{Spatial data}{Item.341}{}}
+\newlabel{it:hillsemivariogram}{{1}{196}{Spatial data}{Item.345}{}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {19}Solutions}{197}{chapter.19}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -855,15 +855,15 @@
 \newlabel{sec:sol-basics}{{19.1}{197}{The basics}{section.19.1}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.2}Plotting data}{198}{section.19.2}\protected@file@percent }
 \newlabel{sec:sol-plotting}{{19.2}{198}{Plotting data}{section.19.2}{}}
-\newlabel{it:ABsol}{{2}{198}{Plotting data}{Item.350}{}}
-\newlabel{it:xyrandsol}{{3}{199}{Plotting data}{Item.351}{}}
+\newlabel{it:ABsol}{{2}{198}{Plotting data}{Item.354}{}}
+\newlabel{it:xyrandsol}{{3}{199}{Plotting data}{Item.355}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.3}Summary statistics}{199}{section.19.3}\protected@file@percent }
 \newlabel{sec:sol-summary-statistics}{{19.3}{199}{Summary statistics}{section.19.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.4}Probability}{201}{section.19.4}\protected@file@percent }
 \newlabel{sec:sol-probability}{{19.4}{201}{Probability}{section.19.4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.5}The binomial distribution}{203}{section.19.5}\protected@file@percent }
 \newlabel{sec:sol-binomial}{{19.5}{203}{The binomial distribution}{section.19.5}{}}
-\newlabel{it:binomtest}{{4}{205}{The binomial distribution}{Item.364}{}}
+\newlabel{it:binomtest}{{4}{205}{The binomial distribution}{Item.368}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.6}The Poisson distribution}{205}{section.19.6}\protected@file@percent }
 \newlabel{sec:sol-poisson}{{19.6}{205}{The Poisson distribution}{section.19.6}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.7}The normal distribution}{206}{section.19.7}\protected@file@percent }
@@ -872,7 +872,7 @@
 \newlabel{sec:sol-errorprop}{{19.8}{208}{Error propagation}{section.19.8}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.9}Comparing distributions}{210}{section.19.9}\protected@file@percent }
 \newlabel{sec:sol-comparingdistributions}{{19.9}{210}{Comparing distributions}{section.19.9}{}}
-\newlabel{it:sol-DZ-MDS}{{4}{211}{Comparing distributions}{Item.388}{}}
+\newlabel{it:sol-DZ-MDS}{{4}{211}{Comparing distributions}{Item.392}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.10}Regression}{212}{section.19.10}\protected@file@percent }
 \newlabel{sec:sol-regression}{{19.10}{212}{Regression}{section.19.10}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.11}Fractals and chaos}{213}{section.19.11}\protected@file@percent }
@@ -887,23 +887,23 @@
 \newlabel{fig:DZtree}{{19.3}{216}{Hierarchical clustering tree for the detrital zircon data. The tree conveys the same information as the MDS configuration of Figure~\ref {fig:DZmds}: there are two main clusters; T and Y are the two most similar samples; whilst L and 8 are the two most dissimilar samples.\relax }{figure.19.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.13}Supervised learning}{216}{section.19.13}\protected@file@percent }
 \newlabel{sec:sol-supervised}{{19.13}{216}{Supervised learning}{section.19.13}{}}
-\newlabel{it:sol-LDA-training}{{1}{216}{Supervised learning}{Item.401}{}}
-\newlabel{it:sol-LDA-test}{{2}{217}{Supervised learning}{Item.402}{}}
+\newlabel{it:sol-LDA-training}{{1}{216}{Supervised learning}{Item.405}{}}
+\newlabel{it:sol-LDA-test}{{2}{217}{Supervised learning}{Item.406}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.14}Compositional data}{218}{section.19.14}\protected@file@percent }
 \newlabel{sec:sol-compositional}{{19.14}{218}{Compositional data}{section.19.14}{}}
-\newlabel{it:sol-mpg1}{{1a}{218}{Compositional data}{Item.406}{}}
-\newlabel{it:sol-mpg2}{{1b}{218}{Compositional data}{Item.407}{}}
-\newlabel{it:sol-mpg3}{{1c}{218}{Compositional data}{Item.408}{}}
-\newlabel{it:sol-mpg4}{{1d}{218}{Compositional data}{Item.409}{}}
-\newlabel{it:sol-mpg5}{{1e}{218}{Compositional data}{Item.410}{}}
-\newlabel{it:sol-ternary-test}{{2}{219}{Compositional data}{Item.411}{}}
+\newlabel{it:sol-mpg1}{{1a}{218}{Compositional data}{Item.410}{}}
+\newlabel{it:sol-mpg2}{{1b}{218}{Compositional data}{Item.411}{}}
+\newlabel{it:sol-mpg3}{{1c}{218}{Compositional data}{Item.412}{}}
+\newlabel{it:sol-mpg4}{{1d}{218}{Compositional data}{Item.413}{}}
+\newlabel{it:sol-mpg5}{{1e}{218}{Compositional data}{Item.414}{}}
+\newlabel{it:sol-ternary-test}{{2}{219}{Compositional data}{Item.415}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {19.4}{\ignorespaces PCA biplot of the oceanic basalt compositions. The data roughly fall into three clusters, corresponding to OIB, MORB and IAB. OIBs are relatively rich in K\textsubscript  {2}O and poor in CaO; MORBs are rich in MgO and TiO\textsubscript  {2}; and IABs are rich in MnO and poor in TiO\textsubscript  {2}. K\textsubscript  {2}O and CaO are anti-correlated, and so are TiO\textsubscript  {2} and MnO. The variability in MnO/CaO is independent of the variability in TiO\textsubscript  {2}/MnO. The `outliers' on the ternary diagram of exercise\nobreakspace  {}\ref  {it:sol-ternary-test} are OIBs that are particularly poor in CaO.\relax }}{219}{figure.19.4}\protected@file@percent }
 \newlabel{fig:testPCA}{{19.4}{219}{PCA biplot of the oceanic basalt compositions. The data roughly fall into three clusters, corresponding to OIB, MORB and IAB. OIBs are relatively rich in K\textsubscript {2}O and poor in CaO; MORBs are rich in MgO and TiO\textsubscript {2}; and IABs are rich in MnO and poor in TiO\textsubscript {2}. K\textsubscript {2}O and CaO are anti-correlated, and so are TiO\textsubscript {2} and MnO. The variability in MnO/CaO is independent of the variability in TiO\textsubscript {2}/MnO. The `outliers' on the ternary diagram of exercise~\ref {it:sol-ternary-test} are OIBs that are particularly poor in CaO.\relax }{figure.19.4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.15}Directional data}{220}{section.19.15}\protected@file@percent }
 \newlabel{sec:sol-directional}{{19.15}{220}{Directional data}{section.19.15}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {19.16}Spatial data}{222}{section.19.16}\protected@file@percent }
 \newlabel{sec:sol-spatial}{{19.16}{222}{Spatial data}{section.19.16}{}}
-\newlabel{it:normodel}{{1}{222}{Spatial data}{Item.418}{}}
+\newlabel{it:normodel}{{1}{222}{Spatial data}{Item.422}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {19.5}{\ignorespaces a) exponential; b) Gaussian; and c) spherical semivariogram fits to the \texttt  {hills} data.\relax }}{222}{figure.19.5}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {19.6}{\ignorespaces Log-contrast between two kriging interpolations for the Meuse data, using the spherical and exponential semivariogram models. The 155 measurements locations are marked by white circles. The smallest discrepancies ($<10\%$) are found in densely sampled areas. In more sparsely sampled parts of the contour plot, and especially near the edges, the disagreement between the spherical and exponential models increases to up to $40\%$.\relax }}{223}{figure.19.6}\protected@file@percent }
 \gdef \@abspage@last{223}

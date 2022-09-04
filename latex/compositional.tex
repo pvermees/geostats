@@ -342,7 +342,7 @@ component analysis as an effective way to address this issue by
 projecting the data onto a two-dimensional subspace. Unfortunately we
 cannot directly apply PCA to compositional data. For example, the
 first step in the PCA analysis is the calculation of an arithmetic
-mean (Equation~\ref{eq:PCA}). However, Section~\ref{sec:logratios}
+mean (Equation~\ref{eq:XMY}). However, Section~\ref{sec:logratios}
 showed that the arithmetic mean of compositional data can produce
 nonsensical results. This Section will show that this problem can be
 solved using logratio transformations.\medskip
@@ -447,10 +447,11 @@ yields a new trivariate dataset:
 
 \noindent where $g$ stands for the geometric mean of each
 row. Subjecting Equation~\ref{eq:Xc} to the same matrix decomposition
-as Equation~\ref{eq:PCA} yields:  
+as Equations~\ref{eq:XMY}--\ref{eq:P} yields:
 \begin{align}
   \begin{split}
-    X_c & = 1_{3,1}~C + S~V~D = \left[
+    X_c & = 1_{3,1}~M + P~Q^{-1} \\
+    ~ & = \left[
       \begin{array}{c}
         1 \\
         1 \\
@@ -462,19 +463,11 @@ as Equation~\ref{eq:PCA} yields:
         0 & 2 & -2
       \end{array}
       \right]
-    + \\
-    ~ & \left[
+    + \left[
       \begin{array}{ccc}
-        -1.15 &  0 & 0.82 \\
-        0.58  & -1 & 0.82 \\
-        0.58  &  1 & 0.82
-      \end{array}
-      \right]
-    \left[
-      \begin{array}{ccc}
-        3.67 & 0 & 0 \\
-        0 & 0.41 & 0 \\
-        0 & 0 & 0
+        -4.24 &  0    & 0 \\
+        2.12  & -0.41 & 0 \\
+        2.12  &  0.41 & 0
       \end{array}
       \right]
     \left[
@@ -489,9 +482,9 @@ as Equation~\ref{eq:PCA} yields:
 \end{align}
 
 Note that, even though this yields three principal components instead
-two, the standard deviation of the third component in matrix $V$ is
-zero.  Therefore, all the information is contained in the first two
-components:
+two, the scores of the third component are all zero (and so is the
+corresponding eigenvalue). Therefore, all the information is contained
+in the first two components:
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
 \includegraphics[width=\textwidth]{../figures/clrPCA.pdf}\medskip
