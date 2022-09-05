@@ -125,10 +125,12 @@ stereonet.plane <- function(trd,plg,wulff=TRUE,...){
         graphics::lines(xy,...)
     }
 }
-stereonet.point <- function(trd,plg,wulff=TRUE,option=1,type='p',labels=NA,...){
+stereonet.point <- function(trd,plg,wulff=TRUE,option=1,
+                            type='p',labels=NA,pch=21,
+                            bg=c('white','black'),...){
     if (option==1){
-        az <- trd
-        dip <- -abs(plg)
+        az <- (trd + (plg<0)*pi) %% (2*pi)
+        dip <- (2*(plg<0)-1) * plg
         x <- cos(dip)*sin(az)
         y <- cos(dip)*cos(az)
         z <- sin(dip)
