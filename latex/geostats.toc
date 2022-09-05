@@ -71,7 +71,7 @@
 \contentsline {section}{\numberline {14.1}Ratios of Jeffreys quantities}{131}{section.14.1}%
 \contentsline {section}{\numberline {14.2}Logratio transformations}{132}{section.14.2}%
 \contentsline {section}{\numberline {14.3}PCA of compositional data}{135}{section.14.3}%
-\contentsline {section}{\numberline {14.4}LDA of compositional data}{139}{section.14.4}%
+\contentsline {section}{\numberline {14.4}LDA of compositional data}{138}{section.14.4}%
 \contentsline {section}{\numberline {14.5}Logratio processes}{140}{section.14.5}%
 \contentsline {chapter}{\numberline {15}Directional data}{143}{chapter.15}%
 \contentsline {section}{\numberline {15.1}Circular data}{143}{section.15.1}%

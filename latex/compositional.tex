@@ -254,9 +254,9 @@ The solution to the compositional data conundrum is closely related to
 the solution of the ratio averaging problem discussed in
 Section~\ref{sec:ratios}. The trick is to map the $n$-dimensional
 composition to an $(n-1)$-dimensional Euclidean space by means of an
-additive logratio (alr) transformation. For example, in the ternary
-case, we can map the compositional variables $x$, $y$ and $z$ to two
-transformed variables $v$ and $w$:
+\textbf{additive logratio transformation} (alr). For example, in the
+ternary case, we can map the compositional variables $x$, $y$ and $z$
+to two transformed variables $v$ and $w$:
 \begin{equation}
   v = \ln\!\left[\frac{x}{z}\right] \mbox{,~} w =
   \ln\!\left[\frac{y}{z}\right]
@@ -356,9 +356,9 @@ to a constant sum ($a_i+b_i+c_i=1$ for $1\leq{i}\leq{3}$):
 \begin{equation}
   X =
   \bbordermatrix{ & a & b & c \cr
-   1 & 0.03 & 99.88 & 0.09 \cr
-   2 & 70.54 & 25.95 & 3.51 \cr
-   3 & 72.14 & 26.54 & 1.32
+   1 & 0.034 & 99.88 & 0.091 \cr
+   2 & 69.45 & 25.55 & 5.01 \cr
+   3 & 72.44 & 26.65 & 0.92
   }
   \label{eq:Xcomp}
 \end{equation}
@@ -371,55 +371,38 @@ Plot the data on a ternary diagram:
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{Ternary diagram of the synthetic toy example of
     Equation~\ref{eq:Xcomp}. Component $c$ has been multiplied by a
-    factor of 5 to avoid an unsightly overlap between the plot symbols
-    of samples 2 and 3, whose compositions are very similar.\medskip}
+    factor of three to avoid an unsightly overlap between the plot
+    symbols of samples 2 and 3, whose compositions are very
+    similar.\medskip}
   \label{fig:abc}
 \end{minipage}
 
-Subjecting the data to a logratio transformation maps the
-${3}\times{3}$ table of compositions onto a ${3}\times{2}$ table of
-logratios:
-\begin{equation}
-  X\textsubscript{a} =
-  \bbordermatrix{ & \ln(a/c) & \ln(b/c) \cr
-    1 & -1 & 7 \cr
-    2 & 3 & 2 \cr
-    3 & 4 & 3
-  }
-  \label{eq:Xa}
-\end{equation}
-
-The observant reader may note that the numbers in this table are
-identical to the toy example shown in Equation~\ref{eq:X}. This, of
-course, is intentional. The implication is that, once the data have
-undergone a logratio transformation, PCA proceeds in exactly the same
-way as previously demonstrated in Section~\ref{sec:PCA}.\medskip
-
-Applying conventional PCA to the log-transformed data of
-Equation~\ref{eq:Xa} yields two principal components that are
-expressed in terms of the logratios ln($a/c$) and ln($b/c$):
+Although the alr-transformation solves the closure problem, it is not
+suitable for PCA, because it is not \emph{isometric} to the
+simplex. The axes of alr-coordinate spaces are not orthogonal to each
+other:
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
-\includegraphics[width=\textwidth]{../figures/alrPCA.pdf}\medskip
+\includegraphics[width=\textwidth]{../figures/alraxes.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
-  \captionof{figure}{PCA biplot of the ternary toy data of
-    Figure~\ref{fig:abc} after alr-transformation. Note that this
-    result is nearly identical to the toy example of
-    Figure~\ref{fig:PCA2D3}. The only difference is the labels of the
-    vector loadings, which are logatios instead of the names of the
-    original variables.\medskip}
-  \label{fig:alrPCA}
+  \captionof{figure}{There are six different ways to form logratios in
+    the ternary data space. These six logratios define three
+    coordinate axes that intersect each other at 60$^\circ$ angles. As
+    a consequence, distances in alr-space depend on the choice of
+    logratios.\medskip}
+  \label{fig:alraxes}
 \end{minipage}
 
-The alr-transformation solves the closure problem. But it is not
-entirely satisfactory because the resulting biplots are not as easy to
-interpret as the biplots of Section~\ref{sec:PCA}. Whereas the
-original variables in a compositional dataset are expressed in units
-of weight percent or ppm, which make intuitive sense to geochemists,
-the same cannot be said about the logratios. This issue can be solved
-by using a different type of logratio transformation, the
-\textbf{centred logratio transformation} (clr):
+The fact that distances are not well defined in alr-space spells
+trouble for PCA. One way to understand this is to recall the
+equivalence between PCA and MDS, which was discussed in
+Section~\ref{sec:MDS}. MDS is based on dissimilarity matrices, and so
+if distances are not well defined, then neither are the MDS
+configuration and, hence, the principal components.\medskip
+
+This issue can be solved by using a different type of logratio
+transformation, the \textbf{centred logratio transformation} (clr):
 \begin{equation}
   u_i = \ln\!\left[\frac{x_i}{g_i}\right] \mbox{,~}
   v_i = \ln\!\left[\frac{y_i}{g_i}\right] \mbox{,~and~}
@@ -433,28 +416,32 @@ $i$\textsuperscript{th} sample:
 g_i = \exp\!\left[\frac{\ln[x_i]+\ln[y_i]+\ln[z_i]}{3}\right]
 \]
 
-Applying this transformation to the data of Equation~\ref{eq:Xcomp}
-yields a new trivariate dataset:
+Unlike alr-coordinate axes, clr-coordinate axes are orthogonal and
+unequivocally define a set of distances that are isometric with the
+simplex. Applying the clr-transformation to the data of
+Equation~\ref{eq:Xcomp} yields a new trivariate dataset:
 \begin{equation}
   X\textsubscript{c} =
   \bbordermatrix{ & \ln(a/g) & \ln(b/g) & \ln(c/g) \cr
     1 & -3 & 5 & -2 \cr
-    2 & 1.33  & 0.33 & -1.67 \cr
-    3 & 1.67  & 0.67 & -2.33
+    2 & 1.21  & 0.21 & -1.42 \cr
+    3 & 1.79  & 0.79 & -2.58
   }
   \label{eq:Xc}
 \end{equation}
 
-\noindent where $g$ stands for the geometric mean of each
-row. Subjecting Equation~\ref{eq:Xc} to the same matrix decomposition
-as Equation~\ref{eq:PCA} yields:  
+\noindent where $g$ stands for the geometric mean of each row. Note
+that the rows of $X_c$ add up to zero. Subjecting Equation~\ref{eq:Xc}
+to the same matrix decomposition as Equation~\ref{eq:PCA} yields:
 \begin{align}
   \begin{split}
-    X_c & = 1_{3,1}~C + S~V~D = \left[
+    X_c & = 1_{3,1}~C + P~Q^{-1} \\
+    ~ & = 
+    \left[
       \begin{array}{c}
         1 \\
         1 \\
-       1
+        1
       \end{array}
       \right]
    \left[
@@ -462,19 +449,12 @@ as Equation~\ref{eq:PCA} yields:
         0 & 2 & -2
       \end{array}
       \right]
-    + \\
-    ~ & \left[
+    + 
+     \left[
       \begin{array}{ccc}
-        -1.15 &  0 & 0.82 \\
-        0.58  & -1 & 0.82 \\
-        0.58  &  1 & 0.82
-      \end{array}
-      \right]
-    \left[
-      \begin{array}{ccc}
-        3.67 & 0 & 0 \\
-        0 & 0.41 & 0 \\
-        0 & 0 & 0
+        -4.24 &  0   & 0 \\
+        2.12  & -7.1 & 0 \\
+        2.12  &  7.1 & 0
       \end{array}
       \right]
     \left[
@@ -489,23 +469,22 @@ as Equation~\ref{eq:PCA} yields:
 \end{align}
 
 Note that, even though this yields three principal components instead
-two, the standard deviation of the third component in matrix $V$ is
-zero.  Therefore, all the information is contained in the first two
-components:
+two, the scores of the third component in matrix $P$ are zero.
+Therefore, all the information is contained in the first two
+components. Also note that the first two principal components of the
+compositional dataset are identical to those of the PCA example shown
+in Section~\ref{sec:PCA} (Equation~\ref{eq:P}):
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
 \includegraphics[width=\textwidth]{../figures/clrPCA.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{Compositional biplot of the toy data using the
-    clr transformation. The principal components are identical to
-    Figure~\ref{fig:alrPCA}, but the vector loadings are labelled with
-    the raw variable names, rather than the additive logratios. The
-    biplot tells us that sample~1 is rich in component $b$, whereas
-    samples~2 and 3 are rich in component $a$. The difference between
-    samples~2 and 3 is due to a small difference in component $c$.
-    Compare with the ternary diagram (Figure~\ref{fig:abc}) to verify
-    these conclusions.\medskip}
+    clr transformation. The biplot tells us that sample~1 is rich in
+    component $b$, whereas samples~2 and 3 are rich in component
+    $a$. The difference between samples~2 and 3 is due to a small
+    difference in component $c$.  Compare with the ternary diagram
+    (Figure~\ref{fig:abc}) to verify these conclusions.\medskip}
   \label{fig:clrPCA}
 \end{minipage}
 

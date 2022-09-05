@@ -3841,21 +3841,28 @@ dev.off()
 
 cairo(file='../../figures/abc.pdf',width=2.8,height=2.5)
 pars(mar=rep(1,4))
-xyz <- rbind(c(0.03,99.88,0.09),
-             c(70.54,25.95,3.51),
-             c(72.14,26.54,1.32))
+xyz <- rbind(c(0.034,99.88,0.091),
+             c(69.45,25.55,5.01),
+             c(72.44,26.65,0.92))
 colnames(xyz) <- c('a','b','c')
 rownames(xyz) <- 1:3
-ternary(xyz,type='p',labels=colnames(xyz),cex=2,pch=21,bg='white',f=c(1,1,5))
-ternary(xyz,type='t',add=TRUE,f=c(1,1,5))
+ternary(xyz,type='p',labels=colnames(xyz),cex=2,pch=21,bg='white',f=c(1,1,3))
+ternary(xyz,type='t',add=TRUE,f=c(1,1,3))
 dev.off()
 
-cairo(file='../../figures/alrPCA.pdf',width=3,height=3)
-pars(mar=c(2.5,2.3,1.8,1.8))
-Xa <- cbind(log(xyz[,'a']/xyz[,'c']),log(xyz[,'b']/xyz[,'c']))
-colnames(Xa) <- c('     ln(a/c)','ln(b/c)     ')
-pc <- prcomp(Xa)
-biplot(pc,asp=1.4,col=c('gray50','black'))
+cairo(file='../../figures/alraxes.pdf',width=2.7,height=2)
+pars(mar=rep(0.5,4))
+plot(x=c(-1,1),y=c(-1,1),type='n',axes=FALSE,ann=FALSE,asp=1)
+num <- c('b','b','c','c','a','a')
+den <- c('c','a','a','b','b','c')
+f <- c(1.2,1.2,1.3,1.2,1.2,1.3)
+for (i in 1:6){
+    angle <- i*pi/3
+    x <- cos(angle)
+    y <- sin(angle)
+    arrows(0,0,x,y,len=0.1)
+    text(f[i]*x,f[i]*y,labels=paste0('ln[',num[i],'/',den[i],']'),xpd=NA)
+}
 dev.off()
 
 cairo(file='../../figures/clrPCA.pdf',width=3,height=3)
