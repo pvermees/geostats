@@ -10,11 +10,11 @@
 PCA2D <- function(X){
     oldpar <- graphics::par(no.readonly = TRUE)
     on.exit(graphics::par(oldpar))
-    pc <- stats::prcomp(X)
+    pc <- stats::princomp(X)
     # calculate the end-points of two lines marking the principal components (PC):
     CL <- matrix(NA,4,2) # initialise the matrix of coordinates
-    CL[1:2,] <- matrix(1,2,1) %*% pc$center + diag(pc$sdev) %*% t(pc$rotation)
-    CL[3:4,] <- matrix(1,2,1) %*% pc$center - diag(pc$sdev) %*% t(pc$rotation)
+    CL[1:2,] <- matrix(1,2,1) %*% pc$center + diag(pc$sdev) %*% t(pc$loadings)
+    CL[3:4,] <- matrix(1,2,1) %*% pc$center - diag(pc$sdev) %*% t(pc$loadings)
     # set up the 4-panel plot:
     graphics::par(mfrow=c(2,2),mar=c(5,5,1,1),xpd=TRUE)
     # initialise the 1st panel:
@@ -32,26 +32,26 @@ PCA2D <- function(X){
     # add the centre point as a yellow square:
     graphics::points(t(pc$center),pch=22,bg='yellow')
     # initialise the 2nd panel:
-    graphics::plot(range(pc$x),c(1,4),type='n',bty='n',
+    graphics::plot(range(pc$scores),c(1,4),type='n',bty='n',
                    xaxt='n',yaxt='n',xlab='',ylab='')
     graphics::mtext('ii',side=3,line=-1,adj=0.99)
     graphics::Axis(side=1)
     # plot the 1st PC scores as a 1D configuration:
-    graphics::lines(pc$x[,'PC1'],rep(2,3))
-    graphics::points(pc$x[,'PC1'],rep(2,3))
-    graphics::text(pc$x[,'PC1'],rep(2,3),labels=1:3,pos=c(1,1,3))
-    graphics::text(min(pc$x[,'PC1']),2,labels='PC1',pos=2)
+    graphics::lines(pc$scores[,1],rep(2,3))
+    graphics::points(pc$scores[,1],rep(2,3))
+    graphics::text(pc$scores[,1],rep(2,3),labels=1:3,pos=c(1,1,3))
+    graphics::text(min(pc$scores[,1]),2,labels='PC1',pos=2)
     # plot the 2nd PC scores as a 1D configuration:
-    graphics::lines(pc$x[,'PC2'],rep(3,3))
-    graphics::points(pc$x[,'PC2'],rep(3,3))
-    graphics::text(pc$x[,'PC2'],rep(3,3),labels=1:3,pos=1)
-    graphics::text(min(pc$x[,'PC2']),3,labels='PC2',pos=2)
+    graphics::lines(pc$scores[,2],rep(3,3))
+    graphics::points(pc$scores[,2],rep(3,3))
+    graphics::text(pc$scores[,2],rep(3,3),labels=1:3,pos=1)
+    graphics::text(min(pc$scores[,2]),3,labels='PC2',pos=2)
     # plot both PCA scores and the loadings in the 3rd panel:
     stats::biplot(pc)
     graphics::mtext('iii',side=3,line=-1,adj=0.99)
     # plot the weights of the PCs in the 4th panel:
     w <- pc$sdev^2
-    names(w) <- colnames(pc$x)
+    names(w) <- colnames(pc$scores)
     graphics::barplot(w)
     graphics::mtext('iv',side=3,line=-1,adj=0.99)
 }

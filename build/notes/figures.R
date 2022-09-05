@@ -2932,11 +2932,11 @@ text(X,labels=1:3)
 dev.off()
 
 PCA2D <- function(X,fig=1){
-    pc <- prcomp(X)
+    pc <- princomp(X)
     # calculate the end-points of two lines marking the principal components (PC):
     CL <- matrix(NA,4,2) # initialise the matrix of coordinates
-    CL[1:2,] <- matrix(1,2,1) %*% pc$center + diag(pc$sdev) %*% t(pc$rotation)
-    CL[3:4,] <- matrix(1,2,1) %*% pc$center - diag(pc$sdev) %*% t(pc$rotation)
+    CL[1:2,] <- matrix(1,2,1) %*% pc$center + diag(pc$sdev) %*% t(pc$loadings)
+    CL[3:4,] <- matrix(1,2,1) %*% pc$center - diag(pc$sdev) %*% t(pc$loadings)
     if (fig==1){ # initialise the 1st panel:
         rx <- range(X[,'a'],CL[,1]) # range of x-values
         ry <- range(X[,'b'],CL[,2]) # range of y-values
@@ -2953,26 +2953,26 @@ PCA2D <- function(X,fig=1){
         points(t(pc$center),pch=22,bg='white')
     }
     if (fig==2){ # initialise the 2nd panel:
-        plot(range(pc$x),c(1,3.5),type='n',bty='n',
+        plot(range(pc$scores),c(1,3.5),type='n',bty='n',
              xaxt='n',yaxt='n',xlab='',ylab='',ylim=c(1,3.5))
         Axis(side=1)
         # plot the 1st PC scores as a 1D configuration:
-        lines(pc$x[,'PC1'],rep(2,3))
-        points(pc$x[,'PC1'],rep(2,3),pch=21,bg='white')
-        text(pc$x[,'PC1'],rep(2,3),labels=1:3,pos=c(1,1,3))
-        text(min(pc$x[,'PC1']),2,labels='PC1',pos=2,xpd=NA)
+        lines(pc$scores[,1],rep(2,3))
+        points(pc$scores[,1],rep(2,3),pch=21,bg='white')
+        text(pc$scores[,1],rep(2,3),labels=1:3,pos=c(1,1,3))
+        text(min(pc$scores[,1]),2,labels='PC1',pos=2,xpd=NA)
         # plot the 2nd PC scores as a 1D configuration:
-        lines(pc$x[,'PC2'],rep(3,3))
-        points(pc$x[,'PC2'],rep(3,3),pch=21,bg='white')
-        text(pc$x[,'PC2'],rep(3,3),labels=1:3,pos=1)
-        text(min(pc$x[,'PC2']),3,labels='PC2',pos=2)
+        lines(pc$scores[,2],rep(3,3))
+        points(pc$scores[,2],rep(3,3),pch=21,bg='white')
+        text(pc$scores[,2],rep(3,3),labels=1:3,pos=1)
+        text(min(pc$scores[,2]),3,labels='PC2',pos=2)
     }
     if (fig==3){ # plot both PCA scores and the loadings in the 3rd panel:
         biplot(pc,col='black')
     }
     if (fig==4){ # plot the weights of the PCs in the 4th panel:
         w <- pc$sdev^2
-        names(w) <- colnames(pc$x)
+        names(w) <- colnames(pc$scores)
         barplot(w)
     }
 }

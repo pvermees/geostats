@@ -1545,10 +1545,9 @@ This script produces the same output as the first panel of
   \texttt{prcomp} and \texttt{princomp}. Both produce essentially the
   same output but use different algebraic
   algorithms\footnote{\texttt{prcomp} uses singular value
-    decomposition, whereas \texttt{princomp} uses an eigen
-    decomposition.} to achieve the matrix decomposition of
-  Equation~\ref{eq:PCA}. Applying \texttt{prcomp} to the US arrests
-  data to produce the biplot shown in Figure~\ref{fig:USArrests}:
+  decomposition, whereas \texttt{princomp} uses an eigen
+  decomposition.}. Applying \texttt{prcomp} to the US arrests data to
+  produce the biplot shown in Figure~\ref{fig:USArrests}:
 
 \begin{script}
 pc <- prcomp(USArrests,scale.=TRUE)

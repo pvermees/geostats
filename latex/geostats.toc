@@ -62,7 +62,7 @@
 \contentsline {chapter}{\numberline {12}Unsupervised learning}{111}{chapter.12}%
 \contentsline {section}{\numberline {12.1}Principal Component Analysis}{111}{section.12.1}%
 \contentsline {section}{\numberline {12.2}Multidimensional Scaling}{114}{section.12.2}%
-\contentsline {section}{\numberline {12.3}K-means clustering}{116}{section.12.3}%
+\contentsline {section}{\numberline {12.3}K-means clustering}{117}{section.12.3}%
 \contentsline {section}{\numberline {12.4}Hierarchical clustering}{119}{section.12.4}%
 \contentsline {chapter}{\numberline {13}Supervised learning}{123}{chapter.13}%
 \contentsline {section}{\numberline {13.1}Discriminant Analysis}{123}{section.13.1}%

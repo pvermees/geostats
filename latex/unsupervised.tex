@@ -50,12 +50,15 @@ further away:
 Imagine that you live in a one-dimensional world and cannot see the
 spatial distribution of the three points represented by $X$. Then PCA
 allows us to visualise the two-dimensional data as a one-dimensional
-array of numbers. This can be achieved by decomposing $X$ into four
-matrices ($C$, $S$, $V$ and $D$):
-\begin{align}
-  \begin{split}
-    X = & ~ 1_{3,1}~C + S~V~D\\
-    ~ = &  \left[
+array of numbers. PCA involves the following steps\footnote{An
+alternative way to find principal components is via singular value
+decomposition.}
+\begin{enumerate}
+\item Decompose $X$ into a mean vector $M$ and a \emph{centred} data
+  matrix $Y$:
+  \begin{equation}
+    X = 1_{3,1} M + Y =
+    \left[
       \begin{array}{c}
         1 \\
         1 \\
@@ -70,78 +73,108 @@ matrices ($C$, $S$, $V$ and $D$):
     +
     \left[
       \begin{array}{cc}
-        -1.15 & 0 \\
-        0.58 & -1 \\
-        0.58 & 1
+        -3 & 3 \\
+        1 & -2 \\
+        2 & -1
+      \end{array}
+      \right]
+    \label{eq:XMY}
+  \end{equation}
+
+\item Compute the covariance matrix $\Sigma$ of $X$:
+  \begin{equation}
+    \Sigma =
+    \left[
+      \begin{array}{cc}
+        7.0 & -6.5 \\
+        -6.5 & 7.0
+      \end{array}
+      \right]
+  \end{equation}
+
+\item Subject $\Sigma$ to an \emph{eigendecomposition}, i.e. rewrite
+  it as the product of three matrices:
+  \begin{equation}
+    \Sigma = Q \Lambda Q^{-1} =
+    \left[
+      \begin{array}{cc}
+        0.71 & 0.71 \\
+        -0.71 & 0.71
       \end{array}
       \right]
     \left[
       \begin{array}{cc}
-        3.67 & 0 \\
-        0 & 0.71
+        13.5 & 0 \\
+        0 & 0.5
       \end{array}
       \right]
     \left[
       \begin{array}{cc}
-        0.71 & -0.71\\
+        0.71 & -0.71 \\
         0.71 & 0.71
       \end{array}
       \right]
-    \label{eq:PCA}
-  \end{split}
-\end{align}
+    \label{eq:eigen}
+  \end{equation}
 
-\noindent where $C$ is the centre (arithmetic mean) of the two data
-columns; $S$ are the \emph{normalised scores}; the diagonals of $V$
-correspond to the standard deviations of the two principal components;
-and $D$ is a rotation matrix (the \emph{principal directions}). $S$,
-$V$ and $D$ can be recombined to define two more matrices:
-\begin{align}
-  P & = S~V =
-  \left[
-    \begin{array}{cc}
-      -4.24 & 0 \\
-      2.12 & -0.71 \\
-      2.12 & 0.71
-    \end{array}
-    \right] \mbox{,}\label{eq:P} \\
-  \mbox{and~} L & = V~D  =
-  \left[
-    \begin{array}{cc}
-      2.6 & -2.6 \\
-      0.5 & 0.5 \\
-    \end{array}
-    \right]
-  \label{eq:L}
-\end{align}
+  where the diagonal elements of $\Lambda$ are called the
+  \emph{eigenvalues}, and the columns of $Q$ are the
+  \emph{eigenvectors}, which are also referred to as the
+  \emph{loadings} in the context of PCA.
 
-\noindent where $P$ is a matrix of transformed coordinates (the
-\emph{principal components} or \emph{scores}) and $L$ are the scaled
-eigenvectors or \emph{loadings}. Figure~\ref{fig:PCA2D1} annotates
-Figure~\ref{fig:PCA2Ddata} with key elements of the PCA matrix
-decomposition:
+\item Define the \emph{principal components} ($P$) or \emph{scores}
+  as:
+  \begin{equation}
+    P = Y Q = 
+    \left[
+      \begin{array}{cc}
+        -4.24 & 0 \\
+        2.12 & -0.71 \\
+        2.12 & 0.71
+      \end{array}
+      \right]
+    \label{eq:P}
+  \end{equation}
 
-\noindent\begin{minipage}[t][][b]{.25\textwidth}
+\end{enumerate}
+
+The first column of $Q$ defines the direction of maximum variance of
+the bivariate dataset $X$ (direction of the line labelled PC1 in
+Figure~\ref{fig:PCA2D1}).  It separates sample 1 from samples~2 and
+3. Projecting the data onto this direction yields a new set of
+numbers, corresponding to the first column of $P$ (PC1 in
+Figure~\ref{fig:PCA2D2}). The variance of these new coordinates is
+13.5, i.e. the first eigenvalue of $\Lambda$. The second column of $Q$
+defines a direction that is orthogonal (perpendicular) to that defined
+by the first column (direction of the line labelled PC2 in
+Figure~\ref{fig:PCA2D1}). This direction accounts for the remaining
+variance of the dataset, separating samples 2 and 3. Projecting the
+three samples on the second principal direction yields a second set of
+principal components, corresponding to the second column of $P$ (PC2
+in Figure~\ref{fig:PCA2D2}). The variance of these numbers is 0.5,
+i.e. the second eigenvalue of $\Lambda$.
+
+\noindent\begin{minipage}[t][][b]{.27\textwidth}
   \includegraphics[width=\textwidth]{../figures/PCA2D1.pdf}\medskip
 \end{minipage}
-\begin{minipage}[t][][t]{.75\textwidth}
+\begin{minipage}[t][][t]{.73\textwidth}
   \captionof{figure}{PCA decomposition of
-    Figure~\ref{fig:PCA2Ddata}. The data $X$ are shown as numbers, $C$
-    as a square, and $1_{2,1}C \pm L$ as a cross. The first principal
-    direction (running from the upper left to the lower right) has
-    been stretched by a factor of $(3.67/0.71) = 5.2$ w.r.t the second
-    principal direction, which runs perpendicular to it.\medskip}
+    Figure~\ref{fig:PCA2Ddata}. The data $X$ are shown as numbers, $M$
+    as a square, and $1_{2,1}M \pm Q \sqrt{\Lambda}$ as a cross. The
+    first principal direction (running from the upper left to the
+    lower right) has been stretched by a factor of $\sqrt{13.5/0.5} =
+    5.2$ w.r.t the second principal direction, which runs
+    perpendicular to it.\medskip}
   \label{fig:PCA2D1}
 \end{minipage}
 
-Projecting the data onto the principal directions of
-Figure~\ref{fig:PCA2D1} yields the desired one-dimensional
+The first column of $P$ yields the desired one-dimensional
 simplification of the data:
 
-\noindent\begin{minipage}[t][][b]{.25\textwidth}
+\noindent\begin{minipage}[t][][b]{.27\textwidth}
   \includegraphics[width=\textwidth]{../figures/PCA2D2.pdf}\medskip
 \end{minipage}
-\begin{minipage}[t][][t]{.75\textwidth}
+\begin{minipage}[t][][t]{.73\textwidth}
   \captionof{figure}{Projection of the three data points on the two
     principal directions yields two principal components ($P$ in
     Equation~\ref{eq:P}), representing a one-dimensional
@@ -149,24 +182,21 @@ simplification of the data:
   \label{fig:PCA2D2}
 \end{minipage}
 
-Using the diagonal elements of the matrix $V$ in
-Equation~\ref{eq:PCA}, we can show that the first principal component
-($PC1$) captures $3.67^2/(3.67^2+0.71^2)=96\%$ of the variance in the
-dataset, and the second principal component ($PC2$) accounts for the
-remaining $0.71^2/(3.67^2+0.71^2)=4\%$ of the variance. So relatively
-little information is lost by discarding $PC2$. Then $PC1$ tells us
-that, to a first approximation, sample~1 is very different from
-samples~2 and 3, which are identical to each other. $PC2$ then
-captures the remaining information, which shows that samples~2 and 3
-are, in fact, not exactly identical. In the second principal
-direction, sample~1 falls in between samples $2$ and $3$.\medskip
+Using the eigenvalues $\Lambda$ in Equation~\ref{eq:eigen}, it can be
+shown that the first principal component ($PC1$) captures
+$13.5/(13.5+0.5)=96\%$ of the variance in the dataset, and the second
+principal component ($PC2$) accounts for the remaining
+$0.5/(13.5+0.5)=4\%$ of the variance. So relatively little information
+is lost by discarding $PC2$. Then $PC1$ tells us that, to a first
+approximation, sample~1 is very different from samples~2 and 3, which
+are identical to each other. $PC2$ captures the remaining information,
+which shows that samples~2 and 3 are, in fact, not exactly
+identical. In the second principal direction, sample~1 falls in
+between samples $2$ and $3$.\medskip
 
-The matrix decomposition of Equation~\ref{eq:PCA} contains information
-about both the samples (1, 2 and 3) and the variables ($a$ and $b$).
-This information is contained in the principal components ($P$,
-Equation~\ref{eq:P}) and the loadings ($L$, Equation~\ref{eq:L}),
-respectively.  We can graphically combine all this information in a
-\textbf{biplot}:
+The scores $P$ and loadings $Q$ contain information about the samples
+(1, 2 and 3) and the variables ($a$ and $b$), respectively.  We can
+graphically combine all this information in a \textbf{biplot}:
 
 \noindent\begin{minipage}[t][][b]{.25\textwidth}
   \includegraphics[width=\textwidth]{../figures/PCA2D3.pdf}\medskip
@@ -394,10 +424,9 @@ not yet explained how this output is produced. It turns out that there
 are several ways to do so. In its simplest form (\textbf{classical
   MDS}), the method consists of a simple sequence of matrix operations
 that are similar to the PCA algorithm outlined in
-Equations~\ref{eq:PCA}, \ref{eq:P} and \ref{eq:L}. An alternative and
-more widely used approach (\textbf{nonmetric MDS}) uses an iterative
-gradient search algorithm to minimise
-Equation~\ref{eq:stress}.\medskip
+Equations~\ref{eq:XMY} -- \ref{eq:P}. An alternative and more widely
+used approach (\textbf{nonmetric MDS}) uses an iterative gradient
+search algorithm to minimise Equation~\ref{eq:stress}.\medskip
 
 Nonmetric MDS is more flexible than classical MDS because it
 accommodates unconventional `dissimilarity' measures that do not

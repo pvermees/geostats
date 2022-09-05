@@ -342,7 +342,7 @@ component analysis as an effective way to address this issue by
 projecting the data onto a two-dimensional subspace. Unfortunately we
 cannot directly apply PCA to compositional data. For example, the
 first step in the PCA analysis is the calculation of an arithmetic
-mean (Equation~\ref{eq:PCA}). However, Section~\ref{sec:logratios}
+mean (Equation~\ref{eq:XMY}). However, Section~\ref{sec:logratios}
 showed that the arithmetic mean of compositional data can produce
 nonsensical results. This Section will show that this problem can be
 solved using logratio transformations.\medskip
@@ -378,9 +378,8 @@ Plot the data on a ternary diagram:
 \end{minipage}
 
 Although the alr-transformation solves the closure problem, it is not
-suitable for PCA, because it is not \emph{isometric} to the
-simplex. The axes of alr-coordinate spaces are not orthogonal to each
-other:
+suitable for PCA because the axes of alr-coordinate spaces are not
+orthogonal to each other:
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
 \includegraphics[width=\textwidth]{../figures/alraxes.pdf}\medskip
@@ -394,15 +393,44 @@ other:
   \label{fig:alraxes}
 \end{minipage}
 
-The fact that distances are not well defined in alr-space spells
-trouble for PCA. One way to understand this is to recall the
-equivalence between PCA and MDS, which was discussed in
-Section~\ref{sec:MDS}. MDS is based on dissimilarity matrices, and so
-if distances are not well defined, then neither are the MDS
-configuration and, hence, the principal components.\medskip
+For example, calculate the distances between the alr-coordinates of
+samples~2 and 3 of Equation~\ref{eq:Xcomp} using $b$ and $c$ as a
+common denominator:
+\begin{equation*}
+  \begin{split}
+    d[2,3]_b & =
+    \sqrt{
+      \left(
+      \ln\!\left[\frac{69.45}{25.55}\right]-
+      \ln\!\left[\frac{72.44}{26.65}\right]
+      \right)^2 +
+      \left(
+      \ln\!\left[\frac{5.01}{25.55}\right]-
+      \ln\!\left[\frac{0.92}{26.65}\right]
+      \right)^2
+    } = 1.74\\
+    & \neq 
+    \sqrt{
+      \left(
+      \ln\!\left[\frac{69.45}{5.01}\right]-
+      \ln\!\left[\frac{72.44}{0.92}\right]
+      \right)^2 +
+      \left(
+      \ln\!\left[\frac{25.55}{5.01}\right]-
+      \ln\!\left[\frac{26.65}{0.92}\right]
+      \right)^2
+    } = 2.46 = d[2,3]_c
+  \end{split}
+\end{equation*}
 
-This issue can be solved by using a different type of logratio
-transformation, the \textbf{centred logratio transformation} (clr):
+The fact that distances are not unequivocally defined in alr-space
+spells trouble for PCA. Recall the equivalence between PCA and MDS,
+which was discussed in Section~\ref{sec:MDS}. MDS is based on
+dissimilarity matrices, and so if distances are not well defined, then
+neither are the MDS configuration and, hence, the principal
+components. This issue can be solved by using a different type of
+logratio transformation, the \textbf{centred logratio transformation}
+(clr):
 \begin{equation}
   u_i = \ln\!\left[\frac{x_i}{g_i}\right] \mbox{,~}
   v_i = \ln\!\left[\frac{y_i}{g_i}\right] \mbox{,~and~}
@@ -417,9 +445,9 @@ g_i = \exp\!\left[\frac{\ln[x_i]+\ln[y_i]+\ln[z_i]}{3}\right]
 \]
 
 Unlike alr-coordinate axes, clr-coordinate axes are orthogonal and
-unequivocally define a set of distances that are isometric with the
-simplex. Applying the clr-transformation to the data of
-Equation~\ref{eq:Xcomp} yields a new trivariate dataset:
+unequivocally define a set of well behaved distances. Applying the
+clr-transformation to the data of Equation~\ref{eq:Xcomp} yields a new
+trivariate dataset:
 \begin{equation}
   X\textsubscript{c} =
   \bbordermatrix{ & \ln(a/g) & \ln(b/g) & \ln(c/g) \cr
@@ -430,9 +458,14 @@ Equation~\ref{eq:Xcomp} yields a new trivariate dataset:
   \label{eq:Xc}
 \end{equation}
 
+
 \noindent where $g$ stands for the geometric mean of each row. Note
-that the rows of $X_c$ add up to zero. Subjecting Equation~\ref{eq:Xc}
-to the same matrix decomposition as Equation~\ref{eq:PCA} yields:
+that each of the rows of $X_c$ adds up to zero. Thanks to the symmetry
+of the clr-coordinates, whose three-dimensional axes are perpendicular
+to each other, the distances between the rows (which are also known as
+\emph{Aitchison distances}) are well defined. Subjecting
+Equation~\ref{eq:Xc} to the same matrix decompositions as
+Equations~\ref{eq:XMY}--\ref{eq:P} yields:
 \begin{align}
   \begin{split}
     X_c & = 1_{3,1}~C + P~Q^{-1} \\
@@ -469,16 +502,18 @@ to the same matrix decomposition as Equation~\ref{eq:PCA} yields:
 \end{align}
 
 Note that, even though this yields three principal components instead
-two, the scores of the third component in matrix $P$ are zero.
-Therefore, all the information is contained in the first two
-components. Also note that the first two principal components of the
-compositional dataset are identical to those of the PCA example shown
-in Section~\ref{sec:PCA} (Equation~\ref{eq:P}):
+two, the scores of the third component in matrix $P$ are all
+zero\footnote{The covariance matrix of $X_c$ is singular and therefore
+the third eigenvalue is zero as well.}.  Therefore, all the
+information is contained in the first two components. Also note that
+the first two principal components of the compositional dataset are
+identical to those of the PCA example shown in Section~\ref{sec:PCA}
+(Equation~\ref{eq:P}). This is, of course, intentional:
 
-\noindent\begin{minipage}[t][][b]{.3\textwidth}
+\noindent\begin{minipage}[t][][b]{.32\textwidth}
 \includegraphics[width=\textwidth]{../figures/clrPCA.pdf}\medskip
 \end{minipage}
-\begin{minipage}[t][][t]{.7\textwidth}
+\begin{minipage}[t][][t]{.68\textwidth}
   \captionof{figure}{Compositional biplot of the toy data using the
     clr transformation. The biplot tells us that sample~1 is rich in
     component $b$, whereas samples~2 and 3 are rich in component
@@ -488,12 +523,7 @@ in Section~\ref{sec:PCA} (Equation~\ref{eq:P}):
   \label{fig:clrPCA}
 \end{minipage}
 
-The PCA biplot using the clr transformation looks identical to that
-using the alr transformation. The only difference is that the loadings
-are expressed in terms of the three clr variables, rather than the two
-alr variables. The former are easier to interpret than the latter,
-which is why the clr transformation is preferred in this context.
-Applying the same concept to the Namib dataset of
+Applying the same procedure to the Namib dataset of
 Table~\ref{tab:Major}:
 
 \noindent\begin{minipage}[t][][b]{.4\textwidth}
