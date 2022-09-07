@@ -34,6 +34,14 @@
 #' @param labels if \code{option=1} or \code{3} and \code{type='t'},
 #'     specifies the text labels to be used to mark the measurements
 #'     on the stereonet.
+#' @param pch plot character: see `points'.
+#' @param bg background colours of the plot characters. Vector of two
+#'     colours, which are used to mark points that plot below and
+#'     above the projection plane of the stereonet, respectively. Only
+#'     relevant if \code{pch} falls in the range from 21:25.
+#' @param lty line type. Vector of two numbers, which are used to plot
+#'     lines below and above the projection plane of the stereonet,
+#'     respectively.
 #' @param ... optional arguments to be passed on to the generic
 #'     \code{points} function
 #' @author based on a MATLAB script written by Nestor Cardozo.
@@ -48,9 +56,11 @@
 stereonet <- function(trd,plg,coneAngle=rep(10,length(trd)),
                       option=1,wulff=TRUE,add=FALSE,
                       degrees=FALSE,show.grid=TRUE,grid.col='grey50',
-                      tl=0.05,type='p',labels=1:length(trd),...){
+                      tl=0.05,type='p',labels=1:length(trd),
+                      pch=21,bg=c('black','white'),lty=c(1,2),...){
     if (!add){
-        stereonet.setup(wulff=wulff,show.grid=show.grid,grid.col=grid.col,tl=tl,...)
+        stereonet.setup(wulff=wulff,show.grid=show.grid,
+                        grid.col=grid.col,tl=tl,...)
     }
     if (!missing(trd) & !missing(plg)){
         if (degrees){
@@ -59,12 +69,13 @@ stereonet <- function(trd,plg,coneAngle=rep(10,length(trd)),
         }
         if (option%in%c(1,3)){
             stereonet.point(trd,plg,wulff=wulff,option=option,
-                            type=type,labels=labels,...)
+                            type=type,labels=labels,pch=pch,
+                            bg=bg,lty=lty,...)
         } else if (option==2){
-            stereonet.plane(trd,plg,wulff=wulff,...)
+            stereonet.plane(trd,plg,wulff=wulff,pch=pch,bg=bg,lty=lty,...)
         } else if (option==4){
             if (degrees) coneAngle <- coneAngle*pi/180
-            stereonet.circle(trd,plg,coneAngle=coneAngle,wulff=wulff,...)
+            stereonet.circle(trd,plg,coneAngle=coneAngle,wulff=wulff,lty=lty,...)
         } else {
             stop('Illegal option in stereonet function.')
         }
@@ -99,7 +110,7 @@ stereonet.setup <- function(wulff=TRUE,show.grid=TRUE,
                 plg <- i*intrad
             }
             if (plg == east){
-                plg <- plg * 0.9999
+                plg <- plg * (1-.Machine$double.min)
             }
             sd <- pole(trd,plg,option=1)
             p <- GreatCircle(sd[1],sd[2],wulff=wulff)
@@ -109,37 +120,47 @@ stereonet.setup <- function(wulff=TRUE,show.grid=TRUE,
     graphics::symbols(x=0,y=0,circles=1,add=TRUE,inches=FALSE)
     if (tl>0) circle.markers(tl=tl)
 }
-stereonet.line <- function(trd,plg,wulff=TRUE,...){ # deprecated
+stereonet.line <- function(trd,plg,wulff=TRUE,pch=21,
+                           bg=c('black','white'),lty=c(1,2),...){
     theta <- trd
     if (wulff) rho <- tan((pi/4)-(plg/2))
     else rho <- sqrt(2)*sin((pi/4)-(plg/2))
     xp <- rho*sin(theta)
     yp <- rho*cos(theta)
-    graphics::points(xp,yp,...)
+    graphics::points(xp,yp,pch=pch,bg=bg,lty=lty,...)
 }
-stereonet.plane <- function(trd,plg,wulff=TRUE,...){
+stereonet.plane <- function(trd,plg,wulff=TRUE,pch=21,
+                            bg=c('black','white'),lty=c(1,2),
+                            col='black',...){
     for (i in 1:length(trd)){
+        above <- (plg[i]<0)
         ad <- pole(trd=trd[i],plg=plg[i],option=2)
-        stereonet.line(trd=ad[1],plg=ad[2],wulff=wulff,...)
-        xy <- GreatCircle(strike=trd[i],dip=plg[i],wulff=wulff)
-        graphics::lines(xy,...)
+        stereonet.line(trd=ad[1],plg=ad[2],wulff=wulff,
+                       pch=pch,bg=bg[above+1],...)
+        if (plg[i]!=0){
+            xy <- GreatCircle(strike=trd[i],dip=plg[i],wulff=wulff)
+            graphics::lines(xy,lty=lty[above+1],col=col,...)
+        }
     }
 }
 stereonet.point <- function(trd,plg,wulff=TRUE,option=1,
                             type='p',labels=NA,pch=21,
-                            bg=c('white','black'),...){
+                            bg=c('black','white'),
+                            lty=c(1,2),col='black',...){
     if (option==1){
-        az <- (trd + (plg<0)*pi) %% (2*pi)
-        dip <- (2*(plg<0)-1) * plg
+        az <- trd
+        dip <- -abs(plg)
         x <- cos(dip)*sin(az)
         y <- cos(dip)*cos(az)
         z <- sin(dip)
+        above <- (plg<0)
     } else if (option==3){
-        lon <- trd-pi/2
+        lon <- -acos(cos(trd-pi/2))
         lat <- plg
         x <- cos(lat)*cos(lon)
         y <- sin(lat)
         z <- cos(lat)*sin(lon)
+        above <- (sin(trd-pi/2)>0)
     } else {
         stop('Illegal option supplied to stereonet.point')
     }
@@ -153,11 +174,14 @@ stereonet.point <- function(trd,plg,wulff=TRUE,option=1,
         yp <- mysign(y)*sqrt(2)*sin(phi)*cos(theta)
     }
     if (type=='l'){
-        graphics::lines(xp,yp,...)
+        n <- length(xp)
+        x <- rbind(xp[-n],xp[-1])
+        y <- rbind(yp[-n],yp[-1])
+        graphics::matlines(x,y,lty=lty[above+1][-n],col=col,...)
     } else if (type=='p'){
-        graphics::points(xp,yp,...)
+        graphics::points(xp,yp,bg=bg[above+1],pch=pch,...)
     } else if (type=='t'){
-        graphics::text(xp,yp,labels=labels,...)
+        graphics::text(xp,yp,labels=labels,col=bg[above+1],...)
     }
 }
 stereonet.circle <- function(trd,plg,coneAngle,wulff=TRUE,...){
@@ -259,9 +283,6 @@ CartToSph <- function(cn,ce,cd){
 # 2011.
 SmallCircle <- function(trda,plga,coneAngle,wulff=TRUE){
     if (plga < coneAngle){
-        if (plga == pi/2){
-            plga = plga * 0.9999
-        }
         angle <- acos(cos(coneAngle)/cos(plga))
         trd <- ZeroTwoPi(trda+angle)
         plg <- 0
@@ -293,12 +314,9 @@ GreatCircle <- function(strike,dip,wulff=TRUE){
     tpa <- pole(strike,dip,option=2)
     trd <- strike
     plg <- 0
-    rot <- (0:180)*pi/180
+    rot <- seq(from=.Machine$double.xmin,to=180*pi,length=180)
     out <- matrix(0,nrow=180,ncol=2)
     for (i in 1:180){
-        if (rot[i] == pi){
-            rot[i] <- rot[i]*0.9999
-        }
         rtp <- Rotate(tpa[1],tpa[2],rot[i],trd,plg,'a')
         out[i,] <- StCoordLine(rtp[1],rtp[2],wulff=wulff)
     }

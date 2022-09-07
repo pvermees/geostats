@@ -17,6 +17,9 @@ stereonet(
   tl = 0.05,
   type = "p",
   labels = 1:length(trd),
+  pch = 21,
+  bg = c("black", "white"),
+  lty = c(1, 2),
   ...
 )
 }
@@ -61,6 +64,17 @@ or decorated with text labels (\code{type='t'}).}
 \item{labels}{if \code{option=1} or \code{3} and \code{type='t'},
 specifies the text labels to be used to mark the measurements
 on the stereonet.}
+
+\item{pch}{plot character: see `points'.}
+
+\item{bg}{background colours of the plot characters. Vector of two
+colours, which are used to mark points that plot below and
+above the projection plane of the stereonet, respectively. Only
+relevant if \code{pch} falls in the range from 21:25.}
+
+\item{lty}{line type. Vector of two numbers, which are used to plot
+lines below and above the projection plane of the stereonet,
+respectively.}
 
 \item{...}{optional arguments to be passed on to the generic
 \code{points} function}

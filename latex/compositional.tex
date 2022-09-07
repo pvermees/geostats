@@ -352,7 +352,7 @@ illustrate the logratio solution using a simple toy example, which is
 similar to the toy example that was used in
 Section~\ref{sec:PCA}. Consider the following trivariate ($a$, $b$ and
 $c$) dataset of three (1, 2 and 3) compositions that are constrained
-to a constant sum ($a_i+b_i+c_i=1$ for $1\leq{i}\leq{3}$):
+to a constant sum ($a_i+b_i+c_i=100\%$ for $1\leq{i}\leq{3}$):
 \begin{equation}
   X =
   \bbordermatrix{ & a & b & c \cr
@@ -395,7 +395,7 @@ orthogonal to each other:
 
 For example, calculate the distances between the alr-coordinates of
 samples~2 and 3 of Equation~\ref{eq:Xcomp} using $b$ and $c$ as a
-common denominator:
+common denominator ($d[2,3]_b$ and $d[2,3]_c$, respectively):
 \begin{equation*}
   \begin{split}
     d[2,3]_b & =
@@ -424,8 +424,8 @@ common denominator:
 \end{equation*}
 
 The fact that distances are not unequivocally defined in alr-space
-spells trouble for PCA. Recall the equivalence between PCA and MDS,
-which was discussed in Section~\ref{sec:MDS}. MDS is based on
+spells trouble for PCA. Recall the equivalence of PCA and classical
+MDS, which was discussed in Section~\ref{sec:MDS}. MDS is based on
 dissimilarity matrices, and so if distances are not well defined, then
 neither are the MDS configuration and, hence, the principal
 components. This issue can be solved by using a different type of
