@@ -133,7 +133,7 @@ stereonet.plane <- function(trd,plg,wulff=TRUE,pch=21,
                             bg=c('black','white'),lty=c(1,2),
                             col='black',...){
     for (i in 1:length(trd)){
-        above <- (plg[i]<0)
+        above <- (sin(plg[i])<0)
         ad <- pole(trd=trd[i],plg=plg[i],option=2)
         stereonet.line(trd=ad[1],plg=ad[2],wulff=wulff,
                        pch=pch,bg=bg[above+1],...)
@@ -149,11 +149,11 @@ stereonet.point <- function(trd,plg,wulff=TRUE,option=1,
                             lty=c(1,2),col='black',...){
     if (option==1){
         az <- trd
-        dip <- -abs(plg)
+        dip <- -acos(cos(plg))
         x <- cos(dip)*sin(az)
         y <- cos(dip)*cos(az)
         z <- sin(dip)
-        above <- (plg<0)
+        above <- (sin(plg)<0)
     } else if (option==3){
         lon <- -acos(cos(trd-pi/2))
         lat <- plg

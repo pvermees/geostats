@@ -96,6 +96,24 @@ vonMises <- function(a,mu=0,kappa=1,degrees=FALSE){
     num/den
 }
 
+meanorientation <- function(trd,plg=0,option=1,degrees=FALSE){
+    xyz <- angle2coord(trd,plg,option=option,degrees=degrees)
+    n <- nrow(xyz)
+    m <- ifelse(option==0,2,3)
+    B <- matrix(0,m,m)
+    for (i in 1:n){
+        B <- B + t(xyz[i,1:m,drop=FALSE])%*%xyz[i,1:m,drop=FALSE]
+    }
+    E <- eigen(B)
+    uvw <- E$vectors[,1]
+    if (option==0){
+        out <- coord2angle(uvw[1],uvw[2],option=option,degrees=degrees)
+    } else {
+        out <- coord2angle(uvw[1],uvw[2],uvw[3],option=option,degrees=degrees)
+    }
+    out
+}
+
 #' @title mean angle
 #' @description Computes the vector mean of a collection of circular
 #'     measurements.
@@ -150,60 +168,69 @@ Rbar <- function(trd,plg=0,option=0,degrees=FALSE){
 
 # helper function for meanangle and Rbar
 vectorsum <- function(trd,plg=0,option=0,degrees=FALSE,Rbar=TRUE){
+    xyz <- angle2coord(trd,plg,option=option,degrees=degrees)
+    x <- xyz[,'x']
+    y <- xyz[,'y']
+    z <- xyz[,'z']
+    R <- sqrt(sum(x)^2+sum(y)^2+sum(z)^2)
+    if (Rbar) return(R/length(trd))
+    xbar <- sum(x)/R
+    ybar <- sum(y)/R
+    zbar <- sum(z)/R
+    coord2angle(xbar,ybar,zbar,option=option,degrees=degrees)
+}
+
+angle2coord <- function(trd,plg=0,option=0,degrees=FALSE){
     if (degrees){
         trd <- trd*pi/180
         plg <- plg*pi/180
     }
     if (option==0){
-        if (Rbar){
-            out <- sqrt(mean(sin(trd))^2 + mean(cos(trd))^2)
-            return(out)
-        } else {
-            out <- atan(sum(sin(trd))/sum(cos(trd)))
-        }
+        x <- cos(trd)
+        y <- sin(trd)
+        z <- 0
+    } else if (option==1){
+        az <- trd
+        dip <- plg
+        x <- cos(dip)*cos(az)
+        y <- cos(dip)*sin(az)
+        z <- sin(dip)
+    } else if (option==2){
+        strike <- trd
+        dip <- plg
+        x <- -cos(dip)*sin(strike)
+        y <- cos(dip)*cos(strike)
+        z <- sin(dip)
+    } else if (option==3){
+        lon <- trd
+        lat <- plg
+        x <- cos(lat)*sin(lon)
+        y <- sin(lat)
+        z <- -cos(lat)*cos(lon)
     } else {
-        if (option==1){
-            az <- trd
-            dip <- plg
-            x <- cos(dip)*cos(az)
-            y <- cos(dip)*sin(az)
-            z <- sin(dip)
-        } else if (option==2){
-            strike <- trd
-            dip <- plg
-            x <- -cos(dip)*sin(strike)
-            y <- cos(dip)*cos(strike)
-            z <- sin(dip)
-        } else if (option==3){
-            lon <- trd
-            lat <- plg
-            x <- cos(lat)*sin(lon)
-            y <- sin(lat)
-            z <- -cos(lat)*cos(lon)
-        } else {
-            stop('Illegal option supplied to stereonet.point')
-        }
-        R <- sqrt(sum(x)^2+sum(y)^2+sum(z)^2)
-        if (Rbar) return(R/length(trd))
-        xbar <- sum(x)/R
-        ybar <- sum(y)/R
-        zbar <- sum(z)/R
-        out <- rep(0,2)
-        if (option==1){
-            out[1] <- atan(ybar/xbar)
-            out[2] <- asin(zbar)
-            if (xbar<0) out[1] <- out[1] - pi
-        } else if (option==2){
-            out[1] <- atan(-xbar/ybar)
-            out[2] <- asin(zbar)
-            if (ybar<0) out[1] <- out[1] - pi
-        } else {
-            out[1] <- atan(-xbar/zbar)
-            out[2] <- asin(ybar)
-        }
+        stop('Illegal option supplied to stereonet.point')
     }
-    if (degrees) out <- out*180/pi
-    out
+    return(cbind(x=x,y=y,z=z))
+}
+
+coord2angle <- function(x,y,z=0,option=0,degrees=FALSE){
+    if (option==0){
+        out <- atan(y/x)
+    } else if (option==1){
+        out <- cbind(atan(y/x),
+                     asin(z))
+        out[x<0,1] <- out[x<0,1] - pi
+    } else if (option==2){
+        out <- cbind(atan(-x/y),
+                     asin(z))
+        out[y<0,1] <- out[y<0,1] - pi
+    } else {
+        out <- cbind(atan(-x/z),
+                     asin(y))
+        out[z>0,1] <- out[z>0,1] - pi
+    }
+    if (degrees) return(out*180/pi)
+    else return(out)
 }
 
 #' @title \eqn{\bar{R}} to \eqn{\kappa} conversion
