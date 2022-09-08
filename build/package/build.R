@@ -18,6 +18,10 @@ striations <- c(44,51,79,65,27,31,4,355,22,352,287,
                 17,351,349,37,339,40,324,325,334)
 save(striations,file="../../package/data/striations.rda",version=2)
 
+pebbles <- c(32,33,34,37,40,41,42,43,45,53,
+             210,212,214,217,220,221,222,223,226,230)
+save(pebbles,file="../../package/data/pebbles.rda",version=2)
+
 qdat <- read.csv('recentquakes.csv',header=TRUE)
 dateAsString <- qdat$time
 thedate <- strptime(dateAsString,format='%Y-%m-%d %H:%M:%S ')
