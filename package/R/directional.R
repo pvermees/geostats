@@ -130,14 +130,23 @@ meanorientation <- function(trd,plg=0,option=1,degrees=FALSE){
 #'     is the dip; if \code{option=2}, then \code{trd} is the strike
 #'     and \code{plg} is the dip; if \code{option=3} then \code{trd}
 #'     is the longitude and \code{plg} is the latitude.
+#' @param orientation logical. If \code{TRUE}, estimates the mean
+#'     angle by eigen decomposition rather than by vector
+#'     summation. This is the right thing to do for orientation data
+#'     in which, for example, an angle of 45 degrees is equivalent to
+#'     an angle of 225 degrees.
 #' @return a scalar of 2-element vector with the mean orientation,
 #'     either in radians (if \code{degrees=FALSE}), or in degrees.
 #' @examples
 #' data(striations,package='geostats')
 #' meanangle(striations,degrees=TRUE)
 #' @export
-meanangle <- function(trd,plg=0,option=0,degrees=FALSE){
-    vectorsum(trd=trd,plg=plg,option=option,degrees=degrees,Rbar=FALSE)
+meanangle <- function(trd,plg=0,option=0,degrees=FALSE,orientation=FALSE){
+    if (orientation){
+        out <- meanorientation(trd=trd,plg=plg,option=option,degrees=degrees)
+    } else {
+        out <- vectorsum(trd=trd,plg=plg,option=option,degrees=degrees,Rbar=FALSE)
+    }
 }
 
 #' @title calculate \eqn{\bar{R}}
