@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.7.7)  8 SEP 2022 23:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.7.7)  9 SEP 2022 08:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3832,35 +3832,30 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 487--500
 pdfTeX warning: pdflatex (file ../figures/inertia.pdf): PDF inclusion: multiple
  pdfs with page group included in a single page
 >]
-<../figures/subhorizontal.pdf, id=4159, 180.675pt x 180.675pt>
+<../figures/subhorizontal.pdf, id=4159, 216.81pt x 216.81pt>
 File: ../figures/subhorizontal.pdf Graphic file (type pdf)
 <use ../figures/subhorizontal.pdf>
-Package pdftex.def Info: ../figures/subhorizontal.pdf  used on input line 602.
-(pdftex.def)             Requested size: 159.33821pt x 159.33908pt.
+Package pdftex.def Info: ../figures/subhorizontal.pdf  used on input line 604.
+(pdftex.def)             Requested size: 159.33821pt x 159.34515pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 605.
+(caption)                particular \caption on input line 613.
 See the caption package documentation for explanation.
 
-)
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 601--114
-[] []
+
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 603--616
+[] [] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 601--114
-
- []
-
-(./spatial.tex [150 <../figures/subhorizontal.pdf>]
+) (./spatial.tex [150 <../figures/subhorizontal.pdf>]
 Chapter 16.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 36.
 See the caption package documentation for explanation.
 
-<../figures/meusepoints.pdf, id=4176, 361.35pt x 289.08pt>
+<../figures/meusepoints.pdf, id=4177, 361.35pt x 289.08pt>
 File: ../figures/meusepoints.pdf Graphic file (type pdf)
 <use ../figures/meusepoints.pdf>
 Package pdftex.def Info: ../figures/meusepoints.pdf  used on input line 52.
@@ -3889,7 +3884,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [153]
-<../figures/semivariogram.pdf, id=4213, 216.81pt x 216.81pt>
+<../figures/semivariogram.pdf, id=4214, 216.81pt x 216.81pt>
 File: ../figures/semivariogram.pdf Graphic file (type pdf)
 <use ../figures/semivariogram.pdf>
 Package pdftex.def Info: ../figures/semivariogram.pdf  used on input line 200.
@@ -3906,7 +3901,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 199--214
  []
 
 [154 <../figures/semivariogram.pdf>]
-<../figures/semivariogramfit.pdf, id=4243, 505.89pt x 144.54pt>
+<../figures/semivariogramfit.pdf, id=4244, 505.89pt x 144.54pt>
 File: ../figures/semivariogramfit.pdf Graphic file (type pdf)
 <use ../figures/semivariogramfit.pdf>
 Package pdftex.def Info: ../figures/semivariogramfit.pdf  used on input line 24
@@ -3918,7 +3913,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 251.
 See the caption package documentation for explanation.
 
-<../figures/snr.pdf, id=4246, 216.81pt x 216.81pt>
+<../figures/snr.pdf, id=4247, 216.81pt x 216.81pt>
 File: ../figures/snr.pdf Graphic file (type pdf)
 <use ../figures/snr.pdf>
 Package pdftex.def Info: ../figures/snr.pdf  used on input line 275.
@@ -3938,7 +3933,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 274--287
 pdfTeX warning: pdflatex (file ../figures/snr.pdf): PDF inclusion: multiple pdf
 s with page group included in a single page
 >]
-<../figures/meusecontour.pdf, id=4301, 361.35pt x 289.08pt>
+<../figures/meusecontour.pdf, id=4302, 361.35pt x 289.08pt>
 File: ../figures/meusecontour.pdf Graphic file (type pdf)
 <use ../figures/meusecontour.pdf>
 Package pdftex.def Info: ../figures/meusecontour.pdf  used on input line 424.
@@ -3955,7 +3950,7 @@ Underfull \hbox (badness 2435) in paragraph at lines 432--432
  []
 
 [156]
-<../figures/meusecontourerr.pdf, id=4313, 361.35pt x 289.08pt>
+<../figures/meusecontourerr.pdf, id=4314, 361.35pt x 289.08pt>
 File: ../figures/meusecontourerr.pdf Graphic file (type pdf)
 <use ../figures/meusecontourerr.pdf>
 Package pdftex.def Info: ../figures/meusecontourerr.pdf  used on input line 457
@@ -3979,7 +3974,7 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <24.88> not available
 
 ] [160] [161] [162] [163] [164] [165] [166] [167] [168] [169] [170]
 [171] [172] [173] [174]
-<../figures/LLpois.pdf, id=4514, 216.81pt x 216.81pt>
+<../figures/LLpois.pdf, id=4515, 216.81pt x 216.81pt>
 File: ../figures/LLpois.pdf Graphic file (type pdf)
 <use ../figures/LLpois.pdf>
 Package pdftex.def Info: ../figures/LLpois.pdf  used on input line 1066.
@@ -4030,7 +4025,7 @@ Overfull \hbox (27.37506pt too wide) detected at line 827
  []
 
 [211] [212] [213] [214] [215] [216]
-<../figures/PCAiris.pdf, id=4962, 216.81pt x 216.81pt>
+<../figures/PCAiris.pdf, id=4964, 216.81pt x 216.81pt>
 File: ../figures/PCAiris.pdf Graphic file (type pdf)
 <use ../figures/PCAiris.pdf>
 Package pdftex.def Info: ../figures/PCAiris.pdf  used on input line 1248.
@@ -4047,7 +4042,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 1247--1263
  []
 
 [217 <../figures/PCAiris.pdf>]
-<../figures/elbow.pdf, id=4984, 216.81pt x 216.81pt>
+<../figures/elbow.pdf, id=4986, 216.81pt x 216.81pt>
 File: ../figures/elbow.pdf Graphic file (type pdf)
 <use ../figures/elbow.pdf>
 Package pdftex.def Info: ../figures/elbow.pdf  used on input line 1291.
@@ -4063,7 +4058,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 1290--1300
 [] [] 
  []
 
-<../figures/DZtree.pdf, id=4985, 216.81pt x 144.54pt>
+<../figures/DZtree.pdf, id=4987, 216.81pt x 144.54pt>
 File: ../figures/DZtree.pdf Graphic file (type pdf)
 <use ../figures/DZtree.pdf>
 Package pdftex.def Info: ../figures/DZtree.pdf  used on input line 1313.
@@ -4083,7 +4078,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 1312--1323
 pdfTeX warning: pdflatex (file ../figures/DZtree.pdf): PDF inclusion: multiple 
 pdfs with page group included in a single page
 >] [219] [220]
-<../figures/testPCA.pdf, id=5034, 289.08pt x 289.08pt>
+<../figures/testPCA.pdf, id=5036, 289.08pt x 289.08pt>
 File: ../figures/testPCA.pdf Graphic file (type pdf)
 <use ../figures/testPCA.pdf>
 Package pdftex.def Info: ../figures/testPCA.pdf  used on input line 1540.
@@ -4100,7 +4095,7 @@ Overfull \hbox (2.43333pt too wide) in paragraph at lines 1539--1556
  []
 
 [221 <../figures/testPCA.pdf>] [222] [223]
-<../figures/hills.pdf, id=5071, 505.89pt x 144.54pt>
+<../figures/hills.pdf, id=5073, 505.89pt x 144.54pt>
 File: ../figures/hills.pdf Graphic file (type pdf)
 <use ../figures/hills.pdf>
 Package pdftex.def Info: ../figures/hills.pdf  used on input line 1723.
@@ -4112,7 +4107,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [224 <../figures/hills.pdf>]
-<../figures/sphvsexp.pdf, id=5105, 361.35pt x 289.08pt>
+<../figures/sphvsexp.pdf, id=5107, 361.35pt x 289.08pt>
 File: ../figures/sphvsexp.pdf Graphic file (type pdf)
 <use ../figures/sphvsexp.pdf>
 Package pdftex.def Info: ../figures/sphvsexp.pdf  used on input line 1794.
@@ -4133,10 +4128,10 @@ Package rerunfilecheck Info: File `geostats.out' has not changed.
 (rerunfilecheck)             Checksum: C1F0896B29040284ED1030E3A229ADD9;20657.
  ) 
 Here is how much of TeX's memory you used:
- 15338 strings out of 478287
- 256617 string characters out of 5849290
- 628136 words of memory out of 5000000
- 31926 multiletter control sequences out of 15000+600000
+ 15340 strings out of 478287
+ 256644 string characters out of 5849290
+ 628556 words of memory out of 5000000
+ 31927 multiletter control sequences out of 15000+600000
  483630 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,26n,63p,1096b,685s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -4168,10 +4163,10 @@ cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on geostats.pdf (225 pages, 3602258 bytes).
+Output written on geostats.pdf (225 pages, 3602342 bytes).
 PDF statistics:
- 5505 PDF objects out of 6186 (max. 8388607)
- 4443 compressed objects within 45 object streams
- 1197 named destinations out of 1200 (max. 500000)
+ 5507 PDF objects out of 6186 (max. 8388607)
+ 4445 compressed objects within 45 object streams
+ 1198 named destinations out of 1200 (max. 500000)
  2049 words of extra memory for PDF output out of 10000 (max. 10000000)
 

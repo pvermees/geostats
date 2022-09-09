@@ -436,7 +436,7 @@ Applying this procedure to the palaeomagnetic and structural datasets:
   \captionof{figure}{a) the palaeomagnetic data of
     Figure~\ref{fig:palaeomag} shown in grey, with their vector mean
     marked as a black square. b) the fault data of
-    Figure~\ref{fig:fault} in grey with the vector mean as a back
+    Figure~\ref{fig:fault} in grey with the vector mean as a black
     square and great circle, respectively.\medskip}
   \label{fig:sphericalmean}
 \end{minipage}
@@ -541,6 +541,7 @@ matrix:
     \end{array}
     \right]
   \end{split}
+  \label{eq:sphericalsigma}
 \end{equation}
 
 For the pebble data:
@@ -589,9 +590,10 @@ bed. Suppose that some measured surfaces dip gently to the north and
 others gently to the south:
 
 \begin{center}
-\begin{tabular}{c|cccccccccc}
-strike & 77 & 94 & 73 & 122 & 97 & 254 & 280 & 285 & 282 & 264 \\
-dip & 4.5 & 1.2 & 1.9 & 6.6 & 3.4 & 0.2 & 0.1 & 2.8 & 2.5 & 1.8\\
+  \begin{tabular}{c|cccccccccc}
+    strike & 77.1 & 94.9 & 73.2 & 122.8 & 97.3 &
+    254.7 & 280.4 & 285.6 & 282.5 & 264.0 \\
+    dip & 5.6 & 1.9 & 10.1 & 7.8 & 3.2 & 0.0 & 8.5 & 2.3 & 3.4 & 6.7
 \end{tabular}
 \end{center}
 
@@ -602,6 +604,17 @@ a nonsensical (subvertical!) result:\medskip
 \includegraphics[width=\textwidth]{../figures/subhorizontal.pdf}
 \end{minipage}
 \begin{minipage}[t][][t]{.65\textwidth}
-  \captionof{figure}{\medskip}
+  \captionof{figure}{Open circles and grey lines shows 20 strike and
+    dip measurements of a subhorizontal bed. The vector mean of these
+    measurements is shown as a filled square and black line. It is
+    perpendicular to the bed, which is clearly wrong. The large open
+    square marks the direction that minimises the moment of inertia of
+    the poles. This is a much more sensible orientational
+    average.\medskip}
   \label{fig:subhorizontal}
 \end{minipage}
+
+A better average is again obtained by minimising the moment of
+inertia, which is achieved by generalising
+Equation~\ref{eq:sphericalsigma} from two to three dimensions and
+subjecting the resulting covariance matrix to an eigendecomposition.

@@ -4280,17 +4280,19 @@ cairo(file='../../figures/sphericalmean.pdf',width=5,height=2.5)
 pars(mfrow=c(1,2),mar=c(1.2,1,1,1))
 meanpalaeomag <- geostats::meanangle(trd=A,plg=D1,option=1,degrees=TRUE)
 geostats::stereonet(trd=A,plg=D1,option=1,degrees=TRUE,
-                    show.grid=FALSE,wulff=FALSE,pch=19,cex=0.7,col='grey70')
+                    show.grid=FALSE,wulff=FALSE,pch=21,
+                    bg='white',cex=0.7,col='grey70')
 geostats::stereonet(trd=meanpalaeomag[1],plg=meanpalaeomag[2],
                     option=1,degrees=TRUE,add=TRUE,wulff=FALSE,
-                    pch=15,cex=0.7,col='black')
+                    pch=15,cex=0.85,col='black')
 legend('topleft',legend='a)',adj=c(2,0),bty='n')
 meanfault <- geostats::meanangle(trd=S,plg=D2,option=2,degrees=TRUE)
 geostats::stereonet(trd=S,plg=D2,option=2,degrees=TRUE,
-                    show.grid=FALSE,wulff=TRUE,pch=19,cex=0.7,col='grey70')
+                    show.grid=FALSE,wulff=TRUE,pch=21,
+                    bg='white',cex=0.7,col='grey70')
 geostats::stereonet(trd=meanfault[1],plg=meanfault[2],
                     option=2,degrees=TRUE,add=TRUE,wulff=TRUE,
-                    pch=15,cex=0.7,col='black',lwd=1.5)
+                    pch=15,cex=0.85,col='black',lwd=1.5)
 legend('topleft',legend='b)',adj=c(2,0),bty='n')
 dev.off()
 
@@ -4325,16 +4327,17 @@ dev.off()
 
 cairo(file='../../figures/subhorizontal.pdf',width=3,height=3)
 pars(mar=c(0,1.5,0,1.1))
-strike <- c(77,94,73,122,97,254,280,285,282,264)
-dip <- c(4.5,1.2,1.9,6.6,3.4,0.2,0.1,2.8,2.5,1.8)
+strike <- c(77.1,94.9,73.2,122.8,97.3,254.7,280.4,285.6,282.5,264.0)
+dip <- c(5.6,1.9,10.1,7.8,3.2,0.0,8.5,2.3,3.4,6.7)
 geostats::stereonet(strike,dip,option=2,degrees=TRUE,
-                    show.grid=FALSE,pch=21,bg='black',col='grey50')
+                    show.grid=FALSE,pch=21,cex=0.7,
+                    bg='white',col='grey70')
 m <- geostats::meanangle(strike,dip,option=2,degrees=TRUE)
 geostats::stereonet(m[1],m[2],option=2,degrees=TRUE,add=TRUE,
-                    pch=22,bg='black',lwd=2,cex=2)
+                    pch=22,bg='black',lwd=2,cex=1)
 mo <- geostats::meanangle(strike,dip,option=2,degrees=TRUE,orientation=TRUE)
 geostats::stereonet(mo[1],mo[2],option=2,degrees=TRUE,add=TRUE,
-                    pch=22,bg=c('black',NA),lwd=1.5,cex=4,lty=c(0,0))
+                    pch=22,bg=c('black',NA),lwd=1.5,cex=3,lty=c(0,0))
 dev.off()
 
 data('meuse',package='geostats')

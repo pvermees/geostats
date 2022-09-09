@@ -1931,6 +1931,15 @@ stereonet(trd=meanfault[1],plg=meanfault[2],
           option=2,degrees=TRUE,add=TRUE,pch=16,col='black')
 \end{script}
 
+\item To compute the average orientation of the pebble measurements:
+
+\begin{script}
+data(pebbles,package='geostats')
+circle.plot(pebbles,degrees=TRUE)
+m <- meanangle(pebbles,degrees=TRUE,orientation=TRUE)
+circle.points(m,degrees=TRUE,pch=16,cex=2)
+\end{script}  
+
 \end{enumerate}
 
 \section{Spatial data}
