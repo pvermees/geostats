@@ -10,7 +10,7 @@ directional data is fraught with dangers.
 \section{Circular data}
 \label{sec:circular}
 
-Consider the following dataset of orientations (in degrees) of thirty
+Consider the following dataset of directions (in degrees) of thirty
 glacial striations from Madagascar:
 
 \begin{center}
@@ -23,11 +23,11 @@ glacial striations from Madagascar:
 These values span a range from 0$^{\circ}$ and 360$^{\circ}$, where
 $0^{\circ}=360^{\circ}$. Plotting the data on a circle:
 
-\noindent\begin{minipage}[t][][b]{.2\textwidth}
+\noindent\begin{minipage}[t][][b]{.25\textwidth}
 \includegraphics[width=\textwidth]{../figures/circle1.pdf}\medskip
 \end{minipage}
-\begin{minipage}[t][][t]{.8\textwidth}
-  \captionof{figure}{The orientations of 30~glacial striations. The
+\begin{minipage}[t][][t]{.75\textwidth}
+  \captionof{figure}{The directions of 30~glacial striations. The
     values are roughly centred around zero but exhibit significant
     scatter, from the northwest (276$^\circ$) to the northeast
     (79$^\circ$).\medskip}
@@ -37,10 +37,10 @@ $0^{\circ}=360^{\circ}$. Plotting the data on a circle:
 Computing the arithmetic mean of these angles yields a value of
 189.2$^{\circ}$. This is a nonsensical result:
 
-\noindent\begin{minipage}[t][][b]{.2\textwidth}
+\noindent\begin{minipage}[t][][b]{.25\textwidth}
 \includegraphics[width=\textwidth]{../figures/circle2.pdf}\medskip
 \end{minipage}
-\begin{minipage}[t][][t]{.8\textwidth}
+\begin{minipage}[t][][t]{.75\textwidth}
   \captionof{figure}{The same glacial striation data of
     Figure~\ref{fig:circle1}, with their arithmetic mean shown as an
     arrow. Even though the individual striations are all pointing
@@ -77,10 +77,10 @@ directions:
 
 Applying this formula to the glacial striation data:
 
-\noindent\begin{minipage}[t][][b]{.2\textwidth}
+\noindent\begin{minipage}[t][][b]{.25\textwidth}
 \includegraphics[width=\textwidth]{../figures/circle3.pdf}\medskip
 \end{minipage}
-\begin{minipage}[t][][t]{.8\textwidth}
+\begin{minipage}[t][][t]{.75\textwidth}
   \captionof{figure}{The vector sum of the 30 glacial striation
     measurements points in a direction of 357.6$^\circ$, which is
     marked by the arrow and does a much better job at capturing the
@@ -380,6 +380,7 @@ vector sum. To average a collection of $n$ spherical measurements:
   \sum_{i=1}^{n}\frac{y_i}{n\bar{R}},
   \sum_{i=1}^{n}\frac{z_i}{n\bar{R}}
   \right\}
+  \label{eq:3Dvectormean}
 \end{equation}
 
 \noindent where $\{x_i,y_i,z_i\}$ are the Cartesian coordinates
@@ -435,7 +436,185 @@ Applying this procedure to the palaeomagnetic and structural datasets:
   \captionof{figure}{a) the palaeomagnetic data of
     Figure~\ref{fig:palaeomag} shown in grey, with their vector mean
     marked as a black square. b) the fault data of
-    Figure~\ref{fig:fault} in grey with the vector mean as a back
+    Figure~\ref{fig:fault} in grey with the vector mean as a black
     square and great circle, respectively.\medskip}
   \label{fig:sphericalmean}
 \end{minipage}
+
+\section{Orientations}\label{sec:orientations}
+
+It is important to make a distinction between \emph{directions} such
+as `north' or `east' and \emph{orientations} such as `north--south'
+and `east-west'. The glacial striations of Section~\ref{sec:circular}
+are a clear example of directional data: on average, the striations
+point towards the north, suggesting a southerly ice source.  In
+contrast, consider the following dataset of 20 pebble orientations on
+a beach:
+
+\begin{center}
+\begin{tabular}{ccccccccccccccc}
+  32 & 33 & 34 & 37 & 40 & 41 & 42 & 43 & 45 & 53 \\
+  210 & 212 & 214 & 217 & 220 & 221 & 222 & 223 & 226 & 230
+\end{tabular}
+\end{center}
+
+In contrast with the striations, there are not one but two ways to
+measure the pebble orientations. For example, an angle of 45$^\circ$
+degrees is equivalent to an angle of 225$^\circ$. However, the vector
+mean (Equation~\ref{eq:averagedirection}) assumes that they are
+distinct angles. This can produce nonsensical results:
+
+\noindent\begin{minipage}[t][][b]{.25\textwidth}
+\includegraphics[width=\textwidth]{../figures/pebbles.pdf}\medskip
+\end{minipage}
+\begin{minipage}[t][][t]{.75\textwidth}
+  \captionof{figure}{20 pebbles in a sedimentary bed are aligned in a
+    NE--SW direction. Half of the measurements were recorded as
+    northeasterly and the other half as southwesterly. Both of angles
+    are equivalent. The white circle marks the vector mean, which
+    points in a northwesterly direction.\medskip}
+  \label{fig:pebbles}
+\end{minipage}
+
+A better way to average orientational data is to maximise the
+\textbf{moment of inertia}. Suppose that the circle of
+Figure~\ref{fig:pebbles} is a ring, and that the tick marks have a
+physical weight attached to them. If we were to spin this ring around
+the y-axis, the it would wobble significantly. The wobble can be
+eliminated by changing the spin axis to the direction that minimises
+the moment of inertia of the spinning ring.
+
+\noindent\begin{minipage}[t][][b]{.25\textwidth}
+\includegraphics[width=\textwidth]{../figures/inertia.pdf}\medskip
+\end{minipage}
+\begin{minipage}[t][][t]{.75\textwidth}
+  \captionof{figure}{The diagonal line tilts at an angle of
+    40$^\circ$.  It marks the direction that minimises the moment of
+    inertia of a circle with point masses attached to the angular
+    measurements marked by the radial ticks. If the circle and the
+    point masses were spun around this line, then they would do so
+    without wobbling. The same is true for the perpendicular
+    direction, which maximises the moment of inertia.\medskip}
+  \label{fig:inertia}
+\end{minipage}
+
+The moment of inertia can be minimised by calculating the Cartesian
+coordinates of the angular data, and calculating their covariance
+matrix:
+
+\begin{equation}
+  \begin{split}
+  \Sigma = &
+  \left[
+    \begin{array}{@{}cc@{}}
+      s_x^2 & s_{x,y} \\
+      s_{y,x} & s_y^2
+    \end{array}
+    \right] =
+  \left[
+    \begin{array}{@{}cc@{}}
+      \frac{1}{n}\sum\limits_{i=1}^{n} (x_i-0)^2 & 
+      \frac{1}{n}\sum\limits_{i=1}^{n} (x_i-0)(y_i-0) \\
+      \frac{1}{n}\sum\limits_{i=1}^{n} (y_i-0)(x_i-0) &
+      \frac{1}{n}\sum\limits_{i=1}^{n} (y_i-0)^2
+    \end{array}
+    \right] \\
+  ~ & =
+  \frac{1}{n}
+  \left[
+    \begin{array}{@{}cc@{}}
+      \sum\limits_{i=1}^{n} x_i^2 & 
+      \sum\limits_{i=1}^{n} x_iy_i \\
+      \sum\limits_{i=1}^{n} x_iy_i &
+      \sum\limits_{i=1}^{n} y_i^2
+    \end{array}
+    \right] =
+  \sum\limits_{i=1}^{n}
+  \left[
+    \begin{array}{@{}c@{}}
+      x_i \\ y_i
+    \end{array}
+    \right]
+  \left[
+    \begin{array}{@{}cc@{}}
+      x_i & y_i
+    \end{array}
+    \right]
+  \end{split}
+  \label{eq:sphericalsigma}
+\end{equation}
+
+For the pebble data:
+\[
+\Sigma =
+\left[
+  \begin{array}{@{}cc@{}}
+    0.62 & 0.51 \\
+    0.51 & 0.44
+  \end{array}
+  \right]
+\]
+    
+Subjecting their covariance matrix to an eigendecomposition (see
+Equation~\ref{eq:eigen}) yields two eigenvalues and eigenvectors:
+\[
+\Sigma = Q \Lambda Q^{-1} =
+\left[
+  \begin{array}{@{}cc@{}}
+    -0.77 & 0.64 \\
+    -0.64 & -0.77
+  \end{array}
+  \right]
+\left[
+  \begin{array}{@{}cc@{}}
+    0.989  & 0 \\
+    0 & 0.011
+  \end{array}
+  \right]
+\left[
+  \begin{array}{@{}cc@{}}
+    -0.77 & -0.64 \\
+    0.64 & -0.77
+  \end{array}
+  \right]
+\]
+
+The first eigenvector defines a direction of $\bar{\theta} =
+\mbox{atan}(-0.64/-0.77) = 0.70 = 40^\circ$ (see
+Figure~\ref{fig:inertia}). It accounts for 98.9\% of the data
+variance, as indicated by the first eigenvalue.\medskip
+
+The same procedure can be used to average orientational data on a
+sphere. For example, consider a structural dataset for a subhorizontal
+bed. Suppose that some measured surfaces dip gently to the north and
+others gently to the south:
+
+\begin{center}
+  \begin{tabular}{c|cccccccccc}
+    strike & 77.1 & 94.9 & 73.2 & 122.8 & 97.3 &
+    254.7 & 280.4 & 285.6 & 282.5 & 264.0 \\
+    dip & 5.6 & 1.9 & 10.1 & 7.8 & 3.2 & 0.0 & 8.5 & 2.3 & 3.4 & 6.7
+\end{tabular}
+\end{center}
+
+Calculating the vector mean with Equation~\ref{eq:3Dvectormean} yields
+a nonsensical (subvertical!) result:\medskip
+
+\noindent\begin{minipage}[t][][b]{.35\textwidth}
+\includegraphics[width=\textwidth]{../figures/subhorizontal.pdf}
+\end{minipage}
+\begin{minipage}[t][][t]{.65\textwidth}
+  \captionof{figure}{Open circles and grey lines shows 20 strike and
+    dip measurements of a subhorizontal bed. The vector mean of these
+    measurements is shown as a filled square and black line. It is
+    perpendicular to the bed, which is clearly wrong. The large open
+    square marks the direction that minimises the moment of inertia of
+    the poles. This is a much more sensible orientational
+    average.\medskip}
+  \label{fig:subhorizontal}
+\end{minipage}
+
+The moment of inertia can be minimised for spherical data by
+generalising Equation~\ref{eq:sphericalsigma} from two to three
+dimensions and subjecting the resulting covariance matrix to an
+eigendecomposition.

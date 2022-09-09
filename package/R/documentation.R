@@ -313,6 +313,20 @@ NULL
 #' circle.plot(striations,degrees=TRUE)
 NULL
 
+#' pebble orientations
+#'
+#' Orientations (in degrees) of 20 pebbles.
+#' 
+#' @name pebbles
+#' @docType data
+#' @keywords data
+#' @examples
+#' data(pebbles,package='geostats')
+#' circle.plot(pebbles,degrees=TRUE)
+#' m <- meanangle(pebbles,option=0,orientation=TRUE)
+#' circle.points(m,degrees=TRUE,pch=22,bg='white')
+NULL
+
 #' palaeomagnetic data
 #'
 #' Ten paired magnetic declination (azimuth) and inclination (dip)

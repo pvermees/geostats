@@ -4,7 +4,7 @@
 \alias{meanangle}
 \title{mean angle}
 \usage{
-meanangle(trd, plg = 0, option = 0, degrees = FALSE)
+meanangle(trd, plg = 0, option = 0, degrees = FALSE, orientation = FALSE)
 }
 \arguments{
 \item{trd}{trend angle, in degrees, between 0 and 360 (if
@@ -23,6 +23,12 @@ and \code{plg} is the dip; if \code{option=3} then \code{trd}
 is the longitude and \code{plg} is the latitude.}
 
 \item{degrees}{\code{TRUE} for degrees, \code{FALSE} for radians}
+
+\item{orientation}{logical. If \code{TRUE}, estimates the mean
+angle by eigen decomposition rather than by vector
+summation. This is the right thing to do for orientation data
+in which, for example, an angle of 45 degrees is equivalent to
+an angle of 225 degrees.}
 }
 \value{
 a scalar of 2-element vector with the mean orientation,

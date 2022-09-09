@@ -4036,9 +4036,9 @@ biplot(pc,col=c('grey60','black'),xlabs=test[,1],
        xlim=c(-0.31,0.2),ylim=c(-0.15,0.37))
 dev.off()
 
-pebbles <- c(44,51,79,65,27,31,4,355,22,352,287,
-             7,287,339,0,276,342,355,334,296,7,
-             17,351,349,37,339,40,324,325,334)
+striations <- c(44,51,79,65,27,31,4,355,22,352,287,
+                7,287,339,0,276,342,355,334,296,7,
+                17,351,349,37,339,40,324,325,334)
 
 plot.circ <- function(angles,degrees=FALSE,tl=0.1,...){
     plot(x=c(-1,1),y=c(-1,1),type='n',axes=FALSE,
@@ -4082,18 +4082,18 @@ addarrow <- function(xy0=c(0,0),a=0,plot=TRUE){
 
 cairo(file='../../figures/circle1.pdf',width=2,height=2)
 pars(mar=c(0,1.5,0,1.1))
-plot.circ(pebbles,degrees=TRUE)
+plot.circ(striations,degrees=TRUE)
 dev.off()
 
 cairo(file='../../figures/circle2.pdf',width=2,height=2)
 pars(mar=c(0,1.5,0,1.1))
-plot.circ(pebbles,degrees=TRUE)
-addarrow(a=90-mean(pebbles))
+plot.circ(striations,degrees=TRUE)
+addarrow(a=90-mean(striations))
 dev.off()
 
 cairo(file='../../figures/circle3.pdf',width=2,height=2)
 pars(mar=c(0,1.5,0,1.1))
-rad <- pebbles*pi/180 # convert to radians
+rad <- striations*pi/180 # convert to radians
 ss <- sum(sin(rad))
 # sum of the sines
 sc <- sum(cos(rad))
@@ -4102,7 +4102,7 @@ md <- atan(ss/sc)
 # mean direction
 deg <- md*180/pi
 # convert radians to degrees
-plot.circ(pebbles,degrees=TRUE)
+plot.circ(striations,degrees=TRUE)
 addarrow(a=90-deg)
 dev.off()
 
@@ -4188,8 +4188,8 @@ plot(x=R,y=R*(2-R^2)/(1-R^2),type='l',
 dev.off()
 
 cairo(file='../../figures/kappastriations.pdf',width=3.5,height=2.5)
-mu <- geostats::meanangle(pebbles,degrees=TRUE)
-Rp <- geostats::Rbar(pebbles,degrees=TRUE)
+mu <- geostats::meanangle(striations,degrees=TRUE)
+Rp <- geostats::Rbar(striations,degrees=TRUE)
 Kp <- geostats::Rbar2kappa(Rp)
 a <- seq(from=-pi,to=pi,length.out=200)
 f <- vonMises(angle=a,mu=mu*pi/180,kappa=Kp)
@@ -4197,11 +4197,11 @@ pars(mar=c(3,3,0.5,0.5))
 plot(a,f,type='l',bty='n',xaxt='n')
 axis(side=1,at=c(-pi,-pi/2,0,pi/2,pi),
      labels=c(expression(-pi),expression(-pi/2),0,expression(pi/2),expression(pi)))
-A <- atan(sin(pebbles*pi/180)/cos(pebbles*pi/180))
+A <- atan(sin(striations*pi/180)/cos(striations*pi/180))
 rug(A,ticksize=0.1)
 if (FALSE){
     plot(x=c(-1.1,1.1),y=c(-1.1,1.1),type='n',axes=FALSE,ann=FALSE,bty='n',asp=1)
-    plot.circ(pebbles,degrees=TRUE)
+    plot.circ(striations,degrees=TRUE)
     text(x=x0,y=0,labels=expression(kappa*'=0'))
     lines(x=x0+(1+f)*cos(a+pi/2),y=(1+f)*sin(a+pi/2),xpd=NA)
 }
@@ -4280,18 +4280,64 @@ cairo(file='../../figures/sphericalmean.pdf',width=5,height=2.5)
 pars(mfrow=c(1,2),mar=c(1.2,1,1,1))
 meanpalaeomag <- geostats::meanangle(trd=A,plg=D1,option=1,degrees=TRUE)
 geostats::stereonet(trd=A,plg=D1,option=1,degrees=TRUE,
-                    show.grid=FALSE,wulff=FALSE,pch=19,cex=0.7,col='grey70')
+                    show.grid=FALSE,wulff=FALSE,pch=21,
+                    bg='white',cex=0.7,col='grey70')
 geostats::stereonet(trd=meanpalaeomag[1],plg=meanpalaeomag[2],
                     option=1,degrees=TRUE,add=TRUE,wulff=FALSE,
-                    pch=15,cex=0.7,col='black')
+                    pch=15,cex=0.85,col='black')
 legend('topleft',legend='a)',adj=c(2,0),bty='n')
 meanfault <- geostats::meanangle(trd=S,plg=D2,option=2,degrees=TRUE)
 geostats::stereonet(trd=S,plg=D2,option=2,degrees=TRUE,
-                    show.grid=FALSE,wulff=TRUE,pch=19,cex=0.7,col='grey70')
+                    show.grid=FALSE,wulff=TRUE,pch=21,
+                    bg='white',cex=0.7,col='grey70')
 geostats::stereonet(trd=meanfault[1],plg=meanfault[2],
                     option=2,degrees=TRUE,add=TRUE,wulff=TRUE,
-                    pch=15,cex=0.7,col='black',lwd=1.5)
+                    pch=15,cex=0.85,col='black',lwd=1.5)
 legend('topleft',legend='b)',adj=c(2,0),bty='n')
+dev.off()
+
+pebbles <- c(32,33,34,37,40,41,42,43,45,53,
+             210,212,214,217,220,221,222,223,226,230)
+cairo(file='../../figures/pebbles.pdf',width=2,height=2)
+pars(mar=c(0,1.5,0,1.1))
+geostats::circle.plot(pebbles,degrees=TRUE)
+ma <- geostats::meanangle(pebbles,degrees=TRUE,orientation=FALSE)
+geostats::circle.points(ma,pch=21,bg='white',degrees=TRUE)
+dev.off()
+
+ell <- function(xc,yc,a,b,beta,theta){
+    x <- xc + a*cos(theta)*cos(beta) - b*sin(theta)*sin(beta)
+    y <- yc + a*cos(theta)*sin(beta) + b*sin(theta)*cos(beta)
+    cbind(x,y)
+}
+cairo(file='../../figures/inertia.pdf',width=2,height=2)
+pars(mar=c(0,1.5,0,1.1))
+circle.plot(pebbles,degrees=TRUE)
+mo <- geostats::meanangle(pebbles,degrees=TRUE,orientation=TRUE)
+alpha <- pi/2 - mo*pi/180
+abline(a=0,b=tan(alpha))
+xc <- 1.2*cos(alpha)
+yc <- 1.2*sin(alpha)
+n <- 50
+theta <- seq(from=0.6*pi,to=2.4*pi,length.out=n)
+xy <- ell(xc,yc,a=0.3,b=0.075,theta=theta,beta=alpha-pi/2)
+lines(xy,xpd=NA)
+arrows(xy[n-1,1],xy[n-1,2],xy[n,1],xy[n,2],length=0.05)
+dev.off()
+
+cairo(file='../../figures/subhorizontal.pdf',width=3,height=3)
+pars(mar=c(0,1.5,0,1.1))
+strike <- c(77.1,94.9,73.2,122.8,97.3,254.7,280.4,285.6,282.5,264.0)
+dip <- c(5.6,1.9,10.1,7.8,3.2,0.0,8.5,2.3,3.4,6.7)
+geostats::stereonet(strike,dip,option=2,degrees=TRUE,
+                    show.grid=FALSE,pch=21,cex=0.7,
+                    bg='white',col='grey70')
+m <- geostats::meanangle(strike,dip,option=2,degrees=TRUE)
+geostats::stereonet(m[1],m[2],option=2,degrees=TRUE,add=TRUE,
+                    pch=22,bg='black',lwd=2,cex=1)
+mo <- geostats::meanangle(strike,dip,option=2,degrees=TRUE,orientation=TRUE)
+geostats::stereonet(mo[1],mo[2],option=2,degrees=TRUE,add=TRUE,
+                    pch=22,bg=c(NA,NA),lwd=1.5,cex=3,lty=c(0,0))
 dev.off()
 
 data('meuse',package='geostats')
