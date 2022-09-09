@@ -4337,7 +4337,7 @@ geostats::stereonet(m[1],m[2],option=2,degrees=TRUE,add=TRUE,
                     pch=22,bg='black',lwd=2,cex=1)
 mo <- geostats::meanangle(strike,dip,option=2,degrees=TRUE,orientation=TRUE)
 geostats::stereonet(mo[1],mo[2],option=2,degrees=TRUE,add=TRUE,
-                    pch=22,bg=c('black',NA),lwd=1.5,cex=3,lty=c(0,0))
+                    pch=22,bg=c(NA,NA),lwd=1.5,cex=3,lty=c(0,0))
 dev.off()
 
 data('meuse',package='geostats')

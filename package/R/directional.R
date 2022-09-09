@@ -109,7 +109,9 @@ meanorientation <- function(trd,plg=0,option=1,degrees=FALSE){
     if (option==0){
         out <- coord2angle(uvw[1],uvw[2],option=option,degrees=degrees)
     } else {
-        out <- coord2angle(uvw[1],uvw[2],uvw[3],option=option,degrees=degrees)
+        out <- coord2angle(x=sign(uvw[3])*uvw[1],
+                           y=sign(uvw[3])*uvw[2],
+                           z=abs(uvw[3]),option=option,degrees=degrees)
     }
     out
 }
