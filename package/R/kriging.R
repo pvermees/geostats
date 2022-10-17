@@ -67,15 +67,15 @@ semivariogram <- function(x,y,z,bw=NULL,nb=13,plot=TRUE,fit=TRUE,
         N <- length(z)
         bw <- stats::quantile(d,probs=min(1,2/N))
     }
-    sv <- rep(0,nb)
+    sv <- rep(NA,nb)
     for (i in 1:nb){
-        ij <- which((d>=((i-1)*bw)) & d< (i*bw),arr.ind=TRUE)
-        sv[i] <- mean((z[ij[,1]]-z[ij[,2]])^2)/2
+        ij <- which((d>=((i-1)*bw)) & d<(i*bw),arr.ind=TRUE)
+        if (any(ij)) sv[i] <- mean((z[ij[,1]]-z[ij[,2]])^2)/2
     }
     h <- bw*((1:nb)-1/2) # lag
     if (plot){
         plot(h,sv,type='p',xlab='lag',ylab=expression(gamma(lag)),
-             ylim=c(0,max(sv)),...)
+             ylim=c(0,max(sv,na.rm=TRUE)),...)
     }
     out <- list()
     out$model = model[1]
@@ -84,9 +84,9 @@ semivariogram <- function(x,y,z,bw=NULL,nb=13,plot=TRUE,fit=TRUE,
     if (fit){
         misfit <- function(lsnr,h,sv,model){
             svp <- semivarmod(h,lsnr=lsnr,model=model)
-            sum((sv-svp)^2)
+            sum((sv-svp)^2,na.rm=TRUE)
         }
-        lsnr <- stats::optim(par=c(log(max(sv)),-2,log(max(h))),
+        lsnr <- stats::optim(par=c(log(max(sv,na.rm=TRUE)),-2,log(max(h))),
                              fn=misfit,h=h,sv=sv,model=model[1])$par
         if (plot){
             x <- seq(from=.Machine$double.xmin,to=max(h),length.out=20)
