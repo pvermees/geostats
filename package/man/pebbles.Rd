@@ -11,6 +11,6 @@ Orientations (in degrees) of 20 pebbles.
 data(pebbles,package='geostats')
 circle.plot(pebbles,degrees=TRUE)
 m <- meanangle(pebbles,option=0,orientation=TRUE)
-circle.points(m,degrees=TRUE)
+circle.points(m,degrees=TRUE,pch=22,bg='white')
 }
 \keyword{data}

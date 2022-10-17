@@ -3,7 +3,7 @@
 \docType{data}
 \name{test}
 \alias{test}
-\title{composition of oceanic basalts}
+\title{composition of a further 147 oceanic basalts}
 \description{
 Major element compositions of 64 island arc basalts (IAB), 23 mid
 oceanic ridge basalts (MORB) and 60 ocean island basalts

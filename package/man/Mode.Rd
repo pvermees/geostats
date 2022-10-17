@@ -22,8 +22,8 @@ Computes the most frequently occuring value in a
     sampling distribution.
 }
 \examples{
-data(clasts,package='geostats')
-m1 <- Mode(clasts,categorical=TRUE)
+data(islands,package='geostats')
+m1 <- Mode(islands$area,categorical=TRUE)
 
 m2 <- 1:50
 for (i in m2){

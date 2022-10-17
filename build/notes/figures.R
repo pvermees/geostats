@@ -29,6 +29,8 @@ plot(anscombe$x3,anscombe$y3,xlab='x',ylab='y',pch=19); title('III')
 plot(anscombe$x4,anscombe$y4,xlab='x',ylab='y',pch=19); title('IV')
 dev.off()
 
+pH <- attach(provenance::islands)
+
 cairo(file='../../figures/discrete.pdf',width=7,height=2)
 pars(mar=c(2.5,1.8,1.1,0.25),mfrow=c(1,3))
 clasts <- c(10,5,6,20)
@@ -53,17 +55,10 @@ dev.off()
 
 cairo(file='../../figures/continuous.pdf',width=7,height=2)
 pars(mar=c(2.5,2.35,1.1,0.25),mfrow=c(1,3))
-pH <- c(6.2,4.4,5.6,5.2,4.5,5.4,4.8,5.9,3.9,3.8,
-        5.1,4.1,5.1,5.5,5.1,4.6,5.7,4.6,4.6,5.6)
 hist(pH,col='white',main='')
 legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,-2),xpd=TRUE)
-clasts <- c(0.35, 11.00, 6.00, 1.80, 2.30, 0.59, 8.40, 2.90,
-            5.90, 2.10, 1.20, 2.10, 1.10, 1.60, 0.90, 1.70,
-            3.40, 0.53, 2.20, 7.70)
 hist(clasts,main='',col='white',xlab='clast size (cm)')
 legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(2,-2),xpd=TRUE)
-por <- c(0.058,0.280,0.120,0.270,0.400,0.120,0.038,0.063,0.170,0.160,
-         0.950,0.940,0.920,0.880,0.880,0.700,0.920,0.720,0.740,0.840)
 hist(por,main='',col='white',xlab='porosity')
 legend('topleft',legend='c)',bty='n',cex=1.2,adj=c(2,-2),xpd=TRUE)
 dev.off()

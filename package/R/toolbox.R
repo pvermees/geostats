@@ -8,8 +8,8 @@
 #'     kernel density for continuous variables
 #' @return a scalar
 #' @examples
-#' data(clasts,package='geostats')
-#' m1 <- Mode(clasts,categorical=TRUE)
+#' data(islands,package='geostats')
+#' m1 <- Mode(islands$area,categorical=TRUE)
 #' 
 #' m2 <- 1:50
 #' for (i in m2){
@@ -33,8 +33,8 @@ Mode <- function(x,categorical=FALSE){
 #' @param x a vector
 #' @return a scalar
 #' @examples
-#' data(porosity,package='geostats')
-#' skew(porosity)
+#' data(islands,package='geostats')
+#' skew(islands$vegetation)
 #' @export
 skew <- function(x){
     mean((x-mean(x))^3)/(length(x)*stats::sd(x)^3)

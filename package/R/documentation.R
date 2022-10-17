@@ -1,62 +1,18 @@
-#' AFM data
+#' properties of 20 islands
 #'
-#' 1104 calc-alkaline and tholeiitic basalt compositions
+#' six different (three discrete, three continuous) measurements for
+#' twenty fictitious islands, containing their dominant lithology
+#' (categorical data), stratigraphic age (ordinal data), number of
+#' springs (count data), the pH of the spring water (Cartesian
+#' quantity), the area of the island in km\eqn{^2} (Jeffreys quantity)
+#' and the percentage covered by vegetation (proportion).
 #' 
-#' @name AFM
+#' @name islands
 #' @docType data
 #' @keywords data
 #' @examples
-#' data(AFM,package='geostats')
-#' ternary(AFM[,-1],pch=21,bg=AFM[,1])
-NULL
-
-#' pop
-#'
-#' The world population from 1750 until 2014
-#' 
-#' @name pop
-#' @docType data
-#' @keywords data
-#' @examples
-#' data(pop,package='geostats')
-#' plot(population ~ year, data=pop, type='b')
-NULL
-
-#' pH data
-#'
-#' pH measurements in 20 samples of rain water.
-#' 
-#' @name pH
-#' @docType data
-#' @keywords data
-#' @examples
-#' data(pH,package='geostats')
-#' hist(pH)
-NULL
-
-#' clast size data
-#'
-#' 20 clast size measurements, in cm.
-#' 
-#' @name clasts
-#' @docType data
-#' @keywords data
-#' @examples
-#' data(clasts,package='geostats')
-#' d <- density(log(clasts))
-#' plot(d)
-NULL
-
-#' porosity data
-#'
-#' 20 porosity measurements, as fractions.
-#' 
-#' @name porosity
-#' @docType data
-#' @keywords data
-#' @examples
-#' data(porosity,package='geostats')
-#' plot(density(logit(porosity)))
+#' data(islands,package='geostats')
+#' hist(islands$pH)
 NULL
 
 #' detrital zircon U-Pb data
@@ -244,7 +200,7 @@ NULL
 #' biplot(pc)
 NULL
 
-#' composition of oceanic basalts
+#' composition of 646 oceanic basalts
 #'
 #' Major element compositions of 227 island arc basalts (IAB), 221 mid
 #' oceanic ridge basalts (MORB) and 198 ocean island basalts
@@ -264,7 +220,7 @@ NULL
 #' table(training$affinity,pr$class)
 NULL
 
-#' composition of oceanic basalts
+#' composition of a further 147 oceanic basalts
 #'
 #' Major element compositions of 64 island arc basalts (IAB), 23 mid
 #' oceanic ridge basalts (MORB) and 60 ocean island basalts
