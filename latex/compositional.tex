@@ -342,11 +342,12 @@ two-dimensional diagram. Section~\ref{sec:PCA} introduced principal
 component analysis as an effective way to address this issue by
 projecting the data onto a two-dimensional subspace. Unfortunately we
 cannot directly apply PCA to compositional data. For example, the
-first step in the PCA analysis is the calculation of an arithmetic
-mean (Equation~\ref{eq:XMY}). However, Section~\ref{sec:logratios}
-showed that the arithmetic mean of compositional data can produce
-nonsensical results. This Section will show that this problem can be
-solved using logratio transformations.\medskip
+first step in the PCA analysis involves the calculation of an
+arithmetic mean (Equation~\ref{eq:XMY}). However,
+Section~\ref{sec:logratios} showed that the arithmetic mean of
+compositional data can produce nonsensical results. This Section will
+show that this problem can be solved using logratio
+transformations.\medskip
 
 Before we apply PCA to the data of Table~\ref{tab:Major}, let us first
 illustrate the logratio solution using a simple toy example, which is
@@ -394,9 +395,10 @@ orthogonal to each other:
   \label{fig:alraxes}
 \end{minipage}
 
-For example, calculate the distances between the alr-coordinates of
-samples~2 and 3 of Equation~\ref{eq:Xcomp} using $b$ and $c$ as a
-common denominator ($d[2,3]_b$ and $d[2,3]_c$, respectively):
+For example, calculate the distance between the alr-coordinates of
+samples~2 and 3 of Equation~\ref{eq:Xcomp}, first using $b$ as a
+common denominator ($d[2,3]_b$), and then using $c$ as a common
+denominator ($d[2,3]_c$):
 \begin{equation*}
   \begin{split}
     d[2,3]_b & =
@@ -464,12 +466,12 @@ trivariate dataset:
 that each of the rows of $X_c$ adds up to zero. Thanks to the symmetry
 of the clr-coordinates, whose three-dimensional axes are perpendicular
 to each other, the distances between the rows (which are also known as
-\emph{Aitchison distances}) are well defined. Subjecting
+\textbf{Aitchison distances}) are well defined. Subjecting
 Equation~\ref{eq:Xc} to the same matrix decompositions as
 Equations~\ref{eq:XMY}--\ref{eq:P} yields:
 \begin{align}
   \begin{split}
-    X_c & = 1_{3,1}~C + P~Q^{-1} \\
+    X_c & = 1_{3,1}~M + P~Q^{-1} \\
     ~ & = 
     \left[
       \begin{array}{c}
@@ -503,13 +505,13 @@ Equations~\ref{eq:XMY}--\ref{eq:P} yields:
 \end{align}
 
 Note that, even though this yields three principal components instead
-two, the scores of the third component in matrix $P$ are all
-zero\footnote{The covariance matrix of $X_c$ is singular and therefore
-the third eigenvalue is zero as well.}.  Therefore, all the
-information is contained in the first two components. Also note that
-the first two principal components of the compositional dataset are
-identical to those of the PCA example shown in Section~\ref{sec:PCA}
-(Equation~\ref{eq:P}). This is, of course, intentional:
+two, the scores of the third component in matrix $P$ are all zero.
+Therefore, all the information is contained in the first two
+components\footnote{The covariance matrix of $X_c$ is singular and
+therefore the third eigenvalue is zero as well.}. Also note that the
+first two principal components of the compositional dataset are
+identical to those of the PCA example shown in
+Equation~\ref{eq:P}. This is, of course, intentional:
 
 \noindent\begin{minipage}[t][][b]{.32\textwidth}
 \includegraphics[width=\textwidth]{../figures/clrPCA.pdf}\medskip
@@ -536,11 +538,10 @@ Table~\ref{tab:Major}:
     shown in grey and the vector loadings in black. Samples that plot
     close together (such as N1 and N14) are compositionally similar,
     whereas samples that plot far apart (such as N8 and T8) are
-    compositionally different. In contrast with ordinary biplots
-    (e.g., Figure~\ref{fig:USArrests}), one should be careful not to
-    interpret the individual rays of compositional biplots. For
-    example, one cannot safely conclude that N8 is enriched in MnO
-    relative to T8. However, it is safe to say that N8 has a higher
+    compositionally different. One should be careful not to interpret
+    the individual rays of compositional biplots. For example, one
+    cannot safely conclude that N8 is enriched in MnO relative to
+    T8. However, it is safe to say that N8 has a higher
     MnO/Na\textsubscript{2}O-ratio than T8. \medskip}
   \label{fig:majorPCA}
 \end{minipage}

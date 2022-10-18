@@ -178,19 +178,19 @@ simplification of the data:
 \begin{minipage}[t][][t]{.73\textwidth}
   \captionof{figure}{Projection of the three data points on the two
     principal directions yields two principal components ($P$ in
-    Equation~\ref{eq:P}), representing a one-dimensional
-    representation of the two-dimensional data\medskip}
+    Equation~\ref{eq:P}), representing one-dimensional representations
+    of the two-dimensional data.\medskip}
   \label{fig:PCA2D2}
 \end{minipage}
 
 Using the eigenvalues $\Lambda$ in Equation~\ref{eq:eigen}, it can be
-shown that the first principal component ($PC1$) captures
+shown that the first principal component (PC1) captures
 $13.5/(13.5+0.5)=96\%$ of the variance in the dataset, and the second
-principal component ($PC2$) accounts for the remaining
+principal component (PC2) accounts for the remaining
 $0.5/(13.5+0.5)=4\%$ of the variance. So relatively little information
-is lost by discarding $PC2$. Then $PC1$ tells us that, to a first
+is lost by discarding PC2. Then PC1 tells us that, to a first
 approximation, sample~1 is very different from samples~2 and 3, which
-are identical to each other. $PC2$ captures the remaining information,
+are identical to each other. PC2 captures the remaining information,
 which shows that samples~2 and 3 are, in fact, not exactly
 identical. In the second principal direction, sample~1 falls in
 between samples $2$ and $3$.\medskip
@@ -207,9 +207,10 @@ graphically combine all this information in a \textbf{biplot}:
     the loadings of the two variables shown as arrows. The first
     principal component shows that the most important difference is
     that between sample~1 (which is rich in $b$ and poor in $a$) and
-    samples 2 \& 3 (which are poor in $b$ and rich in $a$). The second
-    principal component captures the remaining variance, with sample~3
-    begin slightly richer in $a$ and $b$ than sample~2.\medskip}
+    samples 2 and 3 (which are poor in $b$ and rich in $a$). The
+    second principal component captures the remaining variance, with
+    sample~3 begin slightly richer in $a$ and $b$ than
+    sample~2.\medskip}
   \label{fig:PCA2D3}
 \end{minipage}
 
