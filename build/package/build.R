@@ -1,23 +1,23 @@
 setwd('~/Documents/Programming/R/geostats/build/package/')
 
-islands <- data.frame(
+catchments <- data.frame(
     lithology=c('basalt','granite','basalt','sandstone','shale',
                 'basalt','shale','basalt','shale','shale','sandstone',
                 'shale','sandstone','basalt','sandstone','granite',
                 'basalt','shale','granite','basalt'),
-    age=c('Tertiary','Mesozoic','Mesozoic','Tertiary','Precambrian',
+    age=c('Cenozoic','Mesozoic','Mesozoic','Cenozoic','Precambrian',
           'Mesozoic','Palaeozoic','Palaeozoic','Mesozoic','Mesozoic',
-          'Palaeozoic','Precambrian','Mesozoic','Tertiary','Palaeozoic',
-          'Palaeozoic','Mesozoic','Palaeozoic','Mesozoic','Tertiary'),
+          'Palaeozoic','Precambrian','Mesozoic','Cenozoic','Palaeozoic',
+          'Palaeozoic','Mesozoic','Palaeozoic','Mesozoic','Cenozoic'),
     springs=c(0,1,0,6,3,1,2,0,1,2,4,2,4,1,4,0,0,1,0,1),
-    pH=c(6.2,4.4,5.6,5.2,4.5,5.4,4.8,5.9,3.9,3.8,
-         5.0,4.2,5.1,5.5,5.1,4.6,5.7,4.6,4.6,5.6),
+    pH=c(6.2,4.4,5.6,5.2,4.5,5.4,4.8,5.9,3.9,4.0,
+         5.1,4.1,5.1,5.5,5.2,4.6,5.7,4.6,4.6,5.6),
     area=c(0.35,11.00,6.00,1.80,2.30,0.59,8.40,2.90,5.90,2.10,
            1.20,2.10,1.10,1.60,0.90,1.70,3.40,0.53,2.20,7.70),
     vegetation=c(5.8,28.0,12,27,40,12,3.8,6.3,17,
                  16,95,94,92,88,88,70,92,72,74,84)
 )
-save(islands,file="../../package/data/islands.rda",version=2)
+save(catchments,file="../../package/data/catchments.rda",version=2)
 
 striations <- c(44,51,79,65,27,31,4,355,22,352,287,
                 7,287,339,0,276,342,355,334,296,7,

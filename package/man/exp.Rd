@@ -18,8 +18,8 @@ Map a logged kernel density estimate from [\eqn{-\infty,+\infty}]
 to [\eqn{0,\infty}] by taking exponents.
 }
 \examples{
-data(islands,package='geostats')
-lc <- log(islands$area)
+data(catchments,package='geostats')
+lc <- log(catchments$area)
 ld <- density(lc)
 d <- exp(ld)
 plot(d)

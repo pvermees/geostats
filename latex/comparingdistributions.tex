@@ -657,16 +657,16 @@ compare the mean of a single sample with a particular value, or to
 compare the means of two samples. In a similar vein, the $\chi^2$-test
 can be used to compare either one sample to a theoretical
 distribution, or to compare two samples with each other. For example,
-let us compare the clast counts of Section~\ref{sec:discrete} with
-those of a second sample:
+let us compare two sets of petrographic observations:
 
 \begin{center}
   \begin{tabular}{r|cccc}
-lithology & granite & basalt & gneiss & quartzite  \\ \hline
+~ & quartz & plagioclase & alkali feldspar & lithics \\ \hline
 sample A & 10 & 5 & 6 & 20 \\
 sample B & 25 & 12 & 10 & 35
   \end{tabular}
-  \captionof{table}{Observed clast counts for two sets of cobbles.}
+  \captionof{table}{Manual point counting data for two samples of
+    sand.}
   \label{tab:observedclasts}
 \end{center}
 
@@ -675,7 +675,7 @@ samples contain a different number of clasts.
 
 \begin{center}
   \begin{tabular}{r|cccc|c}
-lithology & granite & basalt & gneiss & quartzite & row sum \\ \hline
+lithology & quartz & plagioclase & alkali feldspar & lithics & row sum \\ \hline
 sample A & 10 & 5 & 6 & 20 & 41\\
 sample B & 25 & 12 & 10 & 35 & 82 \\ \hline
 column sum & 35 & 17 & 16 & 55 & 123
@@ -690,7 +690,7 @@ expected counts of each cell in the contingency table should be:
      {(\mbox{sum of all the cells})}
 \]
 
-For example, the expected number of granite clasts in sample~A would be
+For example, the expected number of quartz grains in sample~A would be
 \[
 \frac{41\times35}{123}=11.7
 \]
@@ -699,17 +699,17 @@ Applying this formula to the whole table, the expected counts are
 
 \begin{center}
   \begin{tabular}{r|cccc}
-lithology & granite & basalt & gneiss & quartzite  \\ \hline
+lithology & quartz & plagioclase & alkali feldspar & lithics \\ \hline
 sample A & 11.7 & 5.67 & 5.33 & 18.3 \\
 sample B & 23.3 & 11.30 & 10.70 & 36.7
   \end{tabular}
-  \captionof{table}{Expected clast counts for two sets of cobbles.}
+  \captionof{table}{Expected grain counts for two sedimentary samples.}
   \label{tab:expectedclasts}
 \end{center}
 
 All the cells in this table exceed 5. Therefore, the observed
 (table~\ref{tab:observedclasts}) and expected
-(table~\ref{tab:expectedclasts}) clast counts can be plugged into
+(table~\ref{tab:expectedclasts}) counts can be plugged into
 Equation~\ref{eq:chi2} to calculate a $\chi^2$-value. The null
 distribution of this statistic is $\chi^2$ with $(n_r-1)\times(n_c-1)$
 degrees of freedom, where $n_r$ is the number of rows and $n_c$ is the
@@ -860,7 +860,7 @@ grains of sand by image recognition:
     sample A & 29544 & 14424 & 13706 & 47864 \\
     sample B & 29454 & 14788 & 13948 & 47311
   \end{tabular}
-  \captionof{table}{Point counting data for two samples of sand.}
+  \captionof{table}{Automated point counting data for two samples of sand.}
   \label{tab:observedsand}
 \end{center}
 

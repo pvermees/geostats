@@ -19,6 +19,8 @@ cairo <- function(file,width,height,family="serif",pointsize=13,...){
 
 options(warn=0)
 
+pH <- catchments$pH
+
 # anscombe data
 
 cairo(file='../../figures/anscombe.pdf',width=7,height=1.75)
@@ -29,38 +31,35 @@ plot(anscombe$x3,anscombe$y3,xlab='x',ylab='y',pch=19); title('III')
 plot(anscombe$x4,anscombe$y4,xlab='x',ylab='y',pch=19); title('IV')
 dev.off()
 
-pH <- attach(provenance::islands)
-
 cairo(file='../../figures/discrete.pdf',width=7,height=2)
 pars(mar=c(2.5,1.8,1.1,0.25),mfrow=c(1,3))
-clasts <- c(10,5,6,20)
-names(clasts) <- c('granite','basalt','gneiss','quartzite')
-obj <- barplot(clasts,col='white',xlab='lithology')
-legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,-1),xpd=TRUE)
-#text(x=obj,y=clasts,label=clasts,cex=0.9,pos=3,col="black",xpd=TRUE)
-area <- c(6.6,16.9,29.4,7.2,39.9)
-names(area) <- c('pC','Pz','Mz','T','Q')
-obj <- barplot(area,col='white',axes=FALSE,xlab='stratigraphic age')
-ticks <- c(0,10,20,30)
-labs <- c('0','10','20','30 %')
-axis(side=2,at=ticks,labels=labs)
-legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(2,-1),xpd=TRUE)
-#text(x=obj,y=area,label=paste0(area,'%'),cex=0.9,pos=3,col="black",xpd=TRUE)
-wells <- c(70,42,26,17,3,1,1)
-names(wells) <- 0:6
-obj <- barplot(wells,col='white',space=0,xlab='# discovery wells per tract')
-legend('topright',legend='c)',bty='n',cex=1.2,adj=c(2,-1),xpd=TRUE)
-#text(x=obj,y=wells,label=wells,cex=0.9,pos=3,col="black",xpd=TRUE)
+lithology <- table(catchments$lithology)
+obj <- barplot(lithology,col='white',xlab='lithology')
+legend('topright',legend='a)',bty='n',cex=1.2,adj=c(0,-2),xpd=TRUE)
+#text(x=obj,y=lithology,label=lithology,cex=0.9,pos=3,col="black",xpd=TRUE)
+age <- table(catchments$age)
+names(age) <- c('Cz','Mz','Pz','pC')
+obj <- barplot(age,col='white',xlab='stratigraphic age')
+legend('topright',legend='b)',bty='n',cex=1.2,adj=c(0,-2),xpd=TRUE)
+#text(x=obj,y=age,label=age,cex=0.9,pos=3,col="black",xpd=TRUE)
+springs <- hist(catchments$springs,
+                breaks=seq(from=-0.5,to=max(catchments$springs)+0.5,by=1),
+                plot=FALSE)
+counts <- springs$counts
+names(counts) <- springs$mids
+obj <- barplot(counts,col='white',xlab='# springs')
+legend('topright',legend='c)',bty='n',cex=1.2,adj=c(0,-2),xpd=TRUE)
+#text(x=obj,y=counts,label=counts,cex=0.9,pos=3,col="black",xpd=TRUE)
 dev.off()
 
 cairo(file='../../figures/continuous.pdf',width=7,height=2)
 pars(mar=c(2.5,2.35,1.1,0.25),mfrow=c(1,3))
 hist(pH,col='white',main='')
-legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,-2),xpd=TRUE)
-hist(clasts,main='',col='white',xlab='clast size (cm)')
-legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(2,-2),xpd=TRUE)
-hist(por,main='',col='white',xlab='porosity')
-legend('topleft',legend='c)',bty='n',cex=1.2,adj=c(2,-2),xpd=TRUE)
+legend('topright',legend='a)',bty='n',cex=1.2,adj=c(0,-2),xpd=TRUE)
+hist(catchments$area,main='',col='white',xlab=expression('area [km'^2*']'))
+legend('topright',legend='b)',bty='n',cex=1.2,adj=c(0,-2),xpd=TRUE)
+hist(catchments$vegetation,main='',col='white',xlab='vegetation [%]')
+legend('topright',legend='c)',bty='n',cex=1.2,adj=c(0,-2),xpd=TRUE)
 dev.off()
 
 cairo(file='../../figures/binwidth.pdf',width=5,height=2.5)
@@ -144,51 +143,54 @@ dev.off()
 
 cairo(file='../../figures/negativeKDE.pdf',width=3,height=3)
 pars()
-#clasts <- exp(rnorm(20,1,1))
-plot(density(clasts),main='',xlab='clast size (cm)',zero.line=FALSE)
+plot(density(catchments$area),main='',
+     xlab=expression('area [km'^2*']'),
+     zero.line=FALSE)
 lines(c(0,0),c(0,1),lty=2)
-rug(clasts)
+rug(catchments$area)
 dev.off()
 
 cairo(file='../../figures/logKDE.pdf',width=6,height=3)
-pars(mfrow=c(1,2))
-lclasts <- log(clasts)
-ldens <- density(lclasts)
+pars(mfrow=c(1,2),mar=c(2.5,2.3,2.5,0.25))
+larea <- log(catchments$area)
+ldens <- density(larea)
 plot(exp(ldens$x),ldens$y,type='l',main='',
-     xlab='clast size (cm)',ylab='Density',log='x')
-rug(clasts)
+     xlab=expression('area [km'^2*']'),ylab='Density',log='x')
+rug(catchments$area)
+axis(side=3)
+mtext(text='ln[area]',side=3,line=1.5)
 legend('topright',legend='a)',bty='n',cex=1.2,adj=c(0,0))
-clastdens <- geostats:::exp.density(ldens)
-plot(clastdens,main='',xlab='clast size (cm)',
+areadens <- geostats:::exp.density(ldens)
+plot(areadens,main='',xlab=expression('area [km'^2*']'),
      ylab='Density',xlim=c(0,20),zero.line=FALSE)
-rug(clasts)
+rug(catchments$area)
 legend('topright',legend='b)',bty='n',cex=1.2,adj=c(0,0))
 dev.off()
 
-cairo(file='../../figures/porosityKDE.pdf',width=3,height=3)
+cairo(file='../../figures/vegetationKDE.pdf',width=3,height=3)
 pars()
-#u <- c(rnorm(10,-2,1),rnorm(10,2,1))
-u <- log(por/(1-por))
-#por <- exp(u)/(exp(u)+1)
-plot(density(por),main='',xlab='porosity (fraction)',zero.line=FALSE)
-rug(por)
+u <- log(catchments$vegetation/(100-catchments$vegetation))
+plot(density(catchments$vegetation),main='',
+     xlab='vegetation [%]',zero.line=FALSE)
+rug(catchments$vegetation)
 lines(c(0,0),c(0,1),lty=2)
-lines(c(1,1),c(0,1),lty=2)
+lines(c(100,100),c(0,1),lty=2)
 dev.off()
 
 cairo(file='../../figures/logitKDE.pdf',width=6,height=3.1)
 pars(mfrow=c(1,2),mar=c(2.5,2.3,2.5,0.2))
 ldens <- density(u)
-plot(ldens,main='',xlab='porosity (fraction)',xaxt='n',zero.line=FALSE)
+plot(ldens,main='',xlab='vegetation [%]',xaxt='n',zero.line=FALSE)
 rug(u)
-ticks <- c(0.01,0.1,0.5,0.9,0.99)
-axis(side=1,at=log(ticks/(1-ticks)),labels=ticks)
+ticks <- c(0.01,0.1,0.5,0.9,0.99)*100
+axis(side=1,at=log(ticks/(100-ticks)),labels=ticks)
 axis(side=3)
-mtext(text='logit[porosity]',side=3,line=1.5)
+mtext(text='logit[vegetation]',side=3,line=1.5)
 legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,0))
-pordens <- geostats:::logit.density(ldens,inverse=TRUE)
-plot(pordens,main='',xlab='porosity (fraction)',zero.line=FALSE)
-rug(por)
+vegdens <- geostats:::logit.density(ldens,inverse=TRUE)
+vegdens$x <- vegdens$x*100
+plot(vegdens,main='',xlab='vegetation [%]',zero.line=FALSE)
+rug(catchments$vegetation)
 legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(0.5,0))
 dev.off()
 
@@ -228,11 +230,11 @@ pars(mfrow=c(1,4))
 plot(ecdf(pH),main='',verticals=TRUE,pch=NA,
      xlab='pH',ylab='F(pH)')
 legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,0))
-plot(ecdf(clasts),main='',verticals=TRUE,pch=NA,
-     xlab='clast size (cm)',ylab='F(size)')
+plot(ecdf(catchments$area),main='',verticals=TRUE,pch=NA,
+     xlab=expression('area [km'^2*']'),ylab='F(size)')
 legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(2,0))
-plot(ecdf(por),main='',verticals=TRUE,pch=NA,
-     xlab='porosity',ylab='F(porosity)')
+plot(ecdf(catchments$vegetation),main='',verticals=TRUE,pch=NA,
+     xlab='vegetation',ylab='F(vegetation)')
 legend('topleft',legend='c)',bty='n',cex=1.2,adj=c(2,0))
 plot(ecdf(faithful[,'eruptions']),main='',verticals=TRUE,
      pch=NA,xlab='duration [m]',ylab='F(duration)')
@@ -272,7 +274,7 @@ lines(xlim,rep(0.5,2),lty=4)
 plot.new()
 dev.off()
 
-dat <- clasts
+dat <- catchments$area
 xlim <- c(0,12)
 mu <- mean(dat)
 med <- median(dat)
@@ -282,7 +284,7 @@ dens$x <- exp(ldens$x)
 dx <- diff(dens$x)
 dens$y <- ldens$y/c(dx,dx[511])
 mod <- dens$x[which.max(dens$y)]
-cairo(file='../../figures/clastslocation.pdf',width=4.5,height=4.5)
+cairo(file='../../figures/arealocation.pdf',width=4.5,height=4.5)
 pars(mar=rep(0,4))
 m <- rbind(c(1,2,3),c(1,4,3),c(1,5,3),c(1,6,3))
 layout(m,widths=c(0.1,0.88,0.02),heights=c(0.1,0.4,0.4,0.1))
@@ -290,10 +292,10 @@ layout.show(6)
 plot.new()
 plot.new()
 plot.new()
-plot(clastdens,type='l',xaxt='n',yaxt='n',main='',xlim=xlim,zero.line=FALSE)
+plot(areadens,type='l',xaxt='n',yaxt='n',main='',xlim=xlim,zero.line=FALSE)
 axis(side=2,at=c(0,0.1,0.2,0.3),labels=c(0,0.1,0.2,0.3))
 axis(side=3)
-mtext(text='clast size [cm]',side=3,line=1.5)
+mtext(text=expression('area[km'^2*']'),side=3,line=1.5)
 mtext(text='Density',side=2,line=1.5)
 rug(dat,side=1)
 lines(rep(mu,2),c(-1,30),lty=1)
@@ -301,8 +303,8 @@ lines(rep(med,2),c(-1,30),lty=2)
 lines(rep(mod,2),c(-1,30),lty=3)
 legend('topright',legend=c('mean','median','mode'),lty=1:3)
 plot(ecdf(dat),main='',verticals=TRUE,pch=NA,xlim=xlim)
-mtext(text='clast size [cm]',side=1,line=1.5)
-mtext(text='F(clast size)',side=2,line=1.5)
+mtext(text=expression('area[km'^2*']'),side=1,line=1.5)
+mtext(text='F(area)',side=2,line=1.5)
 lines(rep(mu,2),c(-1,2),lty=1)
 lines(rep(med,2),c(-1,2),lty=2)
 lines(rep(mod,2),c(-1,2),lty=3)
@@ -310,17 +312,17 @@ lines(xlim,rep(0.5,2),lty=4)
 plot.new()
 dev.off()
 
-dat <- por
-xlim <- c(0,1)
+dat <- catchments$vegetation
+xlim <- c(0,100)
 mu <- mean(dat)
 med <- median(dat)
 ldens <- density(u)
 dens <- ldens
-dens$x <- exp(ldens$x)/(exp(ldens$x)+1)
+dens$x <- 100*exp(ldens$x)/(exp(ldens$x)+1)
 dx <- diff(dens$x)
 dens$y <- ldens$y/c(dx,dx[511])
 mod <- dens$x[which.max(dens$y)]
-cairo(file='../../figures/porositylocation.pdf',width=4.5,height=4.5)
+cairo(file='../../figures/vegetationlocation.pdf',width=4.5,height=4.5)
 pars(mar=rep(0,4))
 m <- rbind(c(1,2,3),c(1,4,3),c(1,5,3),c(1,6,3))
 layout(m,widths=c(0.1,0.88,0.02),heights=c(0.1,0.4,0.4,0.1))
@@ -328,9 +330,9 @@ layout.show(6)
 plot.new()
 plot.new()
 plot.new()
-plot(pordens,type='l',xaxt='n',main='',xlim=xlim,zero.line=FALSE)
+plot(vegdens,type='l',xaxt='n',main='',xlim=xlim,zero.line=FALSE)
 axis(side=3)
-mtext(text='Porosity',side=3,line=1.5)
+mtext(text='Vegetation [%]',side=3,line=1.5)
 mtext(text='Density',side=2,line=1.5)
 mtext(text='a)',side=3,at=-0.11,line=1.5,cex=1.2)
 legend(0.1,114,legend=c('mean','median','mode'),lty=1:3)
@@ -339,8 +341,8 @@ lines(rep(mu,2),c(-1,120),lty=1)
 lines(rep(med,2),c(-1,120),lty=2)
 lines(rep(mod,2),c(-1,120),lty=3)
 plot(ecdf(dat),main='',verticals=TRUE,pch=NA,xlim=xlim)
-mtext(text='Porosity',side=1,line=1.5)
-mtext(text='F(porosity)',side=2,line=1.5)
+mtext(text='Vegetation [%]',side=1,line=1.5)
+mtext(text='F(vegetation)',side=2,line=1.5)
 lines(rep(mu,2),c(-1,2),lty=1)
 lines(rep(med,2),c(-1,2),lty=2)
 lines(rep(mod,2),c(-1,2),lty=3)
@@ -405,16 +407,18 @@ skewage <- sum(covid[,'death rate']*(age-meanage)^3)/
 cairo(file='../../figures/skewness.pdf',width=7,height=2)
 pars(mar=c(2.5,2.3,1,0.2),mfrow=c(1,3))
 plot(density(pH),main='',xlab='pH',bty='n',zero.line=FALSE)
-mtext(paste0('skewness=',signif(skewness(pH),2)),side=3,line=0,cex=0.8)
+mtext(paste0('skewness=',signif(skewness(pH),2)),
+      side=3,line=0,cex=0.8)
 legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,0))
-ldens <- density(log(clasts))
+ldens <- density(log(catchments$area))
 dens <- ldens
 dens$x <- exp(ldens$x)
 dx <- diff(dens$x)
 dens$y <- ldens$y/c(dx,dx[511])
-plot(clastdens$x,clastdens$y,main='',xlab='clast size [cm]',
+plot(areadens$x,areadens$y,main='',xlab=expression('area [km'^2*']'),
      ylab='Density',type='l',xlim=c(0,12),bty='n')
-mtext(paste0('skewness=',signif(skewness(clasts),2)),side=3,line=0,cex=0.8)
+mtext(paste0('skewness=',signif(skewness(catchments$area),2)),
+      side=3,line=0,cex=0.8)
 legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(0,0))
 barplot(height=covid[,'death rate'],
         width=covid[,'to']-covid[,'from']+1,
@@ -432,13 +436,13 @@ layout(m,widths=c(0.1,0.9),heights=c(0.65,0.2,0.15))
 plot.new()
 xlim <- c(0,12)
 iin <- which(dens$x<xlim[2])
-plot(clastdens$x[iin],clastdens$y[iin],type='l',
+plot(areadens$x[iin],areadens$y[iin],type='l',
      main='',xlim=xlim,xaxt='n',bty='n',ylab='')
 mtext('Density',side=2,line=1.5)
-rug(clasts,ticksize=0.05)
-boxplot(clasts,horizontal=TRUE,ylim=xlim,
+rug(catchments$area,ticksize=0.05)
+boxplot(catchments$area,horizontal=TRUE,ylim=xlim,
         frame.plot=FALSE,xlab='',width=1,col='white')
-mtext('clast size [cm]',side=1,line=1.5)
+mtext(expression('area [km'^2*']'),side=1,line=1.5)
 dev.off()
 
 nn <- 5
@@ -4547,17 +4551,6 @@ pars(mgp=c(1.2,0.5,0))
 x <- 10^seq(from=0,to=9.69897,length.out=100)
 y <- 10/sqrt(x)
 plot(x,y,type='l',xlab='N',ylab=expression("s["*bar(h)*"]"),log='x',bty='n')
-dev.off()
-
-cairo(file='../../slides/RbSr.pdf',width=4,height=4)
-RbSr <- read.csv('RbSr.csv',header=TRUE)
-pars(mgp=c(1.25,0.5,0))
-RS <- t(RbSr[c(1,3,2,4,5),])
-RS[,1] <- RS[,1]/2
-RS[,5] <- 1.5*RS[,5]
-scatterplot(RS,fit=york(RS),fill=NA,
-            xlab=expression(''^87*'Rb/'^86*'Sr'),
-            ylab=expression(''^87*'Sr/'^86*'Sr'))
 dev.off()
 
 cairo(file='../../slides/MDS2D.pdf',width=2.5,height=2.5)
