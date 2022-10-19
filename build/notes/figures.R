@@ -2392,7 +2392,7 @@ dev.off()
 
 # from https://rspatial.org/raster/cases/2-coastline.html
 library(raster)
-uk <- raster::getData('GADM', country='GBR', level=0)
+uk <- readRDS('gadm36_GBR_0_sp.rds')
 prj <- paste0("+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 ",
               "+x_0=400000 +y_0=-100000 +ellps=airy +datum=OSGB36 +units=m")
 options("rgdal_show_exportToProj4_warnings"="none")
@@ -2542,12 +2542,11 @@ if (FALSE){
 }
 
 raster2dat <- function(fname){
-    library(raster)
-    dat <- raster(fname)
-    mat <- t(apply(as.matrix(dat), 2, rev))
-    mat[mat<128] <- 1
-    mat[mat>=128] <- 0
-    mat
+    mat <- dat <- tiff::readTIFF(fname)
+    if (length(dim(dat))>2) mat <- dat <- dat[,,1]
+    mat[dat<.5] <- 1
+    mat[dat>=.5] <- 0
+    t(apply(mat, 2, rev))
 }
 count_boxes <- function(mat,boxside,nticks){
     mat4plot <- mat
@@ -2614,7 +2613,7 @@ dev.off()
 
 cairo(file='../../figures/Britainboxcounts.pdf',width=3,height=3)
 pars()
-britfit <- geostats::fractaldim(mat=Britain)
+britfit <- geostats::fractaldim(mat=Britain,pch=21,bg='white')
 dev.off()
 
 Corsica <- raster2dat('Corsica.tif')
@@ -2635,7 +2634,7 @@ dev.off()
 
 cairo(file='../../figures/Corsicaboxcounts.pdf',width=3,height=3)
 pars()
-geostats::fractaldim(mat=Corsica)
+geostats::fractaldim(mat=Corsica,pch=21,bg='white')
 dev.off()
 
 drawSnow <- function(lev, x1, y1, x5, y5){
@@ -2688,7 +2687,7 @@ level <- 6
 drawSnow(lev=level,0,0,100,0)
 dev.off()
 
-tiff(file='koch6.tif',width=512,height=512,units='px')
+tiff(file='koch6.tif',width=512,height=512,units='px',compression='lzw')
 pars(mar=rep(0,4))
 plot(xlim,ylim,type='n',asp=1,bty='n',ann=FALSE,xaxt='n',yaxt='n')
 level <- 6
@@ -2696,7 +2695,8 @@ drawSnow(lev=level,0,0,100,0)
 dev.off()
 
 kochimg <- raster2dat('koch6.tif')
-png(file='../../figures/koch.png',type='cairo',width=12,height=1.3,res=300,units='in')
+png(file='../../figures/koch.png',type='cairo',width=12,
+    height=1.3,res=300,units='in')
 pars(mfrow=c(1,4),mar=rep(0,4))
 mat <- kochimg
 crop <- c(0.3,0,0.3,0)

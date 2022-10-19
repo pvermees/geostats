@@ -139,11 +139,11 @@ worldpop <- read.csv('population.csv')
 save(worldpop,file='../../package/data/worldpop.rda',version=2)
 
 raster2dat <- function(fname){
-    dat <- tiff::readTIFF(fname)
-    mat <- t(apply(as.matrix(dat), 2, rev))
-    mat[mat<128] <- 1
-    mat[mat>=128] <- 0
-    mat
+    mat <- dat <- tiff::readTIFF(fname)
+    if (length(dim(dat))>2) mat <- dat <- dat[,,1]
+    mat[dat<.5] <- 1
+    mat[dat>=.5] <- 0
+    t(apply(mat, 2, rev))
 }
 
 fractures <- raster2dat('fractures.tif')
