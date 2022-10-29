@@ -68,7 +68,7 @@ properties of twenty fictitious river catchments:
 
 \noindent\begin{minipage}[t][][b]{.55\linewidth}
 \begin{tabular}{c|l@{\gap}l@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
-\# & lithology & age & springs & pH & area & vegetation \\ \hline
+\# & lithology & age & springs & pH & Ca/Mg & vegetation \\ \hline
 1 & basalt & Cz & 0 & 6.2 & 0.35 & 5.8 \\
 2 & granite & Mz & 1 & 4.4 & 11.00 & 28 \\
 3 & basalt & Mz & 0 & 5.6 & 6.00 & 12 \\
@@ -96,9 +96,9 @@ properties of twenty fictitious river catchments:
   for six different types of data: the lithology of the underlying
   bedrock and its stratigraphic age (where `Cz' is Cenozoic, `Mz' is
   Mesozoic, `Pz' is Palaeozoic, and `pC' is Precambrian); the number
-  of natural springs in the catchments; the pH of the river water; the
-  catchment area (in km\textsuperscript{2}); and the percentage of
-  this area that is covered by vegetation.\medskip}
+  of natural springs in the catchments; the pH of the river water; its
+  Ca/Mg ratio; and the percentage of the catchment area that is
+  covered by vegetation.\medskip}
 \label{tab:catchments}
 \end{minipage}\medskip
 
@@ -162,7 +162,8 @@ Mosteller and Tukey (1977, ISBN:0-201-04854-X).\label{ftn:Tarantola}}
   
 \item\textbf{Jeffreys quantities}\textsuperscript{\ref{ftn:Tarantola}}
   can only have positive values. Examples of this include mass,
-  volume, density, speed, or area (Figure~\ref{fig:continuous}.b).
+  volume, density, speed, or the ratios of chemical concentrations
+  (Figure~\ref{fig:continuous}.b).
   
 \item\textbf{Proportions} are quantities that are constrained to a
   finite interval from 0 to 1 (or from 0 to 100\%). Examples of this
@@ -174,9 +175,9 @@ Mosteller and Tukey (1977, ISBN:0-201-04854-X).\label{ftn:Tarantola}}
 \begingroup \captionof{figure}{Three continuous datasets, shown as
   histograms, reporting the following properties of the 20 river
   catchments of Table~\ref{tab:catchments}: a) pH of the river water
-  (free to take on positive and negative values); b) catchment area
-  (non-negative numbers); and c) the proportion covered by vegetation
-  (values between 0 and 100\%).}
+  (free to take on positive and negative values); b) the Ca/Mg ratio
+  of the water (non-negative numbers); and c) the proportion of the
+  catchment area covered by vegetation (values between 0 and 100\%).}
 \label{fig:continuous}
 \endgroup
 
@@ -363,18 +364,18 @@ bandwidth.  But these values can be easily overruled by the user.
 \label{sec:transformations}
 
 As discussed in Section~\ref{sec:datatypes}, Jeffreys quantities such
-as the catchment areas of Figure~\ref{fig:continuous}.b exist within
-an infinite half space between 0 and $+\infty$. However, when we
+as the Ca/Mg ratios of Figure~\ref{fig:continuous}.b exist within an
+infinite half space between 0 and $+\infty$. However, when we
 visualise them as a KDE, the left tail of this curve may extend into
 negative data space, implying that there is a finite chance of
-observing negative catchment areas:
+observing negative Ca/Mg ratios:
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
   \includegraphics[width=\textwidth]{../figures/negativeKDE.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.7\textwidth}
-  \captionof{figure}{KDE of 20 catchment areas.  Even though all the
-    measurements are strictly positive, the curve extends into
+  \captionof{figure}{KDE of 20 Ca/Mg ratio measurements.  Even though
+    all the measurements are strictly positive, the curve extends into
     negative data space.\medskip}
   \label{fig:negativeKDE}
 \end{minipage}
@@ -399,7 +400,7 @@ transformation:
   \includegraphics[width=\textwidth]{../figures/logKDE.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
-  \captionof{figure}{a) KDE of the catchment area measurements, after
+  \captionof{figure}{a) KDE of the Ca/Mg ratio measurements, after
     applying a logarithmic transformation.  Note how the distribution
     has become more symmetric compared to the linear scale of
     Figure~\ref{fig:negativeKDE}. b) The same KDE mapped back to
@@ -519,13 +520,13 @@ formula for this procedure can be written as:
 \noindent where $I(\ast) = 1$ if $\ast$ is `true' and $I(\ast) = 0$ if
 $\ast$ is `false'. The y-coordinates of the ECDF are values from 0 to
 1 that mark the fraction of the measurements that are less than a
-particular value.  Plotting the pH, catchment area, vegetation and
-geyser data as ECDFs:
+particular value.  Plotting the pH, Ca/Mg, vegetation and geyser data
+as ECDFs:
 
 \noindent\includegraphics[width=\textwidth]{../figures/ECDFs.pdf}
 \begingroup \captionof{figure}{Empirical cumulative distribution
   functions (ECDFs) of, from left to right: a) the pH data (whose KDE
-  is shown in Figure~\ref{fig:pHgaussKDE}); b) the catchment areas of
+  is shown in Figure~\ref{fig:pHgaussKDE}); b) the Ca/Mg ratios of
   Figure~\ref{fig:negativeKDE}; c) the vegetation data of
   Figure~\ref{fig:vegetationKDE}; and d) the eruption time data of
   Figure~\ref{fig:KDE2D}. Note that ECDFs are only applicable to
@@ -535,8 +536,8 @@ geyser data as ECDFs:
 
 ECDFs do not require binning or selecting a bandwidth.  Because they
 do not require smoothing, they do not spill over into physically
-impossible values for the catchment area and vegetation data. The ECDF
-is completely determined by the raw data.\medskip
+impossible values for the Ca/Mg and vegetation data. The ECDF is
+completely determined by the raw data.\medskip
 
 The visual interpetation of ECDFs is different from that of histograms
 or KDEs. Whereas different clusters of values stand out as `peaks' in

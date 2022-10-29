@@ -496,11 +496,11 @@ plot(dens)
 rug(pH)    
 \end{script}
 
-A KDE of the log-transformed catchment area data
+A KDE of the log-transformed catchment Ca/Mg data
 (Figure~\ref{fig:logKDE}):
 
 \begin{script}
-lc <- log(catchments$area)
+lc <- log(catchments$CaMg)
 d <- density(lc)
 plot(d)
 \end{script}
@@ -636,7 +636,7 @@ For continuous variables, in which there are no duplicate values, we
 use a KDE to determine the mode:
 
 \begin{script}
-dens <- density(catchments$area)
+dens <- density(catchments$CaMg)
 mod <- dens$x[which.max(dens$y)]
 \end{script}
 
@@ -652,14 +652,14 @@ skew <- function(x){
 \noindent which can be used as follows:
 
 \begin{console}
-> skew(catchments$area)
+> skew(catchments$CaMg)
 [1] 1.212305
 \end{console}
 
-\item A box plot for the catchment area data:
+\item A box plot for the Ca/Mg data:
 
 \begin{console}
-boxplot(catchments$area)
+boxplot(catchments$CaMg)
 \end{console}
 
 \end{enumerate}

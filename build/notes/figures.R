@@ -56,7 +56,7 @@ cairo(file='../../figures/continuous.pdf',width=7,height=2)
 pars(mar=c(2.5,2.35,1.1,0.25),mfrow=c(1,3))
 hist(pH,col='white',main='')
 legend('topright',legend='a)',bty='n',cex=1.2,adj=c(0,-2),xpd=TRUE)
-hist(catchments$area,main='',col='white',xlab=expression('area [km'^2*']'))
+hist(catchments$CaMg,main='',col='white',xlab='Ca/Mg')
 legend('topright',legend='b)',bty='n',cex=1.2,adj=c(0,-2),xpd=TRUE)
 hist(catchments$vegetation,main='',col='white',xlab='vegetation [%]')
 legend('topright',legend='c)',bty='n',cex=1.2,adj=c(0,-2),xpd=TRUE)
@@ -143,27 +143,23 @@ dev.off()
 
 cairo(file='../../figures/negativeKDE.pdf',width=3,height=3)
 pars()
-plot(density(catchments$area),main='',
-     xlab=expression('area [km'^2*']'),
-     zero.line=FALSE)
+plot(density(catchments$CaMg),main='',xlab='Ca/Mg',zero.line=FALSE)
 lines(c(0,0),c(0,1),lty=2)
-rug(catchments$area)
+rug(catchments$CaMg)
 dev.off()
 
 cairo(file='../../figures/logKDE.pdf',width=6,height=3)
 pars(mfrow=c(1,2),mar=c(2.5,2.3,2.5,0.25))
-larea <- log(catchments$area)
-ldens <- density(larea)
-plot(exp(ldens$x),ldens$y,type='l',main='',
-     xlab=expression('area [km'^2*']'),ylab='Density',log='x')
-rug(catchments$area)
+lCaMg <- log(catchments$CaMg)
+ldens <- density(lCaMg)
+plot(exp(ldens$x),ldens$y,type='l',main='',xlab='Ca/Mg',ylab='Density',log='x')
+rug(catchments$CaMg)
 axis(side=3)
-mtext(text='ln[area]',side=3,line=1.5)
+mtext(text='ln[Ca/Mg]',side=3,line=1.5)
 legend('topright',legend='a)',bty='n',cex=1.2,adj=c(0,0))
-areadens <- geostats:::exp.density(ldens)
-plot(areadens,main='',xlab=expression('area [km'^2*']'),
-     ylab='Density',xlim=c(0,20),zero.line=FALSE)
-rug(catchments$area)
+CaMgdens <- geostats:::exp.density(ldens)
+plot(CaMgdens,main='',xlab='Ca/Mg',ylab='Density',xlim=c(0,20),zero.line=FALSE)
+rug(catchments$CaMg)
 legend('topright',legend='b)',bty='n',cex=1.2,adj=c(0,0))
 dev.off()
 
@@ -230,8 +226,8 @@ pars(mfrow=c(1,4))
 plot(ecdf(pH),main='',verticals=TRUE,pch=NA,
      xlab='pH',ylab='F(pH)')
 legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,0))
-plot(ecdf(catchments$area),main='',verticals=TRUE,pch=NA,
-     xlab=expression('area [km'^2*']'),ylab='F(size)')
+plot(ecdf(catchments$CaMg),main='',verticals=TRUE,
+     pch=NA,xlab='Ca/Mg',ylab='F(size)')
 legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(2,0))
 plot(ecdf(catchments$vegetation),main='',verticals=TRUE,pch=NA,
      xlab='vegetation',ylab='F(vegetation)')
@@ -274,7 +270,7 @@ lines(xlim,rep(0.5,2),lty=4)
 plot.new()
 dev.off()
 
-dat <- catchments$area
+dat <- catchments$CaMg
 xlim <- c(0,12)
 mu <- mean(dat)
 med <- median(dat)
@@ -284,7 +280,7 @@ dens$x <- exp(ldens$x)
 dx <- diff(dens$x)
 dens$y <- ldens$y/c(dx,dx[511])
 mod <- dens$x[which.max(dens$y)]
-cairo(file='../../figures/arealocation.pdf',width=4.5,height=4.5)
+cairo(file='../../figures/CaMglocation.pdf',width=4.5,height=4.5)
 pars(mar=rep(0,4))
 m <- rbind(c(1,2,3),c(1,4,3),c(1,5,3),c(1,6,3))
 layout(m,widths=c(0.1,0.88,0.02),heights=c(0.1,0.4,0.4,0.1))
@@ -292,10 +288,10 @@ layout.show(6)
 plot.new()
 plot.new()
 plot.new()
-plot(areadens,type='l',xaxt='n',yaxt='n',main='',xlim=xlim,zero.line=FALSE)
+plot(CaMgdens,type='l',xaxt='n',yaxt='n',main='',xlim=xlim,zero.line=FALSE)
 axis(side=2,at=c(0,0.1,0.2,0.3),labels=c(0,0.1,0.2,0.3))
 axis(side=3)
-mtext(text=expression('area[km'^2*']'),side=3,line=1.5)
+mtext(text='Ca/Mg',side=3,line=1.5)
 mtext(text='Density',side=2,line=1.5)
 rug(dat,side=1)
 lines(rep(mu,2),c(-1,30),lty=1)
@@ -303,8 +299,8 @@ lines(rep(med,2),c(-1,30),lty=2)
 lines(rep(mod,2),c(-1,30),lty=3)
 legend('topright',legend=c('mean','median','mode'),lty=1:3)
 plot(ecdf(dat),main='',verticals=TRUE,pch=NA,xlim=xlim)
-mtext(text=expression('area[km'^2*']'),side=1,line=1.5)
-mtext(text='F(area)',side=2,line=1.5)
+mtext(text='Ca/Mg',side=1,line=1.5)
+mtext(text='F(Ca/Mg)',side=2,line=1.5)
 lines(rep(mu,2),c(-1,2),lty=1)
 lines(rep(med,2),c(-1,2),lty=2)
 lines(rep(mod,2),c(-1,2),lty=3)
@@ -410,14 +406,14 @@ plot(density(pH),main='',xlab='pH',bty='n',zero.line=FALSE)
 mtext(paste0('skewness=',signif(skewness(pH),2)),
       side=3,line=0,cex=0.8)
 legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,0))
-ldens <- density(log(catchments$area))
+ldens <- density(log(catchments$CaMg))
 dens <- ldens
 dens$x <- exp(ldens$x)
 dx <- diff(dens$x)
 dens$y <- ldens$y/c(dx,dx[511])
-plot(areadens$x,areadens$y,main='',xlab=expression('area [km'^2*']'),
+plot(CaMgdens$x,CaMgdens$y,main='',xlab='Ca/Mg',
      ylab='Density',type='l',xlim=c(0,12),bty='n')
-mtext(paste0('skewness=',signif(skewness(catchments$area),2)),
+mtext(paste0('skewness=',signif(skewness(catchments$CaMg),2)),
       side=3,line=0,cex=0.8)
 legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(0,0))
 barplot(height=covid[,'death rate'],
@@ -436,13 +432,13 @@ layout(m,widths=c(0.1,0.9),heights=c(0.65,0.2,0.15))
 plot.new()
 xlim <- c(0,12)
 iin <- which(dens$x<xlim[2])
-plot(areadens$x[iin],areadens$y[iin],type='l',
+plot(CaMgdens$x[iin],CaMgdens$y[iin],type='l',
      main='',xlim=xlim,xaxt='n',bty='n',ylab='')
 mtext('Density',side=2,line=1.5)
-rug(catchments$area,ticksize=0.05)
-boxplot(catchments$area,horizontal=TRUE,ylim=xlim,
+rug(catchments$CaMg,ticksize=0.05)
+boxplot(catchments$CaMg,horizontal=TRUE,ylim=xlim,
         frame.plot=FALSE,xlab='',width=1,col='white')
-mtext(expression('area [km'^2*']'),side=1,line=1.5)
+mtext('Ca/Mg',side=1,line=2)
 dev.off()
 
 nn <- 5
@@ -2395,8 +2391,6 @@ library(raster)
 uk <- readRDS('gadm36_GBR_0_sp.rds')
 prj <- paste0("+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 ",
               "+x_0=400000 +y_0=-100000 +ellps=airy +datum=OSGB36 +units=m")
-options("rgdal_show_exportToProj4_warnings"="none")
-library(rgdal)
 guk <- spTransform(uk, CRS(prj))
 duk <- disaggregate(guk)
 a <- raster::area(duk)

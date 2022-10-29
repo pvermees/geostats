@@ -19,7 +19,7 @@ to [\eqn{0,\infty}] by taking exponents.
 }
 \examples{
 data(catchments,package='geostats')
-lc <- log(catchments$area)
+lc <- log(catchments$CaMg)
 ld <- density(lc)
 d <- exp(ld)
 plot(d)

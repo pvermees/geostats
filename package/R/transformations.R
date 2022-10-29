@@ -52,7 +52,7 @@ logit.density <- function(x,inverse=TRUE,...){
 #' @return an object of class \code{density}
 #' @examples
 #' data(catchments,package='geostats')
-#' lc <- log(catchments$area)
+#' lc <- log(catchments$CaMg)
 #' ld <- density(lc)
 #' d <- exp(ld)
 #' plot(d)

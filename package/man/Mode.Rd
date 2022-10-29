@@ -23,7 +23,7 @@ Computes the most frequently occuring value in a
 }
 \examples{
 data(catchments,package='geostats')
-m1 <- Mode(catchments$area,categorical=TRUE)
+m1 <- Mode(catchments$CaMg,categorical=TRUE)
 
 m2 <- 1:50
 for (i in m2){
