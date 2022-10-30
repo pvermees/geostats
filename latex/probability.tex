@@ -3,8 +3,8 @@
 
 Probability is a numerical description of how likely it is for an
 event to occur or how likely it is for a proposition to be true.  In
-the context of a sampling experiment, the probability of an outcome
-$A$ can be defined as:
+the context of a random experiment, in which all outcomes are equally
+likely, the probability of an outcome $A$ can be defined as:
 \begin{equation}
 P(A) = \frac{\mbox{the number of ways }A\mbox{ can occur}}
 {\mbox{the total number of outcomes}}
@@ -23,7 +23,7 @@ a head ($H$) is
 The probability of tossing the same coin three times and obtaining two
 heads and one tail ($T$) is:
 \begin{equation}
-  P\!\left(2\times{H} \cap 1\times{T}\right) =
+  P(H,H,T) =
   \frac{
     \{THH\}\{HTH\}\{HHT\}
   }{
@@ -32,13 +32,11 @@ heads and one tail ($T$) is:
   \label{eq:2H1T}
 \end{equation}
 
-\noindent where $\cap$ stands for `and' in the sense of ``the
-intersection of two sets of outcomes''. Similarly, the probability of
-throwing two dice and obtaining a two (\raisebox{-2pt}{\Cube{2}}) and
-a six (\raisebox{-2pt}{\Cube{6}}) is:
+Similarly, the probability of throwing two fair dice and obtaining a
+two (\raisebox{-2pt}{\Cube{2}}) and a six (\raisebox{-2pt}{\Cube{6}})
+is:
 \begin{equation}
-  P\!\left(1\times{\mbox{\raisebox{-2pt}{\Cube{2}}}} \cap
-  1\times\mbox{\raisebox{-2pt}{\Cube{6}}}\right) =
+  P\!\left(\mbox{\raisebox{-2pt}{\Cube{2}},\raisebox{-2pt}{\Cube{6}}}\right) =
   \frac{
     \mbox{
       \big\{\raisebox{-2pt}{\Cube{2} \Cube{6}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{2}}\big\}
@@ -69,25 +67,33 @@ a six (\raisebox{-2pt}{\Cube{6}}) is:
 \end{equation}
 
 The \textbf{multiplicative rule of
-  probability}\label{page:multiplication} dictates that the
-probability of two combined (independent\footnote{The case of
-  non-independent experiments will be discussed in
-  Section~\ref{sec:conditionalprobability}.}) experiments is given by
-the product of their respective probabilities. Thus, if one were to
-carry out a coin tossing \emph{and} a dice throwing experiment, then
-the probability of obtaining two heads and one tail for the first
+  probability}\label{page:multiplication} states that the probability
+of two combined \emph{independent}\footnote{Independent means that the
+outcome of the first experiment does not depend on the outcome of the
+second. The case of non-independent experiments will be discussed in
+Section~\ref{sec:conditionalprobability}.} experiments is given by the
+product of their respective probabilities. Thus, if one were to carry
+out a coin tossing \emph{and} a dice throwing experiment, then the
+probability of obtaining two heads and one tail for the first
 experiment \emph{and} throwing a two and a six in the second
 experiment is:
 \[
-P\left(\left\{2\times{H} \cap 1\times{T}\right\} \cap
-\left\{1\times\mbox{\raisebox{-2pt}{\Cube{2}}} \cap
-1\times\mbox{\raisebox{-2pt}{\Cube{6}}}\right\}\right) =
+P\!\left(H,H,T \cap \mbox{\raisebox{-2pt}{\Cube{2}},\raisebox{-2pt}{\Cube{6}}}
+\right) =
 \frac{3}{8}\frac{1}{18} = \frac{3}{144} = 0.021
 \]
 
-The \textbf{additive rule of probability}\label{page:addition}
-dictates that the probability of observing \emph{either} of two
-outcomes $A$ and $B$ is given by:
+\noindent where $\cap$ stands for `and' in the sense of ``the
+intersection of two sets of outcomes''. Similarly, the likelihood of
+throwing an unbiased coin twice and obtaining two heads can be
+calculated as:
+\[
+P(H \cap H) = \frac{1}{2}\frac{1}{2} = \frac{1}{4}
+\]
+
+The \textbf{additive rule of probability}\label{page:addition} states
+that the probability of observing \emph{either} of two outcomes $A$
+and $B$ is given by:
 \begin{equation}
   P({A}\cup{B}) = P(A) + P(B) - P({A}\cap{B})
   \label{eq:additive}
@@ -97,9 +103,7 @@ For example the probability of observing two heads for the first
 experiment \emph{or} throwing a two and a six in the second experiment
 is:
 \[
-P\left(\left\{2\times{H} \cap 1\times{T}\right\} \cup
-\left\{1\times\mbox{\raisebox{-2pt}{\Cube{2}}} \cap
-1\times\mbox{\raisebox{-2pt}{\Cube{6}}}\right\}\right) =
+P\left(H,H,T \cup \mbox{\raisebox{-2pt}{\Cube{2}},\raisebox{-2pt}{\Cube{6}}}\right) =
 \frac{3}{8} + \frac{1}{18} - \frac{3}{144} = \frac{59}{144} = 0.410
 \]
 
@@ -107,8 +111,7 @@ For two mutually exclusive experiments, the third term in
 Equation~\ref{eq:additive} disappears. For example, the probability of
 obtaining two heads and one tail \emph{or} throwing three heads is:
 \[
-P\left(\left\{2\times{H} \cap 1\times{T}\right\} \cup
-\left\{3\times{H}\right\}\right) = \frac{3}{8} + \frac{1}{8} = \frac{4}{8} = 0.5
+P\left(H,H,T \cup H,H,H\right) = \frac{3}{8} + \frac{1}{8} = \frac{4}{8} = 0.5
 \]
 
 \section{Permutations}
@@ -126,8 +129,7 @@ be selected in one of two ways:
   possible outcomes for the second experiment. Using the
   multiplicative rule of probability, there are $(n\times{n})$
   possible outcomes for the two numbers. Repeat until you have drawn
-  $k$ balls (where $k \leq n$). Then the number of possible
-  sequences of numbers is
+  $k$ balls. Then the number of possible sequences of numbers is
   \begin{equation}
   \overset{k \mbox{~times}}{\overbrace{n\times{n}\times{\ldots}\times{n}}} = n^k
   \end{equation}
@@ -139,7 +141,7 @@ be selected in one of two ways:
   there are only $(n - 1)$ possible outcomes. Thus, the total number
   of outcomes for the first two numbers is $n \times
   (n-1)$. Continuing the experiment until you have drawn $k$ balls
-  yields
+  (where $k \leq n$) yields
   \begin{equation}
   n\times(n-1)\times(n-2)\times{\ldots}\times(n-k+1) = \frac{n!}{(n-k)!}
   \end{equation}
@@ -147,10 +149,10 @@ be selected in one of two ways:
 
 \end{enumerate}
 
-Let us apply these two formulas to a classical statistical problem:
-``\textit{what is the probability that two students in a classroom of
-  k celebrate their birthdays on the same day?}''. The solution is as
-follows.
+Let us apply these two formulas to a classic statistical problem:
+``\textit{what is the probability that at least two students in a
+  classroom of k celebrate their birthdays on the same day?}''. The
+solution is as follows.
 
 \begin{enumerate}
 \item There are ($n=$) 365 possible days on which the first person might
@@ -234,8 +236,9 @@ land:
     
 Note that these are the denominators of the two examples that were
 given in the introductory paragraph of this chapter. Also note that
-the collection of outcomes contains quite a few duplicate values.  For
-the coin example, these fall into two groups of three duplicates:
+the collection of outcomes contains quite a few duplicate values if
+one ignores the order.  For the coin example, these fall into two
+groups of three duplicates:
 \[\{\{HTT\}\{THT\}\{HHT\}\} \mbox{~and~} \{\{THH\}\{HTH\}\{TTH\}\}\]
 
 For the dice, there are fifteen groups of duplicate pairs:
@@ -366,7 +369,7 @@ Bajocian deposit contains ammonite fossils. Conversely, $P(B|A)$ is
 the probability that an ammonite fossil came from a Bajocian
 deposit.\\
 
-The \textbf{multiplication law} dictates that:
+The \textbf{multiplication law} states that:
 \begin{equation}
   P({A}\cap{B}) = P(A|B) P(B) = P(B|A) P(A) = P({B}\cap{A})
   \label{eq:PA&B}
@@ -378,8 +381,8 @@ ammonite fossils ($P(A|B)=0.2$). Then there is a 14\%
 ($=0.7\times{0.2}$) chance that the field area contains Bajocian
 ammonites.\\
 
-The \textbf{law of total probability} prescribes that, given $n$
-mutually exclusive scenarios $B_i$ (for $1\leq{i}\leq{n}$):
+The \textbf{law of total probability} states that, given $n$ mutually
+exclusive scenarios $B_i$ (for $1\leq{i}\leq{n}$):
 \begin{equation}
   P(A) = \sum\limits_{i=1}^{n} P(A|B_i) P(B_i)
   \label{eq:totalprob}

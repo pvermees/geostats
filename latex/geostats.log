@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.10.10)  29 OCT 2022 19:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.10.10)  29 OCT 2022 21:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -878,19 +878,19 @@ pdfTeX warning: pdflatex (file ../figures/boxplot.pdf): PDF inclusion: multiple
 ]
 Chapter 4.
 LaTeX Font Info:    Trying to load font information for U+ifsym on input line 3
-7.
+6.
 (/usr/share/texlive/texmf-dist/tex/latex/ifsym/uifsym.fd) [27] [28]
-Overfull \hbox (1.88113pt too wide) detected at line 305
+Overfull \hbox (1.88113pt too wide) detected at line 307
 []
  []
 
 [29]
-Underfull \hbox (badness 10000) in paragraph at lines 361--368
+Underfull \hbox (badness 10000) in paragraph at lines 363--370
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 375--380
+Underfull \hbox (badness 10000) in paragraph at lines 377--382
 
  []
 
@@ -4169,7 +4169,7 @@ cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on geostats.pdf (223 pages, 3603722 bytes).
+Output written on geostats.pdf (223 pages, 3603860 bytes).
 PDF statistics:
  5501 PDF objects out of 6186 (max. 8388607)
  4440 compressed objects within 45 object streams
