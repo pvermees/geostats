@@ -433,8 +433,8 @@ is~4.
 \item To answer the first question, we formulate a two-sided
   hypothesis:
 
-  $H_\circ: p(\mbox{female}) = 0.5 = p(\mbox{male})$\\
-  $H_a: p(\mbox{female}) \neq 0.5 \neq p(\mbox{male})$
+  $H_0: p(\mbox{female}) = 0.5 = p(\mbox{male})$\\
+  $H_{\!A}: p(\mbox{female}) \neq 0.5 \neq p(\mbox{male})$
 
   Then the 2.5 and 97.5 percentiles of the binomial null distribution
   are given by:
@@ -458,8 +458,8 @@ $0.06490865>0.05$ and therefore the two-sided hypothesis is not
 rejected. To answer the second question, we carry out a one-sided
 hypothesis test:
 
-  $H_\circ: p(\mbox{female}) = 0.5 = p(\mbox{male})$\\
-  $H_a: p(\mbox{female}) > 0.5 > p(\mbox{male})$
+  $H_0: p(\mbox{female}) = 0.5 = p(\mbox{male})$\\
+  $H_{\!A}: p(\mbox{female}) > 0.5 > p(\mbox{male})$
 
 \noindent whose 95 percentile is given by:
 
@@ -480,7 +480,7 @@ hypothesis is rejected. Equivalently:
 
 \noindent which is half of the one-sided p-value and less than
 0.05. The one-sided hypothesis is more powerful than the two-sided
-version, leading to rejection of $H_\circ$. Thus the one-sided and
+version, leading to rejection of $H_0$. Thus the one-sided and
 two-sided hypothesis tests lead to different conclusions for the same
 dataset. It is important that the test is chosen before the experiment
 is completed. So you must decide on your scientific question before
@@ -603,8 +603,8 @@ The probability that it contains 41 to 60 fission tracks is:
 
 \item This problem requires a one-sided hypothesis test:
 
-  $H_\circ: \lambda=2$\\
-  $H_a: \lambda<2$
+  $H_0: \lambda=2$\\
+  $H_{\!A}: \lambda<2$
 
 In \texttt{R}:
 
@@ -614,7 +614,7 @@ In \texttt{R}:
 [1] 0.03901199
 \end{console}
 
-$H_\circ$ is rejected on a 95\% confidence level, and so it would be
+$H_0$ is rejected on a 95\% confidence level, and so it would be
 best to cease operations and abandon the mining site.
 
 \item To construct a 95\% confidence interval, we again use

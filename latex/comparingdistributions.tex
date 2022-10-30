@@ -143,11 +143,11 @@ Sections~\ref{sec:binomH} and \ref{sec:poishyp}.
 \item  Formulate two hypotheses:\medskip
 
   \noindent\begin{minipage}{.4\textwidth}
-    $H_\circ$ (\textbf{null hypothesis})
+    $H_0$ (\textbf{null hypothesis})
     
     \vspace{1em}
     
-    $H_a$ (\textbf{alternative hypothesis}):
+    $H_{\!A}$ (\textbf{alternative hypothesis}):
   \end{minipage}
   \begin{minipage}{.2\textwidth}
   \end{minipage}
@@ -171,7 +171,7 @@ Sections~\ref{sec:binomH} and \ref{sec:poishyp}.
   \noindent where $\bar{x} = 19.164$, $\mu_\circ = 19.30$, 
   $s[x] = 0.0948$, and $n = 5$ so that $t = -3.2091$.
 
-\item Under $H_\circ$, Equation~\ref{eq:t1} follows a Student
+\item Under $H_0$, Equation~\ref{eq:t1} follows a Student
   t-distribution with 4 degrees of freedom. Tabulating some key
   quantiles of this distribution:
 
@@ -253,11 +253,11 @@ difference between the two means is significant or not.
 \item  Formulate two hypotheses:\medskip
 
   \noindent\begin{minipage}{.4\textwidth}
-    $H_\circ$ (\textbf{null hypothesis})
+    $H_0$ (\textbf{null hypothesis})
     
     \vspace{1em}
     
-    $H_a$ (\textbf{alternative hypothesis}):
+    $H_{\!A}$ (\textbf{alternative hypothesis}):
   \end{minipage}
   \begin{minipage}{.2\textwidth}
   \end{minipage}
@@ -290,7 +290,7 @@ difference between the two means is significant or not.
   respectively. Plugging the data into equations \ref{eq:t2} and
   \ref{eq:sp} yields $t=-1.857$.
 
-\item Under $H_\circ$, Equation~\ref{eq:t2} follows a Student
+\item Under $H_0$, Equation~\ref{eq:t2} follows a Student
   t-distribution with $(n_1+n_2-2)$ degrees of freedom\footnote{Two
     degrees of freedom have been removed because we estimated two
     parameters from the data: $\bar{x}_1$ and
@@ -572,10 +572,10 @@ Applying the $\chi^2$-test to the earthquake data:
 \begin{enumerate}
 \item  Formulate two hypotheses:
 
-  $H_\circ$ (\textbf{null hypothesis}):
+  $H_0$ (\textbf{null hypothesis}):
   the earthquake data follow a Poisson distribution
 
-  $H_a$ (\textbf{alternative hypothesis}):
+  $H_{\!A}$ (\textbf{alternative hypothesis}):
   the earthquake data do not follow a Poisson distribution
   
 \item Calculate the $\chi^2$-statistic using Equation~\ref{eq:chi2}:
@@ -589,7 +589,7 @@ Applying the $\chi^2$-test to the earthquake data:
     \end{split}
   \end{equation}
 
-\item Under $H_\circ$, Equation~\ref{eq:chi2} follows a
+\item Under $H_0$, Equation~\ref{eq:chi2} follows a
   $\chi^2$-distribution 6 degrees of freedom. Tabulating some key
   quantiles for this distribution:
 
@@ -719,9 +719,9 @@ the one-sample case of Section~\ref{sec:chi2}:
 \begin{enumerate}
 \item  Formulate two hypotheses:
 
-  $H_\circ$ (\textbf{null hypothesis}): samples A and B have the same composition
+  $H_0$ (\textbf{null hypothesis}): samples A and B have the same composition
 
-  $H_a$ (\textbf{alternative hypothesis}):
+  $H_{\!A}$ (\textbf{alternative hypothesis}):
   samples A and B do not have the same composition
   
 \item Calculate the $\chi^2$-statistic with Equation~\ref{eq:chi2},
@@ -737,7 +737,7 @@ the one-sample case of Section~\ref{sec:chi2}:
     \end{split}
   \end{equation}
 
-\item Under $H_\circ$, Equation~\ref{eq:chi2} follows a
+\item Under $H_0$, Equation~\ref{eq:chi2} follows a
   $\chi^2$-distribution with $(2-1)\times(4-1)=3$ degrees of
   freedom. Tabulating some key quantiles for this distribution:
 
@@ -870,10 +870,10 @@ let's carry out a two-sample $\chi^2$-test to be sure.
 \begin{enumerate}
 \item  Formulate two hypotheses:
 
-  $H_\circ$ (\textbf{null hypothesis}):
+  $H_0$ (\textbf{null hypothesis}):
   samples A and B have identical compositions
 
-  $H_a$ (\textbf{alternative hypothesis}):
+  $H_{\!A}$ (\textbf{alternative hypothesis}):
   samples A and B have different compositions
   
 \item The expected number of counts for each cell of the contingency
@@ -909,7 +909,7 @@ let's carry out a two-sample $\chi^2$-test to be sure.
   \chi^2 = 10.0
   \]
 
-\item Under $H_\circ$, the test statistic follows a
+\item Under $H_0$, the test statistic follows a
   $\chi^2$-distribution 3 degrees of freedom. Tabulating some key
   quantiles for this distribution:
 
@@ -946,7 +946,7 @@ let's carry out a two-sample $\chi^2$-test to be sure.
   The one-sided rejection region consists of all $\chi^2>{7.81}$.
 
 \item The observed value of $\chi^2=10.0$ falls inside this region,
-  and so we reject $H_\circ$.
+  and so we reject $H_0$.
 
 \end{enumerate}
 
@@ -1136,11 +1136,11 @@ example of table~\ref{tab:2setcoins}:
 \item  Formulate two hypotheses:
 
   \noindent\begin{minipage}{.4\textwidth}
-    $H_\circ$ (\textbf{null hypothesis})
+    $H_0$ (\textbf{null hypothesis})
     
     \vspace{1em}
     
-    $H_a$ (\textbf{alternative hypothesis}):
+    $H_{\!A}$ (\textbf{alternative hypothesis}):
   \end{minipage}
   \begin{minipage}{.2\textwidth}
   \end{minipage}
@@ -1176,7 +1176,7 @@ example of table~\ref{tab:2setcoins}:
   \noindent which (intentionally) is the same value as the earlier
   generic example.
 
-\item Under $H_\circ$, the test statistic follows a Wilcoxon rank-sum
+\item Under $H_0$, the test statistic follows a Wilcoxon rank-sum
   distribution for $n_1=5$ and $n_2=4$. Tabulating some key quantiles
   for this distribution:
 
@@ -1212,7 +1212,7 @@ example of table~\ref{tab:2setcoins}:
   The rejection region consists of $W={10}$ and $W>{27}$.
 
 \item The observed value of $W (=26)$ falls outside the rejection
-  region, and so we cannot reject $H_\circ$.
+  region, and so we cannot reject $H_0$.
 
 \end{enumerate}
 
@@ -1275,15 +1275,15 @@ The hypothesis test then proceeds as always:
 \begin{enumerate}
 \item  Formulate two hypotheses:
 
-  $H_\circ$ (\textbf{null hypothesis}):
+  $H_0$ (\textbf{null hypothesis}):
   samples 1 and 2 were drawn from the same distribution
 
-  $H_a$ (\textbf{alternative hypothesis}):
+  $H_{\!A}$ (\textbf{alternative hypothesis}):
   samples 1 and 2 were drawn from different distributions
   
 \item The test statistic is $D=0.30$ (see Figure~\ref{fig:KS}).
 
-\item Under $H_\circ$, the Kolmogorov-Smirnov statistic can be
+\item Under $H_0$, the Kolmogorov-Smirnov statistic can be
   compared to a look-up table similar to the one that was used for the
   Wilcoxon test. Tabulating some key quantiles:\medskip
 
@@ -1316,7 +1316,7 @@ The hypothesis test then proceeds as always:
   The rejection region consists of all $D>{0.174}$.
 
 \item The observed value of $D=0.301$ falls inside this region, so
-  $H_\circ$ is rejected.
+  $H_0$ is rejected.
 
 \end{enumerate}
 
@@ -1330,7 +1330,7 @@ The hypothesis test then proceeds as always:
     statistic for the two sand samples of Figure~\ref{fig:KS}. The
     rejection region is marked in black on the PMF and groups all
     values of the test statistic that exceed the 95 percentile
-    ($D=0.174$).  $H_\circ$ is rejected.}
+    ($D=0.174$).  $H_0$ is rejected.}
   \label{fig:KSdens}
 \end{minipage}
 
