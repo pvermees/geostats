@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.10.10)  29 OCT 2022 21:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.10.10)  30 OCT 2022 11:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -288,46 +288,2016 @@ File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 \Gin@req@height=\dimen162
 \Gin@req@width=\dimen163
 )
+(/usr/share/texlive/texmf-dist/tex/latex/utfsym/utfsym.sty
+Package: utfsym 2020/10/22 Use TikZ to support icons from Unicode blocks 
+
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1356.
+Package xcolor Info: Model `RGB' extended on input line 1368.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1370.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks23
+\pgfutil@tempdima=\dimen164
+\pgfutil@tempdimb=\dimen165
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.t
+ex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box52
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2021/05/15 v3.1.9a (3.1.9a)
+))
+Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks24
+\pgfkeys@temptoks=\toks25
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.t
+ex
+\pgfkeys@tmptoks=\toks26
+))
+\pgf@x=\dimen166
+\pgf@y=\dimen167
+\pgf@xa=\dimen168
+\pgf@ya=\dimen169
+\pgf@xb=\dimen170
+\pgf@yb=\dimen171
+\pgf@xc=\dimen172
+\pgf@yc=\dimen173
+\pgf@xd=\dimen174
+\pgf@yd=\dimen175
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count290
+\c@pgf@countb=\count291
+\c@pgf@countc=\count292
+\c@pgf@countd=\count293
+\t@pgf@toka=\toks27
+\t@pgf@tokb=\toks28
+\t@pgf@tokc=\toks29
+\pgf@sys@id@count=\count294
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
+f
+File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
+tex
+File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfsyssoftpath@smallbuffer@items=\count295
+\pgfsyssoftpath@bigbuffer@items=\count296
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
+tex
+File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen176
+\pgfmath@count=\count297
+\pgfmath@box=\box53
+\pgfmath@toks=\toks30
+\pgfmath@stack@operand=\toks31
+\pgfmath@stack@operation=\toks32
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet
+ric.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod
+e.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
+thmetics.code.tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count298
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
+x
+File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@picminx=\dimen177
+\pgf@picmaxx=\dimen178
+\pgf@picminy=\dimen179
+\pgf@picmaxy=\dimen180
+\pgf@pathminx=\dimen181
+\pgf@pathmaxx=\dimen182
+\pgf@pathminy=\dimen183
+\pgf@pathmaxy=\dimen184
+\pgf@xx=\dimen185
+\pgf@xy=\dimen186
+\pgf@yx=\dimen187
+\pgf@yy=\dimen188
+\pgf@zx=\dimen189
+\pgf@zy=\dimen190
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
+code.tex
+File: pgfcorepathconstruct.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@path@lastx=\dimen191
+\pgf@path@lasty=\dimen192
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
+.tex
+File: pgfcorepathusage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@shorten@end@additional=\dimen193
+\pgf@shorten@start@additional=\dimen194
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
+x
+File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfpic=\box54
+\pgf@hbox=\box55
+\pgf@layerbox@main=\box56
+\pgf@picture@serial@count=\count299
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
+ode.tex
+File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgflinewidth=\dimen195
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
+s.code.tex
+File: pgfcoretransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@pt@x=\dimen196
+\pgf@pt@y=\dimen197
+\pgf@pt@temp=\dimen198
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t
+ex
+File: pgfcoreobjects.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing
+.code.tex
+File: pgfcorepathprocessing.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
+x
+File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfarrowsep=\dimen199
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@max=\dimen256
+\pgf@sys@shading@range@num=\count300
+\pgf@shadingcount=\count301
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
+tex
+File: pgfcoreexternal.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfexternal@startupbox=\box57
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
+x
+File: pgfcorelayers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c
+ode.tex
+File: pgfcoretransparency.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.
+tex
+File: pgfcorepatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfnodeparttextbox=\box58
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
+.sty
+Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@nodesepstart=\dimen257
+\pgf@nodesepend=\dimen258
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
+.sty
+Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
+)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+\pgffor@iter=\dimen259
+\pgffor@skip=\dimen260
+\pgffor@stack=\toks33
+\pgffor@toks=\toks34
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
+.code.tex
+File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@plot@mark@count=\count302
+\pgfplotmarksize=\dimen261
+)
+\tikz@lastx=\dimen262
+\tikz@lasty=\dimen263
+\tikz@lastxsaved=\dimen264
+\tikz@lastysaved=\dimen265
+\tikz@lastmovetox=\dimen266
+\tikz@lastmovetoy=\dimen267
+\tikzleveldistance=\dimen268
+\tikzsiblingdistance=\dimen269
+\tikz@figbox=\box59
+\tikz@figbox@bg=\box60
+\tikz@tempbox=\box61
+\tikz@tempbox@bg=\box62
+\tikztreelevel=\count303
+\tikznumberofchildren=\count304
+\tikznumberofcurrentchild=\count305
+\tikz@fig@count=\count306
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfmatrixcurrentrow=\count307
+\pgfmatrixcurrentcolumn=\count308
+\pgf@matrix@numberofcolumns=\count309
+)
+\tikz@expandcount=\count310
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)))
+   defining Unicode char U+1F000 (decimal 126976)
+   defining Unicode char U+1F001 (decimal 126977)
+   defining Unicode char U+1F002 (decimal 126978)
+   defining Unicode char U+1F003 (decimal 126979)
+   defining Unicode char U+1F004 (decimal 126980)
+   defining Unicode char U+1F005 (decimal 126981)
+   defining Unicode char U+1F006 (decimal 126982)
+   defining Unicode char U+1F007 (decimal 126983)
+   defining Unicode char U+1F008 (decimal 126984)
+   defining Unicode char U+1F009 (decimal 126985)
+   defining Unicode char U+1F00A (decimal 126986)
+   defining Unicode char U+1F00B (decimal 126987)
+   defining Unicode char U+1F00C (decimal 126988)
+   defining Unicode char U+1F00D (decimal 126989)
+   defining Unicode char U+1F00E (decimal 126990)
+   defining Unicode char U+1F00F (decimal 126991)
+   defining Unicode char U+1F010 (decimal 126992)
+   defining Unicode char U+1F011 (decimal 126993)
+   defining Unicode char U+1F012 (decimal 126994)
+   defining Unicode char U+1F013 (decimal 126995)
+   defining Unicode char U+1F014 (decimal 126996)
+   defining Unicode char U+1F015 (decimal 126997)
+   defining Unicode char U+1F016 (decimal 126998)
+   defining Unicode char U+1F017 (decimal 126999)
+   defining Unicode char U+1F018 (decimal 127000)
+   defining Unicode char U+1F019 (decimal 127001)
+   defining Unicode char U+1F01A (decimal 127002)
+   defining Unicode char U+1F01B (decimal 127003)
+   defining Unicode char U+1F01C (decimal 127004)
+   defining Unicode char U+1F01D (decimal 127005)
+   defining Unicode char U+1F01E (decimal 127006)
+   defining Unicode char U+1F01F (decimal 127007)
+   defining Unicode char U+1F020 (decimal 127008)
+   defining Unicode char U+1F021 (decimal 127009)
+   defining Unicode char U+1F022 (decimal 127010)
+   defining Unicode char U+1F023 (decimal 127011)
+   defining Unicode char U+1F024 (decimal 127012)
+   defining Unicode char U+1F025 (decimal 127013)
+   defining Unicode char U+1F026 (decimal 127014)
+   defining Unicode char U+1F027 (decimal 127015)
+   defining Unicode char U+1F028 (decimal 127016)
+   defining Unicode char U+1F029 (decimal 127017)
+   defining Unicode char U+1F02A (decimal 127018)
+   defining Unicode char U+1F02B (decimal 127019)
+   defining Unicode char U+1F02C (decimal 127020)
+   defining Unicode char U+1F02D (decimal 127021)
+   defining Unicode char U+1F02E (decimal 127022)
+   defining Unicode char U+1F02F (decimal 127023)
+   defining Unicode char U+1F030 (decimal 127024)
+   defining Unicode char U+1F031 (decimal 127025)
+   defining Unicode char U+1F032 (decimal 127026)
+   defining Unicode char U+1F033 (decimal 127027)
+   defining Unicode char U+1F034 (decimal 127028)
+   defining Unicode char U+1F035 (decimal 127029)
+   defining Unicode char U+1F036 (decimal 127030)
+   defining Unicode char U+1F037 (decimal 127031)
+   defining Unicode char U+1F038 (decimal 127032)
+   defining Unicode char U+1F039 (decimal 127033)
+   defining Unicode char U+1F03A (decimal 127034)
+   defining Unicode char U+1F03B (decimal 127035)
+   defining Unicode char U+1F03C (decimal 127036)
+   defining Unicode char U+1F03D (decimal 127037)
+   defining Unicode char U+1F03E (decimal 127038)
+   defining Unicode char U+1F03F (decimal 127039)
+   defining Unicode char U+1F040 (decimal 127040)
+   defining Unicode char U+1F041 (decimal 127041)
+   defining Unicode char U+1F042 (decimal 127042)
+   defining Unicode char U+1F043 (decimal 127043)
+   defining Unicode char U+1F044 (decimal 127044)
+   defining Unicode char U+1F045 (decimal 127045)
+   defining Unicode char U+1F046 (decimal 127046)
+   defining Unicode char U+1F047 (decimal 127047)
+   defining Unicode char U+1F048 (decimal 127048)
+   defining Unicode char U+1F049 (decimal 127049)
+   defining Unicode char U+1F04A (decimal 127050)
+   defining Unicode char U+1F04B (decimal 127051)
+   defining Unicode char U+1F04C (decimal 127052)
+   defining Unicode char U+1F04D (decimal 127053)
+   defining Unicode char U+1F04E (decimal 127054)
+   defining Unicode char U+1F04F (decimal 127055)
+   defining Unicode char U+1F050 (decimal 127056)
+   defining Unicode char U+1F051 (decimal 127057)
+   defining Unicode char U+1F052 (decimal 127058)
+   defining Unicode char U+1F053 (decimal 127059)
+   defining Unicode char U+1F054 (decimal 127060)
+   defining Unicode char U+1F055 (decimal 127061)
+   defining Unicode char U+1F056 (decimal 127062)
+   defining Unicode char U+1F057 (decimal 127063)
+   defining Unicode char U+1F058 (decimal 127064)
+   defining Unicode char U+1F059 (decimal 127065)
+   defining Unicode char U+1F05A (decimal 127066)
+   defining Unicode char U+1F05B (decimal 127067)
+   defining Unicode char U+1F05C (decimal 127068)
+   defining Unicode char U+1F05D (decimal 127069)
+   defining Unicode char U+1F05E (decimal 127070)
+   defining Unicode char U+1F05F (decimal 127071)
+   defining Unicode char U+1F060 (decimal 127072)
+   defining Unicode char U+1F061 (decimal 127073)
+   defining Unicode char U+1F062 (decimal 127074)
+   defining Unicode char U+1F063 (decimal 127075)
+   defining Unicode char U+1F064 (decimal 127076)
+   defining Unicode char U+1F065 (decimal 127077)
+   defining Unicode char U+1F066 (decimal 127078)
+   defining Unicode char U+1F067 (decimal 127079)
+   defining Unicode char U+1F068 (decimal 127080)
+   defining Unicode char U+1F069 (decimal 127081)
+   defining Unicode char U+1F06A (decimal 127082)
+   defining Unicode char U+1F06B (decimal 127083)
+   defining Unicode char U+1F06C (decimal 127084)
+   defining Unicode char U+1F06D (decimal 127085)
+   defining Unicode char U+1F06E (decimal 127086)
+   defining Unicode char U+1F06F (decimal 127087)
+   defining Unicode char U+1F070 (decimal 127088)
+   defining Unicode char U+1F071 (decimal 127089)
+   defining Unicode char U+1F072 (decimal 127090)
+   defining Unicode char U+1F073 (decimal 127091)
+   defining Unicode char U+1F074 (decimal 127092)
+   defining Unicode char U+1F075 (decimal 127093)
+   defining Unicode char U+1F076 (decimal 127094)
+   defining Unicode char U+1F077 (decimal 127095)
+   defining Unicode char U+1F078 (decimal 127096)
+   defining Unicode char U+1F079 (decimal 127097)
+   defining Unicode char U+1F07A (decimal 127098)
+   defining Unicode char U+1F07B (decimal 127099)
+   defining Unicode char U+1F07C (decimal 127100)
+   defining Unicode char U+1F07D (decimal 127101)
+   defining Unicode char U+1F07E (decimal 127102)
+   defining Unicode char U+1F07F (decimal 127103)
+   defining Unicode char U+1F080 (decimal 127104)
+   defining Unicode char U+1F081 (decimal 127105)
+   defining Unicode char U+1F082 (decimal 127106)
+   defining Unicode char U+1F083 (decimal 127107)
+   defining Unicode char U+1F084 (decimal 127108)
+   defining Unicode char U+1F085 (decimal 127109)
+   defining Unicode char U+1F086 (decimal 127110)
+   defining Unicode char U+1F087 (decimal 127111)
+   defining Unicode char U+1F088 (decimal 127112)
+   defining Unicode char U+1F089 (decimal 127113)
+   defining Unicode char U+1F08A (decimal 127114)
+   defining Unicode char U+1F08B (decimal 127115)
+   defining Unicode char U+1F08C (decimal 127116)
+   defining Unicode char U+1F08D (decimal 127117)
+   defining Unicode char U+1F08E (decimal 127118)
+   defining Unicode char U+1F08F (decimal 127119)
+   defining Unicode char U+1F090 (decimal 127120)
+   defining Unicode char U+1F091 (decimal 127121)
+   defining Unicode char U+1F092 (decimal 127122)
+   defining Unicode char U+1F093 (decimal 127123)
+   defining Unicode char U+1F094 (decimal 127124)
+   defining Unicode char U+1F095 (decimal 127125)
+   defining Unicode char U+1F096 (decimal 127126)
+   defining Unicode char U+1F097 (decimal 127127)
+   defining Unicode char U+1F098 (decimal 127128)
+   defining Unicode char U+1F099 (decimal 127129)
+   defining Unicode char U+1F09A (decimal 127130)
+   defining Unicode char U+1F09B (decimal 127131)
+   defining Unicode char U+1F09C (decimal 127132)
+   defining Unicode char U+1F09D (decimal 127133)
+   defining Unicode char U+1F09E (decimal 127134)
+   defining Unicode char U+1F09F (decimal 127135)
+   defining Unicode char U+1F0A0 (decimal 127136)
+   defining Unicode char U+1F0A1 (decimal 127137)
+   defining Unicode char U+1F0A2 (decimal 127138)
+   defining Unicode char U+1F0A3 (decimal 127139)
+   defining Unicode char U+1F0A4 (decimal 127140)
+   defining Unicode char U+1F0A5 (decimal 127141)
+   defining Unicode char U+1F0A6 (decimal 127142)
+   defining Unicode char U+1F0A7 (decimal 127143)
+   defining Unicode char U+1F0A8 (decimal 127144)
+   defining Unicode char U+1F0A9 (decimal 127145)
+   defining Unicode char U+1F0AA (decimal 127146)
+   defining Unicode char U+1F0AB (decimal 127147)
+   defining Unicode char U+1F0AC (decimal 127148)
+   defining Unicode char U+1F0AD (decimal 127149)
+   defining Unicode char U+1F0AE (decimal 127150)
+   defining Unicode char U+1F0AF (decimal 127151)
+   defining Unicode char U+1F0B0 (decimal 127152)
+   defining Unicode char U+1F0B1 (decimal 127153)
+   defining Unicode char U+1F0B2 (decimal 127154)
+   defining Unicode char U+1F0B3 (decimal 127155)
+   defining Unicode char U+1F0B4 (decimal 127156)
+   defining Unicode char U+1F0B5 (decimal 127157)
+   defining Unicode char U+1F0B6 (decimal 127158)
+   defining Unicode char U+1F0B7 (decimal 127159)
+   defining Unicode char U+1F0B8 (decimal 127160)
+   defining Unicode char U+1F0B9 (decimal 127161)
+   defining Unicode char U+1F0BA (decimal 127162)
+   defining Unicode char U+1F0BB (decimal 127163)
+   defining Unicode char U+1F0BC (decimal 127164)
+   defining Unicode char U+1F0BD (decimal 127165)
+   defining Unicode char U+1F0BE (decimal 127166)
+   defining Unicode char U+1F0BF (decimal 127167)
+   defining Unicode char U+1F0C0 (decimal 127168)
+   defining Unicode char U+1F0C1 (decimal 127169)
+   defining Unicode char U+1F0C2 (decimal 127170)
+   defining Unicode char U+1F0C3 (decimal 127171)
+   defining Unicode char U+1F0C4 (decimal 127172)
+   defining Unicode char U+1F0C5 (decimal 127173)
+   defining Unicode char U+1F0C6 (decimal 127174)
+   defining Unicode char U+1F0C7 (decimal 127175)
+   defining Unicode char U+1F0C8 (decimal 127176)
+   defining Unicode char U+1F0C9 (decimal 127177)
+   defining Unicode char U+1F0CA (decimal 127178)
+   defining Unicode char U+1F0CB (decimal 127179)
+   defining Unicode char U+1F0CC (decimal 127180)
+   defining Unicode char U+1F0CD (decimal 127181)
+   defining Unicode char U+1F0CE (decimal 127182)
+   defining Unicode char U+1F0CF (decimal 127183)
+   defining Unicode char U+1F0D0 (decimal 127184)
+   defining Unicode char U+1F0D1 (decimal 127185)
+   defining Unicode char U+1F0D2 (decimal 127186)
+   defining Unicode char U+1F0D3 (decimal 127187)
+   defining Unicode char U+1F0D4 (decimal 127188)
+   defining Unicode char U+1F0D5 (decimal 127189)
+   defining Unicode char U+1F0D6 (decimal 127190)
+   defining Unicode char U+1F0D7 (decimal 127191)
+   defining Unicode char U+1F0D8 (decimal 127192)
+   defining Unicode char U+1F0D9 (decimal 127193)
+   defining Unicode char U+1F0DA (decimal 127194)
+   defining Unicode char U+1F0DB (decimal 127195)
+   defining Unicode char U+1F0DC (decimal 127196)
+   defining Unicode char U+1F0DD (decimal 127197)
+   defining Unicode char U+1F0DE (decimal 127198)
+   defining Unicode char U+1F0DF (decimal 127199)
+   defining Unicode char U+1F0E0 (decimal 127200)
+   defining Unicode char U+1F0E1 (decimal 127201)
+   defining Unicode char U+1F0E2 (decimal 127202)
+   defining Unicode char U+1F0E3 (decimal 127203)
+   defining Unicode char U+1F0E4 (decimal 127204)
+   defining Unicode char U+1F0E5 (decimal 127205)
+   defining Unicode char U+1F0E6 (decimal 127206)
+   defining Unicode char U+1F0E7 (decimal 127207)
+   defining Unicode char U+1F0E8 (decimal 127208)
+   defining Unicode char U+1F0E9 (decimal 127209)
+   defining Unicode char U+1F0EA (decimal 127210)
+   defining Unicode char U+1F0EB (decimal 127211)
+   defining Unicode char U+1F0EC (decimal 127212)
+   defining Unicode char U+1F0ED (decimal 127213)
+   defining Unicode char U+1F0EE (decimal 127214)
+   defining Unicode char U+1F0EF (decimal 127215)
+   defining Unicode char U+1F0F0 (decimal 127216)
+   defining Unicode char U+1F0F1 (decimal 127217)
+   defining Unicode char U+1F0F2 (decimal 127218)
+   defining Unicode char U+1F0F3 (decimal 127219)
+   defining Unicode char U+1F0F4 (decimal 127220)
+   defining Unicode char U+1F0F5 (decimal 127221)
+   defining Unicode char U+1F0F6 (decimal 127222)
+   defining Unicode char U+1F0F7 (decimal 127223)
+   defining Unicode char U+1F0F8 (decimal 127224)
+   defining Unicode char U+1F0F9 (decimal 127225)
+   defining Unicode char U+1F0FA (decimal 127226)
+   defining Unicode char U+1F0FB (decimal 127227)
+   defining Unicode char U+1F0FC (decimal 127228)
+   defining Unicode char U+1F0FD (decimal 127229)
+   defining Unicode char U+1F0FE (decimal 127230)
+   defining Unicode char U+1F0FF (decimal 127231)
+   defining Unicode char U+1F300 (decimal 127744)
+   defining Unicode char U+1F301 (decimal 127745)
+   defining Unicode char U+1F302 (decimal 127746)
+   defining Unicode char U+1F303 (decimal 127747)
+   defining Unicode char U+1F304 (decimal 127748)
+   defining Unicode char U+1F305 (decimal 127749)
+   defining Unicode char U+1F306 (decimal 127750)
+   defining Unicode char U+1F307 (decimal 127751)
+   defining Unicode char U+1F308 (decimal 127752)
+   defining Unicode char U+1F309 (decimal 127753)
+   defining Unicode char U+1F30A (decimal 127754)
+   defining Unicode char U+1F30B (decimal 127755)
+   defining Unicode char U+1F30C (decimal 127756)
+   defining Unicode char U+1F30D (decimal 127757)
+   defining Unicode char U+1F30E (decimal 127758)
+   defining Unicode char U+1F30F (decimal 127759)
+   defining Unicode char U+1F310 (decimal 127760)
+   defining Unicode char U+1F311 (decimal 127761)
+   defining Unicode char U+1F312 (decimal 127762)
+   defining Unicode char U+1F313 (decimal 127763)
+   defining Unicode char U+1F314 (decimal 127764)
+   defining Unicode char U+1F315 (decimal 127765)
+   defining Unicode char U+1F316 (decimal 127766)
+   defining Unicode char U+1F317 (decimal 127767)
+   defining Unicode char U+1F318 (decimal 127768)
+   defining Unicode char U+1F319 (decimal 127769)
+   defining Unicode char U+1F31A (decimal 127770)
+   defining Unicode char U+1F31B (decimal 127771)
+   defining Unicode char U+1F31C (decimal 127772)
+   defining Unicode char U+1F31D (decimal 127773)
+   defining Unicode char U+1F31E (decimal 127774)
+   defining Unicode char U+1F31F (decimal 127775)
+   defining Unicode char U+1F320 (decimal 127776)
+   defining Unicode char U+1F321 (decimal 127777)
+   defining Unicode char U+1F322 (decimal 127778)
+   defining Unicode char U+1F323 (decimal 127779)
+   defining Unicode char U+1F324 (decimal 127780)
+   defining Unicode char U+1F325 (decimal 127781)
+   defining Unicode char U+1F326 (decimal 127782)
+   defining Unicode char U+1F327 (decimal 127783)
+   defining Unicode char U+1F328 (decimal 127784)
+   defining Unicode char U+1F329 (decimal 127785)
+   defining Unicode char U+1F32A (decimal 127786)
+   defining Unicode char U+1F32B (decimal 127787)
+   defining Unicode char U+1F32C (decimal 127788)
+   defining Unicode char U+1F32D (decimal 127789)
+   defining Unicode char U+1F32E (decimal 127790)
+   defining Unicode char U+1F32F (decimal 127791)
+   defining Unicode char U+1F330 (decimal 127792)
+   defining Unicode char U+1F331 (decimal 127793)
+   defining Unicode char U+1F332 (decimal 127794)
+   defining Unicode char U+1F333 (decimal 127795)
+   defining Unicode char U+1F334 (decimal 127796)
+   defining Unicode char U+1F335 (decimal 127797)
+   defining Unicode char U+1F336 (decimal 127798)
+   defining Unicode char U+1F337 (decimal 127799)
+   defining Unicode char U+1F338 (decimal 127800)
+   defining Unicode char U+1F339 (decimal 127801)
+   defining Unicode char U+1F33A (decimal 127802)
+   defining Unicode char U+1F33B (decimal 127803)
+   defining Unicode char U+1F33C (decimal 127804)
+   defining Unicode char U+1F33D (decimal 127805)
+   defining Unicode char U+1F33E (decimal 127806)
+   defining Unicode char U+1F33F (decimal 127807)
+   defining Unicode char U+1F340 (decimal 127808)
+   defining Unicode char U+1F341 (decimal 127809)
+   defining Unicode char U+1F342 (decimal 127810)
+   defining Unicode char U+1F343 (decimal 127811)
+   defining Unicode char U+1F344 (decimal 127812)
+   defining Unicode char U+1F345 (decimal 127813)
+   defining Unicode char U+1F346 (decimal 127814)
+   defining Unicode char U+1F347 (decimal 127815)
+   defining Unicode char U+1F348 (decimal 127816)
+   defining Unicode char U+1F349 (decimal 127817)
+   defining Unicode char U+1F34A (decimal 127818)
+   defining Unicode char U+1F34B (decimal 127819)
+   defining Unicode char U+1F34C (decimal 127820)
+   defining Unicode char U+1F34D (decimal 127821)
+   defining Unicode char U+1F34E (decimal 127822)
+   defining Unicode char U+1F34F (decimal 127823)
+   defining Unicode char U+1F350 (decimal 127824)
+   defining Unicode char U+1F351 (decimal 127825)
+   defining Unicode char U+1F352 (decimal 127826)
+   defining Unicode char U+1F353 (decimal 127827)
+   defining Unicode char U+1F354 (decimal 127828)
+   defining Unicode char U+1F355 (decimal 127829)
+   defining Unicode char U+1F356 (decimal 127830)
+   defining Unicode char U+1F357 (decimal 127831)
+   defining Unicode char U+1F358 (decimal 127832)
+   defining Unicode char U+1F359 (decimal 127833)
+   defining Unicode char U+1F35A (decimal 127834)
+   defining Unicode char U+1F35B (decimal 127835)
+   defining Unicode char U+1F35C (decimal 127836)
+   defining Unicode char U+1F35D (decimal 127837)
+   defining Unicode char U+1F35E (decimal 127838)
+   defining Unicode char U+1F35F (decimal 127839)
+   defining Unicode char U+1F360 (decimal 127840)
+   defining Unicode char U+1F361 (decimal 127841)
+   defining Unicode char U+1F362 (decimal 127842)
+   defining Unicode char U+1F363 (decimal 127843)
+   defining Unicode char U+1F364 (decimal 127844)
+   defining Unicode char U+1F365 (decimal 127845)
+   defining Unicode char U+1F366 (decimal 127846)
+   defining Unicode char U+1F367 (decimal 127847)
+   defining Unicode char U+1F368 (decimal 127848)
+   defining Unicode char U+1F369 (decimal 127849)
+   defining Unicode char U+1F36A (decimal 127850)
+   defining Unicode char U+1F36B (decimal 127851)
+   defining Unicode char U+1F36C (decimal 127852)
+   defining Unicode char U+1F36D (decimal 127853)
+   defining Unicode char U+1F36E (decimal 127854)
+   defining Unicode char U+1F36F (decimal 127855)
+   defining Unicode char U+1F370 (decimal 127856)
+   defining Unicode char U+1F371 (decimal 127857)
+   defining Unicode char U+1F372 (decimal 127858)
+   defining Unicode char U+1F373 (decimal 127859)
+   defining Unicode char U+1F374 (decimal 127860)
+   defining Unicode char U+1F375 (decimal 127861)
+   defining Unicode char U+1F376 (decimal 127862)
+   defining Unicode char U+1F377 (decimal 127863)
+   defining Unicode char U+1F378 (decimal 127864)
+   defining Unicode char U+1F379 (decimal 127865)
+   defining Unicode char U+1F37A (decimal 127866)
+   defining Unicode char U+1F37B (decimal 127867)
+   defining Unicode char U+1F37C (decimal 127868)
+   defining Unicode char U+1F37D (decimal 127869)
+   defining Unicode char U+1F37E (decimal 127870)
+   defining Unicode char U+1F37F (decimal 127871)
+   defining Unicode char U+1F380 (decimal 127872)
+   defining Unicode char U+1F381 (decimal 127873)
+   defining Unicode char U+1F382 (decimal 127874)
+   defining Unicode char U+1F383 (decimal 127875)
+   defining Unicode char U+1F384 (decimal 127876)
+   defining Unicode char U+1F385 (decimal 127877)
+   defining Unicode char U+1F386 (decimal 127878)
+   defining Unicode char U+1F387 (decimal 127879)
+   defining Unicode char U+1F388 (decimal 127880)
+   defining Unicode char U+1F389 (decimal 127881)
+   defining Unicode char U+1F38A (decimal 127882)
+   defining Unicode char U+1F38B (decimal 127883)
+   defining Unicode char U+1F38C (decimal 127884)
+   defining Unicode char U+1F38D (decimal 127885)
+   defining Unicode char U+1F38E (decimal 127886)
+   defining Unicode char U+1F38F (decimal 127887)
+   defining Unicode char U+1F390 (decimal 127888)
+   defining Unicode char U+1F391 (decimal 127889)
+   defining Unicode char U+1F392 (decimal 127890)
+   defining Unicode char U+1F393 (decimal 127891)
+   defining Unicode char U+1F394 (decimal 127892)
+   defining Unicode char U+1F395 (decimal 127893)
+   defining Unicode char U+1F396 (decimal 127894)
+   defining Unicode char U+1F397 (decimal 127895)
+   defining Unicode char U+1F398 (decimal 127896)
+   defining Unicode char U+1F399 (decimal 127897)
+   defining Unicode char U+1F39A (decimal 127898)
+   defining Unicode char U+1F39B (decimal 127899)
+   defining Unicode char U+1F39C (decimal 127900)
+   defining Unicode char U+1F39D (decimal 127901)
+   defining Unicode char U+1F39E (decimal 127902)
+   defining Unicode char U+1F39F (decimal 127903)
+   defining Unicode char U+1F3A0 (decimal 127904)
+   defining Unicode char U+1F3A1 (decimal 127905)
+   defining Unicode char U+1F3A2 (decimal 127906)
+   defining Unicode char U+1F3A3 (decimal 127907)
+   defining Unicode char U+1F3A4 (decimal 127908)
+   defining Unicode char U+1F3A5 (decimal 127909)
+   defining Unicode char U+1F3A6 (decimal 127910)
+   defining Unicode char U+1F3A7 (decimal 127911)
+   defining Unicode char U+1F3A8 (decimal 127912)
+   defining Unicode char U+1F3A9 (decimal 127913)
+   defining Unicode char U+1F3AA (decimal 127914)
+   defining Unicode char U+1F3AB (decimal 127915)
+   defining Unicode char U+1F3AC (decimal 127916)
+   defining Unicode char U+1F3AD (decimal 127917)
+   defining Unicode char U+1F3AE (decimal 127918)
+   defining Unicode char U+1F3AF (decimal 127919)
+   defining Unicode char U+1F3B0 (decimal 127920)
+   defining Unicode char U+1F3B1 (decimal 127921)
+   defining Unicode char U+1F3B2 (decimal 127922)
+   defining Unicode char U+1F3B3 (decimal 127923)
+   defining Unicode char U+1F3B4 (decimal 127924)
+   defining Unicode char U+1F3B5 (decimal 127925)
+   defining Unicode char U+1F3B6 (decimal 127926)
+   defining Unicode char U+1F3B7 (decimal 127927)
+   defining Unicode char U+1F3B8 (decimal 127928)
+   defining Unicode char U+1F3B9 (decimal 127929)
+   defining Unicode char U+1F3BA (decimal 127930)
+   defining Unicode char U+1F3BB (decimal 127931)
+   defining Unicode char U+1F3BC (decimal 127932)
+   defining Unicode char U+1F3BD (decimal 127933)
+   defining Unicode char U+1F3BE (decimal 127934)
+   defining Unicode char U+1F3BF (decimal 127935)
+   defining Unicode char U+1F3C0 (decimal 127936)
+   defining Unicode char U+1F3C1 (decimal 127937)
+   defining Unicode char U+1F3C2 (decimal 127938)
+   defining Unicode char U+1F3C3 (decimal 127939)
+   defining Unicode char U+1F3C4 (decimal 127940)
+   defining Unicode char U+1F3C5 (decimal 127941)
+   defining Unicode char U+1F3C6 (decimal 127942)
+   defining Unicode char U+1F3C7 (decimal 127943)
+   defining Unicode char U+1F3C8 (decimal 127944)
+   defining Unicode char U+1F3C9 (decimal 127945)
+   defining Unicode char U+1F3CA (decimal 127946)
+   defining Unicode char U+1F3CB (decimal 127947)
+   defining Unicode char U+1F3CC (decimal 127948)
+   defining Unicode char U+1F3CD (decimal 127949)
+   defining Unicode char U+1F3CE (decimal 127950)
+   defining Unicode char U+1F3CF (decimal 127951)
+   defining Unicode char U+1F3D0 (decimal 127952)
+   defining Unicode char U+1F3D1 (decimal 127953)
+   defining Unicode char U+1F3D2 (decimal 127954)
+   defining Unicode char U+1F3D3 (decimal 127955)
+   defining Unicode char U+1F3D4 (decimal 127956)
+   defining Unicode char U+1F3D5 (decimal 127957)
+   defining Unicode char U+1F3D6 (decimal 127958)
+   defining Unicode char U+1F3D7 (decimal 127959)
+   defining Unicode char U+1F3D8 (decimal 127960)
+   defining Unicode char U+1F3D9 (decimal 127961)
+   defining Unicode char U+1F3DA (decimal 127962)
+   defining Unicode char U+1F3DB (decimal 127963)
+   defining Unicode char U+1F3DC (decimal 127964)
+   defining Unicode char U+1F3DD (decimal 127965)
+   defining Unicode char U+1F3DE (decimal 127966)
+   defining Unicode char U+1F3DF (decimal 127967)
+   defining Unicode char U+1F3E0 (decimal 127968)
+   defining Unicode char U+1F3E1 (decimal 127969)
+   defining Unicode char U+1F3E2 (decimal 127970)
+   defining Unicode char U+1F3E3 (decimal 127971)
+   defining Unicode char U+1F3E4 (decimal 127972)
+   defining Unicode char U+1F3E5 (decimal 127973)
+   defining Unicode char U+1F3E6 (decimal 127974)
+   defining Unicode char U+1F3E7 (decimal 127975)
+   defining Unicode char U+1F3E8 (decimal 127976)
+   defining Unicode char U+1F3E9 (decimal 127977)
+   defining Unicode char U+1F3EA (decimal 127978)
+   defining Unicode char U+1F3EB (decimal 127979)
+   defining Unicode char U+1F3EC (decimal 127980)
+   defining Unicode char U+1F3ED (decimal 127981)
+   defining Unicode char U+1F3EE (decimal 127982)
+   defining Unicode char U+1F3EF (decimal 127983)
+   defining Unicode char U+1F3F0 (decimal 127984)
+   defining Unicode char U+1F3F1 (decimal 127985)
+   defining Unicode char U+1F3F2 (decimal 127986)
+   defining Unicode char U+1F3F3 (decimal 127987)
+   defining Unicode char U+1F3F4 (decimal 127988)
+   defining Unicode char U+1F3F5 (decimal 127989)
+   defining Unicode char U+1F3F6 (decimal 127990)
+   defining Unicode char U+1F3F7 (decimal 127991)
+   defining Unicode char U+1F3F8 (decimal 127992)
+   defining Unicode char U+1F3F9 (decimal 127993)
+   defining Unicode char U+1F3FA (decimal 127994)
+   defining Unicode char U+1F3FB (decimal 127995)
+   defining Unicode char U+1F3FC (decimal 127996)
+   defining Unicode char U+1F3FD (decimal 127997)
+   defining Unicode char U+1F3FE (decimal 127998)
+   defining Unicode char U+1F3FF (decimal 127999)
+   defining Unicode char U+1F400 (decimal 128000)
+   defining Unicode char U+1F401 (decimal 128001)
+   defining Unicode char U+1F402 (decimal 128002)
+   defining Unicode char U+1F403 (decimal 128003)
+   defining Unicode char U+1F404 (decimal 128004)
+   defining Unicode char U+1F405 (decimal 128005)
+   defining Unicode char U+1F406 (decimal 128006)
+   defining Unicode char U+1F407 (decimal 128007)
+   defining Unicode char U+1F408 (decimal 128008)
+   defining Unicode char U+1F409 (decimal 128009)
+   defining Unicode char U+1F40A (decimal 128010)
+   defining Unicode char U+1F40B (decimal 128011)
+   defining Unicode char U+1F40C (decimal 128012)
+   defining Unicode char U+1F40D (decimal 128013)
+   defining Unicode char U+1F40E (decimal 128014)
+   defining Unicode char U+1F40F (decimal 128015)
+   defining Unicode char U+1F410 (decimal 128016)
+   defining Unicode char U+1F411 (decimal 128017)
+   defining Unicode char U+1F412 (decimal 128018)
+   defining Unicode char U+1F413 (decimal 128019)
+   defining Unicode char U+1F414 (decimal 128020)
+   defining Unicode char U+1F415 (decimal 128021)
+   defining Unicode char U+1F416 (decimal 128022)
+   defining Unicode char U+1F417 (decimal 128023)
+   defining Unicode char U+1F418 (decimal 128024)
+   defining Unicode char U+1F419 (decimal 128025)
+   defining Unicode char U+1F41A (decimal 128026)
+   defining Unicode char U+1F41B (decimal 128027)
+   defining Unicode char U+1F41C (decimal 128028)
+   defining Unicode char U+1F41D (decimal 128029)
+   defining Unicode char U+1F41E (decimal 128030)
+   defining Unicode char U+1F41F (decimal 128031)
+   defining Unicode char U+1F420 (decimal 128032)
+   defining Unicode char U+1F421 (decimal 128033)
+   defining Unicode char U+1F422 (decimal 128034)
+   defining Unicode char U+1F423 (decimal 128035)
+   defining Unicode char U+1F424 (decimal 128036)
+   defining Unicode char U+1F425 (decimal 128037)
+   defining Unicode char U+1F426 (decimal 128038)
+   defining Unicode char U+1F427 (decimal 128039)
+   defining Unicode char U+1F428 (decimal 128040)
+   defining Unicode char U+1F429 (decimal 128041)
+   defining Unicode char U+1F42A (decimal 128042)
+   defining Unicode char U+1F42B (decimal 128043)
+   defining Unicode char U+1F42C (decimal 128044)
+   defining Unicode char U+1F42D (decimal 128045)
+   defining Unicode char U+1F42E (decimal 128046)
+   defining Unicode char U+1F42F (decimal 128047)
+   defining Unicode char U+1F430 (decimal 128048)
+   defining Unicode char U+1F431 (decimal 128049)
+   defining Unicode char U+1F432 (decimal 128050)
+   defining Unicode char U+1F433 (decimal 128051)
+   defining Unicode char U+1F434 (decimal 128052)
+   defining Unicode char U+1F435 (decimal 128053)
+   defining Unicode char U+1F436 (decimal 128054)
+   defining Unicode char U+1F437 (decimal 128055)
+   defining Unicode char U+1F438 (decimal 128056)
+   defining Unicode char U+1F439 (decimal 128057)
+   defining Unicode char U+1F43A (decimal 128058)
+   defining Unicode char U+1F43B (decimal 128059)
+   defining Unicode char U+1F43C (decimal 128060)
+   defining Unicode char U+1F43D (decimal 128061)
+   defining Unicode char U+1F43E (decimal 128062)
+   defining Unicode char U+1F43F (decimal 128063)
+   defining Unicode char U+1F440 (decimal 128064)
+   defining Unicode char U+1F441 (decimal 128065)
+   defining Unicode char U+1F442 (decimal 128066)
+   defining Unicode char U+1F443 (decimal 128067)
+   defining Unicode char U+1F444 (decimal 128068)
+   defining Unicode char U+1F445 (decimal 128069)
+   defining Unicode char U+1F446 (decimal 128070)
+   defining Unicode char U+1F447 (decimal 128071)
+   defining Unicode char U+1F448 (decimal 128072)
+   defining Unicode char U+1F449 (decimal 128073)
+   defining Unicode char U+1F44A (decimal 128074)
+   defining Unicode char U+1F44B (decimal 128075)
+   defining Unicode char U+1F44C (decimal 128076)
+   defining Unicode char U+1F44D (decimal 128077)
+   defining Unicode char U+1F44E (decimal 128078)
+   defining Unicode char U+1F44F (decimal 128079)
+   defining Unicode char U+1F450 (decimal 128080)
+   defining Unicode char U+1F451 (decimal 128081)
+   defining Unicode char U+1F452 (decimal 128082)
+   defining Unicode char U+1F453 (decimal 128083)
+   defining Unicode char U+1F454 (decimal 128084)
+   defining Unicode char U+1F455 (decimal 128085)
+   defining Unicode char U+1F456 (decimal 128086)
+   defining Unicode char U+1F457 (decimal 128087)
+   defining Unicode char U+1F458 (decimal 128088)
+   defining Unicode char U+1F459 (decimal 128089)
+   defining Unicode char U+1F45A (decimal 128090)
+   defining Unicode char U+1F45B (decimal 128091)
+   defining Unicode char U+1F45C (decimal 128092)
+   defining Unicode char U+1F45D (decimal 128093)
+   defining Unicode char U+1F45E (decimal 128094)
+   defining Unicode char U+1F45F (decimal 128095)
+   defining Unicode char U+1F460 (decimal 128096)
+   defining Unicode char U+1F461 (decimal 128097)
+   defining Unicode char U+1F462 (decimal 128098)
+   defining Unicode char U+1F463 (decimal 128099)
+   defining Unicode char U+1F464 (decimal 128100)
+   defining Unicode char U+1F465 (decimal 128101)
+   defining Unicode char U+1F466 (decimal 128102)
+   defining Unicode char U+1F467 (decimal 128103)
+   defining Unicode char U+1F468 (decimal 128104)
+   defining Unicode char U+1F469 (decimal 128105)
+   defining Unicode char U+1F46A (decimal 128106)
+   defining Unicode char U+1F46B (decimal 128107)
+   defining Unicode char U+1F46C (decimal 128108)
+   defining Unicode char U+1F46D (decimal 128109)
+   defining Unicode char U+1F46E (decimal 128110)
+   defining Unicode char U+1F46F (decimal 128111)
+   defining Unicode char U+1F470 (decimal 128112)
+   defining Unicode char U+1F471 (decimal 128113)
+   defining Unicode char U+1F472 (decimal 128114)
+   defining Unicode char U+1F473 (decimal 128115)
+   defining Unicode char U+1F474 (decimal 128116)
+   defining Unicode char U+1F475 (decimal 128117)
+   defining Unicode char U+1F476 (decimal 128118)
+   defining Unicode char U+1F477 (decimal 128119)
+   defining Unicode char U+1F478 (decimal 128120)
+   defining Unicode char U+1F479 (decimal 128121)
+   defining Unicode char U+1F47A (decimal 128122)
+   defining Unicode char U+1F47B (decimal 128123)
+   defining Unicode char U+1F47C (decimal 128124)
+   defining Unicode char U+1F47D (decimal 128125)
+   defining Unicode char U+1F47E (decimal 128126)
+   defining Unicode char U+1F47F (decimal 128127)
+   defining Unicode char U+1F480 (decimal 128128)
+   defining Unicode char U+1F481 (decimal 128129)
+   defining Unicode char U+1F482 (decimal 128130)
+   defining Unicode char U+1F483 (decimal 128131)
+   defining Unicode char U+1F484 (decimal 128132)
+   defining Unicode char U+1F485 (decimal 128133)
+   defining Unicode char U+1F486 (decimal 128134)
+   defining Unicode char U+1F487 (decimal 128135)
+   defining Unicode char U+1F488 (decimal 128136)
+   defining Unicode char U+1F489 (decimal 128137)
+   defining Unicode char U+1F48A (decimal 128138)
+   defining Unicode char U+1F48B (decimal 128139)
+   defining Unicode char U+1F48C (decimal 128140)
+   defining Unicode char U+1F48D (decimal 128141)
+   defining Unicode char U+1F48E (decimal 128142)
+   defining Unicode char U+1F48F (decimal 128143)
+   defining Unicode char U+1F490 (decimal 128144)
+   defining Unicode char U+1F491 (decimal 128145)
+   defining Unicode char U+1F492 (decimal 128146)
+   defining Unicode char U+1F493 (decimal 128147)
+   defining Unicode char U+1F494 (decimal 128148)
+   defining Unicode char U+1F495 (decimal 128149)
+   defining Unicode char U+1F496 (decimal 128150)
+   defining Unicode char U+1F497 (decimal 128151)
+   defining Unicode char U+1F498 (decimal 128152)
+   defining Unicode char U+1F499 (decimal 128153)
+   defining Unicode char U+1F49A (decimal 128154)
+   defining Unicode char U+1F49B (decimal 128155)
+   defining Unicode char U+1F49C (decimal 128156)
+   defining Unicode char U+1F49D (decimal 128157)
+   defining Unicode char U+1F49E (decimal 128158)
+   defining Unicode char U+1F49F (decimal 128159)
+   defining Unicode char U+1F4A0 (decimal 128160)
+   defining Unicode char U+1F4A1 (decimal 128161)
+   defining Unicode char U+1F4A2 (decimal 128162)
+   defining Unicode char U+1F4A3 (decimal 128163)
+   defining Unicode char U+1F4A4 (decimal 128164)
+   defining Unicode char U+1F4A5 (decimal 128165)
+   defining Unicode char U+1F4A6 (decimal 128166)
+   defining Unicode char U+1F4A7 (decimal 128167)
+   defining Unicode char U+1F4A8 (decimal 128168)
+   defining Unicode char U+1F4A9 (decimal 128169)
+   defining Unicode char U+1F4AA (decimal 128170)
+   defining Unicode char U+1F4AB (decimal 128171)
+   defining Unicode char U+1F4AC (decimal 128172)
+   defining Unicode char U+1F4AD (decimal 128173)
+   defining Unicode char U+1F4AE (decimal 128174)
+   defining Unicode char U+1F4AF (decimal 128175)
+   defining Unicode char U+1F4B0 (decimal 128176)
+   defining Unicode char U+1F4B1 (decimal 128177)
+   defining Unicode char U+1F4B2 (decimal 128178)
+   defining Unicode char U+1F4B3 (decimal 128179)
+   defining Unicode char U+1F4B4 (decimal 128180)
+   defining Unicode char U+1F4B5 (decimal 128181)
+   defining Unicode char U+1F4B6 (decimal 128182)
+   defining Unicode char U+1F4B7 (decimal 128183)
+   defining Unicode char U+1F4B8 (decimal 128184)
+   defining Unicode char U+1F4B9 (decimal 128185)
+   defining Unicode char U+1F4BA (decimal 128186)
+   defining Unicode char U+1F4BB (decimal 128187)
+   defining Unicode char U+1F4BC (decimal 128188)
+   defining Unicode char U+1F4BD (decimal 128189)
+   defining Unicode char U+1F4BE (decimal 128190)
+   defining Unicode char U+1F4BF (decimal 128191)
+   defining Unicode char U+1F4C0 (decimal 128192)
+   defining Unicode char U+1F4C1 (decimal 128193)
+   defining Unicode char U+1F4C2 (decimal 128194)
+   defining Unicode char U+1F4C3 (decimal 128195)
+   defining Unicode char U+1F4C4 (decimal 128196)
+   defining Unicode char U+1F4C5 (decimal 128197)
+   defining Unicode char U+1F4C6 (decimal 128198)
+   defining Unicode char U+1F4C7 (decimal 128199)
+   defining Unicode char U+1F4C8 (decimal 128200)
+   defining Unicode char U+1F4C9 (decimal 128201)
+   defining Unicode char U+1F4CA (decimal 128202)
+   defining Unicode char U+1F4CB (decimal 128203)
+   defining Unicode char U+1F4CC (decimal 128204)
+   defining Unicode char U+1F4CD (decimal 128205)
+   defining Unicode char U+1F4CE (decimal 128206)
+   defining Unicode char U+1F4CF (decimal 128207)
+   defining Unicode char U+1F4D0 (decimal 128208)
+   defining Unicode char U+1F4D1 (decimal 128209)
+   defining Unicode char U+1F4D2 (decimal 128210)
+   defining Unicode char U+1F4D3 (decimal 128211)
+   defining Unicode char U+1F4D4 (decimal 128212)
+   defining Unicode char U+1F4D5 (decimal 128213)
+   defining Unicode char U+1F4D6 (decimal 128214)
+   defining Unicode char U+1F4D7 (decimal 128215)
+   defining Unicode char U+1F4D8 (decimal 128216)
+   defining Unicode char U+1F4D9 (decimal 128217)
+   defining Unicode char U+1F4DA (decimal 128218)
+   defining Unicode char U+1F4DB (decimal 128219)
+   defining Unicode char U+1F4DC (decimal 128220)
+   defining Unicode char U+1F4DD (decimal 128221)
+   defining Unicode char U+1F4DE (decimal 128222)
+   defining Unicode char U+1F4DF (decimal 128223)
+   defining Unicode char U+1F4E0 (decimal 128224)
+   defining Unicode char U+1F4E1 (decimal 128225)
+   defining Unicode char U+1F4E2 (decimal 128226)
+   defining Unicode char U+1F4E3 (decimal 128227)
+   defining Unicode char U+1F4E4 (decimal 128228)
+   defining Unicode char U+1F4E5 (decimal 128229)
+   defining Unicode char U+1F4E6 (decimal 128230)
+   defining Unicode char U+1F4E7 (decimal 128231)
+   defining Unicode char U+1F4E8 (decimal 128232)
+   defining Unicode char U+1F4E9 (decimal 128233)
+   defining Unicode char U+1F4EA (decimal 128234)
+   defining Unicode char U+1F4EB (decimal 128235)
+   defining Unicode char U+1F4EC (decimal 128236)
+   defining Unicode char U+1F4ED (decimal 128237)
+   defining Unicode char U+1F4EE (decimal 128238)
+   defining Unicode char U+1F4EF (decimal 128239)
+   defining Unicode char U+1F4F0 (decimal 128240)
+   defining Unicode char U+1F4F1 (decimal 128241)
+   defining Unicode char U+1F4F2 (decimal 128242)
+   defining Unicode char U+1F4F3 (decimal 128243)
+   defining Unicode char U+1F4F4 (decimal 128244)
+   defining Unicode char U+1F4F5 (decimal 128245)
+   defining Unicode char U+1F4F6 (decimal 128246)
+   defining Unicode char U+1F4F7 (decimal 128247)
+   defining Unicode char U+1F4F8 (decimal 128248)
+   defining Unicode char U+1F4F9 (decimal 128249)
+   defining Unicode char U+1F4FA (decimal 128250)
+   defining Unicode char U+1F4FB (decimal 128251)
+   defining Unicode char U+1F4FC (decimal 128252)
+   defining Unicode char U+1F4FD (decimal 128253)
+   defining Unicode char U+1F4FE (decimal 128254)
+   defining Unicode char U+1F4FF (decimal 128255)
+   defining Unicode char U+1F500 (decimal 128256)
+   defining Unicode char U+1F501 (decimal 128257)
+   defining Unicode char U+1F502 (decimal 128258)
+   defining Unicode char U+1F503 (decimal 128259)
+   defining Unicode char U+1F504 (decimal 128260)
+   defining Unicode char U+1F505 (decimal 128261)
+   defining Unicode char U+1F506 (decimal 128262)
+   defining Unicode char U+1F507 (decimal 128263)
+   defining Unicode char U+1F508 (decimal 128264)
+   defining Unicode char U+1F509 (decimal 128265)
+   defining Unicode char U+1F50A (decimal 128266)
+   defining Unicode char U+1F50B (decimal 128267)
+   defining Unicode char U+1F50C (decimal 128268)
+   defining Unicode char U+1F50D (decimal 128269)
+   defining Unicode char U+1F50E (decimal 128270)
+   defining Unicode char U+1F50F (decimal 128271)
+   defining Unicode char U+1F510 (decimal 128272)
+   defining Unicode char U+1F511 (decimal 128273)
+   defining Unicode char U+1F512 (decimal 128274)
+   defining Unicode char U+1F513 (decimal 128275)
+   defining Unicode char U+1F514 (decimal 128276)
+   defining Unicode char U+1F515 (decimal 128277)
+   defining Unicode char U+1F516 (decimal 128278)
+   defining Unicode char U+1F517 (decimal 128279)
+   defining Unicode char U+1F518 (decimal 128280)
+   defining Unicode char U+1F519 (decimal 128281)
+   defining Unicode char U+1F51A (decimal 128282)
+   defining Unicode char U+1F51B (decimal 128283)
+   defining Unicode char U+1F51C (decimal 128284)
+   defining Unicode char U+1F51D (decimal 128285)
+   defining Unicode char U+1F51E (decimal 128286)
+   defining Unicode char U+1F51F (decimal 128287)
+   defining Unicode char U+1F520 (decimal 128288)
+   defining Unicode char U+1F521 (decimal 128289)
+   defining Unicode char U+1F522 (decimal 128290)
+   defining Unicode char U+1F523 (decimal 128291)
+   defining Unicode char U+1F524 (decimal 128292)
+   defining Unicode char U+1F525 (decimal 128293)
+   defining Unicode char U+1F526 (decimal 128294)
+   defining Unicode char U+1F527 (decimal 128295)
+   defining Unicode char U+1F528 (decimal 128296)
+   defining Unicode char U+1F529 (decimal 128297)
+   defining Unicode char U+1F52A (decimal 128298)
+   defining Unicode char U+1F52B (decimal 128299)
+   defining Unicode char U+1F52C (decimal 128300)
+   defining Unicode char U+1F52D (decimal 128301)
+   defining Unicode char U+1F52E (decimal 128302)
+   defining Unicode char U+1F52F (decimal 128303)
+   defining Unicode char U+1F530 (decimal 128304)
+   defining Unicode char U+1F531 (decimal 128305)
+   defining Unicode char U+1F532 (decimal 128306)
+   defining Unicode char U+1F533 (decimal 128307)
+   defining Unicode char U+1F534 (decimal 128308)
+   defining Unicode char U+1F535 (decimal 128309)
+   defining Unicode char U+1F536 (decimal 128310)
+   defining Unicode char U+1F537 (decimal 128311)
+   defining Unicode char U+1F538 (decimal 128312)
+   defining Unicode char U+1F539 (decimal 128313)
+   defining Unicode char U+1F53A (decimal 128314)
+   defining Unicode char U+1F53B (decimal 128315)
+   defining Unicode char U+1F53C (decimal 128316)
+   defining Unicode char U+1F53D (decimal 128317)
+   defining Unicode char U+1F53E (decimal 128318)
+   defining Unicode char U+1F53F (decimal 128319)
+   defining Unicode char U+1F540 (decimal 128320)
+   defining Unicode char U+1F541 (decimal 128321)
+   defining Unicode char U+1F542 (decimal 128322)
+   defining Unicode char U+1F543 (decimal 128323)
+   defining Unicode char U+1F544 (decimal 128324)
+   defining Unicode char U+1F545 (decimal 128325)
+   defining Unicode char U+1F546 (decimal 128326)
+   defining Unicode char U+1F547 (decimal 128327)
+   defining Unicode char U+1F548 (decimal 128328)
+   defining Unicode char U+1F549 (decimal 128329)
+   defining Unicode char U+1F54A (decimal 128330)
+   defining Unicode char U+1F54B (decimal 128331)
+   defining Unicode char U+1F54C (decimal 128332)
+   defining Unicode char U+1F54D (decimal 128333)
+   defining Unicode char U+1F54E (decimal 128334)
+   defining Unicode char U+1F54F (decimal 128335)
+   defining Unicode char U+1F550 (decimal 128336)
+   defining Unicode char U+1F551 (decimal 128337)
+   defining Unicode char U+1F552 (decimal 128338)
+   defining Unicode char U+1F553 (decimal 128339)
+   defining Unicode char U+1F554 (decimal 128340)
+   defining Unicode char U+1F555 (decimal 128341)
+   defining Unicode char U+1F556 (decimal 128342)
+   defining Unicode char U+1F557 (decimal 128343)
+   defining Unicode char U+1F558 (decimal 128344)
+   defining Unicode char U+1F559 (decimal 128345)
+   defining Unicode char U+1F55A (decimal 128346)
+   defining Unicode char U+1F55B (decimal 128347)
+   defining Unicode char U+1F55C (decimal 128348)
+   defining Unicode char U+1F55D (decimal 128349)
+   defining Unicode char U+1F55E (decimal 128350)
+   defining Unicode char U+1F55F (decimal 128351)
+   defining Unicode char U+1F560 (decimal 128352)
+   defining Unicode char U+1F561 (decimal 128353)
+   defining Unicode char U+1F562 (decimal 128354)
+   defining Unicode char U+1F563 (decimal 128355)
+   defining Unicode char U+1F564 (decimal 128356)
+   defining Unicode char U+1F565 (decimal 128357)
+   defining Unicode char U+1F566 (decimal 128358)
+   defining Unicode char U+1F567 (decimal 128359)
+   defining Unicode char U+1F568 (decimal 128360)
+   defining Unicode char U+1F569 (decimal 128361)
+   defining Unicode char U+1F56A (decimal 128362)
+   defining Unicode char U+1F56B (decimal 128363)
+   defining Unicode char U+1F56C (decimal 128364)
+   defining Unicode char U+1F56D (decimal 128365)
+   defining Unicode char U+1F56E (decimal 128366)
+   defining Unicode char U+1F56F (decimal 128367)
+   defining Unicode char U+1F570 (decimal 128368)
+   defining Unicode char U+1F571 (decimal 128369)
+   defining Unicode char U+1F572 (decimal 128370)
+   defining Unicode char U+1F573 (decimal 128371)
+   defining Unicode char U+1F574 (decimal 128372)
+   defining Unicode char U+1F575 (decimal 128373)
+   defining Unicode char U+1F576 (decimal 128374)
+   defining Unicode char U+1F577 (decimal 128375)
+   defining Unicode char U+1F578 (decimal 128376)
+   defining Unicode char U+1F579 (decimal 128377)
+   defining Unicode char U+1F57A (decimal 128378)
+   defining Unicode char U+1F57B (decimal 128379)
+   defining Unicode char U+1F57C (decimal 128380)
+   defining Unicode char U+1F57D (decimal 128381)
+   defining Unicode char U+1F57E (decimal 128382)
+   defining Unicode char U+1F57F (decimal 128383)
+   defining Unicode char U+1F580 (decimal 128384)
+   defining Unicode char U+1F581 (decimal 128385)
+   defining Unicode char U+1F582 (decimal 128386)
+   defining Unicode char U+1F583 (decimal 128387)
+   defining Unicode char U+1F584 (decimal 128388)
+   defining Unicode char U+1F585 (decimal 128389)
+   defining Unicode char U+1F586 (decimal 128390)
+   defining Unicode char U+1F587 (decimal 128391)
+   defining Unicode char U+1F588 (decimal 128392)
+   defining Unicode char U+1F589 (decimal 128393)
+   defining Unicode char U+1F58A (decimal 128394)
+   defining Unicode char U+1F58B (decimal 128395)
+   defining Unicode char U+1F58C (decimal 128396)
+   defining Unicode char U+1F58D (decimal 128397)
+   defining Unicode char U+1F58E (decimal 128398)
+   defining Unicode char U+1F58F (decimal 128399)
+   defining Unicode char U+1F590 (decimal 128400)
+   defining Unicode char U+1F591 (decimal 128401)
+   defining Unicode char U+1F592 (decimal 128402)
+   defining Unicode char U+1F593 (decimal 128403)
+   defining Unicode char U+1F594 (decimal 128404)
+   defining Unicode char U+1F595 (decimal 128405)
+   defining Unicode char U+1F596 (decimal 128406)
+   defining Unicode char U+1F597 (decimal 128407)
+   defining Unicode char U+1F598 (decimal 128408)
+   defining Unicode char U+1F599 (decimal 128409)
+   defining Unicode char U+1F59A (decimal 128410)
+   defining Unicode char U+1F59B (decimal 128411)
+   defining Unicode char U+1F59C (decimal 128412)
+   defining Unicode char U+1F59D (decimal 128413)
+   defining Unicode char U+1F59E (decimal 128414)
+   defining Unicode char U+1F59F (decimal 128415)
+   defining Unicode char U+1F5A0 (decimal 128416)
+   defining Unicode char U+1F5A1 (decimal 128417)
+   defining Unicode char U+1F5A2 (decimal 128418)
+   defining Unicode char U+1F5A3 (decimal 128419)
+   defining Unicode char U+1F5A4 (decimal 128420)
+   defining Unicode char U+1F5A5 (decimal 128421)
+   defining Unicode char U+1F5A6 (decimal 128422)
+   defining Unicode char U+1F5A7 (decimal 128423)
+   defining Unicode char U+1F5A8 (decimal 128424)
+   defining Unicode char U+1F5A9 (decimal 128425)
+   defining Unicode char U+1F5AA (decimal 128426)
+   defining Unicode char U+1F5AB (decimal 128427)
+   defining Unicode char U+1F5AC (decimal 128428)
+   defining Unicode char U+1F5AD (decimal 128429)
+   defining Unicode char U+1F5AE (decimal 128430)
+   defining Unicode char U+1F5AF (decimal 128431)
+   defining Unicode char U+1F5B0 (decimal 128432)
+   defining Unicode char U+1F5B1 (decimal 128433)
+   defining Unicode char U+1F5B2 (decimal 128434)
+   defining Unicode char U+1F5B3 (decimal 128435)
+   defining Unicode char U+1F5B4 (decimal 128436)
+   defining Unicode char U+1F5B5 (decimal 128437)
+   defining Unicode char U+1F5B6 (decimal 128438)
+   defining Unicode char U+1F5B7 (decimal 128439)
+   defining Unicode char U+1F5B8 (decimal 128440)
+   defining Unicode char U+1F5B9 (decimal 128441)
+   defining Unicode char U+1F5BA (decimal 128442)
+   defining Unicode char U+1F5BB (decimal 128443)
+   defining Unicode char U+1F5BC (decimal 128444)
+   defining Unicode char U+1F5BD (decimal 128445)
+   defining Unicode char U+1F5BE (decimal 128446)
+   defining Unicode char U+1F5BF (decimal 128447)
+   defining Unicode char U+1F5C0 (decimal 128448)
+   defining Unicode char U+1F5C1 (decimal 128449)
+   defining Unicode char U+1F5C2 (decimal 128450)
+   defining Unicode char U+1F5C3 (decimal 128451)
+   defining Unicode char U+1F5C4 (decimal 128452)
+   defining Unicode char U+1F5C5 (decimal 128453)
+   defining Unicode char U+1F5C6 (decimal 128454)
+   defining Unicode char U+1F5C7 (decimal 128455)
+   defining Unicode char U+1F5C8 (decimal 128456)
+   defining Unicode char U+1F5C9 (decimal 128457)
+   defining Unicode char U+1F5CA (decimal 128458)
+   defining Unicode char U+1F5CB (decimal 128459)
+   defining Unicode char U+1F5CC (decimal 128460)
+   defining Unicode char U+1F5CD (decimal 128461)
+   defining Unicode char U+1F5CE (decimal 128462)
+   defining Unicode char U+1F5CF (decimal 128463)
+   defining Unicode char U+1F5D0 (decimal 128464)
+   defining Unicode char U+1F5D1 (decimal 128465)
+   defining Unicode char U+1F5D2 (decimal 128466)
+   defining Unicode char U+1F5D3 (decimal 128467)
+   defining Unicode char U+1F5D4 (decimal 128468)
+   defining Unicode char U+1F5D5 (decimal 128469)
+   defining Unicode char U+1F5D6 (decimal 128470)
+   defining Unicode char U+1F5D7 (decimal 128471)
+   defining Unicode char U+1F5D8 (decimal 128472)
+   defining Unicode char U+1F5D9 (decimal 128473)
+   defining Unicode char U+1F5DA (decimal 128474)
+   defining Unicode char U+1F5DB (decimal 128475)
+   defining Unicode char U+1F5DC (decimal 128476)
+   defining Unicode char U+1F5DD (decimal 128477)
+   defining Unicode char U+1F5DE (decimal 128478)
+   defining Unicode char U+1F5DF (decimal 128479)
+   defining Unicode char U+1F5E0 (decimal 128480)
+   defining Unicode char U+1F5E1 (decimal 128481)
+   defining Unicode char U+1F5E2 (decimal 128482)
+   defining Unicode char U+1F5E3 (decimal 128483)
+   defining Unicode char U+1F5E4 (decimal 128484)
+   defining Unicode char U+1F5E5 (decimal 128485)
+   defining Unicode char U+1F5E6 (decimal 128486)
+   defining Unicode char U+1F5E7 (decimal 128487)
+   defining Unicode char U+1F5E8 (decimal 128488)
+   defining Unicode char U+1F5E9 (decimal 128489)
+   defining Unicode char U+1F5EA (decimal 128490)
+   defining Unicode char U+1F5EB (decimal 128491)
+   defining Unicode char U+1F5EC (decimal 128492)
+   defining Unicode char U+1F5ED (decimal 128493)
+   defining Unicode char U+1F5EE (decimal 128494)
+   defining Unicode char U+1F5EF (decimal 128495)
+   defining Unicode char U+1F5F0 (decimal 128496)
+   defining Unicode char U+1F5F1 (decimal 128497)
+   defining Unicode char U+1F5F2 (decimal 128498)
+   defining Unicode char U+1F5F3 (decimal 128499)
+   defining Unicode char U+1F5F4 (decimal 128500)
+   defining Unicode char U+1F5F5 (decimal 128501)
+   defining Unicode char U+1F5F6 (decimal 128502)
+   defining Unicode char U+1F5F7 (decimal 128503)
+   defining Unicode char U+1F5F8 (decimal 128504)
+   defining Unicode char U+1F5F9 (decimal 128505)
+   defining Unicode char U+1F5FA (decimal 128506)
+   defining Unicode char U+1F5FB (decimal 128507)
+   defining Unicode char U+1F5FC (decimal 128508)
+   defining Unicode char U+1F5FD (decimal 128509)
+   defining Unicode char U+1F5FE (decimal 128510)
+   defining Unicode char U+1F5FF (decimal 128511)
+   defining Unicode char U+1F600 (decimal 128512)
+   defining Unicode char U+1F601 (decimal 128513)
+   defining Unicode char U+1F602 (decimal 128514)
+   defining Unicode char U+1F603 (decimal 128515)
+   defining Unicode char U+1F604 (decimal 128516)
+   defining Unicode char U+1F605 (decimal 128517)
+   defining Unicode char U+1F606 (decimal 128518)
+   defining Unicode char U+1F607 (decimal 128519)
+   defining Unicode char U+1F608 (decimal 128520)
+   defining Unicode char U+1F609 (decimal 128521)
+   defining Unicode char U+1F60A (decimal 128522)
+   defining Unicode char U+1F60B (decimal 128523)
+   defining Unicode char U+1F60C (decimal 128524)
+   defining Unicode char U+1F60D (decimal 128525)
+   defining Unicode char U+1F60E (decimal 128526)
+   defining Unicode char U+1F60F (decimal 128527)
+   defining Unicode char U+1F610 (decimal 128528)
+   defining Unicode char U+1F611 (decimal 128529)
+   defining Unicode char U+1F612 (decimal 128530)
+   defining Unicode char U+1F613 (decimal 128531)
+   defining Unicode char U+1F614 (decimal 128532)
+   defining Unicode char U+1F615 (decimal 128533)
+   defining Unicode char U+1F616 (decimal 128534)
+   defining Unicode char U+1F617 (decimal 128535)
+   defining Unicode char U+1F618 (decimal 128536)
+   defining Unicode char U+1F619 (decimal 128537)
+   defining Unicode char U+1F61A (decimal 128538)
+   defining Unicode char U+1F61B (decimal 128539)
+   defining Unicode char U+1F61C (decimal 128540)
+   defining Unicode char U+1F61D (decimal 128541)
+   defining Unicode char U+1F61E (decimal 128542)
+   defining Unicode char U+1F61F (decimal 128543)
+   defining Unicode char U+1F620 (decimal 128544)
+   defining Unicode char U+1F621 (decimal 128545)
+   defining Unicode char U+1F622 (decimal 128546)
+   defining Unicode char U+1F623 (decimal 128547)
+   defining Unicode char U+1F624 (decimal 128548)
+   defining Unicode char U+1F625 (decimal 128549)
+   defining Unicode char U+1F626 (decimal 128550)
+   defining Unicode char U+1F627 (decimal 128551)
+   defining Unicode char U+1F628 (decimal 128552)
+   defining Unicode char U+1F629 (decimal 128553)
+   defining Unicode char U+1F62A (decimal 128554)
+   defining Unicode char U+1F62B (decimal 128555)
+   defining Unicode char U+1F62C (decimal 128556)
+   defining Unicode char U+1F62D (decimal 128557)
+   defining Unicode char U+1F62E (decimal 128558)
+   defining Unicode char U+1F62F (decimal 128559)
+   defining Unicode char U+1F630 (decimal 128560)
+   defining Unicode char U+1F631 (decimal 128561)
+   defining Unicode char U+1F632 (decimal 128562)
+   defining Unicode char U+1F633 (decimal 128563)
+   defining Unicode char U+1F634 (decimal 128564)
+   defining Unicode char U+1F635 (decimal 128565)
+   defining Unicode char U+1F636 (decimal 128566)
+   defining Unicode char U+1F637 (decimal 128567)
+   defining Unicode char U+1F638 (decimal 128568)
+   defining Unicode char U+1F639 (decimal 128569)
+   defining Unicode char U+1F63A (decimal 128570)
+   defining Unicode char U+1F63B (decimal 128571)
+   defining Unicode char U+1F63C (decimal 128572)
+   defining Unicode char U+1F63D (decimal 128573)
+   defining Unicode char U+1F63E (decimal 128574)
+   defining Unicode char U+1F63F (decimal 128575)
+   defining Unicode char U+1F640 (decimal 128576)
+   defining Unicode char U+1F641 (decimal 128577)
+   defining Unicode char U+1F642 (decimal 128578)
+   defining Unicode char U+1F643 (decimal 128579)
+   defining Unicode char U+1F644 (decimal 128580)
+   defining Unicode char U+1F645 (decimal 128581)
+   defining Unicode char U+1F646 (decimal 128582)
+   defining Unicode char U+1F647 (decimal 128583)
+   defining Unicode char U+1F648 (decimal 128584)
+   defining Unicode char U+1F649 (decimal 128585)
+   defining Unicode char U+1F64A (decimal 128586)
+   defining Unicode char U+1F64B (decimal 128587)
+   defining Unicode char U+1F64C (decimal 128588)
+   defining Unicode char U+1F64D (decimal 128589)
+   defining Unicode char U+1F64E (decimal 128590)
+   defining Unicode char U+1F64F (decimal 128591)
+   defining Unicode char U+1F680 (decimal 128640)
+   defining Unicode char U+1F681 (decimal 128641)
+   defining Unicode char U+1F682 (decimal 128642)
+   defining Unicode char U+1F683 (decimal 128643)
+   defining Unicode char U+1F684 (decimal 128644)
+   defining Unicode char U+1F685 (decimal 128645)
+   defining Unicode char U+1F686 (decimal 128646)
+   defining Unicode char U+1F687 (decimal 128647)
+   defining Unicode char U+1F688 (decimal 128648)
+   defining Unicode char U+1F689 (decimal 128649)
+   defining Unicode char U+1F68A (decimal 128650)
+   defining Unicode char U+1F68B (decimal 128651)
+   defining Unicode char U+1F68C (decimal 128652)
+   defining Unicode char U+1F68D (decimal 128653)
+   defining Unicode char U+1F68E (decimal 128654)
+   defining Unicode char U+1F68F (decimal 128655)
+   defining Unicode char U+1F690 (decimal 128656)
+   defining Unicode char U+1F691 (decimal 128657)
+   defining Unicode char U+1F692 (decimal 128658)
+   defining Unicode char U+1F693 (decimal 128659)
+   defining Unicode char U+1F694 (decimal 128660)
+   defining Unicode char U+1F695 (decimal 128661)
+   defining Unicode char U+1F696 (decimal 128662)
+   defining Unicode char U+1F697 (decimal 128663)
+   defining Unicode char U+1F698 (decimal 128664)
+   defining Unicode char U+1F699 (decimal 128665)
+   defining Unicode char U+1F69A (decimal 128666)
+   defining Unicode char U+1F69B (decimal 128667)
+   defining Unicode char U+1F69C (decimal 128668)
+   defining Unicode char U+1F69D (decimal 128669)
+   defining Unicode char U+1F69E (decimal 128670)
+   defining Unicode char U+1F69F (decimal 128671)
+   defining Unicode char U+1F6A0 (decimal 128672)
+   defining Unicode char U+1F6A1 (decimal 128673)
+   defining Unicode char U+1F6A2 (decimal 128674)
+   defining Unicode char U+1F6A3 (decimal 128675)
+   defining Unicode char U+1F6A4 (decimal 128676)
+   defining Unicode char U+1F6A5 (decimal 128677)
+   defining Unicode char U+1F6A6 (decimal 128678)
+   defining Unicode char U+1F6A7 (decimal 128679)
+   defining Unicode char U+1F6A8 (decimal 128680)
+   defining Unicode char U+1F6A9 (decimal 128681)
+   defining Unicode char U+1F6AA (decimal 128682)
+   defining Unicode char U+1F6AB (decimal 128683)
+   defining Unicode char U+1F6AC (decimal 128684)
+   defining Unicode char U+1F6AD (decimal 128685)
+   defining Unicode char U+1F6AE (decimal 128686)
+   defining Unicode char U+1F6AF (decimal 128687)
+   defining Unicode char U+1F6B0 (decimal 128688)
+   defining Unicode char U+1F6B1 (decimal 128689)
+   defining Unicode char U+1F6B2 (decimal 128690)
+   defining Unicode char U+1F6B3 (decimal 128691)
+   defining Unicode char U+1F6B4 (decimal 128692)
+   defining Unicode char U+1F6B5 (decimal 128693)
+   defining Unicode char U+1F6B6 (decimal 128694)
+   defining Unicode char U+1F6B7 (decimal 128695)
+   defining Unicode char U+1F6B8 (decimal 128696)
+   defining Unicode char U+1F6B9 (decimal 128697)
+   defining Unicode char U+1F6BA (decimal 128698)
+   defining Unicode char U+1F6BB (decimal 128699)
+   defining Unicode char U+1F6BC (decimal 128700)
+   defining Unicode char U+1F6BD (decimal 128701)
+   defining Unicode char U+1F6BE (decimal 128702)
+   defining Unicode char U+1F6BF (decimal 128703)
+   defining Unicode char U+1F6C0 (decimal 128704)
+   defining Unicode char U+1F6C1 (decimal 128705)
+   defining Unicode char U+1F6C2 (decimal 128706)
+   defining Unicode char U+1F6C3 (decimal 128707)
+   defining Unicode char U+1F6C4 (decimal 128708)
+   defining Unicode char U+1F6C5 (decimal 128709)
+   defining Unicode char U+1F6C6 (decimal 128710)
+   defining Unicode char U+1F6C7 (decimal 128711)
+   defining Unicode char U+1F6C8 (decimal 128712)
+   defining Unicode char U+1F6C9 (decimal 128713)
+   defining Unicode char U+1F6CA (decimal 128714)
+   defining Unicode char U+1F6CB (decimal 128715)
+   defining Unicode char U+1F6CC (decimal 128716)
+   defining Unicode char U+1F6CD (decimal 128717)
+   defining Unicode char U+1F6CE (decimal 128718)
+   defining Unicode char U+1F6CF (decimal 128719)
+   defining Unicode char U+1F6D0 (decimal 128720)
+   defining Unicode char U+1F6D1 (decimal 128721)
+   defining Unicode char U+1F6D2 (decimal 128722)
+   defining Unicode char U+1F6D3 (decimal 128723)
+   defining Unicode char U+1F6D4 (decimal 128724)
+   defining Unicode char U+1F6D5 (decimal 128725)
+   defining Unicode char U+1F6D6 (decimal 128726)
+   defining Unicode char U+1F6D7 (decimal 128727)
+   defining Unicode char U+1F6D8 (decimal 128728)
+   defining Unicode char U+1F6D9 (decimal 128729)
+   defining Unicode char U+1F6DA (decimal 128730)
+   defining Unicode char U+1F6DB (decimal 128731)
+   defining Unicode char U+1F6DC (decimal 128732)
+   defining Unicode char U+1F6DD (decimal 128733)
+   defining Unicode char U+1F6DE (decimal 128734)
+   defining Unicode char U+1F6DF (decimal 128735)
+   defining Unicode char U+1F6E0 (decimal 128736)
+   defining Unicode char U+1F6E1 (decimal 128737)
+   defining Unicode char U+1F6E2 (decimal 128738)
+   defining Unicode char U+1F6E3 (decimal 128739)
+   defining Unicode char U+1F6E4 (decimal 128740)
+   defining Unicode char U+1F6E5 (decimal 128741)
+   defining Unicode char U+1F6E6 (decimal 128742)
+   defining Unicode char U+1F6E7 (decimal 128743)
+   defining Unicode char U+1F6E8 (decimal 128744)
+   defining Unicode char U+1F6E9 (decimal 128745)
+   defining Unicode char U+1F6EA (decimal 128746)
+   defining Unicode char U+1F6EB (decimal 128747)
+   defining Unicode char U+1F6EC (decimal 128748)
+   defining Unicode char U+1F6ED (decimal 128749)
+   defining Unicode char U+1F6EE (decimal 128750)
+   defining Unicode char U+1F6EF (decimal 128751)
+   defining Unicode char U+1F6F0 (decimal 128752)
+   defining Unicode char U+1F6F1 (decimal 128753)
+   defining Unicode char U+1F6F2 (decimal 128754)
+   defining Unicode char U+1F6F3 (decimal 128755)
+   defining Unicode char U+1F6F4 (decimal 128756)
+   defining Unicode char U+1F6F5 (decimal 128757)
+   defining Unicode char U+1F6F6 (decimal 128758)
+   defining Unicode char U+1F6F7 (decimal 128759)
+   defining Unicode char U+1F6F8 (decimal 128760)
+   defining Unicode char U+1F6F9 (decimal 128761)
+   defining Unicode char U+1F6FA (decimal 128762)
+   defining Unicode char U+1F6FB (decimal 128763)
+   defining Unicode char U+1F6FC (decimal 128764)
+   defining Unicode char U+1F6FD (decimal 128765)
+   defining Unicode char U+1F6FE (decimal 128766)
+   defining Unicode char U+1F6FF (decimal 128767)
+   defining Unicode char U+2600 (decimal 9728)
+   defining Unicode char U+2601 (decimal 9729)
+   defining Unicode char U+2602 (decimal 9730)
+   defining Unicode char U+2603 (decimal 9731)
+   defining Unicode char U+2604 (decimal 9732)
+   defining Unicode char U+2605 (decimal 9733)
+   defining Unicode char U+2606 (decimal 9734)
+   defining Unicode char U+2607 (decimal 9735)
+   defining Unicode char U+2608 (decimal 9736)
+   defining Unicode char U+2609 (decimal 9737)
+   defining Unicode char U+260A (decimal 9738)
+   defining Unicode char U+260B (decimal 9739)
+   defining Unicode char U+260C (decimal 9740)
+   defining Unicode char U+260D (decimal 9741)
+   defining Unicode char U+260E (decimal 9742)
+   defining Unicode char U+260F (decimal 9743)
+   defining Unicode char U+2610 (decimal 9744)
+   defining Unicode char U+2611 (decimal 9745)
+   defining Unicode char U+2612 (decimal 9746)
+   defining Unicode char U+2613 (decimal 9747)
+   defining Unicode char U+2614 (decimal 9748)
+   defining Unicode char U+2615 (decimal 9749)
+   defining Unicode char U+2616 (decimal 9750)
+   defining Unicode char U+2617 (decimal 9751)
+   defining Unicode char U+2618 (decimal 9752)
+   defining Unicode char U+2619 (decimal 9753)
+   defining Unicode char U+261A (decimal 9754)
+   defining Unicode char U+261B (decimal 9755)
+   defining Unicode char U+261C (decimal 9756)
+   defining Unicode char U+261D (decimal 9757)
+   defining Unicode char U+261E (decimal 9758)
+   defining Unicode char U+261F (decimal 9759)
+   defining Unicode char U+2620 (decimal 9760)
+   defining Unicode char U+2621 (decimal 9761)
+   defining Unicode char U+2622 (decimal 9762)
+   defining Unicode char U+2623 (decimal 9763)
+   defining Unicode char U+2624 (decimal 9764)
+   defining Unicode char U+2625 (decimal 9765)
+   defining Unicode char U+2626 (decimal 9766)
+   defining Unicode char U+2627 (decimal 9767)
+   defining Unicode char U+2628 (decimal 9768)
+   defining Unicode char U+2629 (decimal 9769)
+   defining Unicode char U+262A (decimal 9770)
+   defining Unicode char U+262B (decimal 9771)
+   defining Unicode char U+262C (decimal 9772)
+   defining Unicode char U+262D (decimal 9773)
+   defining Unicode char U+262E (decimal 9774)
+   defining Unicode char U+262F (decimal 9775)
+   defining Unicode char U+2630 (decimal 9776)
+   defining Unicode char U+2631 (decimal 9777)
+   defining Unicode char U+2632 (decimal 9778)
+   defining Unicode char U+2633 (decimal 9779)
+   defining Unicode char U+2634 (decimal 9780)
+   defining Unicode char U+2635 (decimal 9781)
+   defining Unicode char U+2636 (decimal 9782)
+   defining Unicode char U+2637 (decimal 9783)
+   defining Unicode char U+2638 (decimal 9784)
+   defining Unicode char U+2639 (decimal 9785)
+   defining Unicode char U+263A (decimal 9786)
+   defining Unicode char U+263B (decimal 9787)
+   defining Unicode char U+263C (decimal 9788)
+   defining Unicode char U+263D (decimal 9789)
+   defining Unicode char U+263E (decimal 9790)
+   defining Unicode char U+263F (decimal 9791)
+   defining Unicode char U+2640 (decimal 9792)
+   defining Unicode char U+2641 (decimal 9793)
+   defining Unicode char U+2642 (decimal 9794)
+   defining Unicode char U+2643 (decimal 9795)
+   defining Unicode char U+2644 (decimal 9796)
+   defining Unicode char U+2645 (decimal 9797)
+   defining Unicode char U+2646 (decimal 9798)
+   defining Unicode char U+2647 (decimal 9799)
+   defining Unicode char U+2648 (decimal 9800)
+   defining Unicode char U+2649 (decimal 9801)
+   defining Unicode char U+264A (decimal 9802)
+   defining Unicode char U+264B (decimal 9803)
+   defining Unicode char U+264C (decimal 9804)
+   defining Unicode char U+264D (decimal 9805)
+   defining Unicode char U+264E (decimal 9806)
+   defining Unicode char U+264F (decimal 9807)
+   defining Unicode char U+2650 (decimal 9808)
+   defining Unicode char U+2651 (decimal 9809)
+   defining Unicode char U+2652 (decimal 9810)
+   defining Unicode char U+2653 (decimal 9811)
+   defining Unicode char U+2654 (decimal 9812)
+   defining Unicode char U+2655 (decimal 9813)
+   defining Unicode char U+2656 (decimal 9814)
+   defining Unicode char U+2657 (decimal 9815)
+   defining Unicode char U+2658 (decimal 9816)
+   defining Unicode char U+2659 (decimal 9817)
+   defining Unicode char U+265A (decimal 9818)
+   defining Unicode char U+265B (decimal 9819)
+   defining Unicode char U+265C (decimal 9820)
+   defining Unicode char U+265D (decimal 9821)
+   defining Unicode char U+265E (decimal 9822)
+   defining Unicode char U+265F (decimal 9823)
+   defining Unicode char U+2660 (decimal 9824)
+   defining Unicode char U+2661 (decimal 9825)
+   defining Unicode char U+2662 (decimal 9826)
+   defining Unicode char U+2663 (decimal 9827)
+   defining Unicode char U+2664 (decimal 9828)
+   defining Unicode char U+2665 (decimal 9829)
+   defining Unicode char U+2666 (decimal 9830)
+   defining Unicode char U+2667 (decimal 9831)
+   defining Unicode char U+2668 (decimal 9832)
+   defining Unicode char U+2669 (decimal 9833)
+   defining Unicode char U+266A (decimal 9834)
+   defining Unicode char U+266B (decimal 9835)
+   defining Unicode char U+266C (decimal 9836)
+   defining Unicode char U+266D (decimal 9837)
+   defining Unicode char U+266E (decimal 9838)
+   defining Unicode char U+266F (decimal 9839)
+   defining Unicode char U+2670 (decimal 9840)
+   defining Unicode char U+2671 (decimal 9841)
+   defining Unicode char U+2672 (decimal 9842)
+   defining Unicode char U+2673 (decimal 9843)
+   defining Unicode char U+2674 (decimal 9844)
+   defining Unicode char U+2675 (decimal 9845)
+   defining Unicode char U+2676 (decimal 9846)
+   defining Unicode char U+2677 (decimal 9847)
+   defining Unicode char U+2678 (decimal 9848)
+   defining Unicode char U+2679 (decimal 9849)
+   defining Unicode char U+267A (decimal 9850)
+   defining Unicode char U+267B (decimal 9851)
+   defining Unicode char U+267C (decimal 9852)
+   defining Unicode char U+267D (decimal 9853)
+   defining Unicode char U+267E (decimal 9854)
+   defining Unicode char U+267F (decimal 9855)
+   defining Unicode char U+2680 (decimal 9856)
+   defining Unicode char U+2681 (decimal 9857)
+   defining Unicode char U+2682 (decimal 9858)
+   defining Unicode char U+2683 (decimal 9859)
+   defining Unicode char U+2684 (decimal 9860)
+   defining Unicode char U+2685 (decimal 9861)
+   defining Unicode char U+2686 (decimal 9862)
+   defining Unicode char U+2687 (decimal 9863)
+   defining Unicode char U+2688 (decimal 9864)
+   defining Unicode char U+2689 (decimal 9865)
+   defining Unicode char U+268A (decimal 9866)
+   defining Unicode char U+268B (decimal 9867)
+   defining Unicode char U+268C (decimal 9868)
+   defining Unicode char U+268D (decimal 9869)
+   defining Unicode char U+268E (decimal 9870)
+   defining Unicode char U+268F (decimal 9871)
+   defining Unicode char U+2690 (decimal 9872)
+   defining Unicode char U+2691 (decimal 9873)
+   defining Unicode char U+2692 (decimal 9874)
+   defining Unicode char U+2693 (decimal 9875)
+   defining Unicode char U+2694 (decimal 9876)
+   defining Unicode char U+2695 (decimal 9877)
+   defining Unicode char U+2696 (decimal 9878)
+   defining Unicode char U+2697 (decimal 9879)
+   defining Unicode char U+2698 (decimal 9880)
+   defining Unicode char U+2699 (decimal 9881)
+   defining Unicode char U+269A (decimal 9882)
+   defining Unicode char U+269B (decimal 9883)
+   defining Unicode char U+269C (decimal 9884)
+   defining Unicode char U+269D (decimal 9885)
+   defining Unicode char U+269E (decimal 9886)
+   defining Unicode char U+269F (decimal 9887)
+   defining Unicode char U+26A0 (decimal 9888)
+   defining Unicode char U+26A1 (decimal 9889)
+   defining Unicode char U+26A2 (decimal 9890)
+   defining Unicode char U+26A3 (decimal 9891)
+   defining Unicode char U+26A4 (decimal 9892)
+   defining Unicode char U+26A5 (decimal 9893)
+   defining Unicode char U+26A6 (decimal 9894)
+   defining Unicode char U+26A7 (decimal 9895)
+   defining Unicode char U+26A8 (decimal 9896)
+   defining Unicode char U+26A9 (decimal 9897)
+   defining Unicode char U+26AA (decimal 9898)
+   defining Unicode char U+26AB (decimal 9899)
+   defining Unicode char U+26AC (decimal 9900)
+   defining Unicode char U+26AD (decimal 9901)
+   defining Unicode char U+26AE (decimal 9902)
+   defining Unicode char U+26AF (decimal 9903)
+   defining Unicode char U+26B0 (decimal 9904)
+   defining Unicode char U+26B1 (decimal 9905)
+   defining Unicode char U+26B2 (decimal 9906)
+   defining Unicode char U+26B3 (decimal 9907)
+   defining Unicode char U+26B4 (decimal 9908)
+   defining Unicode char U+26B5 (decimal 9909)
+   defining Unicode char U+26B6 (decimal 9910)
+   defining Unicode char U+26B7 (decimal 9911)
+   defining Unicode char U+26B8 (decimal 9912)
+   defining Unicode char U+26B9 (decimal 9913)
+   defining Unicode char U+26BA (decimal 9914)
+   defining Unicode char U+26BB (decimal 9915)
+   defining Unicode char U+26BC (decimal 9916)
+   defining Unicode char U+26BD (decimal 9917)
+   defining Unicode char U+26BE (decimal 9918)
+   defining Unicode char U+26BF (decimal 9919)
+   defining Unicode char U+26C0 (decimal 9920)
+   defining Unicode char U+26C1 (decimal 9921)
+   defining Unicode char U+26C2 (decimal 9922)
+   defining Unicode char U+26C3 (decimal 9923)
+   defining Unicode char U+26C4 (decimal 9924)
+   defining Unicode char U+26C5 (decimal 9925)
+   defining Unicode char U+26C6 (decimal 9926)
+   defining Unicode char U+26C7 (decimal 9927)
+   defining Unicode char U+26C8 (decimal 9928)
+   defining Unicode char U+26C9 (decimal 9929)
+   defining Unicode char U+26CA (decimal 9930)
+   defining Unicode char U+26CB (decimal 9931)
+   defining Unicode char U+26CC (decimal 9932)
+   defining Unicode char U+26CD (decimal 9933)
+   defining Unicode char U+26CE (decimal 9934)
+   defining Unicode char U+26CF (decimal 9935)
+   defining Unicode char U+26D0 (decimal 9936)
+   defining Unicode char U+26D1 (decimal 9937)
+   defining Unicode char U+26D2 (decimal 9938)
+   defining Unicode char U+26D3 (decimal 9939)
+   defining Unicode char U+26D4 (decimal 9940)
+   defining Unicode char U+26D5 (decimal 9941)
+   defining Unicode char U+26D6 (decimal 9942)
+   defining Unicode char U+26D7 (decimal 9943)
+   defining Unicode char U+26D8 (decimal 9944)
+   defining Unicode char U+26D9 (decimal 9945)
+   defining Unicode char U+26DA (decimal 9946)
+   defining Unicode char U+26DB (decimal 9947)
+   defining Unicode char U+26DC (decimal 9948)
+   defining Unicode char U+26DD (decimal 9949)
+   defining Unicode char U+26DE (decimal 9950)
+   defining Unicode char U+26DF (decimal 9951)
+   defining Unicode char U+26E0 (decimal 9952)
+   defining Unicode char U+26E1 (decimal 9953)
+   defining Unicode char U+26E2 (decimal 9954)
+   defining Unicode char U+26E3 (decimal 9955)
+   defining Unicode char U+26E4 (decimal 9956)
+   defining Unicode char U+26E5 (decimal 9957)
+   defining Unicode char U+26E6 (decimal 9958)
+   defining Unicode char U+26E7 (decimal 9959)
+   defining Unicode char U+26E8 (decimal 9960)
+   defining Unicode char U+26E9 (decimal 9961)
+   defining Unicode char U+26EA (decimal 9962)
+   defining Unicode char U+26EB (decimal 9963)
+   defining Unicode char U+26EC (decimal 9964)
+   defining Unicode char U+26ED (decimal 9965)
+   defining Unicode char U+26EE (decimal 9966)
+   defining Unicode char U+26EF (decimal 9967)
+   defining Unicode char U+26F0 (decimal 9968)
+   defining Unicode char U+26F1 (decimal 9969)
+   defining Unicode char U+26F2 (decimal 9970)
+   defining Unicode char U+26F3 (decimal 9971)
+   defining Unicode char U+26F4 (decimal 9972)
+   defining Unicode char U+26F5 (decimal 9973)
+   defining Unicode char U+26F6 (decimal 9974)
+   defining Unicode char U+26F7 (decimal 9975)
+   defining Unicode char U+26F8 (decimal 9976)
+   defining Unicode char U+26F9 (decimal 9977)
+   defining Unicode char U+26FA (decimal 9978)
+   defining Unicode char U+26FB (decimal 9979)
+   defining Unicode char U+26FC (decimal 9980)
+   defining Unicode char U+26FD (decimal 9981)
+   defining Unicode char U+26FE (decimal 9982)
+   defining Unicode char U+26FF (decimal 9983)
+   defining Unicode char U+2700 (decimal 9984)
+   defining Unicode char U+2701 (decimal 9985)
+   defining Unicode char U+2702 (decimal 9986)
+   defining Unicode char U+2703 (decimal 9987)
+   defining Unicode char U+2704 (decimal 9988)
+   defining Unicode char U+2705 (decimal 9989)
+   defining Unicode char U+2706 (decimal 9990)
+   defining Unicode char U+2707 (decimal 9991)
+   defining Unicode char U+2708 (decimal 9992)
+   defining Unicode char U+2709 (decimal 9993)
+   defining Unicode char U+270A (decimal 9994)
+   defining Unicode char U+270B (decimal 9995)
+   defining Unicode char U+270C (decimal 9996)
+   defining Unicode char U+270D (decimal 9997)
+   defining Unicode char U+270E (decimal 9998)
+   defining Unicode char U+270F (decimal 9999)
+   defining Unicode char U+2710 (decimal 10000)
+   defining Unicode char U+2711 (decimal 10001)
+   defining Unicode char U+2712 (decimal 10002)
+   defining Unicode char U+2713 (decimal 10003)
+   defining Unicode char U+2714 (decimal 10004)
+   defining Unicode char U+2715 (decimal 10005)
+   defining Unicode char U+2716 (decimal 10006)
+   defining Unicode char U+2717 (decimal 10007)
+   defining Unicode char U+2718 (decimal 10008)
+   defining Unicode char U+2719 (decimal 10009)
+   defining Unicode char U+271A (decimal 10010)
+   defining Unicode char U+271B (decimal 10011)
+   defining Unicode char U+271C (decimal 10012)
+   defining Unicode char U+271D (decimal 10013)
+   defining Unicode char U+271E (decimal 10014)
+   defining Unicode char U+271F (decimal 10015)
+   defining Unicode char U+2720 (decimal 10016)
+   defining Unicode char U+2721 (decimal 10017)
+   defining Unicode char U+2722 (decimal 10018)
+   defining Unicode char U+2723 (decimal 10019)
+   defining Unicode char U+2724 (decimal 10020)
+   defining Unicode char U+2725 (decimal 10021)
+   defining Unicode char U+2726 (decimal 10022)
+   defining Unicode char U+2727 (decimal 10023)
+   defining Unicode char U+2728 (decimal 10024)
+   defining Unicode char U+2729 (decimal 10025)
+   defining Unicode char U+272A (decimal 10026)
+   defining Unicode char U+272B (decimal 10027)
+   defining Unicode char U+272C (decimal 10028)
+   defining Unicode char U+272D (decimal 10029)
+   defining Unicode char U+272E (decimal 10030)
+   defining Unicode char U+272F (decimal 10031)
+   defining Unicode char U+2730 (decimal 10032)
+   defining Unicode char U+2731 (decimal 10033)
+   defining Unicode char U+2732 (decimal 10034)
+   defining Unicode char U+2733 (decimal 10035)
+   defining Unicode char U+2734 (decimal 10036)
+   defining Unicode char U+2735 (decimal 10037)
+   defining Unicode char U+2736 (decimal 10038)
+   defining Unicode char U+2737 (decimal 10039)
+   defining Unicode char U+2738 (decimal 10040)
+   defining Unicode char U+2739 (decimal 10041)
+   defining Unicode char U+273A (decimal 10042)
+   defining Unicode char U+273B (decimal 10043)
+   defining Unicode char U+273C (decimal 10044)
+   defining Unicode char U+273D (decimal 10045)
+   defining Unicode char U+273E (decimal 10046)
+   defining Unicode char U+273F (decimal 10047)
+   defining Unicode char U+2740 (decimal 10048)
+   defining Unicode char U+2741 (decimal 10049)
+   defining Unicode char U+2742 (decimal 10050)
+   defining Unicode char U+2743 (decimal 10051)
+   defining Unicode char U+2744 (decimal 10052)
+   defining Unicode char U+2745 (decimal 10053)
+   defining Unicode char U+2746 (decimal 10054)
+   defining Unicode char U+2747 (decimal 10055)
+   defining Unicode char U+2748 (decimal 10056)
+   defining Unicode char U+2749 (decimal 10057)
+   defining Unicode char U+274A (decimal 10058)
+   defining Unicode char U+274B (decimal 10059)
+   defining Unicode char U+274C (decimal 10060)
+   defining Unicode char U+274D (decimal 10061)
+   defining Unicode char U+274E (decimal 10062)
+   defining Unicode char U+274F (decimal 10063)
+   defining Unicode char U+2750 (decimal 10064)
+   defining Unicode char U+2751 (decimal 10065)
+   defining Unicode char U+2752 (decimal 10066)
+   defining Unicode char U+2753 (decimal 10067)
+   defining Unicode char U+2754 (decimal 10068)
+   defining Unicode char U+2755 (decimal 10069)
+   defining Unicode char U+2756 (decimal 10070)
+   defining Unicode char U+2757 (decimal 10071)
+   defining Unicode char U+2758 (decimal 10072)
+   defining Unicode char U+2759 (decimal 10073)
+   defining Unicode char U+275A (decimal 10074)
+   defining Unicode char U+275B (decimal 10075)
+   defining Unicode char U+275C (decimal 10076)
+   defining Unicode char U+275D (decimal 10077)
+   defining Unicode char U+275E (decimal 10078)
+   defining Unicode char U+275F (decimal 10079)
+   defining Unicode char U+2760 (decimal 10080)
+   defining Unicode char U+2761 (decimal 10081)
+   defining Unicode char U+2762 (decimal 10082)
+   defining Unicode char U+2763 (decimal 10083)
+   defining Unicode char U+2764 (decimal 10084)
+   defining Unicode char U+2765 (decimal 10085)
+   defining Unicode char U+2766 (decimal 10086)
+   defining Unicode char U+2767 (decimal 10087)
+   defining Unicode char U+2768 (decimal 10088)
+   defining Unicode char U+2769 (decimal 10089)
+   defining Unicode char U+276A (decimal 10090)
+   defining Unicode char U+276B (decimal 10091)
+   defining Unicode char U+276C (decimal 10092)
+   defining Unicode char U+276D (decimal 10093)
+   defining Unicode char U+276E (decimal 10094)
+   defining Unicode char U+276F (decimal 10095)
+   defining Unicode char U+2770 (decimal 10096)
+   defining Unicode char U+2771 (decimal 10097)
+   defining Unicode char U+2772 (decimal 10098)
+   defining Unicode char U+2773 (decimal 10099)
+   defining Unicode char U+2774 (decimal 10100)
+   defining Unicode char U+2775 (decimal 10101)
+   defining Unicode char U+2776 (decimal 10102)
+   defining Unicode char U+2777 (decimal 10103)
+   defining Unicode char U+2778 (decimal 10104)
+   defining Unicode char U+2779 (decimal 10105)
+   defining Unicode char U+277A (decimal 10106)
+   defining Unicode char U+277B (decimal 10107)
+   defining Unicode char U+277C (decimal 10108)
+   defining Unicode char U+277D (decimal 10109)
+   defining Unicode char U+277E (decimal 10110)
+   defining Unicode char U+277F (decimal 10111)
+   defining Unicode char U+2780 (decimal 10112)
+   defining Unicode char U+2781 (decimal 10113)
+   defining Unicode char U+2782 (decimal 10114)
+   defining Unicode char U+2783 (decimal 10115)
+   defining Unicode char U+2784 (decimal 10116)
+   defining Unicode char U+2785 (decimal 10117)
+   defining Unicode char U+2786 (decimal 10118)
+   defining Unicode char U+2787 (decimal 10119)
+   defining Unicode char U+2788 (decimal 10120)
+   defining Unicode char U+2789 (decimal 10121)
+   defining Unicode char U+278A (decimal 10122)
+   defining Unicode char U+278B (decimal 10123)
+   defining Unicode char U+278C (decimal 10124)
+   defining Unicode char U+278D (decimal 10125)
+   defining Unicode char U+278E (decimal 10126)
+   defining Unicode char U+278F (decimal 10127)
+   defining Unicode char U+2790 (decimal 10128)
+   defining Unicode char U+2791 (decimal 10129)
+   defining Unicode char U+2792 (decimal 10130)
+   defining Unicode char U+2793 (decimal 10131)
+   defining Unicode char U+2794 (decimal 10132)
+   defining Unicode char U+2795 (decimal 10133)
+   defining Unicode char U+2796 (decimal 10134)
+   defining Unicode char U+2797 (decimal 10135)
+   defining Unicode char U+2798 (decimal 10136)
+   defining Unicode char U+2799 (decimal 10137)
+   defining Unicode char U+279A (decimal 10138)
+   defining Unicode char U+279B (decimal 10139)
+   defining Unicode char U+279C (decimal 10140)
+   defining Unicode char U+279D (decimal 10141)
+   defining Unicode char U+279E (decimal 10142)
+   defining Unicode char U+279F (decimal 10143)
+   defining Unicode char U+27A0 (decimal 10144)
+   defining Unicode char U+27A1 (decimal 10145)
+   defining Unicode char U+27A2 (decimal 10146)
+   defining Unicode char U+27A3 (decimal 10147)
+   defining Unicode char U+27A4 (decimal 10148)
+   defining Unicode char U+27A5 (decimal 10149)
+   defining Unicode char U+27A6 (decimal 10150)
+   defining Unicode char U+27A7 (decimal 10151)
+   defining Unicode char U+27A8 (decimal 10152)
+   defining Unicode char U+27A9 (decimal 10153)
+   defining Unicode char U+27AA (decimal 10154)
+   defining Unicode char U+27AB (decimal 10155)
+   defining Unicode char U+27AC (decimal 10156)
+   defining Unicode char U+27AD (decimal 10157)
+   defining Unicode char U+27AE (decimal 10158)
+   defining Unicode char U+27AF (decimal 10159)
+   defining Unicode char U+27B0 (decimal 10160)
+   defining Unicode char U+27B1 (decimal 10161)
+   defining Unicode char U+27B2 (decimal 10162)
+   defining Unicode char U+27B3 (decimal 10163)
+   defining Unicode char U+27B4 (decimal 10164)
+   defining Unicode char U+27B5 (decimal 10165)
+   defining Unicode char U+27B6 (decimal 10166)
+   defining Unicode char U+27B7 (decimal 10167)
+   defining Unicode char U+27B8 (decimal 10168)
+   defining Unicode char U+27B9 (decimal 10169)
+   defining Unicode char U+27BA (decimal 10170)
+   defining Unicode char U+27BB (decimal 10171)
+   defining Unicode char U+27BC (decimal 10172)
+   defining Unicode char U+27BD (decimal 10173)
+   defining Unicode char U+27BE (decimal 10174)
+   defining Unicode char U+27BF (decimal 10175)
+)
 (/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip58
-\enit@outerparindent=\dimen164
-\enit@toks=\toks23
-\enit@inbox=\box52
-\enit@count@id=\count290
-\enitdp@description=\count291
+\enit@outerparindent=\dimen270
+\enit@toks=\toks35
+\enit@inbox=\box63
+\enit@count@id=\count311
+\enitdp@description=\count312
 )
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2020/10/26 v3.5g Customizing captions (AR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
-\captionmargin=\dimen165
-\captionmargin@=\dimen166
-\captionwidth=\dimen167
-\caption@tempdima=\dimen168
-\caption@indent=\dimen169
-\caption@parindent=\dimen170
-\caption@hangindent=\dimen171
+\captionmargin=\dimen271
+\captionmargin@=\dimen272
+\captionwidth=\dimen273
+\caption@tempdima=\dimen274
+\caption@indent=\dimen275
+\caption@parindent=\dimen276
+\caption@hangindent=\dimen277
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count292
-\c@continuedfloat=\count293
+\c@caption@flags=\count313
+\c@continuedfloat=\count314
 Package caption Info: hyperref package is loaded.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2021/12/21 4.1b verbatim text (tvz,hv)
-\FV@CodeLineNo=\count294
-\FV@InFile=\read2
-\FV@TabBox=\box53
-\c@FancyVerbLine=\count295
-\FV@StepNumber=\count296
-\FV@OutFile=\write3
+\FV@CodeLineNo=\count315
+\FV@InFile=\read3
+\FV@TabBox=\box64
+\c@FancyVerbLine=\count316
+\FV@StepNumber=\count317
+\FV@OutFile=\write4
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count297
-\l__pdf_internal_box=\box54
+\l__color_backend_stack_int=\count318
+\l__pdf_internal_box=\box65
 )
 (./geostats.aux)
 \openout1 = `geostats.aux'.
@@ -385,16 +2355,7 @@ LaTeX Font Info:    ... okay on input line 54.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2021/12/07 v1.3c Standard LaTeX Color (DPC)
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package color Info: Driver file: pdftex.def on input line 149.
-)
 Package hyperref Info: Link coloring ON on input line 54.
-
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 
@@ -404,30 +2365,30 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count298
+\c@section@level=\count319
 )
 LaTeX Info: Redefining \ref on input line 54.
 LaTeX Info: Redefining \pageref on input line 54.
 LaTeX Info: Redefining \nameref on input line 54.
 
 (./geostats.out) (./geostats.out)
-\@outlinefile=\write4
-\openout4 = `geostats.out'.
+\@outlinefile=\write5
+\openout5 = `geostats.out'.
 
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count299
-\scratchdimen=\dimen172
-\scratchbox=\box55
-\nofMPsegments=\count300
-\nofMParguments=\count301
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count302
-\MPscratchDim=\dimen173
-\MPnumerator=\count303
-\makeMPintoPDFobject=\count304
-\everyMPtoPDFconversion=\toks25
+\scratchcounter=\count320
+\scratchdimen=\dimen278
+\scratchbox=\box66
+\nofMPsegments=\count321
+\nofMParguments=\count322
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count323
+\MPscratchDim=\dimen279
+\MPnumerator=\count324
+\makeMPintoPDFobject=\count325
+\everyMPtoPDFconversion=\toks37
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -450,8 +2411,8 @@ Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 85.
  [5])
-\tf@toc=\write5
-\openout5 = `geostats.toc'.
+\tf@toc=\write6
+\openout6 = `geostats.toc'.
 
  (./introduction.tex [6]
 Chapter 1.
@@ -469,7 +2430,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 12--34
 [] [] 
  []
 
-<../figures/anscombe.pdf, id=799, 505.89pt x 126.4725pt>
+<../figures/anscombe.pdf, id=802, 505.89pt x 126.4725pt>
 File: ../figures/anscombe.pdf Graphic file (type pdf)
 <use ../figures/anscombe.pdf>
 Package pdftex.def Info: ../figures/anscombe.pdf  used on input line 52.
@@ -493,7 +2454,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 69--104
  []
 
 [12 <../figures/anscombe.pdf>]
-<../figures/discrete.pdf, id=836, 505.89pt x 144.54pt>
+<../figures/discrete.pdf, id=839, 505.89pt x 144.54pt>
 File: ../figures/discrete.pdf Graphic file (type pdf)
 <use ../figures/discrete.pdf>
 Package pdftex.def Info: ../figures/discrete.pdf  used on input line 132.
@@ -510,7 +2471,7 @@ Underfull \hbox (badness 4024) in paragraph at lines 156--156
 d by Mosegaard and Taran-tola (2002,
  []
 
-<../figures/continuous.pdf, id=844, 505.89pt x 144.54pt>
+<../figures/continuous.pdf, id=847, 505.89pt x 144.54pt>
 File: ../figures/continuous.pdf Graphic file (type pdf)
 <use ../figures/continuous.pdf>
 Package pdftex.def Info: ../figures/continuous.pdf  used on input line 174.
@@ -521,7 +2482,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [13 <../figures/discrete.pdf>]
-<../figures/binwidth.pdf, id=869, 361.35pt x 180.675pt>
+<../figures/binwidth.pdf, id=872, 361.35pt x 180.675pt>
 File: ../figures/binwidth.pdf Graphic file (type pdf)
 <use ../figures/binwidth.pdf>
 Package pdftex.def Info: ../figures/binwidth.pdf  used on input line 205.
@@ -542,7 +2503,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 204--214
 pdfTeX warning: pdflatex (file ../figures/binwidth.pdf): PDF inclusion: multipl
 e pdfs with page group included in a single page
 >]
-<../figures/binpos.pdf, id=894, 361.35pt x 180.675pt>
+<../figures/binpos.pdf, id=897, 361.35pt x 180.675pt>
 File: ../figures/binpos.pdf Graphic file (type pdf)
 <use ../figures/binpos.pdf>
 Package pdftex.def Info: ../figures/binpos.pdf  used on input line 240.
@@ -558,7 +2519,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 239--249
 [] [] 
  []
 
-<../figures/rectKDE.pdf, id=895, 216.81pt x 216.81pt>
+<../figures/rectKDE.pdf, id=898, 216.81pt x 216.81pt>
 File: ../figures/rectKDE.pdf Graphic file (type pdf)
 <use ../figures/rectKDE.pdf>
 Package pdftex.def Info: ../figures/rectKDE.pdf  used on input line 266.
@@ -573,7 +2534,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 265--276
 [] [] 
  []
 
-<../figures/pHrectKDE.pdf, id=896, 216.81pt x 216.81pt>
+<../figures/pHrectKDE.pdf, id=899, 216.81pt x 216.81pt>
 File: ../figures/pHrectKDE.pdf Graphic file (type pdf)
 <use ../figures/pHrectKDE.pdf>
 Package pdftex.def Info: ../figures/pHrectKDE.pdf  used on input line 298.
@@ -593,7 +2554,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 297--307
 pdfTeX warning: pdflatex (file ../figures/rectKDE.pdf): PDF inclusion: multiple
  pdfs with page group included in a single page
 >]
-<../figures/gaussKDE.pdf, id=928, 216.81pt x 216.81pt>
+<../figures/gaussKDE.pdf, id=931, 216.81pt x 216.81pt>
 File: ../figures/gaussKDE.pdf Graphic file (type pdf)
 <use ../figures/gaussKDE.pdf>
 Package pdftex.def Info: ../figures/gaussKDE.pdf  used on input line 320.
@@ -609,7 +2570,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 319--327
 [] [] 
  []
 
-<../figures/pHgaussKDE.pdf, id=931, 216.81pt x 216.81pt>
+<../figures/pHgaussKDE.pdf, id=934, 216.81pt x 216.81pt>
 File: ../figures/pHgaussKDE.pdf Graphic file (type pdf)
 <use ../figures/pHgaussKDE.pdf>
 Package pdftex.def Info: ../figures/pHgaussKDE.pdf  used on input line 331.
@@ -624,7 +2585,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 330--341
 [] [] 
  []
 
-<../figures/bandwidth.pdf, id=938, 433.62pt x 216.81pt>
+<../figures/bandwidth.pdf, id=941, 433.62pt x 216.81pt>
 File: ../figures/bandwidth.pdf Graphic file (type pdf)
 <use ../figures/bandwidth.pdf>
 Package pdftex.def Info: ../figures/bandwidth.pdf  used on input line 348.
@@ -648,7 +2609,7 @@ e pdfs with page group included in a single page
 pdfTeX warning: pdflatex (file ../figures/pHgaussKDE.pdf): PDF inclusion: multi
 ple pdfs with page group included in a single page
 >]
-<../figures/negativeKDE.pdf, id=972, 216.81pt x 216.81pt>
+<../figures/negativeKDE.pdf, id=975, 216.81pt x 216.81pt>
 File: ../figures/negativeKDE.pdf Graphic file (type pdf)
 <use ../figures/negativeKDE.pdf>
 Package pdftex.def Info: ../figures/negativeKDE.pdf  used on input line 374.
@@ -664,7 +2625,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 373--382
 [] [] 
  []
 
-<../figures/logKDE.pdf, id=974, 433.62pt x 216.81pt>
+<../figures/logKDE.pdf, id=977, 433.62pt x 216.81pt>
 File: ../figures/logKDE.pdf Graphic file (type pdf)
 <use ../figures/logKDE.pdf>
 Package pdftex.def Info: ../figures/logKDE.pdf  used on input line 400.
@@ -684,7 +2645,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 399--411
 pdfTeX warning: pdflatex (file ../figures/negativeKDE.pdf): PDF inclusion: mult
 iple pdfs with page group included in a single page
 >]
-<../figures/vegetationKDE.pdf, id=1006, 216.81pt x 216.81pt>
+<../figures/vegetationKDE.pdf, id=1009, 216.81pt x 216.81pt>
 File: ../figures/vegetationKDE.pdf Graphic file (type pdf)
 <use ../figures/vegetationKDE.pdf>
 Package pdftex.def Info: ../figures/vegetationKDE.pdf  used on input line 418.
@@ -700,7 +2661,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 417--426
 [] [] 
  []
 
-<../figures/logitKDE.pdf, id=1007, 433.62pt x 223.83624pt>
+<../figures/logitKDE.pdf, id=1010, 433.62pt x 223.83624pt>
 File: ../figures/logitKDE.pdf Graphic file (type pdf)
 <use ../figures/logitKDE.pdf>
 Package pdftex.def Info: ../figures/logitKDE.pdf  used on input line 447.
@@ -724,7 +2685,7 @@ ltiple pdfs with page group included in a single page
 pdfTeX warning: pdflatex (file ../figures/logitKDE.pdf): PDF inclusion: multipl
 e pdfs with page group included in a single page
 >]
-<../figures/KDE2D.pdf, id=1040, 361.35pt x 361.35pt>
+<../figures/KDE2D.pdf, id=1043, 361.35pt x 361.35pt>
 File: ../figures/KDE2D.pdf Graphic file (type pdf)
 <use ../figures/KDE2D.pdf>
 Package pdftex.def Info: ../figures/KDE2D.pdf  used on input line 473.
@@ -740,7 +2701,7 @@ Overfull \hbox (2.43333pt too wide) in paragraph at lines 472--486
 [] [] 
  []
 
-<../figures/ECDFs.pdf, id=1043, 578.16pt x 144.54pt>
+<../figures/ECDFs.pdf, id=1046, 578.16pt x 144.54pt>
 File: ../figures/ECDFs.pdf Graphic file (type pdf)
 <use ../figures/ECDFs.pdf>
 Package pdftex.def Info: ../figures/ECDFs.pdf  used on input line 526.
@@ -756,7 +2717,7 @@ Chapter 3.
 [21
 
 ]
-<../figures/pHlocation.pdf, id=1100, 325.215pt x 325.215pt>
+<../figures/pHlocation.pdf, id=1103, 325.215pt x 325.215pt>
 File: ../figures/pHlocation.pdf Graphic file (type pdf)
 <use ../figures/pHlocation.pdf>
 Package pdftex.def Info: ../figures/pHlocation.pdf  used on input line 84.
@@ -772,7 +2733,7 @@ Overfull \hbox (2.43333pt too wide) in paragraph at lines 83--94
 [] [] 
  []
 
-<../figures/CaMglocation.pdf, id=1101, 325.215pt x 325.215pt>
+<../figures/CaMglocation.pdf, id=1104, 325.215pt x 325.215pt>
 File: ../figures/CaMglocation.pdf Graphic file (type pdf)
 <use ../figures/CaMglocation.pdf>
 Package pdftex.def Info: ../figures/CaMglocation.pdf  used on input line 98.
@@ -787,13 +2748,13 @@ Overfull \hbox (2.43333pt too wide) in paragraph at lines 97--108
 [] [] 
  []
 
-<../figures/vegetationlocation.pdf, id=1102, 325.215pt x 325.215pt>
+<../figures/vegetationlocation.pdf, id=1105, 325.215pt x 325.215pt>
 File: ../figures/vegetationlocation.pdf Graphic file (type pdf)
 <use ../figures/vegetationlocation.pdf>
 Package pdftex.def Info: ../figures/vegetationlocation.pdf  used on input line 
 111.
 (pdftex.def)             Requested size: 227.62206pt x 227.62909pt.
-<../figures/eruptionslocation.pdf, id=1103, 325.215pt x 325.215pt>
+<../figures/eruptionslocation.pdf, id=1106, 325.215pt x 325.215pt>
 File: ../figures/eruptionslocation.pdf Graphic file (type pdf)
 <use ../figures/eruptionslocation.pdf>
 Package pdftex.def Info: ../figures/eruptionslocation.pdf  used on input line 1
@@ -822,7 +2783,7 @@ Overfull \hbox (9.60303pt too wide) in paragraph at lines 213--233
  [] 
  []
 
-<../figures/IQRpH.pdf, id=1154, 325.215pt x 325.215pt>
+<../figures/IQRpH.pdf, id=1157, 325.215pt x 325.215pt>
 File: ../figures/IQRpH.pdf Graphic file (type pdf)
 <use ../figures/IQRpH.pdf>
 Package pdftex.def Info: ../figures/IQRpH.pdf  used on input line 244.
@@ -838,7 +2799,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 243--254
  []
 
 [24 <../figures/IQRpH.pdf>]
-<../figures/skewness.pdf, id=1169, 505.89pt x 144.54pt>
+<../figures/skewness.pdf, id=1172, 505.89pt x 144.54pt>
 File: ../figures/skewness.pdf Graphic file (type pdf)
 <use ../figures/skewness.pdf>
 Package pdftex.def Info: ../figures/skewness.pdf  used on input line 268.
@@ -849,7 +2810,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 276.
 See the caption package documentation for explanation.
 
-<../figures/boxplot.pdf, id=1170, 289.08pt x 216.81pt>
+<../figures/boxplot.pdf, id=1173, 289.08pt x 216.81pt>
 File: ../figures/boxplot.pdf Graphic file (type pdf)
 <use ../figures/boxplot.pdf>
 Package pdftex.def Info: ../figures/boxplot.pdf  used on input line 296.
@@ -880,17 +2841,33 @@ Chapter 4.
 LaTeX Font Info:    Trying to load font information for U+ifsym on input line 3
 6.
 (/usr/share/texlive/texmf-dist/tex/latex/ifsym/uifsym.fd) [27] [28]
-Overfull \hbox (1.88113pt too wide) detected at line 307
-[]
+(/usr/share/texlive/texmf-dist/tex/latex/utfsym/usym1F0A1.tikz)
+(/usr/share/texlive/texmf-dist/tex/latex/utfsym/usym1F0C6.tikz)
+(/usr/share/texlive/texmf-dist/tex/latex/utfsym/usym1F0BE.tikz)
+(/usr/share/texlive/texmf-dist/tex/latex/utfsym/usym1F0A1.tikz)
+(/usr/share/texlive/texmf-dist/tex/latex/utfsym/usym1F0C6.tikz)
+(/usr/share/texlive/texmf-dist/tex/latex/utfsym/usym1F0BE.tikz)
+(/usr/share/texlive/texmf-dist/tex/latex/utfsym/usym1F0A1.tikz)
+(/usr/share/texlive/texmf-dist/tex/latex/utfsym/usym1F0BE.tikz)
+(/usr/share/texlive/texmf-dist/tex/latex/utfsym/usym1F0C6.tikz)
+(/usr/share/texlive/texmf-dist/tex/latex/utfsym/usym1F0C6.tikz)
+(/usr/share/texlive/texmf-dist/tex/latex/utfsym/usym1F0A1.tikz)
+(/usr/share/texlive/texmf-dist/tex/latex/utfsym/usym1F0BE.tikz)
+(/usr/share/texlive/texmf-dist/tex/latex/utfsym/usym1F0C6.tikz)
+(/usr/share/texlive/texmf-dist/tex/latex/utfsym/usym1F0BE.tikz)
+(/usr/share/texlive/texmf-dist/tex/latex/utfsym/usym1F0A1.tikz)
+(/usr/share/texlive/texmf-dist/tex/latex/utfsym/usym1F0BE.tikz)
+(/usr/share/texlive/texmf-dist/tex/latex/utfsym/usym1F0A1.tikz)
+(/usr/share/texlive/texmf-dist/tex/latex/utfsym/usym1F0C6.tikz)
+(/usr/share/texlive/texmf-dist/tex/latex/utfsym/usym1F0BE.tikz)
+(/usr/share/texlive/texmf-dist/tex/latex/utfsym/usym1F0C6.tikz)
+(/usr/share/texlive/texmf-dist/tex/latex/utfsym/usym1F0A1.tikz) [29]
+Underfull \hbox (badness 10000) in paragraph at lines 299--306
+
  []
 
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 363--370
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 377--382
+Underfull \hbox (badness 10000) in paragraph at lines 313--318
 
  []
 
@@ -898,7 +2875,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 377--382
 
 ]
 Chapter 5.
-<../figures/goldbarplot.pdf, id=1264, 216.81pt x 216.81pt>
+<../figures/goldbarplot.pdf, id=1267, 216.81pt x 216.81pt>
 File: ../figures/goldbarplot.pdf Graphic file (type pdf)
 <use ../figures/goldbarplot.pdf>
 Package pdftex.def Info: ../figures/goldbarplot.pdf  used on input line 55.
@@ -914,7 +2891,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 54--67
  []
 
 [33]
-<../figures/goldCDF.pdf, id=1272, 216.81pt x 216.81pt>
+<../figures/goldCDF.pdf, id=1275, 216.81pt x 216.81pt>
 File: ../figures/goldCDF.pdf Graphic file (type pdf)
 <use ../figures/goldCDF.pdf>
 Package pdftex.def Info: ../figures/goldCDF.pdf  used on input line 83.
@@ -935,7 +2912,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 82--94
 pdfTeX warning: pdflatex (file ../figures/goldCDF.pdf): PDF inclusion: multiple
  pdfs with page group included in a single page
 >] [35]
-<../figures/1sidedbinomialrejection5.pdf, id=1319, 433.62pt x 216.81pt>
+<../figures/1sidedbinomialrejection5.pdf, id=1322, 433.62pt x 216.81pt>
 File: ../figures/1sidedbinomialrejection5.pdf Graphic file (type pdf)
 <use ../figures/1sidedbinomialrejection5.pdf>
 Package pdftex.def Info: ../figures/1sidedbinomialrejection5.pdf  used on input
@@ -953,7 +2930,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 265--278
  []
 
 [36 <../figures/1sidedbinomialrejection5.pdf>]
-<../figures/2sidedbinomialrejection5.pdf, id=1338, 433.62pt x 216.81pt>
+<../figures/2sidedbinomialrejection5.pdf, id=1341, 433.62pt x 216.81pt>
 File: ../figures/2sidedbinomialrejection5.pdf Graphic file (type pdf)
 <use ../figures/2sidedbinomialrejection5.pdf>
 Package pdftex.def Info: ../figures/2sidedbinomialrejection5.pdf  used on input
@@ -971,7 +2948,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 357--373
  []
 
 [37 <../figures/2sidedbinomialrejection5.pdf>]
-<../figures/1sidedbinomialrejection15.pdf, id=1360, 433.62pt x 216.81pt>
+<../figures/1sidedbinomialrejection15.pdf, id=1363, 433.62pt x 216.81pt>
 File: ../figures/1sidedbinomialrejection15.pdf Graphic file (type pdf)
 <use ../figures/1sidedbinomialrejection15.pdf>
 Package pdftex.def Info: ../figures/1sidedbinomialrejection15.pdf  used on inpu
@@ -993,7 +2970,7 @@ Overfull \hbox (4.3146pt too wide) in paragraph at lines 438--459
  [] 
  []
 
-<../figures/2sidedbinomialrejection15.pdf, id=1361, 433.62pt x 216.81pt>
+<../figures/2sidedbinomialrejection15.pdf, id=1364, 433.62pt x 216.81pt>
 File: ../figures/2sidedbinomialrejection15.pdf Graphic file (type pdf)
 <use ../figures/2sidedbinomialrejection15.pdf>
 Package pdftex.def Info: ../figures/2sidedbinomialrejection15.pdf  used on inpu
@@ -1010,7 +2987,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 471--483
  []
 
 [38 <../figures/1sidedbinomialrejection15.pdf>]
-<../figures/binomialrejection30.pdf, id=1377, 361.35pt x 252.945pt>
+<../figures/binomialrejection30.pdf, id=1380, 361.35pt x 252.945pt>
 File: ../figures/binomialrejection30.pdf Graphic file (type pdf)
 <use ../figures/binomialrejection30.pdf>
 Package pdftex.def Info: ../figures/binomialrejection30.pdf  used on input line
@@ -1033,7 +3010,7 @@ pdf
 pdfTeX warning: pdflatex (file ../figures/binomialrejection30.pdf): PDF inclusi
 on: multiple pdfs with page group included in a single page
 >] [40]
-<../figures/binompower1.pdf, id=1411, 578.16pt x 274.02374pt>
+<../figures/binompower1.pdf, id=1414, 578.16pt x 274.02374pt>
 File: ../figures/binompower1.pdf Graphic file (type pdf)
 <use ../figures/binompower1.pdf>
 Package pdftex.def Info: ../figures/binompower1.pdf  used on input line 623.
@@ -1044,7 +3021,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 640.
 See the caption package documentation for explanation.
 
-<../figures/binompower2.pdf, id=1413, 578.16pt x 274.02374pt>
+<../figures/binompower2.pdf, id=1416, 578.16pt x 274.02374pt>
 File: ../figures/binompower2.pdf Graphic file (type pdf)
 <use ../figures/binompower2.pdf>
 Package pdftex.def Info: ../figures/binompower2.pdf  used on input line 652.
@@ -1055,7 +3032,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [41 <../figures/binompower1.pdf>] [42 <../figures/binompower2.pdf>]
-<../figures/binompvsn.pdf, id=1450, 266.9975pt x 216.81pt>
+<../figures/binompvsn.pdf, id=1453, 266.9975pt x 216.81pt>
 File: ../figures/binompvsn.pdf Graphic file (type pdf)
 <use ../figures/binompvsn.pdf>
 Package pdftex.def Info: ../figures/binompvsn.pdf  used on input line 751.
@@ -1072,7 +3049,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 750--763
  []
 
 [43 <../figures/binompvsn.pdf>]
-<../figures/binomcik2n5.pdf, id=1470, 505.89pt x 252.945pt>
+<../figures/binomcik2n5.pdf, id=1473, 505.89pt x 252.945pt>
 File: ../figures/binomcik2n5.pdf Graphic file (type pdf)
 <use ../figures/binomcik2n5.pdf>
 Package pdftex.def Info: ../figures/binomcik2n5.pdf  used on input line 850.
@@ -1089,7 +3066,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 849--861
  []
 
 [44]
-<../figures/binomcik4n5.pdf, id=1482, 505.89pt x 252.945pt>
+<../figures/binomcik4n5.pdf, id=1485, 505.89pt x 252.945pt>
 File: ../figures/binomcik4n5.pdf Graphic file (type pdf)
 <use ../figures/binomcik4n5.pdf>
 Package pdftex.def Info: ../figures/binomcik4n5.pdf  used on input line 869.
@@ -1105,7 +3082,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 868--881
 [] [] 
  []
 
-<../figures/binomcik12n30.pdf, id=1483, 505.89pt x 252.945pt>
+<../figures/binomcik12n30.pdf, id=1486, 505.89pt x 252.945pt>
 File: ../figures/binomcik12n30.pdf Graphic file (type pdf)
 <use ../figures/binomcik12n30.pdf>
 Package pdftex.def Info: ../figures/binomcik12n30.pdf  used on input line 891.
@@ -1120,7 +3097,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 890--903
 [] [] 
  []
 
-<../figures/binomcivsn.pdf, id=1484, 505.89pt x 216.81pt>
+<../figures/binomcivsn.pdf, id=1487, 505.89pt x 216.81pt>
 File: ../figures/binomcivsn.pdf Graphic file (type pdf)
 <use ../figures/binomcivsn.pdf>
 Package pdftex.def Info: ../figures/binomcivsn.pdf  used on input line 910.
@@ -1145,7 +3122,7 @@ pdfTeX warning: pdflatex (file ../figures/binomcik12n30.pdf): PDF inclusion: mu
 ltiple pdfs with page group included in a single page
 >]) (./poisson.tex [46 <../figures/binomcivsn.pdf>]
 Chapter 6.
-<../figures/declusteredquakes.pdf, id=1528, 578.16pt x 129.48375pt>
+<../figures/declusteredquakes.pdf, id=1531, 578.16pt x 129.48375pt>
 File: ../figures/declusteredquakes.pdf Graphic file (type pdf)
 <use ../figures/declusteredquakes.pdf>
 Package pdftex.def Info: ../figures/declusteredquakes.pdf  used on input line 1
@@ -1156,7 +3133,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 15.
 See the caption package documentation for explanation.
 
-<../figures/declusteredquakesperyear.pdf, id=1529, 289.08pt x 216.81pt>
+<../figures/declusteredquakesperyear.pdf, id=1532, 289.08pt x 216.81pt>
 File: ../figures/declusteredquakesperyear.pdf Graphic file (type pdf)
 <use ../figures/declusteredquakesperyear.pdf>
 Package pdftex.def Info: ../figures/declusteredquakesperyear.pdf  used on input
@@ -1172,7 +3149,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 22--36
 [] [] 
  []
 
-<../figures/zircons.pdf, id=1532, 1084.05pt x 361.35pt>
+<../figures/zircons.pdf, id=1535, 1084.05pt x 361.35pt>
 File: ../figures/zircons.pdf Graphic file (type pdf)
 <use ../figures/zircons.pdf>
 Package pdftex.def Info: ../figures/zircons.pdf  used on input line 46.
@@ -1189,7 +3166,7 @@ See the caption package documentation for explanation.
 pdfTeX warning: pdflatex (file ../figures/declusteredquakesperyear.pdf): PDF in
 clusion: multiple pdfs with page group included in a single page
 >]
-<../figures/zirconcounts.pdf, id=1555, 867.24pt x 289.08pt>
+<../figures/zirconcounts.pdf, id=1558, 867.24pt x 289.08pt>
 File: ../figures/zirconcounts.pdf Graphic file (type pdf)
 <use ../figures/zirconcounts.pdf>
 Package pdftex.def Info: ../figures/zirconcounts.pdf  used on input line 54.
@@ -1200,7 +3177,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 56.
 See the caption package documentation for explanation.
 
-<../figures/zirconhist.pdf, id=1558, 216.81pt x 180.675pt>
+<../figures/zirconhist.pdf, id=1561, 216.81pt x 180.675pt>
 File: ../figures/zirconhist.pdf Graphic file (type pdf)
 <use ../figures/zirconhist.pdf>
 Package pdftex.def Info: ../figures/zirconhist.pdf  used on input line 62.
@@ -1224,7 +3201,7 @@ tiple pdfs with page group included in a single page
 pdfTeX warning: pdflatex (file ../figures/zirconhist.pdf): PDF inclusion: multi
 ple pdfs with page group included in a single page
 >]
-<../figures/increasinglambda.pdf, id=1592, 578.16pt x 216.81pt>
+<../figures/increasinglambda.pdf, id=1595, 578.16pt x 216.81pt>
 File: ../figures/increasinglambda.pdf Graphic file (type pdf)
 <use ../figures/increasinglambda.pdf>
 Package pdftex.def Info: ../figures/increasinglambda.pdf  used on input line 95
@@ -1247,7 +3224,7 @@ Overfull \hbox (2.21088pt too wide) in paragraph at lines 115--125
  []
 
 [49 <../figures/increasinglambda.pdf>] [50]
-<../figures/poishyp.pdf, id=1629, 433.62pt x 216.81pt>
+<../figures/poishyp.pdf, id=1632, 433.62pt x 216.81pt>
 File: ../figures/poishyp.pdf Graphic file (type pdf)
 <use ../figures/poishyp.pdf>
 Package pdftex.def Info: ../figures/poishyp.pdf  used on input line 266.
@@ -1264,7 +3241,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 265--277
  []
 
 [51 <../figures/poishyp.pdf>]
-<../figures/poisci.pdf, id=1653, 433.62pt x 194.7275pt>
+<../figures/poisci.pdf, id=1656, 433.62pt x 194.7275pt>
 File: ../figures/poisci.pdf Graphic file (type pdf)
 <use ../figures/poisci.pdf>
 Package pdftex.def Info: ../figures/poisci.pdf  used on input line 354.
@@ -1280,7 +3257,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 353--364
 [] [] 
  []
 
-<../figures/poiserrbars.pdf, id=1655, 722.7pt x 180.675pt>
+<../figures/poiserrbars.pdf, id=1658, 722.7pt x 180.675pt>
 File: ../figures/poiserrbars.pdf Graphic file (type pdf)
 <use ../figures/poiserrbars.pdf>
 Package pdftex.def Info: ../figures/poiserrbars.pdf  used on input line 369.
@@ -1299,7 +3276,7 @@ iple pdfs with page group included in a single page
 ]
 Chapter 7.
 [55]
-<../figures/quakerug.pdf, id=1718, 578.16pt x 72.27pt>
+<../figures/quakerug.pdf, id=1721, 578.16pt x 72.27pt>
 File: ../figures/quakerug.pdf Graphic file (type pdf)
 <use ../figures/quakerug.pdf>
 Package pdftex.def Info: ../figures/quakerug.pdf  used on input line 76.
@@ -1310,7 +3287,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 78.
 See the caption package documentation for explanation.
 
-<../figures/CLTfaithful1.pdf, id=1722, 216.81pt x 144.54pt>
+<../figures/CLTfaithful1.pdf, id=1725, 216.81pt x 144.54pt>
 File: ../figures/CLTfaithful1.pdf Graphic file (type pdf)
 <use ../figures/CLTfaithful1.pdf>
 Package pdftex.def Info: ../figures/CLTfaithful1.pdf  used on input line 95.
@@ -1325,7 +3302,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 94--104
 [] [] 
  []
 
-<../figures/CLTfaithful2.pdf, id=1725, 216.81pt x 144.54pt>
+<../figures/CLTfaithful2.pdf, id=1728, 216.81pt x 144.54pt>
 File: ../figures/CLTfaithful2.pdf Graphic file (type pdf)
 <use ../figures/CLTfaithful2.pdf>
 Package pdftex.def Info: ../figures/CLTfaithful2.pdf  used on input line 110.
@@ -1340,7 +3317,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 109--121
 [] [] 
  []
 
-<../figures/CLTfaithful3.pdf, id=1726, 216.81pt x 144.54pt>
+<../figures/CLTfaithful3.pdf, id=1729, 216.81pt x 144.54pt>
 File: ../figures/CLTfaithful3.pdf Graphic file (type pdf)
 <use ../figures/CLTfaithful3.pdf>
 Package pdftex.def Info: ../figures/CLTfaithful3.pdf  used on input line 123.
@@ -1355,7 +3332,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 122--134
 [] [] 
  []
 
-<../figures/CLTfaithful10.pdf, id=1727, 216.81pt x 144.54pt>
+<../figures/CLTfaithful10.pdf, id=1730, 216.81pt x 144.54pt>
 File: ../figures/CLTfaithful10.pdf Graphic file (type pdf)
 <use ../figures/CLTfaithful10.pdf>
 Package pdftex.def Info: ../figures/CLTfaithful10.pdf  used on input line 136.
@@ -1383,7 +3360,7 @@ tiple pdfs with page group included in a single page
 pdfTeX warning: pdflatex (file ../figures/CLTfaithful3.pdf): PDF inclusion: mul
 tiple pdfs with page group included in a single page
 >]
-<../figures/galtonsbeanmachine.pdf, id=1767, 433.62pt x 361.35pt>
+<../figures/galtonsbeanmachine.pdf, id=1770, 433.62pt x 361.35pt>
 File: ../figures/galtonsbeanmachine.pdf Graphic file (type pdf)
 <use ../figures/galtonsbeanmachine.pdf>
 Package pdftex.def Info: ../figures/galtonsbeanmachine.pdf  used on input line 
@@ -1405,7 +3382,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 169--184
 pdfTeX warning: pdflatex (file ../figures/galtonsbeanmachine.pdf): PDF inclusio
 n: multiple pdfs with page group included in a single page
 >]
-<../figures/pop2d.pdf, id=1791, 578.16pt x 144.54pt>
+<../figures/pop2d.pdf, id=1794, 578.16pt x 144.54pt>
 File: ../figures/pop2d.pdf Graphic file (type pdf)
 <use ../figures/pop2d.pdf>
 Package pdftex.def Info: ../figures/pop2d.pdf  used on input line 207.
@@ -1416,7 +3393,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 210.
 See the caption package documentation for explanation.
 
-<../figures/rand2d.pdf, id=1792, 578.16pt x 144.54pt>
+<../figures/rand2d.pdf, id=1795, 578.16pt x 144.54pt>
 File: ../figures/rand2d.pdf Graphic file (type pdf)
 <use ../figures/rand2d.pdf>
 Package pdftex.def Info: ../figures/rand2d.pdf  used on input line 217.
@@ -1426,7 +3403,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 220.
 See the caption package documentation for explanation.
 
-<../figures/rand2dsum.pdf, id=1796, 578.16pt x 144.54pt>
+<../figures/rand2dsum.pdf, id=1799, 578.16pt x 144.54pt>
 File: ../figures/rand2dsum.pdf Graphic file (type pdf)
 <use ../figures/rand2dsum.pdf>
 Package pdftex.def Info: ../figures/rand2dsum.pdf  used on input line 229.
@@ -1445,7 +3422,7 @@ pdfs with page group included in a single page
 pdfTeX warning: pdflatex (file ../figures/rand2dsum.pdf): PDF inclusion: multip
 le pdfs with page group included in a single page
 >]
-<../figures/norm2dmarginal.pdf, id=1831, 361.35pt x 361.35pt>
+<../figures/norm2dmarginal.pdf, id=1834, 361.35pt x 361.35pt>
 File: ../figures/norm2dmarginal.pdf Graphic file (type pdf)
 <use ../figures/norm2dmarginal.pdf>
 Package pdftex.def Info: ../figures/norm2dmarginal.pdf  used on input line 274.
@@ -1462,7 +3439,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 273--290
 [] [] 
  []
 
-<../figures/musigma.pdf, id=1836, 578.16pt x 129.48375pt>
+<../figures/musigma.pdf, id=1839, 578.16pt x 129.48375pt>
 File: ../figures/musigma.pdf Graphic file (type pdf)
 <use ../figures/musigma.pdf>
 Package pdftex.def Info: ../figures/musigma.pdf  used on input line 305.
@@ -1472,7 +3449,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 310.
 See the caption package documentation for explanation.
 
-<../figures/2sigma.pdf, id=1837, 505.89pt x 144.54pt>
+<../figures/2sigma.pdf, id=1840, 505.89pt x 144.54pt>
 File: ../figures/2sigma.pdf Graphic file (type pdf)
 <use ../figures/2sigma.pdf>
 Package pdftex.def Info: ../figures/2sigma.pdf  used on input line 319.
@@ -1487,7 +3464,7 @@ See the caption package documentation for explanation.
 pdfTeX warning: pdflatex (file ../figures/musigma.pdf): PDF inclusion: multiple
  pdfs with page group included in a single page
 >]
-<../figures/cov.pdf, id=1870, 505.89pt x 126.4725pt>
+<../figures/cov.pdf, id=1873, 505.89pt x 126.4725pt>
 File: ../figures/cov.pdf Graphic file (type pdf)
 <use ../figures/cov.pdf>
 Package pdftex.def Info: ../figures/cov.pdf  used on input line 333.
@@ -1506,7 +3483,7 @@ s with page group included in a single page
 
 ]
 Chapter 8.
-<../figures/accuracyvsprecision.pdf, id=1943, 505.89pt x 144.54pt>
+<../figures/accuracyvsprecision.pdf, id=1946, 505.89pt x 144.54pt>
 File: ../figures/accuracyvsprecision.pdf Graphic file (type pdf)
 <use ../figures/accuracyvsprecision.pdf>
 Package pdftex.def Info: ../figures/accuracyvsprecision.pdf  used on input line
@@ -1518,7 +3495,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [63 <../figures/accuracyvsprecision.pdf>]
-<../figures/errorprop2d.pdf, id=1960, 216.81pt x 216.81pt>
+<../figures/errorprop2d.pdf, id=1963, 216.81pt x 216.81pt>
 File: ../figures/errorprop2d.pdf Graphic file (type pdf)
 <use ../figures/errorprop2d.pdf>
 Package pdftex.def Info: ../figures/errorprop2d.pdf  used on input line 77.
@@ -1535,7 +3512,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 76--92
  []
 
 [64 <../figures/errorprop2d.pdf>]
-<../figures/errorprop3d.pdf, id=1987, 397.485pt x 397.485pt>
+<../figures/errorprop3d.pdf, id=1990, 397.485pt x 397.485pt>
 File: ../figures/errorprop3d.pdf Graphic file (type pdf)
 <use ../figures/errorprop3d.pdf>
 Package pdftex.def Info: ../figures/errorprop3d.pdf  used on input line 179.
@@ -1556,7 +3533,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 178--193
 
 ]
 Chapter 9.
-<../figures/qqfaithful1.pdf, id=2121, 216.81pt x 180.675pt>
+<../figures/qqfaithful1.pdf, id=2124, 216.81pt x 180.675pt>
 File: ../figures/qqfaithful1.pdf Graphic file (type pdf)
 <use ../figures/qqfaithful1.pdf>
 Package pdftex.def Info: ../figures/qqfaithful1.pdf  used on input line 29.
@@ -1571,7 +3548,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 28--43
 [] [] 
  []
 
-<../figures/qqfaithful2.pdf, id=2122, 216.81pt x 180.675pt>
+<../figures/qqfaithful2.pdf, id=2125, 216.81pt x 180.675pt>
 File: ../figures/qqfaithful2.pdf Graphic file (type pdf)
 <use ../figures/qqfaithful2.pdf>
 Package pdftex.def Info: ../figures/qqfaithful2.pdf  used on input line 45.
@@ -1586,7 +3563,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 44--55
 [] [] 
  []
 
-<../figures/qqfaithful10.pdf, id=2127, 216.81pt x 180.675pt>
+<../figures/qqfaithful10.pdf, id=2130, 216.81pt x 180.675pt>
 File: ../figures/qqfaithful10.pdf Graphic file (type pdf)
 <use ../figures/qqfaithful10.pdf>
 Package pdftex.def Info: ../figures/qqfaithful10.pdf  used on input line 57.
@@ -1606,7 +3583,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 56--73
 pdfTeX warning: pdflatex (file ../figures/qqfaithful2.pdf): PDF inclusion: mult
 iple pdfs with page group included in a single page
 >]
-<../figures/qqfaithful12.pdf, id=2152, 216.81pt x 180.675pt>
+<../figures/qqfaithful12.pdf, id=2155, 216.81pt x 180.675pt>
 File: ../figures/qqfaithful12.pdf Graphic file (type pdf)
 <use ../figures/qqfaithful12.pdf>
 Package pdftex.def Info: ../figures/qqfaithful12.pdf  used on input line 79.
@@ -1627,7 +3604,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 78--92
 pdfTeX warning: pdflatex (file ../figures/qqfaithful12.pdf): PDF inclusion: mul
 tiple pdfs with page group included in a single page
 >]
-<../figures/1samplettest.pdf, id=2186, 433.62pt x 216.81pt>
+<../figures/1samplettest.pdf, id=2189, 433.62pt x 216.81pt>
 File: ../figures/1samplettest.pdf Graphic file (type pdf)
 <use ../figures/1samplettest.pdf>
 Package pdftex.def Info: ../figures/1samplettest.pdf  used on input line 216.
@@ -1644,7 +3621,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 215--228
  []
 
 [75 <../figures/1samplettest.pdf>]
-<../figures/2samplettest.pdf, id=2212, 433.62pt x 216.81pt>
+<../figures/2samplettest.pdf, id=2215, 433.62pt x 216.81pt>
 File: ../figures/2samplettest.pdf Graphic file (type pdf)
 <use ../figures/2samplettest.pdf>
 Package pdftex.def Info: ../figures/2samplettest.pdf  used on input line 344.
@@ -1661,7 +3638,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 343--355
  []
 
 [76] [77 <../figures/2samplettest.pdf>]
-<../figures/tdof.pdf, id=2245, 433.62pt x 216.81pt>
+<../figures/tdof.pdf, id=2248, 433.62pt x 216.81pt>
 File: ../figures/tdof.pdf Graphic file (type pdf)
 <use ../figures/tdof.pdf>
 Package pdftex.def Info: ../figures/tdof.pdf  used on input line 435.
@@ -1683,7 +3660,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 434--447
 [] [] 
  []
 
-<../figures/normconf.pdf, id=2249, 433.62pt x 216.81pt>
+<../figures/normconf.pdf, id=2252, 433.62pt x 216.81pt>
 File: ../figures/normconf.pdf Graphic file (type pdf)
 <use ../figures/normconf.pdf>
 Package pdftex.def Info: ../figures/normconf.pdf  used on input line 471.
@@ -1719,7 +3696,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 pdfTeX warning: pdflatex (file ../figures/normconf.pdf): PDF inclusion: multipl
 e pdfs with page group included in a single page
 >] [79]
-<../figures/chi2.pdf, id=2291, 433.62pt x 216.81pt>
+<../figures/chi2.pdf, id=2294, 433.62pt x 216.81pt>
 File: ../figures/chi2.pdf Graphic file (type pdf)
 <use ../figures/chi2.pdf>
 Package pdftex.def Info: ../figures/chi2.pdf  used on input line 639.
@@ -1747,7 +3724,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [81]
-<../figures/chi22.pdf, id=2338, 433.62pt x 216.81pt>
+<../figures/chi22.pdf, id=2341, 433.62pt x 216.81pt>
 File: ../figures/chi22.pdf Graphic file (type pdf)
 <use ../figures/chi22.pdf>
 Package pdftex.def Info: ../figures/chi22.pdf  used on input line 782.
@@ -1763,7 +3740,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 781--793
 [] [] 
  []
 
-<../figures/cherrypicking.pdf, id=2342, 722.7pt x 361.35pt>
+<../figures/cherrypicking.pdf, id=2345, 722.7pt x 361.35pt>
 File: ../figures/cherrypicking.pdf Graphic file (type pdf)
 <use ../figures/cherrypicking.pdf>
 Package pdftex.def Info: ../figures/cherrypicking.pdf  used on input line 828.
@@ -1792,7 +3769,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [86]
-<../figures/wilcox.pdf, id=2430, 433.62pt x 216.81pt>
+<../figures/wilcox.pdf, id=2433, 433.62pt x 216.81pt>
 File: ../figures/wilcox.pdf Graphic file (type pdf)
 <use ../figures/wilcox.pdf>
 Package pdftex.def Info: ../figures/wilcox.pdf  used on input line 1220.
@@ -1809,7 +3786,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 1219--1232
  []
 
 [87 <../figures/wilcox.pdf>]
-<../figures/KS.pdf, id=2451, 252.945pt x 252.945pt>
+<../figures/KS.pdf, id=2454, 252.945pt x 252.945pt>
 File: ../figures/KS.pdf Graphic file (type pdf)
 <use ../figures/KS.pdf>
 Package pdftex.def Info: ../figures/KS.pdf  used on input line 1261.
@@ -1835,7 +3812,7 @@ Overfull \hbox (23.09273pt too wide) in paragraph at lines 1306--1315
 [][] 
  []
 
-<../figures/KSdens.pdf, id=2453, 433.62pt x 216.81pt>
+<../figures/KSdens.pdf, id=2456, 433.62pt x 216.81pt>
 File: ../figures/KSdens.pdf Graphic file (type pdf)
 <use ../figures/KSdens.pdf>
 Package pdftex.def Info: ../figures/KSdens.pdf  used on input line 1324.
@@ -1851,7 +3828,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 1323--1336
  []
 
 [88 <../figures/KS.pdf>]
-<../figures/KSnorm.pdf, id=2475, 252.945pt x 252.945pt>
+<../figures/KSnorm.pdf, id=2478, 252.945pt x 252.945pt>
 File: ../figures/KSnorm.pdf Graphic file (type pdf)
 <use ../figures/KSnorm.pdf>
 Package pdftex.def Info: ../figures/KSnorm.pdf  used on input line 1344.
@@ -1885,7 +3862,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 48.
 See the caption package documentation for explanation.
 
-<../figures/RbSr.pdf, id=2502, 216.81pt x 216.81pt>
+<../figures/RbSr.pdf, id=2505, 216.81pt x 216.81pt>
 File: ../figures/RbSr.pdf Graphic file (type pdf)
 <use ../figures/RbSr.pdf>
 Package pdftex.def Info: ../figures/RbSr.pdf  used on input line 55.
@@ -1911,7 +3888,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 76--78
  []
 
 [91 <../figures/RbSr.pdf>]
-<../figures/r.pdf, id=2526, 519.9425pt x 136.51pt>
+<../figures/r.pdf, id=2529, 519.9425pt x 136.51pt>
 File: ../figures/r.pdf Graphic file (type pdf)
 <use ../figures/r.pdf>
 Package pdftex.def Info: ../figures/r.pdf  used on input line 119.
@@ -1927,7 +3904,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 148--166
 
  []
 
-<../figures/tr.pdf, id=2548, 433.62pt x 216.81pt>
+<../figures/tr.pdf, id=2551, 433.62pt x 216.81pt>
 File: ../figures/tr.pdf Graphic file (type pdf)
 <use ../figures/tr.pdf>
 Package pdftex.def Info: ../figures/tr.pdf  used on input line 216.
@@ -1953,7 +3930,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 263.
 See the caption package documentation for explanation.
 
-<../figures/tryRbSr.pdf, id=2572, 578.16pt x 180.675pt>
+<../figures/tryRbSr.pdf, id=2575, 578.16pt x 180.675pt>
 File: ../figures/tryRbSr.pdf Graphic file (type pdf)
 <use ../figures/tryRbSr.pdf>
 Package pdftex.def Info: ../figures/tryRbSr.pdf  used on input line 269.
@@ -1968,7 +3945,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 431--436
 
  []
 
-<../figures/envelope.pdf, id=2631, 216.81pt x 216.81pt>
+<../figures/envelope.pdf, id=2634, 216.81pt x 216.81pt>
 File: ../figures/envelope.pdf Graphic file (type pdf)
 <use ../figures/envelope.pdf>
 Package pdftex.def Info: ../figures/envelope.pdf  used on input line 465.
@@ -1988,7 +3965,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 464--477
 [] [] 
  []
 
-<../figures/prediction-interval.pdf, id=2636, 433.62pt x 144.54pt>
+<../figures/prediction-interval.pdf, id=2639, 433.62pt x 144.54pt>
 File: ../figures/prediction-interval.pdf Graphic file (type pdf)
 <use ../figures/prediction-interval.pdf>
 Package pdftex.def Info: ../figures/prediction-interval.pdf  used on input line
@@ -2000,7 +3977,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [96 <../figures/envelope.pdf>]
-<../figures/regression-p-hacking.pdf, id=2655, 722.7pt x 361.35pt>
+<../figures/regression-p-hacking.pdf, id=2658, 722.7pt x 361.35pt>
 File: ../figures/regression-p-hacking.pdf Graphic file (type pdf)
 <use ../figures/regression-p-hacking.pdf>
 Package pdftex.def Info: ../figures/regression-p-hacking.pdf  used on input lin
@@ -2012,7 +3989,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 527.
 See the caption package documentation for explanation.
 
-<../figures/regression-outlier.pdf, id=2656, 216.81pt x 216.81pt>
+<../figures/regression-outlier.pdf, id=2659, 216.81pt x 216.81pt>
 File: ../figures/regression-outlier.pdf Graphic file (type pdf)
 <use ../figures/regression-outlier.pdf>
 Package pdftex.def Info: ../figures/regression-outlier.pdf  used on input line 
@@ -2033,7 +4010,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 537--551
 pdfTeX warning: pdflatex (file ../figures/regression-p-hacking.pdf): PDF inclus
 ion: multiple pdfs with page group included in a single page
 >]
-<../figures/spurious.pdf, id=2683, 650.43pt x 129.48375pt>
+<../figures/spurious.pdf, id=2686, 650.43pt x 129.48375pt>
 File: ../figures/spurious.pdf Graphic file (type pdf)
 <use ../figures/spurious.pdf>
 Package pdftex.def Info: ../figures/spurious.pdf  used on input line 559.
@@ -2058,7 +4035,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 737.
 See the caption package documentation for explanation.
 
-<../figures/errorfit.pdf, id=2724, 252.945pt x 252.945pt>
+<../figures/errorfit.pdf, id=2727, 252.945pt x 252.945pt>
 File: ../figures/errorfit.pdf Graphic file (type pdf)
 <use ../figures/errorfit.pdf>
 Package pdftex.def Info: ../figures/errorfit.pdf  used on input line 745.
@@ -2074,7 +4051,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 744--762
  []
 
 [99]
-<../figures/yorkfit.pdf, id=2737, 505.89pt x 252.945pt>
+<../figures/yorkfit.pdf, id=2740, 505.89pt x 252.945pt>
 File: ../figures/yorkfit.pdf Graphic file (type pdf)
 <use ../figures/yorkfit.pdf>
 Package pdftex.def Info: ../figures/yorkfit.pdf  used on input line 804.
@@ -2111,7 +4088,7 @@ pdfTeX warning: pdflatex (file ../figures/yorkfit.pdf): PDF inclusion: multiple
  pdfs with page group included in a single page
 >]
 Chapter 11.
-<../figures/recentquakes.pdf, id=2771, 289.08pt x 180.675pt>
+<../figures/recentquakes.pdf, id=2774, 289.08pt x 180.675pt>
 File: ../figures/recentquakes.pdf Graphic file (type pdf)
 <use ../figures/recentquakes.pdf>
 Package pdftex.def Info: ../figures/recentquakes.pdf  used on input line 12.
@@ -2126,7 +4103,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 11--19
 [] [] 
  []
 
-<../figures/recentlogquakes.pdf, id=2777, 289.08pt x 180.675pt>
+<../figures/recentlogquakes.pdf, id=2780, 289.08pt x 180.675pt>
 File: ../figures/recentlogquakes.pdf Graphic file (type pdf)
 <use ../figures/recentlogquakes.pdf>
 Package pdftex.def Info: ../figures/recentlogquakes.pdf  used on input line 35.
@@ -2149,7 +4126,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 34--43
 pdfTeX warning: pdflatex (file ../figures/recentlogquakes.pdf): PDF inclusion: 
 multiple pdfs with page group included in a single page
 >]
-<../figures/gutenberg.pdf, id=2803, 216.81pt x 216.81pt>
+<../figures/gutenberg.pdf, id=2806, 216.81pt x 216.81pt>
 File: ../figures/gutenberg.pdf Graphic file (type pdf)
 <use ../figures/gutenberg.pdf>
 Package pdftex.def Info: ../figures/gutenberg.pdf  used on input line 63.
@@ -2165,7 +4142,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 62--73
 [] [] 
  []
 
-<../figures/Finland.png, id=2810, 216.81pt x 216.81pt>
+<../figures/Finland.png, id=2813, 216.81pt x 216.81pt>
 File: ../figures/Finland.png Graphic file (type png)
 <use ../figures/Finland.png>
 Package pdftex.def Info: ../figures/Finland.png  used on input line 131.
@@ -2181,7 +4158,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 130--144
  []
 
 [102 <../figures/gutenberg.pdf>]
-<../figures/Finland.pdf, id=2829, 216.81pt x 216.81pt>
+<../figures/Finland.pdf, id=2832, 216.81pt x 216.81pt>
 File: ../figures/Finland.pdf Graphic file (type pdf)
 <use ../figures/Finland.pdf>
 Package pdftex.def Info: ../figures/Finland.pdf  used on input line 149.
@@ -2197,7 +4174,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 148--159
 [] [] 
  []
 
-<../figures/britain.pdf, id=2833, 505.89pt x 144.54pt>
+<../figures/britain.pdf, id=2836, 505.89pt x 144.54pt>
 File: ../figures/britain.pdf Graphic file (type pdf)
 <use ../figures/britain.pdf>
 Package pdftex.def Info: ../figures/britain.pdf  used on input line 175.
@@ -2212,7 +4189,7 @@ See the caption package documentation for explanation.
 pdfTeX warning: pdflatex (file ../figures/britain.pdf): PDF inclusion: multiple
  pdfs with page group included in a single page
 >]
-<../figures/loglogbritain.pdf, id=2859, 216.81pt x 216.81pt>
+<../figures/loglogbritain.pdf, id=2862, 216.81pt x 216.81pt>
 File: ../figures/loglogbritain.pdf Graphic file (type pdf)
 <use ../figures/loglogbritain.pdf>
 Package pdftex.def Info: ../figures/loglogbritain.pdf  used on input line 188.
@@ -2228,7 +4205,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 187--201
 [] [] 
  []
 
-<../figures/fractaldimbritain.pdf, id=2860, 216.81pt x 216.81pt>
+<../figures/fractaldimbritain.pdf, id=2863, 216.81pt x 216.81pt>
 File: ../figures/fractaldimbritain.pdf Graphic file (type pdf)
 <use ../figures/fractaldimbritain.pdf>
 Package pdftex.def Info: ../figures/fractaldimbritain.pdf  used on input line 2
@@ -2244,7 +4221,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 208--219
 [] [] 
  []
 
-<../figures/Britainboxes.png, id=2865, 838.332pt x 216.81pt>
+<../figures/Britainboxes.png, id=2868, 838.332pt x 216.81pt>
 File: ../figures/Britainboxes.png Graphic file (type png)
 <use ../figures/Britainboxes.png>
 Package pdftex.def Info: ../figures/Britainboxes.png  used on input line 225.
@@ -2254,7 +4231,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 231.
 See the caption package documentation for explanation.
 
-<../figures/Britainboxcounts.pdf, id=2867, 216.81pt x 216.81pt>
+<../figures/Britainboxcounts.pdf, id=2870, 216.81pt x 216.81pt>
 File: ../figures/Britainboxcounts.pdf Graphic file (type pdf)
 <use ../figures/Britainboxcounts.pdf>
 Package pdftex.def Info: ../figures/Britainboxcounts.pdf  used on input line 24
@@ -2275,7 +4252,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 240--251
 pdfTeX warning: pdflatex (file ../figures/fractaldimbritain.pdf): PDF inclusion
 : multiple pdfs with page group included in a single page
 > <../figures/Britainboxes.png>]
-<../figures/Corsica.png, id=2893, 794.97pt x 216.81pt>
+<../figures/Corsica.png, id=2896, 794.97pt x 216.81pt>
 File: ../figures/Corsica.png Graphic file (type png)
 <use ../figures/Corsica.png>
 Package pdftex.def Info: ../figures/Corsica.png  used on input line 256.
@@ -2286,7 +4263,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 260.
 See the caption package documentation for explanation.
 
-<../figures/Corsicaboxcounts.pdf, id=2896, 216.81pt x 216.81pt>
+<../figures/Corsicaboxcounts.pdf, id=2899, 216.81pt x 216.81pt>
 File: ../figures/Corsicaboxcounts.pdf Graphic file (type pdf)
 <use ../figures/Corsicaboxcounts.pdf>
 Package pdftex.def Info: ../figures/Corsicaboxcounts.pdf  used on input line 26
@@ -2302,7 +4279,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 266--275
 [] [] 
  []
 
-<../figures/koch1.pdf, id=2900, 469.755pt x 144.54pt>
+<../figures/koch1.pdf, id=2903, 469.755pt x 144.54pt>
 File: ../figures/koch1.pdf Graphic file (type pdf)
 <use ../figures/koch1.pdf>
 Package pdftex.def Info: ../figures/koch1.pdf  used on input line 286.
@@ -2323,7 +4300,7 @@ sicaboxcounts.pdf
 pdfTeX warning: pdflatex (file ../figures/Corsicaboxcounts.pdf): PDF inclusion:
  multiple pdfs with page group included in a single page
 >]
-<../figures/koch2.pdf, id=2924, 469.755pt x 144.54pt>
+<../figures/koch2.pdf, id=2927, 469.755pt x 144.54pt>
 File: ../figures/koch2.pdf Graphic file (type pdf)
 <use ../figures/koch2.pdf>
 Package pdftex.def Info: ../figures/koch2.pdf  used on input line 299.
@@ -2339,7 +4316,7 @@ Overfull \hbox (2.43333pt too wide) in paragraph at lines 298--309
 [] [] 
  []
 
-<../figures/koch3.pdf, id=2925, 469.755pt x 144.54pt>
+<../figures/koch3.pdf, id=2928, 469.755pt x 144.54pt>
 File: ../figures/koch3.pdf Graphic file (type pdf)
 <use ../figures/koch3.pdf>
 Package pdftex.def Info: ../figures/koch3.pdf  used on input line 311.
@@ -2354,7 +4331,7 @@ Overfull \hbox (2.43333pt too wide) in paragraph at lines 310--321
 [] [] 
  []
 
-<../figures/koch6.pdf, id=2926, 469.755pt x 144.54pt>
+<../figures/koch6.pdf, id=2929, 469.755pt x 144.54pt>
 File: ../figures/koch6.pdf Graphic file (type pdf)
 <use ../figures/koch6.pdf>
 Package pdftex.def Info: ../figures/koch6.pdf  used on input line 323.
@@ -2369,7 +4346,7 @@ Overfull \hbox (2.43333pt too wide) in paragraph at lines 322--332
 [] [] 
  []
 
-<../figures/koch.png, id=2927, 867.24pt x 93.951pt>
+<../figures/koch.png, id=2930, 867.24pt x 93.951pt>
 File: ../figures/koch.png Graphic file (type png)
 <use ../figures/koch.png>
 Package pdftex.def Info: ../figures/koch.png  used on input line 341.
@@ -2379,7 +4356,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 346.
 See the caption package documentation for explanation.
 
-<../figures/kochboxcounts.pdf, id=2928, 216.81pt x 216.81pt>
+<../figures/kochboxcounts.pdf, id=2931, 216.81pt x 216.81pt>
 File: ../figures/kochboxcounts.pdf Graphic file (type pdf)
 <use ../figures/kochboxcounts.pdf>
 Package pdftex.def Info: ../figures/kochboxcounts.pdf  used on input line 353.
@@ -2407,7 +4384,7 @@ dfs with page group included in a single page
 pdfTeX warning: pdflatex (file ../figures/koch6.pdf): PDF inclusion: multiple p
 dfs with page group included in a single page
 > <../figures/koch.png>]
-<../figures/sierpinski.pdf, id=2950, 867.24pt x 180.675pt>
+<../figures/sierpinski.pdf, id=2953, 867.24pt x 180.675pt>
 File: ../figures/sierpinski.pdf Graphic file (type pdf)
 <use ../figures/sierpinski.pdf>
 Package pdftex.def Info: ../figures/sierpinski.pdf  used on input line 370.
@@ -2418,7 +4395,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 379.
 See the caption package documentation for explanation.
 
-<../figures/sierpinskiboxcounts.pdf, id=2953, 216.81pt x 216.81pt>
+<../figures/sierpinskiboxcounts.pdf, id=2956, 216.81pt x 216.81pt>
 File: ../figures/sierpinskiboxcounts.pdf Graphic file (type pdf)
 <use ../figures/sierpinskiboxcounts.pdf>
 Package pdftex.def Info: ../figures/sierpinskiboxcounts.pdf  used on input line
@@ -2443,7 +4420,7 @@ ple pdfs with page group included in a single page
 pdfTeX warning: pdflatex (file ../figures/sierpinskiboxcounts.pdf): PDF inclusi
 on: multiple pdfs with page group included in a single page
 >]
-<../figures/cantor.pdf, id=2987, 289.08pt x 108.405pt>
+<../figures/cantor.pdf, id=2990, 289.08pt x 108.405pt>
 File: ../figures/cantor.pdf Graphic file (type pdf)
 <use ../figures/cantor.pdf>
 Package pdftex.def Info: ../figures/cantor.pdf  used on input line 446.
@@ -2459,7 +4436,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 445--456
 [] [] 
  []
 
-<../figures/cantorloglog.pdf, id=2988, 216.81pt x 216.81pt>
+<../figures/cantorloglog.pdf, id=2991, 216.81pt x 216.81pt>
 File: ../figures/cantorloglog.pdf Graphic file (type pdf)
 <use ../figures/cantorloglog.pdf>
 Package pdftex.def Info: ../figures/cantorloglog.pdf  used on input line 460.
@@ -2474,7 +4451,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 459--470
 [] [] 
  []
 
-<../figures/pendulum.pdf, id=2989, 252.945pt x 252.945pt>
+<../figures/pendulum.pdf, id=2992, 252.945pt x 252.945pt>
 File: ../figures/pendulum.pdf Graphic file (type pdf)
 <use ../figures/pendulum.pdf>
 Package pdftex.def Info: ../figures/pendulum.pdf  used on input line 477.
@@ -2494,7 +4471,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 476--490
 pdfTeX warning: pdflatex (file ../figures/cantorloglog.pdf): PDF inclusion: mul
 tiple pdfs with page group included in a single page
 >]
-<../figures/3magnets1.pdf, id=3014, 216.81pt x 216.81pt>
+<../figures/3magnets1.pdf, id=3017, 216.81pt x 216.81pt>
 File: ../figures/3magnets1.pdf Graphic file (type pdf)
 <use ../figures/3magnets1.pdf>
 Package pdftex.def Info: ../figures/3magnets1.pdf  used on input line 495.
@@ -2510,7 +4487,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 494--509
 [] [] 
  []
 
-<../figures/3magnets2.pdf, id=3017, 216.81pt x 216.81pt>
+<../figures/3magnets2.pdf, id=3020, 216.81pt x 216.81pt>
 File: ../figures/3magnets2.pdf Graphic file (type pdf)
 <use ../figures/3magnets2.pdf>
 Package pdftex.def Info: ../figures/3magnets2.pdf  used on input line 514.
@@ -2525,7 +4502,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 513--530
 [] [] 
  []
 
-<../figures/3magnets.png, id=3022, 433.62pt x 433.62pt>
+<../figures/3magnets.png, id=3025, 433.62pt x 433.62pt>
 File: ../figures/3magnets.png Graphic file (type png)
 <use ../figures/3magnets.png>
 Package pdftex.def Info: ../figures/3magnets.png  used on input line 536.
@@ -2550,7 +4527,7 @@ pdfTeX warning: pdflatex (file ../figures/3magnets2.pdf): PDF inclusion: multip
 le pdfs with page group included in a single page
 >]) (./unsupervised.tex [110 <../figures/3magnets.png>]
 Chapter 12.
-<../figures/PCA2Ddata.pdf, id=3062, 158.5925pt x 158.5925pt>
+<../figures/PCA2Ddata.pdf, id=3065, 158.5925pt x 158.5925pt>
 File: ../figures/PCA2Ddata.pdf Graphic file (type pdf)
 <use ../figures/PCA2Ddata.pdf>
 Package pdftex.def Info: ../figures/PCA2Ddata.pdf  used on input line 39.
@@ -2568,7 +4545,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 38--49
 [111
 
  <../figures/PCA2Ddata.pdf>]
-<../figures/PCA2D1.pdf, id=3083, 180.675pt x 180.675pt>
+<../figures/PCA2D1.pdf, id=3086, 180.675pt x 180.675pt>
 File: ../figures/PCA2D1.pdf Graphic file (type pdf)
 <use ../figures/PCA2D1.pdf>
 Package pdftex.def Info: ../figures/PCA2D1.pdf  used on input line 159.
@@ -2584,7 +4561,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 158--171
 [] [] 
  []
 
-<../figures/PCA2D2.pdf, id=3086, 180.675pt x 108.405pt>
+<../figures/PCA2D2.pdf, id=3089, 180.675pt x 108.405pt>
 File: ../figures/PCA2D2.pdf Graphic file (type pdf)
 <use ../figures/PCA2D2.pdf>
 Package pdftex.def Info: ../figures/PCA2D2.pdf  used on input line 176.
@@ -2604,7 +4581,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 175--185
 pdfTeX warning: pdflatex (file ../figures/PCA2D2.pdf): PDF inclusion: multiple 
 pdfs with page group included in a single page
 >]
-<../figures/PCA2D3.pdf, id=3120, 180.675pt x 180.675pt>
+<../figures/PCA2D3.pdf, id=3123, 180.675pt x 180.675pt>
 File: ../figures/PCA2D3.pdf Graphic file (type pdf)
 <use ../figures/PCA2D3.pdf>
 Package pdftex.def Info: ../figures/PCA2D3.pdf  used on input line 203.
@@ -2635,7 +4612,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 223--248
 [] []
  []
 
-<../figures/USArrests.pdf, id=3122, 361.35pt x 361.35pt>
+<../figures/USArrests.pdf, id=3125, 361.35pt x 361.35pt>
 File: ../figures/USArrests.pdf Graphic file (type pdf)
 <use ../figures/USArrests.pdf>
 Package pdftex.def Info: ../figures/USArrests.pdf  used on input line 255.
@@ -2656,7 +4633,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 352.
 See the caption package documentation for explanation.
 
-<../figures/eurodist.pdf, id=3158, 289.08pt x 289.08pt>
+<../figures/eurodist.pdf, id=3161, 289.08pt x 289.08pt>
 File: ../figures/eurodist.pdf Graphic file (type pdf)
 <use ../figures/eurodist.pdf>
 Package pdftex.def Info: ../figures/eurodist.pdf  used on input line 360.
@@ -2671,7 +4648,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 359--375
 [] [] 
  []
 
-<../figures/Shepard.pdf, id=3162, 216.81pt x 216.81pt>
+<../figures/Shepard.pdf, id=3165, 216.81pt x 216.81pt>
 File: ../figures/Shepard.pdf Graphic file (type pdf)
 <use ../figures/Shepard.pdf>
 Package pdftex.def Info: ../figures/Shepard.pdf  used on input line 382.
@@ -2693,7 +4670,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [116 <../figures/Shepard.pdf>]
-<../figures/DZmds.pdf, id=3214, 289.08pt x 216.81pt>
+<../figures/DZmds.pdf, id=3217, 289.08pt x 216.81pt>
 File: ../figures/DZmds.pdf Graphic file (type pdf)
 <use ../figures/DZmds.pdf>
 Package pdftex.def Info: ../figures/DZmds.pdf  used on input line 472.
@@ -2709,7 +4686,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 471--484
 [] [] 
  []
 
-<../figures/kmeans1.pdf, id=3215, 216.81pt x 216.81pt>
+<../figures/kmeans1.pdf, id=3218, 216.81pt x 216.81pt>
 File: ../figures/kmeans1.pdf Graphic file (type pdf)
 <use ../figures/kmeans1.pdf>
 Package pdftex.def Info: ../figures/kmeans1.pdf  used on input line 495.
@@ -2729,7 +4706,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 494--503
 pdfTeX warning: pdflatex (file ../figures/kmeans1.pdf): PDF inclusion: multiple
  pdfs with page group included in a single page
 >]
-<../figures/kmeans2.pdf, id=3238, 216.81pt x 216.81pt>
+<../figures/kmeans2.pdf, id=3241, 216.81pt x 216.81pt>
 File: ../figures/kmeans2.pdf Graphic file (type pdf)
 <use ../figures/kmeans2.pdf>
 Package pdftex.def Info: ../figures/kmeans2.pdf  used on input line 511.
@@ -2745,7 +4722,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 510--519
 [] [] 
  []
 
-<../figures/kmeans3.pdf, id=3239, 216.81pt x 216.81pt>
+<../figures/kmeans3.pdf, id=3242, 216.81pt x 216.81pt>
 File: ../figures/kmeans3.pdf Graphic file (type pdf)
 <use ../figures/kmeans3.pdf>
 Package pdftex.def Info: ../figures/kmeans3.pdf  used on input line 524.
@@ -2760,7 +4737,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 523--533
 [] [] 
  []
 
-<../figures/kmeans4.pdf, id=3244, 216.81pt x 216.81pt>
+<../figures/kmeans4.pdf, id=3247, 216.81pt x 216.81pt>
 File: ../figures/kmeans4.pdf Graphic file (type pdf)
 <use ../figures/kmeans4.pdf>
 Package pdftex.def Info: ../figures/kmeans4.pdf  used on input line 537.
@@ -2775,7 +4752,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 536--549
 [] [] 
  []
 
-<../figures/kmeans5.pdf, id=3249, 216.81pt x 216.81pt>
+<../figures/kmeans5.pdf, id=3252, 216.81pt x 216.81pt>
 File: ../figures/kmeans5.pdf Graphic file (type pdf)
 <use ../figures/kmeans5.pdf>
 Package pdftex.def Info: ../figures/kmeans5.pdf  used on input line 553.
@@ -2803,7 +4780,7 @@ pdfTeX warning: pdflatex (file ../figures/kmeans4.pdf): PDF inclusion: multiple
 pdfTeX warning: pdflatex (file ../figures/kmeans5.pdf): PDF inclusion: multiple
  pdfs with page group included in a single page
 >]
-<../figures/Iris.pdf, id=3293, 433.62pt x 433.62pt>
+<../figures/Iris.pdf, id=3296, 433.62pt x 433.62pt>
 File: ../figures/Iris.pdf Graphic file (type pdf)
 <use ../figures/Iris.pdf>
 Package pdftex.def Info: ../figures/Iris.pdf  used on input line 580.
@@ -2852,7 +4829,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [119 <../figures/Iris.pdf>]
-<../figures/hierarchical1.pdf, id=3322, 216.81pt x 216.81pt>
+<../figures/hierarchical1.pdf, id=3325, 216.81pt x 216.81pt>
 File: ../figures/hierarchical1.pdf Graphic file (type pdf)
 <use ../figures/hierarchical1.pdf>
 Package pdftex.def Info: ../figures/hierarchical1.pdf  used on input line 653.
@@ -2868,12 +4845,12 @@ Overfull \hbox (4.86665pt too wide) in paragraph at lines 641--660
 [] [] [] 
  []
 
-<../figures/hierarchical2.pdf, id=3325, 216.81pt x 216.81pt>
+<../figures/hierarchical2.pdf, id=3328, 216.81pt x 216.81pt>
 File: ../figures/hierarchical2.pdf Graphic file (type pdf)
 <use ../figures/hierarchical2.pdf>
 Package pdftex.def Info: ../figures/hierarchical2.pdf  used on input line 681.
 (pdftex.def)             Requested size: 128.36201pt x 128.3667pt.
-<../figures/tree1.pdf, id=3326, 180.675pt x 180.675pt>
+<../figures/tree1.pdf, id=3329, 180.675pt x 180.675pt>
 File: ../figures/tree1.pdf Graphic file (type pdf)
 <use ../figures/tree1.pdf>
 Package pdftex.def Info: ../figures/tree1.pdf  used on input line 684.
@@ -2888,12 +4865,12 @@ Overfull \hbox (4.86665pt too wide) in paragraph at lines 680--693
 [][] [] [] 
  []
 
-<../figures/hierarchical3.pdf, id=3328, 216.81pt x 216.81pt>
+<../figures/hierarchical3.pdf, id=3331, 216.81pt x 216.81pt>
 File: ../figures/hierarchical3.pdf Graphic file (type pdf)
 <use ../figures/hierarchical3.pdf>
 Package pdftex.def Info: ../figures/hierarchical3.pdf  used on input line 714.
 (pdftex.def)             Requested size: 128.36201pt x 128.3667pt.
-<../figures/tree2.pdf, id=3329, 180.675pt x 180.675pt>
+<../figures/tree2.pdf, id=3332, 180.675pt x 180.675pt>
 File: ../figures/tree2.pdf Graphic file (type pdf)
 <use ../figures/tree2.pdf>
 Package pdftex.def Info: ../figures/tree2.pdf  used on input line 717.
@@ -2917,12 +4894,12 @@ ltiple pdfs with page group included in a single page
 pdfTeX warning: pdflatex (file ../figures/tree1.pdf): PDF inclusion: multiple p
 dfs with page group included in a single page
 >]
-<../figures/hierarchical4.pdf, id=3363, 216.81pt x 216.81pt>
+<../figures/hierarchical4.pdf, id=3366, 216.81pt x 216.81pt>
 File: ../figures/hierarchical4.pdf Graphic file (type pdf)
 <use ../figures/hierarchical4.pdf>
 Package pdftex.def Info: ../figures/hierarchical4.pdf  used on input line 741.
 (pdftex.def)             Requested size: 128.36201pt x 128.3667pt.
-<../figures/tree3.pdf, id=3364, 180.675pt x 180.675pt>
+<../figures/tree3.pdf, id=3367, 180.675pt x 180.675pt>
 File: ../figures/tree3.pdf Graphic file (type pdf)
 <use ../figures/tree3.pdf>
 Package pdftex.def Info: ../figures/tree3.pdf  used on input line 744.
@@ -2938,7 +4915,7 @@ Overfull \hbox (4.86665pt too wide) in paragraph at lines 740--753
 [][] [] [] 
  []
 
-<../figures/hierarchicaltree.pdf, id=3365, 216.81pt x 216.81pt>
+<../figures/hierarchicaltree.pdf, id=3368, 216.81pt x 216.81pt>
 File: ../figures/hierarchicaltree.pdf Graphic file (type pdf)
 <use ../figures/hierarchicaltree.pdf>
 Package pdftex.def Info: ../figures/hierarchicaltree.pdf  used on input line 75
@@ -2954,7 +4931,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 756--765
 [][] [] 
  []
 
-<../figures/irishtree.pdf, id=3366, 578.16pt x 108.405pt>
+<../figures/irishtree.pdf, id=3369, 578.16pt x 108.405pt>
 File: ../figures/irishtree.pdf Graphic file (type pdf)
 <use ../figures/irishtree.pdf>
 Package pdftex.def Info: ../figures/irishtree.pdf  used on input line 771.
@@ -2981,7 +4958,7 @@ dfs with page group included in a single page
 pdfTeX warning: pdflatex (file ../figures/hierarchicaltree.pdf): PDF inclusion:
  multiple pdfs with page group included in a single page
 >]
-<../figures/irishtreecut.pdf, id=3415, 578.16pt x 108.405pt>
+<../figures/irishtreecut.pdf, id=3418, 578.16pt x 108.405pt>
 File: ../figures/irishtreecut.pdf Graphic file (type pdf)
 <use ../figures/irishtreecut.pdf>
 Package pdftex.def Info: ../figures/irishtreecut.pdf  used on input line 782.
@@ -3021,7 +4998,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 73--76
 
  []
 
-<../figures/QDA.pdf, id=3458, 542.025pt x 180.675pt>
+<../figures/QDA.pdf, id=3461, 542.025pt x 180.675pt>
 File: ../figures/QDA.pdf Graphic file (type pdf)
 <use ../figures/QDA.pdf>
 Package pdftex.def Info: ../figures/QDA.pdf  used on input line 77.
@@ -3041,7 +5018,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 100--105
 
  []
 
-<../figures/LDA.pdf, id=3463, 542.025pt x 180.675pt>
+<../figures/LDA.pdf, id=3466, 542.025pt x 180.675pt>
 File: ../figures/LDA.pdf Graphic file (type pdf)
 <use ../figures/LDA.pdf>
 Package pdftex.def Info: ../figures/LDA.pdf  used on input line 106.
@@ -3060,7 +5037,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 116--123
 
  []
 
-<../figures/PCAvsLDA.pdf, id=3490, 542.025pt x 180.675pt>
+<../figures/PCAvsLDA.pdf, id=3493, 542.025pt x 180.675pt>
 File: ../figures/PCAvsLDA.pdf Graphic file (type pdf)
 <use ../figures/PCAvsLDA.pdf>
 Package pdftex.def Info: ../figures/PCAvsLDA.pdf  used on input line 124.
@@ -3070,7 +5047,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 131.
 See the caption package documentation for explanation.
 
-<../figures/LDAiris.pdf, id=3494, 289.08pt x 289.08pt>
+<../figures/LDAiris.pdf, id=3497, 289.08pt x 289.08pt>
 File: ../figures/LDAiris.pdf Graphic file (type pdf)
 <use ../figures/LDAiris.pdf>
 Package pdftex.def Info: ../figures/LDAiris.pdf  used on input line 148.
@@ -3095,7 +5072,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 147--165
 pdfTeX warning: pdflatex (file ../figures/LDAiris.pdf): PDF inclusion: multiple
  pdfs with page group included in a single page
 >]
-<../figures/LDAnewiris.pdf, id=3517, 289.08pt x 289.08pt>
+<../figures/LDAnewiris.pdf, id=3520, 289.08pt x 289.08pt>
 File: ../figures/LDAnewiris.pdf Graphic file (type pdf)
 <use ../figures/LDAnewiris.pdf>
 Package pdftex.def Info: ../figures/LDAnewiris.pdf  used on input line 171.
@@ -3115,7 +5092,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 170--184
 [] [] 
  []
 
-<../figures/CARTdata.pdf, id=3525, 252.945pt x 252.945pt>
+<../figures/CARTdata.pdf, id=3528, 252.945pt x 252.945pt>
 File: ../figures/CARTdata.pdf Graphic file (type pdf)
 <use ../figures/CARTdata.pdf>
 Package pdftex.def Info: ../figures/CARTdata.pdf  used on input line 210.
@@ -3145,7 +5122,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 234--240
 pdfTeX warning: pdflatex (file ../figures/CARTdata.pdf): PDF inclusion: multipl
 e pdfs with page group included in a single page
 >]
-<../figures/Qtries.pdf, id=3550, 758.835pt x 252.945pt>
+<../figures/Qtries.pdf, id=3553, 758.835pt x 252.945pt>
 File: ../figures/Qtries.pdf Graphic file (type pdf)
 <use ../figures/Qtries.pdf>
 Package pdftex.def Info: ../figures/Qtries.pdf  used on input line 241.
@@ -3161,7 +5138,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 248--254
 
  []
 
-<../figures/Q2.pdf, id=3553, 505.89pt x 252.945pt>
+<../figures/Q2.pdf, id=3556, 505.89pt x 252.945pt>
 File: ../figures/Q2.pdf Graphic file (type pdf)
 <use ../figures/Q2.pdf>
 Package pdftex.def Info: ../figures/Q2.pdf  used on input line 256.
@@ -3186,7 +5163,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 268--271
 
  []
 
-<../figures/overfittedCARTscatter.pdf, id=3556, 505.89pt x 252.945pt>
+<../figures/overfittedCARTscatter.pdf, id=3559, 505.89pt x 252.945pt>
 File: ../figures/overfittedCARTscatter.pdf Graphic file (type pdf)
 <use ../figures/overfittedCARTscatter.pdf>
 Package pdftex.def Info: ../figures/overfittedCARTscatter.pdf  used on input li
@@ -3212,7 +5189,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 272--282
 pdfTeX warning: pdflatex (file ../figures/Q2.pdf): PDF inclusion: multiple pdfs
  with page group included in a single page
 >]
-<../figures/cvCART.pdf, id=3591, 216.81pt x 216.81pt>
+<../figures/cvCART.pdf, id=3594, 216.81pt x 216.81pt>
 File: ../figures/cvCART.pdf Graphic file (type pdf)
 <use ../figures/cvCART.pdf>
 Package pdftex.def Info: ../figures/cvCART.pdf  used on input line 335.
@@ -3233,7 +5210,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 334--349
  []
 
 [128 <../figures/overfittedCARTscatter.pdf>]
-<../figures/optimalCART.pdf, id=3612, 505.89pt x 252.945pt>
+<../figures/optimalCART.pdf, id=3615, 505.89pt x 252.945pt>
 File: ../figures/optimalCART.pdf Graphic file (type pdf)
 <use ../figures/optimalCART.pdf>
 Package pdftex.def Info: ../figures/optimalCART.pdf  used on input line 354.
@@ -3258,7 +5235,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 353--362
 [] [] 
  []
 
-<../figures/irisCART.pdf, id=3614, 194.7275pt x 194.7275pt>
+<../figures/irisCART.pdf, id=3617, 194.7275pt x 194.7275pt>
 File: ../figures/irisCART.pdf Graphic file (type pdf)
 <use ../figures/irisCART.pdf>
 Package pdftex.def Info: ../figures/irisCART.pdf  used on input line 369.
@@ -3292,7 +5269,7 @@ e pdfs with page group included in a single page
 ]
 Chapter 14.
 [131]
-<../figures/ACNK.pdf, id=3660, 252.945pt x 216.81pt>
+<../figures/ACNK.pdf, id=3663, 252.945pt x 216.81pt>
 File: ../figures/ACNK.pdf Graphic file (type pdf)
 <use ../figures/ACNK.pdf>
 Package pdftex.def Info: ../figures/ACNK.pdf  used on input line 144.
@@ -3309,7 +5286,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 143--161
  []
 
 [132]
-<../figures/ACNKarithmeticmean.pdf, id=3665, 252.945pt x 216.81pt>
+<../figures/ACNKarithmeticmean.pdf, id=3668, 252.945pt x 216.81pt>
 File: ../figures/ACNKarithmeticmean.pdf Graphic file (type pdf)
 <use ../figures/ACNKarithmeticmean.pdf>
 Package pdftex.def Info: ../figures/ACNKarithmeticmean.pdf  used on input line 
@@ -3331,7 +5308,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 178--194
 pdfTeX warning: pdflatex (file ../figures/ACNKarithmeticmean.pdf): PDF inclusio
 n: multiple pdfs with page group included in a single page
 >]
-<../figures/ACNKnaive.pdf, id=3695, 252.945pt x 216.81pt>
+<../figures/ACNKnaive.pdf, id=3698, 252.945pt x 216.81pt>
 File: ../figures/ACNKnaive.pdf Graphic file (type pdf)
 <use ../figures/ACNKnaive.pdf>
 Package pdftex.def Info: ../figures/ACNKnaive.pdf  used on input line 228.
@@ -3347,7 +5324,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 227--243
 [] [] 
  []
 
-<../figures/alr.PDF, id=3706, 722.7pt x 252.945pt>
+<../figures/alr.PDF, id=3709, 722.7pt x 252.945pt>
 File: ../figures/alr.PDF Graphic file (type pdf)
 <use ../figures/alr.PDF>
 Package pdftex.def Info: ../figures/alr.PDF  used on input line 280.
@@ -3364,7 +5341,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [135 <../figures/alr.pdf>]
-<../figures/abc.pdf, id=3750, 201.75375pt x 180.675pt>
+<../figures/abc.pdf, id=3753, 201.75375pt x 180.675pt>
 File: ../figures/abc.pdf Graphic file (type pdf)
 <use ../figures/abc.pdf>
 Package pdftex.def Info: ../figures/abc.pdf  used on input line 371.
@@ -3380,7 +5357,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 370--381
 [] [] 
  []
 
-<../figures/alraxes.pdf, id=3753, 194.7275pt x 144.54pt>
+<../figures/alraxes.pdf, id=3756, 194.7275pt x 144.54pt>
 File: ../figures/alraxes.pdf Graphic file (type pdf)
 <use ../figures/alraxes.pdf>
 Package pdftex.def Info: ../figures/alraxes.pdf  used on input line 387.
@@ -3400,7 +5377,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 386--397
 pdfTeX warning: pdflatex (file ../figures/alraxes.pdf): PDF inclusion: multiple
  pdfs with page group included in a single page
 >]
-<../figures/clrPCA.pdf, id=3784, 216.81pt x 216.81pt>
+<../figures/clrPCA.pdf, id=3787, 216.81pt x 216.81pt>
 File: ../figures/clrPCA.pdf Graphic file (type pdf)
 <use ../figures/clrPCA.pdf>
 Package pdftex.def Info: ../figures/clrPCA.pdf  used on input line 517.
@@ -3416,7 +5393,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 516--528
 [] [] 
  []
 
-<../figures/majorPCA.pdf, id=3788, 289.08pt x 289.08pt>
+<../figures/majorPCA.pdf, id=3791, 289.08pt x 289.08pt>
 File: ../figures/majorPCA.pdf Graphic file (type pdf)
 <use ../figures/majorPCA.pdf>
 Package pdftex.def Info: ../figures/majorPCA.pdf  used on input line 533.
@@ -3432,7 +5409,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 532--548
  []
 
 [137 <../figures/clrPCA.pdf>]
-<../figures/links.pdf, id=3810, 469.755pt x 144.54pt>
+<../figures/links.pdf, id=3813, 469.755pt x 144.54pt>
 File: ../figures/links.pdf Graphic file (type pdf)
 <use ../figures/links.pdf>
 Package pdftex.def Info: ../figures/links.pdf  used on input line 562.
@@ -3448,7 +5425,7 @@ See the caption package documentation for explanation.
 pdfTeX warning: pdflatex (file ../figures/links.pdf): PDF inclusion: multiple p
 dfs with page group included in a single page
 >]
-<../figures/AFM.pdf, id=3835, 216.81pt x 216.81pt>
+<../figures/AFM.pdf, id=3838, 216.81pt x 216.81pt>
 File: ../figures/AFM.pdf Graphic file (type pdf)
 <use ../figures/AFM.pdf>
 Package pdftex.def Info: ../figures/AFM.pdf  used on input line 594.
@@ -3464,7 +5441,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 593--606
 [] [] 
  []
 
-<../figures/lrAFM.pdf, id=3836, 216.81pt x 216.81pt>
+<../figures/lrAFM.pdf, id=3839, 216.81pt x 216.81pt>
 File: ../figures/lrAFM.pdf Graphic file (type pdf)
 <use ../figures/lrAFM.pdf>
 Package pdftex.def Info: ../figures/lrAFM.pdf  used on input line 610.
@@ -3479,7 +5456,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 609--624
 [] [] 
  []
 
-<../figures/LDAAFM.pdf, id=3837, 433.62pt x 216.81pt>
+<../figures/LDAAFM.pdf, id=3840, 433.62pt x 216.81pt>
 File: ../figures/LDAAFM.pdf Graphic file (type pdf)
 <use ../figures/LDAAFM.pdf>
 Package pdftex.def Info: ../figures/LDAAFM.pdf  used on input line 629.
@@ -3503,7 +5480,7 @@ dfs with page group included in a single page
 pdfTeX warning: pdflatex (file ../figures/LDAAFM.pdf): PDF inclusion: multiple 
 pdfs with page group included in a single page
 >]
-<../figures/cath.pdf, id=3872, 433.62pt x 216.81pt>
+<../figures/cath.pdf, id=3875, 433.62pt x 216.81pt>
 File: ../figures/cath.pdf Graphic file (type pdf)
 <use ../figures/cath.pdf>
 Package pdftex.def Info: ../figures/cath.pdf  used on input line 711.
@@ -3533,7 +5510,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 710--721
 
 ]
 Chapter 15.
-<../figures/circle1.pdf, id=3901, 144.54pt x 144.54pt>
+<../figures/circle1.pdf, id=3904, 144.54pt x 144.54pt>
 File: ../figures/circle1.pdf Graphic file (type pdf)
 <use ../figures/circle1.pdf>
 Package pdftex.def Info: ../figures/circle1.pdf  used on input line 27.
@@ -3548,7 +5525,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 26--36
 [] [] 
  []
 
-<../figures/circle2.pdf, id=3902, 144.54pt x 144.54pt>
+<../figures/circle2.pdf, id=3905, 144.54pt x 144.54pt>
 File: ../figures/circle2.pdf Graphic file (type pdf)
 <use ../figures/circle2.pdf>
 Package pdftex.def Info: ../figures/circle2.pdf  used on input line 41.
@@ -3568,7 +5545,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 40--51
 pdfTeX warning: pdflatex (file ../figures/circle2.pdf): PDF inclusion: multiple
  pdfs with page group included in a single page
 >]
-<../figures/circle3.pdf, id=3927, 144.54pt x 144.54pt>
+<../figures/circle3.pdf, id=3930, 144.54pt x 144.54pt>
 File: ../figures/circle3.pdf Graphic file (type pdf)
 <use ../figures/circle3.pdf>
 Package pdftex.def Info: ../figures/circle3.pdf  used on input line 81.
@@ -3584,7 +5561,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 80--91
 [] [] 
  []
 
-<../figures/vectorsum.pdf, id=3931, 361.35pt x 180.675pt>
+<../figures/vectorsum.pdf, id=3934, 361.35pt x 180.675pt>
 File: ../figures/vectorsum.pdf Graphic file (type pdf)
 <use ../figures/vectorsum.pdf>
 Package pdftex.def Info: ../figures/vectorsum.pdf  used on input line 102.
@@ -3599,7 +5576,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 101--113
 [] [] 
  []
 
-<../figures/lowconcentration.pdf, id=3932, 144.54pt x 144.54pt>
+<../figures/lowconcentration.pdf, id=3935, 144.54pt x 144.54pt>
 File: ../figures/lowconcentration.pdf Graphic file (type pdf)
 <use ../figures/lowconcentration.pdf>
 Package pdftex.def Info: ../figures/lowconcentration.pdf  used on input line 12
@@ -3624,7 +5601,7 @@ le pdfs with page group included in a single page
 pdfTeX warning: pdflatex (file ../figures/lowconcentration.pdf): PDF inclusion:
  multiple pdfs with page group included in a single page
 >]
-<../figures/vonMises.pdf, id=3973, 578.16pt x 144.54pt>
+<../figures/vonMises.pdf, id=3976, 578.16pt x 144.54pt>
 File: ../figures/vonMises.pdf Graphic file (type pdf)
 <use ../figures/vonMises.pdf>
 Package pdftex.def Info: ../figures/vonMises.pdf  used on input line 156.
@@ -3635,7 +5612,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 161.
 See the caption package documentation for explanation.
 
-<../figures/R2K.pdf, id=3975, 180.675pt x 180.675pt>
+<../figures/R2K.pdf, id=3978, 180.675pt x 180.675pt>
 File: ../figures/R2K.pdf Graphic file (type pdf)
 <use ../figures/R2K.pdf>
 Package pdftex.def Info: ../figures/R2K.pdf  used on input line 177.
@@ -3650,7 +5627,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 176--187
 [] [] 
  []
 
-<../figures/kappastriations.pdf, id=3979, 252.945pt x 180.675pt>
+<../figures/kappastriations.pdf, id=3982, 252.945pt x 180.675pt>
 File: ../figures/kappastriations.pdf Graphic file (type pdf)
 <use ../figures/kappastriations.pdf>
 Package pdftex.def Info: ../figures/kappastriations.pdf  used on input line 193
@@ -3683,7 +5660,7 @@ Package amsmath Warning: Cannot use `split' here;
 Package amsmath Warning: Cannot use `split' here;
 (amsmath)                trying to recover with `aligned' on input line 243.
 
-<../figures/wulffschmidt.pdf, id=4026, 505.89pt x 252.945pt>
+<../figures/wulffschmidt.pdf, id=4029, 505.89pt x 252.945pt>
 File: ../figures/wulffschmidt.pdf Graphic file (type pdf)
 <use ../figures/wulffschmidt.pdf>
 Package pdftex.def Info: ../figures/wulffschmidt.pdf  used on input line 255.
@@ -3715,7 +5692,7 @@ tiple pdfs with page group included in a single page
 Package amsmath Warning: Cannot use `split' here;
 (amsmath)                trying to recover with `aligned' on input line 295.
 
-<../figures/Africa.pdf, id=4060, 505.89pt x 252.945pt>
+<../figures/Africa.pdf, id=4063, 505.89pt x 252.945pt>
 File: ../figures/Africa.pdf Graphic file (type pdf)
 <use ../figures/Africa.pdf>
 Package pdftex.def Info: ../figures/Africa.pdf  used on input line 306.
@@ -3735,7 +5712,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 305--315
 [] [] 
  []
 
-<../figures/palaeomag.pdf, id=4061, 180.675pt x 180.675pt>
+<../figures/palaeomag.pdf, id=4064, 180.675pt x 180.675pt>
 File: ../figures/palaeomag.pdf Graphic file (type pdf)
 <use ../figures/palaeomag.pdf>
 Package pdftex.def Info: ../figures/palaeomag.pdf  used on input line 326.
@@ -3750,7 +5727,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 325--334
 [] [] 
  []
 
-<../figures/fault.pdf, id=4062, 180.675pt x 180.675pt>
+<../figures/fault.pdf, id=4065, 180.675pt x 180.675pt>
 File: ../figures/fault.pdf Graphic file (type pdf)
 <use ../figures/fault.pdf>
 Package pdftex.def Info: ../figures/fault.pdf  used on input line 344.
@@ -3786,7 +5763,7 @@ Package amsmath Warning: Cannot use `split' here;
 Package amsmath Warning: Cannot use `split' here;
 (amsmath)                trying to recover with `aligned' on input line 426.
 
-<../figures/sphericalmean.pdf, id=4104, 361.35pt x 180.675pt>
+<../figures/sphericalmean.pdf, id=4107, 361.35pt x 180.675pt>
 File: ../figures/sphericalmean.pdf Graphic file (type pdf)
 <use ../figures/sphericalmean.pdf>
 Package pdftex.def Info: ../figures/sphericalmean.pdf  used on input line 433.
@@ -3802,7 +5779,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 432--443
  []
 
 [148 <../figures/sphericalmean.pdf>]
-<../figures/pebbles.pdf, id=4130, 144.54pt x 144.54pt>
+<../figures/pebbles.pdf, id=4133, 144.54pt x 144.54pt>
 File: ../figures/pebbles.pdf Graphic file (type pdf)
 <use ../figures/pebbles.pdf>
 Package pdftex.def Info: ../figures/pebbles.pdf  used on input line 468.
@@ -3818,7 +5795,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 467--478
 [] [] 
  []
 
-<../figures/inertia.pdf, id=4132, 144.54pt x 144.54pt>
+<../figures/inertia.pdf, id=4135, 144.54pt x 144.54pt>
 File: ../figures/inertia.pdf Graphic file (type pdf)
 <use ../figures/inertia.pdf>
 Package pdftex.def Info: ../figures/inertia.pdf  used on input line 488.
@@ -3838,7 +5815,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 487--500
 pdfTeX warning: pdflatex (file ../figures/inertia.pdf): PDF inclusion: multiple
  pdfs with page group included in a single page
 >]
-<../figures/subhorizontal.pdf, id=4158, 216.81pt x 216.81pt>
+<../figures/subhorizontal.pdf, id=4161, 216.81pt x 216.81pt>
 File: ../figures/subhorizontal.pdf Graphic file (type pdf)
 <use ../figures/subhorizontal.pdf>
 Package pdftex.def Info: ../figures/subhorizontal.pdf  used on input line 604.
@@ -3861,7 +5838,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 36.
 See the caption package documentation for explanation.
 
-<../figures/meusepoints.pdf, id=4176, 361.35pt x 289.08pt>
+<../figures/meusepoints.pdf, id=4179, 361.35pt x 289.08pt>
 File: ../figures/meusepoints.pdf Graphic file (type pdf)
 <use ../figures/meusepoints.pdf>
 Package pdftex.def Info: ../figures/meusepoints.pdf  used on input line 52.
@@ -3890,7 +5867,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [153]
-<../figures/semivariogram.pdf, id=4213, 216.81pt x 216.81pt>
+<../figures/semivariogram.pdf, id=4216, 216.81pt x 216.81pt>
 File: ../figures/semivariogram.pdf Graphic file (type pdf)
 <use ../figures/semivariogram.pdf>
 Package pdftex.def Info: ../figures/semivariogram.pdf  used on input line 200.
@@ -3907,7 +5884,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 199--214
  []
 
 [154 <../figures/semivariogram.pdf>]
-<../figures/semivariogramfit.pdf, id=4243, 505.89pt x 144.54pt>
+<../figures/semivariogramfit.pdf, id=4246, 505.89pt x 144.54pt>
 File: ../figures/semivariogramfit.pdf Graphic file (type pdf)
 <use ../figures/semivariogramfit.pdf>
 Package pdftex.def Info: ../figures/semivariogramfit.pdf  used on input line 24
@@ -3919,7 +5896,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 251.
 See the caption package documentation for explanation.
 
-<../figures/snr.pdf, id=4246, 216.81pt x 216.81pt>
+<../figures/snr.pdf, id=4249, 216.81pt x 216.81pt>
 File: ../figures/snr.pdf Graphic file (type pdf)
 <use ../figures/snr.pdf>
 Package pdftex.def Info: ../figures/snr.pdf  used on input line 275.
@@ -3939,7 +5916,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 274--287
 pdfTeX warning: pdflatex (file ../figures/snr.pdf): PDF inclusion: multiple pdf
 s with page group included in a single page
 >]
-<../figures/meusecontour.pdf, id=4301, 361.35pt x 289.08pt>
+<../figures/meusecontour.pdf, id=4304, 361.35pt x 289.08pt>
 File: ../figures/meusecontour.pdf Graphic file (type pdf)
 <use ../figures/meusecontour.pdf>
 Package pdftex.def Info: ../figures/meusecontour.pdf  used on input line 424.
@@ -3956,7 +5933,7 @@ Underfull \hbox (badness 2435) in paragraph at lines 432--432
  []
 
 [156]
-<../figures/meusecontourerr.pdf, id=4313, 361.35pt x 289.08pt>
+<../figures/meusecontourerr.pdf, id=4316, 361.35pt x 289.08pt>
 File: ../figures/meusecontourerr.pdf Graphic file (type pdf)
 <use ../figures/meusecontourerr.pdf>
 Package pdftex.def Info: ../figures/meusecontourerr.pdf  used on input line 457
@@ -3980,7 +5957,7 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <24.88> not available
 
 ] [160] [161] [162] [163] [164] [165] [166] [167] [168] [169] [170]
 [171] [172] [173] [174]
-<../figures/LLpois.pdf, id=4518, 216.81pt x 216.81pt>
+<../figures/LLpois.pdf, id=4521, 216.81pt x 216.81pt>
 File: ../figures/LLpois.pdf Graphic file (type pdf)
 <use ../figures/LLpois.pdf>
 Package pdftex.def Info: ../figures/LLpois.pdf  used on input line 1076.
@@ -4031,7 +6008,7 @@ Overfull \hbox (27.37506pt too wide) detected at line 826
  []
 
 [208] [209] [210] [211] [212] [213] [214]
-<../figures/PCAiris.pdf, id=4958, 216.81pt x 216.81pt>
+<../figures/PCAiris.pdf, id=4961, 216.81pt x 216.81pt>
 File: ../figures/PCAiris.pdf Graphic file (type pdf)
 <use ../figures/PCAiris.pdf>
 Package pdftex.def Info: ../figures/PCAiris.pdf  used on input line 1242.
@@ -4047,7 +6024,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 1241--1257
 [] [] 
  []
 
-<../figures/elbow.pdf, id=4962, 216.81pt x 216.81pt>
+<../figures/elbow.pdf, id=4965, 216.81pt x 216.81pt>
 File: ../figures/elbow.pdf Graphic file (type pdf)
 <use ../figures/elbow.pdf>
 Package pdftex.def Info: ../figures/elbow.pdf  used on input line 1285.
@@ -4063,7 +6040,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 1284--1294
  []
 
 [215 <../figures/PCAiris.pdf>]
-<../figures/DZtree.pdf, id=4980, 216.81pt x 144.54pt>
+<../figures/DZtree.pdf, id=4983, 216.81pt x 144.54pt>
 File: ../figures/DZtree.pdf Graphic file (type pdf)
 <use ../figures/DZtree.pdf>
 Package pdftex.def Info: ../figures/DZtree.pdf  used on input line 1306.
@@ -4084,7 +6061,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 1305--1316
 pdfTeX warning: pdflatex (file ../figures/DZtree.pdf): PDF inclusion: multiple 
 pdfs with page group included in a single page
 >] [217] [218]
-<../figures/testPCA.pdf, id=5031, 289.08pt x 289.08pt>
+<../figures/testPCA.pdf, id=5034, 289.08pt x 289.08pt>
 File: ../figures/testPCA.pdf Graphic file (type pdf)
 <use ../figures/testPCA.pdf>
 Package pdftex.def Info: ../figures/testPCA.pdf  used on input line 1527.
@@ -4101,7 +6078,7 @@ Overfull \hbox (2.43333pt too wide) in paragraph at lines 1526--1543
  []
 
 [219 <../figures/testPCA.pdf>] [220] [221]
-<../figures/hills.pdf, id=5067, 505.89pt x 144.54pt>
+<../figures/hills.pdf, id=5070, 505.89pt x 144.54pt>
 File: ../figures/hills.pdf Graphic file (type pdf)
 <use ../figures/hills.pdf>
 Package pdftex.def Info: ../figures/hills.pdf  used on input line 1706.
@@ -4113,7 +6090,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [222 <../figures/hills.pdf>]
-<../figures/sphvsexp.pdf, id=5101, 361.35pt x 289.08pt>
+<../figures/sphvsexp.pdf, id=5104, 361.35pt x 289.08pt>
 File: ../figures/sphvsexp.pdf Graphic file (type pdf)
 <use ../figures/sphvsexp.pdf>
 Package pdftex.def Info: ../figures/sphvsexp.pdf  used on input line 1776.
@@ -4134,13 +6111,13 @@ Package rerunfilecheck Info: File `geostats.out' has not changed.
 (rerunfilecheck)             Checksum: DF044D554E26F9DB69415230EFFA7BBA;20508.
  ) 
 Here is how much of TeX's memory you used:
- 15341 strings out of 478287
- 256666 string characters out of 5849288
- 628885 words of memory out of 5000000
- 31927 multiletter control sequences out of 15000+600000
+ 27886 strings out of 478287
+ 504772 string characters out of 5849288
+ 1068020 words of memory out of 5000000
+ 44212 multiletter control sequences out of 15000+600000
  483630 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,26n,63p,1096b,682s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 99i,26n,94p,1096b,910s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/pvermees/.texlive2021/texmf-var/fonts/pk/ljfour/public/ifsym/ifsym10.
 657pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/
@@ -4169,10 +6146,10 @@ cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on geostats.pdf (223 pages, 3603860 bytes).
+Output written on geostats.pdf (223 pages, 3617841 bytes).
 PDF statistics:
- 5501 PDF objects out of 6186 (max. 8388607)
- 4440 compressed objects within 45 object streams
+ 5504 PDF objects out of 6186 (max. 8388607)
+ 4443 compressed objects within 45 object streams
  1199 named destinations out of 1200 (max. 500000)
- 2041 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2053 words of extra memory for PDF output out of 10000 (max. 10000000)
 

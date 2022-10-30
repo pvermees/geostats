@@ -131,7 +131,8 @@ be selected in one of two ways:
   possible outcomes for the two numbers. Repeat until you have drawn
   $k$ balls. Then the number of possible sequences of numbers is
   \begin{equation}
-  \overset{k \mbox{~times}}{\overbrace{n\times{n}\times{\ldots}\times{n}}} = n^k
+    \overset{k \mbox{~times}}{\overbrace{n\times{n}\times{\ldots}\times{n}}} = n^k
+    \label{eq:withreplacement}
   \end{equation}
   
 \item{\bf sampling without replacement.} Consider the same urn as
@@ -143,7 +144,8 @@ be selected in one of two ways:
   (n-1)$. Continuing the experiment until you have drawn $k$ balls
   (where $k \leq n$) yields
   \begin{equation}
-  n\times(n-1)\times(n-2)\times{\ldots}\times(n-k+1) = \frac{n!}{(n-k)!}
+    n\times(n-1)\times(n-2)\times{\ldots}\times(n-k+1) = \frac{n!}{(n-k)!}
+    \label{eq:withoutreplacement}
   \end{equation}
   possible sequences, where `!' is the factorial operator.
 
@@ -186,129 +188,55 @@ students will share the same birthday in a classroom of 23.
 \section{Combinations}
 \label{sec:combinations}
 
-Section~\ref{sec:permutations} showed that there are $n^k$ unique
-possible ways to select $k$ objects from a collection of $n$ with
-replacement. For example, there are $2^3=8$ ways for three coins to
-land:
-\[\{HHH\}\{THH\}\{HTH\}\{HHT\}\{TTH\}\{THT\}\{HTT\}\{TTT\}\]
-
-\noindent and there are $6^2=36$ ways for two dice to land:
+Having considered coins, dice and lottery balls, we will now
+(literally!) deal with a fourth archetypal source of statistical
+experiments, namely playing cards.
+Equation~\ref{eq:withoutreplacement} showed that there are
+$52!/49!=132600$ unique possible ways to select three cards from a
+deck. Suppose that we have drawn the following cards:
 \[
-\begin{array}{c}
-\mbox{ \big\{\raisebox{-2pt}{\Cube{1}
-    \Cube{1}}\big\}\big\{\raisebox{-2pt}{\Cube{2}
-    \Cube{1}}\big\}\big\{\raisebox{-2pt}{\Cube{3}
-    \Cube{1}}\big\}\big\{\raisebox{-2pt}{\Cube{4}
-    \Cube{1}}\big\}\big\{\raisebox{-2pt}{\Cube{5}
-    \Cube{1}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{1}}\big\}
-}\\ \mbox{ \big\{\raisebox{-2pt}{\Cube{1}
-    \Cube{2}}\big\}\big\{\raisebox{-2pt}{\Cube{2}
-    \Cube{2}}\big\}\big\{\raisebox{-2pt}{\Cube{3}
-    \Cube{2}}\big\}\big\{\raisebox{-2pt}{\Cube{4}
-    \Cube{2}}\big\}\big\{\raisebox{-2pt}{\Cube{5}
-    \Cube{2}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{2}}\big\}
-}\\ \mbox{ \big\{\raisebox{-2pt}{\Cube{1}
-    \Cube{3}}\big\}\big\{\raisebox{-2pt}{\Cube{2}
-    \Cube{3}}\big\}\big\{\raisebox{-2pt}{\Cube{3}
-    \Cube{3}}\big\}\big\{\raisebox{-2pt}{\Cube{4}
-    \Cube{3}}\big\}\big\{\raisebox{-2pt}{\Cube{5}
-    \Cube{3}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{3}}\big\}
-}\\ \mbox{ \big\{\raisebox{-2pt}{\Cube{1}
-    \Cube{4}}\big\}\big\{\raisebox{-2pt}{\Cube{2}
-    \Cube{4}}\big\}\big\{\raisebox{-2pt}{\Cube{3}
-    \Cube{4}}\big\}\big\{\raisebox{-2pt}{\Cube{4}
-    \Cube{4}}\big\}\big\{\raisebox{-2pt}{\Cube{5}
-    \Cube{4}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{4}}\big\}
-}\\ \mbox{ \big\{\raisebox{-2pt}{\Cube{1}
-    \Cube{5}}\big\}\big\{\raisebox{-2pt}{\Cube{2}
-    \Cube{5}}\big\}\big\{\raisebox{-2pt}{\Cube{3}
-    \Cube{5}}\big\}\big\{\raisebox{-2pt}{\Cube{4}
-    \Cube{5}}\big\}\big\{\raisebox{-2pt}{\Cube{5}
-    \Cube{5}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{5}}\big\}
-}\\ \mbox{ \big\{\raisebox{-2pt}{\Cube{1}
-    \Cube{6}}\big\}\big\{\raisebox{-2pt}{\Cube{2}
-    \Cube{6}}\big\}\big\{\raisebox{-2pt}{\Cube{3}
-    \Cube{6}}\big\}\big\{\raisebox{-2pt}{\Cube{4}
-    \Cube{6}}\big\}\big\{\raisebox{-2pt}{\Cube{5}
-    \Cube{6}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{6}}\big\}
-}
-\end{array}\]
-    
-Note that these are the denominators of the two examples that were
-given in the introductory paragraph of this chapter. Also note that
-the collection of outcomes contains quite a few duplicate values if
-one ignores the order.  For the coin example, these fall into two
-groups of three duplicates:
-\[\{\{HTT\}\{THT\}\{HHT\}\} \mbox{~and~} \{\{THH\}\{HTH\}\{TTH\}\}\]
-
-For the dice, there are fifteen groups of duplicate pairs:
-\[
-\begin{array}{l}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{1} \Cube{2}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{2} \Cube{1}}\big\}
-  \big\}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{1} \Cube{3}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{3} \Cube{1}}\big\}
-  \big\}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{1} \Cube{4}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{4} \Cube{1}}\big\}
-  \big\}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{1} \Cube{5}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{5} \Cube{1}}\big\}
-  \big\}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{1} \Cube{6}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{6} \Cube{1}}\big\}
-  \big\}\\
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{2} \Cube{3}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{3} \Cube{2}}\big\}
-  \big\}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{2} \Cube{4}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{4} \Cube{2}}\big\}
-  \big\}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{2} \Cube{5}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{5} \Cube{2}}\big\}
-  \big\}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{2} \Cube{6}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{6} \Cube{2}}\big\}
-  \big\}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{3} \Cube{4}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{4} \Cube{3}}\big\}
-  \big\}\\
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{3} \Cube{5}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{5} \Cube{3}}\big\}
-  \big\}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{3} \Cube{6}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{6} \Cube{3}}\big\}
-  \big\}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{4} \Cube{5}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{5} \Cube{4}}\big\}
-  \big\}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{4} \Cube{6}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{6} \Cube{4}}\big\}
-  \big\}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{5} \Cube{6}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{6} \Cube{5}}\big\}
-  \big\}
-\end{array}
+\raisebox{-6pt}{\usymH{1F0A1}{20pt}},
+\raisebox{-6pt}{\usymH{1F0C6}{20pt}},
+\raisebox{-6pt}{\usymH{1F0BE}{20pt}}
 \]
 
-Suppose that we don't care in which order the objects (coins, dice)
-appear. How many different \textbf{unordered} samples are possible?
+\noindent then there are $3!=6$ ways to order these cards:
+\[
+\left\{
+\raisebox{-6pt}{\usymH{1F0A1}{20pt}}~
+\raisebox{-6pt}{\usymH{1F0C6}{20pt}}~
+\raisebox{-6pt}{\usymH{1F0BE}{20pt}}
+\right\}
+\left\{
+\raisebox{-6pt}{\usymH{1F0A1}{20pt}}~
+\raisebox{-6pt}{\usymH{1F0BE}{20pt}}~
+\raisebox{-6pt}{\usymH{1F0C6}{20pt}}
+\right\}
+\left\{
+\raisebox{-6pt}{\usymH{1F0C6}{20pt}}~
+\raisebox{-6pt}{\usymH{1F0A1}{20pt}}~
+\raisebox{-6pt}{\usymH{1F0BE}{20pt}}
+\right\}
+\left\{
+\raisebox{-6pt}{\usymH{1F0C6}{20pt}}~
+\raisebox{-6pt}{\usymH{1F0BE}{20pt}}~
+\raisebox{-6pt}{\usymH{1F0A1}{20pt}}
+\right\}
+\left\{
+\raisebox{-6pt}{\usymH{1F0BE}{20pt}}~
+\raisebox{-6pt}{\usymH{1F0A1}{20pt}}~
+\raisebox{-6pt}{\usymH{1F0C6}{20pt}}
+\right\}
+\left\{
+\raisebox{-6pt}{\usymH{1F0BE}{20pt}}~
+\raisebox{-6pt}{\usymH{1F0C6}{20pt}}~
+\raisebox{-6pt}{\usymH{1F0A1}{20pt}}
+\right\}
+\]
+
+Suppose that we don't care in which order the objects (cards)
+appear. How many different \textbf{unordered} samples (hands) are
+possible?
 
 \begin{center}
   (\# ordered samples) =
@@ -333,6 +261,13 @@ often written as $\binom{n}{k}$ (pronounce ``n choose k''):
   \binom{n}{k} = \frac{n!}{(n-k)!k!}
   \label{eq:nchoosek}
 \end{equation}
+
+Applying this formula to the card dealing example, the number
+of ways to draw three cards from a deck of 52 is
+\[
+\binom{52}{3} = \frac{52!}{49!3!} =
+\frac{52\times{51}\times{50}}{3\times{2}} = 22100
+\]
 
 Revisiting the two examples at the start of this chapter, the number
 of ways to arrange two heads among three coins is
