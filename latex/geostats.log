@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.10.10)  30 OCT 2022 12:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.10.10)  31 OCT 2022 09:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2779,7 +2779,7 @@ tiple pdfs with page group included in a single page
 pdfTeX warning: pdflatex (file ../figures/eruptionslocation.pdf): PDF inclusion
 : multiple pdfs with page group included in a single page
 >]
-Overfull \hbox (9.60303pt too wide) in paragraph at lines 213--233
+Overfull \hbox (11.1544pt too wide) in paragraph at lines 213--233
  [] 
  []
 
@@ -6146,7 +6146,7 @@ cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on geostats.pdf (223 pages, 3618035 bytes).
+Output written on geostats.pdf (223 pages, 3618024 bytes).
 PDF statistics:
  5504 PDF objects out of 6186 (max. 8388607)
  4443 compressed objects within 45 object streams
