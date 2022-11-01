@@ -2,6 +2,7 @@
 
 \usepackage[a4paper,margin=1in,landscape]{geometry}
 \usepackage{amsmath}
+\usepackage[misc]{ifsym}
 
 \renewcommand{\labelitemi}{--}
 \newcommand{\tgap}{\hspace{1pt}}
@@ -43,6 +44,12 @@ P\left(3 \times{H}\right)
   15 & 8 & 13 & 5 & 4 & 19 & 7 & 1 & 20 & 10
   & & & & & & & & & & 
 \end{tabular}
+
+\[
+P(H,H,T) +
+P\left(\raisebox{-2pt}{\Cube{2}},\raisebox{-2pt}{\Cube{6}}\right) -
+P\left(H,H,H,\raisebox{-2pt}{\Cube{2}},\raisebox{-2pt}{\Cube{6}}\right)
+\]
 
 \[
 p = 2/3
