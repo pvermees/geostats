@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.10.10)  31 OCT 2022 09:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.10.10)  2 NOV 2022 09:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2934,16 +2934,16 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 266--279
 File: ../figures/2sidedbinomialrejection5.pdf Graphic file (type pdf)
 <use ../figures/2sidedbinomialrejection5.pdf>
 Package pdftex.def Info: ../figures/2sidedbinomialrejection5.pdf  used on input
- line 360.
+ line 361.
 (pdftex.def)             Requested size: 273.14923pt x 136.58109pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 372.
+(caption)                particular \caption on input line 371.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 359--375
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 360--374
 [] [] 
  []
 
@@ -2952,21 +2952,21 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 359--375
 File: ../figures/1sidedbinomialrejection15.pdf Graphic file (type pdf)
 <use ../figures/1sidedbinomialrejection15.pdf>
 Package pdftex.def Info: ../figures/1sidedbinomialrejection15.pdf  used on inpu
-t line 422.
+t line 424.
 (pdftex.def)             Requested size: 273.14923pt x 136.58109pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 432.
+(caption)                particular \caption on input line 433.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 421--435
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 423--436
 [] [] 
  []
 
 
-Overfull \hbox (4.3146pt too wide) in paragraph at lines 440--461
+Overfull \hbox (4.3146pt too wide) in paragraph at lines 441--462
  [] 
  []
 
@@ -2974,15 +2974,15 @@ Overfull \hbox (4.3146pt too wide) in paragraph at lines 440--461
 File: ../figures/2sidedbinomialrejection15.pdf Graphic file (type pdf)
 <use ../figures/2sidedbinomialrejection15.pdf>
 Package pdftex.def Info: ../figures/2sidedbinomialrejection15.pdf  used on inpu
-t line 474.
+t line 476.
 (pdftex.def)             Requested size: 273.14923pt x 136.58109pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 482.
+(caption)                particular \caption on input line 485.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 473--485
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 475--488
 [] [] 
  []
 
@@ -2991,16 +2991,16 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 473--485
 File: ../figures/binomialrejection30.pdf Graphic file (type pdf)
 <use ../figures/binomialrejection30.pdf>
 Package pdftex.def Info: ../figures/binomialrejection30.pdf  used on input line
- 493.
+ 496.
 (pdftex.def)             Requested size: 295.90588pt x 207.13449pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 500.
+(caption)                particular \caption on input line 503.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 492--503
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 495--506
 [] [] 
  []
 
@@ -3013,38 +3013,38 @@ on: multiple pdfs with page group included in a single page
 <../figures/binompower1.pdf, id=1414, 578.16pt x 274.02374pt>
 File: ../figures/binompower1.pdf Graphic file (type pdf)
 <use ../figures/binompower1.pdf>
-Package pdftex.def Info: ../figures/binompower1.pdf  used on input line 625.
+Package pdftex.def Info: ../figures/binompower1.pdf  used on input line 628.
 (pdftex.def)             Requested size: 427.86905pt x 202.7911pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 642.
+(caption)                particular \caption on input line 645.
 See the caption package documentation for explanation.
 
 <../figures/binompower2.pdf, id=1416, 578.16pt x 274.02374pt>
 File: ../figures/binompower2.pdf Graphic file (type pdf)
 <use ../figures/binompower2.pdf>
-Package pdftex.def Info: ../figures/binompower2.pdf  used on input line 654.
+Package pdftex.def Info: ../figures/binompower2.pdf  used on input line 657.
 (pdftex.def)             Requested size: 427.86905pt x 202.7911pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 670.
+(caption)                particular \caption on input line 673.
 See the caption package documentation for explanation.
 
 [41 <../figures/binompower1.pdf>] [42 <../figures/binompower2.pdf>]
 <../figures/binompvsn.pdf, id=1453, 266.9975pt x 216.81pt>
 File: ../figures/binompvsn.pdf Graphic file (type pdf)
 <use ../figures/binompvsn.pdf>
-Package pdftex.def Info: ../figures/binompvsn.pdf  used on input line 753.
+Package pdftex.def Info: ../figures/binompvsn.pdf  used on input line 756.
 (pdftex.def)             Requested size: 204.85846pt x 166.35864pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 762.
+(caption)                particular \caption on input line 765.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 752--765
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 755--768
 [] [] 
  []
 
@@ -3052,16 +3052,16 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 752--765
 <../figures/binomcik2n5.pdf, id=1473, 505.89pt x 252.945pt>
 File: ../figures/binomcik2n5.pdf Graphic file (type pdf)
 <use ../figures/binomcik2n5.pdf>
-Package pdftex.def Info: ../figures/binomcik2n5.pdf  used on input line 852.
+Package pdftex.def Info: ../figures/binomcik2n5.pdf  used on input line 855.
 (pdftex.def)             Requested size: 295.90588pt x 147.95485pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 860.
+(caption)                particular \caption on input line 863.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 851--863
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 854--866
 [] [] 
  []
 
@@ -3069,46 +3069,46 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 851--863
 <../figures/binomcik4n5.pdf, id=1485, 505.89pt x 252.945pt>
 File: ../figures/binomcik4n5.pdf Graphic file (type pdf)
 <use ../figures/binomcik4n5.pdf>
-Package pdftex.def Info: ../figures/binomcik4n5.pdf  used on input line 871.
+Package pdftex.def Info: ../figures/binomcik4n5.pdf  used on input line 874.
 (pdftex.def)             Requested size: 295.90588pt x 147.95485pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 880.
+(caption)                particular \caption on input line 883.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 870--883
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 873--886
 [] [] 
  []
 
 <../figures/binomcik12n30.pdf, id=1486, 505.89pt x 252.945pt>
 File: ../figures/binomcik12n30.pdf Graphic file (type pdf)
 <use ../figures/binomcik12n30.pdf>
-Package pdftex.def Info: ../figures/binomcik12n30.pdf  used on input line 893.
+Package pdftex.def Info: ../figures/binomcik12n30.pdf  used on input line 896.
 (pdftex.def)             Requested size: 295.90588pt x 147.95485pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 902.
+(caption)                particular \caption on input line 905.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 892--905
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 895--908
 [] [] 
  []
 
 <../figures/binomcivsn.pdf, id=1487, 505.89pt x 216.81pt>
 File: ../figures/binomcivsn.pdf Graphic file (type pdf)
 <use ../figures/binomcivsn.pdf>
-Package pdftex.def Info: ../figures/binomcivsn.pdf  used on input line 912.
+Package pdftex.def Info: ../figures/binomcivsn.pdf  used on input line 915.
 (pdftex.def)             Requested size: 295.90588pt x 126.81844pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 920.
+(caption)                particular \caption on input line 923.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 911--923
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 914--926
 [] [] 
  []
 
@@ -6113,7 +6113,7 @@ Package rerunfilecheck Info: File `geostats.out' has not changed.
 Here is how much of TeX's memory you used:
  27886 strings out of 478287
  504772 string characters out of 5849288
- 1069029 words of memory out of 5000000
+ 1068882 words of memory out of 5000000
  44212 multiletter control sequences out of 15000+600000
  483630 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -6146,7 +6146,7 @@ cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on geostats.pdf (223 pages, 3618024 bytes).
+Output written on geostats.pdf (223 pages, 3618182 bytes).
 PDF statistics:
  5504 PDF objects out of 6186 (max. 8388607)
  4443 compressed objects within 45 object streams

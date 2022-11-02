@@ -3701,7 +3701,7 @@ clr <- function(dat,inverse=FALSE){
     as.matrix(out)
 }
 alr <- function(dat,inverse=FALSE){
-    if (class(dat)%in%c('matrix','data.frame')){
+    if ('matrix' %in% class(dat) | 'data.frame' %in% class(dat)){
         d <- dat
     } else {
         d <- matrix(dat,nrow=1)
@@ -3716,7 +3716,7 @@ alr <- function(dat,inverse=FALSE){
     as.matrix(out)
 }
 xyz2xy <- function(xyz){
-    if (class(xyz)%in%c('matrix','data.frame')){
+    if ('matrix' %in% class(xyz) | 'data.frame' %in% class(xyz)){
         n <- nrow(xyz)
         x <- xyz[,1]
         y <- xyz[,2]
@@ -3734,7 +3734,7 @@ xyz2xy <- function(xyz){
 }
 ternary <- function(xyz=NULL,f=rep(1,3),labels=c('X','Y','Z'),
                     add=FALSE,type='p',...){
-    if (class(xyz)%in%c('matrix','data.frame')){
+    if ('matrix' %in% class(xyz) | 'data.frame' %in% class(xyz)){
         xyz <- as.matrix(xyz,nrow=1)
     }
     if (!add){

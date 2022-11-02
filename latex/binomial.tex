@@ -272,14 +272,14 @@ Displaying the rejection region graphically:\medskip
     with $p=2/3$ and $n=5$. The rejection region is marked in black on
     a).  The horizontal dotted line in b) shows the $\alpha=0.05$
     cutoff mark. The horizontal dashed line in b) marks the p-value
-    for $k=2$, which is greater than 0.05. Therefore, the null
+    for $k=2$, which is greater than $\alpha$. Therefore, the null
     hypothesis cannot be rejected.}
   \label{fig:1sidedbinomialrejection5}
 \end{minipage}
 
 The above hypothesis test is called a \textbf{one-sided} hypothesis
 test, which refers to the fact that $H_{\!A}$ specifies a direction
-($<$ or $>$).  Alternatively, we can also formulate a
+(`$<$' or `$>$').  Alternatively, we can also formulate a
 \textbf{two-sided} hypothesis test:
 
 \begin{enumerate}
@@ -325,9 +325,10 @@ test, which refers to the fact that $H_{\!A}$ specifies a direction
   twice at $\alpha/2$ to accommodate both tails of the binomial
   distribution.
 
-\item Mark all the outcomes that are incompatible with $H_0$,
-  i.e. all the values $<\alpha/2$.  This \textbf{rejection region} is
-  marked in bold in the following table:
+\item Mark all the outcomes that are incompatible with $H_0$, i.e. all
+  the values $k$ with $P(T\leq{k})$ or $P(T\geq{k}) <\alpha/2$.  This
+    \textbf{rejection region} is marked in bold in the following
+    table:
 
   \begin{center}
     \begin{tabular}{ccccccc}
@@ -362,19 +363,20 @@ Displaying the two-sided hypothesis test graphically:\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{a) the same PMF and b) CDF as
-    Figure~\ref{fig:1sidedbinomialrejection5}. The black bar marks the
-    rejection region for $H_0: p=2/3$ vs $H_{\!A}:
-    p\neq{2/3}$. Horizontal dotted lines mark $\alpha/2=0.025$ and
-    $(1-\alpha/2)=0.975$. Their intersections with the CDF are shown
-    as vertical dotted lines and mark the outer edges of the rejection
-    region.  The dashed lines mark the observed value and probability,
-    which fall outside the rejection region. Therefore $H_0$
-    stands.}
+    Figure~\ref{fig:1sidedbinomialrejection5}. Horizontal dotted lines
+    mark $\alpha/2=0.025$ and $(1-\alpha/2)=0.975$. Their
+    intersections with the CDF are shown as vertical dotted lines and
+    mark the outer edges of the rejection region.  The dashed lines
+    mark the observed value and probability, which fall outside the
+    rejection region.}
   \label{fig:2sidedbinomialrejection5}
 \end{minipage}
 
-So in this case the one-sided and two-sided hypothesis tests produce
-exactly the same result. However this is not always the case.
+Again, $H_0$ cannot be rejected at an $\alpha=0.05$ significance
+level.  So in this case the one-sided and two-sided hypothesis tests
+produce exactly the same result, as the observed value $k=2$ is not in
+the rejection region for either test. However this is not always the
+case, as will be shown next.
 
 \section{Statistical power}
 \label{sec:power}
@@ -416,7 +418,7 @@ The rejection region (bold) consists of
   \label{eq:1sidedbinomtest15}
 \end{equation}
 
-\noindent which includes $k=6$. Therefore $H_0$ has been rejected.
+\noindent which includes $k=6$. Therefore $H_0$ is rejected.
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
 \includegraphics[width=\textwidth]{../figures/1sidedbinomialrejection15.pdf}
@@ -424,12 +426,11 @@ The rejection region (bold) consists of
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{a) PMF and b) CDF of a binomial distribution with
-    $p={2/3}$ and $n=15$. The $\alpha=0.05$ cutoff is shown as a
-    horizontal dotted line and intersects the CDF at a point marked by
-    a vertical dotted line. The vertical dashed lines mark the
-    observation ($k=6$), which falls in the black area of the bar
-    chart, and to the left of the dotted line in the CDF. Therefore,
-    $H_0$ is rejected.}
+    $p={2/3}$ and $n=15$. The vertical dashed lines mark the
+    observation ($k=6$). They fall in the black area of the bar chart,
+    and to the left of the dotted line in the CDF, which marks the
+    edge of the rejection region. Therefore, $H_0$ fails the one-sided
+    test.}
   \label{fig:1sidedbinomialrejection15}
 \end{minipage}
 
@@ -468,7 +469,8 @@ is:
 \end{equation}
 
 This region does \emph{not} include $k=6$. Therefore we \emph{cannot}
-reject the two-sided null hypothesis that $p=2/3$.\medskip
+reject the two-sided null hypothesis that $p=2/3$ at
+$\alpha=0.05$.\medskip
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
 \includegraphics[width=\textwidth]{../figures/2sidedbinomialrejection15.pdf}
@@ -479,7 +481,8 @@ reject the two-sided null hypothesis that $p=2/3$.\medskip
     with $p=2/3$ and $n=15$.  The dotted lines mark the
     $\alpha/2=0.025$ and $(1-\alpha/2)=0.975$ levels and
     quantiles. The dashed lines mark the observed value ($k=6$), which
-    falls outside the rejection region.  Therefore $H_0$ stands.}
+    falls outside the rejection region.  Therefore $H_0$ does not fail
+    the two-sided test.}
   \label{fig:2sidedbinomialrejection15}
 \end{minipage}
 
