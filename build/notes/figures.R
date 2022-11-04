@@ -608,18 +608,24 @@ binomhist(nn=5,kk=2,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
           xlim=c(-0.5,6.5),na.col='white',add=TRUE,plotk=FALSE)
 axis(side=2); mtext('P(k)',side=2,cex=0.8,line=1.5)
 legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,0))
+mtext(text='p=2/5',col='black',at=2,line=-1,cex=0.8,adj=0)
+mtext(text='p=2/3',col='grey70',at=4,line=-1,cex=0.8)
 binomhist(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
           xlim=c(-0.5,6.5),ylim=c(0,1),border='white',
           rej.col='gray70',na.col='gray70',plotk=FALSE)
 binomhist(nn=5,kk=2,H0=2/3,Ha=1/5,nsides=1,showax=FALSE,
           xlim=c(-0.5,6.5),na.col='white',add=TRUE,plotk=FALSE)
 legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(2,0))
+mtext(text='p=1/5',col='black',at=1,line=-1,cex=0.8,adj=0)
+mtext(text='p=2/3',col='grey70',at=4,line=-1,cex=0.8)
 binomhist(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
           xlim=c(-0.5,6.5),ylim=c(0,1),border='white',
           rej.col='gray70',na.col='gray70',plotk=FALSE)
 binomhist(nn=5,kk=2,H0=2/3,Ha=0,nsides=1,showax=FALSE,
           xlim=c(-0.5,6.5),na.col='white',add=TRUE,plotk=FALSE)
 legend('topleft',legend='c)',bty='n',cex=1.2,adj=c(2,0))
+mtext(text='p=0',col='black',at=1.5,line=-1,cex=0.8)
+mtext(text='p=2/3',col='grey70',at=4,line=-1,cex=0.8)
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
          xlim=c(-1,6),col='gray60',plotp=FALSE,plotk=FALSE)
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
@@ -664,19 +670,19 @@ binomhist(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
 binomhist(nn=5,kk=2,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
           xlim=c(-0.5,6.5),na.col='white',add=TRUE,plotk=FALSE)
 axis(side=2); mtext('P(k)',side=2,cex=0.8,line=1.5)
-legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,0))
+legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(0.5,0))
 binomhist(nn=15,kk=6,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
           xlim=c(-0.5,16.5),border='white',
           rej.col='gray70',na.col='gray70',plotk=FALSE)
 binomhist(nn=15,kk=6,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
           xlim=c(-0.5,16.5),na.col='white',add=TRUE,plotk=FALSE)
-legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(2,0))
+legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(0.5,0))
 binomhist(nn=30,kk=12,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
           xlim=c(-0.5,31.5),border='white',
           rej.col='gray70',na.col='gray70',plotk=FALSE)
 binomhist(nn=30,kk=12,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
           xlim=c(-0.5,31.5),na.col='white',add=TRUE,plotk=FALSE)
-legend('topleft',legend='c)',bty='n',cex=1.2,adj=c(2,0))
+legend('topleft',legend='c)',bty='n',cex=1.2,adj=c(0.5,0))
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
          xlim=c(-1,6),col='gray60',plotp=FALSE,plotk=FALSE)
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
@@ -686,7 +692,7 @@ lines(c(-1,6),rep(b,2),lty=2)
 axis(side=1,at=0:5); mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
 axis(side=2)
 mtext('P(k)',side=2,cex=0.8,line=1.5)
-legend('topleft',legend='d)',bty='n',cex=1.2,adj=c(2,1))
+legend('topleft',legend='d)',bty='n',cex=1.2,adj=c(2,0))
 binomcdf(nn=15,kk=6,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
          xlim=c(-1,16),col='gray60',plotp=FALSE,plotk=FALSE)
 binomcdf(nn=15,kk=6,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
@@ -695,7 +701,7 @@ b <- pbinom(qbinom(0.05,15,2/3)-1,15,2/5)
 lines(c(-1,16),rep(b,2),lty=2)
 axis(side=1,at=seq(from=0,to=15,by=5))
 mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
-legend('topleft',legend='e)',bty='n',cex=1.2,adj=c(2,1))
+legend('topleft',legend='e)',bty='n',cex=1.2,adj=c(2,0))
 binomcdf(nn=30,kk=12,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
          xlim=c(-1,31),col='gray60',plotp=FALSE,plotk=FALSE)
 binomcdf(nn=30,kk=12,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
@@ -704,26 +710,27 @@ b <- pbinom(qbinom(0.05,30,2/3)-1,30,2/5)
 lines(c(-1,31),rep(b,2),lty=2)
 axis(side=1,at=seq(from=0,to=30,by=5))
 mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
-legend('topleft',legend='f)',bty='n',cex=1.2,adj=c(2,1))
+legend('topleft',legend='f)',bty='n',cex=1.2,adj=c(2,0))
 plot.new()
 plot.new()
 dev.off()
 
 cairo(file='../../figures/binompvsn.pdf',width=3.7,height=3)
 pars()
-k <- c(2*c(2,5,10)-1,2*c(2,5,10)+1)
-n <- rep(3*c(2,5,10),2)
-lty <- rep(c(1,2,4),2)
-col <- c(rep('black',3),rep('gray60',3))
+p <- c(0.5,0.6,0.625,0.65)
+dn <- c(4,10,8,20)
+lty <- c(1,1,2,2)
+col <- c('black','grey70','black','grey70')
 maxn <- 1000
 plot(c(0,maxn),c(0,.4),type='n',xlab='n',ylab='p-value',bty='n')
 leg <- list()
-for (i in 1:length(k)){
-    leg <- c(leg,paste0('k/n=',k[i],'/',n[i],' (=',signif(k[i]/n[i],3),')'))
-    multiplier <- 1:floor(maxn/n[i])
-    pval <- pbinom(k[i]*multiplier,n[i]*multiplier,2/3)
-    if (any(pval>0.5)) pval <- 1-pval
-    lines(n[i]*multiplier,pval,col=col[i],lty=lty[i])
+for (i in 1:length(p)){
+    legi <- substitute(''*hat(p)*'='*a,list(a=p[i]))
+    leg <- append(leg,as.expression(legi))
+    n <- seq(from=0,to=maxn,by=dn[i])
+    k <- n*p[i]
+    pval <- pbinom(k,n,2/3)
+    lines(n,pval,col=col[i],lty=lty[i])
 }
 lines(c(0,maxn),rep(0.05,2),lty=3)
 legend('topright',legend=leg,lty=lty,col=col,cex=0.8)

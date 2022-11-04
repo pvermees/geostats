@@ -497,25 +497,27 @@ will just show the distributions graphically:\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.35\textwidth}
   \captionof{figure}{The PMF (a \& b) and CDF (c \& d) for a binomial
-    distribution with $p=2/3$ and $n=30$. The vertical dashed lines
-    mark the observation $k=12$, which falls outside the cutoff limits
-    defined by the vertical dotted lines, and inside the rejection
-    regions marked in black.}
+    distribution with $p=2/3$ and $n=30$, illustrating a one-sided (a
+    \& c) and two-sided (b \& d) test. The vertical dashed lines mark
+    the observation $k=12$, which falls inside the rejection regions
+    marked in black (a \& b), and outside the cutoff limits defined by
+    the vertical dotted lines (c \& d).}
   \label{fig:binomialrejection30}
 \end{minipage}
 
-In summary, we have compared the same outcome of 40\% successes based
-on three different sample sizes ($n$):
+In summary, we have compared the same outcome of 40\% successes with
+the null hypothesis $p=2/3$, using three different sample sizes ($n$):
 
 \begin{enumerate}
   \item Both the one-sided and the two-sided hypothesis tests failed
     to reject the null hypothesis for $n=5$ prospectors.
   \item Increasing the number of prospectors to $n=15$ leads to a
-    rejection of $H_0$ in the one-sided case but failure to reject
-    $H_0$ in the two-sided test.
+    rejection of $H_0$ using the one-sided test but failure to reject
+    $H_0$ using the two-sided test.
   \item Further increasing our sample size to $n=30$ whilst still
     keeping the percentage of success the same leads to a firm
-    rejection of both the one-sided and the two-sided null hypotheses.
+    rejection of $H_0$ using both the one-sided and the two-sided
+    test.
 \end{enumerate}
 
 In statistical terms, the increase in sample size has increased the
@@ -541,10 +543,10 @@ To appreciate the difference between the two types of errors in this
 table, it may be useful to compare statistical hypothesis testing with
 a legal analogue. The jury in a court of justice faces a situation
 that is similar to that of a statistical hypothesis test. They are
-faced with a criminal who has either committed a crime or not, and
-they must decide whether to sentence this person or acquit them.  In
-this case our `null hypothesis' is that the accused is innocent.  The
-jury then needs decide whether there is enough evidence to reject this
+faced with a suspect who has either committed a crime or not, and they
+must decide whether to sentence this person or acquit them.  In this
+case our `null hypothesis' is that the accused is innocent.  The jury
+then needs decide whether there is enough evidence to reject this
 hypothesis in favour of the alternative hypothesis, which is that the
 accused in guilty. Casting this process in a second ${2}\times{2}$
 table:
@@ -552,7 +554,7 @@ table:
 \begin{center}
 \begin{tabular}{c|cc}
   the accused is ... & guilty & innocent \\ \hline
-  sentenced & correct decision & Type-I error \\
+  convicted & correct decision & Type-I error \\
   acquitted & Type-II error & correct decision
 \end{tabular}
 \end{center}
@@ -567,8 +569,8 @@ correct.\medskip
 A \textbf{type-II error} is committed when we fail to reject a false
 null hypothesis.  This is akin to letting a guilty person get away
 with a crime for lack of evidence. In the geological example, this
-means that we still trust the geological assessment despite it being
-wrong.\medskip
+means that we conclude that the geological assessment is right despite
+it being wrong.\medskip
 
 The probability of committing a type-I error is controlled by one
 parameter:
@@ -581,10 +583,10 @@ parameter:
   correct, then we would still expect to reject it once every 20
   times. This may be acceptable in geological studies, but probably
   not in the legal system! The principle that guilt must be proven
-  ``beyond any reasonable doubt''is akin to choosing a very small
+  ``beyond any reasonable doubt'' is akin to choosing a very small
   significance level ($\alpha\ll{0.05}$). However it is never possible
-  to enforce $\alpha=0$, so it is inevitable that some innocent people
-  are sentenced.
+  to enforce $\alpha=0$ unless all suspects are aquitted, so it is
+  inevitable that some innocent people are convicted.
 \end{enumerate}
 
 The probability of committing a type-II error ($\beta$) depends on two
@@ -599,12 +601,12 @@ things:
   area was indeed 40\% ($p=2/5$) instead of $p=2/3$.  Then the
   expected distribution of outcomes would follow a binomial
   distribution with $p=2/5$. As shown in Section~\ref{sec:binomH}, the
-  rejection region for the one-sided hypothesis test of $H_0:
-  p=2/3$ vs. $H_{\!A}: p<2/3$ is $R=\{0,1\}$. If the actual value for $p$
-  is 2/5, then the probability of observing a value for $k$ that falls
-  in this rejection region is $P(k<2|n=5,p=2/5)=0.34$. This is known
-  as the \textbf{power} of the statistical test. The probability of
-  committing a type-II error is given by:
+  rejection region for the one-sided hypothesis test of $H_0: p=2/3$
+  vs. $H_{\!A}: p<2/3$ is $R=\{0,1\}$ for $n=5$. If the actual value
+  for $p$ is 2/5, then the probability of observing a value for $k$
+  that falls in this rejection region is $P(k<2|n=5,p=2/5)=0.34$. This
+  is known as the \textbf{power} of the statistical test. The
+  probability of committing a type-II error is given by:
   
   \begin{equation}
     \beta = 1 - \mbox{power} = 0.66
@@ -612,15 +614,15 @@ things:
 
   Next, suppose that the true probability of finding gold is even
   lower, at $p=1/5$. Under this alternative distribution, the
-  probability of finding gold in ${k}\leq{1}$ claims (and, hence, the
-  power) increases to 74\%. Therefore, the probability of committing a
-  type-II error has dropped to only 26\%.
+  probability of finding gold in ${k}\leq{1}$ out of $n=5$ claims
+  (i.e., the power) increases to 74\%. Therefore, the probability of
+  committing a type-II error has dropped to only 26\%.
 
   Finally, consider an end member situation in which the prospecting
   area does not contain any gold at all ($p=0$). Then the probability
-  of finding gold is obviously zero ($F(x=2)=0$). Under this trivial
-  scenario, the power of the test is 100\%, and the probability of
-  committing a type-II error is zero.
+  of finding gold is obviously zero, because $F(x=2)=0$. Under this
+  trivial scenario, the power of the test is 100\%, and the
+  probability of committing a type-II error is zero.
 
   Plotting these results graphically:
 
@@ -636,11 +638,11 @@ things:
     alternative distribution (black). The horizontal dotted lines mark
     $\alpha=0.05$.  Their intersections with the CDF of the null
     distribution are marked by vertical dotted lines. The areas to the
-    left of these lines define the rejection region and are marked in
-    black in the bar chart. The larger the sample size, the easier it
-    is to reject $H_0$. The dashed horizontal lines mark the
-    intersection of the rejection region with the CDF of the
-    alternative distribution. These mark the power of the statistical
+    left of these lines define the rejection region under a one-sided
+    test and are marked in black in the PMFs of the alternative
+    distributions (a -- c). The dashed horizontal lines mark the
+    intersection of the rejection boundary with the CDF of the
+    alternative distribution. They mark the power of the statistical
     test ($1-\beta$).  Power clearly increases as the alternative
     distribution drifts away from the null distribution.}
   \label{fig:binompower1}
@@ -650,8 +652,8 @@ things:
 
   The effect of sample size was already discussed in
   Section~\ref{sec:power}. Comparing the predicted outcomes for the
-  null hypothesis $H_0: p=2/3$ to those of the alternative
-  hypothesis $H_{\!A}: p=2/5$ for sample sizes of $n=5$, 15 and 30:
+  null hypothesis $H_0: p=2/3$ to those of the alternative hypothesis
+  $H_{\!A}: p=2/5$ for sample sizes of $n=5$, 15 and 30:
 
   \begin{minipage}[t][][b]{\linewidth}
     \includegraphics[width=\textwidth]{../figures/binompower2.pdf}
@@ -662,15 +664,15 @@ things:
       and white, foreground), for sample sizes of a) $n=5$, b) $n=15$
       and c) $n=30$.  d) -- f) CDFs for the null distribution (grey)
       and the alternative distribution (black). The horizontal dotted
-      lines mark $\alpha=0.05$.  Their intersections with the CDF of
-      the null distribution are marked by vertical dotted lines. The
-      area to the left of these lines define the rejection region and
-      are marked in black in the bar chart. The larger the sample
-      size, the easier it is to reject $H_0$. The dashed
-      horizontal lines mark the intersection of the rejection region
-      with the CDF of the alternative distribution. These mark the
-      power of the statistical test ($1-\beta$).  Power clearly
-      increases with sample size.}
+      lines mark $\alpha=0.05$, corresponding to a one-sided test.
+      Their intersections with the CDF of the null distribution are
+      marked by vertical dotted lines. The area to the left of these
+      lines define the rejection region and are marked in black in the
+      bar chart. The larger the sample size, the easier it is to
+      reject $H_0$. The dashed horizontal lines mark the intersection
+      of the rejection region with the CDF of the alternative
+      distribution. These mark the power of the statistical test
+      ($1-\beta$).  Power clearly increases with sample size.}
     \label{fig:binompower2}
   \end{minipage}
 
@@ -726,7 +728,11 @@ live another day. The scientific method is strikingly similar to the
 way in which a statistical hypothesis test is carried out. A null
 hypothesis, like a scientific hypothesis, cannot be proven. It can
 only be disproved. Rejection of a null hypothesis is the best outcome,
-because it is the only outcome that teaches us something new.\medskip
+because it is the only outcome that teaches us something new. Our
+understanding of the natural world continues to improve by falsifying
+current hypotheses using scientific experiments, which leads to
+revised hypotheses that are closer to the truth.
+\medskip
 
 It may seem natural to use the statistical approach to test scientific
 hypotheses. However doing so is not without dangers. To explain these
@@ -745,8 +751,8 @@ hypotheses. Whereas a mathematical hypothesis is either `right' or
 `wrong', scientific hypotheses are always `somewhat wrong'.
 Considering our gold prospecting example, it would be unreasonable to
 expect that $p$ is exactly equal to 2/3, down to the
-100\textsuperscript{th} significant digit.  Estimating the correct
-proportion of gold in the area to better than 10\% would already be a
+100\textsuperscript{th} significant digit.  Estimating the proportion
+of gold in the area to be within 10\% of the truth would already be a
 remarkable achievement. Yet given enough data, there will always come
 a point where the geological prediction is disproved. Given a large
 enough dataset, even a 1\% deviation from the predicted value would
@@ -756,13 +762,15 @@ yield an unacceptably small p-value:
   \includegraphics[width=\textwidth]{../figures/binompvsn.pdf}
 \end{minipage}
 \begin{minipage}[t][][t]{.55\textwidth}
-  \captionof{figure}{The most likely outcome of a binomial experiment
-    with $p=2/3$ is $k/n=2/3(=0.67)$. This figure shows the p-values
-    of six slightly different outcomes for a range of different sample
-    sizes.  The horizontal dotted line marks the 5\% significance
-    level. No matter how little the observed $k/n$-ratio differs from
-    2/3, this difference always becomes `significant' given a large
-    enough sample.}
+  \captionof{figure}{The p-values of a binomial test comparing the
+    null hypothesis $H_0: p=2/3$ with the alternative hypothesis $H_a:
+    p<2/3$, for four different observed outcomes $\hat{p}$, over a
+    range of sample sizes. For each $\hat{p}$, let the outcome $k$ be
+    the closest integer to $n\hat{p}$, so that
+    $k/n\approx\hat{p}$. The horizontal dotted line marks the 5\%
+    significance level. No matter how little the observed $k/n$-ratio
+    differs from 2/3 $(\approx{0.67})$, this difference always
+    becomes `significant' given a large enough sample.}
   \label{fig:binomnvsp}
 \end{minipage}
 
@@ -770,11 +778,11 @@ As another example, suppose that we have analysed the mineralogical
 composition of two samples of sand that were collected 10~cm apart on
 the same beach. Our null hypothesis is that the composition of the two
 samples is the same. Plausible though this hypothesis may seem, it
-will always be possible to reject it, given a large enough
-sample. Perhaps we need to classify a million grains from each sample,
-but at some point a `statistically significant' difference will be
-found. Given a large enough sample, even the tiniest hydraulic sorting
-effect becomes detectable.\medskip
+will always be possible to reject it, provided that enough grains are
+analysed. Perhaps we need to classify a million grains from each
+sample, but at some point a `statistically significant' difference
+will be found. Given a large enough sample, even the tiniest hydraulic
+sorting effect becomes detectable.\medskip
 
 In conclusion, formalised hypothesis tests are of limited use in
 science.  There are just two exceptions in which they do serve a
@@ -783,8 +791,8 @@ useful purpose:
 \begin{enumerate}
 \item If a statistical test fails to reject the null hypothesis, then
   this indicates that the sample size is too small to find a
-  meaningful effect. In this context the statistical test protects
-  us against over-interpreting our data.
+  meaningful effect. In this context the statistical test protects us
+  against over-interpreting our data.
 \item We can calculate the sample size that would be required to
   detect a pre-specified deviation from the null hypothesis.  This
   approach is used in the pharmaceutical industry to test the efficacy
