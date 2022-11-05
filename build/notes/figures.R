@@ -794,7 +794,7 @@ axis(side=2)
 mtext('# gold discoveries',side=1,line=1.5)
 mtext('P(k)',side=2,line=1.5)
 legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,1))
-text(7,max(h1)*0.965,labels=paste0('p=',signif(ci[1],2)),pos=3,col='grey60',xpd='n')
+text(7,max(h1)*0.963,labels=paste0('p=',signif(ci[1],2)),pos=3,col='grey60',xpd='n')
 text(18,max(h2),labels=paste0('p=',signif(ci[2],2)),pos=3,col='black',xpd='n')
 binomcdf(nn=n,kk=k,H0=ci[1],Ha=ci[1],nsides=0,
          showax=FALSE,plota=TRUE,plotp=FALSE,col='grey60')
