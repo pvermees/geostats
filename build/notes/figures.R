@@ -86,7 +86,7 @@ dev.off()
 cairo(file='../../figures/rectKDE.pdf',width=3,height=3)
 pars()
 dat <- c(-0.5,0.3,0.6)
-col <- c('gray40','gray60','gray80')
+col <- c('gray40','grey60','gray80')
 bw <- 1
 dens <- density(dat,kernel='rectangular',n=2^13,bw=bw/sqrt(3))
 X <- dens$x
@@ -485,6 +485,7 @@ binomhist <- function(nn,kk,H0,Ha=H0,nsides=1,rej.col='black',
                 space=0,xlab='',ylab='',xaxt='n',yaxt='n',...)
     }
     if (plotk) lines(rep(kk,2)+0.5,c(0,1),lty=2)
+    invisible(prob)
 }
 
 binomcdf <- function(nn,kk,H0,Ha=H0,nsides=1,showax=TRUE,add=FALSE,
@@ -609,7 +610,7 @@ binomhist(nn=5,kk=2,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
 axis(side=2); mtext('P(k)',side=2,cex=0.8,line=1.5)
 legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,0))
 mtext(text='p=2/5',col='black',at=2,line=-1,cex=0.8,adj=0)
-mtext(text='p=2/3',col='grey70',at=4,line=-1,cex=0.8)
+mtext(text='p=2/3',col='grey60',at=4,line=-1,cex=0.8)
 binomhist(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
           xlim=c(-0.5,6.5),ylim=c(0,1),border='white',
           rej.col='gray70',na.col='gray70',plotk=FALSE)
@@ -617,7 +618,7 @@ binomhist(nn=5,kk=2,H0=2/3,Ha=1/5,nsides=1,showax=FALSE,
           xlim=c(-0.5,6.5),na.col='white',add=TRUE,plotk=FALSE)
 legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(2,0))
 mtext(text='p=1/5',col='black',at=1,line=-1,cex=0.8,adj=0)
-mtext(text='p=2/3',col='grey70',at=4,line=-1,cex=0.8)
+mtext(text='p=2/3',col='grey60',at=4,line=-1,cex=0.8)
 binomhist(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
           xlim=c(-0.5,6.5),ylim=c(0,1),border='white',
           rej.col='gray70',na.col='gray70',plotk=FALSE)
@@ -625,9 +626,9 @@ binomhist(nn=5,kk=2,H0=2/3,Ha=0,nsides=1,showax=FALSE,
           xlim=c(-0.5,6.5),na.col='white',add=TRUE,plotk=FALSE)
 legend('topleft',legend='c)',bty='n',cex=1.2,adj=c(2,0))
 mtext(text='p=0',col='black',at=1.5,line=-1,cex=0.8)
-mtext(text='p=2/3',col='grey70',at=4,line=-1,cex=0.8)
+mtext(text='p=2/3',col='grey60',at=4,line=-1,cex=0.8)
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
-         xlim=c(-1,6),col='gray60',plotp=FALSE,plotk=FALSE)
+         xlim=c(-1,6),col='grey60',plotp=FALSE,plotk=FALSE)
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
          xlim=c(-1,6),add=TRUE,plotp=FALSE,plotk=FALSE)
 b <- pbinom(qbinom(0.05,5,2/3)-1,5,2/5)
@@ -637,7 +638,7 @@ axis(side=2)
 mtext('P(k)',side=2,cex=0.8,line=1.5)
 legend('topleft',legend='d)',bty='n',cex=1.2,adj=c(2,1))
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
-         xlim=c(-1,6),col='gray60',plotp=FALSE,plotk=FALSE)
+         xlim=c(-1,6),col='grey60',plotp=FALSE,plotk=FALSE)
 binomcdf(nn=5,kk=2,H0=2/3,Ha=1/5,nsides=1,showax=FALSE,
          xlim=c(-1,6),add=TRUE,plotp=FALSE,plotk=FALSE)
 b <- pbinom(qbinom(0.05,5,2/3)-1,5,1/5)
@@ -646,7 +647,7 @@ axis(side=1,at=0:5)
 mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
 legend('topleft',legend='e)',bty='n',cex=1.2,adj=c(2,1))
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
-         xlim=c(-1,6),col='gray60',plotp=FALSE,plotk=FALSE)
+         xlim=c(-1,6),col='grey60',plotp=FALSE,plotk=FALSE)
 binomcdf(nn=5,kk=2,H0=2/3,Ha=0,nsides=1,plotk=FALSE,
          showax=FALSE,xlim=c(-1,6),plotp=FALSE,add=TRUE)
 b <- pbinom(qbinom(0.05,5,2/3)-1,5,0)
@@ -684,7 +685,7 @@ binomhist(nn=30,kk=12,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
           xlim=c(-0.5,31.5),na.col='white',add=TRUE,plotk=FALSE)
 legend('topleft',legend='c)',bty='n',cex=1.2,adj=c(0.5,0))
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
-         xlim=c(-1,6),col='gray60',plotp=FALSE,plotk=FALSE)
+         xlim=c(-1,6),col='grey60',plotp=FALSE,plotk=FALSE)
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
          xlim=c(-1,6),add=TRUE,plotp=FALSE,plotk=FALSE)
 b <- pbinom(qbinom(0.05,5,2/3)-1,5,2/5)
@@ -694,7 +695,7 @@ axis(side=2)
 mtext('P(k)',side=2,cex=0.8,line=1.5)
 legend('topleft',legend='d)',bty='n',cex=1.2,adj=c(2,0))
 binomcdf(nn=15,kk=6,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
-         xlim=c(-1,16),col='gray60',plotp=FALSE,plotk=FALSE)
+         xlim=c(-1,16),col='grey60',plotp=FALSE,plotk=FALSE)
 binomcdf(nn=15,kk=6,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
          xlim=c(-1,16),add=TRUE,plotp=FALSE,plotk=FALSE)
 b <- pbinom(qbinom(0.05,15,2/3)-1,15,2/5)
@@ -703,7 +704,7 @@ axis(side=1,at=seq(from=0,to=15,by=5))
 mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
 legend('topleft',legend='e)',bty='n',cex=1.2,adj=c(2,0))
 binomcdf(nn=30,kk=12,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
-         xlim=c(-1,31),col='gray60',plotp=FALSE,plotk=FALSE)
+         xlim=c(-1,31),col='grey60',plotp=FALSE,plotk=FALSE)
 binomcdf(nn=30,kk=12,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
          xlim=c(-1,31),add=TRUE,plotp=FALSE,plotk=FALSE)
 b <- pbinom(qbinom(0.05,30,2/3)-1,30,2/5)
@@ -720,7 +721,7 @@ pars()
 p <- c(0.5,0.6,0.625,0.65)
 dn <- c(4,10,8,20)
 lty <- c(1,1,2,2)
-col <- c('black','grey70','black','grey70')
+col <- c('black','grey60','black','grey60')
 maxn <- 1000
 plot(c(0,maxn),c(0,.4),type='n',xlab='n',ylab='p-value',bty='n')
 leg <- list()
@@ -741,14 +742,16 @@ n <- 5
 k <- 2
 pars(mfrow=c(1,2))
 ci <- binom.test(k,n)$conf.int
-binomhist(nn=n,kk=k,H0=ci[1],Ha=ci[1],nsides=2,
-          border='white',na.col='gray60')
-binomhist(nn=n,kk=k,H0=ci[2],Ha=ci[2],nsides=2,add=TRUE)
+h1 <- binomhist(nn=n,kk=k,H0=ci[1],Ha=ci[1],nsides=2,
+                border='white',na.col='grey60')
+h2 <- binomhist(nn=n,kk=k,H0=ci[2],Ha=ci[2],nsides=2,add=TRUE)
 legend('topright',legend='a)',bty='n',cex=1.2,adj=c(0,1))
+text(1.75,max(h1),labels=paste0('p=',signif(ci[1],2)),pos=1,col='grey60')
+text(5,max(h2),labels=paste0('p=',signif(ci[2],2)),pos=3,col='black')
 binomcdf(nn=n,kk=k,H0=ci[1],Ha=ci[1],nsides=0,
-         plota=TRUE,plotp=FALSE,col='gray60')
+         plota=TRUE,plotp=FALSE,col='grey60')
 ly <- pbinom(0,n,ci[1])
-text(0,ly,labels=paste0('p=',signif(ci[1],2)),pos=3,col='gray60')
+text(0,ly,labels=paste0('p=',signif(ci[1],2)),pos=3,col='grey60')
 binomcdf(nn=n,kk=k,H0=ci[2],Ha=ci[2],nsides=0,add=TRUE)
 ly <- pbinom(4,n,ci[2])
 text(5,ly,labels=paste0('p=',signif(ci[2],2)),pos=1)
@@ -760,14 +763,17 @@ n <- 5
 k <- 4
 pars(mfrow=c(1,2))
 ci <- binom.test(k,n)$conf.int
-binomhist(nn=n,kk=k,H0=ci[1],Ha=ci[1],nsides=2,
-          ylim=c(0,1),border='white',na.col='gray60')
-binomhist(nn=n,kk=k,H0=ci[2],Ha=ci[2],nsides=2,add=TRUE)
+h1 <- binomhist(nn=n,kk=k,H0=ci[1],Ha=ci[1],nsides=2,
+                ylim=c(0,1),border='white',na.col='grey60')
+h2 <- binomhist(nn=n,kk=k,H0=ci[2],Ha=ci[2],nsides=2,add=TRUE)
 legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,1))
+text(1.5,max(h1),labels=paste0('p=',signif(ci[1],3)),pos=3,col='grey60')
+text(5.25,max(h2)*0.98,labels=paste0('p=',signif(ci[2],3)),
+     pos=3,col='black',xpd='n')
 binomcdf(nn=n,kk=k,H0=ci[1],Ha=ci[1],nsides=0,
-         plota=TRUE,plotp=FALSE,col='gray60')
+         plota=TRUE,plotp=FALSE,col='grey60')
 ly <- pbinom(0,n,ci[1])
-text(0,ly,labels=paste0('p=',signif(ci[1],3)),pos=3,col='gray60')
+text(0,ly,labels=paste0('p=',signif(ci[1],3)),pos=3,col='grey60')
 binomcdf(nn=n,kk=k,H0=ci[2],Ha=ci[2],nsides=0,add=TRUE)
 ly <- pbinom(4,n,ci[2])
 text(3,ly,labels=paste0('p=',signif(ci[2],3)),pos=1,offset=-0.75)
@@ -777,21 +783,23 @@ dev.off()
 cairo(file='../../figures/binomcik12n30.pdf',width=7,height=3.5)
 n <- 30
 k <- 12
-pars(mfrow=c(1,2))
+pars(mar=c(2.5,2.3,0.6,0.25),mfrow=c(1,2))
 ci <- binom.test(k,n)$conf.int
-binomhist(nn=n,kk=k,H0=ci[1],Ha=ci[1],nsides=2,showax=FALSE,
-          border='white',na.col='gray60')
-binomhist(nn=n,kk=k,H0=ci[2],Ha=ci[2],
-          showax=FALSE,nsides=2,add=TRUE)
+h1 <- binomhist(nn=n,kk=k,H0=ci[1],Ha=ci[1],nsides=2,showax=FALSE,
+                border='white',na.col='grey60')
+h2 <- binomhist(nn=n,kk=k,H0=ci[2],Ha=ci[2],
+                showax=FALSE,nsides=2,add=TRUE)
 axis(side=1,at=seq(from=0,to=30,by=5))
 axis(side=2)
 mtext('# gold discoveries',side=1,line=1.5)
 mtext('P(k)',side=2,line=1.5)
 legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,1))
+text(7,max(h1)*0.965,labels=paste0('p=',signif(ci[1],2)),pos=3,col='grey60',xpd='n')
+text(18,max(h2),labels=paste0('p=',signif(ci[2],2)),pos=3,col='black',xpd='n')
 binomcdf(nn=n,kk=k,H0=ci[1],Ha=ci[1],nsides=0,
-         showax=FALSE,plota=TRUE,plotp=FALSE,col='gray60')
+         showax=FALSE,plota=TRUE,plotp=FALSE,col='grey60')
 ly <- pbinom(6,n,ci[1])
-text(6,ly,labels=paste0('p=',signif(ci[1],2)),pos=2,col='gray60')
+text(6,ly,labels=paste0('p=',signif(ci[1],2)),pos=2,col='grey60')
 binomcdf(nn=n,kk=k,H0=ci[2],Ha=ci[2],showax=FALSE,nsides=0,add=TRUE)
 ly <- pbinom(17,n,ci[2])
 text(17,ly,labels=paste0('p=',signif(ci[2],2)),pos=4)
@@ -883,7 +891,7 @@ for (x in 1:nx){
         xd <- x + runif(nd[x,y]) - 1
         set.seed(seeds[seednum+3])
         yd <- y + runif(nd[x,y]) - 1
-        points(xo,yo,pch=21,bg='white',col='gray60')
+        points(xo,yo,pch=21,bg='white',col='grey60')
         points(xd,yd,pch=22,fg='black',bg='black')
     }
 }
@@ -1060,15 +1068,15 @@ pars(mfrow=c(1,2))
 nn <- 0:25
 kk <- 5
 ci <- poisson.test(kk)$conf.int
-poishist(nn,H0=ci[1],kk=kk,na.col='gray60',
+poishist(nn,H0=ci[1],kk=kk,na.col='grey60',
          plotk=TRUE,plotl=FALSE,
          rej.col='black',border='white',showax=TRUE,nsides=2)
 poishist(nn,H0=ci[2],kk=kk,rej.col='black',
          plotk=FALSE,plotl=FALSE,showax=FALSE,nsides=2,add=TRUE)
-poiscdf(nn,H0=ci[1],kk=kk,col='gray60',
+poiscdf(nn,H0=ci[1],kk=kk,col='grey60',
         plotk=TRUE,plota=TRUE,plotp=FALSE,plotl=FALSE,
         showax=TRUE,nsides=0,ylim=c(0,1))
-text(ci[1],0.15,col='gray60',pos=4,srt=90,
+text(ci[1],0.15,col='grey60',pos=4,srt=90,
      labels=bquote(lambda == .(signif(ci[1],3))))
 poiscdf(nn,H0=ci[2],kk=kk,add=TRUE,nsides=0,
         plotk=FALSE,plota=FALSE,plotp=FALSE,plotl=FALSE)
@@ -1085,7 +1093,7 @@ lambda <- mean(nquakes)
 for (i in 1:length(nquakes)){
     pt <- poisson.test(nquakes[i],r=lambda)
     ci <- pt$conf.int
-    if (ci[1]<lambda & ci[2]>lambda) col <- 'gray60'
+    if (ci[1]<lambda & ci[2]>lambda) col <- 'grey60'
     else col <- 'black'
     points(years[i],nquakes[i],pch=20,col=col,cex=0.8)
     arrows(years[i],ci[1],years[i],ci[2],
@@ -3994,7 +4002,7 @@ dev.off()
 cairo(file='../../figures/PCAiris.pdf',width=3,height=3)
 p <- par(mar=c(2.5,2.5,1.5,1.5),mgp=c(1.5,0.5,0))
 pc <- prcomp(iris[,-5])
-biplot(pc,col=c('gray60','black'),expand=2,
+biplot(pc,col=c('grey60','black'),expand=2,
        xlim=c(-0.15,0.45),ylim=c(-0.25,0.23))
 par(p)
 dev.off()
@@ -4281,7 +4289,7 @@ pars(mfrow=c(1,2),mar=c(1.2,1,1,1))
 meanpalaeomag <- geostats::meanangle(trd=A,plg=D1,option=1,degrees=TRUE)
 geostats::stereonet(trd=A,plg=D1,option=1,degrees=TRUE,
                     show.grid=FALSE,wulff=FALSE,pch=21,
-                    bg='white',cex=0.7,col='grey70')
+                    bg='white',cex=0.7,col='grey60')
 geostats::stereonet(trd=meanpalaeomag[1],plg=meanpalaeomag[2],
                     option=1,degrees=TRUE,add=TRUE,wulff=FALSE,
                     pch=15,cex=0.85,col='black')
@@ -4289,7 +4297,7 @@ legend('topleft',legend='a)',adj=c(2,0),bty='n')
 meanfault <- geostats::meanangle(trd=S,plg=D2,option=2,degrees=TRUE)
 geostats::stereonet(trd=S,plg=D2,option=2,degrees=TRUE,
                     show.grid=FALSE,wulff=TRUE,pch=21,
-                    bg='white',cex=0.7,col='grey70')
+                    bg='white',cex=0.7,col='grey60')
 geostats::stereonet(trd=meanfault[1],plg=meanfault[2],
                     option=2,degrees=TRUE,add=TRUE,wulff=TRUE,
                     pch=15,cex=0.85,col='black',lwd=1.5)
@@ -4331,7 +4339,7 @@ strike <- c(77.1,94.9,73.2,122.8,97.3,254.7,280.4,285.6,282.5,264.0)
 dip <- c(5.6,1.9,10.1,7.8,3.2,0.0,8.5,2.3,3.4,6.7)
 geostats::stereonet(strike,dip,option=2,degrees=TRUE,
                     show.grid=FALSE,pch=21,cex=0.7,
-                    bg='white',col='grey70')
+                    bg='white',col='grey60')
 m <- geostats::meanangle(strike,dip,option=2,degrees=TRUE)
 geostats::stereonet(m[1],m[2],option=2,degrees=TRUE,add=TRUE,
                     pch=22,bg='black',lwd=2,cex=1)

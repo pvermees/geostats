@@ -764,13 +764,13 @@ yield an unacceptably small p-value:
 \begin{minipage}[t][][t]{.55\textwidth}
   \captionof{figure}{The p-values of a binomial test comparing the
     null hypothesis $H_0: p=2/3$ with the alternative hypothesis $H_a:
-    p<2/3$, for four different observed outcomes $\hat{p}$, over a
-    range of sample sizes. For each $\hat{p}$, let the outcome $k$ be
-    the closest integer to $n\hat{p}$, so that
-    $k/n\approx\hat{p}$. The horizontal dotted line marks the 5\%
-    significance level. No matter how little the observed $k/n$-ratio
-    differs from 2/3 $(\approx{0.67})$, this difference always
-    becomes `significant' given a large enough sample.}
+    p<2/3$, for four parameter estimates $\hat{p}$, over a range of
+    sample sizes. For each $\hat{p}$, let the outcome $k$ be the
+    closest integer to $n\hat{p}$, so that $k/n\approx\hat{p}$. The
+    horizontal dotted line marks the 5\% significance level. No matter
+    how little the observed $k/n$-ratio differs from 2/3
+    $(\approx{0.67})$, this difference always becomes `significant'
+    given a large enough sample.}
   \label{fig:binomnvsp}
 \end{minipage}
 
@@ -779,10 +779,10 @@ composition of two samples of sand that were collected 10~cm apart on
 the same beach. Our null hypothesis is that the composition of the two
 samples is the same. Plausible though this hypothesis may seem, it
 will always be possible to reject it, provided that enough grains are
-analysed. Perhaps we need to classify a million grains from each
-sample, but at some point a `statistically significant' difference
-will be found. Given a large enough sample, even the tiniest hydraulic
-sorting effect becomes detectable.\medskip
+analysed. We may need to classify a hundred, a thousand or even a
+million grains from each sample, but at some point a `statistically
+significant' difference will be found. Given a large enough sample,
+even the tiniest hydraulic sorting effect becomes detectable.\medskip
 
 In conclusion, formalised hypothesis tests are of limited use in
 science.  There are just two exceptions in which they do serve a
@@ -794,9 +794,11 @@ useful purpose:
   meaningful effect. In this context the statistical test protects us
   against over-interpreting our data.
 \item We can calculate the sample size that would be required to
-  detect a pre-specified deviation from the null hypothesis.  This
-  approach is used in the pharmaceutical industry to test the efficacy
-  of drugs. However it is seldom or never available to geologists.
+  detect a pre-specified deviation from the null hypothesis, for the
+  given type-1 and type-2 thresholds (i.e., $\alpha$ and $\beta$).
+  This approach is used in the pharmaceutical industry to test the
+  efficacy of drugs. However it is seldom or never available to
+  geologists.
 \end{enumerate}
 
 \section{Confidence intervals}
@@ -863,12 +865,11 @@ interval are given by:
   \includegraphics[width=\textwidth]{../figures/binomcik2n5.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.35\textwidth}
-  \captionof{figure}{95\% confidence interval for the binomial
-    parameter $p$ given $k=2$ successful claims (dashed lines) out of
-    $n=5$.  The lower ($p=0.053$, grey) and upper ($p=0.85$) limits of
-    the confidence interval are shown as a) PMFs and b) CDFs. Dotted
-    horizontal lines mark the 0.025 and 0.975 confidence
-    levels.\medskip}
+  \captionof{figure}{a) the PMFs and b) CDFs of the binomial parameter
+    $p$ given $k=2$ successful claims (dashed lines) out of $n=5$
+    (i.e., $\hat{p}=0.4$), for the lower ($p=0.053$, grey) and upper
+    ($p=0.85$) limits of a 95\% confidence interval. Dotted horizontal
+    lines mark the 0.025 and 0.975 confidence levels.\medskip}
   \label{fig:binomcik2n5}
 \end{minipage}
 
@@ -883,12 +884,9 @@ yields a different confidence interval, namely:
 \medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.35\textwidth}
-  \captionof{figure}{95\% confidence interval for the binomial
-    parameter $p$ given $k=4$ successful claims (dashed lines) out of
-    $n=5$ trials.  The lower ($p=0.284$, grey) and upper ($p=0.995$)
-    limits of the confidence interval are shown as a) PMFs and b)
-    CDFs. Dotted horizontal lines mark the 0.025 and 0.975 confidence
-    levels.\medskip}
+  \captionof{figure}{The same as Figure~\ref{fig:binomcik2n5}, but for
+    $k=4$ successful claims (dashed lines) out of $n=5$ trials (i.e.,
+    $\hat{p}=0.8$).\medskip}
   \label{fig:binomcik4n5}
 \end{minipage}
 
@@ -905,12 +903,9 @@ example, but the 95\% confidence interval narrows down to
 \medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.35\textwidth}
-  \captionof{figure}{95\% confidence interval for the binomial
-    parameter $p$ given $k=12$ successful claims (dashed lines) out of
-    $n=30$ trials.  The lower ($p=0.23$, grey) and upper ($p=0.59$)
-    limits of the confidence interval are shown as a) PMFs and b)
-    CDFs. Dotted horizontal lines mark the 0.025 and 0.975 confidence
-    levels.\medskip}
+  \captionof{figure}{The same as Figure~\ref{fig:binomcik2n5}, but for
+    $k=12$ successful claims (dashed lines) out of $n=30$ trials
+    (i.e., $\hat{p}=0.4$).\medskip}
   \label{fig:binomcik12n30}
 \end{minipage}
 
@@ -926,9 +921,7 @@ over a range of sample sizes between $n=3$ and $n=300$:\medskip
 \begin{minipage}[t][][t]{.35\textwidth}
   \captionof{figure}{95\% confidence intervals for a) $\hat{p}=2/3$
     and b) $\hat{p}=1/5$ for different sample sizes $n$. The
-    horizontal dotted lines mark the maximum likelihood
-    estimates. Note the asymmetry of the confidence intervals, which
-    always fall within the 0 to 1 range of the parameter.}
+    horizontal dotted lines mark the maximum likelihood estimates.}
   \label{fig:binomcivsn}
 \end{minipage}
 
@@ -936,4 +929,23 @@ The confidence intervals become progressively narrower with increasing
 sample size. This reflects a steady improvement of the
 \textbf{precision} of our estimate for $p$ with increasing sample
 size. In other words, large datasets are `rewarded' with better
-precision.
+precision.\medskip
+
+The confidence intervals of Figure~\ref{fig:binomcivsn} are asymmetric
+but become more symmetric around the estimate with increasing sample
+size. In fact, for large $n$ ($>20$, say) and $p$ not near to 0 or 1,
+the 95\% confidence interval can be approximated as
+\begin{equation}
+  \mbox{C.I.}(p|k=n\hat{p},n) \approx
+  \hat{p} \pm 1.96 s[\hat{p}]
+  \label{eq:binormci}
+\end{equation}
+
+\noindent where 
+\begin{equation}
+  s[\hat{p}] = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
+  \label{eq:sigmabinom}
+\end{equation}
+
+A derivation of and justification for this approximation will be
+provided in Section~\ref{sec:FisherInformation}.

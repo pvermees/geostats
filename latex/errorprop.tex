@@ -663,4 +663,32 @@ get:
 \end{equation}
 
 Thus we have proven that the variance of a Poisson variable equals its
-mean, which was already shown empirically in Chapter~\ref{ch:poisson}.
+mean, which was already shown empirically in
+Chapter~\ref{ch:poisson}.\medskip
+
+Using the same rationale to estimate the standard error of a binomial
+variable, we take the logarithm of Equation~\ref{eq:Lbinom}:
+\[
+\mathcal{LL}(p|n,k) = \ln\!\binom{n}{k} + k \ln(p) + (n-k) \ln(1-p)
+\]
+
+\noindent the second derivative of which is:
+\[
+\frac{\partial^2\mathcal{LL}}{\partial{p^2}} =
+-\frac{k}{p^2} - \frac{n-k}{(1-p)^2}
+\]
+
+At the maximum likelihood estimate $\hat{p}=n/k$
+(Equation~\ref{eq:phat}), this becomes:
+\[
+\left.\frac{\partial^2\mathcal{LL}}{\partial{p^2}}\right|_{\hat{p}} =
+-\frac{n\hat{p}}{\hat{p}^2} - \frac{n-n\hat{p}}{(1-\hat{p})^2} =
+-\frac{n}{\hat{p}(1-\hat{p})}
+\]
+
+\noindent so that the variance of $\hat{p}$ is:
+\[
+s[\hat{p}]^2 = \frac{\hat{p}(1-\hat{p})}{n}
+\]
+
+\noindent which proves Equation~\ref{eq:sigmabinom}.
