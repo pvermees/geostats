@@ -3,8 +3,8 @@
 
 Probability is a numerical description of how likely it is for an
 event to occur or how likely it is for a proposition to be true.  In
-the context of a sampling experiment, the probability of an outcome
-$A$ can be defined as:
+the context of a random experiment, in which all outcomes are equally
+likely, the probability of an outcome $A$ can be defined as:
 \begin{equation}
 P(A) = \frac{\mbox{the number of ways }A\mbox{ can occur}}
 {\mbox{the total number of outcomes}}
@@ -23,7 +23,7 @@ a head ($H$) is
 The probability of tossing the same coin three times and obtaining two
 heads and one tail ($T$) is:
 \begin{equation}
-  P\!\left(2\times{H} \cap 1\times{T}\right) =
+  P(H,H,T) =
   \frac{
     \{THH\}\{HTH\}\{HHT\}
   }{
@@ -32,13 +32,11 @@ heads and one tail ($T$) is:
   \label{eq:2H1T}
 \end{equation}
 
-\noindent where $\cap$ stands for `and' in the sense of ``the
-intersection of two sets of outcomes''. Similarly, the probability of
-throwing two dice and obtaining a two (\raisebox{-2pt}{\Cube{2}}) and
-a six (\raisebox{-2pt}{\Cube{6}}) is:
+Similarly, the probability of throwing two fair dice and obtaining a
+two (\raisebox{-2pt}{\Cube{2}}) and a six (\raisebox{-2pt}{\Cube{6}})
+is:
 \begin{equation}
-  P\!\left(1\times{\mbox{\raisebox{-2pt}{\Cube{2}}}} \cap
-  1\times\mbox{\raisebox{-2pt}{\Cube{6}}}\right) =
+  P\!\left(\mbox{\raisebox{-2pt}{\Cube{2}},\raisebox{-2pt}{\Cube{6}}}\right) =
   \frac{
     \mbox{
       \big\{\raisebox{-2pt}{\Cube{2} \Cube{6}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{2}}\big\}
@@ -69,25 +67,33 @@ a six (\raisebox{-2pt}{\Cube{6}}) is:
 \end{equation}
 
 The \textbf{multiplicative rule of
-  probability}\label{page:multiplication} dictates that the
-probability of two combined (independent\footnote{The case of
-  non-independent experiments will be discussed in
-  Section~\ref{sec:conditionalprobability}.}) experiments is given by
-the product of their respective probabilities. Thus, if one were to
-carry out a coin tossing \emph{and} a dice throwing experiment, then
-the probability of obtaining two heads and one tail for the first
+  probability}\label{page:multiplication} states that the probability
+of two combined \emph{independent}\footnote{Independent means that the
+outcome of the first experiment does not depend on the outcome of the
+second. The case of non-independent experiments will be discussed in
+Section~\ref{sec:conditionalprobability}.} experiments is given by the
+product of their respective probabilities. Thus, if one were to carry
+out a coin tossing \emph{and} a dice throwing experiment, then the
+probability of obtaining two heads and one tail for the first
 experiment \emph{and} throwing a two and a six in the second
 experiment is:
 \[
-P\left(\left\{2\times{H} \cap 1\times{T}\right\} \cap
-\left\{1\times\mbox{\raisebox{-2pt}{\Cube{2}}} \cap
-1\times\mbox{\raisebox{-2pt}{\Cube{6}}}\right\}\right) =
+P\!\left(H,H,T \cap \mbox{\raisebox{-2pt}{\Cube{2}},\raisebox{-2pt}{\Cube{6}}}
+\right) =
 \frac{3}{8}\frac{1}{18} = \frac{3}{144} = 0.021
 \]
 
-The \textbf{additive rule of probability}\label{page:addition}
-dictates that the probability of observing \emph{either} of two
-outcomes $A$ and $B$ is given by:
+\noindent where $\cap$ stands for `and' in the sense of ``the
+intersection of two sets of outcomes''. Similarly, the likelihood of
+throwing an unbiased coin twice and obtaining two heads can be
+calculated as:
+\[
+P(H \cap H) = \frac{1}{2}\frac{1}{2} = \frac{1}{4}
+\]
+
+The \textbf{additive rule of probability}\label{page:addition} states
+that the probability of observing \emph{either} of two outcomes $A$
+and $B$ is given by:
 \begin{equation}
   P({A}\cup{B}) = P(A) + P(B) - P({A}\cap{B})
   \label{eq:additive}
@@ -97,9 +103,7 @@ For example the probability of observing two heads for the first
 experiment \emph{or} throwing a two and a six in the second experiment
 is:
 \[
-P\left(\left\{2\times{H} \cap 1\times{T}\right\} \cup
-\left\{1\times\mbox{\raisebox{-2pt}{\Cube{2}}} \cap
-1\times\mbox{\raisebox{-2pt}{\Cube{6}}}\right\}\right) =
+P\left(H,H,T \cup \mbox{\raisebox{-2pt}{\Cube{2}},\raisebox{-2pt}{\Cube{6}}}\right) =
 \frac{3}{8} + \frac{1}{18} - \frac{3}{144} = \frac{59}{144} = 0.410
 \]
 
@@ -107,8 +111,7 @@ For two mutually exclusive experiments, the third term in
 Equation~\ref{eq:additive} disappears. For example, the probability of
 obtaining two heads and one tail \emph{or} throwing three heads is:
 \[
-P\left(\left\{2\times{H} \cap 1\times{T}\right\} \cup
-\left\{3\times{H}\right\}\right) = \frac{3}{8} + \frac{1}{8} = \frac{4}{8} = 0.5
+P\left(H,H,T \cup H,H,H\right) = \frac{3}{8} + \frac{1}{8} = \frac{4}{8} = 0.5
 \]
 
 \section{Permutations}
@@ -126,10 +129,10 @@ be selected in one of two ways:
   possible outcomes for the second experiment. Using the
   multiplicative rule of probability, there are $(n\times{n})$
   possible outcomes for the two numbers. Repeat until you have drawn
-  $k$ balls (where $k \leq n$). Then the number of possible
-  sequences of numbers is
+  $k$ balls. Then the number of possible sequences of numbers is
   \begin{equation}
-  \overset{k \mbox{~times}}{\overbrace{n\times{n}\times{\ldots}\times{n}}} = n^k
+    \overset{k \mbox{~times}}{\overbrace{n\times{n}\times{\ldots}\times{n}}} = n^k
+    \label{eq:withreplacement}
   \end{equation}
   
 \item{\bf sampling without replacement.} Consider the same urn as
@@ -139,18 +142,19 @@ be selected in one of two ways:
   there are only $(n - 1)$ possible outcomes. Thus, the total number
   of outcomes for the first two numbers is $n \times
   (n-1)$. Continuing the experiment until you have drawn $k$ balls
-  yields
+  (where $k \leq n$) yields
   \begin{equation}
-  n\times(n-1)\times(n-2)\times{\ldots}\times(n-k+1) = \frac{n!}{(n-k)!}
+    n\times(n-1)\times(n-2)\times{\ldots}\times(n-k+1) = \frac{n!}{(n-k)!}
+    \label{eq:withoutreplacement}
   \end{equation}
   possible sequences, where `!' is the factorial operator.
 
 \end{enumerate}
 
-Let us apply these two formulas to a classical statistical problem:
-``\textit{what is the probability that two students in a classroom of
-  k celebrate their birthdays on the same day?}''. The solution is as
-follows.
+Let us apply these two formulas to a classic statistical problem:
+``\textit{what is the probability that at least two students in a
+  classroom of k celebrate their birthdays on the same day?}''. The
+solution is as follows.
 
 \begin{enumerate}
 \item There are ($n=$) 365 possible days on which the first person might
@@ -184,128 +188,55 @@ students will share the same birthday in a classroom of 23.
 \section{Combinations}
 \label{sec:combinations}
 
-Section~\ref{sec:permutations} showed that there are $n^k$ unique
-possible ways to select $k$ objects from a collection of $n$ with
-replacement. For example, there are $2^3=8$ ways for three coins to
-land:
-\[\{HHH\}\{THH\}\{HTH\}\{HHT\}\{TTH\}\{THT\}\{HTT\}\{TTT\}\]
-
-\noindent and there are $6^2=36$ ways for two dice to land:
+Having considered coins, dice and lottery balls, we will now
+(literally!) deal with a fourth archetypal source of statistical
+experiments, namely playing cards.
+Equation~\ref{eq:withoutreplacement} showed that there are
+$52!/49!=132600$ unique possible ways to select three cards from a
+deck. Suppose that we have drawn the following cards:
 \[
-\begin{array}{c}
-\mbox{ \big\{\raisebox{-2pt}{\Cube{1}
-    \Cube{1}}\big\}\big\{\raisebox{-2pt}{\Cube{2}
-    \Cube{1}}\big\}\big\{\raisebox{-2pt}{\Cube{3}
-    \Cube{1}}\big\}\big\{\raisebox{-2pt}{\Cube{4}
-    \Cube{1}}\big\}\big\{\raisebox{-2pt}{\Cube{5}
-    \Cube{1}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{1}}\big\}
-}\\ \mbox{ \big\{\raisebox{-2pt}{\Cube{1}
-    \Cube{2}}\big\}\big\{\raisebox{-2pt}{\Cube{2}
-    \Cube{2}}\big\}\big\{\raisebox{-2pt}{\Cube{3}
-    \Cube{2}}\big\}\big\{\raisebox{-2pt}{\Cube{4}
-    \Cube{2}}\big\}\big\{\raisebox{-2pt}{\Cube{5}
-    \Cube{2}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{2}}\big\}
-}\\ \mbox{ \big\{\raisebox{-2pt}{\Cube{1}
-    \Cube{3}}\big\}\big\{\raisebox{-2pt}{\Cube{2}
-    \Cube{3}}\big\}\big\{\raisebox{-2pt}{\Cube{3}
-    \Cube{3}}\big\}\big\{\raisebox{-2pt}{\Cube{4}
-    \Cube{3}}\big\}\big\{\raisebox{-2pt}{\Cube{5}
-    \Cube{3}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{3}}\big\}
-}\\ \mbox{ \big\{\raisebox{-2pt}{\Cube{1}
-    \Cube{4}}\big\}\big\{\raisebox{-2pt}{\Cube{2}
-    \Cube{4}}\big\}\big\{\raisebox{-2pt}{\Cube{3}
-    \Cube{4}}\big\}\big\{\raisebox{-2pt}{\Cube{4}
-    \Cube{4}}\big\}\big\{\raisebox{-2pt}{\Cube{5}
-    \Cube{4}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{4}}\big\}
-}\\ \mbox{ \big\{\raisebox{-2pt}{\Cube{1}
-    \Cube{5}}\big\}\big\{\raisebox{-2pt}{\Cube{2}
-    \Cube{5}}\big\}\big\{\raisebox{-2pt}{\Cube{3}
-    \Cube{5}}\big\}\big\{\raisebox{-2pt}{\Cube{4}
-    \Cube{5}}\big\}\big\{\raisebox{-2pt}{\Cube{5}
-    \Cube{5}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{5}}\big\}
-}\\ \mbox{ \big\{\raisebox{-2pt}{\Cube{1}
-    \Cube{6}}\big\}\big\{\raisebox{-2pt}{\Cube{2}
-    \Cube{6}}\big\}\big\{\raisebox{-2pt}{\Cube{3}
-    \Cube{6}}\big\}\big\{\raisebox{-2pt}{\Cube{4}
-    \Cube{6}}\big\}\big\{\raisebox{-2pt}{\Cube{5}
-    \Cube{6}}\big\}\big\{\raisebox{-2pt}{\Cube{6} \Cube{6}}\big\}
-}
-\end{array}\]
-    
-Note that these are the denominators of the two examples that were
-given in the introductory paragraph of this chapter. Also note that
-the collection of outcomes contains quite a few duplicate values.  For
-the coin example, these fall into two groups of three duplicates:
-\[\{\{HTT\}\{THT\}\{HHT\}\} \mbox{~and~} \{\{THH\}\{HTH\}\{TTH\}\}\]
-
-For the dice, there are fifteen groups of duplicate pairs:
-\[
-\begin{array}{l}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{1} \Cube{2}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{2} \Cube{1}}\big\}
-  \big\}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{1} \Cube{3}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{3} \Cube{1}}\big\}
-  \big\}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{1} \Cube{4}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{4} \Cube{1}}\big\}
-  \big\}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{1} \Cube{5}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{5} \Cube{1}}\big\}
-  \big\}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{1} \Cube{6}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{6} \Cube{1}}\big\}
-  \big\}\\
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{2} \Cube{3}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{3} \Cube{2}}\big\}
-  \big\}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{2} \Cube{4}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{4} \Cube{2}}\big\}
-  \big\}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{2} \Cube{5}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{5} \Cube{2}}\big\}
-  \big\}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{2} \Cube{6}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{6} \Cube{2}}\big\}
-  \big\}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{3} \Cube{4}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{4} \Cube{3}}\big\}
-  \big\}\\
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{3} \Cube{5}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{5} \Cube{3}}\big\}
-  \big\}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{3} \Cube{6}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{6} \Cube{3}}\big\}
-  \big\}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{4} \Cube{5}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{5} \Cube{4}}\big\}
-  \big\}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{4} \Cube{6}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{6} \Cube{4}}\big\}
-  \big\}
-  \big\{
-  \big\{\raisebox{-2pt}{\Cube{5} \Cube{6}}\big\}
-  \big\{\raisebox{-2pt}{\Cube{6} \Cube{5}}\big\}
-  \big\}
-\end{array}
+\raisebox{-6pt}{\usymH{1F0A1}{20pt}},
+\raisebox{-6pt}{\usymH{1F0C6}{20pt}},
+\raisebox{-6pt}{\usymH{1F0BE}{20pt}}
 \]
 
-Suppose that we don't care in which order the objects (coins, dice)
-appear. How many different \textbf{unordered} samples are possible?
+\noindent then there are $3!=6$ ways to order these cards:
+\[
+\left\{
+\raisebox{-6pt}{\usymH{1F0A1}{20pt}}~
+\raisebox{-6pt}{\usymH{1F0C6}{20pt}}~
+\raisebox{-6pt}{\usymH{1F0BE}{20pt}}
+\right\}
+\left\{
+\raisebox{-6pt}{\usymH{1F0A1}{20pt}}~
+\raisebox{-6pt}{\usymH{1F0BE}{20pt}}~
+\raisebox{-6pt}{\usymH{1F0C6}{20pt}}
+\right\}
+\left\{
+\raisebox{-6pt}{\usymH{1F0C6}{20pt}}~
+\raisebox{-6pt}{\usymH{1F0A1}{20pt}}~
+\raisebox{-6pt}{\usymH{1F0BE}{20pt}}
+\right\}
+\left\{
+\raisebox{-6pt}{\usymH{1F0C6}{20pt}}~
+\raisebox{-6pt}{\usymH{1F0BE}{20pt}}~
+\raisebox{-6pt}{\usymH{1F0A1}{20pt}}
+\right\}
+\left\{
+\raisebox{-6pt}{\usymH{1F0BE}{20pt}}~
+\raisebox{-6pt}{\usymH{1F0A1}{20pt}}~
+\raisebox{-6pt}{\usymH{1F0C6}{20pt}}
+\right\}
+\left\{
+\raisebox{-6pt}{\usymH{1F0BE}{20pt}}~
+\raisebox{-6pt}{\usymH{1F0C6}{20pt}}~
+\raisebox{-6pt}{\usymH{1F0A1}{20pt}}
+\right\}
+\]
+
+Suppose that we don't care in which order the objects (cards)
+appear. How many different \textbf{unordered} samples (hands) are
+possible?
 
 \begin{center}
   (\# ordered samples) =
@@ -330,6 +261,13 @@ often written as $\binom{n}{k}$ (pronounce ``n choose k''):
   \binom{n}{k} = \frac{n!}{(n-k)!k!}
   \label{eq:nchoosek}
 \end{equation}
+
+Applying this formula to the card dealing example, the number
+of ways to draw three cards from a deck of 52 is
+\[
+\binom{52}{3} = \frac{52!}{49!3!} =
+\frac{52\times{51}\times{50}}{3\times{2}} = 22100
+\]
 
 Revisiting the two examples at the start of this chapter, the number
 of ways to arrange two heads among three coins is
@@ -366,7 +304,7 @@ Bajocian deposit contains ammonite fossils. Conversely, $P(B|A)$ is
 the probability that an ammonite fossil came from a Bajocian
 deposit.\\
 
-The \textbf{multiplication law} dictates that:
+The \textbf{multiplication law} states that:
 \begin{equation}
   P({A}\cap{B}) = P(A|B) P(B) = P(B|A) P(A) = P({B}\cap{A})
   \label{eq:PA&B}
@@ -378,8 +316,8 @@ ammonite fossils ($P(A|B)=0.2$). Then there is a 14\%
 ($=0.7\times{0.2}$) chance that the field area contains Bajocian
 ammonites.\\
 
-The \textbf{law of total probability} prescribes that, given $n$
-mutually exclusive scenarios $B_i$ (for $1\leq{i}\leq{n}$):
+The \textbf{law of total probability} states that, given $n$ mutually
+exclusive scenarios $B_i$ (for $1\leq{i}\leq{n}$):
 \begin{equation}
   P(A) = \sum\limits_{i=1}^{n} P(A|B_i) P(B_i)
   \label{eq:totalprob}

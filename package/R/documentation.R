@@ -1,18 +1,18 @@
-#' properties of 20 islands
+#' properties of 20 river catchments
 #'
 #' six different (three discrete, three continuous) measurements for
-#' twenty fictitious islands, containing their dominant lithology
-#' (categorical data), stratigraphic age (ordinal data), number of
-#' springs (count data), the pH of the spring water (Cartesian
-#' quantity), the area of the island in km\eqn{^2} (Jeffreys quantity)
-#' and the percentage covered by vegetation (proportion).
+#' twenty fictitious river catchments, containing their dominant
+#' lithology (categorical data), stratigraphic age (ordinal data),
+#' number of springs (count data), the pH of the river water
+#' (Cartesian quantity), its Ca/Mg ratio (Jeffreys quantity) and the
+#' percentage covered by vegetation (proportion).
 #' 
-#' @name islands
+#' @name catchments
 #' @docType data
 #' @keywords data
 #' @examples
-#' data(islands,package='geostats')
-#' hist(islands$pH)
+#' data(catchments,package='geostats')
+#' hist(catchments$pH)
 NULL
 
 #' detrital zircon U-Pb data

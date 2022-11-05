@@ -325,7 +325,7 @@ Save and run at the command prompt:
 
 \item Loops. Add the following function to \texttt{myscript.R}:
 
-\begin{script}[firstnumber=8]
+\begin{script}
 fibonnaci <- function(n=5){ # 5 is the default value
     if (n < 3) { stop('n must be at least 3') }
     # seed the output vector with 0 and 1:
@@ -369,7 +369,6 @@ Let's use \texttt{geostats} to reproduce
 Figure~\ref{fig:declusteredquakes}:
 
 \begin{script}[firstnumber=2]
-data(declustered,package='geostats')
 quakesperyear <- countQuakes(declustered,minmag=5.0,from=1907,to=2006)
 barplot(quakesperyear)
 \end{script}
@@ -422,7 +421,7 @@ plot(anscombe$x4,anscombe$y4)
 \noindent where \texttt{par(mfrow=c(1,4))} creates a $1\times{4}$ grid
 of plot panels. Note that we can also write this more generically:
 
-\begin{script}
+\begin{script}[firstnumber=2]
 np <- 4 # np = 'number of panels'
 p <- par(mfrow=c(1,np))
 for (i in 1:np){
@@ -441,22 +440,33 @@ for (i in 1:np){
 }
 \end{script}
 
-\item Creating a bar chart of clast counts
-  (Figure~\ref{fig:discrete}.a):
+\item The \texttt{geostats} package includes a number of datasets,
+  which are automatically attached to the workspace when the
+  \texttt{geostats} package is loaded into memory. These datasets can
+  also be accessed outside the package using the \texttt{data()}
+  function.  For example:
+
+\begin{console}
+data(catchments,package='geostats')
+\end{console}
+
+  Entering `\texttt{catchments}' at the console reveals the contents
+  of a data frame containing the river catchment data of
+  Table~\ref{tab:catchments}.
+  
+\item Using the \texttt{catchments} data to create a bar chart of
+  lithologies (Figure~\ref{fig:discrete}.a):
 
 \begin{script}
-counts <- c(10,5,6,20)
-names(counts) <- c('granite','basalt','gneiss','quartzite')
-barplot(counts,col='white')
+counts <- table(catchments$lithology)
+barplot(counts)
 \end{script}
 
-The \texttt{geostats} package includes a number of datasets, such as
-the pH data of Section~\ref{sec:continuous}. Loading this dataset with
-\texttt{R}'s \texttt{data($\ldots$)} function and plotting it on a
-histogram and rug plot:
+\item Plotting the pH data of Figure~\ref{fig:continuous}.b on a
+  histogram and rug plot:
 
 \begin{script}
-data(pH,package='geostats')
+pH <- catchments$pH
 hist(pH)
 rug(pH)
 \end{script}
@@ -477,52 +487,49 @@ hist(pH,breaks=seq(from=3.25,to=6.75,by=0.5))
 \end{script}
 
 \item\label{it:KDE} A kernel density estimate (KDE) and rug plot of
-  the pH data (Section~\ref{sec:continuous} and
+  the pH data (Section~\ref{sec:datatypes} and
   Figure~\ref{fig:pHgaussKDE}):
 
-\begin{script}
+\begin{script}[firstnumber=2]
 dens <- density(pH)
 plot(dens)
 rug(pH)    
 \end{script}
 
-A KDE of the log-transformed clast size data
+A KDE of the log-transformed catchment Ca/Mg data
 (Figure~\ref{fig:logKDE}):
 
 \begin{script}
-data(clasts,package='geostats')
-lc <- log(clasts)
+lc <- log(catchments$CaMg)
 d <- density(lc)
 plot(d)
 \end{script}
 
-Subjecting the porosity data to a logistic transformation before
+Subjecting the vegetation data to a logistic transformation before
 plotting as a KDE:
 
 \begin{script}
-data(porosity,package='geostats')
-lp <- logit(porosity)
-d <- density(lp)
-plot(d)
+veg <- catchments$vegetation/100
+lv <- logit(veg)
+ld <- density(lv)
+plot(ld)
 \end{script}
 
-\noindent where the \texttt{logit($\ldots$)} function is provided by
-the \texttt{geostats} package. To map the density estimate from the
-logistic scale ($-\infty,+\infty$) back to the normal porosity scale
+\noindent where the \texttt{logit()} function is provided by the
+\texttt{geostats} package. To map the density estimate from the
+logistic scale ($-\infty,+\infty$) back to the normal vegetation scale
 ($0,1$):
 
-\begin{script}[firstnumber=2]
-lp <- logit(porosity,inverse=FALSE)
-ld <- density(lp)
+\begin{script}[firstnumber=3]
 d <- logit(ld,inverse=TRUE)
 plot(d)
 \end{script}
 
-Note that we are using the \texttt{logit($\ldots$)} twice using
-different inputs. In programming jargon, the function has been
+Note that we are using the \texttt{logit()} twice using different
+inputs. In programming jargon, the function has been
 \textbf{overloaded}. To inspect the \texttt{R}-code of the two
-implementations, just type \texttt{logit.default} and
-\texttt{logit.density} at the command prompt.
+implementations, just type \texttt{geostats:::logit.default} and
+\texttt{geostats:::logit.density} at the command prompt.
 
 \item The Old Faithful geyser data of section~\ref{sec:multivariate}
   are included with \texttt{R}. Plotting the eruption durations and
@@ -558,7 +565,6 @@ points(x,y)
   pH data:
 
 \begin{script}
-data(pH,package='geostats')
 cdf <- ecdf(pH)
 plot(cdf)
 \end{script}
@@ -566,7 +572,7 @@ plot(cdf)
 Adding some optional arguments to produce an output that is more
 similar to Figure~\ref{fig:ECDFs}a:
 
-\begin{script}[firstnumber=3]
+\begin{script}[firstnumber=2]
 plot(cdf,verticals=TRUE,pch=NA)
 \end{script}
 
@@ -594,17 +600,16 @@ fraction of pH values that are less than 4.5:
 \item Calculating summary statistics in \texttt{R} is straightforward:
 
 \begin{console}
-> data(pH,package='geostats')
-> mean(pH)
-[1] 4.985
-> sd(pH) # standard deviation
-[1] 0.6698586
-> median(pH)
+> mean(catchments$pH)
+[1] 5
+> sd(catchments$pH) # standard deviation
+[1] 0.6537342
+> median(catchments$pH)
 [1] 5.1
-> mad(pH) # median absolute deviation
-[1] 0.7413
-> IQR(pH) # interquartile range
-[1] 0.95
+> mad(catchments$pH,constant=1) # median absolute deviation
+[1] 0.5
+> IQR(catchments$pH,type=1) # interquartile range
+[1] 1
 \end{console}
 
 \item\label{it:mode} \texttt{R} does not come with a function to
@@ -615,7 +620,6 @@ fraction of pH values that are less than 4.5:
   of Figure~\ref{fig:declusteredquakesperyear} as an example:
 
 \begin{script}
-data(declustered,package='geostats')
 quakesperyear <- countQuakes(declustered,minmag=5.0,from=1917,to=2016)
 quaketab <- table(quakesperyear)
 mod <- which.max(quaketab)
@@ -631,26 +635,32 @@ maximum value. A more sophisticated implementation is included in a
 For continuous variables, in which there are no duplicate values, we
 use a KDE to determine the mode:
 
-\begin{script}[firstnumber=4]
-data(clasts,package='geostats')
-dens <- density(clasts)
+\begin{script}
+dens <- density(catchments$CaMg)
 mod <- dens$x[which.max(dens$y)]
 \end{script}
 
 The skewness is not implemented in \texttt{R} either. But it easy to
 write a function for that as well, based on Equation~\ref{eq:skew}:
 
-\begin{script}[firstnumber=7]
+\begin{script}
 skew <- function(x){
   mean((x-mean(x))^3)/sd(x)^3
 }
 \end{script}
 
-\item A box plot for the clast size data:
+\noindent which can be used as follows:
 
-\begin{script}[firstnumber=10]
-boxplot(clasts)
-\end{script}
+\begin{console}
+> skew(catchments$CaMg)
+[1] 1.212305
+\end{console}
+
+\item A box plot for the Ca/Mg data:
+
+\begin{console}
+boxplot(catchments$CaMg)
+\end{console}
 
 \end{enumerate}
 
@@ -789,13 +799,13 @@ equal to
 [1] 7
 \end{console}
 
-Thus the rejection region for the one-sided null hypothesis $H_\circ:
-p=2/3$ vs. the alternative hypothesis $H_a: p>2/3$ is $R =
+Thus the rejection region for the one-sided null hypothesis $H_0:
+p=2/3$ vs. the alternative hypothesis $H_{\!A}: p>2/3$ is $R =
 \{0,\ldots,6\}$ (Equation~\ref{eq:1sidedbinomtest15}).
 
 \item\label{it:2sidedbinomR} The boundaries of the rejection region
-  for the two-sided null hypothesis $H_\circ: p=2/3$ vs. the
-  alternative hypothesis $H_a: p\neq{2/3}$ are given by
+  for the two-sided null hypothesis $H_0: p=2/3$ vs. the
+  alternative hypothesis $H_{\!A}: p\neq{2/3}$ are given by
 
 \begin{console}
 > qbinom(p=c(0.025,0.975),size=15,prob=2/3)
@@ -807,8 +817,8 @@ Hence $R = \{0,\ldots,5,14,15\}$
 
 \item Based on the 1-sided rejection region calculated under
   point~\ref{it:1sidedbinomR}, a success rate of 6 gold discoveries
-  out of 15 claims is incompatible with the null hypothesis $H_\circ:
-  p=2/3$ vs.  the one-sided alternative hypothesis $H_a: p<2/3$. This
+  out of 15 claims is incompatible with the null hypothesis $H_0:
+  p=2/3$ vs.  the one-sided alternative hypothesis $H_{\!A}: p<2/3$. This
   is because $6 \in R=\{0,\ldots,6\}$.  Here is another way to obtain
   the same result:
 
@@ -828,16 +838,16 @@ probability of success
 \end{console}
 
 This result shows a p-value of $0.03083<0.05$, leading to the
-rejection of $H_\circ$. The 95\% confidence interval for $p$ spans the
+rejection of $H_0$. The 95\% confidence interval for $p$ spans the
 range from 0 to 0.6404348, which does not include the hypothesised
 value of $p=2/3$.
 
 \item Based on the 2-sided rejection region calculated under
   point~\ref{it:2sidedbinomR}, a success rate of 6 gold discoveries
-  out of 15 claims is compatible with the null hypothesis $H_\circ:
-  p=2/3$ vs.  the one-sided alternative hypothesis $H_a:
+  out of 15 claims is compatible with the null hypothesis $H_0:
+  p=2/3$ vs.  the one-sided alternative hypothesis $H_{\!A}:
   p\neq{2/3}$. This is because $6 \notin
-  R=\{0,\ldots,5,14,15\}$. Hence we cannot reject $H_\circ$ in this
+  R=\{0,\ldots,5,14,15\}$. Hence we cannot reject $H_0$ in this
   case.  Here is another way to obtain the same result:
 
 \begin{console}
@@ -851,7 +861,7 @@ attr(,"conf.level")
 \end{console}
 
 \noindent where we have stored the output of
-\texttt{binom.test($\ldots$)} in a variable \texttt{h}. $H_\circ$
+\texttt{binom.test()} in a variable \texttt{h}. $H_0$
 cannot be rejected because the p-value is $0.05024>0.05$, and the
 confidence interval ranges from 0.1633643 to 0.6771302, which includes
 $p=2/3$.
@@ -902,7 +912,7 @@ plot(cdf,type='s')
 \end{script}
 
 \item\label{it:1sidedpoisR} The rejection region ($\alpha=0.05$) for a
-  one-sided hypothesis $H_\circ: \lambda=3.5$ vs.  $H_a: \lambda>3.5$
+  one-sided hypothesis $H_0: \lambda=3.5$ vs.  $H_{\!A}: \lambda>3.5$
   (Section~\ref{sec:poishyp}):
 
 \begin{console}
@@ -924,8 +934,8 @@ Hence $R=\{9,\ldots,\infty\}$.
 
 \item Based on the 1-sided rejection region calculated under
   point~\ref{it:1sidedpoisR}, a success rate of 9 zircons per grid is
-  incompatible with the null hypothesis $H_\circ: \lambda=3.5$ vs.
-  the one-sided alternative hypothesis $H_a: \lambda>3.5$. This is
+  incompatible with the null hypothesis $H_0: \lambda=3.5$ vs.
+  the one-sided alternative hypothesis $H_{\!A}: \lambda>3.5$. This is
   because $9 \in R=\{9,\ldots,\infty\}$.  Here is another way to
   obtain the same result:
 
@@ -936,22 +946,22 @@ Hence $R=\{9,\ldots,\infty\}$.
 \end{console}
 
 The p-value is $0.009873658<0.05$, leading to a rejection of
-$H_\circ$. The 95\% confidence interval is given by:
+$H_0$. The 95\% confidence interval is given by:
 
 \begin{console}
 > h$conf.int
 [1] 4.695228      Inf
 \end{console}
 
-$(\lambda = 3.5) \notin[4.695228, \infty)$. Hence, $H_\circ$ is
+$(\lambda = 3.5) \notin[4.695228, \infty)$. Hence, $H_0$ is
   rejected.
 
 \item Based on the 2-sided rejection region calculated under
   point~\ref{it:2sidedbinomR}, a success rate of 9 is incompatible
-  with the null hypothesis $H_\circ: \lambda=3.5$ vs.  the one-sided
-  alternative hypothesis $H_a: \lambda\neq{3.5}$. This is because $9
+  with the null hypothesis $H_0: \lambda=3.5$ vs.  the one-sided
+  alternative hypothesis $H_{\!A}: \lambda\neq{3.5}$. This is because $9
   \in R=\{9,\ldots,\infty\}$. This again leads to rejection of
-  $H_\circ$ in favour of $H_a$. We can obtain the same result with
+  $H_0$ in favour of $H_{\!A}$. We can obtain the same result with
   \texttt{poisson.test}:
 
 \begin{console}
@@ -1156,7 +1166,7 @@ The p-value of this test is
 [1] 0.01630814
 \end{console}
 
-\noindent which is less than 0.05, leading to a rejection of $H_\circ: \mu=19.30$.
+\noindent which is less than 0.05, leading to a rejection of $H_0: \mu=19.30$.
 Equivalently, the 95\% confidence interval is
 
 \begin{console}
@@ -1184,14 +1194,13 @@ Inspecting the p-value and two-sided 95\% confidence interval:
 [1] -0.25285536  0.03085536
 \end{console}
 
-We cannot reject $H_\circ: \mu_1=\mu_2$ because $0.1064068>0.05$, and
+We cannot reject $H_0: \mu_1=\mu_2$ because $0.1064068>0.05$, and
 because $\{-0.25285536\leq{0}\leq{0.03085536}\}$.
 
 \item To carry out the $\chi^2$-test of Section~\ref{sec:chi2}, we
   first calculate the declustered earthquake frequencies.
 
 \begin{script}
-data(declustered,package='geostats')
 quakesperyear <- countQuakes(declustered,minmag=5.0,from=1917,to=2016)
 obs <- table(quakesperyear)
 \end{script}
@@ -1208,7 +1217,7 @@ The corresponding predicted probabilities are obtained using a Poisson
 distribution with parameter given by the mean of the earthquake
 counts:
 
-\begin{script}[firstnumber=4]
+\begin{script}[firstnumber=3]
 lam <- mean(quakesperyear)
 # expected probabilities:
 p <- c(ppois(q=1,lambda=lam),                   # lower tail
@@ -1219,7 +1228,7 @@ names(p) <- c('<2',2:11,'>11')
 
 \noindent which produces the following set of expected counts:
 
-\begin{script}[firstnumber=10]
+\begin{script}[firstnumber=9]
 pred <- p*length(quakesperyear)       
 \end{script}
 
@@ -1233,14 +1242,14 @@ There are five bins with fewer than 5 items. In order for the
 $\chi^2$-approximation to be valid, we must merge some of the
 categories:
 
-\begin{script}[firstnumber=11]
+\begin{script}[firstnumber=10]
 O <- c(sum(obs[1:2]),obs[3:8],sum(obs[9:12]))
 E <- c(sum(pred[1:2]),pred[3:8],sum(pred[9:12]))
 \end{script}
 
 Calculating the $\chi^2$-statistic and p-value:
 
-\begin{script}[firstnumber=13]
+\begin{script}[firstnumber=12]
 X2 <- sum((O-E)^2/E)
 pval <- pchisq(X2,df=length(E)-2,lower.tail=FALSE)
 \end{script}
@@ -1252,7 +1261,7 @@ pval <- pchisq(X2,df=length(E)-2,lower.tail=FALSE)
 [1] 0.5832134
 \end{console}
 
-$0.5832134>0.05$, hence $H_\circ$ is not rejected.
+$0.5832134>0.05$, hence $H_0$ is not rejected.
 
 \item Comparing the two collections of gold coins from
   item~\ref{it:2sided2samplettest} above but this time using a
@@ -1271,14 +1280,14 @@ Querying the p-value:
 [1] 0.1904762
 \end{console}
 
-We cannot reject $H_\circ$ because $0.1904762>0.05$.
+We cannot reject $H_0$ because $0.1904762>0.05$.
 
-\item Load two detrital zircon U--Pb age distributions from the Mu Us
-  desert and Yellow River into memory, and compare them with the
-  Kolmogorov-Smirnov test:
+\item Extract two detrital zircon U--Pb age distributions for the Mu
+  Us desert and Yellow River from \texttt{geostats}' built-in
+  \texttt{DZ} dataset, and compare them with the Kolmogorov-Smirnov
+  test:
 
 \begin{script}
-data(DZ,package='geostats')
 river <- DZ[['Y']]
 dune <- DZ[['5']]
 h <- ks.test(x=river,y=dune)
@@ -1291,7 +1300,7 @@ Querying the result:
 [1] 4.500822e-05
 \end{console}
 
-$4.500822\times{10}^{-5}\ll{0.05}$ and hence $H_\circ$ is clearly rejected.
+$4.500822\times{10}^{-5}\ll{0.05}$ and hence $H_0$ is clearly rejected.
 
 \end{enumerate}
 
@@ -1300,20 +1309,20 @@ $4.500822\times{10}^{-5}\ll{0.05}$ and hence $H_\circ$ is clearly rejected.
 
 \begin{enumerate}
 
-\item Load the Rb--Sr data from the \texttt{geostats} package and plot
-  the columns \texttt{RbSr} and \texttt{SrSr} as a scatter plot:
+\item \texttt{geostats} contains a Rb--Sr dataset called
+  \texttt{rbsr}.  Plot the columns \texttt{RbSr} and \texttt{SrSr} of
+  this dataset as a scatter plot:
 
-\begin{script}
-data(rbsr,package='geostats')
+\begin{console}
 plot(x=rbsr$RbSr,y=rbsr$SrSr)
-\end{script}
+\end{console}
 
 Calculate the correlation coefficient of \texttt{RbSr} and
 \texttt{SrSr}:
 
-\begin{script}[firstnumber=3]
+\begin{console}
 r <- cor(x=rbsr$RbSr,y=rbsr$SrSr)
-\end{script}
+\end{console}
 
 \noindent which yields:
 
@@ -1327,7 +1336,7 @@ r <- cor(x=rbsr$RbSr,y=rbsr$SrSr)
 \item Test the statistical significance of the correlation coefficient
   using Equation~\ref{eq:tr}:
 
-\begin{script}[firstnumber=4]
+\begin{script}
 n <- nrow(rbsr)
 tstat <- r*sqrt(n-2)/sqrt(1-r^2)
 p <- pt(q=tstat,df=n-2)
@@ -1340,7 +1349,7 @@ p <- pt(q=tstat,df=n-2)
 [1] 0.9999956
 \end{console}
 
-Hence the p-value for $H_\circ: \beta_0=0$ vs. $H_a: \beta_0\neq{0}$
+Hence the p-value for $H_0: \beta_0=0$ vs. $H_{\!A}: \beta_0\neq{0}$
 is:
 
 \begin{console}
@@ -1348,9 +1357,9 @@ is:
 [1] 8.779983e-06
 \end{console}
 
-Thus $H_\circ$ is rejected and the linear trend is
+Thus $H_0$ is rejected and the linear trend is
 real. Alternatively, we can also perform the correlation test using
-\texttt{R}'s \texttt{cor.test($\ldots$)} function:
+\texttt{R}'s \texttt{cor.test()} function:
 
 \begin{console}
 > h <- cor.test(x=rbsr$RbSr,y=rbsr$SrSr)
@@ -1362,7 +1371,7 @@ real. Alternatively, we can also perform the correlation test using
   correlation, we can now fit a line to the data using the method of
   least squares:
 
-\begin{script}[firstnumber=7]
+\begin{script}
 fit <- lm(SrSr ~ RbSr, data=rbsr)
 \end{script}
 
@@ -1372,8 +1381,8 @@ fit <- lm(SrSr ~ RbSr, data=rbsr)
   functions also accept formula notation, e.g. \texttt{plot(SrSr
     \textasciitilde{} RbSr, data=rbsr)}}.
 
-The output of \texttt{lm($\ldots$)} can be queried like a list to
-retrieve the slope and intercept:
+The output of \texttt{lm()} can be queried like a list to retrieve the
+slope and intercept:
 
 \begin{console}
 > fit$coefficients
@@ -1405,13 +1414,13 @@ Equivalently:
 
 \item Add the best fit line to the existing scatter plot:
 
-\begin{script}[firstnumber=8]
+\begin{script}[firstnumber=2]
 abline(fit)
 \end{script}
 
 Construct a 95\% confidence envelope for the linear fit:
 
-\begin{script}[firstnumber=9]
+\begin{script}[firstnumber=3]
 x <- seq(from=min(rbsr$RbSr),to=max(rbsr$RbSr),length.out=20)
 pred <- predict(fit,newdata=data.frame(RbSr=x),
                 interval="confidence",level=0.95)
@@ -1421,7 +1430,7 @@ matlines(x,pred,lty=1,col='black')
 \noindent where \texttt{matlines} simultaneously plots multiple lines.
 Adding a prediction interval to the existing plot:
 
-\begin{script}[firstnumber=13]
+\begin{script}[firstnumber=7]
 pred <- predict(fit,newdata=data.frame(RbSr=x),
                 interval="prediction",level=0.95)
 matlines(x,pred,lty=2,col='black')
@@ -1449,9 +1458,9 @@ Section~\ref{sec:weightedregression} is not trivial in base
 \texttt{R}. Fortunately, the \texttt{geostats} package comes to the
 rescue:
 
-\begin{script}[firstnumber=16]
+\begin{console}
 yfit <- york(x=rbsr)
-\end{script}
+\end{console}
 
 The name of the weighted least squares regression refers to
 geophysicist Derek York, who developed an early version of the
@@ -1470,25 +1479,23 @@ algorithm\footnote{York, D., 1968. Least squares fitting of a straight
   distribution of Finnish lakes (Figure~\ref{fig:Finlandpowerlaw}):
 
 \begin{script}
-data(Finland,package='geostats')
 sf <- sizefrequency(Finland$area)
 plot(frequency~size,data=sf,log='xy')
 fit <- lm(log(frequency)~log(size),data=sf)
 lines(x=sf$size,y=exp(predict(fit)))
 \end{script}
 
-\noindent where the \texttt{sizefrequency} function is provided by
+\noindent where the \texttt{sizefrequency()} function is provided by
 \texttt{geostats}.\medskip
 
 \item Create a Gutenberg-Richter plot for the recent earthquake data
   (Figure~\ref{fig:gutenberg}):
 
-\begin{script}
-data(earthquakes,package='geostats')
+\begin{console}
 gutenberg(earthquakes$mag)
-\end{script}
+\end{console}
 
-\noindent where \texttt{gutenberg} is a \texttt{geostats} function
+\noindent where \texttt{gutenberg()} is a \texttt{geostats} function
 that is similar to the Finnish lake code of step~\ref{it:finland}. You
 can check out the implementation details by typing
 `\texttt{gutenberg}' at the command prompt.
@@ -1517,7 +1524,7 @@ of 1.2.
 \begin{enumerate}
 
 \item The \texttt{geostats} package includes a function called
-  \texttt{PCA2D} that can be used to reproduce
+  \texttt{PCA2D()} that can be used to reproduce
   Figures~\ref{fig:PCA2D1}--\ref{fig:PCA2D3}:
 
 \begin{script}
@@ -1734,17 +1741,16 @@ versicolor
 
 \begin{enumerate}
 
-\item Load the A--CN--K data of Section~\ref{sec:logratios} into
-  memory and transform them from the ternary simplex to bivariate
-  logratio space using the alr transformation:
+\item Transform the A--CN--K data of Section~\ref{sec:logratios} from
+  the ternary simplex to bivariate logratio space using the alr
+  transformation:
 
 \begin{script}
-data(ACNK,package='geostats')
 uv <- alr(ACNK)
 plot(uv)
 \end{script}
 
-\noindent where the \texttt{alr} function is provided by the
+\noindent where the \texttt{alr()} function is provided by the
 \texttt{geostats} package (type \texttt{alr} at the command prompt to
 see the code). Computing the mean and covariance matrix of the
 logratio data:
@@ -1783,8 +1789,7 @@ ternary(alr(ell,inverse=TRUE),add=TRUE,type='l')
 \item Apply PCA to the major element compositions of
   Table~\ref{tab:Major}:
 
-\begin{script}[firstnumber=3]
-data(major,package='geostats')
+\begin{script}
 comp <- clr(major)
 pc <- prcomp(comp)
 biplot(pc)
@@ -1793,8 +1798,7 @@ biplot(pc)
 \item Apply LDA to the AFM data of Figure~\ref{fig:AFM}:
 
 \begin{script}
-library(MASS)    
-data(FAM,package='geostats')
+library(MASS)
 affinity <- FAM[,1]
 comp <- alr(FAM[,-1])
 ld <- lda(x=comp,grouping=affinity)
@@ -1806,7 +1810,7 @@ notation (Section~\ref{sec:R-supervised}) but an alternative format
 1~wt\% FeO, 8~wt\% Na\textsubscript{2}O+K\textsubscript{2}O, and
 0.1~wt\% MgO:
 
-\begin{script}[firstnumber=4]
+\begin{script}[firstnumber=5]
 newrock <- data.frame(F=1,A=8,M=0.1)
 newcomp <- alr(newrock)
 pr <- predict(object=ld,newdata=newcomp)
@@ -1834,11 +1838,9 @@ data analysis. So this tutorial will heavily depend on the
 
 \begin{enumerate}
 
-\item Load the glacial striation data into memory and plot them on a
-  circle:
+\item Plot the glacial striations data on a circle:
 
 \begin{script}
-data(striations,package='geostats')
 circle.plot(striations,degrees=TRUE)
 \end{script}
 
@@ -1847,7 +1849,7 @@ the \texttt{striations} data are expressed in degrees.  Change to
 \texttt{degrees=FALSE} for radians. Add the arithmetic mean and vector
 mean to the plot as a white and black square, respectively:
 
-\begin{script}[firstnumber=3]
+\begin{script}[firstnumber=2]
 circle.points(mean(striations),pch=22,bg='white',degrees=TRUE)
 md <- meanangle(striations,degrees=TRUE)
 circle.points(md,pch=21,bg='black',degrees=TRUE)
@@ -1879,7 +1881,6 @@ rug(striations)
 \item To plot azimuths and dips on a Wulff stereonet:
 
 \begin{script}
-data(palaeomag,package='geostats')
 stereonet(trd=palaeomag$decl,plg=palaeomag$incl,
           option=1,degrees=TRUE,show.grid=FALSE)
 \end{script}
@@ -1887,7 +1888,6 @@ stereonet(trd=palaeomag$decl,plg=palaeomag$incl,
 For strikes and dips, use the \texttt{option=2} argument:
 
 \begin{script}
-data(fault,package='geostats')
 stereonet(trd=fault$strike,plg=fault$dip,
           option=2,degrees=TRUE,show.grid=FALSE)
 \end{script}
@@ -1934,7 +1934,6 @@ stereonet(trd=meanfault[1],plg=meanfault[2],
 \item To compute the average orientation of the pebble measurements:
 
 \begin{script}
-data(pebbles,package='geostats')
 circle.plot(pebbles,degrees=TRUE)
 m <- meanangle(pebbles,degrees=TRUE,orientation=TRUE)
 circle.points(m,degrees=TRUE,pch=16,cex=2)
@@ -1955,7 +1954,6 @@ far more complete set of geostatistical functions can be found in the
   plot them on a map:
 
 \begin{script}
-data(meuse,package='geostats')
 X <- meuse$x  # Easting
 Y <- meuse$y  # Northing
 Z <- log(meuse$zinc)
@@ -1965,7 +1963,7 @@ colourplot(X=X,Y=Y,Z=Z,key.title=title('ln[Zn]'))
 \item Plot the empirical semivariogram and fit a spherical
   semivariogram model to it:
 
-\begin{script}[firstnumber=6]
+\begin{script}[firstnumber=4]
 svm <- semivariogram(x=X,y=Y,z=Z)
 \end{script}
 
@@ -1979,7 +1977,7 @@ Query the fit parameters:
 
 To fit an exponential semivariogram model:
 
-\begin{script}[firstnumber=6]
+\begin{script}[firstnumber=4]
 svm_exp <- semivariogram(x=X,y=Y,z=Z,model='exponential')
 \end{script}
 
@@ -2003,7 +2001,7 @@ The third option for the \texttt{model} argument is \verb|'gaussian'|.
 \item\label{it:R-meuse-contour} Evaluate the ln[Zn]-values for a grid
   of locations and plot as a contour map:
 
-\begin{script}[firstnumber=7]
+\begin{script}[firstnumber=5]
 xi <- seq(from=min(X),to=max(X),length.out=50)
 yi <- seq(from=min(Y),to=max(Y),length.out=50)
 zi <- kriging(x=X,y=Y,z=Z,svm=svm,xi=xi,yi=yi,grid=TRUE)
@@ -2013,7 +2011,7 @@ colourplot(x=xi,y=yi,z=zi,key.title=title('ln[Zn]'))
 And to visualise the uncertainties of the kriging estimates,
 replace the last two lines with:
 
-\begin{script}[firstnumber=9]
+\begin{script}[firstnumber=7]
 zi <- kriging(x=X,y=Y,z=Z,svm=svm,xi=xi,yi=yi,grid=TRUE,err=TRUE)
 colourplot(x=xi,y=yi,z=sqrt(zi),key.title=title('s[Zn]/Zn'))
 \end{script}

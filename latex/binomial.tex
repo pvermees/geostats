@@ -45,7 +45,7 @@ P(1\times\mbox{gold}) = \binom{5}{1} (2/3) (1/3)^4 = {5}\times{0.0082} = 0.041
 P(2\times\mbox{gold}) & = \binom{5}{2} (2/3)^2 (1/3)^3 = {10}\times{0.016} = 0.16\\
 P(3\times\mbox{gold}) & = \binom{5}{3} (2/3)^3 (1/3)^2 = {10}\times{0.033} = 0.33\\
 P(4\times\mbox{gold}) & = \binom{5}{4} (2/3)^4 (1/3) = {5}\times{0.066} = 0.33\\
-P(5\times\mbox{gold}) & = (2/3)^5 = 0.13
+P(5\times\mbox{gold}) & = \binom{5}{5} (2/3)^5 (1/3)^0 = {1}\times{0.13} = 0.13
 \end{align*}
 
 These probabilities form a \textbf{probability mass function} (PMF),
@@ -65,7 +65,7 @@ and can be visualised as a bar chart:
   \label{fig:goldbar}
 \end{minipage}
 
-The generic equation for the binomial distribution is
+The generic equation for the PMF of the binomial distribution is
 \begin{equation}
   P(k|n,p) = \binom{n}{k} p^k (1-p)^{n-k}
   \label{eq:binom}
@@ -109,11 +109,12 @@ Equation~\ref{eq:binom} in terms of $p$ instead of $k$:
 This is called the \textbf{likelihood function}. The only difference
 between the probability mass function (Equation~\ref{eq:binom}) and
 the likelihood function (Equation~\ref{eq:Lbinom}) is that former
-estimates the probability of an outcome given the parameter
-($P(k|n,p)$), whereas the latter estimates the parameter given some
-data ($P(p|n,k)$). The \emph{most likely} value of $p$ given $n$ and
-$k$ can be found by taking the derivative of Equation~\ref{eq:Lbinom}
-with respect to $p$ and setting it to zero:
+calculates the probability of an outcome $k$ given the parameters $n$
+and $p$, whereas the latter is used to estimate the parameter $p$
+given the data $n$ and $k$. The \emph{most likely} value of $p$ given
+$n$ and $k$ can be found by maximising $\mathcal{L}(p|n,k)$.  This can
+be achieved by taking the derivative of Equation~\ref{eq:Lbinom} with
+respect to $p$ and setting it to zero:
 \[
 \left.\frac{\partial{\mathcal{L}(p|n,k)}}{\partial{p}}\right|_{\hat{p}} = 0
 \]
@@ -125,8 +126,8 @@ with respect to $p$ and setting it to zero:
 \]
 
 The $\hat{~}$ symbol indicates that $\hat{p}$ is an \emph{estimate}
-for $p$ that may differ from the actual parameter value $p$. Dividing
-by $\binom{n}{k}$ and rearranging:
+for the true parameter value $p$, which is unknown. Dividing by
+$\binom{n}{k}$ and rearranging:
 \[
   k \hat{p}^{k-1} (1-\hat{p})^{n-k} = \hat{p}^k (n-k) (1-\hat{p})^{n-k-1}
 \]
@@ -176,11 +177,11 @@ question, we follow a sequence of six steps:
 \item Formulate two hypotheses:\medskip
 
 \noindent\begin{minipage}{.4\textwidth}
-  $H_\circ$ (\textbf{null hypothesis})
+  $H_0$ (\textbf{null hypothesis})
   
   \vspace{1em}
   
-  $H_a$ (\textbf{alternative hypothesis}):
+  $H_{\!A}$ (\textbf{alternative hypothesis}):
 \end{minipage}
 \begin{minipage}{.2\textwidth}
 \end{minipage}
@@ -198,7 +199,7 @@ question, we follow a sequence of six steps:
   the number of successes ($k$).
 
 \item Determine the \textbf{null distribution} of $T$ under
-  $H_\circ$. In our example this is the binomial distribution, as
+  $H_0$. In our example this is the binomial distribution, as
   shown in Figures~\ref{fig:goldbar} and \ref{fig:goldCDF}. Tabulating
   the PMF and CDF of success:
 
@@ -223,7 +224,7 @@ $k\leq{2}$ successful claims if $p=2/3$.
   to choose $\alpha=0.05$.
 
 \item\label{it:rejection} Mark all the outcomes that are incompatible
-  with $H_\circ$.  This \textbf{rejection region} is marked in bold in
+  with $H_0$.  This \textbf{rejection region} is marked in bold in
   the following table:
 
   \begin{center}
@@ -235,7 +236,7 @@ $k\leq{2}$ successful claims if $p=2/3$.
   \end{tabular}
   \end{center}
 
-  $k=0$ and $k=1$ are incompatible with $H_\circ$ because the
+  $k=0$ and $k=1$ are incompatible with $H_0$ because the
   probability of finding gold in $k\leq{1}$ claims is only 0.0453,
   which is less than $\alpha$. Therefore our rejection region contains
   two values:
@@ -245,13 +246,13 @@ $k\leq{2}$ successful claims if $p=2/3$.
 
 \item\label{it:decision} Reach a \textbf{decision}. Evaluate whether
   the observed outcome for the test statistics falls inside the
-  rejection region. If it does, then $H_\circ$ is rejected in favour
-  of $H_a$. In our example,
+  rejection region. If it does, then $H_0$ is rejected in favour
+  of $H_{\!A}$. In our example,
   \[
   k=2\notin{R}
   \]
 
-  \noindent which means that we cannot reject $H_\circ$.
+  \noindent which means that we cannot reject $H_0$.
   Alternatively, and equivalently, we can reach the same conclusion by
   observing that the p-value is greater than $\alpha$ (i.e.,
   $0.2099>0.05$). \textit{Note that failure to reject the null
@@ -271,25 +272,26 @@ Displaying the rejection region graphically:\medskip
     with $p=2/3$ and $n=5$. The rejection region is marked in black on
     a).  The horizontal dotted line in b) shows the $\alpha=0.05$
     cutoff mark. The horizontal dashed line in b) marks the p-value
-    for $k=2$, which is greater than 0.05. Therefore, the null
+    for $k=2$, which is greater than $\alpha$. Therefore, the null
     hypothesis cannot be rejected.}
   \label{fig:1sidedbinomialrejection5}
 \end{minipage}
 
 The above hypothesis test is called a \textbf{one-sided} hypothesis
-test, because $H_\circ$ and $H_a$ are asymmetric.  Alternatively, we
-can also formulate a \textbf{two-sided} hypothesis test:
+test, which refers to the fact that $H_{\!A}$ specifies a direction
+(`$<$' or `$>$').  Alternatively, we can also formulate a
+\textbf{two-sided} hypothesis test:
 
 \begin{enumerate}
 
-\item In this case $H_\circ$ and $H_a$ are symmetric:\medskip
+\item In this case $H_0$ and $H_{\!A}$ are symmetric:\medskip
 
 \noindent\begin{minipage}{.4\textwidth}
-  $H_\circ$ (null hypothesis)
+  $H_0$ (null hypothesis)
   
   \vspace{1em}
   
-  $H_a$ (alternative hypothesis):
+  $H_{\!A}$ (alternative hypothesis):
 \end{minipage}
 \begin{minipage}{.2\textwidth}
 \end{minipage}
@@ -323,9 +325,10 @@ can also formulate a \textbf{two-sided} hypothesis test:
   twice at $\alpha/2$ to accommodate both tails of the binomial
   distribution.
 
-\item Mark all the outcomes that are incompatible with $H_\circ$,
-  i.e. all the values $<\alpha/2$.  This \textbf{rejection region} is
-  marked in bold in the following table:
+\item Mark all the outcomes that are incompatible with $H_0$, i.e. all
+  the values $k$ with $P(T\leq{k})$ or $P(T\geq{k}) <\alpha/2$.  This
+    \textbf{rejection region} is marked in bold in the following
+    table:
 
   \begin{center}
     \begin{tabular}{ccccccc}
@@ -345,7 +348,7 @@ can also formulate a \textbf{two-sided} hypothesis test:
   R = \{0\}
   \]
 
-\item Again, we fail to reject $H_\circ$, which means that the
+\item Again, we fail to reject $H_0$, which means that the
   observed $k/n=2/5$ success rate does not rule out the possibility
   that the true value of $p=2/3$, and that the geologists were
   therefore correct.
@@ -360,19 +363,20 @@ Displaying the two-sided hypothesis test graphically:\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{a) the same PMF and b) CDF as
-    Figure~\ref{fig:1sidedbinomialrejection5}. The black bar marks the
-    rejection region for $H_\circ: p=2/3$ vs $H_a:
-    p\neq{2/3}$. Horizontal dotted lines mark $\alpha/2=0.025$ and
-    $(1-\alpha/2)=0.975$. Their intersections with the CDF are shown
-    as vertical dotted lines and mark the outer edges of the rejection
-    region.  The dashed lines mark the observed value and probability,
-    which fall outside the rejection region. Therefore $H_\circ$
-    stands.}
+    Figure~\ref{fig:1sidedbinomialrejection5}. Horizontal dotted lines
+    mark $\alpha/2=0.025$ and $(1-\alpha/2)=0.975$. Their
+    intersections with the CDF are shown as vertical dotted lines and
+    mark the outer edges of the rejection region.  The dashed lines
+    mark the observed value and probability, which fall outside the
+    rejection region.}
   \label{fig:2sidedbinomialrejection5}
 \end{minipage}
 
-So in this case the one-sided and two-sided hypothesis tests produce
-exactly the same result. However this is not always the case.
+Again, $H_0$ cannot be rejected at an $\alpha=0.05$ significance
+level.  So in this case the one-sided and two-sided hypothesis tests
+produce exactly the same result, as the observed value $k=2$ is not in
+the rejection region for either test. However this is not always the
+case, as will be shown next.
 
 \section{Statistical power}
 \label{sec:power}
@@ -386,7 +390,7 @@ $p$ is:
 \]
 
 \noindent which is the same as before. The one-sided hypothesis test
-($H_\circ: p={2/3}$ vs. $H_a: p<2/3$) proceeds as before, but leads to
+($H_0: p={2/3}$ vs. $H_{\!A}: p<2/3$) proceeds as before, but leads to
 a different table of probabilities:
 
 \begin{center}
@@ -414,7 +418,7 @@ The rejection region (bold) consists of
   \label{eq:1sidedbinomtest15}
 \end{equation}
 
-\noindent which includes $k=6$. Therefore $H_\circ$ has been rejected.
+\noindent which includes $k=6$. Therefore $H_0$ is rejected.
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
 \includegraphics[width=\textwidth]{../figures/1sidedbinomialrejection15.pdf}
@@ -422,16 +426,15 @@ The rejection region (bold) consists of
 \end{minipage}
 \begin{minipage}[t][][t]{.4\textwidth}
   \captionof{figure}{a) PMF and b) CDF of a binomial distribution with
-    $p={2/3}$ and $n=15$. The $\alpha=0.05$ cutoff is shown as a
-    horizontal dotted line and intersects the CDF at a point marked by
-    a vertical dotted line. The vertical dashed lines mark the
-    observation ($k=6$), which falls in the black area of the bar
-    chart, and to the left of the dotted line in the CDF. Therefore,
-    $H_\circ$ is rejected.}
+    $p={2/3}$ and $n=15$. The vertical dashed lines mark the
+    observation ($k=6$). They fall in the black area of the bar chart,
+    and to the left of the dotted line in the CDF, which marks the
+    edge of the rejection region. Therefore, $H_0$ fails the one-sided
+    test.}
   \label{fig:1sidedbinomialrejection15}
 \end{minipage}
 
-For the two-sided hypothesis test ($H_\circ: p={2/3}$ vs. $H_a:
+For the two-sided hypothesis test ($H_0: p={2/3}$ vs. $H_{\!A}:
 p\neq{2/3}$):
 
 \begin{center}
@@ -466,7 +469,8 @@ is:
 \end{equation}
 
 This region does \emph{not} include $k=6$. Therefore we \emph{cannot}
-reject the two-sided null hypothesis that $p=2/3$.\medskip
+reject the two-sided null hypothesis that $p=2/3$ at
+$\alpha=0.05$.\medskip
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
 \includegraphics[width=\textwidth]{../figures/2sidedbinomialrejection15.pdf}
@@ -477,7 +481,8 @@ reject the two-sided null hypothesis that $p=2/3$.\medskip
     with $p=2/3$ and $n=15$.  The dotted lines mark the
     $\alpha/2=0.025$ and $(1-\alpha/2)=0.975$ levels and
     quantiles. The dashed lines mark the observed value ($k=6$), which
-    falls outside the rejection region.  Therefore $H_\circ$ stands.}
+    falls outside the rejection region.  Therefore $H_0$ does not fail
+    the two-sided test.}
   \label{fig:2sidedbinomialrejection15}
 \end{minipage}
 
@@ -492,25 +497,27 @@ will just show the distributions graphically:\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.35\textwidth}
   \captionof{figure}{The PMF (a \& b) and CDF (c \& d) for a binomial
-    distribution with $p=2/3$ and $n=30$. The vertical dashed lines
-    mark the observation $k=12$, which falls outside the cutoff limits
-    defined by the vertical dotted lines, and inside the rejection
-    regions marked in black.}
+    distribution with $p=2/3$ and $n=30$, illustrating a one-sided (a
+    \& c) and two-sided (b \& d) test. The vertical dashed lines mark
+    the observation $k=12$, which falls inside the rejection regions
+    marked in black (a \& b), and outside the cutoff limits defined by
+    the vertical dotted lines (c \& d).}
   \label{fig:binomialrejection30}
 \end{minipage}
 
-In summary, we have compared the same outcome of 40\% successes based
-on three different sample sizes ($n$):
+In summary, we have compared the same outcome of 40\% successes with
+the null hypothesis $p=2/3$, using three different sample sizes ($n$):
 
 \begin{enumerate}
   \item Both the one-sided and the two-sided hypothesis tests failed
     to reject the null hypothesis for $n=5$ prospectors.
   \item Increasing the number of prospectors to $n=15$ leads to a
-    rejection of $H_\circ$ in the one-sided case but failure to reject
-    $H_\circ$ in the two-sided test.
+    rejection of $H_0$ using the one-sided test but failure to reject
+    $H_0$ using the two-sided test.
   \item Further increasing our sample size to $n=30$ whilst still
     keeping the percentage of success the same leads to a firm
-    rejection of both the one-sided and the two-sided null hypotheses.
+    rejection of $H_0$ using both the one-sided and the two-sided
+    test.
 \end{enumerate}
 
 In statistical terms, the increase in sample size has increased the
@@ -526,7 +533,7 @@ organised in a ${2}\times{2}$ table:
 
 \begin{center}
 \begin{tabular}{c|cc}
-  $H_\circ$ is ... & false & true \\ \hline
+  $H_0$ is ... & false & true \\ \hline
   rejected & correct decision & Type-I error \\
   not rejected & Type-II error & correct decision
 \end{tabular}
@@ -536,10 +543,10 @@ To appreciate the difference between the two types of errors in this
 table, it may be useful to compare statistical hypothesis testing with
 a legal analogue. The jury in a court of justice faces a situation
 that is similar to that of a statistical hypothesis test. They are
-faced with a criminal who has either committed a crime or not, and
-they must decide whether to sentence this person or acquit them.  In
-this case our `null hypothesis' is that the accused is innocent.  The
-jury then needs decide whether there is enough evidence to reject this
+faced with a suspect who has either committed a crime or not, and they
+must decide whether to sentence this person or acquit them.  In this
+case our `null hypothesis' is that the accused is innocent.  The jury
+then needs decide whether there is enough evidence to reject this
 hypothesis in favour of the alternative hypothesis, which is that the
 accused in guilty. Casting this process in a second ${2}\times{2}$
 table:
@@ -547,7 +554,7 @@ table:
 \begin{center}
 \begin{tabular}{c|cc}
   the accused is ... & guilty & innocent \\ \hline
-  sentenced & correct decision & Type-I error \\
+  convicted & correct decision & Type-I error \\
   acquitted & Type-II error & correct decision
 \end{tabular}
 \end{center}
@@ -562,8 +569,8 @@ correct.\medskip
 A \textbf{type-II error} is committed when we fail to reject a false
 null hypothesis.  This is akin to letting a guilty person get away
 with a crime for lack of evidence. In the geological example, this
-means that we still trust the geological assessment despite it being
-wrong.\medskip
+means that we conclude that the geological assessment is right despite
+it being wrong.\medskip
 
 The probability of committing a type-I error is controlled by one
 parameter:
@@ -576,17 +583,17 @@ parameter:
   correct, then we would still expect to reject it once every 20
   times. This may be acceptable in geological studies, but probably
   not in the legal system! The principle that guilt must be proven
-  ``beyond any reasonable doubt''is akin to choosing a very small
+  ``beyond any reasonable doubt'' is akin to choosing a very small
   significance level ($\alpha\ll{0.05}$). However it is never possible
-  to enforce $\alpha=0$, so it is inevitable that some innocent people
-  are sentenced.
+  to enforce $\alpha=0$ unless all suspects are aquitted, so it is
+  inevitable that some innocent people are convicted.
 \end{enumerate}
 
 The probability of committing a type-II error ($\beta$) depends on two
 things:
 
 \begin{enumerate}
-\item{\bf The degree to which $H_\circ$ is false}
+\item{\bf The degree to which $H_0$ is false}
   
   In our geological example, 40\% of the prospectors found gold in
   their claim, so there clearly was some gold present in the
@@ -594,12 +601,12 @@ things:
   area was indeed 40\% ($p=2/5$) instead of $p=2/3$.  Then the
   expected distribution of outcomes would follow a binomial
   distribution with $p=2/5$. As shown in Section~\ref{sec:binomH}, the
-  rejection region for the one-sided hypothesis test of $H_\circ:
-  p=2/3$ vs. $H_a: p<2/3$ is $R=\{0,1\}$. If the actual value for $p$
-  is 2/5, then the probability of observing a value for $k$ that falls
-  in this rejection region is $P(k<2|n=5,p=2/5)=0.34$. This is known
-  as the \textbf{power} of the statistical test. The probability of
-  committing a type-II error is given by:
+  rejection region for the one-sided hypothesis test of $H_0: p=2/3$
+  vs. $H_{\!A}: p<2/3$ is $R=\{0,1\}$ for $n=5$. If the actual value
+  for $p$ is 2/5, then the probability of observing a value for $k$
+  that falls in this rejection region is $P(k<2|n=5,p=2/5)=0.34$. This
+  is known as the \textbf{power} of the statistical test. The
+  probability of committing a type-II error is given by:
   
   \begin{equation}
     \beta = 1 - \mbox{power} = 0.66
@@ -607,15 +614,15 @@ things:
 
   Next, suppose that the true probability of finding gold is even
   lower, at $p=1/5$. Under this alternative distribution, the
-  probability of finding gold in ${k}\leq{1}$ claims (and, hence, the
-  power) increases to 74\%. Therefore, the probability of committing a
-  type-II error has dropped to only 26\%.
+  probability of finding gold in ${k}\leq{1}$ out of $n=5$ claims
+  (i.e., the power) increases to 74\%. Therefore, the probability of
+  committing a type-II error has dropped to only 26\%.
 
   Finally, consider an end member situation in which the prospecting
   area does not contain any gold at all ($p=0$). Then the probability
-  of finding gold is obviously zero ($F(x=2)=0$). Under this trivial
-  scenario, the power of the test is 100\%, and the probability of
-  committing a type-II error is zero.
+  of finding gold is obviously zero, because $F(x=2)=0$. Under this
+  trivial scenario, the power of the test is 100\%, and the
+  probability of committing a type-II error is zero.
 
   Plotting these results graphically:
 
@@ -624,18 +631,18 @@ things:
   \end{minipage}
   \begin{minipage}[t][][t]{\linewidth}
   \captionof{figure}{a) -- c) PMFs of the binomial null distribution
-    with $p=2/3$ ($H_\circ$, grey, background) and alternative
-    distributions ($H_a$, black and white, foreground) with a)
+    with $p=2/3$ ($H_0$, grey, background) and alternative
+    distributions ($H_{\!A}$, black and white, foreground) with a)
     $p=2/5$, b) $p=1/5$ and c) $p=0$. Sample size is $n=5$ for all
     cases.  d) -- f) CDFs for the null distribution (grey) and the
     alternative distribution (black). The horizontal dotted lines mark
     $\alpha=0.05$.  Their intersections with the CDF of the null
     distribution are marked by vertical dotted lines. The areas to the
-    left of these lines define the rejection region and are marked in
-    black in the bar chart. The larger the sample size, the easier it
-    is to reject $H_\circ$. The dashed horizontal lines mark the
-    intersection of the rejection region with the CDF of the
-    alternative distribution. These mark the power of the statistical
+    left of these lines define the rejection region under a one-sided
+    test and are marked in black in the PMFs of the alternative
+    distributions (a -- c). The dashed horizontal lines mark the
+    intersection of the rejection boundary with the CDF of the
+    alternative distribution. They mark the power of the statistical
     test ($1-\beta$).  Power clearly increases as the alternative
     distribution drifts away from the null distribution.}
   \label{fig:binompower1}
@@ -645,27 +652,27 @@ things:
 
   The effect of sample size was already discussed in
   Section~\ref{sec:power}. Comparing the predicted outcomes for the
-  null hypothesis $H_\circ: p=2/3$ to those of the alternative
-  hypothesis $H_a: p=2/5$ for sample sizes of $n=5$, 15 and 30:
+  null hypothesis $H_0: p=2/3$ to those of the alternative hypothesis
+  $H_{\!A}: p=2/5$ for sample sizes of $n=5$, 15 and 30:
 
   \begin{minipage}[t][][b]{\linewidth}
     \includegraphics[width=\textwidth]{../figures/binompower2.pdf}
   \end{minipage}
   \begin{minipage}[t][][t]{\linewidth}
     \captionof{figure}{a) -- c) PMFs of binomial distributions with
-      $p=2/3$ ($H_\circ$, grey, background) and $p=2/5$ ($H_a$, black
+      $p=2/3$ ($H_0$, grey, background) and $p=2/5$ ($H_{\!A}$, black
       and white, foreground), for sample sizes of a) $n=5$, b) $n=15$
       and c) $n=30$.  d) -- f) CDFs for the null distribution (grey)
       and the alternative distribution (black). The horizontal dotted
-      lines mark $\alpha=0.05$.  Their intersections with the CDF of
-      the null distribution are marked by vertical dotted lines. The
-      area to the left of these lines define the rejection region and
-      are marked in black in the bar chart. The larger the sample
-      size, the easier it is to reject $H_\circ$. The dashed
-      horizontal lines mark the intersection of the rejection region
-      with the CDF of the alternative distribution. These mark the
-      power of the statistical test ($1-\beta$).  Power clearly
-      increases with sample size.}
+      lines mark $\alpha=0.05$, corresponding to a one-sided test.
+      Their intersections with the CDF of the null distribution are
+      marked by vertical dotted lines. The area to the left of these
+      lines define the rejection region and are marked in black in the
+      bar chart. The larger the sample size, the easier it is to
+      reject $H_0$. The dashed horizontal lines mark the intersection
+      of the rejection region with the CDF of the alternative
+      distribution. These mark the power of the statistical test
+      ($1-\beta$).  Power clearly increases with sample size.}
     \label{fig:binompower2}
   \end{minipage}
 
@@ -721,13 +728,17 @@ live another day. The scientific method is strikingly similar to the
 way in which a statistical hypothesis test is carried out. A null
 hypothesis, like a scientific hypothesis, cannot be proven. It can
 only be disproved. Rejection of a null hypothesis is the best outcome,
-because it is the only outcome that teaches us something new.\medskip
+because it is the only outcome that teaches us something new. Our
+understanding of the natural world continues to improve by falsifying
+current hypotheses using scientific experiments, which leads to
+revised hypotheses that are closer to the truth.
+\medskip
 
 It may seem natural to use the statistical approach to test scientific
 hypotheses. However doing so is not without dangers. To explain these
 dangers, let us go back to the power analysis of
 Section~\ref{sec:power}. The power of our hypothesis test to reject
-$H_\circ: p=2/3$ increases with sample size. A small sample may be
+$H_0: p=2/3$ increases with sample size. A small sample may be
 sufficient to detect large deviations from the null
 hypothesis. Smaller deviations require larger sample sizes. But no
 matter how small the violation of the null hypothesis is, there always
@@ -740,8 +751,8 @@ hypotheses. Whereas a mathematical hypothesis is either `right' or
 `wrong', scientific hypotheses are always `somewhat wrong'.
 Considering our gold prospecting example, it would be unreasonable to
 expect that $p$ is exactly equal to 2/3, down to the
-100\textsuperscript{th} significant digit.  Estimating the correct
-proportion of gold in the area to better than 10\% would already be a
+100\textsuperscript{th} significant digit.  Estimating the proportion
+of gold in the area to be within 10\% of the truth would already be a
 remarkable achievement. Yet given enough data, there will always come
 a point where the geological prediction is disproved. Given a large
 enough dataset, even a 1\% deviation from the predicted value would
@@ -751,13 +762,15 @@ yield an unacceptably small p-value:
   \includegraphics[width=\textwidth]{../figures/binompvsn.pdf}
 \end{minipage}
 \begin{minipage}[t][][t]{.55\textwidth}
-  \captionof{figure}{The most likely outcome of a binomial experiment
-    with $p=2/3$ is $k/n=2/3(=0.67)$. This figure shows the p-values
-    of six slightly different outcomes for a range of different sample
-    sizes.  The horizontal dotted line marks the 5\% significance
-    level. No matter how little the observed $k/n$-ratio differs from
-    2/3, this difference always becomes `significant' given a large
-    enough sample.}
+  \captionof{figure}{The p-values of a binomial test comparing the
+    null hypothesis $H_0: p=2/3$ with the alternative hypothesis $H_a:
+    p<2/3$, for four parameter estimates $\hat{p}$, over a range of
+    sample sizes. For each $\hat{p}$, let the outcome $k$ be the
+    closest integer to $n\hat{p}$, so that $k/n\approx\hat{p}$. The
+    horizontal dotted line marks the 5\% significance level. No matter
+    how little the observed $k/n$-ratio differs from 2/3
+    $(\approx{0.67})$, this difference always becomes `significant'
+    given a large enough sample.}
   \label{fig:binomnvsp}
 \end{minipage}
 
@@ -765,11 +778,11 @@ As another example, suppose that we have analysed the mineralogical
 composition of two samples of sand that were collected 10~cm apart on
 the same beach. Our null hypothesis is that the composition of the two
 samples is the same. Plausible though this hypothesis may seem, it
-will always be possible to reject it, given a large enough
-sample. Perhaps we need to classify a million grains from each sample,
-but at some point a `statistically significant' difference will be
-found. Given a large enough sample, even the tiniest hydraulic sorting
-effect becomes detectable.\medskip
+will always be possible to reject it, provided that enough grains are
+analysed. We may need to classify a hundred, a thousand or even a
+million grains from each sample, but at some point a `statistically
+significant' difference will be found. Given a large enough sample,
+even the tiniest hydraulic sorting effect becomes detectable.\medskip
 
 In conclusion, formalised hypothesis tests are of limited use in
 science.  There are just two exceptions in which they do serve a
@@ -778,12 +791,14 @@ useful purpose:
 \begin{enumerate}
 \item If a statistical test fails to reject the null hypothesis, then
   this indicates that the sample size is too small to find a
-  meaningful effect. In this context the statistical test protects
-  us against over-interpreting our data.
+  meaningful effect. In this context the statistical test protects us
+  against over-interpreting our data.
 \item We can calculate the sample size that would be required to
-  detect a pre-specified deviation from the null hypothesis.  This
-  approach is used in the pharmaceutical industry to test the efficacy
-  of drugs. However it is seldom or never available to geologists.
+  detect a pre-specified deviation from the null hypothesis, for the
+  given type-1 and type-2 thresholds (i.e., $\alpha$ and $\beta$).
+  This approach is used in the pharmaceutical industry to test the
+  efficacy of drugs. However it is seldom or never available to
+  geologists.
 \end{enumerate}
 
 \section{Confidence intervals}
@@ -850,12 +865,11 @@ interval are given by:
   \includegraphics[width=\textwidth]{../figures/binomcik2n5.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.35\textwidth}
-  \captionof{figure}{95\% confidence interval for the binomial
-    parameter $p$ given $k=2$ successful claims (dashed lines) out of
-    $n=5$.  The lower ($p=0.053$, grey) and upper ($p=0.85$) limits of
-    the confidence interval are shown as a) PMFs and b) CDFs. Dotted
-    horizontal lines mark the 0.025 and 0.975 confidence
-    levels.\medskip}
+  \captionof{figure}{a) the PMFs and b) CDFs of the binomial parameter
+    $p$ given $k=2$ successful claims (dashed lines) out of $n=5$
+    (i.e., $\hat{p}=0.4$), for the lower ($p=0.053$, grey) and upper
+    ($p=0.85$) limits of a 95\% confidence interval. Dotted horizontal
+    lines mark the 0.025 and 0.975 confidence levels.\medskip}
   \label{fig:binomcik2n5}
 \end{minipage}
 
@@ -870,12 +884,9 @@ yields a different confidence interval, namely:
 \medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.35\textwidth}
-  \captionof{figure}{95\% confidence interval for the binomial
-    parameter $p$ given $k=4$ successful claims (dashed lines) out of
-    $n=5$ trials.  The lower ($p=0.284$, grey) and upper ($p=0.995$)
-    limits of the confidence interval are shown as a) PMFs and b)
-    CDFs. Dotted horizontal lines mark the 0.025 and 0.975 confidence
-    levels.\medskip}
+  \captionof{figure}{The same as Figure~\ref{fig:binomcik2n5}, but for
+    $k=4$ successful claims (dashed lines) out of $n=5$ trials (i.e.,
+    $\hat{p}=0.8$).\medskip}
   \label{fig:binomcik4n5}
 \end{minipage}
 
@@ -892,12 +903,9 @@ example, but the 95\% confidence interval narrows down to
 \medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.35\textwidth}
-  \captionof{figure}{95\% confidence interval for the binomial
-    parameter $p$ given $k=12$ successful claims (dashed lines) out of
-    $n=30$ trials.  The lower ($p=0.23$, grey) and upper ($p=0.59$)
-    limits of the confidence interval are shown as a) PMFs and b)
-    CDFs. Dotted horizontal lines mark the 0.025 and 0.975 confidence
-    levels.\medskip}
+  \captionof{figure}{The same as Figure~\ref{fig:binomcik2n5}, but for
+    $k=12$ successful claims (dashed lines) out of $n=30$ trials
+    (i.e., $\hat{p}=0.4$).\medskip}
   \label{fig:binomcik12n30}
 \end{minipage}
 
@@ -913,9 +921,7 @@ over a range of sample sizes between $n=3$ and $n=300$:\medskip
 \begin{minipage}[t][][t]{.35\textwidth}
   \captionof{figure}{95\% confidence intervals for a) $\hat{p}=2/3$
     and b) $\hat{p}=1/5$ for different sample sizes $n$. The
-    horizontal dotted lines mark the maximum likelihood
-    estimates. Note the asymmetry of the confidence intervals, which
-    always fall within the 0 to 1 range of the parameter.}
+    horizontal dotted lines mark the maximum likelihood estimates.}
   \label{fig:binomcivsn}
 \end{minipage}
 
@@ -923,4 +929,23 @@ The confidence intervals become progressively narrower with increasing
 sample size. This reflects a steady improvement of the
 \textbf{precision} of our estimate for $p$ with increasing sample
 size. In other words, large datasets are `rewarded' with better
-precision.
+precision.\medskip
+
+The confidence intervals of Figure~\ref{fig:binomcivsn} are asymmetric
+but become more symmetric around the estimate with increasing sample
+size. In fact, for large $n$ ($>20$, say) and $p$ not near to 0 or 1,
+the 95\% confidence interval can be approximated as
+\begin{equation}
+  \mbox{C.I.}(p|k=n\hat{p},n) \approx
+  \hat{p} \pm 1.96 s[\hat{p}]
+  \label{eq:binormci}
+\end{equation}
+
+\noindent where 
+\begin{equation}
+  s[\hat{p}] = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
+  \label{eq:sigmabinom}
+\end{equation}
+
+A derivation of and justification for this approximation will be
+provided in Section~\ref{sec:FisherInformation}.
