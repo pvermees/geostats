@@ -1,0 +1,352 @@
+========
+Plotting
+========
+
+In this session, I will introduce some ways to plot statistical data,
+because a pictures is more than 1000 words, and nowhere is this more
+true than in statistics. So before we explore the more quantitative
+aspects of data analysis, it is useful to visualise the
+data.
+
+---
+
+Consider, for example, the following four bivariate datasets, which
+are known as Anscombe's quartet, named after the statistician who
+invented it. Each of the four datasets in the quartet contains two
+variables X and Y. We have 10 measurements for each of these, which we
+can attempt to summarise using so-called summary statistics.
+
+Although summary statistics are the subject of the next session, I am
+pretty sure that you are already familiar with the first of these
+values, which is the mean. The mean is simply the sum of all the
+values divided by the number of values. Well, the mean of all the X's
+is nine. It's nine for the first data set. It's nine for the second,
+the third as well as the fourth data set. So the means are identical
+for X, but also for Y. The mean of the Y's is 7.5 for the first,
+second, third and fourth dataset.
+
+In the next session, we will see that the variance is a summary
+statistic that can be used to quantify the spread or 'dispersion' of
+the data. Well, the variance of X is 11 for all four data sets, and
+the variance of the Y is 4.125. Again, the four data sets look
+identical for this particular summary statistic.
+
+The correlation coefficient is a parameter that we will define in the
+session on linear regression, which is covered by Chapter 10 of the
+notes.  The correlation coefficient of the X's and the Y's is 0.816
+for all four datasets. And if we fit a line through the data with the
+methods that will also be introduced in the session on linear
+regression, then we get an intercept of 3 and a slope of 0.5. So
+again, the four datasets look identical.
+
+In conclusion, the quantitative summary statistics of these four
+datasets all appear to be identical.
+
+---
+
+However, when we visualise them as scatter plots, we see that in fact
+they are very different. Some of the datasets are clustered, others
+are more spread out. There are certain patterns here. There are
+outliers. They're all very different and this was not immediately
+apparent from the summary statistic.
+
+The take home message is that before we attempt to do any quantitative
+analysis of your data, it is very important that we first have a look
+at the data; that we visualise them.
+
+Bivariate scatter plots are just one way to visualise analytical
+data. There are many other graphical devices, each of which is
+appropriate for a particular type of data. In the next set of slides I
+will introduce a number of these different data types and highlight
+the associated plots that you can use to explore and interpret the
+data before proceeding to the quantitative aspect, which will be
+discussed in later sessions.
+
+--
+
+In the remainder of this lecture, I will work with a dataset of twenty
+imaginary river catchments have been analysed for six different types
+of data: the lithology of the underlying bedrock and its stratigraphic
+age (which is either Cenozoic, Mesozoic, Palaeozoic or Precambrian);
+the number of natural springs in the catchments; the pH of the river
+water; its Ca/Mg ratio; and the percentage of the catchment area that
+is covered by vegetation.
+
+In statistical textbooks you will find many different ways to classify
+data like this. However, on the highest level, it is useful to make a
+distinction between discrete and continuous data. Discrete data can be
+visualised on bar charts or histograms and can be subdivided into
+three other classes.
+
+1. Categorical data take on a limited number of values, assigning each
+'object' to a particular unordered class or category. Geological
+examples of categorical data include animal species in a bone bed; the
+modal composition of a thin section; and the lithologies in the
+catchments dataset.
+
+2. Ordinal data are a special type of categorical data, in which the
+classes are ordered but the distances between them are either
+irregular or unknown. Geological examples of ordinal quantities
+include Moh's hardness scale; metamorphic grade; and the geologic
+timescale, which is used to form the second column of the catchments
+dataset.
+
+3. Count data are a special type of ordinal data in which the
+categories are evenly spaced into integer intervals. Geological
+examples of count data include the number of gold chips found in a
+panning session; the annual number of earthquakes that exceed a
+certain magnitude; and the number of dry wells in a wildcat drilling
+survey; and the number of natural springs in a river catchment.
+
+Categorical, ordinal and count data are three classes of discrete
+data, which can be assigned integer values. However, not all
+geological or geophysical measurements take on discrete values. Many
+are free to take on decimal values. We can also subdivide these
+continuous data into further classes, such as:
+
+4. Cartesian quantities are continuous variables that can have any
+decimal value, including positive and negative ones.  Geoscientific
+examples of this data type include the magnitude of earthquakes; the
+spontaneous electrical potential between geological strata; or the pH
+of aqueous solutions.  Although all the pH vales in the catchments
+dataset are positive, negative pH values are possible and do occur in
+the real world although rarely or never in the natural environment.
+
+5. Jeffreys quantities can only have positive values. Examples of this
+include mass, volume, density, speed, etc. The Ca/Mg ratio of the
+river water in our catchments also fits this definition. It is obvious
+that negative Ca/Mg ratios do not exist.
+
+6. Proportions are quantities that are constrained to a finite
+interval from 0 to 1 (or from 0 to 100%). Examples of this include
+chemical concentrations; volume fractions; and porosities. The final
+column of the catchments dataset shows the percentage of each
+catchment that is covered by vegetation.
+
+---
+
+Discrete datasets naturally fall into categories and the natural way
+to plot them is as a bar chart. In the case of the lithology data, the
+order of the categories along the horizontal axis is completely
+arbitrary and can be changed without loss of information.  As the name
+suggests, this is not so for ordinal data, in which the categories are
+ranked. The four bins of the geologic timescale span vastly different
+amounts of time, with the Cenozoic being just 65 million years long,
+whereas the Precambrian is 4 billion years long. In contrast, the bins
+of the count data are all equally sized.
+
+Although continuous data do not naturally fall into distinct
+categories, then can be coerced into a histogram by binning. This
+reveals that the pH data follow a bell-shaped distribution, in
+contrast with the Ca/Mg ratio data, which is characterised by a lot of
+low values and comparatively few high values. Finally, the histogram
+of the vegetation data shows two clusters of low and high values, with
+few values in between.
+
+---
+
+Although the previous slide has shown that it is possible to divide
+continuous data into discrete bins, doing so poses two practical
+problems.
+
+The first issues is that we need to decide how many bins to use and
+how wide these bins should be. The number of bins strongly affects the
+appearance of the histogram, as is illustrated on the top half of this
+slide. The histogram on the left uses a bin width of one pH unit,
+whereas the histogram on the right uses a bin width of half a pH
+unit. The two histograms look considerably different, and it's not
+immediately clear which choice of bin width is best.
+
+The second problem is that we need to choose where to place the
+bins. In the bottom half of the slide are shown two histograms, whose
+bins have the same width of half a pH unit, but which have been offset
+relative to each other by a quarter of a pH unit. This arbitrary
+decision once again strongly affects the appearance of the histogram.
+
+---
+
+To solve the bin placement problem, let us fist develop a variant of
+the ordinary histogram that is constructed as follows. First, we rank
+the values from low to high along a line. Second, we stack a
+rectangular box on top of these measurements. And third, we add all
+these boxes together to produce one connected line. The figure on the
+right hand side applies this procedure to the 20 pH measurements,
+removing the need to choose the bin locations.  Normalising the area
+under this curve produces a so called kernel density estimate, the
+mathematical formulation of which is shown at the top.
+
+This is a formula that includes a function capital K, which is the
+kernel. This describes the shape of, in our case, the rectangular
+boxes that are placed on top of each of the measurements. n represents
+the number of measurements which, in our case, is 20 because we have
+20 pH measurements. h is the band width, which describes the width of
+these rectangles instead of the rectangular colonel. We could also use
+triangles to construct the kernel density curve or any other symmetric
+function.
+
+---
+
+The most popular choice of kernel for density estimation is probably
+the Gaussian kernel whose function is shown in the top right
+here. This produces a continuous curve, which does more justice to the
+continuous pH data than the discrete steps of the histogram or of the
+rectangular kernel does. Although kernel density estimation solves the
+bin placement problem, it is not entirely free of design decisions
+either.
+
+---
+
+The bandwidth of a kernel density estimate fulfils a similar role as
+the bin width of a histogram. Changes in the bandwidth affect the
+smoothness of the kernel density curve. This is illustrated on the
+left hand side of this slide, which shows a kernel density estimate
+for the pH data that uses a band with a 0.1. On the right hand side is
+the same dataset shown as a KDE with a band width of 1, which is 10
+times bigger than 0.1. The left hand distribution is undersmoothed,
+which means that it is too bumpy. In contrast, the curve on the right
+hand side is possibly oversmoothed, and you might miss some details in
+the distribution.
+
+The selection of the band with is a similar problem to the selection
+of a bin width for histograms. There are some rules of thumb that can
+be used to optimise that selection, but I do not have the time to
+discuss this in more detail.
+
+---
+
+Let's move on to the second continuous dataset of 20 measurements of
+Ca/Mg ratio measurements. Now, Ca/Mg ratios are strictly positive
+values. Yet the left tail of the kernel density estimate shown here
+extends into negative data space, implying that there is a finite
+chance of observing negative Ca/Mg ratios. This is clearly
+nonsense. In geophysics, positive quantities are sometimes called
+Jeffries quantities, named after the British geophysicist Sir Harold
+Jeffries. As mentioned before, other examples of Jeffrey's quantities
+are mass volume, density, speed, etc. These parameters exists within
+an infinite half space between zero and plus infinity. They all
+exhibit the problem where, if you have a lot of values close to zero,
+that the kernel density estimate crosses over into physically
+impossible negative values.
+
+---
+
+Fortunately, the negative value problem can easily be solved, using a
+transformation that maps the Ca/Mg ratios from strictly positive
+values to the infinite space of all the numbers, including both
+negative and positive values. So shown here are on the left is the
+original kernel density estimate. Taking the logarithm of the values
+and constructing a new kernel density estimate produces a much more
+symmetric curve. Then we can take the exponents of these values and
+map those results back to linear space. This produces a third kernel
+density estimate that does not cross over into negative data space.
+
+This logarithmic transformation is one example of a simple
+transformation of the data solving some problems associated with
+constrained data.  We will see this solution in different forms,
+appearing again later in the module.
+
+---
+
+Jeffrey's quantities are just one example of constrained
+measurements. As another example, consider the 20 vegetation coverage
+measurements of the catchments data. As discussed before, vegetation
+cover is a proportional quantity that takes on values between 0 and
+100%. Again, the Gaussian kernel density estimate of the data plots
+into physically impossible values of negative porosity, or vegetation
+coverages that exceed 100%.
+
+---
+
+Using a similar approach as before, we can solve the problem of
+impossible values using a data transformation that maps the data from
+the constrainted space of values between 0 and 1 to the entire line of
+numbers, from minus infinity to plus infinity. For proportional data
+like vegetation cover, this is no achieved with a simple log
+transformation, but with a so-called logistic transformation. So if
+'x' is our vegetation cover, then 'u' is the logistically transformed
+value, which is the logarithm of x, divided by 1-x. After constructing
+the kernel density estimate of the logit of the vegetation values, we
+can then map those results back to our constrainted space from 0 to 1,
+using an inverse log-ratio transformation, where we take the exponents
+of the logits divided by the exponents of the logits plus 1.
+
+This solves our problem. The KDE no longer crosses over into
+impossible negative values or vegetation coverage values that are
+greater than one. We will see later on that this logistic
+transformation is a special case of a general class of logratio
+transformations that will be useful for the analysis of compositional
+data, which include chemical data, mineralogical data and so
+forth. But that won't be discussed until Chapter 14 of the notes.
+
+---
+
+Kernel density estimates can easily be generalised from 1 to 2
+dimensions. For example, this slide shows a dataset of eruption
+timings from the old Faithful Geyser in Yellowstone National Park in
+the United States. The dataset records 272 observations shown as grey
+circles of two variables. We've got the duration of each eruption on
+the Y axis on the waiting times on the X axis, both expressed in
+minutes. On the top and at the right, there are two marginal
+distributions, which represent projections of the data onto the X and
+Y axis. They show us the kernel density estimate of the waiting times
+and of the durations of the eruptions, respectively. The kernel
+density estimate here has been constructed in a very similar way as
+the one dimensional KDE. But instead of plotting a one dimensional
+bell curve on top of each measurement we've stacked a two dimensional
+bell curve.
+
+We can generalise the same idea to greater than two dimensions. But
+then it becomes very difficult to visualise the result on a two
+dimensional sheet of paper or a two dimensional computer screen. In
+this case, there are two options. If you want to visualise higher
+dimensional data, we could either plot the data as a series of one or
+two dimensional marginal plots like these guys, or we can extract the
+most important patterns or trends in the data by projection onto a
+lower dimensional plane. Then we can show these predict projected data
+as a two dimensional graphic. The second strategy is known as
+ordination. We will discuss it later on in the session that is
+dedicated to so called unsupervised machine learning.
+
+Both histograms and kernel density estimates require the selection of
+a smoothing parameter. For the histogram, this is the bin width,
+whereas for the kernel density estimate it is the bandwidth.  This
+selection of a smoothing parameter adds a certain degree of
+arbitrariness to the creation of these density estimates.
+
+---
+
+An empirical cumulative distribution function, or ECDF, is an
+alternative data visualisation device that avoids this problem and
+does not require smoothing. A cumulative distribution function is a
+step function that shows, on the Y axis, the fraction of the
+measurements that are less than or equal to the values shown in the X
+axis. For example, here we've got 40% of the pH values being less than
+4.6. Empirical cumulative distribution functions do not require
+binning or selecting a bandwidth because they do not require
+smoothing. They do not spill over into physically impossible values,
+so there are no negative Ca/Mg values. Similarly, there are no
+negative values for vegetation coverage, and neither are there any
+vegetation coverages exceeding 100%. Therefore, the construction of a
+cumulative distribution function is completely hands off.
+
+The visual interpretation of a cumulative distribution function is
+different from that of a histogram or kernel density estimate. Whereas
+different clusters of values stand out as peaks in the histogram or
+KDE, they are marked by steep segments of the cumulative
+distribution. For example, the geyser data have two modes, with one
+cluster of eruptions that last 2 minutes, and a second cluster of
+eruptions that last 4.5 minutes. These two clusters correspond to
+peaks in the kernel density estimate. The same values of 2 and 4.5
+minutes are marked by the steepest parts of the cumulative
+distribution function. Some people find this these cumulative
+distribution functions slightly more difficult to read than histograms
+or kernel density estimates. And this is perhaps why histograms and
+KDEs are found more frequently in the literature. Nevertheless,
+cumulative distributions are extremely useful. In fact, we will see
+see that they can even be used for statistical tests, to to define
+some important summary statistics. But those applications will be
+discussed in the next session of this module.
+
+==================
+Summary statistics
+==================

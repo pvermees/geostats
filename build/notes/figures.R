@@ -4497,22 +4497,6 @@ names(ppdf) <- 0:20
 barplot(ppdf,col='NA')
 dev.off()
 
-cairo(file='../../slides/clasts.pdf',width=4,height=3)
-pars()
-clasts <- c(10,5,6,20)
-names(clasts) <- c('granite','basalt','gneiss','quartzite')
-barplot(clasts/sum(clasts),col='white')
-dev.off()
-
-cairo(file='../../slides/pH.pdf',width=4,height=3)
-pars()
-pH <- c(6.2,4.4,5.6,5.2,4.5,5.4,4.8,5.9,3.9,3.8,
-        5.1,4.1,5.1,5.5,5.1,4.6,5.7,4.6,4.6,5.6)
-hist(pH,freq=FALSE,breaks=seq(from=3,to=7,by=0.5),
-     col='white',xlim=c(3,7),main='')
-rug(pH)
-dev.off()
-
 cairo(file='../../slides/locationdispersionshape.pdf',width=4,height=2)
 pars(mfrow=c(2,3),mgp=c(1.2,0.5,0))
 x <- seq(from=-10,to=10,length.out=200)

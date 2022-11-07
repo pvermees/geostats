@@ -93,9 +93,10 @@ triangle <- function(n){
   
 \begin{script}
 quakesperyear <- countQuakes(declustered,minmag=4.5,from=2000,to=2016)
-par(mfrow=c(1,2))
+op <- par(mfrow=c(1,2))
 barplot(quakesperyear)
 hist(quakesperyear)
+par(op)
 \end{script}
 
 \item\label{it:ABsol} Write a plotting function to avoid duplicate
@@ -115,11 +116,12 @@ follow a skewed distribution:
 \begin{script}[firstnumber=5]
 A <- runif(100)
 B <- runif(100)
-par(mfrow=c(2,2))
+op <- par(mfrow=c(2,2))
 rugdensity(A/B)
 rugdensity(B/A)
 rugdensity(log(A/B))
 rugdensity(log(B/A))
+par(op)
 \end{script}
 
 \item\label{it:xyrandsol} Using the optional \texttt{min} and
@@ -136,11 +138,12 @@ points(x,y)
 \item Continuing the previous solution:
 
 \begin{script}[firstnumber=6]
-par(mfrow=c(1,2))
+op <- par(mfrow=c(1,2))
 cdfx <- ecdf(x)
 plot(cdfx)
 cdfy <- ecdf(y)
 plot(cdfy)
+par(op)
 \end{script}
 
 Querying the ECDFs:
@@ -990,7 +993,7 @@ for (i in 1:(ns-1)){        # loop through the rows
 Plotting the most similar and least similar pairs as Q-Q plots:
 
 \begin{script}[firstnumber=17]
-par(mfrow=c(1,2))               # set up a two panel plot
+op <- par(mfrow=c(1,2)          # set up a two panel plot
 snames <- names(DZ)             # get the list of sample names
 ms1 <- snames[mostsimilar[1]]   # first sample name in similar pair
 ms2 <- snames[mostsimilar[2]]   # second sample name in similar pair
@@ -998,6 +1001,7 @@ ls1 <- snames[leastsimilar[1]]  # first sample name in dissimilar pair
 ls2 <- snames[leastsimilar[2]]  # second sample name in dissimilar pair
 qqplot(DZ[[ms1]],DZ[[ms2]],xlab=ms1,ylab=ms2,main=minKS)
 qqplot(DZ[[ls1]],DZ[[ls2]],xlab=ls1,ylab=ls2,main=maxKS)
+par(op)
 \end{script}
 
 The most similar samples are T and Y, whose K-S distance is 0.07; the
@@ -1208,17 +1212,17 @@ observing at least one such event next year is given by
 \item Plotting 9 experiments in a ${3}\times{3}$ grid:
 
 \begin{script}
-p <- par(mfrow=c(3,3),mar=rep(0,4)) # initialise the plot
-pendulum()                          # default settings
-pendulum(startpos=c(-1.9,2))        # tiny change in starting position
-pendulum(startpos=c(2,2))           # start in the upper right corner
-pendulum(startvel=c(0.5,0))         # start with a horizontal push
-pendulum(startvel=c(1,0))           # a stronger push
-pendulum(startvel=c(0,-1))          # push down
+op <- par(mfrow=c(3,3),mar=rep(0,4)) # initialise the plot
+pendulum()                           # default settings
+pendulum(startpos=c(-1.9,2))         # tiny change in starting position
+pendulum(startpos=c(2,2))            # start in the upper right corner
+pendulum(startvel=c(0.5,0))          # start with a horizontal push
+pendulum(startvel=c(1,0))            # a stronger push
+pendulum(startvel=c(0,-1))           # push down
 pendulum(src=matrix(c(1,-1,0,0),ncol=2))             # two magnets
 pendulum(src=matrix(c(1,-1,0,0,0,-1),ncol=2))        # three magnets
 pendulum(src=matrix(c(1,1,-1,-1,1,-1,1,-1),ncol=2))  # four magnets
-par(p)                              # restore the parameters
+par(op)                              # restore the parameters
 \end{script}
   
 \end{enumerate}
@@ -1691,10 +1695,11 @@ Z <- hills$Z
 Fit the four semivariogram models:
 
 \begin{script}[firstnumber=4]
-par(mfrow=c(1,3))
+op <- par(mfrow=c(1,3))
 expmodel <- semivariogram(x=X,y=Y,z=Z,plot=TRUE,model='exponential')
 normodel <- semivariogram(x=X,y=Y,z=Z,plot=TRUE,model='gaussian')
 sphmodel <- semivariogram(x=X,y=Y,z=Z,plot=TRUE,model='spherical')
+par(op)
 \end{script}
 
 Visual inspection of the resulting plots indicates that the Gaussian
