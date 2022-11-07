@@ -411,22 +411,24 @@ library(geostats)
   the command prompt. We can then create Figure~\ref{fig:anscombe}:
 
 \begin{script}
-par(mfrow=c(1,4))
+op <- par(mfrow=c(1,4)) # op = old parameter values
 plot(anscombe$x1,anscombe$y1)
 plot(anscombe$x2,anscombe$y2)
 plot(anscombe$x3,anscombe$y3)
 plot(anscombe$x4,anscombe$y4)
+par(op)                 # restore old parameter values
 \end{script}
 
 \noindent where \texttt{par(mfrow=c(1,4))} creates a $1\times{4}$ grid
 of plot panels. Note that we can also write this more generically:
 
-\begin{script}[firstnumber=2]
+\begin{script}
 np <- 4 # np = 'number of panels'
-p <- par(mfrow=c(1,np))
+op <- par(mfrow=c(1,np))
 for (i in 1:np){
   plot(anscombe[,i],anscombe[,i+np])
 }
+par(op)
 \end{script}
 
 Or, adding a few options to make the plot look exactly like
@@ -438,6 +440,7 @@ for (i in 1:np){
   plot(anscombe[,i],anscombe[,i+np],
        xlab='x',ylab='y',pch=19,main=titles[i])
 }
+par(op)
 \end{script}
 
 \item The \texttt{geostats} package includes a number of datasets,
@@ -474,9 +477,10 @@ rug(pH)
 Changing the number of bins:
 
 \begin{script}[firstnumber=2]
-par(mfrow=c(1,2))
+op <- par(mfrow=c(1,2))
 hist(pH,breaks=5)
 hist(pH,breaks=10)
+par(op)
 \end{script}
 
 Specifying the position of the bins:
@@ -539,11 +543,12 @@ implementations, just type \texttt{geostats:::logit.default} and
 \begin{script}
 x <- faithful[,'waiting']
 y <- faithful[,'eruptions']
-par(mfrow=c(2,1))
+op <- par(mfrow=c(2,1))
 plot(density(x),xlab='minutes',main='waiting time')
 rug(x)
 plot(density(y),xlab='minutes',main='eruption duration')
 rug(y)
+par(op)
 \end{script}
 
 \noindent where we have \textbf{nested} the \texttt{density} and
@@ -1018,7 +1023,7 @@ plot(xy)
   and standard deviation $\sigma=5$:
 
 \begin{script}
-par(mfrow=c(1,2))
+op <- par(mfrow=c(1,2))
 m <- 50
 s <- 5
 x <- seq(from=25,to=75,length.out=100)
@@ -1026,6 +1031,7 @@ f <- dnorm(x=x,mean=m,sd=s)
 plot(x=x,y=f,type='l',main='PDF')
 P <- pnorm(q=x,mean=m,sd=s) 
 plot(x=x,y=P,type='l',ylab='P(X<x)',main='CDF')
+par(op)
 \end{script}
 
 \end{enumerate}

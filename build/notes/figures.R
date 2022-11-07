@@ -794,7 +794,7 @@ axis(side=2)
 mtext('# gold discoveries',side=1,line=1.5)
 mtext('P(k)',side=2,line=1.5)
 legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,1))
-text(7,max(h1)*0.965,labels=paste0('p=',signif(ci[1],2)),pos=3,col='grey60',xpd='n')
+text(7,max(h1)*0.963,labels=paste0('p=',signif(ci[1],2)),pos=3,col='grey60',xpd='n')
 text(18,max(h2),labels=paste0('p=',signif(ci[2],2)),pos=3,col='black',xpd='n')
 binomcdf(nn=n,kk=k,H0=ci[1],Ha=ci[1],nsides=0,
          showax=FALSE,plota=TRUE,plotp=FALSE,col='grey60')
@@ -4495,22 +4495,6 @@ cairo(file='../../slides/poisquakes.pdf',width=4,height=4)
 ppdf <- dpois(0:20,lambda=5.43)
 names(ppdf) <- 0:20
 barplot(ppdf,col='NA')
-dev.off()
-
-cairo(file='../../slides/clasts.pdf',width=4,height=3)
-pars()
-clasts <- c(10,5,6,20)
-names(clasts) <- c('granite','basalt','gneiss','quartzite')
-barplot(clasts/sum(clasts),col='white')
-dev.off()
-
-cairo(file='../../slides/pH.pdf',width=4,height=3)
-pars()
-pH <- c(6.2,4.4,5.6,5.2,4.5,5.4,4.8,5.9,3.9,3.8,
-        5.1,4.1,5.1,5.5,5.1,4.6,5.7,4.6,4.6,5.6)
-hist(pH,freq=FALSE,breaks=seq(from=3,to=7,by=0.5),
-     col='white',xlim=c(3,7),main='')
-rug(pH)
 dev.off()
 
 cairo(file='../../slides/locationdispersionshape.pdf',width=4,height=2)
