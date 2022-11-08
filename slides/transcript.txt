@@ -2,11 +2,11 @@
 Plotting
 ========
 
-In this session, I will introduce some ways to plot statistical data,
-because a pictures is more than 1000 words, and nowhere is this more
-true than in statistics. So before we explore the more quantitative
-aspects of data analysis, it is useful to visualise the
-data.
+In this session, I will introduce some ways to plot statistical data
+because, as the cliche goes, a picture is worth more than 1000 words,
+and nowhere is this more true than in statistics. So before we explore
+the more quantitative aspects of data analysis, it is useful to first
+visualise the data.
 
 ---
 
@@ -108,7 +108,7 @@ continuous data into further classes, such as:
 decimal value, including positive and negative ones.  Geoscientific
 examples of this data type include the magnitude of earthquakes; the
 spontaneous electrical potential between geological strata; or the pH
-of aqueous solutions.  Although all the pH vales in the catchments
+of aqueous solutions.  Although all the pH values in the catchments
 dataset are positive, negative pH values are possible and do occur in
 the real world although rarely or never in the natural environment.
 
@@ -180,7 +180,7 @@ kernel. This describes the shape of, in our case, the rectangular
 boxes that are placed on top of each of the measurements. n represents
 the number of measurements which, in our case, is 20 because we have
 20 pH measurements. h is the band width, which describes the width of
-these rectangles instead of the rectangular colonel. We could also use
+these rectangles. Instead of the rectangular kernel, e could also use
 triangles to construct the kernel density curve or any other symmetric
 function.
 
@@ -189,10 +189,9 @@ function.
 The most popular choice of kernel for density estimation is probably
 the Gaussian kernel whose function is shown in the top right
 here. This produces a continuous curve, which does more justice to the
-continuous pH data than the discrete steps of the histogram or of the
-rectangular kernel does. Although kernel density estimation solves the
-bin placement problem, it is not entirely free of design decisions
-either.
+continuous pH data than the discrete steps of the histogram or the
+rectangular kernel. Although kernel density estimation solves the bin
+placement problem, it is not entirely free of design decisions either.
 
 ---
 
@@ -252,8 +251,8 @@ measurements. As another example, consider the 20 vegetation coverage
 measurements of the catchments data. As discussed before, vegetation
 cover is a proportional quantity that takes on values between 0 and
 100%. Again, the Gaussian kernel density estimate of the data plots
-into physically impossible values of negative porosity, or vegetation
-coverages that exceed 100%.
+into physically impossible values of negative vegetation coverages, or
+values that exceed 100%.
 
 ---
 
@@ -350,3 +349,575 @@ discussed in the next session of this module.
 ==================
 Summary statistics
 ==================
+
+After a purely qualitative inspection of the data, we can now move on
+to a more quantitative description. In this session, I will introduce
+a number of summary statistics to describe larger data sets, using
+just a few numerical values that capture the location, the dispersion
+and the shape of a probability distribution. Before proceeding with
+this topic, it is useful to bear in mind that these summary statistics
+have limitations.
+
+---
+
+The Anscombe Quartet, which was discussed in the previous session,
+showed that very different looking data sets can have identical
+summary statistics, including the same mean and the same variance. But
+with this caveat in mind, summary statistics are an essential
+component of data analysis, provided that they are preceded by a
+visual inspection of the data.
+
+---
+
+In this session, I will introduce three types of summary statistics. A
+first class of summary statistics are measures of location, which
+represent the average of the data, and which quantify whether that
+average is shifted towards lower values or towards high values.
+
+A second group of summary statistics represent measures of
+dispersion. These quantify the spread of the data, capturing whether
+the date are concentrated near a single value, or whether they are
+spread out over a wider range of values.
+
+And finally, a third group of summary statistics quantify the shape of
+the distribution; for example, whether it is leaning towards the left
+or leaning towards right; whether it is skewed towards high
+values or skewed towards low values.
+
+---
+
+There are many different ways to define the average value of a
+multi-value dataset.  In this session. I will introduce three of these
+ways, but later sessions will introduce a few more. The arithmetic
+mean is arguably the best known and most widely used way to average
+data. If we have n values x_1, x_2 and so forth to x_n, then the
+arithmetic mean, which is often denoted by x-bar, is simply the sum of
+the x-values divided by the number of values.
+
+But this is just one of many ways to average data. Another,
+non-parametric, approach is the median. This value is obtained by
+ranking the observations according to size from the smallest value to
+the largest value and selecting the middle one. The median is the
+half-way point on an empirical cumulative distribution function, the
+step function that I introduced in the previous session. Put in more
+formal terms, the median is identical to the 50 percentile of the
+distribution.
+
+Finally, the mode is simply the most frequently occurring value. For a
+continuous variable, it is the highest point on the kernel density
+estimate or a histogram, or the steepest point on a cumulative
+distribution function.
+
+---
+
+Applying these three concept to the pH data of the previous session,
+the arithmetic mean is calculated, as I said, by taking to sum of
+these 20 values; dividing this sum by 20 and yields a value of five.
+
+The median is obtained by ranking the pH measurements from the most
+acidic value of 3.8 to the most basic value of 6.2. If there are an
+even number of values in the dataset, which is indeed the case here,
+then we take the arithmetic mean of those values. In this case, the
+two values are 5.0 and 5.2, so our median is 5.1.
+
+Finally, the mode for this continuous variable is obtained by
+constructing a kernel density estimate, the heighest point of which
+corresponds to a pH value of 5.4. So that is the modal value that we
+can use as a summary statistic.
+
+---
+
+Here the three different summary statistics are shown together
+graphically for the pH dataset on a kernel density estimate and an
+empirical cumulative distribution function. The median is again the 50
+percentile of the data set. So it is the intersection between the
+dash-dot line onto the empirical cumulative step function. This
+intersection is marked by the dashed line, which indicates that 50% of
+the pH measurements are less than 5.1, and 50% are higher than 5.1.
+
+The arithmetic mean, which is shown as a solid white line here, and
+the mode, which is this dotted line are both in reasonably close
+vicinity to the median. So in this case, it doesn't really matter
+which summary statistic you use. All measures of location give you
+pretty much the same value.
+
+---
+
+However, the situation is very different for our dataset of Ca/Mg
+ratios which, unlike the pH data, does not follow a symmetric but an
+asymmetric distribution. Here, the mean, which is shown as a solid
+line, is 3.2. The mode, which is shown by a dotted line, is only 0.45
+and the median falls somewhere in between, at a value of 2.1. There is
+a factor of seven difference between the smallest measure of location
+and the largest measure of location. The mean in particular is
+strongly affected by the long tail of large outliers towards the right
+of the diagram.
+
+Only 30% of the data are larger than the mean of the distribution, and
+only one of the 20 measurements, which is only 5% of the data, is
+smaller than the mode. So in this case, it is fair to say that the
+choice of measure of location is very important. The median is the
+probably most sensible value in this case. In contrast, the arithmetic
+mean is not representative of the data.
+
+---
+
+Finally, this slide shows rug plots, kernel density estimates and
+empirical cumulative distribution functions for the vegetation data on
+the left, and the geyser eruption duration data on the right. Both of
+these distributions are bimodal, meaning that they have two peaks in
+the kernel density estimates and too steep segments in the cumulative
+distribution function.
+
+The highest of these peaks are marked by dotted lines, which give us
+the modes but ignore the other peaks. The mean and the median fall in
+between the two data clusters and are not representative of the
+data.
+
+So in conclusion, considering all four dasets, we can say that the
+mean is only a meaningful measure of location for unimodal and
+symmetric distributions. The arithmetic mean is more strongly affected
+by outliers than the median. Therefore, the median is a more robust
+estimator of location for asymmetric data sets than the mean. However,
+multimodal data sets such as these two here can never be adequately
+summarised with a single location parameter. And that is why it is so
+important to visualise the data before you go ahead and use the
+summary statistics.
+
+---
+
+OK, let us now move on to the second class of summary statistics,
+which are measures of dispersion. It is rare for all the values in a
+dataset to be exactly the same. In most cases, the values are spread
+out over a finite range of values. The amount of spread can be defined
+in a number of ways, the most common of which are the standard
+deviation, the median absolute deviation and the interquartile
+range.
+
+The standard deviation is closely related to the arithmetic mean
+expert, so given n values x_1, x_2 to x_n, the standard deviation is
+obtained by taking the sum of the squared differences between each
+value and the arithmetic mean. The differences are squared because,
+intuitively, we want the dispersion to be a positive number.  We then
+divide this sum by n-1 and take the square root. I will discuss the
+factor n-1 in a later session, but at the moment you just take that as
+a given.
+
+If we omit the square root, then then this corresponds to the
+variance.  So the variance is the square of the standard deviation.
+Both of these are used as measured of dispersion, but the standard
+deviation is more useful as a summary statistic.
+
+The median absolute deviation uses, as the name suggests, not the
+arithmetic mean but the median. It is the median of the absolute
+values, which is what these vertical lines mean, of the differences
+between each value and the median of the entire data set. Again, like
+the standard deviation, this is a positive number.
+
+And then, finally, the interquartile range is defined using the
+empirical cumulative distribution function. Recall that the median is
+defined as the value that corresponds to the intersection between a
+horizontal line that goes through 0.5. Similarly, the 75 percentile is
+obtained by taking the intersection of a horizontal line that goes
+through 0.75 on the empirical cumulative distribution, and we can also
+do the same for the 25 percentile. These three percentiles are called
+the lower, middle and upper quartiles. The interquartile range is
+simply the difference between the 75 and 25 percentiles.  Again, it is
+a positive number.
+
+---
+
+Let us apply these concepts to our pH data. The standard deviation is
+given by this formula. So first we list the 20 measurements in our
+original unsorted order. We take the difference between each value and
+the arithmetic mean, which had calculated in the previous step. That
+gives us 20 numbers that can either be positive or negative. We square
+these values to turn them all into positive numbers. We sum these
+squared differences, giving us a value of 8.42.
+
+Then we divide this sum by n-1, which is 19. After taking the square
+root, we get a standard deviation of 0.67. The interquartile range is
+calculated by first sorting our values. So these values are exactly as
+the same as those, but they are ranked from the smallest (3.8) to the
+highest (6.2). The 25 percentile (or lower quartile) is the arithmetic
+mean of the fifth and the sixth value, which is 4.55. The 75
+percentile (or upper quartile) is the arithmetic mean of the 15th and
+the 16th value, which is 5.55. The interquartile range is then simply
+5.55-4.55 = 1.0.
+
+To calculate the median absolute deviation, we need to take the
+difference between each of the values and the median, which we already
+calculated before. That gives us values that there are either positive
+or negative. We then take the absolute value of these values, turning
+them all into positive numbers. We sort these values from small to
+large and take their median, which is 0.5. So our median absolute
+deviation is 0.5.
+
+---
+
+And finally, a third group of summary statistics that I would like to
+discuss today involves measures of shape for probability
+distributions.  Like the measures of location and dispersion that I
+talked about previously, also the shape of a distribution can be
+quantified in a number of different ways. I won't go into much detail
+about this, but just introduce you to one measure of shape, which is
+the skewness.
+
+The definition of skewness looks very similar to the definition of the
+variance. Like the variance, also the skewness is a sum of differences
+between the values and their arithmetic mean. But whereas the variance
+raises these differences to the second power, the skewness raises them
+to the third power. The variance and skewness are both known as
+moments of the distribution.
+
+The variance is a second moment, whereas the skewness is the third
+moment. You can also define higher order moments such as, for example,
+the kurtosis, which is proportional to the fourth power of these
+differences. I won't discuss the kurtosis and much detail, but in
+principle you can describe the entire distribution by simply listing
+all the moments. However this is a more advanced subject.
+
+Here, at the bottom, are three examples, three datasets that have
+different skewness. The skewness of the pH data is close to zero
+because this is a symmetric distribution. The Ca/Mg data lean heavily
+towards the left and have a long tail towards high values. This data
+set is positively skewed. And then here on the right is a dataset that
+I downloaded from the web. It gives us the Covid-19 mortality rate in
+the United Kingdom during March of 2020. This distribution is
+negatively skewed, where highest number of deaths per 100,000 people
+was among the older population. But there is a long tail towards
+younger people as well.
+
+---
+
+The most important summary statistics can be jointly visualised in a
+compact way on a so-called box-and-whisker plot. As the name suggests,
+a Box and whisker plot consists of a box, which is drawn from the
+first to the third quartile, so from the 25 percentile to the 75
+percentile of a dataset. The median is marked by a line in the middle
+of that box, and then two lines or whiskers extend from this box
+outwards towards the minimum value and the maximum value of the
+dataset, ignoring outliers, where outlines are defined as all those
+points that fall more than 1.5 times the interquartile range below the
+first quartile, or more than 1.5 times the interquartile range above
+the third quarter.
+
+In this particular example, there is no lower outlier, but we do have
+one outlier at the high end of our dataset. The median is offset
+towards the left hand side of the box, indicating the positive
+skewness of this particular dataset. And we can plot these Box and
+whisker plots either horizontally, as on this slide, or alternatively,
+you also can put them vertically. Box plots can be used to visualise a
+single sample or multiple samples. In the latter case, box plots allow
+easy inspection, in just one glance, of the variability in location,
+spread and shape of large numbers of samples. We will actually do this
+in one of our exercises.
+
+===========
+Probability
+===========
+
+Probability is a fundamental concept in mathematical statistics, that
+pops up in various contexts, as a numerical description of how likely
+it is for an event to occur, or how likely it is for a proposition to
+be true.
+
+---
+
+In the context of a sampling experiment in which all the outcomes are
+equally likely, the probability of an outcome A can be defined as the
+ratio of the number of ways in which A can occur, divided by the total
+number of possible outcomes.
+
+---
+
+For example, the probability of tossing an unbiased coin and observing
+head is the ratio of the number of outcomes of head which, in the case
+of a single coin, is one divided by the total number of outcomes,
+which is either head or a tail. So that probability is 1 divided by 2
+or one half.
+
+---
+
+Next, let's calculate the probability of tossing the same unbiased
+coin three times and observing 2 x head and 1 x tail. This probability
+is a total number of cases in which we've got one T and two H's, which
+happens in three scenarios, divided by the total number of outcomes,
+which is eight. So the probability of two heads and one tail is
+3/8ths.
+
+---
+
+Similarly, the probability of throwing two dice and obtaining one 2
+and a one 6 is the total number of ways to get a 2 and a 6, which is
+either first a 2 and then a 6 or first a 6 and then a 2, divided by
+the 6 x 6 = 36 possible outcomes of the dice throwing experiment. So
+we get 2 divided by 36, which equals 1 divided by 18, and the
+probability of this outcome is 1/18th.
+
+---
+
+The multiplicative rule of probability dictates that the probability
+of two combined INDEPENDENT experiments is given by the product of
+their respective probabilities. Independent means that the outcome of
+the first experiment does not affect the outcome of the second.  We
+will discuss situations where this is not the case at the end of this
+session.
+
+If we carry out two coin tossing experiments, then the probability of
+obtaining a head in the first experiment AND a head in the second
+experiment is simply one half times one half, which is one
+quarter. Similarly, when we carry out a coin tossing experiment AND a
+die throwing experiment, then the probability of obtaining two heads
+and one tail for the first experiments, and throwing a two and a six
+in the second experiment is the product of 3/8ths and 1/18th, which is
+3/144ths, or about 2.1%.
+
+The additive rule of probability dictates that the probability of
+observing either of two mutually exclusive outcomes is given by the
+sum of their respective probabilities. So if you toss three coins,
+then the probability of obtaining two heads and one tail OR of
+obtaining three heads is the sum of 3/8ths and 1/8th, which is 4/8ths
+or 50%.
+
+---
+
+However, if the two outcomes that you are comparing are not mutually
+exclusive, then the additive rule needs to be modified to account for
+the overlap between the two outcomes.
+
+For example, if we combine the probability of success in a coin
+tossing experiments where success is defined as two heads and a tail,
+with the probability of success in a dice throwing experiment where
+success is defined as obtaining a two and a six, then the probability
+of success in the first OR the second experiments equals the sum of
+the probability of success in the first experiment, which includes all
+possible outcomes for the second experiment, PLUS the probability of
+success in the second experiment, which includes all outcomes of the
+first experiments MINUS the probability of success in both
+experiments, which would otherwise be double-counted. And that gives
+us a probability of 0.41.
+
+---
+
+Let us now move on to an important subject in statistics that will
+make your brain hurt. This subject is called combinatorics. A
+permutations is a first concept in combinatorics that refers to an
+ordered arrangement of objects. These objects can be selected either
+by sampling with replacement, or by sampling without
+replacement. Let's illustrate the difference between these two
+concepts. Consider one urn with 20 balls that are numbered from 1 to
+20. Suppose that we draw 10 balls from this urn. Then there are two
+ways for doing so.
+
+---
+
+A first method is to sample the balls with replacement. So we draw a
+first ball from the urn. There are 20 possible ways for doing so. And
+we write down its number. Suppose that this is 5. We then put the ball
+back into the urn. We thoroughly mix the balls and draw a second
+number. Again, there are 20 ways for doing so. Suppose that the second
+outcome is two. The total number of possible ways in which we can
+select or draw two balls from the urn with replacement is 20 times 20,
+which is 400.
+
+We could then collect a 3rd ball, a 4th ball, and so forth until we
+have collected 10 in total. Then the total number of possible outcomes
+for this experiment is 20 times 20 times 20 etc. So we've got 20 to
+the tenth power. This is a very large number of outcomes indeed
+because we replaced the balls after writing down the numbers.
+
+---
+
+There is a possibility that we've got duplicate values in our
+collection of 10 numbers. In this example, here we've got two
+appearances of the number 5 and two appearances of the number 19.
+
+---
+
+This duplication of values does not occur under an alternative
+experimental design, in which the sampling is not done with but
+without replacement. So consider the same urn with 20 balls as before,
+and draw the first number like before. There are 20 possible ways to
+do so.
+
+Suppose that the number on the first ball is 15. This time we do not
+put ball number 15 back into the urn. With the first ball removed, we
+now draw a second number. This time there are not 20, but only 19
+possible ways for doing so. Suppose that the second number is 8. The
+total number of ways in which we can collect two balls out of 20 is
+not 20 times 20, but 20 times 19. We can repeat this experiment for
+the third or fourth balls from the urn, which is progressively
+dwindling in size, and the total number of ways to collect 10 balls
+out of 20 from the original urn is not 20 to the tenth power, but 20
+times 19 times 18, etc. to 11.
+
+This can be written as 20!/10!, where ! means n times n-1 times n-2,
+etc., and is denoted by the exclamation mark. 20!/10! is a smaller
+number that 20^10.
+
+---
+
+OK, let's now apply these two formulas for sampling with and without
+replacements to a classical problem in statistics. Suppose that we
+have a classroom with k students, then what is the probability that at
+least two of these students celebrate their birthdays on the same day?
+
+---
+
+To calculate this probability, it is useful to first compute the
+probability that none of the birthdays overlap and that everybody's
+got a unique birthday. To that end, we can see that there are 365^k
+possible birthdays, including overlapping birthdays. So this is
+sampling with replacement.
+
+And of these 365^k possible combination of birthdays, 365!/(365-k)!
+birthdays do not overlap which is the formula for sampling without
+replacement.
+
+---
+
+Then the probability that no birthdays overlap is simply the ratio of
+this number of outcomes divided by this number of outcomes and that
+produces 365!/[(365 - k)!365^k]. The probability that at least one
+pair of students have overlapping birthday is then the complement of
+this probability, so one minus this number.
+
+---
+
+When we plot this probability against the size of the class, then we
+can see that initially the probability of overlapping birthdays is
+small. If there are only two students in our class, the probability
+that they celebrate their birthdays on the same day is 1/365. But this
+probability increases rapidly so that by the time you reach a
+classroom size of 23, there is a greater than 50% chance that at least
+two students in that class will celebrate their birthdays on the same
+day.
+
+---
+
+Having considered coins, dice and lottery balls, let us now
+(literally) deal with a fourth archetypal source of statistical
+experiments, namely playing cards.
+
+The formula for sampling with replacement tells us that there are
+52!/49! or 132,600 unique possible ways to select three cards from a
+deck. Suppose that we have drawn an ace of spades, a 6 of diamonds and
+a king of hearts.
+
+Then there are 3! = 6 ways to order these cards.
+
+Suppose that we don't care in which order the cards appear. How many
+different three card hands are possible?
+
+---
+
+Well, it is easy to see that the number of ordered samples equals the
+product of the number of unordered samples times the number of ways to
+order those samples.
+
+Rearranging this equation for the number of unordered samples gives us
+the ratio of the possible number of ordered samples to the number of
+ways to order those samples.
+
+Both of these numbers can be calculated using the formula for sampling
+without replacement. As we have seen before, the number of ways to
+select k objects from a collection of n is n!/(n-k)!, and the number
+of ways to shuffle those objects around is k!.
+
+The ratio of those numbers is also known as the binomial coefficient,
+which is pronounced as "n-choose-k".
+
+---
+
+Applying this formula to the card dealing example, the number of ways
+to draw three cards from a deck of 52 is 52-choose-3, or 22,100.
+
+---
+
+So far, we have assumed that all coin tosses or throws of a dice were
+done independently, so that the outcome of one experiment did not
+affect that of the other. However, this is not always the case in
+geology. Sometimes one event depends on another. We can capture this
+phenomenon with this definition.
+
+P of A vertical bar B stands for the conditional probability of A
+given B. To illustrate this concept, suppose that A is ammonites and B
+is Bajocian, which is a particular stage of the Jurassic in which
+Ammonites are found. Then P of A bar B stands for the probability of
+finding an Ammonite in a Bajocian deposit.
+
+---
+
+The multiplication law dictates that the probability of outcomes A and
+B both occurring simultaneously equals the probability of A given B
+times a probability of B or, equivalently, the probability of B given
+A times the probability of A, which equals the probability of B and A
+both occurring.
+
+So for example, suppose that 70% of a field area is covered by
+Bajocian ocean deposits, and that 20% of the Bajocian deposits contain
+ammonites. Then the probability of finding a Bajocian
+Ammonite is 0.7 times 0.2, which is 14%.
+
+---
+
+The law of total probability prescribes that, if we have any mutually
+exclusive outcomes B_1, B_2, etc., the the total probability of A
+is the probability of A given B_1 times the probability of B_1,
+plus the probability of A given B_2 times the probability of B_2,
+etc. for all B_i.
+
+---
+
+So, if we have a river catchment that contains 70% Bajocian deposits
+and 30% Bathonian deposits, where Bajocian is denoted as B_1 and
+Bathonian as B_2, and we have a 20% chance of observing ammonites and
+the Bajocian and a much greater 50% chance of observing ammonites in a
+Bathonian deposit, then we can use the law of total probability to
+calculate the probability of observing ammonites in our catchment.
+
+It is simply the sum of the products of the probability of ammonites
+in the Bajocian times the relative area covered by Bajocian deposits,
+plus the probability of finding ammonites in the Bathonian times the
+relative area covered by Bathonian deposits, which is 0.2 times 0.7 +
+0.5 times 0.3.  In other words, there is a 29% chance of finding
+ammonites in our field area.
+
+---
+
+The formula for the multiplication law can easily be rearranged to
+form a famous formula in statistics called "Bayes' Rule", which allows
+us to calculate the probability of B given A from the probability of A
+given B and the total probabilities of A and B.
+
+---
+
+If there are multiple possible outcomes for B, then we can rephrase
+Bayes' Rule to allow us to calculate the probability of any of these
+subgroups of B given A from the probabilities of A given the different
+subgroups of B, using the law of total probability. So we simply plug the
+law of total probability into Bayes' rule and we get this generalised
+form of Bayes rule for multiple outcomes of B.
+
+---
+
+These equations all look a little bit abstract, perhaps, but hopefully
+they will be a little clearer if we apply Bayes rule to a specific
+problem. Consider the same catchment as before, with 70% Bajocian
+deposits and 30% Bathonian deposits. Suppose that there is a river in
+this catchment, and that we have found an ammonite fossil in the
+riverbed. Is this fossil likely to be Bajocian or Bathonian?
+
+Well, to calculate the probability that it is Bajocian, we take the
+ratio of the probability of finding an ammonite in the Bajocian times
+the fraction of the field area covered by Bajocian deposits, divided
+by the sume of the products of the probability of observing an
+ammonite in the Bajocian times the fraction of the area covered by
+Bajocian, plus the probability of observing an ammonite in the
+Bathonian times the fraction of the field area covered by Bathonian
+deposits. Plugging in the numbers yields a 48% chance that our
+ammonites is of Bajocian age and a 52% chance that it is of Bathonian
+age.
+
+================
