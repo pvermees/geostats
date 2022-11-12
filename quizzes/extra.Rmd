@@ -493,122 +493,149 @@ confidence interval for $p$ to 0.01 when $k/n=0.5$?
    }\fi
 
 \ifmulti\clearpage\fi
-# Radioactive decay \label{sec:FT}
+# The Poisson distribution \label{sec:Poisson}
 
-Radioactive decay is the process whereby a _parent_ isotope $P$
-transforms to a _daughter_ isotope $D$ at a rate that is controlled by
-the amount of parent and a _decay constant_ $\lambda_P$: \[
-\partial{D}/\partial{t} = -\partial{P}/\partial{t} = \lambda_P{P} \]
-   
-The rate of decay ($\partial{D}/\partial{t}$) can be measured with a
-Geyger counter. In this exercise, you will simulate radioactive decay
-using a finite differences approximation to the decay equation:
-\[
-\Delta{D}/\Delta{t} = -\Delta{P}/\Delta{t} \approx \lambda_P{P}
-\]
-   
-Then the expected number of parent atoms that are lost (and
-daughter atoms that are gained) per time interval $\Delta{t}$
-follows a Poisson distribution with parameter $\lambda_P P
-\Delta{t}$.
+1. Telephone calls are received at a certain residence as a Poisson process
+with parameter $\lambda=2$ per hour.
 
-Suppose that you start off with $P=10 000$ atoms of a parent isotope
-with decay constant $\lambda_P=1/100$. Then simulate the evolution of
-$P$, $D$ and $\Delta{D}$ from as a function of discretised time
-from $t={0}\rightarrow{500}$ with $\Delta{t}=1$.
+   (a) If Diane takes a 10-min. shower, what is the probability that the
+   phone rings during that time?
+      \ifsol{\itshape
+      Let $\lambda'$ be the expected number of phone calls per 10-min. period.
+      Then $\lambda'=\lambda\times{10/60}=2/6=1/3$.
+      Hence,the probability that the phone does not ring is
+      \[
+      P(k>0|\lambda'=1/3) = 1 - P(k=0|\lambda'=1/3) =
+      1-\frac{\lambda'^ke^{-\lambda'}}{k!} = 1-e^{-1/3} = 0.28
+      \]
+      Conclusion: there is a 28\% chance that Diane's shower is interrupted.
+      }\fi
 
-```{r fig.width=8, fig.height=4}
-dt <- 1                             # time step
-lamp <- 1/100                       # decay constant
-tt <- seq(from=0,to=500,by=dt)      # time vector
-nt <- length(tt)                    # number of steps
-P <- rep(10000,nt)                  # parent atoms
-D <- rep(0,nt)                      # daughter atoms
-dD <- rep(0,nt)                     # lost daughter atoms per step
-for (i in 1:(nt-1)){
-   dD[i] <- rpois(n=1,lambda=lamp*P[i]*dt)
-   D[i+1] <- D[i] + dD[i]
-   P[i+1] <- P[i] - dD[i]
-}
-dD[nt] <- rpois(n=1,lambda=lamp*P[nt]*dt) # final step
-par(mfrow=c(1,2))
-cols <- c('red','blue')
-plot(x=tt,y=P,type='l',col=cols[1],xlab='time',ylab='atoms')
-lines(x=tt,y=D,col=cols[2])
-legend('right',legend=c('P','D'),lty=1,col=cols,text.col=cols,bty='n')
-plot(tt,dD,type='l',xlab='time',ylab=expression(Delta*'D'))
-```
+   (b) How long can her shower be if she wishes the probability of
+   no phone calls to be at most 0.5?
+      \ifsol{\itshape
+      \[
+      P(k>0|\lambda'\equiv\lambda{t/60}) = 1 - P(k=0|\lambda') = 0.5 =
+      1-\frac{\lambda'^ke^{-\lambda'}}{k!} 1-e^{-\lambda'}
+      \]
+      \[
+      \Rightarrow \lambda' = -\ln(0.5) = 0.051 =
+      \lambda{t/60} \Rightarrow t = \frac{0.051\times{60}}{2} = 20.8
+      \]
+      Answer: Diane's shower can last at most 20.8 minutes.
+      }\fi
+
+2. Recoil track geochronology is an novel dating technique that
+is based on the following equation:
+
+   \[t = \frac{1}{\lambda_{238}}\ln\left(\frac{N}{U}+1\right)\]
+
+   where $t$ is the age, $\lambda_{238}$ is the decay constant of
+   \textsuperscript{238}U (=0.000155125 Myr$^{-1}$, which is not to
+   be confused with the Poisson parameter $\lambda$!), $U$ is the
+   \textsuperscript{238}U-concentration (in atoms/nm$^{-3}$), and $N$
+   is the volume density of the recoil tracks (in nm$^{-3}$). $N$ follows
+   a Poisson distribution with unknown parameter. Suppose that
+   $n=100$ and $U=10^5$. Could the sample be less than 8 million years old?
+
+   \ifsol{\itshape
+   Rearranging the age equation for $N$:
+  
+   \[N = U\left(\exp[\lambda_{238}t]-1\right)\]
+  
+   Plugging the measurements into this rearranged equation:
+  
+   \[\hat{N} = 10^5\left(e^{{0.000155125}\times{7}}-1\right) = 124.177 \]
+  
+   where $\hat{N}$ stands for the `expected value' of $N$.
+   To test whether this is compatible with the observed outcome
+   of $N=100$, we formulate the following null hypothesis:
+  
+   \[H_0: \lambda = \hat{N} = 124.177\]
+
+   versus the alternative hypothesis:
+
+   \[H_a: \lambda < 124.177\]
+
+   Using \texttt{R}:
+   }\fi
+   ```{r}
+   age <- 8
+   N <- 100
+   U <- 1e5
+   L38 <- 0.000155125
+   Nhat <- U*(exp(L38*age)-1)
+   pval <- ppois(N,lambda=Nhat)
+   message(ifelse(pval<0.05,'H0 is rejected','H0 is not rejected'))
+   ```
 
 \ifmulti\clearpage\fi
-# The normal distribution \label{sec:normal}
+# Continuous variables and normal distributions \label{sec:normal}
 
-1. Modify the random walk code of exercise \ref{sec:randomwalk} so
-that the random displacements are not defined by a unit circle but by
-an ellipse with major axis $a=2$, minor axis $b=0.5$ and rotation
-angle $\alpha=\pi/4$. See exercise 18.1.2 of the notes for the
-relevant equations.
+The following two questions require some simple calculus, and are based
+on the relationship that the probability density $f$ and the cumulative
+distribution function $F$ are related as follows:
 
-   ```{r out.width="50%", out.height="50%", fig.width=5, fig.height=5}
-   ell <- function(n=1,a=1,b=1,alpha=0){
-      beta <- runif(n,min=0,max=2*pi) # random directions
-      dx <- a*cos(alpha)*cos(beta) - b*sin(alpha)*sin(beta)
-      dy <- a*sin(alpha)*cos(beta) + b*cos(alpha)*sin(beta)
-      cbind(dx,dy)
-   }
+\[f(x) = \frac{\partial{F(x)}}{\partial{x}}\]
 
-   # random walk for one particle:
-   walk <- function(xy0=rep(0,2),n=1000,a=1,b=1,alpha=0){
-      xy <- matrix(rep(xy0,n),ncol=2,byrow=TRUE)
-      dxy <- ell(n=n,a=a,b=b,alpha=alpha)
-      for (i in 2:n){
-         xy[i,1] <- xy[i-1,1] + dxy[i,1]
-         xy[i,2] <- xy[i-1,2] + dxy[i,2]
-      }
-      return(xy)
-   }
-   xy <- walk(a=2,b=0.5,alpha=pi/4)
-   plot(xy,type='l',xlab='x',ylab='y',asp=1)
+1. What is the probability density for the distance from an event to
+its nearest neighbour for a Poisson process in the plane?
 
-   n <- 1000
-   N <- 500
-   xyf <- matrix(NA,nrow=N,ncol=2)
-   for (i in 1:N){
-      xyf[i,] <- walk(n=n,a=2,b=0.5,alpha=pi/4)[n,]
-   }
-   plot(xyf,type='p',pch=16,xlab='x',ylab='y',asp=1)
-   ```
+   \ifsol{\itshape   
+   Let $\lambda$ be the Poisson parameter that controls the average 
+   number of events per unit area:
+   \[
+   P(k|\lambda) = \frac{\lambda^ke^{-\lambda}}{k!}
+   \]
+   The Poisson process produces a random collection of points.
+   When we take any location (the origin, say) and look for the
+   closest point from our collection. Let the distance to this
+   point be $X$. Then the probability that this distance
+   falls inside a circle of radius $r$ is given by
+   \[
+   P(X\leq{r}) = 1 - P(X>r) = 1-\exp[-\lambda\pi{r}^2]
+   \]
+   By definition, the probability density is given by
+   \[
+   f(r) = \frac{\partial{F(X\leq{r})}}{\partial{r}} =
+   2\lambda\pi{r}\exp[-\lambda\pi{r}^2]
+   \]
+   }\fi
 
-2. Explore the effects of different values for $a$, $b$ and $\alpha$.
-No-one less than _Albert Einstein_ showed that random walks (which are
-also known as `Brownian motion') lead to diffusion, which gives rise
-to bivariate normal distributions.  In exercise \ref{sec:diffusion},
-this diffusion was _isotropic_. The elliptical modification is one way
-to simulate _anisotropic_ diffusion.
+2. If $x$ follows a normal distribution with mean $\mu$
+and standard deviation $\mu$, and $y = a + bx$, prove that
+$y$ follows a normal distribution with mean $a + b\mu$ and standard
+deviation $b\sigma$
 
-   ```{r out.width="50%", out.height="50%", fig.width=5, fig.height=5}
-   cloud <- function(n=1000,N=500,plot=TRUE,a=1,b=1,alpha=0,...){
-      xy <- matrix(NA,nrow=N,ncol=2)
-      for (i in 1:N){
-         xy[i,] <- walk(n=n,a=a,b=b,alpha=alpha)[n,]
-      }
-      # the optional plot argument will be used in exercise 11 below
-      if (plot) plot(xy,pch=16,xlab='x',ylab='y',...)
-      invisible(xy)
-   }
-
-   par(mfrow=c(2,2),mar=rep(2,4))
-   lims <- c(-150,150)
-   a <- c(1,2  ,2  ,2)
-   b <- c(1,0.5,0.5,0.5)
-   alpha <- c(0,pi/4,-pi/4,0)
-   n <- 1000
-   for (i in 1:4){
-      cloud(n=n,xlim=lims,ylim=lims,a=a[i],b=b[i],alpha=alpha[i],asp=1)
-      mtext(text=paste0('a=',a[i],', b=',b[i]),line=1)
-      adeg <- signif(alpha[i]*180/pi,2)
-      mtext(text=substitute(alpha~'='~a~degree,list(a=adeg)),line=0)
-   }
-   ```
+   \ifsol{\itshape
+   It is easy to show that
+   \[
+   x[y] = \frac{y-a}{b}
+   \]
+   The cumulative distribution of $x$ is
+   \[
+   F(x) = \int\limits_{-\infty}^{x}
+   \frac{1}{\sigma\sqrt{2\pi}}
+   \exp\left[\frac{(x-\mu)^2}{2\sigma^2}\right]
+   \]
+   Therefore
+   \[
+   f(y) = \frac{\partial{F(x[y])}}{\partial{y}}
+   = \frac{\partial{F(x)}}{\partial{x}}\frac{\partial{x}}{\partial{y}}
+   = \frac{f(x)}{b} = \frac{1}{\sigma\sqrt{2\pi}}
+   \exp\left[\frac{(x[y]-\mu)^2}{2\sigma^2}\right]
+   \frac{1}{b}
+   \]
+   \[
+   = \frac{b}{b\sigma\sqrt{2\pi}}
+   \exp\left[\frac{(y-a-b\mu)^2}{2(b\sigma)^2}\right]\frac{1}{b}
+   = \frac{1}{b\sigma\sqrt{2\pi}}
+   \exp\left[\frac{(y-[a-b\mu])^2}{2(b\sigma)^2}\right]
+   = \frac{1}{\sigma'\sqrt{2\pi}}
+   \exp\left[\frac{(y-\mu')^2}{2\sigma'^2}\right]
+   \]
+   where $\mu' = a+b\mu$ and $\sigma'=b\sigma$, which proves the proposition.
+   }\fi
 
 \ifmulti\clearpage\fi
 # Error propagation
