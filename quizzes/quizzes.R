@@ -1,8 +1,8 @@
 graphics.off()
 
-setwd('~/Documents/Programming/geostats/build/quizzes/')
+setwd('~/Documents/Programming/R/geostats/quizzes/')
 
-install.packages('~/Documents/Programming/geostats/package',
+install.packages('~/Documents/Programming/R/geostats/package',
                  repos=NULL,type='source')
 
 library(geostats)
@@ -276,7 +276,7 @@ png(filename='compositional-biplot.png',
     width=400,height=400,pointsize=14)
 pars(mar=c(3,3,2,2))
 set.seed(4)
-lrcomp <- mvrnorm(5,mu=c(0,0,0),Sigma=rbind(c(2,1,2),c(1,3,1),c(2,1,5)))
+lrcomp <- MASS::mvrnorm(5,mu=c(0,0,0),Sigma=rbind(c(2,1,2),c(1,3,1),c(2,1,5)))
 comp <- round(100*clr(lrcomp,inverse=TRUE))
 lrcomp2 <- clr(comp)
 colnames(lrcomp2) <- c('Ca','Mg','Fe')

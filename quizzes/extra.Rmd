@@ -14,11 +14,11 @@ graphics.off()
 setwd('~/Documents/Programming/R/geostats/quizzes')
 solution <- TRUE
 results <- TRUE
-multi <- FALSE
+multi <- TRUE
 knitr::opts_chunk$set(echo=solution,include=results)
 knitr::opts_knit$set(global.device=FALSE)
 knitr::opts_chunk$set(fig.pos="H",out.extra="")
-set.seed(2)
+set.seed(4)
 # to render:
 # rmarkdown::render("~/Documents/Programming/R/geostats/quizzes/extra.Rmd")
 # then parse into separate PDFs using parsextra.R
@@ -120,7 +120,7 @@ that all four panels are plotted at the same scale. \label{it:diffusion1}
    ns <- c(250,500,1000,2000)
    for (n in ns){
       cloud(n=n,xlim=lims,ylim=lims)
-      legend('topleft',legend=paste('n=',n),bty='n')
+      legend('topright',legend=paste('n=',n),bty='n')
    }
    ```
 
@@ -637,110 +637,239 @@ deviation $b\sigma$
    where $\mu' = a+b\mu$ and $\sigma'=b\sigma$, which proves the proposition.
    }\fi
 
+3. Suppose that a particle of initial size $y_0$ is subjected to
+repeated impacts, that on each impact a proportion $X_i$ of the
+particle remains, and that $X_i$ can be modelled as independent
+random variables having the same distibution (for
+$1\leq{i}\leq{n}$, say). Prove that the logarithm of the resulting
+particle sizes follows a normal distribution.
+
+   \ifsol{\itshape
+   After $n$ impacts, the particle size has been reduced to:
+   \[y_n = X_nX_{n-1}\ldots{X_2}{X_1}y0\]
+   Taking logarithms:
+   \[\ln[y_n] = \ln[y_0] + \sum\limits_{i=1}^{n}\ln[X_i]\]
+   which, thanks to the Central Limit Theorem, results in a normal
+   distribution regardless of the distribution of $X_i$. $y_n$ is
+   said to follow a \textbf{lognormal} distribution.
+   }\fi
+
 \ifmulti\clearpage\fi
 # Error propagation
 
-Consider a bivariate normal distribution with the following
-mean vector and covariance matrix:
-$$
-\mu = 
-\left[
-\begin{array}{@{}c@{}}
-x = -2 \\
-y = 3
-\end{array}
-\right] \mbox{,~}
-\Sigma = 
+Equation 8.9 of the notes can be generalised from 1 to 2 dimensions:
+
+\[
 \left[
 \begin{array}{@{}cc@{}}
-1 & -2\\
--2 & 5
+s[u]^2 & s[u,v]\\
+s[u,v] & s[v]^2
 \end{array}
 \right]
-$$
+\approx
+\left[
+\begin{array}{@{}cc@{}}
+\frac{\partial u}{\partial x} & \frac{\partial u}{\partial y} \\
+\frac{\partial v}{\partial x} & \frac{\partial v}{\partial y}
+\end{array}
+\right]
+\left[
+\begin{array}{@{}cc@{}}
+s[x]^2 & s[x,y]\\
+s[x,y] & s[y]^2
+\end{array}
+\right]
+\left[
+\begin{array}{@{}cc@{}}
+\frac{\partial u}{\partial x} & \frac{\partial v}{\partial x} \\
+\frac{\partial u}{\partial y} & \frac{\partial v}{\partial y}
+\end{array}
+\right]
+\]
 
-1. Predict $z = x + 2y$ and estimate its standard error.
+Use this equation to answer the following questions:
 
-   ```{r}
-   mu <- c(-2,3)
-   Sigma <- matrix(c(1,-2,-2,5),nrow=2,ncol=2)
-   x <- mu[1]
-   y <- mu[2]
-   sx <- sqrt(Sigma[1,1])
-   sy <- sqrt(Sigma[2,2])
-   sxy <- Sigma[1,2]
-   z <- x + 2*y
-   # using equation 8.10:
-   sz <- sqrt( sx^2 + (2*sy)^2 + 2*2*sxy )
-   message('z=',signif(z,2),', s[z]=',signif(sz,2))
-   ```
+1. If $x$ and $y$ are independent random variables with equal
+variances, find $s[x+y,x-y]$.
 
-2. Draw $n=1000$ pairs of random numbers from the bivariate normal
-distribution. Compute $z$ for each pair and calculate the mean and
-standard error of the resulting vector. How does it compare with your
-analytical solution?
-
-   ```{r}
-   # instead of loading the entire MASS package,
-   # you can also call one of its functions like this:
-   xy <- MASS::mvrnorm(n=1000,mu=mu,Sigma=Sigma)
-   Z <- xy[,1] + 2*xy[,2]
-   sZ <- sd(Z)
-   message('z=',signif(mean(Z),2),', s[z]=',signif(sZ,2))
-   ```
-
-3. Repeat steps 1 and 2 for $z = x^2 y^3$.
-
-   ```{r}
-   # step 1:
-   z <- (x^2)*(y^3)
-   dzdx <- 2*x*y^3
-   dzdy <- 3*(x^2)*(y^2)
-   # using equation 8.8:
-   sz <- sqrt( (dzdx*sx)^2 + (dzdy*sy)^2 + 2*dzdx*dzdy*sxy )
-   message('z=',signif(z,2),', s[z]=',signif(sz,2))
-   # step 2:
-   xy <- MASS::mvrnorm(n=1000,mu=mu,Sigma=Sigma)
-   Z <- (xy[,1]^2)*(xy[,2]^3)
-   sZ <- sd(Z)
-   message('z=',signif(mean(Z),2),', s[z]=',signif(sZ,2))
-   ```
-
-4. Repeat step 4 for
+   \ifsol{\itshape
+   Let $u=x+y$ and $v=x-y$, and let $s^2$ be the variance of both $x$ and $y$.
+   Then:
    \[
-   \Sigma =
    \left[
    \begin{array}{@{}cc@{}}
-   0.01 & -0.02\\
-   -0.02 & 0.05
+   s[u]^2 & s[u,v]\\
+   s[u,v] & s[v]^2
+   \end{array}
+   \right]
+   \approx
+   \left[
+   \begin{array}{@{}cc@{}}
+   1 & 1 \\
+   1 & -1
+   \end{array}
+   \right]
+   \left[
+   \begin{array}{@{}cc@{}}
+   s^2 & 0\\
+   0 & s^2
+   \end{array}
+   \right]
+   \left[
+   \begin{array}{@{}cc@{}}
+   1 & 1 \\
+   1 & -1
+   \end{array}
+   \right]
+   =
+   \left[
+   \begin{array}{@{}cc@{}}
+   2s^2 & 0 \\
+   0 & 2s^2
    \end{array}
    \right]
    \]
+   Hence, $s[u,v]=s[x+y,x-y]=0$.
+   }\fi
 
-   ```{r}
-   Sigma <- matrix(c(.01,-.02,-.02,.05),nrow=2,ncol=2)
-   sx <- sqrt(Sigma[1,1])
-   sy <- sqrt(Sigma[2,2])
-   sxy <- Sigma[1,2]
-   # step 1:
-   z <- (x^2)*(y^3)
-   dzdx <- 2*x*y^3
-   dzdy <- 3*(x^2)*(y^2)
-   # using equation 8.8:
-   sz <- sqrt( (dzdx*sx)^2 + (dzdy*sy)^2 + 2*dzdx*dzdy*sxy )
-   message('z=',signif(z,2),', s[z]=',signif(sz,2))
-   # step 2:
-   xy <- MASS::mvrnorm(n=1000,mu=mu,Sigma=Sigma)
-   Z <- (xy[,1]^2)*(xy[,2]^3)
-   sZ <- sd(Z)
-   message('z=',signif(mean(Z),2),', s[z]=',signif(sZ,2))
-   ```
+2. If $u=a+bx$ and $v=c+dy$, show that $|r[x,y]| = |r[u,v]|$.
 
-   \ifsol
-   Conclusion: the error propagation formulas work well for linear
-   functions but not for strongly non-linear ones, unless the measurements
-   are precise.
-   \fi
+   \ifsol{\itshape
+   Let us first calculate $s[u,v]$:
+   \[
+   \left[
+   \begin{array}{@{}cc@{}}
+   s[u]^2 & s[u,v]\\
+   s[u,v] & s[v]^2
+   \end{array}
+   \right]
+   \approx
+   \left[
+   \begin{array}{@{}cc@{}}
+   b & 0 \\
+   0 & d
+   \end{array}
+   \right]
+   \left[
+   \begin{array}{@{}cc@{}}
+   s[x]^2 & s[x,y]\\
+   s[x,y] & s[y]^2
+   \end{array}
+   \right]
+   \left[
+   \begin{array}{@{}cc@{}}
+   b & 0 \\
+   0 & d
+   \end{array}
+   \right]
+   =
+   \left[
+   \begin{array}{@{}cc@{}}
+   b^2s[x]^2 & bds[x,y] \\
+   bds[x,y] & d^2s[y]^2
+   \end{array}
+   \right]   
+   \]
+   Therefore:
+   \[
+   \left|r[u,v]\right| =
+   \left|\frac{s[u,v]}{s[u]s[v]}\right| =
+   \left|\frac{bds[x,y]}{bs[x]ds[y]}\right| =
+   \left|\frac{s[x,y]}{s[x]s[y]}\right| =
+   \left|r[x,y]\right|
+   \]
+   which proves the proposition.
+   }\fi
+
+3. If $x$ and $y$ are independent random variables and $z=y-x$, find
+expressions for the covariance and the correlation of $x$ and $z$ in
+terms of the variances of $x$ and $y$. [Hint: generalise the error
+propagation from 2 to 3 dimensions].
+
+   \ifsol{\itshape
+   Writing out the error propagation in 3-dimensions:
+   \[
+   \left[
+   \begin{array}{@{}ccc@{}}
+   s[x]^2 & s[x,y] & s[x,z]\\
+   s[x,y] & s[y]^2 & s[y,z]\\
+   s[x,z] & s[y,z] & s[z]^2\\
+   \end{array}
+   \right]
+   \approx
+   \left[
+   \begin{array}{@{}cc@{}}
+   \frac{\partial x}{\partial x} & \frac{\partial x}{\partial y} \\
+   \frac{\partial y}{\partial x} & \frac{\partial y}{\partial y} \\
+   \frac{\partial z}{\partial x} & \frac{\partial z}{\partial y} \\
+   \end{array}
+   \right]
+   \left[
+   \begin{array}{@{}cc@{}}
+   s[x]^2 & s[x,y]\\
+   s[x,y] & s[y]^2
+   \end{array}
+   \right]
+   \left[
+   \begin{array}{@{}ccc@{}}
+   \frac{\partial x}{\partial x} & \frac{\partial y}{\partial x} & \frac{\partial z}{\partial x} \\
+   \frac{\partial x}{\partial y} & \frac{\partial y}{\partial y} & \frac{\partial z}{\partial y}
+   \end{array}
+   \right]
+   \]
+   Applying this formula to $z=y-x$:
+   \[
+   \left[
+   \begin{array}{@{}ccc@{}}
+   s[x]^2 & s[x,y] & s[x,z]\\
+   s[x,y] & s[y]^2 & s[y,z]\\
+   s[x,z] & s[y,z] & s[z]^2
+   \end{array}
+   \right]
+   \approx
+   \left[
+   \begin{array}{@{}cc@{}}
+   1 & 0 \\
+   0 & 1 \\
+   1 & -1
+   \end{array}
+   \right]
+   \left[
+   \begin{array}{@{}cc@{}}
+   s[x]^2 & 0\\
+   0 & s[y]^2
+   \end{array}
+   \right]
+   \left[
+   \begin{array}{@{}ccc@{}}
+   1 & 0 & 1 \\
+   0 & 1 & -1
+   \end{array}
+   \right]
+   \]
+   Hence:
+   \[
+   \left[
+   \begin{array}{@{}ccc@{}}
+   s[x]^2 & s[x,y] & s[x,z]\\
+   s[x,y] & s[y]^2 & s[y,z]\\
+   s[x,z] & s[y,z] & s[z]^2
+   \end{array}
+   \right]
+   = 
+   \left[
+   \begin{array}{@{}ccc@{}}
+   s[x]^2 & 0 & -s[x]^2\\
+   0 & s[y]^2 & s[y]^2\\
+   -s[x]^2 & s[y]^2 & s[x]^2+s[y]^2
+   \end{array}
+   \right]
+   \]
+   Therefore:
+   \[
+   s[x,z] = -s[x]^2 \mbox{~and~} r[x,z] = \frac{s[x]}{\sqrt{s[x]^2+s[y]^2}}
+   \]
+   }\fi
 
 \ifmulti\clearpage\fi
 # Degrees of freedom \label{sec:dof}
@@ -755,19 +884,19 @@ the system, which is reducing the apparent dispersion of the
 t-statistic. To account for this, we subtract one degree of freedom,
 in exactly the same way as the Bessel correction, which is briefly
 discussed at the end of Chapter 7 of the notes. See
-[Wikipedia](https://en.wikipedia.org/wiki/Bessel%27s_correction#Proof_of_correctness_%E2%80%93_Alternative_1)
+[Wikipedia](https://en.wikipedia.org/wiki/Bessel's_correction#Proof_of_correctness)
 for a derivation of the Bessel correction. It is a useful exercise to
 simulate the t-distribution on your computer:
 
-   1. Draw $N=1000$ times $n=2$ random numbers from a standard normal
-   distribution and calculate their means.
+1. Draw $N=1000$ times $n=2$ random numbers from a standard normal
+distribution and calculate their means.
 
-   1. Compute the t-statistics of the 1000 resulting values, using
-   Equation 9.2 of the notes. Visualise as an ECDF.
+2. Compute the t-statistics of the 1000 resulting values, using
+Equation 9.2 of the notes. Visualise as an ECDF.
 
-   1. Superimpose the CDF of the t-distribution with $n-1$ degrees of
-   freedom on the existing plot, and then again with $n$ degrees of
-   freedom. Which curve fits the simulated results best?
+3. Superimpose the CDF of the t-distribution with $n-1$ degrees of
+freedom on the existing plot, and then again with $n$ degrees of
+freedom. Which curve fits the simulated results best?
 
    ```{r out.width="70%", fig.width=6, fig.height=5}
    ns <- 1000      # number of samples
@@ -792,114 +921,196 @@ simulate the t-distribution on your computer:
           lty=1,col=c('blue','black','red'))
    ```
 
-
-   \ifsol
+   \ifsol{\itshape
    In the two-sample t-test (Equation 9.4), we have $n_1$ + $n_2$
    measurements, and have to estimate two parameters, $\bar{x}_1$ and
    $\bar{x}_2$. Hence the number of degrees of freedom is $n_1 + n_2 -
    2$.  If you want you can modify this code for the two-sample case
    to verify that this requires $n_1+n_2-2$ degrees of freedom.
-   \fi
+   }\fi
 
 \ifmulti\clearpage\fi
 # Comparing distributions \label{sec:comparingdistributions}
 
-1. Compare the marginal distributions of exercise \ref{sec:normal}
-with a normal distribution using Q-Q plots.
+In a study of the relation of blood type to various diseases,
+the following data were gathered in London and Manchester:
+\begin{center}
+\begin{tabular}{ccc}
+~ & London & ~ \\ \hline
+~        & control & peptic ulcer \\ \hline
+group A  & 4219  & 579 \\
+group O  & 4578 & 911 \\ \hline
+\end{tabular}
 
-   ```{r}
-   a <- c(1,2 ,2 ,2)
-   b <- c(1,0.5,0.5,0.5)
-   alpha <- c(0,pi/4,-pi/4,0)
-   n <- 1000
-   N <- 100
-   nc <- length(a)
-   par(mfcol=c(2,nc),mar=rep(2,4))
-   xy <- list() # storing the matrices in a list will save trouble later
-   for (i in 1:nc){
-      xy[[i]] <- cloud(n=n,N=N,a=a[i],b=b[i],alpha=alpha[i],plot=FALSE)
-      qqnorm(xy[[i]][,1],main=paste0('x',i))
-      qqnorm(xy[[i]][,2],main=paste0('y',i))
-   }
-   ```
-   
-2. Formalise the comparisons using a Kolmogorov-Smirnov test. See the
-documentation of the `ks.test()` function for help. Note: you should
-_normalise_ the data by specifying the mean and standard deviation of
-the marginal distributions to the `ks.test()` function. See the
-documentation for the ellipsis (`...`) in said documentation.
+\begin{tabular}{ccc}
+~ & Manchester & ~\\ \hline
+~ & control & peptic ulcer \\ \hline
+group A & 3775 & 246 \\
+group O & 4532 & 361 \\ \hline
+\end{tabular}
+\end{center}
 
-   ```{r}
-   pvals <- matrix(0,nrow=2,ncol=nc)
-   rownames(pvals) <- c('x','y')
-   for (i in 1:nc){
-      x <- xy[[i]][,1]
-      y <- xy[[i]][,2]
-      ksx <- ks.test(x=x,y='pnorm',mean=mean(x),sd=sd(x))
-      ksy <- ks.test(x=y,y='pnorm',mean=mean(y),sd=sd(y))
-      pvals['x',i] <- ksx$p.value
-      pvals['y',i] <- ksy$p.value
-   }
-   signif(pvals,2)
-   ```
-   \ifsol
-   Conclusion: the marginal distributions are Gaussian.
-   \fi
+1. First, consider the two tables separately. Is there a relationship
+between blood type and propensity for ulcer?
+
+   \ifsol{\itshape
+   The rejection region for the $\chi^2$-test with 1 degree of freedom
+   is (3.84,$\infty$). Calculating the test statistic for London:
+   \begin{center}
+   \begin{tabular}{ccc|c}
+   ~          & control     & peptic ulcer & row sum\\ \hline
+   group A    & 4219 & 579  & 4798 \\
+   group O    & 4578 & 911  & 5489 \\ \hline
+   column sum & 8797 & 1490 & 10287
+   \end{tabular}
+   \end{center}
+   Expected values:
+   \begin{center}
+   \begin{tabular}{ccc}
+   ~          & control     & peptic ulcer \\ \hline
+   group A    & 4103.043 & 694.9567 \\
+   group O    & 4693.957 & 795.0433 \\ \hline
+   \end{tabular}
+   \end{center}
+   So that
+   \[
+   \chi^2 = \frac{(4219-4103.043)^2}{4103.043} +
+   \frac{(579-694.9567)^2}{694.9567} +
+   \frac{(4578-4693.957)^2}{4693.957} +
+   \frac{(911-795.0433)^2}{795.0433} = 42.402
+   \]
+   Doing the same calculation for the Machester data yields
+   \[
+   \chi^2 = \frac{(3775-3747.189)^2}{3747.189} +
+   \frac{(246-273.8105)^2}{273.8105} +
+   \frac{(4532-4559.811)^2}{4559.811} +
+   \frac{(361-333.1895)^2}{333.1895} = 5.522
+   \]
+   Both of these values fall well inside the rejection region,
+   resulting in a rejection of the null hypothesis. In other words:
+   there is a relationship between blood type and propensity for
+   ulcer in both London and Manchester.
+   }\fi
+
+2. Are the data from London and Manchester comparable?
+
+   \ifsol{\itshape
+   Comparing group A in London and Manchester:
+   \begin{center}
+   \begin{tabular}{ccc}
+   ~          & control & peptic ulcer \\ \hline
+   London     & 4219 & 579  \\
+   Manchester & 3775 & 246 \\
+   \end{tabular}
+   \end{center}
+   \[
+   \chi^2 = \frac{(4219-4349.157)^2}{4349.157} +
+   \frac{(579-448.8434)^2}{448.8434} +
+   \frac{(3775-3644.843)^2}{3644.843} +
+   \frac{(246-376.1566)^2}{376.1566} = 91.32
+   \]
+   Doing the same for group O:
+   \[
+   \chi^2 = \frac{(4578-4816.489)^2}{4816.489} +
+   \frac{(911-672.5109)^2}{672.5109} +
+   \frac{(4532-4293.511)^2}{4293.511} +
+   \frac{(361-599.4891)^2}{599.4891} = 204.5
+   \]
+   }\fi
 
 \ifmulti\clearpage\fi
-# Effect size \label{sec:effect-size}
+# Effect size and non-parametric tests \label{sec:effect-size}
 
-The optional arguments of `R`\'s `rchisq`, `dchisq`, `pchisq` and
-`qchisq` functions include a 'noncentrality parameter' (`ncp`), which
-is related to the effect size ($w$) as follows:
+1. Using the data from the previous exercise, evaluate the strength of
+the relationships (i.e. the effect sizes) between groups A and O, and
+between London and Manchester, using the lookup table of Cohen [(1992,
+https://doi.org/10.1037/14805-018)](https://www2.psych.ubc.ca/~schaller/528Readings/Cohen1992.pdf):
 
-`ncp` = $n \times w^2$
+   |     |   small | medium | large |
+   |-----|---------|--------|-------|
+   | $w$ |   0.1   |   0.3  |   0.5 |
 
-where $n$ is the sample size. By default, the noncentrality parameter
-is zero, which is generally used as a null distribution. Changing
-`ncp` to a positive number allows the user to explore different
-alternative distributions.
+   \ifsol{\itshape
+   To calculate the effect sizes, we first convert the observed
+   and expected count data to proportions. For the London data:
+   \begin{center}
+   \begin{tabular}{ccc}
+   observed & control & peptic ulcer \\ \hline
+   group A  & 0.4101  & 0.05628 \\
+   group O  & 0.4450 & 0.08856 \\ \hline
+   \end{tabular}
+   \end{center}   
+   and
+   \begin{center}
+   \begin{tabular}{ccc}
+   expected & control & peptic ulcer \\ \hline
+   group A  & 0.3989  & 0.06756 \\
+   group O  & 0.4563 & 0.07729 \\ \hline
+   \end{tabular}
+   \end{center}
+   so that
+   \[
+   w = \sqrt{\frac{(0.4101-0.3989)^2}{0.3989} +
+   \frac{(0.05628-0.06756)^2}{0.06756} +
+   \frac{(0.4450-0.4563)^2}{0.4563} +
+   \frac{(0.08856-0.07729)^2}{0.07729}} = 0.064
+   \]
+   For Manchester:
+   \[
+   w = \sqrt{\frac{(0.4235-0.4204)^2}{0.4204} +
+   \frac{(0.02760-0.03072)^2}{0.03072} +
+   \frac{(0.5084-0.5115)^2}{0.5115} +
+   \frac{(0.04050-0.03738)^2}{0.03738}} = 0.025
+   \]
+   Comparing London and Manchester for group A:
+   \[
+   w = \sqrt{\frac{(0.4784-0.4932)^2}{0.4932} +
+   \frac{(0.06565-0.05090)^2}{0.05090} +
+   \frac{(0.42805-0.41329)^2}{0.41329} +
+   \frac{(0.02789-0.04265)^2}{0.04265}} = 0.10
+   \]
+   and for group O:
+   \[
+   w = \sqrt{\frac{(0.4410-0.4639)^2}{0.4639} +
+   \frac{(0.08775-0.06478)^2}{0.06478} +
+   \frac{(0.4365-0.4136)^2}{0.4136} +
+   \frac{(0.03477-0.05774)^2}{0.05774}} = 0.14
+   \]
+   In conclusion, all the effects are small, but the differences
+   between the cities are greater than the differences between
+   the blood groups.
+   }\fi
 
-   1. Plot the PDFs of (non-central) chi-square distributions with 10
-   degrees of freedom (i.e. $n=12$) and effect sizes of 0, 0.1, 0.3
-   and 0.5.
+2. A simple method to generate pseudorandom numbers is the co-called
+linear congruential method, which works as follows. If $x_0$ is the
+`seed', then a sequence of pseudorandom numbers is generated
+recursively as:
 
-   ```{r out.width="60%", fig.width=6, fig.height=5}
-   # (a)
-   n <- 12
-   w <- c(0,0.1,0.3,0.5)
-   nw <- length(w)
-   nn <- 100
-   x <- seq(from=0,to=30,length.out=nn)
-   y <- matrix(0,nn,nw)
-   for (i in 1:nw){
-   y[,i] <- dchisq(x,df=n-2,ncp=n*w[i]^2)
+   \[
+   x_n = (69069 ~ x_{n-1}) ~\mbox{mod}~ 2^{31}
+   \]
+
+   where \texttt{mod} stands for 'modulo' (i.e. the remainder after
+   division). Implement this random number generator in \texttt{R} and
+   use it to generate a sequence of 100 random values between 0 and 1.
+   Compare these values with a second set of 100 random values
+   generated by \texttt{R}'s \texttt{runif()} function. Compare the two
+   sets of numbers (a) visually, on a QQ-plot; and (b) using
+   Kolmogorov-Smirnov test.
+
+   ```{r fig.width=6, fig.height=6, out.width="50%"}
+   seed <- 1
+   n <- 100
+   rval <- rep(seed,n)
+   for (i in 2:n){
+      rval[i] <- (69069 * rval[i-1]) %% 2^31
    }
-   matplot(x,y,type='l',xlab=expression(chi^2),ylab='f')
-   legend('topright',legend=w,lty=1:nw,col=1:nw)
-   ```
-
-   1. What is the probability of committing a type-II error for $w
-   \in \{0.1,0.3,0.5\}$ with $\alpha=0.05$?
-
-   1. What is the probability of committing a type-II error for the
-   same values of $w$ when $n=1000$?
-
-   ```{r}
-   # (b)
-   type2 <- function(n,w){
-   # Calculate the 95-precentile of the central chi-square distribution:
-   cutoff <- qchisq(0.95,df=n-2)
-   # Calculate the probability of exceeding this value for different values of w:
-   for (i in 2:length(w)){
-   prob <- pchisq(cutoff,df=n-1,ncp=n*w[i]^2)
-   message('p(type-2 error | w=',w[i],') = ',signif(prob,2))
-   }
-   }
-   type2(n,w)
-
-   # (c)
-   type2(1000,w)
+   data1 <- rval/2^31
+   data2 <- runif(n)
+   qqplot(data1,data2,pch=16)
+   abline(0,1)
+   ks <- ks.test(x=data1,y=data2)
+   legend('topleft',legend=paste0('p-value (KS)=',signif(ks$p.value,2)),bty='n')
    ```
 
 \ifmulti\clearpage\fi
@@ -962,27 +1173,27 @@ using a t-distribution with $n-2=3$ degree of freedom. Note that
 1. What is the fractal dimension of the following pattern?
 
    ![Rivera H-I fractal](rivera.jpg){width=50%}
-
-   \ifsol
-   ![Box counting](rivera.pdf)
+   
+   \ifsol{\itshape
    
    1 square block with side $d=1$ covers the entire pattern,
-   and so do 7 square blocks of side $d=1/3$. Hence
-   the fractal dimension is
+   and so do 7 square blocks of side $d=1/3$.
+   }\fi
+   
+   \ifsol
+   ![Box counting](rivera.pdf){width=40%}
+   \fi
+   
+   \ifsol{\itshape
+   Hence the fractal dimension is
    \[
    f =
    -\frac{\ln(7)-\ln(1)}{\ln(1/3)-\ln(1)} =
    \frac{\ln(7)}{\ln(3)} = 1.77
    \]
-   \fi
-   ```{r out.width='50%', fig.width=5, fig.height=4}
-   d <- c(1,1/3)
-   n <- c(1,7)
-   fdim <- (log(n[2])-log(n[1]))/(log(d[2])-log(d[1]))
-   plot(log(d),log(n),type='b',main=paste('slope=',signif(fdim,3)))
-   ```
+   }\fi
 
-1. Using your code from exercise \ref{sec:randomwalk}:
+2. Using your code from exercise \ref{sec:randomwalk}:
 
    (a) Create a random walk of 1024 steps and plot the x-position of a
    virtual particle against time (where time goes from 0 to 1024).
@@ -1001,19 +1212,19 @@ using a t-distribution with $n-2=3$ degree of freedom. Note that
    (c) Plot the lengths of the curve against the duration of the
    corresponding time steps, on a log-log plot. What is the slope?
 
-   ```{r out.width='60%', fig.width=6, fig.height=5}
-   walklength <- function(x,N=1){
+      ```{r out.width='60%', fig.width=6, fig.height=5}
+      walklength <- function(x,N=1){
       nx <- length(x)
       i <- seq(from=1,to=nx,length.out=N+1)
       dx <- abs(diff(x[i]))
       sum(dx)
-   }
-   walkdim <- function(x){
+      }
+      walkdim <- function(x){
       N <- 2^(1:10)
       nN <- length(N)
       L <- rep(0,nN)
       for (i in 1:nN){
-         L[i] <- walklength(x,N=N[i])
+      L[i] <- walklength(x,N=N[i])
       }
       dt <- 1/N
       plot(log(dt),log(L))
@@ -1021,20 +1232,9 @@ using a t-distribution with $n-2=3$ degree of freedom. Note that
       abline(fit)
       slope <- fit$coefficients[2]
       mtext(paste0('slope=',signif(slope,2)))
-   }
-   walkdim(x)
-   ```
-
-   (d) Repeat steps (a)--(c) several times to assess the robustness of
-   the result.
-
-   ```{r out.width='80%'}
-   par(mfrow=c(2,2),mar=c(4,4,1,1))
-   for (i in 1:4){
-      x <- walk(n=1024)[,1]
+      }
       walkdim(x)
-   }
-   ```
+      ```
 
 \ifmulti\clearpage\fi
 # Unsupervised learning
