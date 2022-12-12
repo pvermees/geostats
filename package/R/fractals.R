@@ -18,7 +18,7 @@ sierpinski <- function(n=5){
         Z <- cbind(X,0*X,X)
         X <- rbind(Y,Z,Y)
     }
-    X
+    return(X)
 }
 
 #' @title Cantor set

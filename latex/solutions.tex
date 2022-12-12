@@ -930,8 +930,8 @@ reflect different ecosystems.
 \item Using Equation~\ref{eq:tci}:
 
 \begin{script}
-n <- length(pH)                  # sample size
-mu <- mean(pH)                   # arithmetic mean
+n <- length(catchments$pH)       # sample size
+mu <- mean(catchments$pH)        # arithmetic mean
 se <- sd(pH)/sqrt(n)             # standard error of the mean 
 tfact <- qt(p=0.025,df=n-1)      # t(df,alpha/2)
 ci <- mu + c(tfact*se,-tfact*se) # confidence interval
@@ -1086,8 +1086,26 @@ pred <- predict(fit,newdata=data.frame(year=2020),interval='prediction')
   }{
     \sqrt{0.01^2 + 0.1^2}\sqrt{0.05^2 + 0.1^2}
   }
-  = 0.890
+  = 0.89
   \]
+
+Comparing with a numerical simulation:
+  
+\begin{script}
+n <- 100
+x <- rnorm(n,mean=100,sd=5)
+y <- rnorm(n,mean=100,sd=1)
+z <- rnorm(n,mean=100,sd=10)
+X <- x/z
+Y <- y/z
+\end{script}
+
+Then query the spurious correlation coefficient:
+
+\begin{script}
+> cor(X,Y)
+[1] 0.891362
+\end{script}
 
 \item Preparing the data:
 

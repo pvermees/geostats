@@ -2,11 +2,11 @@
 Plotting
 ========
 
-In this session, I will introduce some ways to plot statistical data,
-because a pictures is more than 1000 words, and nowhere is this more
-true than in statistics. So before we explore the more quantitative
-aspects of data analysis, it is useful to visualise the
-data.
+In this session, I will introduce some ways to plot statistical data
+because, as the cliche goes, a picture is worth more than 1000 words,
+and nowhere is this more true than in statistics. So before we explore
+the more quantitative aspects of data analysis, it is useful to first
+visualise the data.
 
 ---
 
@@ -108,7 +108,7 @@ continuous data into further classes, such as:
 decimal value, including positive and negative ones.  Geoscientific
 examples of this data type include the magnitude of earthquakes; the
 spontaneous electrical potential between geological strata; or the pH
-of aqueous solutions.  Although all the pH vales in the catchments
+of aqueous solutions.  Although all the pH values in the catchments
 dataset are positive, negative pH values are possible and do occur in
 the real world although rarely or never in the natural environment.
 
@@ -180,7 +180,7 @@ kernel. This describes the shape of, in our case, the rectangular
 boxes that are placed on top of each of the measurements. n represents
 the number of measurements which, in our case, is 20 because we have
 20 pH measurements. h is the band width, which describes the width of
-these rectangles instead of the rectangular colonel. We could also use
+these rectangles. Instead of the rectangular kernel, e could also use
 triangles to construct the kernel density curve or any other symmetric
 function.
 
@@ -189,10 +189,9 @@ function.
 The most popular choice of kernel for density estimation is probably
 the Gaussian kernel whose function is shown in the top right
 here. This produces a continuous curve, which does more justice to the
-continuous pH data than the discrete steps of the histogram or of the
-rectangular kernel does. Although kernel density estimation solves the
-bin placement problem, it is not entirely free of design decisions
-either.
+continuous pH data than the discrete steps of the histogram or the
+rectangular kernel. Although kernel density estimation solves the bin
+placement problem, it is not entirely free of design decisions either.
 
 ---
 
@@ -252,8 +251,8 @@ measurements. As another example, consider the 20 vegetation coverage
 measurements of the catchments data. As discussed before, vegetation
 cover is a proportional quantity that takes on values between 0 and
 100%. Again, the Gaussian kernel density estimate of the data plots
-into physically impossible values of negative porosity, or vegetation
-coverages that exceed 100%.
+into physically impossible values of negative vegetation coverages, or
+values that exceed 100%.
 
 ---
 
@@ -350,3 +349,2437 @@ discussed in the next session of this module.
 ==================
 Summary statistics
 ==================
+
+After a purely qualitative inspection of the data, we can now move on
+to a more quantitative description. In this session, I will introduce
+a number of summary statistics to describe larger data sets, using
+just a few numerical values that capture the location, the dispersion
+and the shape of a probability distribution. Before proceeding with
+this topic, it is useful to bear in mind that these summary statistics
+have limitations.
+
+---
+
+The Anscombe Quartet, which was discussed in the previous session,
+showed that very different looking data sets can have identical
+summary statistics, including the same mean and the same variance. But
+with this caveat in mind, summary statistics are an essential
+component of data analysis, provided that they are preceded by a
+visual inspection of the data.
+
+---
+
+In this session, I will introduce three types of summary statistics. A
+first class of summary statistics are measures of location, which
+represent the average of the data, and which quantify whether that
+average is shifted towards lower values or towards high values.
+
+A second group of summary statistics represent measures of
+dispersion. These quantify the spread of the data, capturing whether
+the date are concentrated near a single value, or whether they are
+spread out over a wider range of values.
+
+And finally, a third group of summary statistics quantify the shape of
+the distribution; for example, whether it is leaning towards the left
+or leaning towards right; whether it is skewed towards high
+values or skewed towards low values.
+
+---
+
+There are many different ways to define the average value of a
+multi-value dataset.  In this session. I will introduce three of these
+ways, but later sessions will introduce a few more. The arithmetic
+mean is arguably the best known and most widely used way to average
+data. If we have n values x_1, x_2 and so forth to x_n, then the
+arithmetic mean, which is often denoted by x-bar, is simply the sum of
+the x-values divided by the number of values.
+
+But this is just one of many ways to average data. Another,
+non-parametric, approach is the median. This value is obtained by
+ranking the observations according to size from the smallest value to
+the largest value and selecting the middle one. The median is the
+half-way point on an empirical cumulative distribution function, the
+step function that I introduced in the previous session. Put in more
+formal terms, the median is identical to the 50 percentile of the
+distribution.
+
+Finally, the mode is simply the most frequently occurring value. For a
+continuous variable, it is the highest point on the kernel density
+estimate or a histogram, or the steepest point on a cumulative
+distribution function.
+
+---
+
+Applying these three concept to the pH data of the previous session,
+the arithmetic mean is calculated, as I said, by taking to sum of
+these 20 values; dividing this sum by 20 and yields a value of five.
+
+The median is obtained by ranking the pH measurements from the most
+acidic value of 3.8 to the most basic value of 6.2. If there are an
+even number of values in the dataset, which is indeed the case here,
+then we take the arithmetic mean of those values. In this case, the
+two values are 5.0 and 5.2, so our median is 5.1.
+
+Finally, the mode for this continuous variable is obtained by
+constructing a kernel density estimate, the heighest point of which
+corresponds to a pH value of 5.4. So that is the modal value that we
+can use as a summary statistic.
+
+---
+
+Here the three different summary statistics are shown together
+graphically for the pH dataset on a kernel density estimate and an
+empirical cumulative distribution function. The median is again the 50
+percentile of the data set. So it is the intersection between the
+dash-dot line onto the empirical cumulative step function. This
+intersection is marked by the dashed line, which indicates that 50% of
+the pH measurements are less than 5.1, and 50% are higher than 5.1.
+
+The arithmetic mean, which is shown as a solid white line here, and
+the mode, which is this dotted line are both in reasonably close
+vicinity to the median. So in this case, it doesn't really matter
+which summary statistic you use. All measures of location give you
+pretty much the same value.
+
+---
+
+However, the situation is very different for our dataset of Ca/Mg
+ratios which, unlike the pH data, does not follow a symmetric but an
+asymmetric distribution. Here, the mean, which is shown as a solid
+line, is 3.2. The mode, which is shown by a dotted line, is only 0.45
+and the median falls somewhere in between, at a value of 2.1. There is
+a factor of seven difference between the smallest measure of location
+and the largest measure of location. The mean in particular is
+strongly affected by the long tail of large outliers towards the right
+of the diagram.
+
+Only 30% of the data are larger than the mean of the distribution, and
+only one of the 20 measurements, which is only 5% of the data, is
+smaller than the mode. So in this case, it is fair to say that the
+choice of measure of location is very important. The median is the
+probably most sensible value in this case. In contrast, the arithmetic
+mean is not representative of the data.
+
+---
+
+Finally, this slide shows rug plots, kernel density estimates and
+empirical cumulative distribution functions for the vegetation data on
+the left, and the geyser eruption duration data on the right. Both of
+these distributions are bimodal, meaning that they have two peaks in
+the kernel density estimates and too steep segments in the cumulative
+distribution function.
+
+The highest of these peaks are marked by dotted lines, which give us
+the modes but ignore the other peaks. The mean and the median fall in
+between the two data clusters and are not representative of the
+data.
+
+So in conclusion, considering all four dasets, we can say that the
+mean is only a meaningful measure of location for unimodal and
+symmetric distributions. The arithmetic mean is more strongly affected
+by outliers than the median. Therefore, the median is a more robust
+estimator of location for asymmetric data sets than the mean. However,
+multimodal data sets such as these two here can never be adequately
+summarised with a single location parameter. And that is why it is so
+important to visualise the data before you go ahead and use the
+summary statistics.
+
+---
+
+OK, let us now move on to the second class of summary statistics,
+which are measures of dispersion. It is rare for all the values in a
+dataset to be exactly the same. In most cases, the values are spread
+out over a finite range of values. The amount of spread can be defined
+in a number of ways, the most common of which are the standard
+deviation, the median absolute deviation and the interquartile
+range.
+
+The standard deviation is closely related to the arithmetic mean
+expert, so given n values x_1, x_2 to x_n, the standard deviation is
+obtained by taking the sum of the squared differences between each
+value and the arithmetic mean. The differences are squared because,
+intuitively, we want the dispersion to be a positive number.  We then
+divide this sum by n-1 and take the square root. I will discuss the
+factor n-1 in a later session, but at the moment you just take that as
+a given.
+
+If we omit the square root, then then this corresponds to the
+variance.  So the variance is the square of the standard deviation.
+Both of these are used as measured of dispersion, but the standard
+deviation is more useful as a summary statistic.
+
+The median absolute deviation uses, as the name suggests, not the
+arithmetic mean but the median. It is the median of the absolute
+values, which is what these vertical lines mean, of the differences
+between each value and the median of the entire data set. Again, like
+the standard deviation, this is a positive number.
+
+And then, finally, the interquartile range is defined using the
+empirical cumulative distribution function. Recall that the median is
+defined as the value that corresponds to the intersection between a
+horizontal line that goes through 0.5. Similarly, the 75 percentile is
+obtained by taking the intersection of a horizontal line that goes
+through 0.75 on the empirical cumulative distribution, and we can also
+do the same for the 25 percentile. These three percentiles are called
+the lower, middle and upper quartiles. The interquartile range is
+simply the difference between the 75 and 25 percentiles.  Again, it is
+a positive number.
+
+---
+
+Let us apply these concepts to our pH data. The standard deviation is
+given by this formula. So first we list the 20 measurements in our
+original unsorted order. We take the difference between each value and
+the arithmetic mean, which had calculated in the previous step. That
+gives us 20 numbers that can either be positive or negative. We square
+these values to turn them all into positive numbers. We sum these
+squared differences, giving us a value of 8.42.
+
+Then we divide this sum by n-1, which is 19. After taking the square
+root, we get a standard deviation of 0.67. The interquartile range is
+calculated by first sorting our values. So these values are exactly as
+the same as those, but they are ranked from the smallest (3.8) to the
+highest (6.2). The 25 percentile (or lower quartile) is the arithmetic
+mean of the fifth and the sixth value, which is 4.55. The 75
+percentile (or upper quartile) is the arithmetic mean of the 15th and
+the 16th value, which is 5.55. The interquartile range is then simply
+5.55-4.55 = 1.0.
+
+To calculate the median absolute deviation, we need to take the
+difference between each of the values and the median, which we already
+calculated before. That gives us values that there are either positive
+or negative. We then take the absolute value of these values, turning
+them all into positive numbers. We sort these values from small to
+large and take their median, which is 0.5. So our median absolute
+deviation is 0.5.
+
+---
+
+And finally, a third group of summary statistics that I would like to
+discuss today involves measures of shape for probability
+distributions.  Like the measures of location and dispersion that I
+talked about previously, also the shape of a distribution can be
+quantified in a number of different ways. I won't go into much detail
+about this, but just introduce you to one measure of shape, which is
+the skewness.
+
+The definition of skewness looks very similar to the definition of the
+variance. Like the variance, also the skewness is a sum of differences
+between the values and their arithmetic mean. But whereas the variance
+raises these differences to the second power, the skewness raises them
+to the third power. The variance and skewness are both known as
+moments of the distribution.
+
+The variance is a second moment, whereas the skewness is the third
+moment. You can also define higher order moments such as, for example,
+the kurtosis, which is proportional to the fourth power of these
+differences. I won't discuss the kurtosis and much detail, but in
+principle you can describe the entire distribution by simply listing
+all the moments. However this is a more advanced subject.
+
+Here, at the bottom, are three examples, three datasets that have
+different skewness. The skewness of the pH data is close to zero
+because this is a symmetric distribution. The Ca/Mg data lean heavily
+towards the left and have a long tail towards high values. This data
+set is positively skewed. And then here on the right is a dataset that
+I downloaded from the web. It gives us the Covid-19 mortality rate in
+the United Kingdom during March of 2020. This distribution is
+negatively skewed, where highest number of deaths per 100,000 people
+was among the older population. But there is a long tail towards
+younger people as well.
+
+---
+
+The most important summary statistics can be jointly visualised in a
+compact way on a so-called box-and-whisker plot. As the name suggests,
+a Box and whisker plot consists of a box, which is drawn from the
+first to the third quartile, so from the 25 percentile to the 75
+percentile of a dataset. The median is marked by a line in the middle
+of that box, and then two lines or whiskers extend from this box
+outwards towards the minimum value and the maximum value of the
+dataset, ignoring outliers, where outlines are defined as all those
+points that fall more than 1.5 times the interquartile range below the
+first quartile, or more than 1.5 times the interquartile range above
+the third quarter.
+
+In this particular example, there is no lower outlier, but we do have
+one outlier at the high end of our dataset. The median is offset
+towards the left hand side of the box, indicating the positive
+skewness of this particular dataset. And we can plot these Box and
+whisker plots either horizontally, as on this slide, or alternatively,
+you also can put them vertically. Box plots can be used to visualise a
+single sample or multiple samples. In the latter case, box plots allow
+easy inspection, in just one glance, of the variability in location,
+spread and shape of large numbers of samples. We will actually do this
+in one of our exercises.
+
+===========
+Probability
+===========
+
+Probability is a fundamental concept in mathematical statistics, that
+pops up in various contexts, as a numerical description of how likely
+it is for an event to occur, or how likely it is for a proposition to
+be true.
+
+---
+
+In the context of a sampling experiment in which all the outcomes are
+equally likely, the probability of an outcome A can be defined as the
+ratio of the number of ways in which A can occur, divided by the total
+number of possible outcomes.
+
+---
+
+For example, the probability of tossing an unbiased coin and observing
+head is the ratio of the number of outcomes of head which, in the case
+of a single coin, is one divided by the total number of outcomes,
+which is either head or a tail. So that probability is 1 divided by 2
+or one half.
+
+---
+
+Next, let's calculate the probability of tossing the same unbiased
+coin three times and observing 2 x head and 1 x tail. This probability
+is a total number of cases in which we've got one T and two H's, which
+happens in three scenarios, divided by the total number of outcomes,
+which is eight. So the probability of two heads and one tail is
+3/8ths.
+
+---
+
+Similarly, the probability of throwing two dice and obtaining one 2
+and a one 6 is the total number of ways to get a 2 and a 6, which is
+either first a 2 and then a 6 or first a 6 and then a 2, divided by
+the 6 x 6 = 36 possible outcomes of the dice throwing experiment. So
+we get 2 divided by 36, which equals 1 divided by 18, and the
+probability of this outcome is 1/18th.
+
+---
+
+The multiplicative rule of probability dictates that the probability
+of two combined INDEPENDENT experiments is given by the product of
+their respective probabilities. Independent means that the outcome of
+the first experiment does not affect the outcome of the second.  We
+will discuss situations where this is not the case at the end of this
+session.
+
+If we carry out two coin tossing experiments, then the probability of
+obtaining a head in the first experiment AND a head in the second
+experiment is simply one half times one half, which is one
+quarter. Similarly, when we carry out a coin tossing experiment AND a
+die throwing experiment, then the probability of obtaining two heads
+and one tail for the first experiments, and throwing a two and a six
+in the second experiment is the product of 3/8ths and 1/18th, which is
+3/144ths, or about 2.1%.
+
+The additive rule of probability dictates that the probability of
+observing either of two mutually exclusive outcomes is given by the
+sum of their respective probabilities. So if you toss three coins,
+then the probability of obtaining two heads and one tail OR of
+obtaining three heads is the sum of 3/8ths and 1/8th, which is 4/8ths
+or 50%.
+
+---
+
+However, if the two outcomes that you are comparing are not mutually
+exclusive, then the additive rule needs to be modified to account for
+the overlap between the two outcomes.
+
+For example, if we combine the probability of success in a coin
+tossing experiments where success is defined as two heads and a tail,
+with the probability of success in a dice throwing experiment where
+success is defined as obtaining a two and a six, then the probability
+of success in the first OR the second experiments equals the sum of
+the probability of success in the first experiment, which includes all
+possible outcomes for the second experiment, PLUS the probability of
+success in the second experiment, which includes all outcomes of the
+first experiments MINUS the probability of success in both
+experiments, which would otherwise be double-counted. And that gives
+us a probability of 0.41.
+
+---
+
+Let us now move on to an important subject in statistics that will
+make your brain hurt. This subject is called combinatorics. A
+permutations is a first concept in combinatorics that refers to an
+ordered arrangement of objects. These objects can be selected either
+by sampling with replacement, or by sampling without
+replacement. Let's illustrate the difference between these two
+concepts. Consider one urn with 20 balls that are numbered from 1 to
+20. Suppose that we draw 10 balls from this urn. Then there are two
+ways for doing so.
+
+---
+
+A first method is to sample the balls with replacement. So we draw a
+first ball from the urn. There are 20 possible ways for doing so. And
+we write down its number. Suppose that this is 5. We then put the ball
+back into the urn. We thoroughly mix the balls and draw a second
+number. Again, there are 20 ways for doing so. Suppose that the second
+outcome is two. The total number of possible ways in which we can
+select or draw two balls from the urn with replacement is 20 times 20,
+which is 400.
+
+We could then collect a 3rd ball, a 4th ball, and so forth until we
+have collected 10 in total. Then the total number of possible outcomes
+for this experiment is 20 times 20 times 20 etc. So we've got 20 to
+the tenth power. This is a very large number of outcomes indeed
+because we replaced the balls after writing down the numbers.
+
+---
+
+There is a possibility that we've got duplicate values in our
+collection of 10 numbers. In this example, here we've got two
+appearances of the number 5 and two appearances of the number 19.
+
+---
+
+This duplication of values does not occur under an alternative
+experimental design, in which the sampling is not done with but
+without replacement. So consider the same urn with 20 balls as before,
+and draw the first number like before. There are 20 possible ways to
+do so.
+
+Suppose that the number on the first ball is 15. This time we do not
+put ball number 15 back into the urn. With the first ball removed, we
+now draw a second number. This time there are not 20, but only 19
+possible ways for doing so. Suppose that the second number is 8. The
+total number of ways in which we can collect two balls out of 20 is
+not 20 times 20, but 20 times 19. We can repeat this experiment for
+the third or fourth balls from the urn, which is progressively
+dwindling in size, and the total number of ways to collect 10 balls
+out of 20 from the original urn is not 20 to the tenth power, but 20
+times 19 times 18, etc. to 11.
+
+This can be written as 20!/10!, where ! means n times n-1 times n-2,
+etc., and is denoted by the exclamation mark. 20!/10! is a smaller
+number that 20^10.
+
+---
+
+OK, let's now apply these two formulas for sampling with and without
+replacements to a classical problem in statistics. Suppose that we
+have a classroom with k students, then what is the probability that at
+least two of these students celebrate their birthdays on the same day?
+
+---
+
+To calculate this probability, it is useful to first compute the
+probability that none of the birthdays overlap and that everybody's
+got a unique birthday. To that end, we can see that there are 365^k
+possible birthdays, including overlapping birthdays. So this is
+sampling with replacement.
+
+And of these 365^k possible combination of birthdays, 365!/(365-k)!
+birthdays do not overlap which is the formula for sampling without
+replacement.
+
+---
+
+Then the probability that no birthdays overlap is simply the ratio of
+this number of outcomes divided by this number of outcomes and that
+produces 365!/[(365 - k)!365^k]. The probability that at least one
+pair of students have overlapping birthday is then the complement of
+this probability, so one minus this number.
+
+---
+
+When we plot this probability against the size of the class, then we
+can see that initially the probability of overlapping birthdays is
+small. If there are only two students in our class, the probability
+that they celebrate their birthdays on the same day is 1/365. But this
+probability increases rapidly so that by the time you reach a
+classroom size of 23, there is a greater than 50% chance that at least
+two students in that class will celebrate their birthdays on the same
+day.
+
+---
+
+Having considered coins, dice and lottery balls, let us now
+(literally) deal with a fourth archetypal source of statistical
+experiments, namely playing cards.
+
+The formula for sampling with replacement tells us that there are
+52!/49! or 132,600 unique possible ways to select three cards from a
+deck. Suppose that we have drawn an ace of spades, a 6 of diamonds and
+a king of hearts.
+
+Then there are 3! = 6 ways to order these cards.
+
+Suppose that we don't care in which order the cards appear. How many
+different three card hands are possible?
+
+---
+
+Well, it is easy to see that the number of ordered samples equals the
+product of the number of unordered samples times the number of ways to
+order those samples.
+
+Rearranging this equation for the number of unordered samples gives us
+the ratio of the possible number of ordered samples to the number of
+ways to order those samples.
+
+Both of these numbers can be calculated using the formula for sampling
+without replacement. As we have seen before, the number of ways to
+select k objects from a collection of n is n!/(n-k)!, and the number
+of ways to shuffle those objects around is k!.
+
+The ratio of those numbers is also known as the binomial coefficient,
+which is pronounced as "n-choose-k".
+
+---
+
+Applying this formula to the card dealing example, the number of ways
+to draw three cards from a deck of 52 is 52-choose-3, or 22,100.
+
+---
+
+So far, we have assumed that all coin tosses or throws of a dice were
+done independently, so that the outcome of one experiment did not
+affect that of the other. However, this is not always the case in
+geology. Sometimes one event depends on another. We can capture this
+phenomenon with this definition.
+
+P of A vertical bar B stands for the conditional probability of A
+given B. To illustrate this concept, suppose that A is ammonites and B
+is Bajocian, which is a particular stage of the Jurassic in which
+Ammonites are found. Then P of A bar B stands for the probability of
+finding an Ammonite in a Bajocian deposit.
+
+---
+
+The multiplication law dictates that the probability of outcomes A and
+B both occurring simultaneously equals the probability of A given B
+times a probability of B or, equivalently, the probability of B given
+A times the probability of A, which equals the probability of B and A
+both occurring.
+
+So for example, suppose that 70% of a field area is covered by
+Bajocian ocean deposits, and that 20% of the Bajocian deposits contain
+ammonites. Then the probability of finding a Bajocian
+Ammonite is 0.7 times 0.2, which is 14%.
+
+---
+
+The law of total probability prescribes that, if we have any mutually
+exclusive outcomes B_1, B_2, etc., the the total probability of A
+is the probability of A given B_1 times the probability of B_1,
+plus the probability of A given B_2 times the probability of B_2,
+etc. for all B_i.
+
+---
+
+So, if we have a river catchment that contains 70% Bajocian deposits
+and 30% Bathonian deposits, where Bajocian is denoted as B_1 and
+Bathonian as B_2, and we have a 20% chance of observing ammonites and
+the Bajocian and a much greater 50% chance of observing ammonites in a
+Bathonian deposit, then we can use the law of total probability to
+calculate the probability of observing ammonites in our catchment.
+
+It is simply the sum of the products of the probability of ammonites
+in the Bajocian times the relative area covered by Bajocian deposits,
+plus the probability of finding ammonites in the Bathonian times the
+relative area covered by Bathonian deposits, which is 0.2 times 0.7 +
+0.5 times 0.3.  In other words, there is a 29% chance of finding
+ammonites in our field area.
+
+---
+
+The formula for the multiplication law can easily be rearranged to
+form a famous formula in statistics called "Bayes' Rule", which allows
+us to calculate the probability of B given A from the probability of A
+given B and the total probabilities of A and B.
+
+---
+
+If there are multiple possible outcomes for B, then we can rephrase
+Bayes' Rule to allow us to calculate the probability of any of these
+subgroups of B given A from the probabilities of A given the different
+subgroups of B, using the law of total probability. So we simply plug the
+law of total probability into Bayes' rule and we get this generalised
+form of Bayes rule for multiple outcomes of B.
+
+---
+
+These equations all look a little bit abstract, perhaps, but hopefully
+they will be a little clearer if we apply Bayes rule to a specific
+problem. Consider the same catchment as before, with 70% Bajocian
+deposits and 30% Bathonian deposits. Suppose that there is a river in
+this catchment, and that we have found an ammonite fossil in the
+riverbed. Is this fossil likely to be Bajocian or Bathonian?
+
+Well, to calculate the probability that it is Bajocian, we take the
+ratio of the probability of finding an ammonite in the Bajocian times
+the fraction of the field area covered by Bajocian deposits, divided
+by the sume of the products of the probability of observing an
+ammonite in the Bajocian times the fraction of the area covered by
+Bajocian, plus the probability of observing an ammonite in the
+Bathonian times the fraction of the field area covered by Bathonian
+deposits. Plugging in the numbers yields a 48% chance that our
+ammonites is of Bajocian age and a 52% chance that it is of Bathonian
+age.
+
+============
+Binomial (1)
+============
+
+In this session, we will discuss various properties and inferences
+made for the binomial distribution, which is the distribution that
+describes so-called Bernoulli variables.
+
+---
+
+A Bernoulli variable is a quantity that takes on only two values,
+either zero or one. Examples of such variables are coin tosses, which
+could either result in head or tail; or a die, which can land on a six
+or on a different value. And in the geological context, oil wells
+could either yield petroleum or be dry.
+
+---
+
+As a more detailed example, let's consider five gold diggers during
+the 1849 California gold rush, who have each purchased a claim in the
+Sierra Nevada foothills. Suppose that geological evidence suggests
+that on average two thirds of the claims in the area should contain
+gold and the remaining third do not. So the number of successful gold
+claims is a Bernoulli variable.
+
+---
+
+The presence of gold in any given claim could be denoted by one, and
+the absence of gold could be denoted by zero. The probability that
+none of the five prospectors find gold then equals the probability
+that the first prospector did not find gold, which is one third times
+the probability that the second prospector did not find gold, which is
+also one third time. Another third for the third prospector and for
+the fourth and the fifth prospector, so that the probability is one
+third to the fifth power, or 0.41 percent.
+
+The chance that exactly one of the prospectors finds gold equals the
+probability that the first prospector strikes gold and the other four
+do not, plus the probability that the second prospective finds gold
+and the other four don't, plus the probability that the third, the
+fourth or the fifth. The probability that the first prospector finds
+gold and the remaining four don't equals two thirds times one third to
+the fourth power, which is 0.82 percent.
+
+Similarly, the probability that the second prospective finds gold and
+the first, third, fourth and fifth do not equals one third for the
+first prospector times, two thirds for the second prospector times,
+one third cubed for prospectors three, four and five, which again is
+0.82 percent and again for prospector three, four and five. The
+probabilities of one of these striking gold and the other four to not
+strike gold equals 0.82 percent.
+
+So the probability that exactly one of the four prospectors find gold
+is the sum of these probabilities, which is five-choose-one. The
+binomial coefficient times two thirds, which is the probability of any
+one of the prospectors finding gold finds one third to the fourth
+power, which is the product of the probabilities of the other four not
+finding gold, which is five times 0.82 percent. And that gives us a
+total probability of 4.1 percent for one of the prospectors to find
+gold and the other four not to find gold.
+
+---
+
+Using exactly the same logic, we can also calculate the probability
+that exactly two of the five prospectors find gold. This is then five
+choose two times two thirds squared times. One third cubed is 16
+percent.
+
+The probability that three of the five gold diggers are lucky is five
+to three times two thirds cubed times. One third squared is 33
+percent. The probability of four out of five gold diggers to find gold
+is five chews, four times two thirds to the fourth times one third is
+again 33 percent.
+
+And the probability that all five prospectors find gold. If the true
+occurrence of gold in the area is two thirds is two thirds to the
+fifth power, it's 13 percent.
+
+---
+
+The generic function for the binomial distribution is shown on the
+left here, the probability of key successes amongst and trials, if the
+probability of success is p is given by the binomial coefficient
+n-choose-k times the probability of success raised to the power
+times. The complement of that probability one minus p to the minus
+case power.
+
+And we can visualise this these probabilities on the bar chart or a
+probability mass function where on the horizontal axis we've got the
+number of successful claims amongst the total of and equals five in
+our case claims. And on the y axis, these probabilities are
+labelled.
+
+These probabilities are again for zero successes, zero point zero for
+one percent for one successful claim. Amongst five, it is 4.1
+percent. Then we've got 16 percent, 33 percent, 33 percent and 13
+percent. The sum of all these probabilities, of course, has to be
+one.
+
+---
+
+Equivalently, the results can also be visualised as a cumulative
+distribution function. Or CDF, this function represents the running
+some of the probability mass function. The horizontal axis is again
+labelled with a number of claims that produce gold. The vertical axis
+shows the cumulative probability of these respective outcomes. For
+example, the probability that two or fewer prospectors find gold is 21
+percent. That is the sum of the probability of zero successful claims,
+so zero point zero for one, plus the probability of one successful
+claim for one percent, plus the probability of two successful claims,
+which was 60 percent to some of those values, is 21 percent. And that
+is the number that we can read off the y axis of the CDF.
+
+---
+
+So far, we have assumed that the probability of success is lowercase p
+here is known in the real world. However, this is rarely the case. In
+fact, p is usually the parameter whose value we want to determine
+based on some data. So consider the general case of K successes
+amongst and trials. Given this probability of p, if we rephrase this
+equation, this probability mass function not ask given and p, but as p
+given n and k, then the formula range remains exactly the same. But
+we now call this not a probability mass function, but a likelihood
+function.
+
+So if we know N and K, then we can estimate P by maximising this
+likelihood function. The notes show how you could do this by taking
+derivative, setting those derivatives to zero and rearranging. I won't
+go through this calculation in this video, but I will just cut to the
+chase and give you the solution. Given k successes out of n trials,
+our best estimates for the probability of success is simply K divided
+by N.
+
+This is a pretty trivial result, but you can derive it using this
+so-called method of maximum likelihood. If we have to suppose that we
+have two successes amongst the five gold clients, then our best
+estimate for the probability of finding gold and any given claim is
+two fifths or 40 percent. So in this case, the method of maximum
+likelihood is pretty trivial. But this is not the case in all
+probability distribution and this approach of maximising the
+likelihood really underpins much of mathematical statistics.
+
+---
+
+So let us continue with this example of two successful outcomes
+amongst five trials. This again, leads to a maximum likelihood
+estimate for the parameter p of two fifths of 40 percent. Now, recall
+that earlier I said that the geological estimate for the occurrence of
+gold in the area was two thirds, which is sixty seven percent. That is
+quite a bit higher than the observed 40 percent.
+
+So we might ask ourselves the question if this discrepancy between the
+predicted and the observed number of successes can be attributed to
+bad luck, or if it means that the geological estimates were wrong and
+that the true probability of finding success might actually be less
+than the hypothesised probability of two thirds.
+
+To answer this question, we perform a so-called hypothesis test, which
+follows a sequence of six or seven steps. The first of these steps is
+the formulation of two formalised hypotheses. A null hypothesis, which
+is in our case is P equals two thirds of the alternative hypothesis,
+which is that P is less than two thirds.
+
+---
+
+The second step in the hypothesis testing procedure is the calculation
+of a test statistic. In our case, this will simply be the number of
+successes. So for us, that is an outcome of two successes amongst our
+five tries. The third step is to calculate the null distribution of
+this test statistic under the null hypothesis in which p the
+probability of success is two thirds.
+
+This null distribution can be tabulated either as the probability mass
+function or as the cumulative distribution function. So these numbers
+represent the values in this histogram or in this step function. Then
+the probability of observing less than or equal to the observed number
+of successes, in our case, about 21 percent is also known as the P
+value.
+
+The fourth step in the hypothesis testing procedure is the selection
+of a significance level alpha. I will discuss the implications of
+changing alpha later in the session, but suffice it to say here that
+we will always use five percent in this module. Then we go back to our
+table of probability, mass and cumulative distribution functions, and
+we select all the outcomes for which the cumulative distribution
+function is less than the significance level alpha.
+
+There are two values in this table or in this row of the table that
+are less than 0.05. They correspond to outcomes of zero successes and
+of one success. These two outcomes are then grouped in a rejection
+region. The second step is checking whether our observed outcome of
+two successes falls in this rejection region or not. Our outcome is to
+the rejection region does not include the value to, and therefore we
+are unable to reject the null hypothesis. This does not mean that we
+have accepted the null hypothesis. It just means that we don't have
+enough evidence to reject the null hypothesis. I'll say a few more
+words about that subtle distinction later in the session.
+
+Now, alternatively, and equivalently, we can also have a look at the P
+value, which we saw earlier is about twenty one percent. So 0.2 to one
+is greater than the significance level alpha. And therefore, again, we
+are unable to reject the null hypothesis.
+
+---
+
+The same procedure can also be visualised graphically on a probability
+mass function on the left and a cumulative distribution function on
+the right. For a binomial distribution with a parameter P equals two
+thirds, so that's a no hypotheses and an equals five trials. The
+observed outcome of k=2 successful claims is shown as a vertical
+dashed line on both the probability mass function and the cumulative
+distribution function and the rejection region of our null hypothesis
+is shown as these two white bars are the probability mass
+function. Because the horizontal dashed line falls outside this
+rejection region, we are unable to reject the null hypothesis.
+
+Equivalently, we can see that the significance level alpha
+five percent is shown as a horizontal dotted line, but this horizontal
+dotted line plots beneath the P value, which is shown as a horizontal
+dashed line. The P value is twenty one percent. It is the horizontal
+line that intersects the cumulative distribution function at the same
+point where our observed outcome of two successes has intersected that
+cumulative distribution function. Again, we are unable to reject the
+null hypothesis.
+
+So the outcome of the hypothesised probability of success of two
+thirds remains plausible within in the light of this observed two out
+of five successes.
+
+---
+
+The hypothesis test that we have just carried out is called a one
+sided hypothesis test. Because the null hypothesis and the alternative
+hypothesis are asymmetric, we are only considering as an alternative
+outcome. Those probabilities of success that are less than those of
+the null hypothesis. Alternatively, we can also formulate a two sided
+hypothesis test in which the null and the alternative hypotheses are
+symmetric. So here are null hypothesis remains p equals two
+thirds.
+
+But now we consider not only alternative outcomes that are less than
+the null hypothesis, but also values for P that could potentially be
+greater than two thirds. The procedure for a two sided hypothesis test
+is only slightly different from that of a one sided hypothesis
+test.
+
+---
+
+Again, we need to calculate a test statistic, which will be the same
+as before. It's a number of successful, claims Kate. The third step is
+also the same. We need to calculate the null distribution of this test
+statistic under the null hypothesis, and this can be tabulated as a
+probability mass function and as a cumulative distribution function
+like before. But now it is also useful to add not only the lower tail
+of the cumulative distribution of the note distribution, but also the
+upper tail.
+
+Because we are doing a two sided hypothesis test, we also want to
+evaluate the probability of an outcome exceeding the observed outcome
+of two successful claims under the null hypothesis. For example, the
+probability of observing zero or more successes if the true
+probability of success is two thirds is 100 percent, the probability
+of having one or more successes is ninety nine point six percent and
+the probability of having five or more successes, which is the same as
+the probability of having five successes.
+
+---
+
+If the true probability is two thirds, or 13 percent, the significance
+level is kept the same at five percent. But we now evaluate this
+significance twice at alpha, divided by two. So about two and a half
+percent to accommodate both tails of the binomial distribution, both
+the low tail and the high tail. We then mark all the outcomes that are
+incompatible with the null hypothesis. So all the values for the
+cumulative distribution function and for the upper tail of the
+distribution that are less than alpha divide it by two that are less
+than two and a half percent. There is only one value for which this is
+the case, and that is the outcome of zero successes. So there are no
+outcomes in the upper tail that are less than two and a half
+percent.
+
+So our rejection region only contains one outcome zero successes or
+rejection region has a smaller than it was for the one sided
+hypothesis test. Again, the observed outcome of two successful claims
+does not fall in this rejection region, and we are therefore unable to
+reject the null hypothesis. This means that we cannot rule out the
+possibility that the true value of the parameter P is indeed two
+thirds and that, in other words, the geologists assessment of the
+likelihood of finding gold was in fact correct.
+
+---
+
+Displaying the two sided hypothesis test graphically shows again on
+the left the probability mass function and on the right, the
+cumulative distribution function that was previously used for our one
+sided test. The vertical dashed line is again the observed outcome of
+a two successive successes for both the probability mass function and
+the cumulative distribution function.
+
+The rejection region is smaller than before. Only the bar for zero is
+coloured white hair. So again, the observed outcome does not fall in
+this rejection region, and we are therefore unable to reject the null
+hypothesis on the accumulative distribution function.
+
+We have not one but two horizontal dotted lines marking the two and a
+half and ninety seven and a half percent levels of the cumulative
+distribution function. These two horizontal lines intersect the
+accumulative distribution at values of a one and five successes,
+respectively. So the rejection region consists of all the outcomes
+that are less than one or greater than five. Of course, values of
+greater than five are impossible.
+
+The observed outcome is shown by a vertical dashed line, which plots
+in between these two boundaries of the rejection region. So again, we
+are unable to reject the null hypothesis. Equivalently, the cumulative
+probability of the observed outcome is shown as a horizontal dashed
+line on the cumulative distribution. This value, which is 21 percent,
+is greater than 2.5 percent and less than ninety seven point five
+percent, and this falls within the acceptable range.
+
+So again, we are unable to reject the null hypothesis. In this case,
+the one sided and two sided hypothesis tests produce exactly the same
+result. However, this certainly is not always the case, as we will see
+in the next session of this module.
+
+============
+Binomial (2)
+============
+
+In this second session on the binomial distribution, I will formally
+define the concept of statistical power, and I will show that the
+power of statistical tests to reject false null hypotheses increases
+with increasing sample size.
+
+---
+
+Let us continue with the same gold digging example of the previous
+session considering, again our outcome of two successful claims out of
+five total claims again gives rise to a maximum likelihood estimates
+for the parameter p of two fifths or 40 percent. And even though this
+is less than the hypothesised sixty seven percent, the difference is
+not statistically significant. But what happens if we do not have five
+but 15 gold prospectors purchasing a claim in the same area?
+
+Suppose that six of these prospectors have struck gold, then the
+maximum likelihood estimate for our parameter p is 6/15, which is
+again 40 percent same value as before. Then, the one sided hypothesis
+tests of contrasting p equals two thirds with p as less than two
+thirds procedes us before, but it leads to a different table of
+probabilities instead of values ranging from zero to five, this table
+now tabulates values from 0 to 15.
+
+Again, both the probability mass function and the cumulative
+distribution function, the rejection region groups all the outcomes
+for which the cumulative distribution function is less than zero point
+zero five that groups all the samples are all the outcomes from zero
+to six. Our observed outcome of six successful claims falls and this
+rejection region, and therefore we can reject the null hypothesis
+equivalently.
+
+The p-value is the probability of observing six or less successes
+under the null hypothesis. This probability is only three percent. The
+P value is less than the alpha significance level cut-off. Again, we
+reject the null hypothesis.
+
+---
+
+Visualising the results of this one sided tests graphically again on
+the left is the probability mass function of a binomial distribution
+with a parameter p=2/3 and n=15 experiments.
+
+On the right is again the cumulative density function, which is the
+running sum of that bar chart. The vertical dashed lines on both of
+these panels are the observed outcome of six successful claims amongst
+15 claims the rejection region as shown in white.
+
+This time, our observed outcome plots inside the rejection region, so
+we reject a null hypothesis on the right hand side. We see the p value
+shown as a horizontal dashed line. Again, this is the intersection of
+our observed outcome with the cumulative distribution function.
+
+This p value is less than the alpha cut-off than the five percent mark
+shown by this horizontal dotted line, and the boundary of the cut-off
+of the rejection region is shown as the vertical dotted line. Our
+observed outcome plots towards the left of that, so inside our
+rejection region again leading to the rejection of our null
+hypothesis.
+
+---
+
+Moving on to the two sided hypothesis test, which compares the null
+hypothesis that P equals two thirds to the symmetric alternative
+hypothesis that P does not equal two thirds, our table of
+probabilities again includes not only the cumulative distribution
+function, but also the probabilities of outcomes exceeding the
+observed value. The rejection region groups all the values of the CDF
+that are less than two and a half percent. So these are outcomes zero
+through five, plus the outcomes for which the CDF exceeds ninety seven
+point five percent. So that's outcomes 14 and 15.
+
+This tells us that had we observed 14 successful claims out of 15
+total claims, then that would have been incompatible with this null
+hypothesis of P equalling exactly two thirds. So outcomes zero through
+five plus outcomes 14 and 15 together form the rejection region, and
+our observed six out of 15 successful claims does not belong to this
+rejection region. We are therefore unable to reject the two sided null
+hypothesis.
+
+---
+
+Again, summarising the hypothesis testing graphically, we've got the
+same probability mass function as before and the same cumulative
+distribution function. However, now we are evaluating a two sided
+hypothesis test, so our rejection region includes both a lower tail
+and an upper. Our observed outcome of six successful claims does not
+plots inside these white bars, and therefore we are unable to reject
+the null hypothesis.
+
+In the cumulative distribution function, we've got two horizontal
+dotted lines marking the two point five percentile and the ninety
+seven point five percent lines, our one sided P-value is shown again
+by the horizontal dashed line. This value is higher than the two and a
+half percent cut-off value, and therefore we are unable again to
+reject the null hypothesis. Also, the rejection region shown on the
+cumulative distribution function, the boundary, the upper boundary is
+13.
+
+The lower boundary for our rejection region is six, which equals our
+observed value. We are therefore again unable to reject the null
+hypothesis. So unlike the smaller experiment with five total claims in
+which the one sided hypothesis test and the two sided hypothesis test
+both resulted in the same outcome, namely the failure to reject the
+null hypothesis.
+
+When we increase the sample size from five to 15, then actually the
+two hypotheses test leads to different results. The one sided
+hypothesis test led to the rejection of the null hypothesis, and the
+two sided hypothesis test did not allow us to reject the null
+hypothesis.
+
+---
+
+Now what happens when we increase the sample size, even more so
+instead of 15 claims? We now evaluate 30 claims and we've got 12
+prospectors that strike gold, then the maximum likelihood estimate for
+the parameter B is 12. Divided by 30 is again 40 percent, showing the
+outcome of the one sided hypothesis test for P equals two thirds on
+the left and of the two sided hypothesis test on the right shows that
+in both cases, the observed outcome of 12 successes out of three
+trials plots inside the rejection region of the one sided hypothesis
+test and of the two sided hypothesis test. So in both cases, we reject
+the null hypothesis.
+
+In the cumulative distribution functions we've got again, the P values
+shown as horizontal dashed lines. In both cases, they plot below the
+alpha=5% mark have shown as a horizontal dotted line, but also below
+the alpha divided by two cut-off shown on the lower right corner of
+our diagram. The rejection region for the one sided hypothesis test is
+everything to the left of the dotted line. Our outcome plots in that
+rejection region.
+
+For the two sided hypothesis test, the rejection region is everything
+that plots towards the left of the first dotted line and towards the
+right of the second dotted line. Our outcome plots in this rejection
+region again leading to the rejection of the null hypothesis.
+
+So we can see that as we move from small to large sample sizes, both
+tests are unable to reject the null hypothesis for very small data
+sets of just five claims. If we increase the number of perspectives
+from five to 15, then we can reject the one sided hypothesis test. But
+we fail to reject the null hypothesis in the two sided case. And if we
+increase the sample size even more to 30 claims whilst still keeping
+the percentage of success the same, we can firmly reject both the one
+sided and the two sided null hypothesis. In statistical terms, the
+increase in sample size has increased the power of the test to reject
+the null hypothesis.
+
+--
+
+There are four possible outcomes for a hypothesis test, which can be
+organised in a two by two contingency table. In this table, there are
+two ways to make a correct decision. If the null hypothesis is false
+and we reject it, then we have made the correct decision. If the null
+hypothesis is true and we do not reject it, again we've made the
+correct decision.
+
+But there are also two ways to make an incorrect decision. If we
+reject a true null hypothesis, then we have committed a so-called
+type-I error. For the gold prospecting example, this is equivalent to
+rejecting the expert opinion of the geologist, whose assessments
+indicated a 2/3 chance of finding gold when that geologist is in fact correct.
+
+A type-II error occurs when the null hypothesis is false, but we fail
+to reject it. In the geological example, this means that we trust the
+geological assessment despite it being wrong.
+
+---
+
+To appreciate the difference between the type-I and type-II errors, it
+is useful to compare statistical hypothesis testing with a legal
+analogue. The jury in a court of law faces a situation that is similar
+in some ways to that of statistical hypothesis testing. They are faced
+with a person who has either committed a crime or not, and they must
+decide whether to convict this person or to acquit them.
+
+In this case, our null hypothesis is that the accused is innocent. The
+jury then needs to decide whether there is enough evidence to reject
+this hypothesis in favour of the alternative hypothesis, which is that
+the accused is guilty.
+
+We can cast this process again in a two by two table. We reached a
+correct decision if the accused is guilty and ends up being convicted,
+or if the accused is innocent and we acquit them. But there are also
+two ways to make an incorrect decision.
+
+A type-I error is committed when an innocent person is put in prison
+and the type-II error is committed when we let a guilty person get
+away with a crime because we do not have enough evidence.
+
+---
+
+The probability of committing a type-I error depends on a single
+parameter, the confidence level alpha, which is nearly always taken to
+be five percent in a geological context. So using this value, there is
+a five percent chance of committing a type one error. Even if the null
+hypothesis is correct, then we would still expect to reject this
+correct null hypothesis once every 20 times.
+
+This may be acceptable in geological studies, but probably not in the
+legal system. The principle that guilt must be proven beyond any
+reasonable doubt is similar to choosing a very small significance
+level of alpha, much less than 0.05. However, it is never possible to
+enforce alpha equals zero. So it is inevitable that some innocent
+people are sentenced every once in a while.
+
+The probability of committing a type two error, which is referred to
+as beta, depends not on one, but on two factors. First, it depends on
+the degree to which the null hypothesis is false. The more wrong our
+null hypothesis is, the easier it is to reject it, and the smaller the
+probability of committing a type two error.
+
+The second factor, which we've already briefly touched upon, is sample
+size. With increasing sample size, it becomes easier to reject wrong,
+null hypotheses, and again, beta decreases.
+
+Now, this probability of a type two error is closely related to the
+formal mathematical definition of statistical power. Data simply
+equals one minus power, and conversely, power equals one minus
+theta. So with increasing degree of falseness of the null hypothesis,
+the power of the statistical test to reject the hypothesis increases
+and with increasing sample size again, the power to reject the null
+hypothesis increases. In the next two slides, I will now further
+explore these two points in the context of our geological gold
+prospecting example.
+
+---
+
+Let us first explore the effect of the degree to which the null
+hypothesis is false. Recall that our null hypothesis was that the
+probability of finding gold in the area was two thirds, so sixty seven
+percent. Under this null hypothesis, we can predict the probability
+distribution of successful claims and that is shown here as a
+probability mass function and a cumulative distribution function as a
+grey bar chart and great step function for each of these three sets of
+panels.
+
+Suppose that in reality, the actual occurrence of gold in the field
+area is not 67 percent, but a different value, and let's explore that
+for three different scenarios the first in which there is 40 percent
+gold in the area, the second in which there is 20 percent gold, and
+the third scenario in which the field area does not contain any gold
+at all.
+
+Under these three different alternative hypotheses, we can calculate
+the probability mass function and the cumulative distribution function
+again. Now these alternative distributions will be shifted towards the
+left and offset relative to the null distribution and the degree of
+separation between the alternative distribution and the null
+distribution varies according to the alternative hypothesis.
+
+It is the smallest when the the alternative hypothesis is relatively
+close to the null hypothesis and then with increasing disagreements
+between the null and the alternative hypothesis, these two probability
+distributions get separated until the point where our alternative
+hypothesis stipulates that there is no gold in the area. There is a
+clear separation between the alternative hypothesis and the null
+distribution.
+
+The rejection region for the null hypothesis that there is 67 percent
+gold in the area is defined as or groups all the outcomes for which
+the cumulative probability is less than our alpha cut-off, so less
+than five percent, which is shown here as a horizontal dotted line. So
+this rejection region is everything that falls to the left of this
+vertical dotted line, which is the intersection between our cumulative
+distribution function and our five percent cut-off. Therefore the
+rejection region includes the value zero and the value one.
+
+We coloured this rejection region as whites on the probability mass
+function, and we observe that the sum of these two bars do not amount
+to five percent, but in cover a larger proportion of the alternative
+distribution. So when 34 percent of the outcomes of the alternative
+distribution, we would reject the null hypothesis. This probability of
+34 percent, the area covered by these white bars is an estimate for
+the power of our statistical test one minus the power. So sixty six
+percent is the probability of incurring a type two error. Therefore,
+the probability of failing to reject this false null hypothesis is 66
+percent.
+
+Let us now consider a second alternative hypothesis. Instead of sixty
+seven percent occurrence of gold in the area under the null hypothesis
+or 40 percent occurrence of gold on the the first alternative
+hypothesis, let's now consider the situation in which there is only 20
+percent gold in the area, so a much smaller amount. This alternative
+hypothesis is more different from the null hypothesis than the
+previous alternative hypothesis that we considered and consequently
+the alternative distribution, both in its probability mass function
+and in its cumulative distribution function are more different of
+separated by a greater distance from the cumulative distribution of
+the null hypothesis than the previous alternative hypothesis did.
+
+The rejection region remains the same, so it includes the values zero
+and wanted the same because we still have the same null
+distribution. But now the rejection region, or the proportion of the
+alternative hypothesis or alternative distribution that is covered by
+the rejection region increases from 34 percent to a whopping 74
+percent. So the power of our hypothesis test to reject this false null
+hypothesis has doubled to 74 percent, and therefore the probability of
+committing a tatu error has dropped from 66 percent to only 26
+percent.
+
+Finally, let us now consider an end member scenario in which the
+prospecting area does not contain any gold at all. So P is zero, then
+the probability of finding gold is obviously zero. Under this trivial
+scenario, the entire alternative distribution falls in the rejection
+region of our null hypothesis. Therefore, the power of the test is 100
+percent, and the probability of committing a type two error is
+zero.
+
+---
+
+The second factor that affects the power of a statistical test and the
+probability of incurring a type two error is sample size. We had
+actually already explored this effect when I was comparing the
+outcomes of a one sided and a two sided binomial hypothesis test for
+different numbers of claims from five to 15 and 30.
+
+Recall that when I had only five claims, neither the one sided nor the
+two sided hypothesis tests were rejected. When the number of claims
+was increased to fifteen, we were able to reject the one sided
+hypothesis test, but we were not able to reject the two sided
+hypothesis test. This tells us that's a one sided hypothesis test is
+more powerful than a two sided hypothesis test.
+
+And then finally, when we increased sample size to 30, when we
+evaluated 30 claims, then, both the one sided and the two sided test
+were rejected. This procedure is illustrated graphically here as
+probability mass functions and as cumulative distribution
+functions. The null distributions for the null hypothesis of equalling
+two thirds are again shown in grey and the alternative distributions,
+which are all the same in this case, the alternative distribution
+being that the true occurrence of gold in the field area is 40
+percent. These are also shown as black and white probability mass
+functions and as a white cumulative distribution function.
+
+With increasing sample size from five to 15 to 30, the null
+distribution and the alternative distribution both become more
+detailed and narrower so that the degree of overlap between these two
+distributions gets smaller and smaller and the separation between the
+no and the alternative distribution becomes clearer, making it easier
+to reject the null hypothesis.
+
+The rejection region for the small sample of five claims again was
+zero and one. The area covered under the probability mass function or
+not by this horizontal dashed line on the cumulative distribution
+function was 34 percent. When we increase the sample size from five to
+15, then our rejection region, as I showed earlier, includes all the
+outcomes from zero to six successes.
+
+The area of the alternative probability mass function that covered
+these values covers an area of not 34 percent, but of 61 percent of
+the probability mass function, which is shown as a horizontal dashed
+line on the cumulative distribution function. So the power of the test
+to reject the false null hypothesis increases to 61 percent or
+alternatively, the probability of incurring a type two error has
+decreased to 39 percent.
+
+Finally, further increasing our data set from 15 to 30 claims our
+rejection region now includes all the values from zero to and
+including 15. These are all the outcomes of which the cumulative
+probability under the null hypothesis is less than five percent. The
+this rejection region covers an area of 90 percent of our alternative
+distribution and alternative distribution, which again assumes that
+the actual occurrence of gold in the area is not 67 percent, but 40
+percent is the same alternative distribution that was used over here
+and over there, but now simply by having more samples. Our power to
+reject the null hypothesis has increased to 90 percent or
+equivalently. The probability of incurring a type two error has
+reduced to only 10 percent.
+
+============
+Binomial (3)
+============
+
+In this third and final session on the binomial distribution, I will
+highlight some potential pitfalls of statistical hypothesis testing
+before introducing the important concept of confidence intervals,
+which can be used to estimate population parameters from samples of
+data.
+
+---
+
+I will now slightly digress into the realm of the philosophy of
+science, but I only do so because it is very important to understand
+the limitations of using statistical tests to validate scientific
+hypotheses. The scientific method consists of three simple
+steps.
+
+First, we formulate a hypothesis rooted in some theory. Second, we
+design an experiment to test the outcomes predicted by the
+hypothesis. Third, we carry out the experiments and check to see if it
+matches the predicted predictions from the hypothesis.
+
+It is not difficult to see the great appeal that formalised
+statistical hypothesis tests, such as the binomial test that we saw in
+the previous session's hold for scientists, such as Earth
+scientists.
+
+However, we have to be very careful before using such tests and
+applying them to scientific problems. You often read in the newspapers
+that scientists proved this, or it's been scientifically proven that,
+you know, in reality, scientists can rarely or never prove anything.
+Mathematicians prove theorems. Scientists generally can only disprove
+theories.
+
+However this is still a very powerful pathway to the truth.  It has
+put a man on the Moon. This method helped us beat the COVID 19
+crisis. And it has taught us an incredible amount of information about
+the planet on which we live. New knowledge is gained when the results
+of an experiment do not match the expectations.
+
+---
+
+For example, suppose considered a hypothesis that the Earth's lower
+mantle is made of olivine. This is a hypothesis that leads to certain
+predictions about the material properties of this mineral. So we can
+test the hypothesis by simulating the pressures and the temperatures
+in the lower mantle and subjecting olivine to those conditions. When
+you do these experiments, you will find that olivine is not stable at
+the pressures that are found in the lower mantle. Hence, we can reject
+that hypothesis from the experiment. We still do not know what the
+lower mantle is made of, but at least we know that it is not
+olivine.
+
+Let us compare this outcome with that of a second hypothesis, which is
+that the Earth's lower mantle is made of perovskites. Again, we could
+test the hypothesis using an experiment in which we simulate lower
+mantle pressures and apply it to perovskites. And the results of that
+experiment would be that perovskite is indeed stable at lower mantle
+pressures. Now what have you learnt from this experiment?  Actually,
+not as much as we've learnt from the olivine experiment.
+
+We certainly did not prove that the Earth's lower mantle consists of
+perovskites. There are lots of other minerals that are stable at lower
+mantle pressures. The only thing that we can say is that the null
+hypothesis has survived our tests to live another day.
+
+Now, the scientific method is strikingly similar to the way in which a
+statistical hypothesis test is carried out. A null hypothesis, like a
+scientific hypothesis cannot be proven. It can only be
+disproven. Rejection of a null hypothesis is the best outcome because
+it is the only outcome that teaches us something new. So it may seem
+very natural to use this statistical approach to test statistical
+hypotheses. However, doing so is not without dangers. 
+
+---
+
+To explain these dangers, let us go back to the power analysis that we
+carried out in the previous session.  The power of a hypothesis test,
+for example, a binomial hypothesis test, to reject a null hypothesis
+increases with sample size. This slide shows the two-sided p-values
+for four alternative hypotheses that differ from the null hypothesis
+by different amounts.
+
+If our hypothesis is that the probability of finding gold is p=2/3, so
+sixty seven percent, and if the actual occurrence of gold is 50
+percent, then a small sample allows us to reject the null hypothesis
+by dropping the p value below the 0.05 cut-off.
+
+If the null hypothesis is more similar to the alternative hypothesis,
+for example, if the true occurrence of gold is sixty percent, then it
+is more difficult to reject the null hypothesis. The p values go down
+more slowly and we therefore need a larger samples of more than 100
+claims to reject that false null hypothesis.
+
+But even when the actual occurrence of gold is very similar to the
+null value of 67 percent, for example, if it is 62.5 or 65%, then we
+can still eventually reject the alternative hypothesis, provided that
+enough claims have been analysed.
+
+So no matter how small the violations of the null hypothesis are, there
+always exist a sample size that is a large enough to detect
+it. Statistical tests are an effective way to evaluate mathematical
+hypotheses. They are less useful, however, to test scientific
+hypotheses.
+
+There is a profound difference between a mathematical and a scientific
+hypothesis. Whereas a mathematical hypothesis is either right or
+wrong. Scientific hypotheses are always somewhat wrong. For example,
+it would be unreasonable to expect the geologists assessments to
+determine the probability of finding gold to be exactly two thirds
+down to the one hundredth significant digit. Estimating the correct
+proportion of gold in the area to better than 10 percent would already
+be a remarkable achievement.
+
+Given enough data, there are always come some points where the
+geological prediction is disproved. Given the large enough datasets,
+even a tiny one percent deviation from the predicted value would yield
+an unacceptably small p value.
+
+---
+
+This pitfall of statistical hypothesis testing is nicely captured by
+these two quotes from two prominent statisticians. "All hypotheses are
+wrong in some decimal place" and "All models are wrong, but some are
+useful".
+
+Let me give you another example suppose that we have analysed the
+Mineralogical composition of two samples of sand that were collected
+just 10 centimetres apart on the same beach. Our null hypothesis is
+that the composition of the two samples is the same. Not plausible,
+though this hypothesis may seem it will always be possible to reject
+it, given a large enough sample. Perhaps we need to classify a million
+grains from each sample, but at some point a statistically significant
+difference will be found. Given the large enough sample, even the
+tiniest hydraulic sorting effect becomes detectable.
+
+So in conclusion, formula formalise hypothesis tests are of limited
+use in science. The question that is relevant to scientists is not so
+much whether a hypothesis is wrong, but rather how wrong it is. Now
+this question can be answered using confidence intervals, which will
+be discussed next.
+
+---
+
+In the context of our gold prospecting example, there is little use in
+testing whether the parameter p is exactly two thirds. In reality, P
+is unknown. It's far more useful to estimate B and to quantify the
+statistical uncertainty associated with it. Earlier, we saw that given
+to successful claims out of five trials, the maximum likelihood
+estimates for our parameter p is two divided by five or 40
+percent. However, this does not rule out other values, so let's
+explore all possible values for P that are compatible with the
+observed two successes successes out of the five claims.
+
+First, would it be possible for peace to be zero? Well, if the
+parameter is zero, then that would mean that there is no gold in the
+field area. In that case, it would be impossible to have two
+successes, so definitely equals zero can be ruled out. How about
+equalling 0.1 or 10 percent?
+
+Under this scenario, the probability of observing at least two
+successful claims out of five would be the sum of all the beans and
+the probability mass function from two to five. So that is the high
+end, the high end tail of the binomial distribution. This probability
+is 8.1 percent, which exceeds the cut-off value for a two sided
+hypothesis test two and a half percent, which means that we can retain
+the possibility of P being 0.1. This hypothesised value for our
+parameter is compatible with the observation.
+
+Moving on to P equalling 40 percent or two fifths, well, this is the
+maximum likelihood estimate for P. So it's definitely possible that
+this is the true value. Moving on to T equalling two thirds, which is
+a value that is greater than our maximum likelihood estimates. We've
+already done this hypothesis test, so we evaluated the lower end of
+the binomial distribution, integrating the values from zero to
+two. And we had already seen that the P value for that test is twenty
+one percent, which is greater than the alpha divided by two cut-off,
+which means that we have to retain this parameter value as a possible
+true value given the two successes.
+
+In contrast, the hypothesis that P equals 90 percent is incompatible
+with our outcome because the sum of the probabilities from zero to
+two.
+
+Under this hypothesis is only zero point eighty six percent, which is
+less than alpha divided by two. So this parameter value can be ruled
+out. Similarly, the hypothesis that there is 100 percent gold in the
+area is incompatible, obviously with our observations, because if this
+were true, then we should always observe five successes out of five
+claims. The fact that we did not observe this means that this
+hypothesis and this parameter value again can be ruled out.
+
+The sets of all the values for P that are compatible with the observed
+outcome of two successful claims forms a confidence interval.
+
+---
+
+Using an iterative process, we can show that the lower and upper
+limits of this interval are given by 0.053 and 0.85. These bounds mark
+the lowest and highest possible value for P that are compatible with
+our outcome of two successful claims at a 95 percent confidence
+level.
+
+We can visualise these outcomes as probability mass functions on the
+left and as cumulative distribution functions on the right. If the
+true probability of finding gold in the area is five point three
+percent, then we would expect the majority of the outcomes to be less
+than the observed two successful claims. But there is a two and a half
+percent chance of observing two successful claims or more.
+
+If the true probability of success is five point three percent in
+black is shown, the upper range of the the outcomes corresponding to
+the upper range of the parameter p. If the occurrence of gold is 85
+percent in the field area, then most of the outcomes should be higher
+than two successful claims. But there still is a two and a half
+percent chance of observing two or fewer successful claims under this
+scenario.
+
+On the cumulative distribution functions, the dotted lines mark the
+two and a half percent and ninety seven and a half percent lines, and
+these intersects the lower range for the parameter p cumulative
+distribution corresponding to that at the ninety seven point five
+percent mark and the higher arranged. The upper limit for our
+confidence intervals is intersected at the two and a half percent
+level.
+
+---
+
+Repeating this entire procedure for a different outcome, suppose that
+four out of five claims were successful, so that shown as this
+vertical dashed line. Then the 95 percent confidence interval for the
+parameter P is different from before. It is now encompassing all the
+values between zero points to a force or twenty eight point four
+percent gold in the area and ninety nine point five percent gold in
+the area.
+
+If the true proportion of gold is twenty eight point four percent,
+then there is a two and a half percent chance of observing four or
+more successes amongst five trials. If there is ninety nine point five
+percent gold in the area, then most of the time we will have five
+successful claims. But about two and a half percent of the time, we
+will have only four or even fewer successful gold discoveries. Under
+this scenario, and this is why these two values are the boundaries of
+the 95 percent confidence interval for P given for successes out of
+five claims.
+
+---
+
+What happens if we increase the sample size from five to 30 claims and
+the number of successful claims from two to 12, then the maximum
+likelihood estimate for P remains two fifths, which equals twelve
+thirtieth or 40 percent, just like the previous the first example. But
+our 95 percent confidence interval gets a lot narrower to values from
+zero point twenty three to zero point fifty nine. So the procedure is
+identical as before. We've got the binomial distributions under the
+low end scenario shown in grey and the binomial distribution under the
+high p scenario shown in white and black. And there is again a two and
+a half percent likelihood that the that we get more than twelve
+discoveries under the low end scenario, or that we get less fewer than
+twelve discoveries on the the high end scenario.
+
+---
+
+To further explore this trend of narrowing confidence intervals with
+increasing sample size, let us evaluate the 95 percent confidence
+intervals for maximum likelihood estimates shown as dotted lines here
+of two thirds on the left and of one fifth on the right for a range of
+different sample sizes from end equalling three to end equalling
+300. These confidence intervals are asymmetric. They plot completely
+within the allowable range for P of zero to one, and they become
+progressively narrower with increasing sample size. This reflects a
+steady improvement of the precision of our estimates of peak with
+increasing sample size. In other words, large datasets are rewarded
+with better precision compared to small datasets.
+
+=======
+Poisson
+=======
+
+In this session, I will introduce a different probability
+distribution, the Poisson distribution, which is related to the
+binomial distribution but describes the frequency of occurrence of
+rare and independent events.
+
+---
+
+This bar chart represents a time series of the number of earthquakes
+that have happened in the United States of magnitude five or greater
+between 1917 on 2016, with aftershocks removed. So this is a
+declustered earthquake catalogue. The number of earthquakes per year
+varies greatly between years. Some years have a lot of strong
+earthquakes whereas other years have few of them. The number of
+earthquakes in each of these bins forms a new data sets of 100
+numbers, one for each year, which can be visualised as a new
+histogram. This dataset of the number of earthquakes per year has a
+mean of 5.43 a standard deviation of 2.5 on the variance (the square
+of the standard deviation) of 6.24. Now, this mean and variance for
+the dataset of earthquake frequencies are pretty similar.
+
+---
+
+A second data set that we will use for today's session is a dataset of
+5000 grains of sand. All these circles that have been mounted in an
+uncovered thin section and imaged with a scanning electron microscope
+or SEM. This instrument has identified the locations of zircon
+crystals that are suitable for geochronology. These are marked as
+white squares. We have subdivided the slide into a number of gratitude
+and counted the number of zircons within each of these squares
+subdivisions of our slide. This set of counts represents a new data
+set.
+
+---
+
+When we tally the number of the circles per graticule, then calculate
+the arithmetic mean of this data set, we get a value of 3.5. The
+standard deviation is 1.85 and the square of that (the variance) is
+3.4, which again is similar to the arithmetic mean.  This similarity
+of the variance to the mean turns out to be a characteristic property
+of the Poisson distribution.
+
+---
+
+The Poisson distribution describes the frequency of rare events in
+time or space. It predicts the likelihood of observing the number of
+successes k given the long term average of successes lambda. Its
+probability mass function contains just one parameter, lambda, as
+opposed to the binomial distribution, which had two parameters: p,
+which is the probability of success and n, which was the sample size.
+These panels show the probability mass function and the cumulative
+distribution function for Poisson distributions with different
+parameters lambda, so different arithmetic means, which are shown as
+vertical dash lines. These lambda values vary from 1, 2 and 5 to
+10. We can see that the Poisson distribution is positively skewed,
+but becomes more symmetric with increasing lambda.
+
+---
+
+The Poisson distribution is closely related to the binomial
+distribution. Recall, again, that the binomial distribution depends on
+two parameters, n and p. We can show that the binomial distribution
+converges to the Poisson distribution with increasing n and decreasing
+p. In the limit of n equaling infinity and p equaling zero, the
+binomial distribution simplifies to a Poisson distribution with a
+lambda parameter equal to n x p.
+
+This table illustrates this phenomenon by evaluating the probability
+of observing two or fewer successes under a binomial distribution with
+n p = 5. So if n=10 and p=0.5, then the probability of observing two
+or fewer successes is 5.47%. If we increase n by multiplying it with 2
+and we divide p by 2, then n x p still equals 5. But now the
+probability of observing two or fewer successes increases to 9.13%. If
+we further increase n to 50 and decrease p to 0.1, then the
+probability of observing 2 or fewer successes under a binomial
+distribution is 11.2% and we can continue doing so until n=10,000 and
+p is reduced to 0.5. That number times 10,000 equals five. The
+binomial probability converges to a value of 12.46% which is exactly
+the result that you would obtain from a Poisson distribution where
+lambda equals 5.
+
+---
+
+The Poisson distribution expresses the probability of a given number
+of events occurring in a fixed interval of time or space if these
+events occurred with a constant mean rate and are independent of the
+time that has elapsed since the last event. Examples of possible
+variables include the number of people killed by lightning per year;
+the number of mutations in the DNA per generation; the number of
+radioactive this integrations that happen per second, per year or per
+millions of years; the number of mass extinctions that occurred 100
+million years as a result of large asteroid impacts. All these
+phenomena, if we tally then we calculate the mean on the variance of
+their occurrence, is we will find that these two values will be very
+similar. However, the number off earthquakes per unit time, including
+aftershocks so without the clustering does not follow a Poisson
+distribution and neither does a number of floods per year. Because
+both of these natural phenomena are clustered in time. So if we can
+tally them on, we calculate the arithmetic mean and the variance of
+their occurences, we find that those values will no equal each other.
+
+---
+
+The probability mass function of the Poisson distribution depends, as
+I said, on a single parameter lambda, and so far I have assumed that I
+know the value of this parameter, and I could then evaluate the
+probability of any given outcome k given this parameter. Now, in
+reality, we generally do not know what lambda is. So just as we did
+for the binomial distribution, we can estimate the parameter lambda
+given a certain number of successes k by simply rephrasing this
+probability mass function as a function of lambda instead of a
+function of k.
+
+This is the likelihood function and we can estimate Lambda by
+maximising this function given k. The derivation of this is again
+contained in the notes. I will not go into the details of this, but
+suffice it to say that if we have k successes than this value k equals
+our best estimate for lambda, which is written as lambda hat, our
+maximum likelihood estimate for the parameter of our Poisson
+distribution.
+
+---
+
+Hypothesis testing for Poisson variables proceeds in exactly the same
+way as it did for binomial variables. Let us illustrate this using a
+zircon example. Suppose that the long term average number of zircons
+per graticule in a thin section is hypothesised to be 3.5. And further
+suppose that we count nine zircons in a particular graticule. Is this
+outcome of nine zircons compatible with our hypothesised parameter
+value?
+
+Well, to test this, we formalised the hypothesis. So our hypothesis is
+that lambda=3.5. Our maximum likelihood estimate for the parameter
+would have been 9, which is greater than the hypothesised version
+3.5. So the natural alternative hypothesis to test would be the
+asymmetric hypothesis that lambda is greater than 3.5, and we carry
+out a one sided hypothesis test.
+
+In contrast with the examples that I considered for the binomial
+distribution, this one sided tests will actually test the upper tail
+of the Poisson distribution. Our test statistic is again the number of
+successes which is nine and our null distribution now is, of course,
+no binomial distribution but a Poisson distribution of which I
+tabulate here the probability mass function from 0 to 10, so including
+our outcome of nine. I also tabulate the probability of observing an
+outcome of greater than or equal to any of these numbers of successes
+under the null hypothesis that lambda=3.5.
+
+---
+
+The significance level is, as always, 5%; and the rejection region
+groups all those values for the upper tail of the Poisson distribution
+that are less than 0.05. This includes the values of 8, 9, 10 and, in
+fact, any value greater than that this, as the table could go up to
+infinity. In principle, we could find more than 10 zircons. But I've
+cut off this table because these probabilities are already getting
+very small.
+
+Our observed outcome of nine successes falls in this rejection region
+and therefore our null hypothesis is rejected. Equivalently, the
+probability of observing nine or more successes under the null
+hypothesis is the p value. This p value is 0.1, so 1%. This is less
+than our significance level of 5%, again leading to the rejection of
+the null hypothesis.
+
+---
+
+Visualising the same results graphically, we have the probability mass
+function of the null distribution on the left and its cumulative
+distribution function on the right. The observed outcome of nine
+zircons is shown as vertical dashed lines on both of these panels.
+
+The rejection region is this area coloured in white, which
+covers 5% of the area under the probability mass function. Our
+observed outcome plots firmly inside this rejection region, leading to
+the rejection of our null hypothesis. On the cumulative distribution
+function, the 95 percentile of our null distribution gives us a
+lower limit to the rejection region of 7. Our observed outcome
+plots towards the right of this. So again we reject the null hypothesis.
+
+The p-value of the one sided hypothesis test is one minus the position
+of this horizontal dashed line, which is the intersection of our
+observation with a cumulative distribution function. This is less than
+0.5. The dash line plots above 0.95 percentile, again leading to the
+rejection of our null hypothesis.
+
+---
+
+The hypothesis test that we just did was referring to the zircon
+counting example of the beginning of the session. The average number
+of observations per graticule, so the average number of zircons per
+bin in this example was 3.5. And therefore, according to our maximum
+likelihood estimation, the best estimate for our possible parameter
+lander is 3.5 as well.
+
+According to our hypothesis test a value of nines zircons is
+incompatible with a parameter value of lambda equaling 3.5. However,
+if you pay close attention to the slide, you will see that the value
+of nine zircons does appear in our data sets. Now, does this mean that
+our data did not follow a Poisson distribution? Well, the answer is
+no. The apparent contradiction between the point counting data and the
+hypothesis test is simply the result of multiple testing.
+
+---
+
+To understand this problem, we need to go back to the multiplicity of
+rule of our session on probability theory. The probability of
+incurring a type-1 error is alpha, so 5%. Therefore, the probability
+of not committing a type-1 error is one minus alpha or 95%. But this
+is only true for one test. If we perform two tests than the
+probability of twice avoiding a type one error is one minus alpha
+squared, which is 90.25%. And the probability of committing at least
+one type one error is one minus that probability, which is 9.75% or
+nearly twice our probability of incurring a type-1 error for one
+experiment.
+
+If we increase the number of tests to three, then the probability of
+incurring at least one type one error further increases to 14%. And if
+we have 48 experiments, the probability of making at least one type-1
+error has increased to 91.5%. This is the situation that we are in
+because there are 48 graticules in this thin section. So we are more
+likely than not to erroneously reject a correct null hypothesis. We
+could remediate this problem by adjusting our significance
+criteria. This is called a Bonferroni correction.
+
+If we simply divide alpha by the number of experiments, then we reduce
+our probability of incurring a type-1 error. However, a side effect or
+a consequence of this Bonferroni correction is that we also reduce the
+power of our hypothesis test to reject false null hypotheses.
+
+---
+
+The construction of confidence intervals for the Poisson parameter
+lambda proceeds in pretty much the same way as it did for the binomial
+parameter p. To illustrate this, let us move from the zircons to the
+earthquake example. Let's construct a 95% confidence interval for
+lambda, given the observation that five magnitude five or greater
+earthquakes occurred in the United States in 2016. Let's try to
+estimate from this single observation what the long term number of
+earthquakes of that magnitude would be.
+
+The lower limit of a 95% confidence region for the number of
+earthquakes per year is marked by the value of lambda that is more
+than 2.5% likely to produce an observation of five or more earthquakes
+per year. This turns out to be a lambda equaling 1.62, as shown as a
+grey step function in the cumulative distribution panel, and as a grey
+bar plot in the probability mass function panel. The upper limit of
+the confidence interval is marked by the value of lambda that is more
+than 97.5% likely to produce an observation of five or fewer
+earthquakes per year. This value is 11.7, and is shown as a white
+cumulative distribution function and probability mass function. Hence,
+the 95% confidence interval ranges from 1.62 to 11.7. This includes
+the long term average of all the 100 preceding years which was shown
+at the beginning of this session, which is 5.43.
+
+---
+
+Finally, repeating this exercise for all the observations in our
+declustered American earthquake data set yields 100 confidence
+intervals for the long term average number of earthquakes per
+year. The horizontal dotted line marks the average of all the years,
+which again, is the value of 5.43. The dots are our maximum
+likelihood estimates for the individual observations, and the grey
+bars are 95% confidence intervals.
+
+The vast majority of these intervals shown in great overlap with our
+long term average. Three years (1941, 1954 and 1984), however, stand
+out because their 95% confidence intervals do not overlap with the
+long term average. Does this mean that the earthquake statistics did
+not fit a possible distribution during those years? Well, again, the
+answer to this question is no for the same reason, as in our zircon
+example.
+
+When a large number of confidence intervals is drawn, it is inevitable
+that some of these do not include the true parameter value. In fact,
+it would be suspicious if all the error bars overlapped with the long
+term average. With a significant level of 5% there should roughly be a
+5% chance of committing a type-1 error. Therefore, we would expect 5%
+of the samples to be rejected and 5% of the error bars to exclude the
+true parameter value. The observed number of rejected samples, which
+is three out of 100 is perfectly in line with those expectations.
+
+=======================
+The Normal distribution
+=======================
+
+After introducing the binomial and Poisson distributions, the next
+session will discuss the Gaussian distribution, which is also known as
+the normal distribution.
+
+---
+
+In the previous two sessions, we saw that the probability mass
+function of the binomial distribution and of the Poisson distribution
+can be described as a function of two parameters for the binomial, and
+of one parameter for the Poisson distribution. However, the binomial
+and Poisson are just two examples of countless possible
+distributions. Some other examples of distributions that are relevant
+to the Earth sciences includes the negative binomial distribution,
+which models the number of successes or failures in a sequence of
+Bernoulli trials before a specified number of failures or
+successes. For example, it describes a number of dry holes X there are
+drilled before R petroleum discoveries are made given a probability of
+discovery P that is described by this probability mass function.
+
+The multinomial distribution is an extension of the binomial
+distribution, where more than two outcomes are possible. For example,
+it describes the point counts of multiple minerals in a thin
+section. If p1, p2 etc to pm are the relative proportions of m
+minerals, where the sum of these probabilities of these proportions is
+1 and if k1, k2, etc to km are the respective counts of these minerals
+in a thin section where the sum of these counts is N, then the
+probability of any outcome given these parameter values, is the
+product of all these values here. This formula simplifies to the
+binomial distribution if m=2.
+
+The binomial and Poisson distributions are univariate distributions
+that aim to describe one dimensional data sets. However, the
+multinomial distribution is an example of a multivariate probability
+distribution, which describes multidimensional data sets.
+
+Next, let's move on to the uniform distribution, which is the simplest
+example of a continuous distribution, as opposed to the discrete
+probability distributions that were introduced before. For any number
+x between the minimum a and the maximum b, the probability is given by
+this simple function here. X here does not have to be an integer, but
+is free to take on any decimal value. Therefore, this probability is
+not referred to as a probability mass function or PMF, but as a
+probability density function or PDF. Whereas probability mass
+functions are represented by the letter P, probability density
+functions are generally referred to as lower case F. This is because
+the probability of observing any particular value X is actually
+zero. To calculate the probability that x falls in a certain range,
+for example, between c and d, we can calculate this probability p as
+an integral of all the densities between these two boundaries.
+
+We will not discuss this uniform distribution or these other
+distributions in more detail. Instead, I would like to focus our
+attention on one other distribution the Gaussian distribution, which
+is so common that it's also known as the normal distribution, implying
+that all the other distributions, including these guys, are abnormal.
+
+---
+
+To understand what is so normal about the Gaussian distribution. Let
+us revisit the Old Faithful data set that we discussed in our session
+on statistical plotting. So here is a kernel density estimate and a
+rug plot of the marginal distribution of 272 Old Faithful eruption
+durations, in minutes. This distribution has two modes at about two
+minutes and about 4.5 minutes.
+
+---
+
+Now let us select two events at random from the original distribution
+of guyser eruptions and add their durations together. Repeat this to
+create a new dataset of 500 values, which has shown here as a rug plot
+on the new kernel density estimate. This kernel density estimate has
+not two but three modes, including one at four minutes, which groups
+all the pairs of events that came from the two minute mode of our
+original distribution; one mode at nine minutes, which groups the sums
+of pairs of eruptions that came from the 4.5 minute mode of our
+original distribution; and then there's a big a third mode in the
+middle of values around 6.5 minutes minutes, which consists of the
+sums of pairs that combine one events from the two minute mode and one
+event from the 4.5 minute mode.
+
+---
+
+Next, we repeat this exercise using not two but three randomly chosen
+events from the geyser eruption data, and again we add the duration of
+these three events together and repeat that 500 times to create a
+third data set shown as a rug plot and a kernel density estimate
+again. This KKDE has four visible modes, including peaks at six
+minutes, which groups three events of two minute duration; one mode at
+8.5 minutes, which consists of two events from the two minute modes,
+plus one event at the 4.5 minute mode one event; one mode at 11
+minutes, which is one event at two minutes, plus two events at 4.5
+minutes; and one mode at 13.5 minutes, which consists of 3, 4.5
+minutes events.
+
+---
+
+And finally, here is a distribution of 500 sums off 10 randomly
+selected eruption durations. This produces a fourth dataset whose
+kernel density estimate has a single mode with a symmetric shape that
+tails off towards lower and higher values. This is the characteristic
+bell shape of a Gaussian distribution.
+
+---
+
+The bell shape can be mathematically described by this probability
+density function, which has two parameters: mu, which is the mean and
+sigma, which is the standard deviation. It can be mathematically
+proven that the sum of randomly selected values converges to a
+Gaussian distribution provided that the number of these values in the
+sum is large enough. This convergence is guaranteed regardless of the
+distribution of the original data. This important mathematical law is
+called the Central Limit Theorem.
+
+---
+
+The Gaussian distribution is known as the normal distribution because
+it naturally arises from additive processes, which are very common in
+nature. It is actually easy to create a normally distributed dataset
+in the laboratory environment. There even exists a machine that
+generally generates normally distributed numbers. This machine is
+called Gaulton's bean machine. It's a mechanical device that simulates
+additive processes, which consists of a triangular arrangement of pegs
+that are located above a linear array of containers.
+
+When a bead enters the machine from the top, the bead bounces off the
+pegs of the machine on its way down to this linear array of
+containers, the probability of bouncing to the left equals a
+probability of bouncing to the right. After a given number of bounces,
+the bead lands in one of the containers, forming a bell shaped
+distribution with increasing number of layers in the machine. This
+distribution converges to a Gaussian distribution as the number of
+peges increases.
+
+Additive processes like this are very common in physics. For example,
+when a drop of ink is put in a volume of water, the ink molecules
+spread by bouncing off the water molecules. This brownian motion
+creates a Gaussian distribution in which most ink molecules remain
+near the original location at the mean with wide tails and other
+directions.
+
+---
+
+The binomial, Poisson, negative binomial, multinomial, uniform and
+univariate normal distributions are just a small selection from an
+infinite number of possible probability distributions. These
+particular distributions were given specific names because they
+commonly occur in nature. However, the majority of probability
+distributions do not fall into a specific Parametric category.
+
+For example, the bivariate distribution of Old Faithful eruption gaps
+and durations is not really captured by any of these distributions. In
+fact, it's easy to invent your own distribution. So here is an example
+of four distributions that I invented in two dimensional data
+space.
+
+Let us now collect 100 random points from these four distributions and
+plot them as four scatter plots. Then these scatter plots of sampling
+distributions resemble the true populations at the top of the slide.
+
+---
+
+Next, we can calculate the sum of all the Xs and all the Ys for each
+of these four samples, and this gives rise to four new pairs of
+coordinates. Repeating this exercise 200 times and plotting the four
+resulting data sets as scatter plots produces these four new
+diagrams.
+
+Despite the completely different appearance of the four parent
+distributions and the four sample distributions, the distributions of
+their sums all look very similar. They consist of an elliptical point
+cloud that is dense in the middle and thins out towards the edges. The
+number of points per unit area is accurately described by a bivariate
+Gaussian distribution, which has a three dimensional bell shape.
+
+---
+
+The bivariate normal distribution is not described by two, but by five
+parameters mu_x and mu_y, which are the means of the x and y signals,
+sigma_x and sigma_y, which are the standard deviations of x and y, and
+sigma(x,y), which is the covariance of x and y. I'll explain those in
+more detail in a second.
+
+The probability density function in this case involves a matrix
+equation, where this matrix is the so-called covariance matrix, which
+is inverted, and the vertical lines denote the determinants of the
+covariance matrix.
+
+If you plug bivariate data into this equation, then it spits out a
+number, which is the probability density at that particular point in
+x-y space. Contouring these probability densities for x and y produces
+this elliptical set of contour lines, which are a map view of the two
+dimensional or three dimensional bell curve that fits our cloud of
+data points.
+
+---
+
+Going back to the univariate normal distribution, which, as I said
+before, is completely controlled by two parameters, we can see that
+the mean mu is our location parameter. Reducing it from 0 to -1 shifts
+the distribution to the left, increasing mu to +1 shift it to the
+right.
+
+Sigma is our dispersion parameter; the standard deviation. It controls
+the width of the distribution. Increasing sigma from 1 to 2 produces a
+lower, but wider distribution, whereas reducing sigma from 1 to 1 half
+produces a narrower but taller distribution.
+
+By definition, the probability density function always integrates to
+unity, So the area under each of these curves is the same is always
+equal to one.
+
+---
+
+Because the Gaussian distribution is symmetric, its mean equals its
+median and its mode. Other useful numerical properties of the Gaussian
+distribution include the fact that the interval from the mean minus
+one standard deviation to the mean plus one standard deviation covers
+68.27% of the area under the probability density function, and the
+interval from the mean minus two times the standard deviation to the
+mean plus plus two times the standard deviation covers an area of
+95.45%. Conversely, exactly 95% of the area under the normal density
+is contained within an interval from the mean minus 1.96 to the mean
+plus 1.96 standard deviations.
+
+---
+
+The mu and sigma parameters in a bivariate normal distribution have
+exactly the same meaning as they do for a univariate normal
+distribution. mu_x and sigma_x describe the univariate distribution of
+a marginal projection of our bivariate data onto the x axis; and mu_y
+and sigma_y describe the univariate normal distribution obtained by
+projecting the data onto the y axis.
+
+So if we reduce mu_x, we shift the whole distribution to the left. If
+we increase mu_y we move the distribution higher up et
+cetera. Similarly, sigma_x and sigma_y control the dispersion of the
+marginal distribution. So if we double sigma_y, then we've essentially
+doubled the height of our bivariate normal distribution. Finally, the
+fifth parameter of our bivariate normal distribution is the
+covariance. This controls the degree of correlation between the x and
+the y variable in a bivariate various normal distribution.
+
+Non-zero values of the covariance cause the contours of our
+distribution to be tilted with respect to the horizontal and vertical
+axes of the diagram. Positive values for the covariance result in a
+positive slope and negative values in a negative slope. The closer
+these covariance values are to -1 or +1, the narrower these contours
+will be.
+
+---
+
+The parameters mu and sigma of a Gaussian distribution are generally
+unknown. But we can estimate them parameters from the data just like
+the binomial parameters p or the Poisson parameter lambda. This can be
+done using the method of maximum likelihood.
+
+Suppose that we have n data points x1, x2, etc. to xn. Then we can use
+the multiplication rule of probability and formulate the normal
+likelihood function as a product of these probability density
+functions one for each measurements. We can maximise this likelihood
+with respect to mu and sigma. The details of this calculation are
+presented in the notes. I won't go over them here. I just want to
+discuss the results.
+
+It turns out that the maximum likelihood estimate for mu, which we
+denote by mu-hat, is simply the formula for the arithmetic mean, which
+we already saw in the session on summary statistics; and the maximum
+likelihood estimate for the standard deviation sigma-hat is a formula
+that is very similar to the definition of standard deviation, and
+which again I had already introduced in our session on summary
+statistics.
+
+The only difference between these two equations is that here we divide
+by n and here we divide by n minus one. The subtraction of one from n
+over here is called the Bessel correction. It accounts for the fact
+that, by using an estimate of the mean x-bar rather than the true
+value of the mean mu, we introduce an additional source of uncertainty
+in the estimates for the standard deviation. This additional
+uncertainty is accounted for by subtracting 1 so-called degree of
+freedom from the fit to our data.
+
+And finally, the maximum likelihood estimate for the covariance of two
+measured variables x and y in a bivariate normal data set, produces a
+formula that is again very similar to the sample covariance. Again,
+the difference being here that we remove one degree of freedom. We
+apply a Bessel correction to account for the fact that we are
+estimating these means rather than having these means being given.
+
+================
+Error estimation
+================
+
+Suppose that the extinction of the dinosaurs has been dated at 65
+million years in one location and a meteorite impact has been dated at
+64 million years elsewhere. These two numbers are effectively
+meaningless in the absence of an estimate of precision. Taken at face
+value, the dates imply that the meteorite impact took place one
+million years after the mass extinction, which would rule out a causal
+relationship between the two events. However, if the statistical
+uncertainty of the age estimates is greater than the one million year
+difference between them, then such a causal relationship remains very
+much plausible. In conclusion, the statistical uncertainty of
+geological or statistical estimates is as important as those estimates
+themselves.
+
+---
+
+There are two aspects of analytical uncertainty. Accuracy is the
+closeness of a statistical estimates to its true and unknown value.
+Precision is the closeness of multiple measurements to each
+other. These two concepts can be illustrated using a darts board
+analogy. In this darts board analogy, the bull's eye represents the
+true value for our unknown parameter. This value is estimated by
+taking several measurements which are shown as white circles. The
+accuracy of the data is the closeness of the average value of our
+measurements to the bull's eye. So these are two accurate data sets,
+and these are two inaccurate data sets.
+
+The precision is the degree of clustering of our data. Data can either
+be precise or that can be imprecise for different outcomes are
+possible. The best of which combines high precision with high
+accuracy. The worst situation is a combination of high precision with
+low accuracy. This is the worst case scenario because the high
+precision is giving us false confidence in the quality of the data and
+is masking the fact that the results are biased with respect to the
+true value.
+
+Accuracy can be assessed by analysing reference materials whose true
+parameter values are known through independent means. This procedure
+involves little statistics and will not be discussed further in
+today's session. Quantifying precision, however, is a more involved
+process, which is also known as error propagation, and that's what I
+will be talking about for the remainder of this session.
+
+---
+
+Consider a quantity z that is a function g of some measurements x.
+For example, z could be the geological age, g could be the age
+equation, and x could be some isotopic measurements which are
+determined on a mass spectrometer and that can be used with the
+principles of radioactivity to get a handle on geologic time.
+
+Suppose that we've got multiple measurements of these isotopic
+compositions. Suppose that we've got n of them, and assume that they
+all follow a normal distribution. Then we can estimate the mean and
+the standard deviation of that normal distribution using the sample
+mean and standard deviation summary statistics.
+
+The best estimate for the geological age is then our function g of the
+average value of x. So now we know the age of our system. As I
+explained in my introduction, it is equally important to also be able
+to quantify the uncertainty of this age that is caused by the
+variability of our isotopic measurements. Answering that question is
+what error propagation is all about.
+
+---
+
+To simplify the situation. Let us consider a functions that are linear
+or approximately linear with respect to the measurements x. Here are
+shown two examples of such functions, g1 and g2. They have different
+slopes, but they are both linear with respect to x. The measurements
+are again assumed to follow normal distributions with a mean x-bar and
+with a standard deviation s[x]. The best estimate for our inferred
+quantity z is the value that corresponds to the mean of our xs. So for
+my first function, the estimated value for z is z1-bar and for the
+second function it is z2-bar.
+
+Because our functions are linear, deviations of individual
+measurements from the mean of the measurements are proportional to
+deviations of the inferred quantity from the mean of the inferred
+quantities. If the slope of our line is less than one, then the
+precision of the inferred quantity is going to be better than the
+precision of our measurements. If the slope of the line is steeper
+than one, then the uncertainty or the deviations of the measurements
+around the mean are magnified and result in a greater uncertainty of
+the inferred quantity.
+
+We can formalise this principle mathematically by writing that
+deviations of z from the mean are proportional to deviations of x from
+the mean of the measurements, where the constant of proportionality is
+the derivative of our function g with respect to our measurements x,
+which is the slope of the two lines.
+
+Now, recall the definition of the variance, which is the square of the
+standard deviations of z. This is the quantity that we want to
+propagate. This definition, we saw, is one divided by n-1 minus one
+times the sum of the squared deviations from the mean. So if we plug
+this equation into here, then we get a new formula which can be
+rearranged to produce our first error propagation equation.
+
+It tells us that the uncertainty of z is proportional to the
+uncertainty of x, where the constant of proportionality is the
+absolute value of the gradient of our function with respect to our
+measurements.
+
+---
+
+Next, let us move on to multivariate problems. Suppose that our
+estimated quantity z is calculated as a function g of not one, but two
+measured quantities x and y, and further suppose that x and y follow a
+bivariate normal distribution with parameters that can be estimated
+from some data as x-bar, y-bar, s[x], s[y] and s[x,y], which is the
+covariance of x and y. We then make the simplifying approximation that
+our function, which in this case is curved, is approximately a linear
+in the vicinity of our measurements. Then we can estimate the
+uncertainty of z in exactly the way the same way as we did for the
+univariate case.
+
+We plug the deviations of x and y into the definition of the variance
+for z; we rearrange; and we get an expression that gives us the
+squared uncertainties of z as a function of the squared uncertainties
+of x and y, the covariance of x and y, and the slopes of the function
+g with respect to x and to y. This formula is the general error
+propagation formula for a bivariate function.
+
+We can write it either explicitly in this form or we can cast it into
+a matrix form where we have one matrix, which is called the Jacobean
+matrix; we have the transpose of that same Jacobean matrix, including
+these partial derivatives; and in the middle we have the so-called
+covariance matrix of the measurements, which contain the variances and
+the covariance. These two mathematical forms are mathematically
+equivalent.
+
+---
+
+Here again, is the generic formula for the propagation of uncertainty
+of a function of two measured quantities x and y. This formula may
+look a little bit intimidating to you, but let us just demystify it by
+applying it to some common functions, beginning with what is perhaps
+the most commonly used function of all: the addition operator.
+
+So here we've got an inferred quantity Z, which is equal to the sum of
+a constant A plus a constant B times of first measured quantity X plus
+a third constancy times a second measured quantity Y. So here the
+constants do not have any analytical uncertainty associated with
+them.
+
+To give one example, consider the circumference of a circle, which
+equals the diameter of the circle as can be measured with a ruler. So
+that would be a measurement X, for example, times PI, where PI is
+known with infinite precision. So when we propagate the uncertainty of
+the circumference of a circle, we do not have to worry about the
+uncertainty of PI, which is represented generically here as A, B or
+C. Then the derivatives of this formula with respect to the
+measurements X and Y are simply equal to the constants B and C.
+Plugging these derivatives into our generic error propagation formula
+produces this equation.
+
+Now, let us further explore this equation by considering the special
+case of two measurements X and Y that were made independently and are
+uncorrelated. In that case, the covariance here is zero, and this
+third term of our error propagation formula disappears. Further
+suppose that our constants a is zero and our constants B and C are
+both equal to 1. Then this generic equation simplifies to a simple sum
+of two measurements X and Y. In other words, the squared uncertainty
+of Z is simply the sum of the squared uncertainties of X and Y. The
+variance of Z equals the sum of the variances of X and Y.
+
+---
+
+OK, let's move on to subtraction. Suppose that Z equals A times X
+minus B times Y. Then again, the derivatives of Z with respect to X
+and Y are equal to these two constants. So A and -B, and our error
+propagation formula becomes nearly identical to that for addition,
+with the exception of the covariance term, which now has a negative
+sign in front of it. If our measurements X and Y are independent, then
+again, these covariances disappear and our formula is identical to the
+error propagation formula of addition. So if A and B are both 1 and X
+and Y are independent, then again, the variance of Z equals the sum of
+the variances of X and Y.
+
+---
+
+Next: multiplication. Multiplication can be written in a generic form
+as Z equals a constant times X times Y, where X and Y are both
+measured quantities with some analytical uncertainty. The derivatives
+of Z with respect to X and with respect to Y are A times Y and A times
+X respectively. Plugging these values into our error propagation
+formula produces this equation, which we can then further rearrange by
+dividing both the left hand side and the right hand side by Z
+squared. So here we've got the uncertainty of Z divided by Z, which is
+also known as the coefficient of variation. And on the right we can
+divide by A times X Y squared and that produces this formula.
+
+There's a lot of redundant values in here that cancel out. The Ys here
+can cancel out in the numerator and the denominator of the first term;
+the Xs can be removed by from the numerator and the denominator of the
+second term; and we could do the same for the covariance term. And
+then you can see that this formula simplifies to an equation in which
+the coefficient of variation of z squared equals the coefficient of
+variation of x squared, plus that of y squared and this covariance
+term. If the covariance are zero, then again, this third term
+disappears and we can see that the relative uncertainties of z squared
+equal the sum of the relative uncertainties of X and Y each squared.
+
+---
+
+Addition, subtraction and multiplication are just three examples of
+functions, but exactly the same procedure can also be applied to any
+other function. In the notes, I provide further details about the
+error, propagation of division, exponentiation, logarithms and the
+power operator. With these seven functions, you can cover a large
+number of common mathematical formulae in the Earth Sciences.
+
+Error propagation for more complicated functions can either be derived
+from the generic error propagation formula directly, or can be done by
+combining these seven equations together using the so-called chain
+rule.
+
+---
+
+For example, consider this equation here, which describes the distance
+travelled by an object as a function of time t where d-naught is the
+initial position, v-naught is the initial velocity and g is the
+acceleration. Suppose that d_0, v_0 and g are known with absolute
+precision. And that only t as associated with analytical uncertainty,
+for example, because we are using an imprecise stopwatch.
+
+Then this equation does not immediately fit in into the templates
+represented by any of my seven equations. However, it is easy to
+define two new functions that do fit these templates. For example, we
+can rewrite this equation of three terms as a sum of two terms X and
+Y, where X groups the first two terms of our original equation and Y
+represents the third term of the equation. Then the uncertainty of d
+is simply given by the error propagation formula for a sum as a
+function of the uncertainties of X and Y.
+
+The uncertainty of X can be propagated using the error propagation
+formula for a sum and the uncertainty of Y can be propagated using the
+error propagation formula for the powering operation. We then plug
+these uncertainties into this equation, and we get this formula, which
+gives us the uncertainty of d as a function of the uncertainties of
+our measured quantity t.
+
+This chain rule is a powerful way to propagate the uncertainties of
+potentially very complicated problems. It acts really like a set of
+Russian dolls in which you break a complex function up into simpler
+functions for which you can use this elementary level of propagation
+formerly.
+
+---
+
+The estimated standard deviation of some derived quantity obtained by
+error propagation is also known as its standard error. The mean of a
+set of numbers is one example of such a derived quantity, and its
+estimated uncertainty obtained by error propagation is called the
+standard error of the mean. Let us consider a dataset of n values of a
+quantity x, so we've got x1, x2, all the way to xn. The x-bar is the
+arithmetic mean of these values.
+
+This equation can be written as a sum, and therefore the analytical
+uncertainty of x-bar can be propagated using the error propagation
+formula for the addition operator. To this end, we need to modify this
+formula for addition from 2 measurements to n measurements so that A
+is zero, A is 1/n, x is x1, c is 1/n, y is x2. And then we add
+additional terms, which each could consist of 1/n times the ith
+measurement where i varies from 1 to n. We could then plug this long
+equation into the generalised formula for the error propagation of a
+sum. And that gives us a standard error of the mean squared as a
+function of the sum of these squared terms, where each term contains
+the uncertainty of a particular measurement divided by the number of
+measurements.
+
+This constant (1/n)^2, can be moved out of the summation and then we
+can make the reasonable assumption that all of the measurements in our
+dataset were drawn from the same population, which means that the
+uncertainty of each of the Xs equals the uncertainty of the entire
+dataset, which we denote by the standard deviation of X. So then all
+these times become the same.
+
+And this summation turns into n times the variance of X. We've got two
+n here. One of them will cancel out so n divided by n squared equals
+1/n. And we take the square root of both of these terms and we get the
+standard error of the mean being equal to the standard deviation of
+the data divided by the square root of n. This is a very important
+result. It relates a standard error of the mean to the standard
+deviation of the data.
+
+---
+
+To illustrate the effect of the square root rule, consider the
+statistics of human height as an example. The distribution of heights
+of adult people is approximately normal, with a mean of 165
+centimetres and a standard deviation of about 10 centimetres. There
+are about five billion adult humans on the planet. Averaging their
+heights should produce a value of one hundred and sixty five
+centimetres. The standard error of this average height is 10, divided
+by the square root of five billion. That is only 1.5 microns.
+
+So even though there is a lot of dispersion amongst the heights of
+humans, the standard error of the mean is tiny and the precision of
+the average height is tremendous. This is very important because it
+means that no matter how imprecise a dataset might be provided that we
+average enough measurements, we can always reduce the precision of our
+measurements to arbitrarily low values.
+
+===========================
+Comparing distributions (1)
+===========================

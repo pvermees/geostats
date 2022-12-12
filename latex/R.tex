@@ -365,31 +365,29 @@ Once installed, the package can be loaded into memory by entering:
 library(geostats)
 \end{script}
 
-Let's use \texttt{geostats} to reproduce
-Figure~\ref{fig:declusteredquakes}:
+Let's use \texttt{geostats} to produce a Sierpinski carpet, as will be
+discussed in Chapter~\ref{ch:fractals}:
 
 \begin{script}[firstnumber=2]
-quakesperyear <- countQuakes(declustered,minmag=5.0,from=1907,to=2006)
-barplot(quakesperyear)
+s <- sierpinski()
+image(s,axes=FALSE)
 \end{script}
 
-Type \texttt{?declustered} and \texttt{?countQuakes} for further
-details. To view the source code of the \texttt{countQuakes} function,
-just type \texttt{countQuakes} at the command prompt:
+Type \texttt{?sierpinski} for further details. To view the source code
+of this function, just type \texttt{sierpinski} at the command prompt:
 
 \begin{console}
-> countQuakes
-function(qdat,minmag,from,to){
-    bigenough <- (declustered$mag >= minmag)
-    youngenough <- (declustered$year >= from)
-    oldenough <- (declustered$year <= to)
-    goodenough <- (bigenough & youngenough & oldenough)
-    table(qdat$year[goodenough])
+> sierpinski
+function (n = 5){
+    X <- matrix(1, 1, 1)
+    for (i in 1:n) {
+        Y <- cbind(X, X, X)
+        Z <- cbind(X, 0 * X, X)
+        X <- rbind(Y, Z, Y)
+    }
+    return(X)
 }
 \end{console}
-
-\noindent where \texttt{table} produces a table with the counts of
-each value.
 
 \end{enumerate}
 
@@ -505,8 +503,17 @@ A KDE of the log-transformed catchment Ca/Mg data
 
 \begin{script}
 lc <- log(catchments$CaMg)
-d <- density(lc)
-plot(d)
+dens <- density(lc)
+plot(dens)
+\end{script}
+
+The log-transformed KDE is not as easy to relate to as the raw Ca/Mg
+values. \texttt{geostats} implements a function called \texttt{exp()}
+to map the log-transformed KDE back to a linear scale:
+
+\begin{script}[firtsnumber=3]
+plot(exp(dens))
+rug(catchments$CaMg)
 \end{script}
 
 Subjecting the vegetation data to a logistic transformation before
@@ -605,45 +612,45 @@ fraction of pH values that are less than 4.5:
 \item Calculating summary statistics in \texttt{R} is straightforward:
 
 \begin{console}
-> mean(catchments$pH)
+> pH <- catchments$pH # to save some typing
+> mean(pH)
 [1] 5
-> sd(catchments$pH) # standard deviation
-[1] 0.6537342
-> median(catchments$pH)
+> sd(pH)              # standard deviation
+[1] 0.6657011
+> median(pH)
 [1] 5.1
-> mad(catchments$pH,constant=1) # median absolute deviation
+> mad(pH,constant=1)  # median absolute deviation
 [1] 0.5
-> IQR(catchments$pH,type=1) # interquartile range
+> IQR(pH,type=1)      # interquartile range
 [1] 1
 \end{console}
 
 \item\label{it:mode} \texttt{R} does not come with a function to
   calculate the mode\footnote{There does exist a \texttt{mode}
-    function but it does something different.\label{fn:mode}} so we
-  have to write our own.  For categorical data, the mode is the most
-  frequently occurring value. Using the declustered earthquake counts
-  of Figure~\ref{fig:declusteredquakesperyear} as an example:
+  function but it does something different.\label{fn:mode}} so we have
+  to write our own.  For categorical data, the mode is the most
+  frequently occurring value. Using the stratigraphic age data of
+  Figure~\ref{fig:discrete}.b as an example:
 
 \begin{script}
-quakesperyear <- countQuakes(declustered,minmag=5.0,from=1917,to=2016)
-quaketab <- table(quakesperyear)
-mod <- which.max(quaketab)
+agetab <- table(catchments$age)
+mod <- which.max(agetab)
 \end{script}
 
-\noindent where \texttt{which.max} returns the index or name of the
-maximum value. A more sophisticated implementation is included in a
-\texttt{geostats} function called \texttt{Mode}\footnote{Note the
-  uppercase `\texttt{M}' in \texttt{Mode}, which aims to avoid the
-  conflict with the \texttt{mode} function mentioned in
-  footnote~\ref{fn:mode}. \texttt{R} is case sensitive.}.
-
-For continuous variables, in which there are no duplicate values, we
-use a KDE to determine the mode:
+\noindent where \texttt{which.max} returns the index and/or name of
+the maximum value. For continuous variables, in which there are no
+duplicate values, we use a KDE to determine the mode:
 
 \begin{script}
-dens <- density(catchments$CaMg)
+dens <- density(catchments$pH)
 mod <- dens$x[which.max(dens$y)]
 \end{script}
+
+A more sophisticated implementation is included in a \texttt{geostats}
+function called \texttt{Mode}\footnote{Note the uppercase `\texttt{M}'
+in \texttt{Mode}, which aims to avoid the conflict with the
+\texttt{mode} function mentioned in footnote~\ref{fn:mode}. \texttt{R}
+is case sensitive.}.\medskip
 
 The skewness is not implemented in \texttt{R} either. But it easy to
 write a function for that as well, based on Equation~\ref{eq:skew}:
