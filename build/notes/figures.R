@@ -1010,7 +1010,10 @@ poiscdf <- function(nn,kk,H0,Ha=H0,nsides=1,showax=TRUE,add=FALSE,
 
 cairo(file='../../figures/increasinglambda.pdf',width=8,height=3)
 lambda <- c(1,2,5,10)
-labels <- c('a)','b)','c)','d)')
+labels <- list()
+for (i in seq_along(lambda)){
+    labels[[i]] <- substitute(lambda*'='*k,list(k=lambda[i]))
+}
 pars(mar=rep(0,4),mfrow=c(2,length(lambda)))
 m <- rbind(c(1,rep(10,7)),
            c(1,2,13,3,14,4,15,5),
@@ -1026,9 +1029,8 @@ for (i in 1:length(lambda)){
              showax=TRUE,xlim=c(-1,M)+0.5,xlab='',xaxt='n',yaxt='n')
     axis(side=2,pos=-(M/50))
     if (i==1) mtext(side=2,line=1.5,text='P(k)',cex=0.9)
-    legend('topright',legend=labels[i],bty='n',cex=1.5,adj=c(1,0))
+    legend('topright',legend=labels[[i]],bty='n',cex=1.2)
 }
-labels <- c('e)','f)','g)','h)')
 for (i in 1:length(lambda)){
     M <- qpois(0.99999,lambda[i])
     poiscdf(0:M,H0=lambda[i],plotk=FALSE,plotp=FALSE,
@@ -1039,7 +1041,6 @@ for (i in 1:length(lambda)){
     }
     axis(side=1,at=pretty(0:M))
     mtext(side=1,line=1.5,text='x,k',cex=0.9)
-    legend('topleft',legend=labels[i],bty='n',cex=1.5,adj=c(1,0))
 }
 plot.new()
 dev.off()

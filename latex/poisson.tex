@@ -79,52 +79,6 @@ a characteristic property of the Poisson distribution.
 \section{Probability mass function}
 \label{sec:PMF}
 
-The Poisson distribution describes the frequency of \textit{rare
-  events} in time or space.  It predicts the likelihood of observing
-the number of `successes' $k$ given the long term average of successes
-$\lambda$:
-\begin{equation}
-  P(k|\lambda) = \frac{\lambda^k e^{-\lambda}}{k!}
-  \label{eq:poispmf}
-\end{equation}
-
-Thus the Poisson distribution is characterised by a single parameter,
-$\lambda$. Exploring the distribution for different values of this
-parameter:\medskip
-
-\noindent\includegraphics[width=\textwidth]{../figures/increasinglambda.pdf}
-\begingroup \captionof{figure}{PMF (a -- d) and CDF (e -- h) of the
-  Poisson distribution for $\lambda=1$ (a, e); $\lambda=2$ (b, f);
-  $\lambda=5$ (c, g); and $\lambda=10$ (d, h); as marked by the dashed
-  line.\medskip} \endgroup
-
-The Poisson distribution is positively skewed but becomes more
-symmetric with increasing $\lambda$. In this respect it is similar to
-the binomial distribution (Figure~\ref{fig:binompower1}). In fact the
-Poisson and binomial distributions are closely related. Recall that
-the binomial distribution depends on two parameters: $n$ and $p$. It
-can be shown that the binomial distribution converges to the Poisson
-distribution with increasing $n$ and decreasing $p$. In the limit of
-$n \rightarrow \infty$ and $p \rightarrow 0$, the binomial
-distribution simplifies to a Poisson distribution with $\lambda =
-{n}{p}$. The next table illustrates this by evaluating the probability
-of observing $k\leq{2}$ successes under a binomial distribution with
-$np=5$ for different values of $n$ and $p$:
-
-\begin{center}
-\begin{tabular}{r|llllllllll}
-$n$ & 10 & 20 & 50 & 100 & 200 & 500 & 1000 & 2000 & 5000 & 10000 \\
-$p$ & 0.5 & 0.25 & 0.1 & 0.05 & 0.025 & 0.01 & 0.005 & 0.0025 & 0.001 & 0.0005 \\
-$P(k\leq{2})$ & 0.0547 & 0.0913 & 0.112 & 0.118 & 0.121 & 0.1234 & 0.124 & 0.1243 & 0.1245 & 0.1246
-\end{tabular}
-\captionof{table}{Binomial probability of 2 successes after $n$ trials
-  for different values of $p$, where $np=5$. In the limit of $n
-  \rightarrow{\infty}$ and $p \rightarrow{0}$, the cumulative
-  probability $P(k\leq{2})$ converges to a value of 0.1246. This equals the
-  probability of 2 successes under a Poisson distribution with
-  $\lambda = 5$.}
-\end{center}
-
 The Poisson distribution expresses the probability of a given number
 of events occurring in a fixed interval of time or space if these
 events occur with a \textbf{constant mean rate} and are
@@ -140,7 +94,49 @@ Poisson variables include the number of
 
 The number of earthquakes including aftershocks and the number of
 floods per year are \emph{not} Poisson variables, because they are
-clustered in time.
+clustered in time. The Poisson distribution predicts the likelihood of
+observing the number of `successes' $k$ given the long term average of
+successes $\lambda$:
+\begin{equation}
+  P(k|\lambda) = \frac{\lambda^k e^{-\lambda}}{k!}
+  \label{eq:poispmf}
+\end{equation}
+
+Thus the Poisson distribution is characterised by a single parameter,
+$\lambda$. Exploring the distribution for different values of this
+parameter:\medskip
+
+\noindent\includegraphics[width=\textwidth]{../figures/increasinglambda.pdf}
+\begingroup \captionof{figure}{PMF (top) and CDF (bottom) of the
+  Poisson distribution for different values of the parameter
+  $\lambda$, as marked by the dashed lines.\medskip} \endgroup
+
+The Poisson distribution is positively skewed but becomes more
+symmetric with increasing $\lambda$. In this respect it is similar to
+the binomial distribution (Figure~\ref{fig:binompower1}). In fact the
+Poisson and binomial distributions are closely related. Recall that
+the binomial distribution depends on two parameters: $n$ and $p$. It
+can be shown that the binomial distribution converges to the Poisson
+distribution with increasing $n$ and decreasing $p$. In the limit of
+$n \rightarrow \infty$ and $p \rightarrow 0$, the binomial
+distribution simplifies to a Poisson distribution with $\lambda =
+{n}{p}$. The next table illustrates this empirically by evaluating the
+probability of observing $k\leq{2}$ successes under a binomial
+distribution with $np=5$ for different values of $n$ and $p$:
+
+\begin{center}
+\begin{tabular}{r|llllllllll}
+$n$ & 10 & 20 & 50 & 100 & 200 & 500 & 1000 & 2000 & 5000 & 10000 \\
+$p$ & 0.5 & 0.25 & 0.1 & 0.05 & 0.025 & 0.01 & 0.005 & 0.0025 & 0.001 & 0.0005 \\
+$P(k\leq{2})$ & 0.0547 & 0.0913 & 0.112 & 0.118 & 0.121 & 0.1234 & 0.124 & 0.1243 & 0.1245 & 0.1246
+\end{tabular}
+\captionof{table}{Binomial probability of 2 successes after $n$ trials
+  for different values of $p$, where $np=5$. In the limit of $n
+  \rightarrow{\infty}$ and $p \rightarrow{0}$, the cumulative
+  probability $P(k\leq{2})$ converges to a value of 0.1246. This equals the
+  probability of 2 successes under a Poisson distribution with
+  $\lambda = 5$.}
+\end{center}
 
 \section{Parameter estimation}
 \label{sec:poispar}
@@ -149,14 +145,16 @@ The Poisson distribution has one unknown parameter, $\lambda$. This
 parameter can be estimated using the method of maximum likelihood,
 just like the parameter $p$ of the binomial distribution
 (Section~\ref{sec:binompar}). As before, the likelihood function is
-obtained by swapping the parameter ($\lambda$) and the data ($k$):
+obtained by swapping the parameter ($\lambda$) and the data ($k$) in
+the PMF function (Equation~\ref{eq:poispmf}):
 \begin{equation}
   \mathcal{L}(\lambda|k) = \frac{\lambda^k e^{-\lambda}}{k!}
   \label{eq:poislik}
 \end{equation}
 
-And as before, we can estimate $\lambda$ by taking the derivative of
-$\mathcal{L}$ with respect to it and setting this derivative to zero:
+And as before, we can estimate $\lambda$ by maximising the likelihood
+function.  Thus, we take the derivative of $\mathcal{L}$ with respect
+to $\lambda$ and set it to zero:
 \begin{equation}
   \frac{\partial{\mathcal{L}}}{\partial{\lambda}} = 0
 \end{equation}
@@ -192,10 +190,11 @@ $\mathcal{LL}$.  Thus:
 \end{equation}
 
 In other words, the measurement itself equals the `most likely'
-estimate for the parameter. However the maximum likelihood estimate is
-not the only option. Other values of $\lambda$ may also be compatible
-with $k$, and vice versa. The next section explores which values of
-$k$ are reconsilable with a given value of $\lambda$.
+estimate for the parameter. However, this does not mean that all other
+values of $\lambda$ are unlikely. In fact, other values of $\lambda$
+may also be compatible with $k$, and \emph{vice versa}. The next
+section explores which values of $\lambda$ are reconsilable with a
+given value of $k$.
 
 \section{Hypothesis tests}
 \label{sec:poishyp}
