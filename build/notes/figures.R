@@ -1320,8 +1320,8 @@ plotnormpdf <- function(mu,sigma,m,M,ylim){
     xlim <- c(m,M)
     plot(x,dnorm(x,mean=mu,sd=sigma),type='l',ylab='f(x)',
          xlim=xlim,ylim=ylim,bty='n')
-    mtext(bquote(mu*'='*.(mu)),side=3,line=-2,at=m,adj=0,cex=0.9)
-    mtext(bquote(sigma*'='*.(sigma)),side=3,line=-3,at=m,adj=0,cex=0.9)
+    mtext(bquote(mu*'='*.(mu)),side=3,line=-2,at=m,adj=0,cex=0.8)
+    mtext(bquote(sigma*'='*.(sigma)),side=3,line=-3,at=m,adj=0,cex=0.8)
 }
 
 cairo(file='../../figures/musigma.pdf',width=8,height=1.8)

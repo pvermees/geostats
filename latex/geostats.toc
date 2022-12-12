@@ -129,7 +129,7 @@
 \contentsline {section}{\numberline {19.10}Regression}{214}{section.19.10}%
 \contentsline {section}{\numberline {19.11}Fractals and chaos}{215}{section.19.11}%
 \contentsline {section}{\numberline {19.12}Unsupervised learning}{217}{section.19.12}%
-\contentsline {section}{\numberline {19.13}Supervised learning}{218}{section.19.13}%
+\contentsline {section}{\numberline {19.13}Supervised learning}{219}{section.19.13}%
 \contentsline {section}{\numberline {19.14}Compositional data}{220}{section.19.14}%
 \contentsline {section}{\numberline {19.15}Directional data}{222}{section.19.15}%
-\contentsline {section}{\numberline {19.16}Spatial data}{223}{section.19.16}%
+\contentsline {section}{\numberline {19.16}Spatial data}{224}{section.19.16}%
