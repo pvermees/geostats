@@ -5,7 +5,6 @@ output:
     includes:
       keep_tex: yes
     number_sections: yes
-    extra_dependencies: ["float"]
 ---
 
 ```{r setup, include = FALSE}
@@ -19,9 +18,7 @@ knitr::opts_chunk$set(echo=solution,include=results)
 knitr::opts_knit$set(global.device=FALSE)
 knitr::opts_chunk$set(fig.pos="H",out.extra="")
 set.seed(4)
-# to render:
-# rmarkdown::render("~/Documents/Programming/R/geostats/quizzes/extra.Rmd")
-# then parse into separate PDFs using parsextra.R
+# to render, run parsextra.R
 ```
 
 \newif\ifsol\sol`r ifelse(solution, 'true', 'false')`
@@ -527,7 +524,6 @@ with parameter $\lambda=2$ per hour.
 
 2. Recoil track geochronology is an novel dating technique that
 is based on the following equation:
-
    \[t = \frac{1}{\lambda_{238}}\ln\left(\frac{N}{U}+1\right)\]
 
    where $t$ is the age, $\lambda_{238}$ is the decay constant of
@@ -540,21 +536,17 @@ is based on the following equation:
 
    \ifsol{\itshape
    Rearranging the age equation for $N$:
-  
    \[N = U\left(\exp[\lambda_{238}t]-1\right)\]
   
    Plugging the measurements into this rearranged equation:
-  
    \[\hat{N} = 10^5\left(e^{{0.000155125}\times{7}}-1\right) = 124.177 \]
   
    where $\hat{N}$ stands for the `expected value' of $N$.
    To test whether this is compatible with the observed outcome
    of $N=100$, we formulate the following null hypothesis:
-  
    \[H_0: \lambda = \hat{N} = 124.177\]
 
    versus the alternative hypothesis:
-
    \[H_a: \lambda < 124.177\]
 
    Using \texttt{R}:
@@ -575,7 +567,6 @@ is based on the following equation:
 The following two questions require some simple calculus, and are based
 on the relationship that the probability density $f$ and the cumulative
 distribution function $F$ are related as follows:
-
 \[f(x) = \frac{\partial{F(x)}}{\partial{x}}\]
 
 1. What is the probability density for the distance from an event to
@@ -658,7 +649,6 @@ particle sizes follows a normal distribution.
 # Error propagation
 
 Equation 8.9 of the notes can be generalised from 1 to 2 dimensions:
-
 \[
 \left[
 \begin{array}{@{}cc@{}}
@@ -1086,7 +1076,6 @@ https://doi.org/10.1037/14805-018)](https://www2.psych.ubc.ca/~schaller/528Readi
 linear congruential method, which works as follows. If $x_0$ is the
 `seed', then a sequence of pseudorandom numbers is generated
 recursively as:
-
    \[
    x_n = (69069 ~ x_{n-1}) ~\mbox{mod}~ 2^{31}
    \]
@@ -1173,10 +1162,10 @@ using a t-distribution with $n-2=3$ degree of freedom. Note that
 \ifmulti\clearpage\fi
 # Fractals
 
-1. What is the fractal dimension of the following pattern?
+1. What is the fractal dimension of the following pattern ("Rivera H-I fractal")?
 
-   ![Rivera H-I fractal](rivera.jpg){width=50%}
-   
+   ![](rivera.jpg){width=35%}\newline
+
    \ifsol{\itshape
    
    1 square block with side $d=1$ covers the entire pattern,
@@ -1245,7 +1234,6 @@ using a t-distribution with $n-2=3$ degree of freedom. Note that
 
 Consider three multivariate normal distributions with the following
 mean vectors and covariance matrices:
-
 \[
 \mu_{X} =
 \left[

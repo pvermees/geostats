@@ -1,3 +1,89 @@
+=======
+Welcome
+=======
+
+Welcome to GEOL0061, Statistics for Geoscientists. My name is Pieter
+Vermeesch. I am a geochronologist at UCL, and geochronology is just
+one of many fields within the Earth sciences that require a solid
+understanding of statistics. In this module, you will learn essential
+tools and techniques to analyse not only geochronological data, but
+also data in structural geology, palaeobiology, sedimentology,
+geophysics and environmental studies.
+
+In this module, I will try to strike a balance between providing you
+with practical recipes that you can use for your research later in
+your career at UCL and beyond, whilst at the same time also explaining
+the theory behind these recipes. This is important because without
+some theoretical understanding, it is not always possible to
+appreciate the limitations of statistical methods and avoid mistakes
+when you apply them in a new context.
+
+To help you make better use of statistics in the future, I will also
+teach you a statistical programming language called R. Those of you
+who have taken my Isotope Geology module will already be familiar with
+this language.  But don't worry if you did not take Isotope Geology
+because we will start again from scratch.
+
+To help you climb the steep statistical learning curve, I have written
+a detailed set of lecture notes for you, which are available on
+Moodle. I have printed out a hard copy of these notes for each of you,
+which you can collect from me free of charge by coming to one of the
+face-to-face sessions. I have tried to make these notes as accessible
+as possible by using a very graphical approach to explaining the
+various statistical concepts. So the notes include more than 180
+figures, which were all created in R.
+
+We will cover the material in these notes over the course of 20
+sessions, which will run on Tuesdays from 11 to 1, and on Fridays from
+4 to 6. Teaching will be done using a "flipped classroom" approach,
+which means that all the lectures have been pre-recorded and can be
+viewed on Moodle. I will not repeat this material again during the
+face-to-face sessions. Instead, I will use the live sessions to answer
+questions and set additional exercises.
+
+All 20 sets of videos will follow essentially the same format. First,
+you will watch a theory lecture. Second, you will answer some short
+quiz questions. Your answers to these quizzes will not count towards
+your final mark, but you must complete the quizzes because I will use
+them as a register to monitor your attendance. Third, you will watch a
+second video, which will be an R tutorial introducing you to all the
+functions that you need to tackle the exercises that will be solved in
+the fourth part of each session. With the exception of the first
+session, which consists of somewhat long videos, the theory videos
+typically take about 20 minutes and the practical videos 10 minutes.
+
+During the live sessions, you will have the opportunity not only to
+ask questions but also to complete additional exercises. Although no
+new material will be introduced during the live sessions, completing
+the extra exercises will deepen your understanding of the material.
+
+The R practicals will be done in a programming environment called
+RStudio. Both R and RStudio are free and work in any operating system,
+including Windows, Mac OS and Linux. They have been installed on the
+cluster computers that you can use during the face-to-face
+sessions. Alternatively, or additionally, you can also use your own
+computer. Installation instructions are provided on the Moodle page.
+
+The assessment of this module consists of two parts. 30% of the marks
+will be awarded to two pieces of course work that will be set during
+weeks 5, and 10 of our 10-week timetable. One third of these
+coursework marks will be reserved for originality, so I would urge you
+to complete these pieces of coursework independently.
+
+The remaining 70% of the marks will be reserved for the final exam,
+which will take place in the third term. This will be an online open
+book exam in which you must answer all questions. The exam will note
+involve any extensive R programming, but you may find it useful to use
+R as a statistical calculator.
+
+Please drop me an email at any time during this term if you have any
+questions, I will try to answer your question as soon as possible.  If
+you find any mistakes in the notes, then please let me know and I will
+update them immediately. As the cliche goes, there is no such thing as
+a bad question, and I am grateful for any feedback. I hope that you
+will enjoy the module and look forward to seeing you in the live
+sessions.
+
 ========
 Plotting
 ========
