@@ -365,7 +365,7 @@ values of $n$:
 [1] 0.9491764
 \end{console}
 
-In conclusion we need to collect at least 14 clasts to have 95\%
+In conclusion, we need to collect at least 14 clasts to have 95\%
 certainty that all lithologies are represented in our sample.
 
 \item Using Equation~\ref{eq:totalBayes}:
@@ -447,9 +447,9 @@ is~4.
 [1] 18 32
 \end{console}
 
-So the rejection is $R=\{0,\ldots,17,33,\ldots,50\}$, which does not
-include the observed outcome of 32 male fossils. Equivalently, using
-the \texttt{binom.test} function:
+So the rejection region is $R=\{0,\ldots,17,33,\ldots,50\}$, which
+does not include the observed outcome of 32 male
+fossils. Equivalently, using the \texttt{binom.test} function:
   
 \begin{console}
 > h <- binom.test(x=32,n=50,p=0.5,alternative="two.sided")
