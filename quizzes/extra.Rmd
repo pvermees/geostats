@@ -208,8 +208,8 @@ Figure:
    lines(rep(uq,2),c(0,0.75),lty=2,col='red')
    ```
    \ifsol{\itshape
-   The 25, 50 and 75 percentiles are -5, 9 and 10, respectively.
-   Therefore, the median is 9 and the IQR is $10-(-5)=15$.
+   The 25, 50 and 75 percentiles are -5, 9 and 11, respectively.
+   Therefore, the median is 9 and the IQR is $11-(-5)=16$.
    }\fi
 
 3. Draw a box plot for this dataset (either using `R`, or by hand with
@@ -218,7 +218,7 @@ pencil on paper).  Does it identify any outliers?
    \ifsol{\itshape
    By hand, you would first draw a box from $-5$ to 10, with a line at 9.
    Then, whiskers would extend from this box until $-20$ and $+20$. The
-   value of 40 is an outlier, because $40-9=31>1.5$IQR$=22.5$.
+   value of 40 is an outlier, because $40-9=31>1.5\times$IQR$=22.5$.
 
    Using \texttt{R}:
    }\fi
@@ -390,19 +390,24 @@ function for the number of failures up to the $r$^th^ success?
 
 A coin is thrown independently 10 times to test the hypothesis that
 the probability of heads is 0.5 versus the alternative that the
-probability is not 0.5. The test rejects if either 0 or 10 heads are
-observed.
+probability is not 0.5.
 
-1. What is the significance level of the test?
+1. What is the minimum significance level $\alpha$ that would reject
+outcomes of either 0 or 10 heads?
 
    \ifsol{\itshape
    The fact that the rejection region consists of 0 and 10 implies that
-   \[\binom{10}{0} = \binom{10}{10} = 0.5^10 = \alpha/2\]
+   \[\binom{10}{0} 0.5^{10} = \binom{10}{10} 0.5^{10} = \alpha/2\]
    Therefore
    \[\alpha = 2 \times 0.5^{10} = 0.002\]
+   Note that $\alpha$-values greater than this but smaller than
+   \[\sum_{i\in\{0,1,9,10\}}{10\choose i}0.5^{10} = 0.021\]
+   would have the same rejection region.
    }\fi
 
-2. If in fact the probability of heads is 0.1, what is the power of the test?
+2. Using the rejection region from the previous exercise, what is the
+power of the test if the probability of heads is in fact not 0.5 but
+0.1?
 
    \ifsol{\itshape
    The power is defined as $1 - \beta$, where $\beta$ is the probability of
@@ -414,9 +419,10 @@ observed.
    \]
    }\fi
 
-3. Suppose that the coin is thrown 20 times, with again a 0.1
-probability of heads. Using the same significance level as before,
-what is the power? Use `R` to answer this question.
+3. Suppose that the coin is thrown 20 times, with again a 0.1 true
+probability of heads. Using the significance level from step 1, what
+is the power of a two-sided test with $H_0: p=0.5$? Use `R` to answer
+this question.
 
      ```{r}
      alpha <- 2*0.5^10
@@ -424,7 +430,7 @@ what is the power? Use `R` to answer this question.
      p0 <- 0.5
      pa <- 0.1
      k <- qbinom(alpha/2,size=n,prob=p0)
-     message('rejection region = {0,...,',k-1,',',n-k,',...,',n,'}')
+     message('rejection region = {0,...,',k-1,',',n-k+1,',...,',n,'}')
      power <- pbinom(k-1,size=n,prob=pa) + pbinom(n-k,size=n,prob=pa,lower.tail=FALSE)
      message('power = ',signif(power,2))
      ```
