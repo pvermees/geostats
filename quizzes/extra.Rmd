@@ -376,11 +376,11 @@ function for the number of failures up to the $r$^th^ success?
    \[
    p^r(1-p)^k
    \]
-   The number of ways to shuffle these outcomes is $\binom{k+r}{r}$. However,
+   The number of ways to shuffle these outcomes is $\binom{k+r}{k}$. However,
    the last outcome must be a success and cannot be shuffled. Therefore, the
-   number of shuffled outcomes is $\binom{k+r-1}{r}$. Therefore, the
+   number of shuffled outcomes is $\binom{k+r-1}{k}$. Therefore, the
    probability of $k$ failures up to the $r$\textsuperscript{th} success is
-   \[\binom{k+r-1}{r}p^r(1-p)^k\]
+   \[\binom{k+r-1}{k}p^r(1-p)^k\]
    This is the PMF of the so-called negative binomial distribution
    (see Equation 7.1 of the notes).
    }\fi
@@ -441,7 +441,7 @@ this question.
 1. Consider a Bernoulli experiment with $k=16$ successes out of
 $n=40$ trials.  Use \texttt{R}'s \texttt{binom.test()} function to
 construct a 95\% confidence interval for the parameter $p$. Compare
-your result with the approximate Equations 5.7 and 5.8 of the notes.
+your result with the approximate Equations 5.8 and 5.9 of the notes.
 
    ```{r}
    k <- 16
@@ -506,7 +506,7 @@ with parameter $\lambda=2$ per hour.
       \ifsol{\itshape
       Let $\lambda'$ be the expected number of phone calls per 10-min. period.
       Then $\lambda'=\lambda\times{10/60}=2/6=1/3$.
-      Hence,the probability that the phone does not ring is
+      Hence,the probability that the phone rings during the shower is
       \[
       P(k>0|\lambda'=1/3) = 1 - P(k=0|\lambda'=1/3) =
       1-\frac{\lambda'^ke^{-\lambda'}}{k!} = 1-e^{-1/3} = 0.28
@@ -515,15 +515,16 @@ with parameter $\lambda=2$ per hour.
       }\fi
 
    (b) How long can her shower be if she wishes the probability of
-   no phone calls to be at most 0.5?
+   interruptions to be at most 0.5?
       \ifsol{\itshape
       \[
-      P(k>0|\lambda'\equiv\lambda{t/60}) = 1 - P(k=0|\lambda') = 0.5 =
-      1-\frac{\lambda'^ke^{-\lambda'}}{k!} 1-e^{-\lambda'}
+      P(k>0|\lambda'\equiv\lambda{t/60}) = 1 - P(k=0|\lambda') =
+      1-\frac{\lambda'^ke^{-\lambda'}}{k!} > 0.5
       \]
       \[
-      \Rightarrow \lambda' = -\ln(0.5) = 0.051 =
-      \lambda{t/60} \Rightarrow t = \frac{0.051\times{60}}{2} = 20.8
+      \Rightarrow 1-\exp(-\lambda') > 0.5 \Rightarrow
+      \lambda{t/60} < -\ln(0.5) = 0.051 
+       \Rightarrow t < \frac{0.051\times{60}}{2} = 20.8
       \]
       Answer: Diane's shower can last at most 20.8 minutes.
       }\fi
@@ -545,7 +546,7 @@ is based on the following equation:
    \[N = U\left(\exp[\lambda_{238}t]-1\right)\]
   
    Plugging the measurements into this rearranged equation:
-   \[\hat{N} = 10^5\left(e^{{0.000155125}\times{7}}-1\right) = 124.177 \]
+   \[\hat{N} = 10^5\left(e^{{0.000155125}\times{8}}-1\right) = 124.177 \]
   
    where $\hat{N}$ stands for the `expected value' of $N$.
    To test whether this is compatible with the observed outcome
@@ -585,9 +586,9 @@ its nearest neighbour for a Poisson process in the plane?
    P(k|\lambda) = \frac{\lambda^ke^{-\lambda}}{k!}
    \]
    The Poisson process produces a random collection of points.
-   When we take any location (the origin, say) and look for the
-   closest point from our collection. Let the distance to this
-   point be $X$. Then the probability that this distance
+   Suppose that we take any location (the origin, say) and look
+   for the closest point from our collection. Let the distance
+   to this point be $X$. Then the probability that this distance
    falls inside a circle of radius $r$ is given by
    \[
    P(X\leq{r}) = 1 - P(X>r) = 1-\exp[-\lambda\pi{r}^2]
@@ -636,14 +637,14 @@ deviation $b\sigma$
 
 3. Suppose that a particle of initial size $y_0$ is subjected to
 repeated impacts, that on each impact a proportion $X_i$ of the
-particle remains, and that $X_i$ can be modelled as independent
-random variables having the same distibution (for
-$1\leq{i}\leq{n}$, say). Prove that the logarithm of the resulting
-particle sizes follows a normal distribution.
+particle remains, and that $X_i$ can be modelled as independent random
+variables having the same distribution (for $1\leq{i}\leq{n}$,
+say). Prove that the logarithm of the resulting particle sizes follows
+a normal distribution.
 
    \ifsol{\itshape
    After $n$ impacts, the particle size has been reduced to:
-   \[y_n = X_nX_{n-1}\ldots{X_2}{X_1}y0\]
+   \[y_n = X_nX_{n-1}\ldots{X_2}{X_1}y_0\]
    Taking logarithms:
    \[\ln[y_n] = \ln[y_0] + \sum\limits_{i=1}^{n}\ln[X_i]\]
    which, thanks to the Central Limit Theorem, results in a normal
@@ -947,7 +948,7 @@ group O & 4532 & 361 \\ \hline
 \end{center}
 
 1. First, consider the two tables separately. Is there a relationship
-between blood type and propensity for ulcer?
+between blood type and propensity for ulcer in London and Manchester?
 
    \ifsol{\itshape
    The rejection region for the $\chi^2$-test with 1 degree of freedom
@@ -988,7 +989,8 @@ between blood type and propensity for ulcer?
    ulcer in both London and Manchester.
    }\fi
 
-2. Are the data from London and Manchester comparable?
+2. Are the data from London and Manchester comparable? Repeat twice
+for groups A and O.
 
    \ifsol{\itshape
    Comparing group A in London and Manchester:
@@ -1139,9 +1141,9 @@ uncertainties ($s[x]$, $s[y]$) and error correlations
 2. Repeat the linear regression taking into account the analytical
 uncertainties, using the `geostats` package's `york()` function.
 Predict the $y$-value at $x=20$ and estimate its standard
-error. Calculate the corresponding 95% confidence interval for $y$
-using a t-distribution with $n-2=3$ degree of freedom. Note that
-`york()` does not use formula notation. See `?york` for details.
+error. Calculate the corresponding 2$\sigma$ confidence interval for
+$y$. Note that `york()` does not use formula notation. See `?york` for
+details.
 
    ```{r out.width='60%', fig.width=6,fig.height=5}
    sx <- rep(1,5)
@@ -1155,7 +1157,7 @@ using a t-distribution with $n-2=3$ degree of freedom. Note that
    # error propagation formula 8.10 of the notes:
    synew <- sqrt( yfit$cov[1,1] + yfit$cov[2,2]*xnew^2 + 2*xnew*yfit$cov[1,2])
    df <- length(x)-2
-   ci <- ynew + qt(c(0.025,0.975),df=df)
+   ci <- ynew + 2*synew*c(-1,1)
    out <- signif(c(ynew,ci),5)
    names(out) <- c('fit','lwr','upr')
    out

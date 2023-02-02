@@ -4559,3 +4559,466 @@ far in advance. This phenomenon limits the ability of meteorologists
 to forecast the weather more than 10 days in advance, and it
 complicates our ability to predict how the climate and how oceanic
 circulation will responds to a changing atmospheric composition.
+
+=====================
+Unsupervised learning
+=====================
+
+So far, we have been concerned with relatively simple datasets of one
+or two dimensions. However, many Earth science datasets span multiple
+dimensions. For example, a geochemist may have measured the
+concentration of 20 elements in 50 samples, or a palaeoecologist may
+have counted the relative abundances of 15 species at 30 sites. In
+this session, I will introduce some tools that can help us see
+structure in such big datasets without any prior knowledge of
+clusters, groupings or trends. This is called unsupervised learning,
+as opposed to the supervised learning algorithms that will be
+introduced in the next session.
+
+---
+
+Principal component analysis or PCA, is an exploratory data analysis
+method that takes a high dimensional dataset of inputs and produces a
+lower, typically two dimensional, projection as output. PCA is closely
+related to multidimensional scaling or MDS, which will be introduced
+in a few minutes time. To explain the mathematical mechanism behind
+PCA, let's begin with a simple toy example.
+
+Consider a bivariate dataset of three samples, where the variables are
+called A and B, and the samples are referred to as numbers 1, 2 and
+3. Displaying these three points on a scatter diagram reveals that two
+of the three samples close together, while the third one plots further
+away.
+
+Imagine that you live in a one dimensional world and cannot see the
+spatial distribution of the three points represented by the matrix X,
+then PCA allows us to visualise a two-dimensional data as a
+one-dimensional array of numbers.
+
+---
+
+This can be achieved by decomposing X into three matrices M, P and Q,
+where M is the arithmetic mean of the two data columns, P are the
+principal components or scores, and Q are the so-called loadings of
+the variables.
+
+For those of you who are into linear algebray, P and Q are obtained by
+an eigen-decomposition of the covariance matrix Sigma of X which,
+incidentally, is also the covariance matrix of the centred data Y.
+
+The diagonal matrix lambda contains the eigenvalues, which are
+proportional to the fraction of the total variance in the data that is
+accounted for by the directions defined by the eigenvectors. This may
+sound a bit abstract, but hopefully a figure will clarify things.
+
+---
+
+Here our data matrix X is again shown as a bivariate scatterplot of
+three samples in A-B space. The square represents the arithmetic mean
+M and the cross is the value of M plus or minus the directions defined
+by the eigenvectors (Q) stretched by the square roots (because we want
+standard deviations, not variances) of lambda.
+
+The matrix of principal components P contains the projected
+coordinates of our samples onto these principal directions.  Then
+these projections are shown on the right hand side of the slide.
+
+The first principal component is obtained by projecting the three
+samples onto the first principal direction. This tells us that, to a
+first approximation, sample 1 is very different from samples 2 and 3,
+which are identical to each other in this one-dimensional
+simplification.
+
+Principal component 2 then captures the remaining information, which
+shows that samples 2 and 3 are in fact not identical, but there's a
+small difference between them in the direction perpendicular to the
+first principal component. In the second principal direction, sample 1
+plots in between samples 2 and 3.
+
+The matrix decomposition of principal components analysis contains
+information about both the samples 1, 2 and 3 and about the variables
+A and B. This information is contained in the principal components P
+and in the vector loadings Q, respectively. We can graphically combine
+all this information together in a so-called biplot.
+
+---
+
+The biplot simultaneously visualises the principal components of the
+samples as labels and the loadings of the variables as arrows. The
+first principal component is obtained by projecting the samples onto
+the horizontal axis. It shows that the most important difference in
+the dataset is that between sample 1, which is rich in component B and
+poor in component A, and samples 2 and 3, which are rich in A and poor
+and B. If we look at our original data, we can see that indeed 1 is
+rich in B and poor in A, and 2 and 3 are rich in A and poor in B.
+
+The second principal component captures the remaining variance, with
+sample 3 being slightly richer in A and B. So these two errors are
+pointing slightly towards sample 3 relative to 2. And that's indeed
+what we can see here. Sample 3 has more B than sample 2 does, and it
+also has more A.
+
+Although the 1-dimensional toy example is useful for illustrating the
+inner workings of principal components analysis, the true value of
+this technique obviously lies in higher dimensions.
+
+---
+
+As a more realistic example to illustrate the usefulness of principal
+components analysis, let us consider a dataset of American crime
+statistics in arrests per 100,000 residents for murder, assault and
+rape for each of America's 50 states. Also listed is the percentage of
+the population for each of these states that live in urban areas.
+
+This dataset contains four columns, so it's a four-dimensional
+dataset, which we cannot immediately visualise so easily on a
+two-dimensional scatterplot.
+
+---
+
+Applying principal component analysis to this dataset yields four
+principal components, the first two of which represents 62 and 25% of
+the total variance, respectively. So we can safely discard the third
+and the fourth principal components and visualise the first two
+principal components as a biplot.
+
+Grey labels mark the different states, whereas the white vectors mark
+the different crimes and the percentage of the population that lives
+in urban areas. States that have a lot of crime plots on the left hand
+side of the diagram. States that have little crime plot towards the
+right. Heavily urbanised states plot at the bottom of the diagram,
+whereas rural states plot near the top.
+
+States that are close together on the biplot, such as Vermont and West
+Virginia, or Arizona and New York, have similar crime and urbanisation
+statistics. States that plot at opposite ends of the diagram, such as
+Mississippi and California, or North Dakota and Florida, have different
+crime and urbanisation statistics.
+
+The vectors for murder, assault and rape all point in approximately
+the same direction, towards the left hand side of the buy plot. This
+tells us that these crimes are all correlated with each other. So
+states that have a lot of assaults, such as Florida, also have a lot
+of rape and murder. States that plots on the right hand side of the
+diagram, such as North Dakota, have low crime statistics in all
+categories. The vector with urban population is perpendicular to the
+crime vectors. This tells us that crime and degree of urbanisation are
+not correlated in the United States.
+
+---
+
+Multidimensional scaling, or MDS, is a multivariate ordination
+technique that is similar in many ways to principal components
+analysis, and I will explore those similarities in a bit more detail
+in a minute. But first, I would like to introduce this technique with
+an example, not an example of crime statistics, but a geographical
+example.
+
+Here is a table of pairwise road distances between European
+cities. For example, the distance between Athens and Barcelona is 3313
+km. The distance from Barcelona to Stockholm is 2868 km. This is a
+symmetric table because the distance from Athens to Rome is the same
+as a distance from Rome to Athens. It contains positive numbers, and
+it has a zero diagonal.
+
+If we plug a matrix of this form into an MDS algorithm, it will spit
+out a map of Europe.
+
+---
+
+Here are the first two dimensions of my multidimensional scaling
+fit. We can see that it roughly agrees with the map of Europe. We've
+got Athens in the southeast, Stockholm in the north, and Gibraltar in
+the southwest. The map of Europe seems to be rotated by about 15-20
+degrees, but the distances between the different cities appear to be
+correct.
+
+We can actually measured these distances on the map, not in
+kilometres, but in centimetres. And we can compare those to the input
+distances from our input table here...
+
+---
+
+... and that produces a so-called Shepard plot. This is a scatterplot
+that compares the fitted to the true distances. It gives us visual
+confirmation that our two-dimensional, multidimensional scaling
+configuration has adequately captured the multidimensional inputs.
+
+The fit is not perfect, though. There is some scatter, and this
+scatter simply reflects the fact that the input distances were road
+distances and European roads can be quite windy. So it is impossible
+to fit these windy distances with straight line distances on a two
+dimensional plotting surface.
+
+We can quantify the scatter of the fit with a parameter called the
+stress. The details don't really matter. It's basically a squared
+difference between the fit and the true distances, and we can then use
+this stress to assess and formalise the goodness of fit from poor to
+perfect. The stress in this case was seven percent, which qualifies as
+a good fit to the data.
+
+---
+
+Let us now apply multidimensional scaling to our toy example of three
+samples and two variables that was used to introduce principal
+component analysis earlier on.
+
+So first we turn this 3 x 2 table into a 3 x 3 distance matrix using
+the straight line distance (the Euclidean distance). So this produces
+asymmetric matrix with positive values and a zero diagonal. Plugging
+this matrix into a multidimensional scaling algorithm (of which there
+are many, in the simplest form, they are very similar to principal
+components analysis, but they can be more sophisticated to add
+flexibility to the technique). Anyway, if we enter this distance
+matrix into a multidimensional scaling algorithm, it spits out a set
+of coordinates, which look very similar to the principal components of
+our toy example.
+
+---
+
+So let's have a look at our principal components again. We've got
+-4.24, 2.12, 2.12, -0.71, 0.71. If we go to our multidimensional
+scaling, we've got 4.24, -2.12, -2.12, -0.71, 0.71. So the values are
+the same. The only difference is that all the signs of the first
+multidimensional scaling dimension have been flipped compared to those
+of the principal components.
+
+So multidimensional scaling analysis is a scale invariant technique of
+which the actual orientation doesn't really tell us very much. And
+this is also the reason why our map of Europe is slightly rotated
+compared to the true map of Europe.
+
+In any case, our configuration of multidimensional scaling components
+is identical to the biplot of our principal component analysis, except
+for the fact that the horizontal axis has flipped and that we don't
+have the vector loadings in our multidimensional scaling
+configuration. So we are losing the information about the
+variables. We lost that information when we were taking the distances
+between our samples.
+
+So compared to principal components analysis, we have lost
+something. But in return, multidimensional scaling gives us much
+greater flexibility to compare a much wider variety of objects than we
+could analyse with principal component analysis.
+
+---
+
+For example, here is a dataset of 13 detrital zircon U-Pb age
+spectra. This dataset was obtained by collecting 13 samples of sand
+from sand dunes, from windblown dust and from rivers, and separating
+the mineral zircon from that sand so it can be dated with the U-Pb
+method.
+
+If we do that for a representative number of grains anywhere between
+58 and 772 grains per sample, then we can plot the ages, the
+crystallisation ages of these grains as kernel density estimates where
+we can identify various components at 200 Ma, 2 Ga, etc., which each
+characterise a provenance area (the area from which the sound was
+originally derived).
+
+The geological question of interest here is to group these samples and
+see which ones are similar to each other and which ones are
+dissimilar. In order to understand something about the flow of sand
+through the sediment rooting system.
+
+Now, we can make this comparison subjectively by squinting our eyes
+and looking at these kernel density estimates. But that's not very
+scientific. So multidimensional scaling is one way to help us extract
+geologically relevant information from this large dataset in a more
+objective way.
+
+Before we can analyse this dataset with multidimensional scaling, we
+need to first somehow extract a matrix of distances between these
+different samples. Those distances will, of course, not be expressed
+in kilometres, they will be some form of statistical distance.
+
+We have actually already seen a way to do so in our session on the
+subject of comparing distributions.
+
+---
+
+In that session, I compared the detrital zircon U-Pb age distributions
+of two samples of sand from a dune and from a river, using the
+Kolmogorov-Smirnov statistic, which is the maximum vertical distance
+between the empirical cumulative distribution functions of these two
+samples.
+
+Well, it turns out that this dune was sample 5 in the dataset that I
+showed in the previous slide, and the river was sample Y; it is the
+Yellow River. So we can recognise this Kolmogorov-Smirnov distance of
+0.3 in this matrix. I have multiplied it with 100 to remove the
+decimal places, and I have repeated this exercise for all possible
+pairs of samples in my large dataset.
+
+So this produces a 13 x 13 matrix of Kolmogorov-Smirnov distances,
+which are all values greater than zero with a zero diagonal that is
+symmetric around that diagonal.
+
+---
+
+Plugging this matrix into a multidimensional scaling algorithm
+produces a map that shows not the locations of European cities, but of
+sampling locations as a means of not visualising their arrangement in
+physical space but in, if you will, U-Pb age spectrum space. We can
+see that samples that are plot close together have similar U-Pb age
+distributions. So L, Y and T should have similar age spectra. They
+each have two peaks of Phanerozoic U-Pb ages and very few Precambrian
+U-Pb ages.
+
+And in contrast with that, L and 8 plot very far apart on the
+multidimensional scaling map. So they should have very different U-Pb
+age distribution. So let's have a look at that. L again has two young
+peaks and very little going on in the Precambrian. 8 has only 1
+Phanerozoic zircon peak, and it has two big Precambrian peaks.
+
+So it appears that our multidimensional scaling map has indeed
+captured the essential differences and similarities in this dataset,
+in I think a much more objective manner than we could achieve by just
+visually inspecting the kernel density estimates.
+
+---
+
+K-means clustering is an unsupervised learning algorithm that tries to
+group data based on their similarity. As the name suggests, the method
+requires that we pre-specify the number of clusters K that we want to
+find in our dataset. Let's explore this algorithm using a simple,
+two-dimensional dataset of 150 points. And let's see if we can
+classify these points into three groups.
+
+---
+
+The first step in this algorithm is to randomly select three points
+from the dataset and designate them as the centroids of the three
+clusters. Let's mark these as crosses, triangles and circles. We then
+reassign each data point in our dataset to the cluster, whose centroid
+is the closest to it, using the straight line Euclidean distance.
+
+---
+
+Second, we calculate a new centroid for each cluster by averaging the
+x's and the y's for the crosses, the triangles and the circles. These
+new centroid positions are slightly different than the original
+positions. We can then use these new centroid to reclassify all the
+data points according to their distance to this new value. And we can
+repeat this iterative process until the positions of the centroids
+don't change anymore. And this is what is shown in this panel
+here. This is the final configuration classifying each of a 150 data
+points into the three clusters that are the closest to their
+respective centroid.
+
+---
+
+The K-means algorithm can easily be generalised from two to more
+dimensions, because the Euclidean distance that is used to group the
+samples into clusters can easily be generalised to any number of
+dimensions as well. The K-means algorithm is an unsupervised learning
+algorithm. This means that it is meant to be applied to data for which
+we do not know the correct classification.
+
+However, to get an idea of the success rate of the algorithm, it is
+useful to apply it to a dataset for which we do know the correct
+answer. One dataset that is particularly useful for this purpose was
+first introduced to statistics by Ronald Fisher. The dataset contains
+the measurements, in centimetres, of the sepal length and width, plus
+the petal length and width of 50 flowers from three different species
+of iris.
+
+This 4 x 4 grid of scatter plots shows the marginal distributions of
+the four dimensions worth of data. We can recognise our data from the
+previous bivariate example as being the panel that compares the sepal
+to petal widths.
+
+But we can then apply the K-means algorithm to the full dataset of
+four dimensional data, and we can compare the clusters that each of
+the flowers has been assigned to with the actual species of those
+flowers, and that is summarised in this table.
+
+We can see that all the flowers of species Setosa, which are the
+circles, have been correctly classified. 48 out of 50 Versicolor
+flowers, which are the plus symbols, have been correctly
+classified. It's only with Virginica (the triangles, which is like an
+intermediate group between these two species), that the K-means
+algorithm struggles a bit: it has misclassified 14 out of 50 of these
+flowers.
+
+---
+
+The K-means clustering algorithm requires that we pre-specify the
+number of clusters. However, it may not always be obvious what this
+number should be. Hierarchical clustering is an alternative approach
+that builds a hierarchy from the bottom up and does not require us to
+pre-specified the number of groups beforehand. Let's illustrate this
+algorithm using a simple, two dimensional example consisting of five
+samples and two variables which can easily be visualised on a two
+dimensional scatterplot, allowing us to keep track of what is going
+on.
+
+---
+
+The first step in the algorithm is to place each data point in its own
+cluster, and calculate the distances between all the different
+clusters using, for example, the Euclidean distance. We then identify
+the closest two clusters (the smallest number on the off-diagonals of
+this matrix), which tells us that samples 1 and 3 are the nearest to
+each other, and we connect these two points. We can also visualise
+these results as a tree or dendrogram.
+
+---
+
+Second, we calculate the distances between the remaining four
+clusters, where the distance between cluster 1-3 and the other three
+samples is calculated as the maximum of the distances from sample 1 to
+the other three samples and of sample 3 to the other three
+samples.
+
+The smallest number, and the resulting distance matrix, is the
+distance between cluster 1-3 from the previous step, and sample 4. So
+we include sample 4 into our second order cluster, and we can
+visualise this again as a dendrogram, in which the first order cluster
+is nested inside the second order one.
+
+---
+
+At the beginning of our third step in the algorithm, we have three
+clusters remaining. We calculate the distances between them the same
+way as we did in the previous step. We identify the smallest value in
+this distance matrix as indicating that samples 2 and 5 are now the
+two closest clusters in our dataset. We group these together, and we
+get a new dendrogram in which the third cluster does not share any
+elements with the first two clusters.
+
+---
+
+And here are the final results of this hierarchical clustering
+analysis for the toy example. The y axis has been adjusted to have
+units of height, in order to show the actual distance between the
+different clusters. The longer the branch, the greater the difference
+between the respective clusters.
+
+So we can see that samples 1, 3 and 4 are relatively close together,
+but there is a great distance between the cluster defined by 1, 3 and
+4, and the cluster defined by samples 2 and 5.
+
+---
+
+We can then apply the same algorithm to the iris datasets to produce a
+tree with 150 leaves, each of which represents a single flower.
+
+---
+
+Recall that the height of the tree corresponds to the maximum possible
+distance between points belonging to two different clusters. The
+height changes rapidly between one and three clusters, indicating that
+these correspond to the most significant bifurcations. So let's cut
+down the tree at this level.
+
+Given that we know the species of all 150 iris flowers in the dataset,
+we can then again assess the performance of the hierarchical
+clustering algorithm using a contingency table. This table shows that
+the algorithm has done a good job classifying, Setosa and Virginica,
+but struggles with Versicolor, of which has misclassified about half
+of the flowers.
+
+===================
+Supervised learning
+===================
