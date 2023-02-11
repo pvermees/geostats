@@ -5022,3 +5022,291 @@ of the flowers.
 ===================
 Supervised learning
 ===================
+
+This session will introduce two supervised machine learning
+algorithms. In contrast with the unsupervised learning algorithms of
+the previous session, which did not require prior knowledge about the
+data, the supervised learning algorithms of this session use training
+data to classify samples into predefined categories. Once the
+classification is complete, the same decision rules can then be used
+to assign a new sample of unknown affinity to one of these
+categories.
+
+The first of the two supervised learning algorithms that we will study
+is discriminant analysis. This is a technique that is similar in some
+ways to principal component analysis. The second technique is the
+decision tree, which is similar in other ways to the hierarchical
+clustering algorithm of the previous session.
+
+---
+
+Consider a dataset uppercase X containing a large number of
+n-dimensional data were n in this bivariate example is two (we have
+two variables X and Y). These data belong to one of K classes where K
+and our example is three: we've got triangles, circles and crosses. We
+are now trying to decide which of these classes a new sample of
+unknown affinity belongs to.
+
+Let's call this sample lowercase x. This question is answered by
+Bayes' Rule. The decision D is the class G that has the highest
+posterior probability given the data lowercase x. The posterior
+probability can be calculated using Bayes' theorem, which we have
+already discussed in the session on probability. Here, P(X|G) is the
+so-called likelihood of the data given the class, and P(G) is the
+prior probability of the class, which we will assume to be uniform.
+So we will assume that prior to our calculations, we give the new
+sample an equal chance of belonging to the first, second or the third
+class. Each of these probabilities is one third.  So if we plug this
+equation into this decision rule, then this decision reduces to a
+simple comparison of likelihoods.
+
+---
+
+We then make the simplifying assumption of multivariate normality, or
+in the case of our simple toy example, bivariate normality, where mu_K
+and sigma_K are the means and the covariance matrices of the K-th
+group, where K goes from one to three for triangles, circles and
+crosses.
+
+The decision is then, again, the group that maximises this bivariate
+normal likelihood, or equivalently, it's also the group that maximises
+the log of these three likelihoods and that can be written as a sum of
+terms. This formula then becomes the basis of so-called quadratic
+discriminant analysis.
+
+---
+
+The panel on the right hand side of this slide shows the curved
+decision boundaries for the quadratic discriminant analysis of our toy
+example. For any point that plots to the left or above this decision
+line here, the likelihood that it belongs to the group of circles
+exceeds its likelihood for the group of triangles and the group of
+crosses.
+
+If a sample falls in the upper right quadrangle of our discrimination
+diagram, then it is most likely to belong to the group of triangles,
+and less likely to belong to the circles or the crosses. And finally,
+if a new sample falls in the area of the crosses, then the likelihood
+for this particular group exceeds that of the other two groups.
+
+So classifying a new sample of unknown affinity is simply a matter of
+plotting it on this diagram and seeing in which field it
+falls.
+
+---
+
+Usually the vectors mu_K and the matrices sigma_K are unknown and must
+be estimated from the training data. If you make the additional
+assumption that all the classes share the same covariance structure,
+so all the sigma_k's equal sigma and therefore all these error
+ellipses have the same size and orientation, then the decision rule
+for quadratic discriminate analysis simplifies to an equation that is
+linear in the data x.
+
+This decision rule forms the basis of linear discriminant analysis,
+which is so named because the decision boundaries between the
+different classes become straight lines.
+
+---
+
+Linear discriminant analysis can also be used to reduce the
+dimensionality of a dataset, in a similar way to principal component
+analysis. Recall that, in the previous session, we used a simple toy
+example to show how principal component analysis can be used to
+project a two-dimensional dataset onto a one-dimensional line. We can
+use the same approach to illustrate how linear discriminant analysis
+can achieve the same effect, although with a different aim.
+
+Consider an equal mixture of two bivariate normal datasets, then
+principal component analysis is an unsupervised learning technique, so
+it doesn't know which of these samples are circles and which of them
+are crosses. It lumps them all together, and it extracts the major
+axis of the best fitting error ellipse to the merged dataset as its
+first principal components.
+
+In contrast with this, linear discriminant analysis, which is a
+supervised learning technique, does know which of the samples are
+circles and which are crosses. It fits two error ellipses to the data
+and extracts a function (the so-called first linear discriminant) that
+maximises the distance between these two groups. In this example, this
+produces a line that is perpendicular to the first principal
+component.
+
+---
+
+Applying linear discriminant analysis to the four-dimensional iris
+dataset produces four linear discriminant functions that maximise the
+variance between the different species relative to the variance within
+each species.
+
+Like the first two principal components of PCA, and the first two
+dimensions of MDS in the previous session, also the first two linear
+discriminant functions achieve a dimension reduction. But whereas PCA
+and MDS aim to visualise the total variability of the data, linear
+discriminant analysis aims to highlight the predefined clusters within
+the dataset, which in the case of the iris dataset, are the three
+different species.
+
+---
+
+The first two linear discriminants of the four-dimensional iris data
+represent a two-dimensional projection of these data that maximises
+the differences between the three different species of flowers
+contained in them. These linear discriminants are defined on the left
+hand side of this slide.
+
+Now, suppose that we have a new flower with a sepal length of six
+centimetres, a sepal width of three centimetres, a petal length of
+five centimetres, and a petal width of one and a half
+centimetres. What species does this flower most likely belong to?
+
+Well, we can simply plug the measurements into these two linear
+discriminants, plot the results on our discrimination diagram, and
+that reveals that the most likely species for the new flower is
+Versicolor.
+
+We can be more precise by explicitly calculating the posterior
+probability that comes out of our Bayes' Rule, and this tells us that
+the probability that the new flower belongs to species Virsicolor is
+81 percent, and there is a 19 percent chance that it belongs to
+Virginica.
+
+---
+
+Discriminant analysis is a parametric learning algorithm, which
+assumes that the different classes in a dataset are grouped in
+multivariate normal clusters. Here is an example of a dataset for
+which this assumption is invalid. The white circles are split into two
+data clouds. The black circles form a C-shape that surrounds one of
+the modes of this white population. Unfortunately, discriminant
+analysis is unable to handle this bimodal situation.
+
+---
+
+Decision trees are a non-parametric learning algorithm that is better
+able to handle complex multimodal datasets like this. It uses
+recursive binary partitions to describe the data, using a recursive
+algorithm that approximates the data by a piecewise constant function.
+
+The first step of this algorithm exhaustively searches all possible
+split points and variables, where in our toy example here there are
+two variables, but there are many split points that can be searched
+and we find the one that minimises the impurity Q, where p(empty
+circle) and p(full circle) are the proportions of class one and class
+two in one half of the partition. This particular definition of
+impurity is called the Gini Index of Diversity.
+
+Here are three randomly selected candidate splits. The best one is the
+one that minimises Q. It's a partition that splits on the variable X
+at a value of -4.902. The left hand side of this first partition is
+pure, so that in the second half of our tree building exercise, we
+only need to evaluate the right hand side.
+
+---
+
+So here is that second partition.  It splits on the variable Y. That's
+a value of 1.923. In contrast with the first partition, the second
+partition does not produce pure nodes. So in subsequent iterations of
+the recursive algorithm, we will need to further subdivide the two
+halves of this second partition.
+
+One advantage of this recursive binary partitioning scheme is that its
+results can be visualised on a dendrogram that is similar to the
+dendrograms that we used to visualise the unsupervised hierarchical
+clustering algorithm.
+
+---
+
+The recursive partitioning process can be repeated until all the nodes
+of the decision tree are pure, which means that they only contain
+either an empty circle or a full circle. This maximum sized tree
+contains 35 terminal nodes and perfectly describes the training
+data. In other words, it has zero bias. However, for the purpose of
+prediction, this tree is not optimal because it overfits the training
+data, causing high variance.
+
+---
+
+One way to estimate the misclassification rate is by using a separate
+set of test data whose affinities (first or second class, empty or
+full circles) are known, but which were not used to train the decision
+tree. Another method is the method of cross-validation. This method
+works as follows.
+
+First, we divide the training data into 10 equal parts. We remove one
+of these parts and use the remaining nine to create a decision
+tree. Then we enter the fraction removed into the tree and count the
+number of misclassified samples in it. We then repeat this step, but
+this time removing a second fraction. We repeat this process until all
+10 parts have been assessed.
+
+---
+
+The three with optimal predictive power is smaller than the largest
+possible tree and can be found by pruning the tree. We do this using a
+so-called cost-complexity criterion, which balances the size of the
+tree against the purity of the nodes using a tuning parameter
+alpha.
+
+You don't need to worry about the actual details of this
+implementation, but the basic process is essentially such that by
+varying this parameter alpha, we can create smaller sub trees of our
+largest possible tree. We can then feed each of these sub trees from
+small to big into the cross validation procedure, and we can calculate
+the misclassification rate for all these different trees.
+
+We can then plot this cross-validation error against the size of the
+tree, or equivalently against the cross complexity criterion, and that
+produces a curve that quickly drops down with increasing tree size
+until a point where it starts increasing because the biggest trees are
+actually not very good for predicting new samples.
+
+We then choose a tree size near the minimum of this cross-validation
+plot as our optimal tree size.
+
+---
+
+For our bivariate toy example, this procedure produces a tree with
+four splits and five terminal nodes. This optimal tree misclassifies
+only 19 of the 300 samples and the training data. The 10-fold
+cross-validation error, however, is three times higher at 18
+percent. But this cross-validation error is a much better estimate of
+the future performance of this tree on new data than the number of
+misclassified training data is for the entire dataset.
+
+---
+
+Like the discriminant analysis of the beginning of this session, also
+decision trees can be applied to, and are most useful for, datasets
+that comprise more than two dimensions. The decision tree on the
+right-hand side of this slide applies the method to Fisher's iris
+data, which contain four variables instead of the two for the toy
+example, and three classes (or species) instead of the two of, again,
+the toy example.
+
+Even though there are four variables in the data sets, the optimal
+tree actually only uses two of them. But despite this relatively small
+amounts of information, the misclassification rates of the training
+data is very low at four percent. Only 6 of the 150 flowers in the
+training data were misclassified.
+
+The 10-fold cross-validation error is slightly higher again, at six
+percent, but still very low.
+
+---
+
+Let's now consider again our new flower with its sepal length of six
+centimetres, sepal width of three centimetres, petal length of five
+centimetres and petal width of one and a half centimetres. Which
+species is the flower?
+
+Well, the petal length of the new flower is greater than the 2.45
+centimetre cut off of the first split, and its petals with is less
+than the 1.75 centimetres of the second split. Therefore, the flower
+ends up in the second terminal node of the tree, suggesting that it
+belongs to the species Versicolor. This is the same conclusion as we
+reached in the linear discriminant analysis.
+
+============
+Compositions
+============

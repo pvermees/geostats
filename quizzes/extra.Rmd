@@ -363,9 +363,9 @@ that $k=5$?
    The probability of failure is $(1-p)$. The probability of $k$ failures
    is $(1-p)^k$. Therefore, the probability of $k$ failures followed by
    1 success is
-   \[P(X=k) = p(1-p)^k\]
+   \[P(X=k) = (1-p)^k p\]
    Hence
-   \[P(X=5) = 0.25(1-0.25)^5 = 0.059\]
+   \[P(X=5) = (1-0.25)^5 0.25 = 0.059\]
    }\fi
 
 4. Continuing with the previous question, what is the probability mass
@@ -374,13 +374,13 @@ function for the number of failures up to the $r$^th^ success?
    \ifsol{\itshape
    The probability of a specific outcome of $k$ failures and $r$ successes:
    \[
-   p^r(1-p)^k
+   (1-p)^k p^r
    \]
    The number of ways to shuffle these outcomes is $\binom{k+r}{k}$. However,
    the last outcome must be a success and cannot be shuffled. Therefore, the
    number of shuffled outcomes is $\binom{k+r-1}{k}$. Therefore, the
    probability of $k$ failures up to the $r$\textsuperscript{th} success is
-   \[\binom{k+r-1}{k}p^r(1-p)^k\]
+   \[\binom{k+r-1}{k}(1-p)^k p^{r-1} p - \binom{k+r-1}{k}(1-p)^k p^r\]
    This is the PMF of the so-called negative binomial distribution
    (see Equation 7.1 of the notes).
    }\fi
@@ -486,12 +486,14 @@ the value of the parameter $p$?
 confidence interval for $p$ to 0.01 when $k/n=0.5$?
 
    \ifsol{\itshape
+   The width of the approximate 95\% confidence interval is 
    \[
-   1.96 s[\hat{p}] = 1.96 \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} = 0.01
+   (\hat{p} + 1.96 s[\hat{p}]) - (\hat{p} - 1.96 s[\hat{p}]) =
+   2 \times 1.96 s[\hat{p}] = 3.92 \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} = 0.01
    \]
    Therefore
    \[
-   n = \hat{p}(1-\hat{p}) 196^2 = 0.5^2 196^2 = 9604
+   n = \hat{p}(1-\hat{p}) 392^2 = 0.5^2 392^2 = 38416
    \]
    }\fi
 
@@ -519,12 +521,12 @@ with parameter $\lambda=2$ per hour.
       \ifsol{\itshape
       \[
       P(k>0|\lambda'\equiv\lambda{t/60}) = 1 - P(k=0|\lambda') =
-      1-\frac{\lambda'^ke^{-\lambda'}}{k!} > 0.5
+      1-\frac{\lambda'^ke^{-\lambda'}}{k!} < 0.5
       \]
       \[
-      \Rightarrow 1-\exp(-\lambda') > 0.5 \Rightarrow
-      \lambda{t/60} < -\ln(0.5) = 0.051 
-       \Rightarrow t < \frac{0.051\times{60}}{2} = 20.8
+      \Rightarrow 1-\exp(-\lambda') < 0.5 \Rightarrow
+      \lambda{t/60} > -\ln(0.5) = 0.069
+       \Rightarrow t > \frac{0.069\times{60}}{2} = 20.8
       \]
       Answer: Diane's shower can last at most 20.8 minutes.
       }\fi
@@ -534,12 +536,13 @@ is based on the following equation:
    \[t = \frac{1}{\lambda_{238}}\ln\left(\frac{N}{U}+1\right)\]
 
    where $t$ is the age, $\lambda_{238}$ is the decay constant of
-   \textsuperscript{238}U (=0.000155125 Myr$^{-1}$, which is not to
-   be confused with the Poisson parameter $\lambda$!), $U$ is the
-   \textsuperscript{238}U-concentration (in atoms/nm$^{-3}$), and $N$
-   is the volume density of the recoil tracks (in nm$^{-3}$). $N$ follows
-   a Poisson distribution with unknown parameter. Suppose that
-   $n=100$ and $U=10^5$. Could the sample be less than 8 million years old?
+   \textsuperscript{238}U (=0.000155125 Myr$^{-1}$, which is not to be
+   confused with the Poisson parameter $\lambda$!), $U$ is the
+   \textsuperscript{238}U-concentration (in atoms/\textmu{m}$^{-3}$),
+   and $N$ is the volume density of the recoil tracks (in
+   \textmu{m}$^{-3}$). $N$ follows a Poisson distribution with unknown
+   parameter. Suppose that $n=100$ and $U=10^5$. Could the sample be
+   less than 8 million years old?
 
    \ifsol{\itshape
    Rearranging the age equation for $N$:

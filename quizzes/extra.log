@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.10.10)  31 JAN 2023 21:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.10.10)  10 FEB 2023 17:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -684,7 +684,12 @@ Package amsmath Warning: Foreign command \atopwithdelims;
 
 ] [13
 
-] [14] [15
+] [14]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 7
+79.
+(/usr/share/texmf/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [15
 
 ] [16
 
@@ -692,13 +697,13 @@ Package amsmath Warning: Foreign command \atopwithdelims;
 
 ]
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-12-1.pd
-f, id=233, 400.49625pt x 288.07625pt>
+f, id=234, 400.49625pt x 288.07625pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-12
 -1.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-12-
 1.pdf>
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
-ex/unnamed-chunk-12-1.pdf  used on input line 1188.
+ex/unnamed-chunk-12-1.pdf  used on input line 1190.
 (pdftex.def)             Requested size: 311.34694pt x 223.9513pt.
 [18
 
@@ -706,25 +711,25 @@ ex/unnamed-chunk-12-1.pdf  used on input line 1188.
 2-1.pdf>] [20
 
 ]
-Overfull \hbox (8.55168pt too wide) detected at line 1345
+Overfull \hbox (8.55168pt too wide) detected at line 1347
 \OML/lmm/m/it/10 w \OT1/lmr/m/n/10 = [] = 0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 06
 4
  []
 
 
-Overfull \hbox (8.55168pt too wide) detected at line 1353
+Overfull \hbox (8.55168pt too wide) detected at line 1355
 \OML/lmm/m/it/10 w \OT1/lmr/m/n/10 = [] = 0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 02
 5
  []
 
 
-Overfull \hbox (13.55168pt too wide) detected at line 1360
+Overfull \hbox (13.55168pt too wide) detected at line 1362
 \OML/lmm/m/it/10 w \OT1/lmr/m/n/10 = [] = 0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 10
 
  []
 
 
-Overfull \hbox (3.55168pt too wide) detected at line 1367
+Overfull \hbox (3.55168pt too wide) detected at line 1369
 \OML/lmm/m/it/10 w \OT1/lmr/m/n/10 = [] = 0\OML/lmm/m/it/10 :\OT1/lmr/m/n/10 14
 
  []
@@ -733,124 +738,124 @@ Overfull \hbox (3.55168pt too wide) detected at line 1367
 
 ]
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-14-1.pd
-f, id=273, 400.49625pt x 357.335pt>
+f, id=274, 400.49625pt x 357.335pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-14
 -1.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-14-
 1.pdf>
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
-ex/unnamed-chunk-14-1.pdf  used on input line 1405.
+ex/unnamed-chunk-14-1.pdf  used on input line 1407.
 (pdftex.def)             Requested size: 222.38193pt x 198.41595pt.
 [22 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-14-
 1.pdf>]
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-16-1.pd
-f, id=286, 371.3875pt x 255.95625pt>
+f, id=287, 371.3875pt x 255.95625pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-16
 -1.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-16-
 1.pdf>
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
-ex/unnamed-chunk-16-1.pdf  used on input line 1469.
+ex/unnamed-chunk-16-1.pdf  used on input line 1471.
 (pdftex.def)             Requested size: 266.86043pt x 183.91731pt.
 [23
 
  </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-16-1.p
 df>] [24]
-<rivera.jpg, id=307, 398.48875pt x 401.5pt>
+<rivera.jpg, id=308, 398.48875pt x 401.5pt>
 File: rivera.jpg Graphic file (type jpg)
 <use rivera.jpg>
-Package pdftex.def Info: rivera.jpg  used on input line 1507.
+Package pdftex.def Info: rivera.jpg  used on input line 1509.
 (pdftex.def)             Requested size: 164.41512pt x 165.65755pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1507--1508
+Underfull \hbox (badness 10000) in paragraph at lines 1509--1510
 
  []
 
-<rivera.pdf, id=308, 270.1639pt x 148.74625pt>
+<rivera.pdf, id=309, 270.1639pt x 148.74625pt>
 File: rivera.pdf Graphic file (type pdf)
 <use rivera.pdf>
-Package pdftex.def Info: rivera.pdf  used on input line 1517.
+Package pdftex.def Info: rivera.pdf  used on input line 1519.
 (pdftex.def)             Requested size: 187.90144pt x 103.45436pt.
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-17-1.pd
-f, id=310, 398.48875pt x 285.065pt>
+f, id=311, 398.48875pt x 285.065pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-17
 -1.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-17-
 1.pdf>
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
-ex/unnamed-chunk-17-1.pdf  used on input line 1548.
+ex/unnamed-chunk-17-1.pdf  used on input line 1550.
 (pdftex.def)             Requested size: 266.86447pt x 190.90556pt.
 [25
 
  <./rivera.jpg> <./rivera.pdf>]
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-18-1.pd
-f, id=353, 400.49625pt x 298.11375pt>
+f, id=354, 400.49625pt x 298.11375pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-18
 -1.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-18-
 1.pdf>
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
-ex/unnamed-chunk-18-1.pdf  used on input line 1588.
+ex/unnamed-chunk-18-1.pdf  used on input line 1590.
 (pdftex.def)             Requested size: 266.87054pt x 198.648pt.
 [26 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-17-
 1.pdf>] [27 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-c
 hunk-18-1.pdf>]
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-20-1.pd
-f, id=378, 311.1625pt x 310.15875pt>
+f, id=379, 311.1625pt x 310.15875pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-20
 -1.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-20-
 1.pdf>
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
-ex/unnamed-chunk-20-1.pdf  used on input line 1684.
+ex/unnamed-chunk-20-1.pdf  used on input line 1702.
 (pdftex.def)             Requested size: 222.37979pt x 221.66243pt.
 [28
 
 ]
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-21-1.pd
-f, id=387, 328.22626pt x 287.0725pt>
+f, id=388, 328.22626pt x 287.0725pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-21
 -1.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-21-
 1.pdf>
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
-ex/unnamed-chunk-21-1.pdf  used on input line 1697.
+ex/unnamed-chunk-21-1.pdf  used on input line 1715.
 (pdftex.def)             Requested size: 222.37955pt x 194.49709pt.
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-22-1.pd
-f, id=388, 328.22626pt x 287.0725pt>
+f, id=389, 328.22626pt x 287.0725pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-22
 -1.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-22-
 1.pdf>
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
-ex/unnamed-chunk-22-1.pdf  used on input line 1711.
+ex/unnamed-chunk-22-1.pdf  used on input line 1729.
 (pdftex.def)             Requested size: 222.37955pt x 194.49709pt.
 [29 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-20-
 1.pdf> </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-
 21-1.pdf>]
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-23-1.pd
-f, id=409, 320.19624pt x 336.25626pt>
+f, id=410, 320.19624pt x 336.25626pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-23
 -1.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-23-
 1.pdf>
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
-ex/unnamed-chunk-23-1.pdf  used on input line 1723.
+ex/unnamed-chunk-23-1.pdf  used on input line 1741.
 (pdftex.def)             Requested size: 222.38184pt x 233.5358pt.
 [30 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-22-
 1.pdf> </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-
 23-1.pdf>]
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-24-1.pd
-f, id=431, 328.22626pt x 285.065pt>
+f, id=432, 328.22626pt x 285.065pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-24
 -1.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-24-
 1.pdf>
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
-ex/unnamed-chunk-24-1.pdf  used on input line 1750.
+ex/unnamed-chunk-24-1.pdf  used on input line 1768.
 (pdftex.def)             Requested size: 222.37955pt x 193.13698pt.
 
-Overfull \vbox (2.21982pt too high) detected at line 1798
+Overfull \vbox (2.21982pt too high) detected at line 1816
  []
 
 [31
@@ -858,153 +863,153 @@ Overfull \vbox (2.21982pt too high) detected at line 1798
  </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-24-1.p
 df>]
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-26-1.pd
-f, id=450, 259.97125pt x 235.88126pt>
+f, id=451, 259.97125pt x 235.88126pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-26
 -1.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-26-
 1.pdf>
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
-ex/unnamed-chunk-26-1.pdf  used on input line 1800.
+ex/unnamed-chunk-26-1.pdf  used on input line 1818.
 (pdftex.def)             Requested size: 133.42851pt x 121.06448pt.
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-28-1.pd
-f, id=451, 594.22pt x 235.88126pt>
+f, id=452, 594.22pt x 235.88126pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-28
 -1.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-28-
 1.pdf>
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
-ex/unnamed-chunk-28-1.pdf  used on input line 1827.
+ex/unnamed-chunk-28-1.pdf  used on input line 1845.
 (pdftex.def)             Requested size: 355.81845pt x 141.2455pt.
 [32 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-26-
 1.pdf> </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-
 28-1.pdf>]
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-32-1.pd
-f, id=472, 328.22626pt x 341.275pt>
+f, id=473, 328.22626pt x 341.275pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-32
 -1.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-32-
 1.pdf>
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
-ex/unnamed-chunk-32-1.pdf  used on input line 1896.
+ex/unnamed-chunk-32-1.pdf  used on input line 1914.
 (pdftex.def)             Requested size: 222.37955pt x 231.22032pt.
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-32-2.pd
-f, id=473, 259.97125pt x 235.88126pt>
+f, id=474, 259.97125pt x 235.88126pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-32
 -2.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-32-
 2.pdf>
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
-ex/unnamed-chunk-32-2.pdf  used on input line 1906.
+ex/unnamed-chunk-32-2.pdf  used on input line 1924.
 (pdftex.def)             Requested size: 222.37689pt x 201.77054pt.
 [33 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-32-
 1.pdf>] [34 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-c
 hunk-32-2.pdf>]
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-33-1.pd
-f, id=498, 349.305pt x 307.1475pt>
+f, id=499, 349.305pt x 307.1475pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-33
 -1.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-33-
 1.pdf>
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
-ex/unnamed-chunk-33-1.pdf  used on input line 1937.
+ex/unnamed-chunk-33-1.pdf  used on input line 1955.
 (pdftex.def)             Requested size: 222.38184pt x 195.54265pt.
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-34-1.pd
-f, id=499, 383.4325pt x 382.42876pt>
+f, id=500, 383.4325pt x 382.42876pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-34
 -1.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-34-
 1.pdf>
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
-ex/unnamed-chunk-34-1.pdf  used on input line 1951.
+ex/unnamed-chunk-34-1.pdf  used on input line 1969.
 (pdftex.def)             Requested size: 222.3793pt x 221.79715pt.
 [35
 
  </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-33-1.p
 df>]
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-35-1.pd
-f, id=516, 400.49625pt x 357.335pt>
+f, id=517, 400.49625pt x 357.335pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-35
 -1.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-35-
 1.pdf>
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
-ex/unnamed-chunk-35-1.pdf  used on input line 1965.
+ex/unnamed-chunk-35-1.pdf  used on input line 1983.
 (pdftex.def)             Requested size: 222.38193pt x 198.41595pt.
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-36-1.pd
-f, id=517, 400.49625pt x 357.335pt>
+f, id=518, 400.49625pt x 357.335pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-36
 -1.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-36-
 1.pdf>
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
-ex/unnamed-chunk-36-1.pdf  used on input line 1977.
+ex/unnamed-chunk-36-1.pdf  used on input line 1995.
 (pdftex.def)             Requested size: 222.38193pt x 198.41595pt.
 [36 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-34-
 1.pdf> </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-
 35-1.pdf>]
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-37-1.pd
-f, id=537, 400.49625pt x 357.335pt>
+f, id=538, 400.49625pt x 357.335pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-37
 -1.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-37-
 1.pdf>
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
-ex/unnamed-chunk-37-1.pdf  used on input line 1992.
+ex/unnamed-chunk-37-1.pdf  used on input line 2010.
 (pdftex.def)             Requested size: 222.38193pt x 198.41595pt.
 [37 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-36-
 1.pdf> </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-
 37-1.pdf>]
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-39-1.pd
-f, id=559, 399.4925pt x 383.4325pt>
+f, id=560, 399.4925pt x 383.4325pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-39
 -1.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-39-
 1.pdf>
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
-ex/unnamed-chunk-39-1.pdf  used on input line 2026.
+ex/unnamed-chunk-39-1.pdf  used on input line 2044.
 (pdftex.def)             Requested size: 222.37929pt x 213.43942pt.
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-40-1.pd
-f, id=560, 399.4925pt x 383.4325pt>
+f, id=561, 399.4925pt x 383.4325pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-40
 -1.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-40-
 1.pdf>
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
-ex/unnamed-chunk-40-1.pdf  used on input line 2039.
+ex/unnamed-chunk-40-1.pdf  used on input line 2057.
 (pdftex.def)             Requested size: 222.37929pt x 213.43942pt.
 [38
 
  </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-39-1.p
 df>]
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-41-1.pd
-f, id=577, 399.4925pt x 383.4325pt>
+f, id=578, 399.4925pt x 383.4325pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-41
 -1.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-41-
 1.pdf>
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
-ex/unnamed-chunk-41-1.pdf  used on input line 2055.
+ex/unnamed-chunk-41-1.pdf  used on input line 2073.
 (pdftex.def)             Requested size: 222.37929pt x 213.43942pt.
 [39 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-40-
 1.pdf> </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-
 41-1.pdf>]
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-43-1.pd
-f, id=599, 476.78125pt x 436.63126pt>
+f, id=600, 476.78125pt x 436.63126pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-43
 -1.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-43-
 1.pdf>
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
-ex/unnamed-chunk-43-1.pdf  used on input line 2093.
+ex/unnamed-chunk-43-1.pdf  used on input line 2111.
 (pdftex.def)             Requested size: 222.37756pt x 203.65103pt.
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-43-2.pd
-f, id=600, 473.77pt x 400.49625pt>
+f, id=601, 473.77pt x 400.49625pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-43
 -2.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-43-
 2.pdf>
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
-ex/unnamed-chunk-43-2.pdf  used on input line 2104.
+ex/unnamed-chunk-43-2.pdf  used on input line 2122.
 (pdftex.def)             Requested size: 222.37553pt x 187.9827pt.
 [40
 
@@ -1012,18 +1017,18 @@ ex/unnamed-chunk-43-2.pdf  used on input line 2104.
 df> </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-43-
 2.pdf>] [41] (./extra.aux) ) 
 Here is how much of TeX's memory you used:
- 14702 strings out of 478287
- 250455 string characters out of 5849288
+ 14742 strings out of 478287
+ 251372 string characters out of 5849288
  575627 words of memory out of 5000000
- 32304 multiletter control sequences out of 15000+600000
- 536626 words of font info for 157 fonts, out of 8000000 for 9000
+ 32334 multiletter control sequences out of 15000+600000
+ 537186 words of font info for 161 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  74i,8n,77p,1034b,487s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/us
-r/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvip
-s/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/sha
-re/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-t
-s1.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fon
+r/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/l
+m/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/
+texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-
+rm.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fon
 ts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.p
 fb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/t
 ype1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi7.pfb></u
@@ -1034,10 +1039,10 @@ lmri7.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/
 fonts/type1/public/lm/lmsy5.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.p
 fb></usr/share/texmf/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/t
 ype1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtti10.pfb>
-Output written on extra.pdf (41 pages, 1234679 bytes).
+Output written on extra.pdf (41 pages, 1235732 bytes).
 PDF statistics:
- 807 PDF objects out of 1000 (max. 8388607)
- 607 compressed objects within 7 object streams
+ 810 PDF objects out of 1000 (max. 8388607)
+ 609 compressed objects within 7 object streams
  147 named destinations out of 1000 (max. 500000)
- 33109 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 35157 words of extra memory for PDF output out of 35830 (max. 10000000)
 
