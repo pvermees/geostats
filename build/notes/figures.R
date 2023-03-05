@@ -1886,7 +1886,7 @@ cs <- colSums(AB)
 expected <- signif(matrix(rs,nrow=nrow(AB))%*%matrix(cs,ncol=ncol(AB))/sum(AB),5)
 X <- chisq.test(AB,expected/sum(expected))
 
-# signif(9+qwilcox(qtiles,n=5,m=4),3)
+# signif(10+qwilcox(qtiles,n=5,m=4),3)
 
 cairo(file='../../figures/wilcox.pdf',width=6,height=3)
 pars(mfrow=c(1,2))
@@ -1899,9 +1899,9 @@ col[1:llim] <- 'black'
 col[ulim:length(x)] <- 'black'
 b <- barplot(y,xaxt='n',col=col,space=0,ylab='P(W)')
 lines(rep(26,2)-8.5,range(y),lty=2)
-ticks <- c(9,15,20,25,30,36)
+ticks <- c(10,15,20,25,30)
 axis(side=1,
-     at=b[1,1]+(b[nrow(b),1]-b[1,1])*(ticks-9)/(36-9),
+     at=b[1,1]+(b[nrow(b),1]-b[1,1])*(ticks-9)/(31-9),
      labels=ticks)
 mtext('W',side=1,line=1.5)
 xx <- x
@@ -1912,7 +1912,7 @@ lines(range(xx),rep(0.025,2),lty=3)
 lines(range(xx),rep(0.975,2),lty=3)
 lines(rep(qwilcox(0.025,m=5,n=4)+10,2),c(0,1),lty=3)
 lines(rep(qwilcox(0.975,m=5,n=4)+10,2),c(0,1),lty=3)
-lines(range(xx),rep(pwilcox(25-9,m=5,n=4),2),lty=2)
+lines(range(xx),rep(pwilcox(26-10,m=5,n=4),2),lty=2)
 axis(side=1,at=ticks)
 dev.off()
 

@@ -477,6 +477,7 @@ y^b$, where $a=1/2$ and $b=3$.
   uncertainty of $d$:
   \begin{equation}
     s[d] = \sqrt{\left(v_\circ s[t]\right)^2 + \left(2 g t s[t]\right)^2}
+    = s[t] \sqrt{v_\circ^2 + \left(2 g t\right)^2}
     \label{eq:sdnewton}
   \end{equation}
 
@@ -500,11 +501,10 @@ y^b$, where $a=1/2$ and $b=3$.
     the word, but we can still use the same error propagation methods
     to compute it.} of $d$ is given by:
   \begin{equation}
-  s[d] = \sqrt{\left(10 \frac{\mbox{m}}{\mbox{s}} \times
-    0.1\mbox{~s}\right)^2 + 4
-    \left(9.81\frac{\mbox{m}}{\mbox{s}^2}\right)^2
-    \left(5\mbox{~s}\right)^2\left(0.1\mbox{~s}\right)^2} =
-  9.861\mbox{~m}
+    s[d] = 0.1\mbox{~s} \times 
+    \sqrt{\left(10 \frac{\mbox{m}}{\mbox{s}}\right)^2 + 
+      \left(2 \times 9.81\frac{\mbox{m}}{\mbox{s}^2} \times
+      5\mbox{~s}\right)^2} = 9.861\mbox{~m}
   \label{eq:haddock}
   \end{equation}
 

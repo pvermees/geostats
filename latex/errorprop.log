@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.8)  8 FEB 2022 11:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.10.10)  11 FEB 2023 14:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3557,8 +3557,8 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...eference `eq:2dgauss' on page \thepage 
                                                   \space undefined\on@line .
-l.119 distribution (Equation~\ref{eq:2dgauss}
-                                             ), then $\mu_x$, $\mu_{y}$,
+l.119 ...l distribution (Equation~\ref{eq:2dgauss}
+                                                  ), then $\mu_x$,
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -3725,13 +3725,8 @@ Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 118--125
-[]
- []
-
-
 Overfull \hbox (5.71527pt too wide) in paragraph at lines 118--125
-\OML/cmm/m/it/10 x$
+    $\OML/cmm/m/it/10 x$
  []
 
 
@@ -6588,12 +6583,11 @@ Overfull \hbox (33.5267pt too wide) in paragraph at lines 311--313
  []
 
 
-Overfull \hbox (307.3368pt too wide) detected at line 318
-\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 ][] = [][]
- \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ][] + [][
-] \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ][] + 2 
-[] [] \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ]
-
+Overfull \hbox (324.45909pt too wide) detected at line 319
+[][] \OT1/cmr/m/n/10 = [][] \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10
+ x\OT1/cmr/m/n/10 ][] + [][] \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/1
+0 y\OT1/cmr/m/n/10 ][] + 2 [] [] \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/
+it/10 x; y\OT1/cmr/m/n/10 ]
  []
 
 Missing character: There is no w in font nullfont!
@@ -6615,7 +6609,7 @@ Missing character: There is no t in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (173.57481pt too wide) detected at line 325
+Overfull \hbox (173.57481pt too wide) detected at line 326
 [][] \OT1/cmr/m/n/10 = [][] + [][] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2[][]
  []
 
@@ -6683,7 +6677,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...ference `eq:division' on page \thepage 
                                                   \space undefined\on@line .
-l.328   quotient (Equation~\ref{eq:division}
+l.329   quotient (Equation~\ref{eq:division}
                                             ) equals the uncertainty of the
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -6692,7 +6686,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:division' on page  undefined on input line 328.
+LaTeX Warning: Reference `eq:division' on page  undefined on input line 329.
 
 Missing character: There is no ) in font nullfont!
 Missing character: There is no e in font nullfont!
@@ -6739,7 +6733,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...e `eq:multiplication' on page \thepage 
                                                   \space undefined\on@line .
-l.329   product (Equation~\ref{eq:multiplication}
+l.330   product (Equation~\ref{eq:multiplication}
                                                  ).
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -6749,32 +6743,32 @@ and I'll forget about whatever was undefined.
 
 
 LaTeX Warning: Reference `eq:multiplication' on page  undefined on input line 3
-29.
+30.
 
 Missing character: There is no ) in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (5.71527pt too wide) in paragraph at lines 327--330
+Overfull \hbox (5.71527pt too wide) in paragraph at lines 328--331
 \OML/cmm/m/it/10 x$
  []
 
 
-Overfull \hbox (5.2616pt too wide) in paragraph at lines 327--330
+Overfull \hbox (5.2616pt too wide) in paragraph at lines 328--331
 \OML/cmm/m/it/10 y$
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 327--330
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 328--331
 []
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 327--330
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 328--331
 [] 
  []
 
 ! Undefined control sequence.
-l.331 \item{\bf
+l.332 \item{\bf
                 exponentiation:}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -6798,7 +6792,7 @@ Missing character: There is no o in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (36.91707pt too wide) detected at line 334
+Overfull \hbox (36.91707pt too wide) detected at line 335
 \OML/cmm/m/it/10 z \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 ae[]
  []
 
@@ -6833,17 +6827,17 @@ Missing character: There is no . in font nullfont!
 Missing character: There is no i in font nullfont!
 Missing character: There is no s in font nullfont!
 
-Overfull \hbox (5.0903pt too wide) in paragraph at lines 336--337
+Overfull \hbox (5.0903pt too wide) in paragraph at lines 337--338
 \OML/cmm/m/it/10 z$
  []
 
 
-Overfull \hbox (5.71527pt too wide) in paragraph at lines 336--337
+Overfull \hbox (5.71527pt too wide) in paragraph at lines 337--338
 \OML/cmm/m/it/10 x$
  []
 
 
-Overfull \hbox (50.09827pt too wide) detected at line 339
+Overfull \hbox (50.09827pt too wide) detected at line 340
 [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 abe[]
  []
 
@@ -6874,7 +6868,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...ence `eq:errorprop2d' on page \thepage 
                                                   \space undefined\on@line .
-l.341 ...g this into Equation~\ref{eq:errorprop2d}
+l.342 ...g this into Equation~\ref{eq:errorprop2d}
                                                   :
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -6883,17 +6877,17 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:errorprop2d' on page  undefined on input line 341.
+LaTeX Warning: Reference `eq:errorprop2d' on page  undefined on input line 342.
 
 
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 341--342
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 342--343
 [] 
  []
 
 
-Overfull \hbox (91.70187pt too wide) detected at line 344
+Overfull \hbox (91.70187pt too wide) detected at line 345
 \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 ][] = [][]
  \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ][]
  []
@@ -6919,17 +6913,17 @@ Missing character: There is no b in font nullfont!
 Missing character: There is no y in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (20.13194pt too wide) in paragraph at lines 346--347
+Overfull \hbox (20.13194pt too wide) in paragraph at lines 347--348
 \OML/cmm/m/it/10 z[] \OT1/cmr/m/n/10 =
  []
 
 
-Overfull \hbox (32.1464pt too wide) in paragraph at lines 346--347
+Overfull \hbox (32.1464pt too wide) in paragraph at lines 347--348
 [][]$ 
  []
 
 
-Overfull \hbox (110.62697pt too wide) detected at line 350
+Overfull \hbox (110.62697pt too wide) detected at line 351
 [][] \OT1/cmr/m/n/10 = [][]
  []
 
@@ -6951,13 +6945,13 @@ Missing character: There is no s in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no o in font nullfont!
 
-Overfull \hbox (79.49727pt too wide) detected at line 356
+Overfull \hbox (79.49727pt too wide) detected at line 357
 [][] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 b[]s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 x
 \OT1/cmr/m/n/10 ][][]
  []
 
 ! Undefined control sequence.
-l.358 \item{\bf
+l.359 \item{\bf
                 logarithms:}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -6977,7 +6971,7 @@ Missing character: There is no m in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (49.2719pt too wide) detected at line 361
+Overfull \hbox (49.2719pt too wide) detected at line 362
 \OML/cmm/m/it/10 z \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 a []\OT1/cmr/m/n/10 [\OML
 /cmm/m/it/10 bx\OT1/cmr/m/n/10 ]
  []
@@ -7013,17 +7007,17 @@ Missing character: There is no . in font nullfont!
 Missing character: There is no i in font nullfont!
 Missing character: There is no s in font nullfont!
 
-Overfull \hbox (5.0903pt too wide) in paragraph at lines 363--364
+Overfull \hbox (5.0903pt too wide) in paragraph at lines 364--365
 \OML/cmm/m/it/10 z$
  []
 
 
-Overfull \hbox (5.71527pt too wide) in paragraph at lines 363--364
+Overfull \hbox (5.71527pt too wide) in paragraph at lines 364--365
 \OML/cmm/m/it/10 x$
  []
 
 
-Overfull \hbox (35.42833pt too wide) detected at line 366
+Overfull \hbox (35.42833pt too wide) detected at line 367
 [] \OT1/cmr/m/n/10 = []
  []
 
@@ -7054,7 +7048,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...ence `eq:errorprop2d' on page \thepage 
                                                   \space undefined\on@line .
-l.368 ...g this into Equation~\ref{eq:errorprop2d}
+l.369 ...g this into Equation~\ref{eq:errorprop2d}
                                                   :
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -7063,23 +7057,23 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:errorprop2d' on page  undefined on input line 368.
+LaTeX Warning: Reference `eq:errorprop2d' on page  undefined on input line 369.
 
 
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 368--369
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 369--370
 [] 
  []
 
 
-Overfull \hbox (82.15813pt too wide) detected at line 372
+Overfull \hbox (82.15813pt too wide) detected at line 373
 \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 ][] = \OML
 /cmm/m/it/10 a[] [][][]
  []
 
 ! Undefined control sequence.
-l.374 \item{\bf
+l.375 \item{\bf
                 power:}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -7094,7 +7088,7 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (33.44135pt too wide) detected at line 377
+Overfull \hbox (33.44135pt too wide) detected at line 378
 \OML/cmm/m/it/10 z \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 ax[]
  []
 
@@ -7129,17 +7123,17 @@ Missing character: There is no . in font nullfont!
 Missing character: There is no i in font nullfont!
 Missing character: There is no s in font nullfont!
 
-Overfull \hbox (5.0903pt too wide) in paragraph at lines 379--380
+Overfull \hbox (5.0903pt too wide) in paragraph at lines 380--381
 \OML/cmm/m/it/10 z$
  []
 
 
-Overfull \hbox (5.71527pt too wide) in paragraph at lines 379--380
+Overfull \hbox (5.71527pt too wide) in paragraph at lines 380--381
 \OML/cmm/m/it/10 x$
  []
 
 
-Overfull \hbox (56.85869pt too wide) detected at line 382
+Overfull \hbox (56.85869pt too wide) detected at line 383
 [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 abx[]
  []
 
@@ -7170,7 +7164,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...ence `eq:errorprop2d' on page \thepage 
                                                   \space undefined\on@line .
-l.384 ...g this into Equation~\ref{eq:errorprop2d}
+l.385 ...g this into Equation~\ref{eq:errorprop2d}
                                                   :
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -7179,17 +7173,17 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:errorprop2d' on page  undefined on input line 384.
+LaTeX Warning: Reference `eq:errorprop2d' on page  undefined on input line 385.
 
 
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 384--385
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 385--386
 [] 
  []
 
 
-Overfull \hbox (98.4623pt too wide) detected at line 387
+Overfull \hbox (98.4623pt too wide) detected at line 388
 \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 ][] = [][]
  \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ][]
  []
@@ -7215,17 +7209,17 @@ Missing character: There is no b in font nullfont!
 Missing character: There is no y in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (15.64581pt too wide) in paragraph at lines 389--390
-\OML/cmm/m/it/10 z \OT1/cmr/m/n/10 =
+Overfull \hbox (20.13194pt too wide) in paragraph at lines 390--391
+\OML/cmm/m/it/10 z[] \OT1/cmr/m/n/10 =
  []
 
 
-Overfull \hbox (15.01782pt too wide) in paragraph at lines 389--390
-\OML/cmm/m/it/10 ax[]$ 
+Overfull \hbox (28.67067pt too wide) in paragraph at lines 390--391
+[][]$ 
  []
 
 
-Overfull \hbox (117.38739pt too wide) detected at line 392
+Overfull \hbox (117.38739pt too wide) detected at line 393
 [][] \OT1/cmr/m/n/10 = [][]
  []
 
@@ -7247,12 +7241,12 @@ Missing character: There is no s in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no o in font nullfont!
 
-Overfull \hbox (98.28618pt too wide) detected at line 398
+Overfull \hbox (98.28618pt too wide) detected at line 399
 [][] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 b[] [][][]
  []
 
 ! Undefined control sequence.
-l.400 \item{\bf
+l.401 \item{\bf
                 other:}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -7342,7 +7336,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...ence `eq:errorprop2d' on page \thepage 
                                                   \space undefined\on@line .
-l.403   from Equation~\ref{eq:errorprop2d}
+l.404   from Equation~\ref{eq:errorprop2d}
                                            directly, or can be done with
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -7351,7 +7345,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:errorprop2d' on page  undefined on input line 403.
+LaTeX Warning: Reference `eq:errorprop2d' on page  undefined on input line 404.
 
 
 Missing character: There is no d in font nullfont!
@@ -7390,7 +7384,7 @@ Missing character: There is no s in font nullfont!
 ! Undefined control sequence.
 <write> ...ference `eq:addition' on page \thepage 
                                                   \space undefined\on@line .
-l.404   Equations~\ref{eq:addition}
+l.405   Equations~\ref{eq:addition}
                                    --\ref{eq:power} using the \textbf{chain
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -7399,14 +7393,14 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:addition' on page  undefined on input line 404.
+LaTeX Warning: Reference `eq:addition' on page  undefined on input line 405.
 
 Missing character: There is no - in font nullfont!
 Missing character: There is no - in font nullfont!
 ! Undefined control sequence.
 <write> ... Reference `eq:power' on page \thepage 
                                                   \space undefined\on@line .
-l.404 ...uations~\ref{eq:addition}--\ref{eq:power}
+l.405 ...uations~\ref{eq:addition}--\ref{eq:power}
                                                    using the \textbf{chain
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -7415,7 +7409,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:power' on page  undefined on input line 404.
+LaTeX Warning: Reference `eq:power' on page  undefined on input line 405.
 
 Missing character: There is no u in font nullfont!
 Missing character: There is no s in font nullfont!
@@ -7467,27 +7461,27 @@ Missing character: There is no o in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 402--406
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 403--407
 []
  []
 
 
-Overfull \hbox (21.7221pt too wide) in paragraph at lines 402--406
+Overfull \hbox (21.7221pt too wide) in paragraph at lines 403--407
 [][]
  []
 
 
-Overfull \hbox (26.354pt too wide) in paragraph at lines 402--406
+Overfull \hbox (26.354pt too wide) in paragraph at lines 403--407
 \OT1/cmr/bx/n/10 chain
  []
 
 
-Overfull \hbox (19.5902pt too wide) in paragraph at lines 402--406
+Overfull \hbox (19.5902pt too wide) in paragraph at lines 403--407
 \OT1/cmr/bx/n/10 rule
  []
 
 
-Overfull \hbox (70.17706pt too wide) detected at line 409
+Overfull \hbox (70.17706pt too wide) detected at line 410
 \OML/cmm/m/it/10 d \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 d[] \OT1/cmr/m/n/10 + \OM
 L/cmm/m/it/10 v[]t \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 gt[][]
  []
@@ -7631,7 +7625,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...rence `eq:newtons2nd' on page \thepage 
                                                   \space undefined\on@line .
-l.414   Although Equation~\ref{eq:newtons2nd}
+l.415   Although Equation~\ref{eq:newtons2nd}
                                               does not directly fit into any
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -7640,7 +7634,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:newtons2nd' on page  undefined on input line 414.
+LaTeX Warning: Reference `eq:newtons2nd' on page  undefined on input line 415.
 
 Missing character: There is no d in font nullfont!
 Missing character: There is no o in font nullfont!
@@ -7751,57 +7745,57 @@ Missing character: There is no L in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no t in font nullfont!
 
-Overfull \hbox (5.20486pt too wide) in paragraph at lines 411--417
+Overfull \hbox (5.20486pt too wide) in paragraph at lines 412--418
     $\OML/cmm/m/it/10 d$
  []
 
 
-Overfull \hbox (3.61111pt too wide) in paragraph at lines 411--417
+Overfull \hbox (3.61111pt too wide) in paragraph at lines 412--418
 \OML/cmm/m/it/10 t$
  []
 
 
-Overfull \hbox (9.8021pt too wide) in paragraph at lines 411--417
+Overfull \hbox (9.8021pt too wide) in paragraph at lines 412--418
 \OML/cmm/m/it/10 d[]$
  []
 
 
-Overfull \hbox (14.16663pt too wide) in paragraph at lines 411--417
+Overfull \hbox (14.16663pt too wide) in paragraph at lines 412--418
 \OML/cmm/m/it/10 t \OT1/cmr/m/n/10 =
  []
 
 
-Overfull \hbox (5.00002pt too wide) in paragraph at lines 411--417
+Overfull \hbox (5.00002pt too wide) in paragraph at lines 412--418
 \OT1/cmr/m/n/10 0$
  []
 
 
-Overfull \hbox (9.44446pt too wide) in paragraph at lines 411--417
+Overfull \hbox (9.44446pt too wide) in paragraph at lines 412--418
 \OML/cmm/m/it/10 v[]$
  []
 
 
-Overfull \hbox (14.16663pt too wide) in paragraph at lines 411--417
+Overfull \hbox (14.16663pt too wide) in paragraph at lines 412--418
 \OML/cmm/m/it/10 t \OT1/cmr/m/n/10 =
  []
 
 
-Overfull \hbox (5.00002pt too wide) in paragraph at lines 411--417
+Overfull \hbox (5.00002pt too wide) in paragraph at lines 412--418
 \OT1/cmr/m/n/10 0$
  []
 
 
-Overfull \hbox (5.12846pt too wide) in paragraph at lines 411--417
+Overfull \hbox (5.12846pt too wide) in paragraph at lines 412--418
 \OML/cmm/m/it/10 g$
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 411--417
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 412--418
 []
  []
 
 
-Overfull \hbox (49.68396pt too wide) detected at line 420
+Overfull \hbox (49.68396pt too wide) detected at line 421
 \OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 ^^Q \OML/cmm/m/it/10 d[] \OT1/cmr/m/n/10 + 
 \OML/cmm/m/it/10 v[]t[]
  []
@@ -7810,7 +7804,7 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no d in font nullfont!
 
-Overfull \hbox (31.82053pt too wide) detected at line 426
+Overfull \hbox (31.82053pt too wide) detected at line 427
 \OML/cmm/m/it/10 y \OMS/cmsy/m/n/10 ^^Q \OML/cmm/m/it/10 gt[][]
  []
 
@@ -7829,7 +7823,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...g: Reference `eq:xvt' on page \thepage 
                                                   \space undefined\on@line .
-l.428   \noindent then Equation~\ref{eq:xvt}
+l.429   \noindent then Equation~\ref{eq:xvt}
                                              matches with the formula for
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -7838,7 +7832,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:xvt' on page  undefined on input line 428.
+LaTeX Warning: Reference `eq:xvt' on page  undefined on input line 429.
 
 Missing character: There is no m in font nullfont!
 Missing character: There is no a in font nullfont!
@@ -7884,7 +7878,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...ference `eq:addition' on page \thepage 
                                                   \space undefined\on@line .
-l.429   addition (Equation~\ref{eq:addition}
+l.430   addition (Equation~\ref{eq:addition}
                                             ):
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -7893,22 +7887,22 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:addition' on page  undefined on input line 429.
+LaTeX Warning: Reference `eq:addition' on page  undefined on input line 430.
 
 Missing character: There is no ) in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 428--430
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 429--431
   []
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 428--430
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 429--431
 [] 
  []
 
 
-Overfull \hbox (58.8611pt too wide) detected at line 432
+Overfull \hbox (58.8611pt too wide) detected at line 433
 \OML/cmm/m/it/10 z \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 a \OT1/cmr/m/n/10 + \OML/
 cmm/m/it/10 bx \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 cy
  []
@@ -7975,7 +7969,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...g: Reference `eq:xvt' on page \thepage 
                                                   \space undefined\on@line .
-l.436   Equation~\ref{eq:xvt}
+l.437   Equation~\ref{eq:xvt}
                               using Equation~\ref{eq:addition} gives:
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -7984,7 +7978,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:xvt' on page  undefined on input line 436.
+LaTeX Warning: Reference `eq:xvt' on page  undefined on input line 437.
 
 Missing character: There is no u in font nullfont!
 Missing character: There is no s in font nullfont!
@@ -8002,7 +7996,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...ference `eq:addition' on page \thepage 
                                                   \space undefined\on@line .
-l.436 ...{eq:xvt} using Equation~\ref{eq:addition}
+l.437 ...{eq:xvt} using Equation~\ref{eq:addition}
                                                    gives:
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -8011,7 +8005,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:addition' on page  undefined on input line 436.
+LaTeX Warning: Reference `eq:addition' on page  undefined on input line 437.
 
 Missing character: There is no g in font nullfont!
 Missing character: There is no i in font nullfont!
@@ -8020,62 +8014,62 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (15.8414pt too wide) in paragraph at lines 434--437
+Overfull \hbox (15.8414pt too wide) in paragraph at lines 435--438
  $\OML/cmm/m/it/10 a \OMS/cmsy/m/n/10 ^^Q
  []
 
 
-Overfull \hbox (9.8021pt too wide) in paragraph at lines 434--437
+Overfull \hbox (9.8021pt too wide) in paragraph at lines 435--438
 \OML/cmm/m/it/10 d[]$
  []
 
 
-Overfull \hbox (14.84717pt too wide) in paragraph at lines 434--437
+Overfull \hbox (14.84717pt too wide) in paragraph at lines 435--438
 \OML/cmm/m/it/10 b \OMS/cmsy/m/n/10 ^^Q
  []
 
 
-Overfull \hbox (9.44446pt too wide) in paragraph at lines 434--437
+Overfull \hbox (9.44446pt too wide) in paragraph at lines 435--438
 \OML/cmm/m/it/10 v[]$
  []
 
 
-Overfull \hbox (16.27078pt too wide) in paragraph at lines 434--437
+Overfull \hbox (16.27078pt too wide) in paragraph at lines 435--438
 \OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 ^^Q
  []
 
 
-Overfull \hbox (3.61111pt too wide) in paragraph at lines 434--437
+Overfull \hbox (3.61111pt too wide) in paragraph at lines 435--438
 \OML/cmm/m/it/10 t$
  []
 
 
-Overfull \hbox (14.88307pt too wide) in paragraph at lines 434--437
+Overfull \hbox (14.88307pt too wide) in paragraph at lines 435--438
 \OML/cmm/m/it/10 c \OMS/cmsy/m/n/10 ^^Q
  []
 
 
-Overfull \hbox (5.00002pt too wide) in paragraph at lines 434--437
+Overfull \hbox (5.00002pt too wide) in paragraph at lines 435--438
 \OT1/cmr/m/n/10 0$
  []
 
 
-Overfull \hbox (5.2616pt too wide) in paragraph at lines 434--437
+Overfull \hbox (5.2616pt too wide) in paragraph at lines 435--438
 \OML/cmm/m/it/10 y$
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 434--437
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 435--438
 []
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 434--437
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 435--438
 []
  []
 
 
-Overfull \hbox (69.34027pt too wide) detected at line 440
+Overfull \hbox (69.34027pt too wide) detected at line 441
 \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ][] = [][]
 []
  []
@@ -8101,7 +8095,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...: Reference `eq:ygt2' on page \thepage 
                                                   \space undefined\on@line .
-l.442   Similarly, Equation~\ref{eq:ygt2}
+l.443   Similarly, Equation~\ref{eq:ygt2}
                                           matches with the formula for
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -8110,7 +8104,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:ygt2' on page  undefined on input line 442.
+LaTeX Warning: Reference `eq:ygt2' on page  undefined on input line 443.
 
 Missing character: There is no m in font nullfont!
 Missing character: There is no a in font nullfont!
@@ -8156,7 +8150,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ... Reference `eq:power' on page \thepage 
                                                   \space undefined\on@line .
-l.443   powering (Equation~\ref{eq:power}
+l.444   powering (Equation~\ref{eq:power}
                                          ):
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -8165,22 +8159,22 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:power' on page  undefined on input line 443.
+LaTeX Warning: Reference `eq:power' on page  undefined on input line 444.
 
 Missing character: There is no ) in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 442--444
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 443--445
 []
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 442--444
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 443--445
 [] 
  []
 
 
-Overfull \hbox (33.44135pt too wide) detected at line 446
+Overfull \hbox (33.44135pt too wide) detected at line 447
 \OML/cmm/m/it/10 z \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 ax[]
  []
 
@@ -8213,7 +8207,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ... Reference `eq:power' on page \thepage 
                                                   \space undefined\on@line .
-l.449   Equation~\ref{eq:power}
+l.450   Equation~\ref{eq:power}
                                 to Equation~\ref{eq:ygt2} yields:
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -8222,7 +8216,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:power' on page  undefined on input line 449.
+LaTeX Warning: Reference `eq:power' on page  undefined on input line 450.
 
 Missing character: There is no t in font nullfont!
 Missing character: There is no o in font nullfont!
@@ -8237,7 +8231,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...: Reference `eq:ygt2' on page \thepage 
                                                   \space undefined\on@line .
-l.449 ...~\ref{eq:power} to Equation~\ref{eq:ygt2}
+l.450 ...~\ref{eq:power} to Equation~\ref{eq:ygt2}
                                                    yields:
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -8246,7 +8240,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:ygt2' on page  undefined on input line 449.
+LaTeX Warning: Reference `eq:ygt2' on page  undefined on input line 450.
 
 Missing character: There is no y in font nullfont!
 Missing character: There is no i in font nullfont!
@@ -8256,47 +8250,47 @@ Missing character: There is no d in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (15.8414pt too wide) in paragraph at lines 448--450
+Overfull \hbox (15.8414pt too wide) in paragraph at lines 449--451
  $\OML/cmm/m/it/10 a \OMS/cmsy/m/n/10 ^^Q
  []
 
 
-Overfull \hbox (5.12846pt too wide) in paragraph at lines 448--450
+Overfull \hbox (5.12846pt too wide) in paragraph at lines 449--451
 \OML/cmm/m/it/10 g$
  []
 
 
-Overfull \hbox (14.84717pt too wide) in paragraph at lines 448--450
+Overfull \hbox (14.84717pt too wide) in paragraph at lines 449--451
 \OML/cmm/m/it/10 b \OMS/cmsy/m/n/10 ^^Q
  []
 
 
-Overfull \hbox (5.00002pt too wide) in paragraph at lines 448--450
+Overfull \hbox (5.00002pt too wide) in paragraph at lines 449--451
 \OT1/cmr/m/n/10 2$
  []
 
 
-Overfull \hbox (16.27078pt too wide) in paragraph at lines 448--450
+Overfull \hbox (16.27078pt too wide) in paragraph at lines 449--451
 \OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 ^^Q
  []
 
 
-Overfull \hbox (3.61111pt too wide) in paragraph at lines 448--450
+Overfull \hbox (3.61111pt too wide) in paragraph at lines 449--451
 \OML/cmm/m/it/10 t$
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 448--450
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 449--451
 []
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 448--450
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 449--451
 []
  []
 
 
-Overfull \hbox (252.82039pt too wide) detected at line 455
+Overfull \hbox (252.82039pt too wide) detected at line 456
 [][] \OT1/cmr/m/n/10 = 2[] [][] \OMS/cmsy/m/n/10 ) \OML/cmm/m/it/10 s\OT1/cmr/m
 /n/10 [\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ][] = [][] = [][][]
  []
@@ -8322,7 +8316,7 @@ Missing character: There is no s in font nullfont!
 ! Undefined control sequence.
 <write> ...g: Reference `eq:xvt' on page \thepage 
                                                   \space undefined\on@line .
-l.457   Combining Equations~\ref{eq:xvt}
+l.458   Combining Equations~\ref{eq:xvt}
                                          and \ref{eq:ygt2} turns
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -8331,7 +8325,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:xvt' on page  undefined on input line 457.
+LaTeX Warning: Reference `eq:xvt' on page  undefined on input line 458.
 
 Missing character: There is no a in font nullfont!
 Missing character: There is no n in font nullfont!
@@ -8339,7 +8333,7 @@ Missing character: There is no d in font nullfont!
 ! Undefined control sequence.
 <write> ...: Reference `eq:ygt2' on page \thepage 
                                                   \space undefined\on@line .
-l.457 ... Equations~\ref{eq:xvt} and \ref{eq:ygt2}
+l.458 ... Equations~\ref{eq:xvt} and \ref{eq:ygt2}
                                                    turns
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -8348,7 +8342,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:ygt2' on page  undefined on input line 457.
+LaTeX Warning: Reference `eq:ygt2' on page  undefined on input line 458.
 
 Missing character: There is no t in font nullfont!
 Missing character: There is no u in font nullfont!
@@ -8366,7 +8360,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...rence `eq:newtons2nd' on page \thepage 
                                                   \space undefined\on@line .
-l.458   Equation~\ref{eq:newtons2nd}
+l.459   Equation~\ref{eq:newtons2nd}
                                      into a simple sum:
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -8375,7 +8369,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:newtons2nd' on page  undefined on input line 458.
+LaTeX Warning: Reference `eq:newtons2nd' on page  undefined on input line 459.
 
 Missing character: There is no i in font nullfont!
 Missing character: There is no n in font nullfont!
@@ -8393,22 +8387,22 @@ Missing character: There is no u in font nullfont!
 Missing character: There is no m in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 457--459
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 458--460
 []
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 457--459
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 458--460
 []
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 457--459
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 458--460
 []
  []
 
 
-Overfull \hbox (37.29276pt too wide) detected at line 461
+Overfull \hbox (37.29276pt too wide) detected at line 462
 \OML/cmm/m/it/10 d \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 x \OT1/cmr/m/n/10 + \OML/
 cmm/m/it/10 y
  []
@@ -8459,7 +8453,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...ference `eq:addition' on page \thepage 
                                                   \space undefined\on@line .
-l.464   Equation~\ref{eq:addition}
+l.465   Equation~\ref{eq:addition}
                                   :
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -8468,16 +8462,16 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:addition' on page  undefined on input line 464.
+LaTeX Warning: Reference `eq:addition' on page  undefined on input line 465.
 
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 463--465
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 464--466
        [] 
  []
 
 
-Overfull \hbox (81.48036pt too wide) detected at line 467
+Overfull \hbox (81.48036pt too wide) detected at line 468
 \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 d\OT1/cmr/m/n/10 ][] = \OML
 /cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ][] + \OML/cmm
 /m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ][]
@@ -8506,7 +8500,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...ng: Reference `eq:sx' on page \thepage 
                                                   \space undefined\on@line .
-l.469   Substituting Equation~\ref{eq:sx}
+l.470   Substituting Equation~\ref{eq:sx}
                                           for $s[x]^2$ and
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -8515,7 +8509,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:sx' on page  undefined on input line 469.
+LaTeX Warning: Reference `eq:sx' on page  undefined on input line 470.
 
 Missing character: There is no f in font nullfont!
 Missing character: There is no o in font nullfont!
@@ -8534,7 +8528,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...ng: Reference `eq:sy' on page \thepage 
                                                   \space undefined\on@line .
-l.470   Equation~\ref{eq:sy}
+l.471   Equation~\ref{eq:sy}
                              for $s[y]^2$:
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -8543,34 +8537,34 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:sy' on page  undefined on input line 470.
+LaTeX Warning: Reference `eq:sy' on page  undefined on input line 471.
 
 Missing character: There is no f in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 469--471
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 470--472
 []
  []
 
 
-Overfull \hbox (20.44447pt too wide) in paragraph at lines 469--471
+Overfull \hbox (20.44447pt too wide) in paragraph at lines 470--472
 \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ][]$
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 469--471
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 470--472
 []
  []
 
 
-Overfull \hbox (19.9908pt too wide) in paragraph at lines 469--471
+Overfull \hbox (19.9908pt too wide) in paragraph at lines 470--472
 \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 ][]$ 
  []
 
 
-Overfull \hbox (116.46538pt too wide) detected at line 473
+Overfull \hbox (116.46538pt too wide) detected at line 474
 \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 d\OT1/cmr/m/n/10 ][] = [][]
  + [][]
  []
@@ -8630,13 +8624,14 @@ Missing character: There is no o in font nullfont!
 Missing character: There is no f in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (5.20486pt too wide) in paragraph at lines 475--477
+Overfull \hbox (5.20486pt too wide) in paragraph at lines 476--478
           $\OML/cmm/m/it/10 d$ 
  []
 
 
-Overfull \hbox (126.4236pt too wide) detected at line 480
-\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 d\OT1/cmr/m/n/10 ] = [][]
+Overfull \hbox (211.52882pt too wide) detected at line 482
+\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 d\OT1/cmr/m/n/10 ] = [] = \
+OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ][][]
  []
 
 Missing character: There is no T in font nullfont!
@@ -8771,7 +8766,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 \@footnotetext ...tins {\reset@font \footnotesize 
                                                   \interlinepenalty \interfo...
-l.487 ...ise, but to the resolution of the clock.}
+l.489 ...ise, but to the resolution of the clock.}
                                                    ($s[t]=0.1$~s). Then
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -8782,7 +8777,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 \@footnotetext ...}\color@begingroup \@makefntext 
                                                   {\rule \z@ \footnotesep \i...
-l.487 ...ise, but to the resolution of the clock.}
+l.489 ...ise, but to the resolution of the clock.}
                                                    ($s[t]=0.1$~s). Then
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -8791,137 +8786,137 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (20.30557pt too wide) in paragraph at lines 487--487
+Overfull \hbox (20.30557pt too wide) in paragraph at lines 489--489
 [][]\OT1/cmr/m/n/10 Here
  []
 
 
-Overfull \hbox (17.25002pt too wide) in paragraph at lines 487--487
+Overfull \hbox (17.25002pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 pre-
  []
 
 
-Overfull \hbox (10.55556pt too wide) in paragraph at lines 487--487
+Overfull \hbox (10.55556pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 ci-
  []
 
 
-Overfull \hbox (17.27782pt too wide) in paragraph at lines 487--487
+Overfull \hbox (17.27782pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 sion
  []
 
 
-Overfull \hbox (23.72224pt too wide) in paragraph at lines 487--487
+Overfull \hbox (23.72224pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 refers
  []
 
 
-Overfull \hbox (14.44449pt too wide) in paragraph at lines 487--487
+Overfull \hbox (14.44449pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 not
  []
 
 
-Overfull \hbox (8.88892pt too wide) in paragraph at lines 487--487
+Overfull \hbox (8.88892pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 to
  []
 
 
-Overfull \hbox (13.88892pt too wide) in paragraph at lines 487--487
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 the
  []
 
 
-Overfull \hbox (21.66672pt too wide) in paragraph at lines 487--487
+Overfull \hbox (21.66672pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 mag-
  []
 
 
-Overfull \hbox (11.66669pt too wide) in paragraph at lines 487--487
+Overfull \hbox (11.66669pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 ni-
  []
 
 
-Overfull \hbox (19.44449pt too wide) in paragraph at lines 487--487
+Overfull \hbox (19.44449pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 tude
  []
 
 
-Overfull \hbox (8.05559pt too wide) in paragraph at lines 487--487
+Overfull \hbox (8.05559pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 of
  []
 
 
-Overfull \hbox (17.80559pt too wide) in paragraph at lines 487--487
+Overfull \hbox (17.80559pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 nor-
  []
 
 
-Overfull \hbox (24.16675pt too wide) in paragraph at lines 487--487
+Overfull \hbox (24.16675pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 mally
  []
 
 
-Overfull \hbox (15.61113pt too wide) in paragraph at lines 487--487
+Overfull \hbox (15.61113pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 dis-
  []
 
 
-Overfull \hbox (35.58342pt too wide) in paragraph at lines 487--487
+Overfull \hbox (35.58342pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 tributed
  []
 
 
-Overfull \hbox (24.50005pt too wide) in paragraph at lines 487--487
+Overfull \hbox (24.50005pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 noise,
  []
 
 
-Overfull \hbox (15.00005pt too wide) in paragraph at lines 487--487
+Overfull \hbox (15.00005pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 but
  []
 
 
-Overfull \hbox (8.88892pt too wide) in paragraph at lines 487--487
+Overfull \hbox (8.88892pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 to
  []
 
 
-Overfull \hbox (13.88892pt too wide) in paragraph at lines 487--487
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 the
  []
 
 
-Overfull \hbox (15.63889pt too wide) in paragraph at lines 487--487
+Overfull \hbox (15.63889pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 res-
  []
 
 
-Overfull \hbox (8.33334pt too wide) in paragraph at lines 487--487
+Overfull \hbox (8.33334pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 o-
  []
 
 
-Overfull \hbox (11.66669pt too wide) in paragraph at lines 487--487
+Overfull \hbox (11.66669pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 lu-
  []
 
 
-Overfull \hbox (17.22227pt too wide) in paragraph at lines 487--487
+Overfull \hbox (17.22227pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 tion
  []
 
 
-Overfull \hbox (8.05559pt too wide) in paragraph at lines 487--487
+Overfull \hbox (8.05559pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 of
  []
 
 
-Overfull \hbox (13.88892pt too wide) in paragraph at lines 487--487
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 the
  []
 
 
-Overfull \hbox (24.72227pt too wide) in paragraph at lines 487--487
+Overfull \hbox (24.72227pt too wide) in paragraph at lines 489--489
 \OT1/cmr/m/n/10 clock.| 
  []
 
@@ -8992,47 +8987,47 @@ Missing character: There is no d in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (20.3576pt too wide) in paragraph at lines 482--490
+Overfull \hbox (20.3576pt too wide) in paragraph at lines 484--492
 \OML/cmm/m/it/10 d[] \OT1/cmr/m/n/10 =
  []
 
 
-Overfull \hbox (24.99998pt too wide) in paragraph at lines 482--490
+Overfull \hbox (24.99998pt too wide) in paragraph at lines 484--492
 \OT1/cmr/m/n/10 0$  $\OML/cmm/m/it/10 v[] \OT1/cmr/m/n/10 =
  []
 
 
-Overfull \hbox (25.684pt too wide) in paragraph at lines 482--490
+Overfull \hbox (25.684pt too wide) in paragraph at lines 484--492
 \OT1/cmr/m/n/10 10$   $\OML/cmm/m/it/10 g \OT1/cmr/m/n/10 =
  []
 
 
-Overfull \hbox (22.26396pt too wide) in paragraph at lines 482--490
+Overfull \hbox (22.26396pt too wide) in paragraph at lines 484--492
 \OT1/cmr/m/n/10 9\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 81$ $[]$
  []
 
 
-Overfull \hbox (3.61111pt too wide) in paragraph at lines 482--490
+Overfull \hbox (3.61111pt too wide) in paragraph at lines 484--492
 \OML/cmm/m/it/10 t$
  []
 
 
-Overfull \hbox (8.0417pt too wide) in paragraph at lines 482--490
+Overfull \hbox (8.0417pt too wide) in paragraph at lines 484--492
 []$
  []
 
 
-Overfull \hbox (4.48613pt too wide) in paragraph at lines 482--490
+Overfull \hbox (4.48613pt too wide) in paragraph at lines 484--492
 []
  []
 
 
-Overfull \hbox (24.4097pt too wide) in paragraph at lines 482--490
+Overfull \hbox (24.4097pt too wide) in paragraph at lines 484--492
 \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ] =
  []
 
 
-Overfull \hbox (12.77782pt too wide) in paragraph at lines 482--490
+Overfull \hbox (12.77782pt too wide) in paragraph at lines 484--492
 \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 1$                
  []
 
@@ -9045,7 +9040,7 @@ Missing character: There is no s in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no m in font nullfont!
 
-Overfull \hbox (155.08833pt too wide) detected at line 495
+Overfull \hbox (155.08833pt too wide) detected at line 497
 \OML/cmm/m/it/10 d \OT1/cmr/m/n/10 = 0[] + 10[] \OMS/cmsy/m/n/10 ^^B \OT1/cmr/m
 /n/10 5[] + 9\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 81[] \OMS/cmsy/m/n/10 ^^B \OT1/c
 mr/m/n/10 (5[])[] = 295\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 25[][]
@@ -9067,7 +9062,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...ference `eq:sdnewton' on page \thepage 
                                                   \space undefined\on@line .
-l.497   Using Equation~\ref{eq:sdnewton}
+l.499   Using Equation~\ref{eq:sdnewton}
                                         , the uncertainty\footnote{Here the
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -9076,7 +9071,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:sdnewton' on page  undefined on input line 497.
+LaTeX Warning: Reference `eq:sdnewton' on page  undefined on input line 499.
 
 Missing character: There is no , in font nullfont!
 Missing character: There is no t in font nullfont!
@@ -9096,7 +9091,7 @@ Missing character: There is no y in font nullfont!
 ! Undefined control sequence.
 \@footnotetext ...tins {\reset@font \footnotesize 
                                                   \interlinepenalty \interfo...
-l.500     to compute it.}
+l.502     to compute it.}
                           of $d$ is given by:
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -9107,7 +9102,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 \@footnotetext ...}\color@begingroup \@makefntext 
                                                   {\rule \z@ \footnotesep \i...
-l.500     to compute it.}
+l.502     to compute it.}
                           of $d$ is given by:
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -9116,202 +9111,202 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (20.30557pt too wide) in paragraph at lines 500--500
+Overfull \hbox (20.30557pt too wide) in paragraph at lines 502--502
 [][]\OT1/cmr/m/n/10 Here
  []
 
 
-Overfull \hbox (13.88892pt too wide) in paragraph at lines 500--500
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 the
  []
 
 
-Overfull \hbox (14.44447pt too wide) in paragraph at lines 500--500
+Overfull \hbox (14.44447pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 un-
  []
 
 
-Overfull \hbox (16.13889pt too wide) in paragraph at lines 500--500
+Overfull \hbox (16.13889pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 cer-
  []
 
 
-Overfull \hbox (25.8334pt too wide) in paragraph at lines 500--500
+Overfull \hbox (25.8334pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 tainty
  []
 
 
-Overfull \hbox (6.72223pt too wide) in paragraph at lines 500--500
+Overfull \hbox (6.72223pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 is
  []
 
 
-Overfull \hbox (14.44449pt too wide) in paragraph at lines 500--500
+Overfull \hbox (14.44449pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 not
  []
 
 
-Overfull \hbox (5.00002pt too wide) in paragraph at lines 500--500
+Overfull \hbox (5.00002pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 a
  []
 
 
-Overfull \hbox (21.72226pt too wide) in paragraph at lines 500--500
+Overfull \hbox (21.72226pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 stan-
  []
 
 
-Overfull \hbox (20.02783pt too wide) in paragraph at lines 500--500
+Overfull \hbox (20.02783pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 dard
  []
 
 
-Overfull \hbox (11.69444pt too wide) in paragraph at lines 500--500
+Overfull \hbox (11.69444pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 er-
  []
 
 
-Overfull \hbox (12.83336pt too wide) in paragraph at lines 500--500
+Overfull \hbox (12.83336pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 ror
  []
 
 
-Overfull \hbox (8.33336pt too wide) in paragraph at lines 500--500
+Overfull \hbox (8.33336pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 in
  []
 
 
-Overfull \hbox (13.88892pt too wide) in paragraph at lines 500--500
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 the
  []
 
 
-Overfull \hbox (16.13892pt too wide) in paragraph at lines 500--500
+Overfull \hbox (16.13892pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 tra-
  []
 
 
-Overfull \hbox (11.66669pt too wide) in paragraph at lines 500--500
+Overfull \hbox (11.66669pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 di-
  []
 
 
-Overfull \hbox (25.00008pt too wide) in paragraph at lines 500--500
+Overfull \hbox (25.00008pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 tional
  []
 
 
-Overfull \hbox (22.33334pt too wide) in paragraph at lines 500--500
+Overfull \hbox (22.33334pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 sense
  []
 
 
-Overfull \hbox (8.05559pt too wide) in paragraph at lines 500--500
+Overfull \hbox (8.05559pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 of
  []
 
 
-Overfull \hbox (13.88892pt too wide) in paragraph at lines 500--500
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 the
  []
 
 
-Overfull \hbox (24.19449pt too wide) in paragraph at lines 500--500
+Overfull \hbox (24.19449pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 word,
  []
 
 
-Overfull \hbox (15.00005pt too wide) in paragraph at lines 500--500
+Overfull \hbox (15.00005pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 but
  []
 
 
-Overfull \hbox (11.38889pt too wide) in paragraph at lines 500--500
+Overfull \hbox (11.38889pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 we
  []
 
 
-Overfull \hbox (15.00003pt too wide) in paragraph at lines 500--500
+Overfull \hbox (15.00003pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 can
  []
 
 
-Overfull \hbox (16.1667pt too wide) in paragraph at lines 500--500
+Overfull \hbox (16.1667pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 still
  []
 
 
-Overfull \hbox (13.94446pt too wide) in paragraph at lines 500--500
+Overfull \hbox (13.94446pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 use
  []
 
 
-Overfull \hbox (13.88892pt too wide) in paragraph at lines 500--500
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 the
  []
 
 
-Overfull \hbox (21.72226pt too wide) in paragraph at lines 500--500
+Overfull \hbox (21.72226pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 same
  []
 
 
-Overfull \hbox (11.69444pt too wide) in paragraph at lines 500--500
+Overfull \hbox (11.69444pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 er-
  []
 
 
-Overfull \hbox (12.83336pt too wide) in paragraph at lines 500--500
+Overfull \hbox (12.83336pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 ror
  []
 
 
-Overfull \hbox (23.36116pt too wide) in paragraph at lines 500--500
+Overfull \hbox (23.36116pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 prop-
  []
 
 
-Overfull \hbox (8.33334pt too wide) in paragraph at lines 500--500
+Overfull \hbox (8.33334pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 a-
  []
 
 
-Overfull \hbox (13.33336pt too wide) in paragraph at lines 500--500
+Overfull \hbox (13.33336pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 ga-
  []
 
 
-Overfull \hbox (17.22227pt too wide) in paragraph at lines 500--500
+Overfull \hbox (17.22227pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 tion
  []
 
 
-Overfull \hbox (25.5556pt too wide) in paragraph at lines 500--500
+Overfull \hbox (25.5556pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 meth-
  []
 
 
-Overfull \hbox (14.77782pt too wide) in paragraph at lines 500--500
+Overfull \hbox (14.77782pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 ods
  []
 
 
-Overfull \hbox (8.88892pt too wide) in paragraph at lines 500--500
+Overfull \hbox (8.88892pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 to
  []
 
 
-Overfull \hbox (21.11115pt too wide) in paragraph at lines 500--500
+Overfull \hbox (21.11115pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 com-
  []
 
 
-Overfull \hbox (19.44449pt too wide) in paragraph at lines 500--500
+Overfull \hbox (19.44449pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 pute
  []
 
 
-Overfull \hbox (9.44447pt too wide) in paragraph at lines 500--500
+Overfull \hbox (9.44447pt too wide) in paragraph at lines 502--502
 \OT1/cmr/m/n/10 it.| 
  []
 
@@ -9328,32 +9323,31 @@ Missing character: There is no b in font nullfont!
 Missing character: There is no y in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 497--501
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 499--503
 []
  []
 
 
-Overfull \hbox (4.48613pt too wide) in paragraph at lines 497--501
+Overfull \hbox (4.48613pt too wide) in paragraph at lines 499--503
 []
  []
 
 
-Overfull \hbox (5.20486pt too wide) in paragraph at lines 497--501
+Overfull \hbox (5.20486pt too wide) in paragraph at lines 499--503
 \OML/cmm/m/it/10 d$
  []
 
-Missing character: There is no m in font nullfont!
-Missing character: There is no s in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no m in font nullfont!
 Missing character: There is no s in font nullfont!
+Missing character: There is no m in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no m in font nullfont!
 
-Overfull \hbox (234.34508pt too wide) detected at line 508
-\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 d\OT1/cmr/m/n/10 ] = [] = 9
-\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 861[][]
+Overfull \hbox (213.70609pt too wide) detected at line 509
+\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 d\OT1/cmr/m/n/10 ] = [] [] 
+= 9\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 861[][]
  []
 
 Missing character: There is no T in font nullfont!
@@ -9459,7 +9453,7 @@ Missing character: There is no s in font nullfont!
 ! Undefined control sequence.
 <write> ... Reference `eq:snowy' on page \thepage 
                                                   \space undefined\on@line .
-l.513   Equations~\ref{eq:snowy}
+l.514   Equations~\ref{eq:snowy}
                                  and \ref{eq:haddock} specifies the units of
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -9468,7 +9462,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:snowy' on page  undefined on input line 513.
+LaTeX Warning: Reference `eq:snowy' on page  undefined on input line 514.
 
 Missing character: There is no a in font nullfont!
 Missing character: There is no n in font nullfont!
@@ -9476,7 +9470,7 @@ Missing character: There is no d in font nullfont!
 ! Undefined control sequence.
 <write> ...eference `eq:haddock' on page \thepage 
                                                   \space undefined\on@line .
-l.513 ...tions~\ref{eq:snowy} and \ref{eq:haddock}
+l.514 ...tions~\ref{eq:snowy} and \ref{eq:haddock}
                                                    specifies the units of
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -9485,7 +9479,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:haddock' on page  undefined on input line 513.
+LaTeX Warning: Reference `eq:haddock' on page  undefined on input line 514.
 
 Missing character: There is no s in font nullfont!
 Missing character: There is no p in font nullfont!
@@ -9597,63 +9591,63 @@ Missing character: There is no r in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (40.55568pt too wide) in paragraph at lines 510--516
+Overfull \hbox (40.55568pt too wide) in paragraph at lines 511--517
 \OT1/cmr/m/n/10 295\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 250 \OMS/cmsy/m/n/10 ^^F
  []
 
 
-Overfull \hbox (53.3335pt too wide) in paragraph at lines 510--516
+Overfull \hbox (53.3335pt too wide) in paragraph at lines 511--517
 []$    $\OT1/cmr/m/n/10 295\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 2 \OMS/cmsy/m/n/10
  ^^F
  []
 
 
-Overfull \hbox (42.43045pt too wide) in paragraph at lines 510--516
+Overfull \hbox (42.43045pt too wide) in paragraph at lines 511--517
 []$    \OT1/cmr/bx/n/10 round
  []
 
 
-Overfull \hbox (17.31378pt too wide) in paragraph at lines 510--516
+Overfull \hbox (17.31378pt too wide) in paragraph at lines 511--517
 \OT1/cmr/bx/n/10 sig-
  []
 
 
-Overfull \hbox (16.93047pt too wide) in paragraph at lines 510--516
+Overfull \hbox (16.93047pt too wide) in paragraph at lines 511--517
 \OT1/cmr/bx/n/10 nif-
  []
 
 
-Overfull \hbox (7.02774pt too wide) in paragraph at lines 510--516
+Overfull \hbox (7.02774pt too wide) in paragraph at lines 511--517
 \OT1/cmr/bx/n/10 i-
  []
 
 
-Overfull \hbox (21.24292pt too wide) in paragraph at lines 510--516
+Overfull \hbox (21.24292pt too wide) in paragraph at lines 511--517
 \OT1/cmr/bx/n/10 cant
  []
 
 
-Overfull \hbox (19.16656pt too wide) in paragraph at lines 510--516
+Overfull \hbox (19.16656pt too wide) in paragraph at lines 511--517
 \OT1/cmr/bx/n/10 dig-
  []
 
 
-Overfull \hbox (12.2027pt too wide) in paragraph at lines 510--516
+Overfull \hbox (12.2027pt too wide) in paragraph at lines 511--517
 \OT1/cmr/bx/n/10 its
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 510--516
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 511--517
 []
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 510--516
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 511--517
 []
  []
 
 ! Undefined control sequence.
-l.519 \section
+l.520 \section
               {Standard deviation vs. standard error}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -9695,7 +9689,7 @@ Missing character: There is no r in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no r in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 519--521
+Overfull \hbox (20.0pt too wide) in paragraph at lines 520--522
 []
  []
 
@@ -9720,7 +9714,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...`sec:linearerrorprop' on page \thepage 
                                                   \space undefined\on@line .
-l.522 ...ined in Section~\ref{sec:linearerrorprop}
+l.523 ...ined in Section~\ref{sec:linearerrorprop}
                                                   , the standard error is
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -9730,7 +9724,7 @@ and I'll forget about whatever was undefined.
 
 
 LaTeX Warning: Reference `sec:linearerrorprop' on page  undefined on input line
- 522.
+ 523.
 
 Missing character: There is no , in font nullfont!
 Missing character: There is no t in font nullfont!
@@ -10002,7 +9996,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...: Reference `eq:mean' on page \thepage 
                                                   \space undefined\on@line .
-l.528 (Equation~\ref{eq:mean}
+l.529 (Equation~\ref{eq:mean}
                              ):
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -10011,47 +10005,47 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:mean' on page  undefined on input line 528.
+LaTeX Warning: Reference `eq:mean' on page  undefined on input line 529.
 
 Missing character: There is no ) in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 522--529
+Overfull \hbox (20.0pt too wide) in paragraph at lines 523--530
 []
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 522--529
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 523--530
 []
  []
 
 
-Overfull \hbox (63.7835pt too wide) in paragraph at lines 522--529
+Overfull \hbox (63.7835pt too wide) in paragraph at lines 523--530
 \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 x[]; x[]; [] x[]\OMS/cmsy/m/n/10 g$
  []
 
 
-Overfull \hbox (6.00235pt too wide) in paragraph at lines 522--529
+Overfull \hbox (6.00235pt too wide) in paragraph at lines 523--530
 \OML/cmm/m/it/10 n$
  []
 
 
-Overfull \hbox (5.71527pt too wide) in paragraph at lines 522--529
+Overfull \hbox (5.71527pt too wide) in paragraph at lines 523--530
 \OML/cmm/m/it/10 x$
  []
 
 
-Overfull \hbox (5.71527pt too wide) in paragraph at lines 522--529
+Overfull \hbox (5.71527pt too wide) in paragraph at lines 523--530
 []$
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 522--529
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 523--530
 [] 
  []
 
 
-Overfull \hbox (95.16199pt too wide) detected at line 531
+Overfull \hbox (95.16199pt too wide) detected at line 532
 [] \OT1/cmr/m/n/10 = [] [] = [] [] \OML/cmm/m/it/10 x[]
  []
 
@@ -10108,7 +10102,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...ference `eq:addition' on page \thepage 
                                                   \space undefined\on@line .
-l.534 (Equation~\ref{eq:addition}
+l.535 (Equation~\ref{eq:addition}
                                  ):
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -10117,22 +10111,22 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:addition' on page  undefined on input line 534.
+LaTeX Warning: Reference `eq:addition' on page  undefined on input line 535.
 
 Missing character: There is no ) in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 533--535
+Overfull \hbox (20.0pt too wide) in paragraph at lines 534--536
 []
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 533--535
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 534--536
 [] 
  []
 
 
-Overfull \hbox (173.2803pt too wide) detected at line 538
+Overfull \hbox (173.2803pt too wide) detected at line 539
 \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [[]][] = [] [][] = [][] [] \OML/cmm/m/it/10 s
 \OT1/cmr/m/n/10 [\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 ][]
  []
@@ -10211,22 +10205,22 @@ Missing character: There is no h in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no n in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 540--542
+Overfull \hbox (20.0pt too wide) in paragraph at lines 541--543
 []
  []
 
 
-Overfull \hbox (9.04456pt too wide) in paragraph at lines 540--542
+Overfull \hbox (9.04456pt too wide) in paragraph at lines 541--543
 \OML/cmm/m/it/10 x[]$
  []
 
 
-Overfull \hbox (15.95834pt too wide) in paragraph at lines 540--542
+Overfull \hbox (15.95834pt too wide) in paragraph at lines 541--543
 \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ]$
  []
 
 
-Overfull \hbox (170.33472pt too wide) detected at line 545
+Overfull \hbox (170.33472pt too wide) detected at line 546
 \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [[]][] = [][] [] \OML/cmm/m/it/10 s\OT1/cmr/m
 /n/10 [\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ][] = \OML/cmm/m/it/10 n [][] s\OT1/cm
 r/m/n/10 [\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ][]
@@ -10250,7 +10244,7 @@ Missing character: There is no s in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no o in font nullfont!
 
-Overfull \hbox (47.6499pt too wide) detected at line 551
+Overfull \hbox (47.6499pt too wide) detected at line 552
 \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 [[]] = [][]
  []
 
@@ -10496,7 +10490,7 @@ Missing character: There is no e in font nullfont!
 ! Undefined control sequence.
 <write> ...Reference `fig:darts' on page \thepage 
                                                   \space undefined\on@line .
-l.558 (Figure~\ref{fig:darts}
+l.559 (Figure~\ref{fig:darts}
                              ). To illustrate the effect of the square root
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -10505,7 +10499,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `fig:darts' on page  undefined on input line 558.
+LaTeX Warning: Reference `fig:darts' on page  undefined on input line 559.
 
 Missing character: There is no ) in font nullfont!
 Missing character: There is no . in font nullfont!
@@ -10907,67 +10901,67 @@ Missing character: There is no . in font nullfont!
 Missing character: There is no 5 in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 553--567
+Overfull \hbox (20.0pt too wide) in paragraph at lines 554--568
 []
  []
 
 
-Overfull \hbox (16.9943pt too wide) in paragraph at lines 553--567
+Overfull \hbox (16.9943pt too wide) in paragraph at lines 554--568
 \OT1/cmr/m/it/10 pre-
  []
 
 
-Overfull \hbox (11.24435pt too wide) in paragraph at lines 553--567
+Overfull \hbox (11.24435pt too wide) in paragraph at lines 554--568
 \OT1/cmr/m/it/10 ci-
  []
 
 
-Overfull \hbox (17.8888pt too wide) in paragraph at lines 553--567
+Overfull \hbox (17.8888pt too wide) in paragraph at lines 554--568
 \OT1/cmr/m/it/10 sion
  []
 
 
-Overfull \hbox (13.28879pt too wide) in paragraph at lines 553--567
+Overfull \hbox (13.28879pt too wide) in paragraph at lines 554--568
 \OT1/cmr/m/it/10 ac-
  []
 
 
-Overfull \hbox (13.54434pt too wide) in paragraph at lines 553--567
+Overfull \hbox (13.54434pt too wide) in paragraph at lines 554--568
 \OT1/cmr/m/it/10 cu-
  []
 
 
-Overfull \hbox (18.27206pt too wide) in paragraph at lines 553--567
+Overfull \hbox (18.27206pt too wide) in paragraph at lines 554--568
 \OT1/cmr/m/it/10 racy
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 553--567
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 554--568
 []
  []
 
 
-Overfull \hbox (67.26389pt too wide) in paragraph at lines 553--567
+Overfull \hbox (67.26389pt too wide) in paragraph at lines 554--568
 \OT1/cmr/m/n/10 10\OML/cmm/m/it/10 =[] \OT1/cmr/m/n/10 =
  []
 
 
-Overfull \hbox (20.55562pt too wide) in paragraph at lines 553--567
+Overfull \hbox (20.55562pt too wide) in paragraph at lines 554--568
 \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 4 \OMS/cmsy/m/n/10 ^^B
  []
 
 
-Overfull \hbox (35.5583pt too wide) in paragraph at lines 553--567
+Overfull \hbox (35.5583pt too wide) in paragraph at lines 554--568
 [][]$                         \OT1/cmr/m/it/10 mi-
  []
 
 
-Overfull \hbox (23.12761pt too wide) in paragraph at lines 553--567
+Overfull \hbox (23.12761pt too wide) in paragraph at lines 554--568
 \OT1/cmr/m/it/10 crons 
  []
 
 ! Undefined control sequence.
-l.568 \section
+l.569 \section
               {Fisher Information}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -10993,7 +10987,7 @@ Missing character: There is no i in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no n in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 568--570
+Overfull \hbox (20.0pt too wide) in paragraph at lines 569--571
 []
  []
 
@@ -11078,7 +11072,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...erence `sec:binompar' on page \thepage 
                                                   \space undefined\on@line .
-l.572 the binomial (Section~\ref{sec:binompar}
+l.573 the binomial (Section~\ref{sec:binompar}
                                               ), Poisson
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -11087,7 +11081,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `sec:binompar' on page  undefined on input line 572.
+LaTeX Warning: Reference `sec:binompar' on page  undefined on input line 573.
 
 Missing character: There is no ) in font nullfont!
 Missing character: There is no , in font nullfont!
@@ -11109,7 +11103,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...ference `sec:poispar' on page \thepage 
                                                   \space undefined\on@line .
-l.573 (Section~\ref{sec:poispar}
+l.574 (Section~\ref{sec:poispar}
                                 ) and normal
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -11118,7 +11112,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `sec:poispar' on page  undefined on input line 573.
+LaTeX Warning: Reference `sec:poispar' on page  undefined on input line 574.
 
 Missing character: There is no ) in font nullfont!
 Missing character: There is no a in font nullfont!
@@ -11141,7 +11135,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...sec:normalparameters' on page \thepage 
                                                   \space undefined\on@line .
-l.574 (Section~\ref{sec:normalparameters}
+l.575 (Section~\ref{sec:normalparameters}
                                          ) distributions. An extension of
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -11151,7 +11145,7 @@ and I'll forget about whatever was undefined.
 
 
 LaTeX Warning: Reference `sec:normalparameters' on page  undefined on input lin
-e 574.
+e 575.
 
 Missing character: There is no ) in font nullfont!
 Missing character: There is no d in font nullfont!
@@ -11399,42 +11393,42 @@ Missing character: There is no o in font nullfont!
 Missing character: There is no f in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 571--580
+Overfull \hbox (20.0pt too wide) in paragraph at lines 572--581
 []
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 571--580
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 572--581
 []
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 571--580
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 572--581
 []
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 571--580
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 572--581
 []
  []
 
 
-Overfull \hbox (5.0903pt too wide) in paragraph at lines 571--580
+Overfull \hbox (5.0903pt too wide) in paragraph at lines 572--581
 []$
  []
 
 
-Overfull \hbox (5.0903pt too wide) in paragraph at lines 571--580
+Overfull \hbox (5.0903pt too wide) in paragraph at lines 572--581
 \OML/cmm/m/it/10 z$
  []
 
 
-Overfull \hbox (5.0903pt too wide) in paragraph at lines 571--580
+Overfull \hbox (5.0903pt too wide) in paragraph at lines 572--581
 []$ 
  []
 
 
-Overfull \hbox (212.45885pt too wide) detected at line 586
+Overfull \hbox (212.45885pt too wide) detected at line 587
 []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^Y []\
 OT1/cmr/m/n/10 ([]) + [][]  (\OML/cmm/m/it/10 z \OMS/cmsy/m/n/10 ^^@ []\OT1/cmr
 /m/n/10 ) + [][]  (\OML/cmm/m/it/10 z \OMS/cmsy/m/n/10 ^^@ []\OT1/cmr/m/n/10 )[
@@ -11500,37 +11494,37 @@ Missing character: There is no t in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 588--591
+Overfull \hbox (20.0pt too wide) in paragraph at lines 589--592
 []
  []
 
 
-Overfull \hbox (46.16948pt too wide) in paragraph at lines 588--591
+Overfull \hbox (46.16948pt too wide) in paragraph at lines 589--592
 \OML/cmm/m/it/10 @[]=@z \OT1/cmr/m/n/10 =
  []
 
 
-Overfull \hbox (5.00002pt too wide) in paragraph at lines 588--591
+Overfull \hbox (5.00002pt too wide) in paragraph at lines 589--592
 \OT1/cmr/m/n/10 0$
  []
 
 
-Overfull \hbox (5.0903pt too wide) in paragraph at lines 588--591
+Overfull \hbox (5.0903pt too wide) in paragraph at lines 589--592
 []$
  []
 
 
-Overfull \hbox (30.32086pt too wide) in paragraph at lines 588--591
+Overfull \hbox (30.32086pt too wide) in paragraph at lines 589--592
 \OMS/cmsy/m/n/10 L\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 ) =
  []
 
 
-Overfull \hbox (47.49599pt too wide) in paragraph at lines 588--591
+Overfull \hbox (47.49599pt too wide) in paragraph at lines 589--592
 []\OT1/cmr/m/n/10 [[](\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 )]$
  []
 
 
-Overfull \hbox (140.01813pt too wide) detected at line 598
+Overfull \hbox (140.01813pt too wide) detected at line 599
 \OMS/cmsy/m/n/10 L\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 ) \OMS/cms
 y/m/n/10 / [] []
  []
@@ -11560,7 +11554,7 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (118.16939pt too wide) detected at line 606
+Overfull \hbox (118.16939pt too wide) detected at line 607
 \OMS/cmsy/m/n/10 L\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 ) \OMS/cms
 y/m/n/10 / []  []
  []
@@ -11633,7 +11627,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ... Reference `eq:gauss' on page \thepage 
                                                   \space undefined\on@line .
-l.609 (Equation~\ref{eq:gauss}
+l.610 (Equation~\ref{eq:gauss}
                               ):
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -11642,22 +11636,22 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:gauss' on page  undefined on input line 609.
+LaTeX Warning: Reference `eq:gauss' on page  undefined on input line 610.
 
 Missing character: There is no ) in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 608--610
+Overfull \hbox (20.0pt too wide) in paragraph at lines 609--611
 []
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 608--610
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 609--611
 [] 
  []
 
 
-Overfull \hbox (111.17647pt too wide) detected at line 614
+Overfull \hbox (111.17647pt too wide) detected at line 615
 \OMS/cmsy/m/n/10 L\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 ) \OMS/cms
 y/m/n/10 / []  []
  []
@@ -11675,7 +11669,7 @@ Missing character: There is no s in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no o in font nullfont!
 
-Overfull \hbox (77.61137pt too wide) detected at line 621
+Overfull \hbox (77.61137pt too wide) detected at line 622
 []\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 ][] = [][]
  []
 
@@ -11703,7 +11697,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...Reference `eq:Fisher' on page \thepage 
                                                   \space undefined\on@line .
-l.624 ...er Information}. Equation~\ref{eq:Fisher}
+l.625 ...er Information}. Equation~\ref{eq:Fisher}
                                                    can be
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -11712,7 +11706,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:Fisher' on page  undefined on input line 624.
+LaTeX Warning: Reference `eq:Fisher' on page  undefined on input line 625.
 
 Missing character: There is no c in font nullfont!
 Missing character: There is no a in font nullfont!
@@ -11752,42 +11746,42 @@ Missing character: There is no n in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (60.67325pt too wide) in paragraph at lines 623--626
+Overfull \hbox (60.67325pt too wide) in paragraph at lines 624--627
 []$\OMS/cmsy/m/n/10 ^^@ [][]$
  []
 
 
-Overfull \hbox (31.36234pt too wide) in paragraph at lines 623--626
+Overfull \hbox (31.36234pt too wide) in paragraph at lines 624--627
 \OT1/cmr/bx/n/10 Fisher
  []
 
 
-Overfull \hbox (14.58325pt too wide) in paragraph at lines 623--626
+Overfull \hbox (14.58325pt too wide) in paragraph at lines 624--627
 \OT1/cmr/bx/n/10 In-
  []
 
 
-Overfull \hbox (17.83325pt too wide) in paragraph at lines 623--626
+Overfull \hbox (17.83325pt too wide) in paragraph at lines 624--627
 \OT1/cmr/bx/n/10 for-
  []
 
 
-Overfull \hbox (19.00682pt too wide) in paragraph at lines 623--626
+Overfull \hbox (19.00682pt too wide) in paragraph at lines 624--627
 \OT1/cmr/bx/n/10 ma-
  []
 
 
-Overfull \hbox (19.80545pt too wide) in paragraph at lines 623--626
+Overfull \hbox (19.80545pt too wide) in paragraph at lines 624--627
 \OT1/cmr/bx/n/10 tion
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 623--626
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 624--627
 []
  []
 
 
-Overfull \hbox (47.6111pt too wide) detected at line 629
+Overfull \hbox (47.6111pt too wide) detected at line 630
 [] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@H[][]
  []
 
@@ -11937,12 +11931,12 @@ Missing character: There is no r in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (7.22223pt too wide) in paragraph at lines 631--635
+Overfull \hbox (7.22223pt too wide) in paragraph at lines 632--636
  $[]$
  []
 
 
-Overfull \hbox (27.05565pt too wide) in paragraph at lines 631--635
+Overfull \hbox (27.05565pt too wide) in paragraph at lines 632--636
 \OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 H\OT1/cmr/m/n/10 )[]$
  []
 
@@ -11984,7 +11978,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...Reference `eq:Fisher' on page \thepage 
                                                   \space undefined\on@line .
-l.636 ...he usefulness of Equation~\ref{eq:Fisher}
+l.637 ...he usefulness of Equation~\ref{eq:Fisher}
                                                   , let us apply
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -11993,7 +11987,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:Fisher' on page  undefined on input line 636.
+LaTeX Warning: Reference `eq:Fisher' on page  undefined on input line 637.
 
 Missing character: There is no , in font nullfont!
 Missing character: There is no l in font nullfont!
@@ -12079,7 +12073,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...Reference `eq:poisLL' on page \thepage 
                                                   \space undefined\on@line .
-l.638 (Equation~\ref{eq:poisLL}
+l.639 (Equation~\ref{eq:poisLL}
                                ) and denoting the maximum likelihood
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -12088,7 +12082,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:poisLL' on page  undefined on input line 638.
+LaTeX Warning: Reference `eq:poisLL' on page  undefined on input line 639.
 
 Missing character: There is no ) in font nullfont!
 Missing character: There is no a in font nullfont!
@@ -12148,27 +12142,27 @@ Missing character: There is no b in font nullfont!
 Missing character: There is no y in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 636--640
+Overfull \hbox (20.0pt too wide) in paragraph at lines 637--641
 []
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 636--640
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 637--641
 []
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 636--640
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 637--641
 []
  []
 
 
-Overfull \hbox (5.83336pt too wide) in paragraph at lines 636--640
+Overfull \hbox (5.83336pt too wide) in paragraph at lines 637--641
 []$ 
  []
 
 
-Overfull \hbox (121.47578pt too wide) detected at line 643
+Overfull \hbox (121.47578pt too wide) detected at line 644
 []\OT1/cmr/m/n/10 ([]\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 k\OT1/cmr/m/n/10 ) = \O
 ML/cmm/m/it/10 k []\OT1/cmr/m/n/10 [[]] \OMS/cmsy/m/n/10 ^^@ [] ^^@ [] \OML/cmm
 /m/it/10 i
@@ -12216,22 +12210,22 @@ Missing character: There is no t in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 645--647
+Overfull \hbox (20.0pt too wide) in paragraph at lines 646--648
 []
  []
 
 
-Overfull \hbox (13.7945pt too wide) in paragraph at lines 645--647
+Overfull \hbox (13.7945pt too wide) in paragraph at lines 646--648
 []$
  []
 
 
-Overfull \hbox (5.83336pt too wide) in paragraph at lines 645--647
+Overfull \hbox (5.83336pt too wide) in paragraph at lines 646--648
 \OML/cmm/m/it/10 ^^U$ 
  []
 
 
-Overfull \hbox (68.48547pt too wide) detected at line 651
+Overfull \hbox (68.48547pt too wide) detected at line 652
 [][]  \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@[][]
  []
 
@@ -12254,7 +12248,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...eference `eq:d2LLdl2' on page \thepage 
                                                   \space undefined\on@line .
-l.653 Plugging Equation~\ref{eq:d2LLdl2}
+l.654 Plugging Equation~\ref{eq:d2LLdl2}
                                          into \ref{eq:Fisher}:
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -12263,7 +12257,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:d2LLdl2' on page  undefined on input line 653.
+LaTeX Warning: Reference `eq:d2LLdl2' on page  undefined on input line 654.
 
 Missing character: There is no i in font nullfont!
 Missing character: There is no n in font nullfont!
@@ -12272,7 +12266,7 @@ Missing character: There is no o in font nullfont!
 ! Undefined control sequence.
 <write> ...Reference `eq:Fisher' on page \thepage 
                                                   \space undefined\on@line .
-l.653 ...ion~\ref{eq:d2LLdl2} into \ref{eq:Fisher}
+l.654 ...ion~\ref{eq:d2LLdl2} into \ref{eq:Fisher}
                                                   :
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -12281,26 +12275,26 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:Fisher' on page  undefined on input line 653.
+LaTeX Warning: Reference `eq:Fisher' on page  undefined on input line 654.
 
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 653--654
+Overfull \hbox (20.0pt too wide) in paragraph at lines 654--655
 []
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 653--654
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 654--655
 []
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 653--654
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 654--655
 [] 
  []
 
 
-Overfull \hbox (48.00067pt too wide) detected at line 656
+Overfull \hbox (48.00067pt too wide) detected at line 657
 []\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 ^^U\OT1/cmr/m/n/10 ][] = []
  []
 
@@ -12329,7 +12323,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...ference `eq:lambda=k' on page \thepage 
                                                   \space undefined\on@line .
-l.658 ...\lambda} = k$ (Equation~\ref{eq:lambda=k}
+l.659 ...\lambda} = k$ (Equation~\ref{eq:lambda=k}
                                                   ), we
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -12338,7 +12332,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `eq:lambda=k' on page  undefined on input line 658.
+LaTeX Warning: Reference `eq:lambda=k' on page  undefined on input line 659.
 
 Missing character: There is no ) in font nullfont!
 Missing character: There is no , in font nullfont!
@@ -12349,27 +12343,27 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 658--660
+Overfull \hbox (20.0pt too wide) in paragraph at lines 659--661
 []
  []
 
 
-Overfull \hbox (16.38887pt too wide) in paragraph at lines 658--660
+Overfull \hbox (16.38887pt too wide) in paragraph at lines 659--661
 [] \OT1/cmr/m/n/10 =
  []
 
 
-Overfull \hbox (5.52084pt too wide) in paragraph at lines 658--660
+Overfull \hbox (5.52084pt too wide) in paragraph at lines 659--661
 \OML/cmm/m/it/10 k$
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 658--660
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 659--661
 []
  []
 
 
-Overfull \hbox (41.11455pt too wide) detected at line 663
+Overfull \hbox (41.11455pt too wide) detected at line 664
 []\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 ^^U\OT1/cmr/m/n/10 ][] = [][]
  []
 
@@ -12479,7 +12473,348 @@ Missing character: There is no r in font nullfont!
 ! Undefined control sequence.
 <write> ...eference `ch:poisson' on page \thepage 
                                                   \space undefined\on@line .
-l.666 ...n empirically in Chapter~\ref{ch:poisson}
+l.668 Chapter~\ref{ch:poisson}
+                              .\medskip
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `ch:poisson' on page  undefined on input line 668.
+
+Missing character: There is no . in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 666--669
+[]
+ []
+
+
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 666--669
+[] 
+ []
+
+Missing character: There is no U in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no q in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+! Undefined control sequence.
+<write> ...Reference `eq:Lbinom' on page \thepage 
+                                                  \space undefined\on@line .
+l.671 ...the logarithm of Equation~\ref{eq:Lbinom}
+                                                  :
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `eq:Lbinom' on page  undefined on input line 671.
+
+Missing character: There is no : in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 670--672
+[]
+ []
+
+
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 670--672
+[] 
+ []
+
+! Undefined control sequence.
+l.673 \mathcal{LL}(p|n,k) = \ln\!\binom
+                                       {n}{k} + k \ln(p) + (n-k) \ln(1-p)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (185.08984pt too wide) detected at line 674
+[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 n; k\OT
+1/cmr/m/n/10 ) = []  \OML/cmm/m/it/10 nk \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 k [
+]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 ) + (\OML/cmm/m/it/10 n \OM
+S/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 k\OT1/cmr/m/n/10 ) [](1 \OMS/cmsy/m/n/10 ^^@
+ \OML/cmm/m/it/10 p\OT1/cmr/m/n/10 )
+ []
+
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no : in font nullfont!
+
+Overfull \hbox (104.26872pt too wide) detected at line 680
+[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@[] ^^@ []
+ []
+
+Missing character: There is no A in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no ( in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no q in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+! Undefined control sequence.
+<write> ...: Reference `eq:phat' on page \thepage 
+                                                  \space undefined\on@line .
+l.683 (Equation~\ref{eq:phat}
+                             ), this becomes:
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `eq:phat' on page  undefined on input line 683.
+
+Missing character: There is no ) in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no : in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 682--684
+[]
+ []
+
+
+Overfull \hbox (15.58676pt too wide) in paragraph at lines 682--684
+[] \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (16.52321pt too wide) in paragraph at lines 682--684
+\OML/cmm/m/it/10 n=k$
+ []
+
+
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 682--684
+[]
+ []
+
+
+Overfull \hbox (173.51408pt too wide) detected at line 688
+[][] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@[] ^^@ [] \OT1/cmr/m/n/10 = \OMS/cms
+y/m/n/10 ^^@[]
+ []
+
+Missing character: There is no s in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no : in font nullfont!
+
+Overfull \hbox (5.03125pt too wide) in paragraph at lines 690--691
+     $\OML/cmm/m/it/10 p$
+ []
+
+
+Overfull \hbox (71.94153pt too wide) detected at line 693
+[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 ][] = []
+ []
+
+Missing character: There is no w in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no q in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+! Undefined control sequence.
+<write> ...rence `eq:sigmabinom' on page \thepage 
+                                                  \space undefined\on@line .
+l.695 ...which proves Equation~\ref{eq:sigmabinom}
                                                   .
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -12488,7 +12823,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `ch:poisson' on page  undefined on input line 666.
+LaTeX Warning: Reference `eq:sigmabinom' on page  undefined on input line 695.
 
 Missing character: There is no . in font nullfont!
 )
@@ -12499,11 +12834,11 @@ Missing character: There is no . in font nullfont!
 
  
 Here is how much of TeX's memory you used:
- 62 strings out of 481239
- 946 string characters out of 5920378
- 271562 words of memory out of 5000000
- 15426 multiletter control sequences out of 15000+600000
- 532992 words of font info for 26 fonts, out of 8000000 for 9000
+ 65 strings out of 478287
+ 990 string characters out of 5849288
+ 329386 words of memory out of 5000000
+ 18358 multiletter control sequences out of 15000+600000
+ 469913 words of font info for 30 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 18i,7n,15p,128b,158s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 24i,7n,25p,151b,168s stack positions out of 5000i,500n,10000p,200000b,80000s
 !  ==> Fatal error occurred, no output PDF file produced!
