@@ -97,7 +97,7 @@ The Q-Q plot in Figure~\ref{fig:qqfaithful12} compared two samples
 that were normally distributed with different means.  However it may
 not be clear if the difference between the means is statistically
 significant or not. Before we address this problem, let us first look
-at a related, but slightly simpler problem. Consider the density of 5
+at a related but slightly simpler problem. Consider the density of 5
 gold coins as an example:
 
 \begin{center}
@@ -1177,17 +1177,14 @@ example of table~\ref{tab:2setcoins}:
   generic example.
 
 \item Under $H_0$, the test statistic follows a Wilcoxon rank-sum
-  distribution for $n_1=5$ and $n_2=4$. Tabulating some key quantiles
-  for this distribution:
+  distribution for $n_1=5$ and $n_2=4$. Tabulating some key values for
+  this distribution:
 
   \begin{center}
-    \begin{tabular}{c|c@{\gap}c@{\gap}c@{\gap}c@{\gap}
-        c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
-      $W$ & 10 & 11 & 12 & 14 & 16 & 19 & 22 & 24 & \textit{26} & 27 & 28 \\ \hline
-      $P(w\leq{W})$ & 0.01 & 0.025 & 0.05 & 0.1 & 0.25 &
-      0.5 & 0.75 & 0.9 & \textit{0.95} & 0.975 & 0.99 \\
-      $P(w\geq{W})$ & 0.99 & 0.975 & 0.95 & 0.9 & 0.75 & 0.5 &
-      0.25 & 0.1 & \textit{0.05} & 0.025 & 0.01
+    \begin{tabular}{c|c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
+      $W$ & 10 & 11 & 12 & 13 & 19 & 20 & \textit{26} & 27 & 28 & 29 & 30 \\ \hline
+      $P(w\leq{W})$ & 0.008 & 0.016 & 0.032 & 0.056 & 0.45 & 0.55 & \textit{0.944} & 0.97 & 0.98 & 0.99 & 1.0 \\
+      $P(w\geq{W})$ & 1.0 & 0.99 & 0.98 & 0.97 & 0.63 & 0.55 & \textit{0.095} & 0.056 & 0.032 & 0.016 & 0.008
     \end{tabular}
   \end{center}
 
@@ -1198,18 +1195,14 @@ example of table~\ref{tab:2setcoins}:
 \item Marking the two-sided rejection region in bold:
   
   \begin{center}
-    \begin{tabular}{c|c@{\gap}c@{\gap}c@{\gap}c@{\gap}
-        c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
-      $W$ & \textbf{10} & 11 & 12 & 14 & 16 & 19 & 22 & 24 & \textit{26} &
-      27 & \textbf{28} \\ \hline
-      $P(w\leq{W})$ & \textbf{0.01} & 0.025 & 0.05 & 0.1 & 0.25 &
-      0.5 & 0.75 & 0.9 & \textit{0.95} & 0.975 & 0.99 \\
-      $P(w\geq{W})$ & 0.99 & 0.975 & 0.95 & 0.9 & 0.75 & 0.5 &
-      0.25 & 0.1 & \textit{0.05} & 0.025 & \textbf{0.01}
+    \begin{tabular}{c|c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
+      $W$ & \textbf{10} & \textbf{11} & 12 & 13 & 19 & 20 & \textit{26} & 27 & 28 & \textbf{29} & \textbf{30} \\ \hline
+      $P(w\leq{W})$ & \textbf{0.008} & \textbf{0.016} & 0.032 & 0.056 & 0.45 & 0.55 & \textit{0.944} & 0.97 & 0.98 & 0.99 & 1.0 \\
+      $P(w\geq{W})$ & 1.0 & 0.99 & 0.98 & 0.97 & 0.63 & 0.55 & \textit{0.095} & 0.056 & 0.032 & \textbf{0.016} & \textbf{0.008}
     \end{tabular}
   \end{center}
 
-  The rejection region consists of $W={10}$ and $W>{27}$.
+  The rejection region consists of $W=\{10,11,29,30\}$.
 
 \item The observed value of $W (=26)$ falls outside the rejection
   region, and so we cannot reject $H_0$.

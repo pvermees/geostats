@@ -2807,8 +2807,8 @@ our measured quantity t.
 This chain rule is a powerful way to propagate the uncertainties of
 potentially very complicated problems. It acts really like a set of
 Russian dolls in which you break a complex function up into simpler
-functions for which you can use this elementary level of propagation
-formerly.
+functions for which you can use the elementary error propagation
+formulae.
 
 ---
 
@@ -3605,7 +3605,7 @@ is computed in a similar fashion.
 
 ---
 
-The Wicoxon test then proceeds in pretty much the same way as all the
+The Wilcoxon test then proceeds in pretty much the same way as all the
 other tests that we have looked at. In this case, the null hypothesis
 is that the median of the first sample equals that of the second
 sample and the alternative hypothesis in a two-sided test is that the
@@ -3626,26 +3626,20 @@ intentional.
 
 ---
 
-Under the null hypothesis, the test statistics follows a Wicoxon rank
+Under the null hypothesis, the test statistics follows a Wilcoxon rank
 sum distribution with n1 (the number of items in the first sample) of
 five and n2 (which is a number of samples in the second collection) of
-four. So here are some key quantiles for this null distribution.
-Again, the 1, 2.5, 5 etcetera percentiles. We're doing a two-sided
-test, so we want to have a look at both sides of the distribution. Our
-observed value is 26. That corresponds to the upper five percentile of
-the distribution. Hence the p-value of this two sided test is twice
-this number, which is 0.1.
+four. So here are some key values for this null distribution. We're
+doing a two-sided test, so we want to have a look at both sides of the
+distribution. Our observed value is 26.
 
 ---
 
 The significance level of 5% corresponds to a rejection region that
-includes a value of 10 for the Wilcoxon statistic and all values
-greater than 27, so from 28 to 35, which is the largest possible
-value. Our observed value of the statistic of 26 does not fall in this
+includes the values of 10, 11, 29 and 30 for the Wilcoxon statistic.
+Our observed value of the statistic of 26 does not fall in this
 rejection region, and therefore we are unable to reject the null
-hypothesis. Similarly, the p=value so twice 0.05 (which is 0.10) is
-greater than the significance cutoff, and therefore we are again
-unable to reject the null hypothesis.
+hypothesis.
 
 ---
 
@@ -3661,8 +3655,8 @@ distribution.
 
 Similarly, here we've got 2.5 and 97.5 percent marks on the cumulative
 distribution function. The intersection of our cumulative distribution
-with the observation plots between these two lines. Again, not allowing us
-to reject the null hypothesis.
+with the observation plots between these two lines. Again, not
+allowing us to reject the null hypothesis.
 
 ---
 
@@ -5310,3 +5304,371 @@ reached in the linear discriminant analysis.
 ============
 Compositions
 ============
+
+The normal distribution plays a key role in linear regression,
+principal component analysis, discriminant analysis and many other
+standard statistical techniques. Although Gaussian distributions are
+very common in nature, it is dangerous to assume normality for all
+datasets. In fact, more often than not, the normality assumption is
+invalid for geological data. Ignoring this non-normality can lead to
+counter-intuitive and plainly wrong results. In this session, we will
+discuss the statistical treatment of compositional data, which include
+the chemical compositions of rocks, minerals, water and so forth, a
+data type that is very common in the Earth Sciences. We will see that
+this data type cannot be safely analysed using standard statistical
+techniques that are based on the normal distribution.
+
+---
+
+Before we get into the details of proper compositional data analysis,
+we will first illustrate the dangers of blindly assuming normality by
+first considering the simple case of ratios of strictly positive data,
+which are also quite common in the Earth Sciences.
+
+Take, for example, the ratio of apatite to tourmaline in heavy mineral
+analysis, which has been used to indicate the duration of transport
+and storage prior to deposition of sediments. Or consider the ratio of
+strontium-87 to rubidium-87 in geochronology. We've already seen that
+ratios can lead to spurious correlations in regression
+analysis. However, in this session, I will show that even basic
+summary statistics such as the mean and standard deviation can produce
+counterintuitive results when they are applied to ratios. Consider two
+datasets, A and B of 10 random values between zero and one.
+
+---
+
+Forming two sets of ratios by dividing A by B and by dividing B by A
+gives rise to two new sets of 10 values.
+
+---
+
+Simple arithmetic dictates that the reciprocal of the ratios of A over
+B should equal the ratio of B over A. So if A over B is 1.3, then 1
+divided by 1.3 equals 0.78, which equals B over A. If A over B is 2.1,
+then one divided by 2.1 is 0.47, which again is B over A,
+etc.
+
+---
+
+However, if we calculate the mean of the A over B ratios, which is 1.2
+and the mean of the B over A ratios, which is 2.3, then we get the
+very counterintuitive result that 1 divided by the average A over B
+ratio does not equal the average of the B over A ratios.
+
+And conversely, the reciprocal of the average B over A ratio does not
+equal the average of the A over B ratios.
+
+---
+
+The solution to the ratio averaging conundrum is to simply take
+logarithms. If you calculate the logarithm of the ratios of A over B
+and the logarithms of the B over A ratios and we average those, then
+we get values of -0.12 and +0.12, respectively. Exponentiating these
+mean log ratios produces values of 0.88 and 1.13. These are the
+geometric means as opposed to the arithmetic means of the A over B and
+B over A ratios.
+
+We then find that one divide it by the geometric mean of A over B
+equals the geometric mean of B over A and the reciprocal of the
+geometric mean of b over A equals the geometric mean of A over B.
+
+This is an altogether more satisfying result than what we got from the
+arithmetic mean.
+
+---
+
+Like the ratios that we just discussed, the chemical compositions of
+rocks and minerals are also expressed as strictly positive
+numbers. They, however, do not span the entire range of positive
+values, but are restricted to a narrow subset of that space, ranging
+from zero to one if fractions are used, or from zero to 100 if we use
+percentage notation.
+
+Compositions are further restricted by a constant sum constraint,
+where the sum of the concentrations of N components must add up to
+100%, or to unity.  If n=3, we have a ternary system. These three
+component systems can be visualised on a ternary diagram, an example
+of which is shown on this slide.
+
+Ternary diagrams are very popular in geology. Well known examples are
+the Q-F-L diagram of sedimentary photography; the A-CN-K diagram that
+is shown here and is used in weathering studies; and the A-F-M, Q-A-P
+and Q-P-F diagrams in igneous petrology.
+
+Treating the ternary data space as a regular Euclidean space with
+Gaussian statistics can lead to very wrong results, as I will now
+illustrate by further exploring this particular example here.
+
+---
+
+The circles on this diagram represent 20 samples, 20 measurements of
+aluminium, calcium and sodium and potassium that have been
+renormalised to unity to plot them on the ternary diagram. In an
+attempt to summarise this dataset, we calculate the arithmetic mean of
+the three variables, and this gives rise to a new vector of three
+numbers, which we can plot on the ternary diagram along with the
+data. And that is this white square.
+
+Now this arithmetic mean plots outside the data cloud, so it is a
+pretty meaningless value and a pretty poor summary statistic for the
+location of our data.
+
+---
+
+A second commonly used summary statistic is the standard deviation,
+which is a measure of dispersion. Let's calculate the standard
+deviations of our three variables. So the standard deviation of the
+aluminium oxide, of the calcium plus sodium, and of the potassium.
+
+Then we get three new values. And if the data -if our compositions-
+follow a normal distribution, then we would expect roughly 95 percent
+of those data to fall in a two sigma interval around the mean.
+
+That is shown here, so if the data follow a normal distribution, then
+95% of the aluminium oxide concentrations should fall in an interval
+of 0.763 (which is the arithmetic mean) plus or minus two times
+0.0975, so two times the standard deviation. And we can do the same
+for the calcium and sodium and for the potassium.
+
+We can then mark the upper and lower bands of these three confidence
+regions on the ternary diagram as a confidence polygon. This procedure
+used to be very common in the Earth Sciences and you can still see it
+occasionally in geological papers, but it can lead to nonsensical
+results, where the confidence polygon partially plots outside the
+ternary diagram in physically impossible negative data space.
+
+The synthetic example shows that even the simplest summary statistics
+such as the arithmetic mean and the standard deviation do not work as
+expected when they are applied to compositional data. The same is true
+for more advanced statistical operations that are based on the normal
+distribution.
+
+This includes linear regression, principal components analysis and
+discriminant analysis. These problems had long been known to
+geologists. A geologist called Felix Chayes published on them in the
+1940s and in the 1960s. But a comprehensive solution to the
+compositional data conundrum was not found until the 1980s by Scottish
+statistician John Aitchison.
+
+---
+
+The solution to the compositional data problem is closely related to
+the solution of the ratio averaging problem that we discussed earlier
+on. The trick is to map the data from the three component ternary data
+space to a bivariate Euclidean data space by means of an additive
+logratio transformation.
+
+So instead of plotting X, Y and Z, we plot the log of X/Z and log of
+Y/Z. After performing our statistical analysis of choice (for example:
+calculating the arithmetic mean, constructing confidence regions,
+performing linear regression, etc.), we could then map the results of
+our analysis back to the ternary diagram using an inverse logratio
+transformation, as is shown at the bottom of the slide.
+
+We then find that the arithmetic mean of the logratio compositions,
+when mapped back to the ternary diagram, plots nicely inside our data
+cloud in a much more meaningful position. The 95% confidence region
+around the mean of the logratios, when we map that back to the ternary
+diagram, turns into a boomerang-shaped confidence region that tightly
+hugs the data, and does not spill over into physically impossible
+negative space outside the ternary diagram.
+
+So in both cases, we find that calculating the summary statistics in
+logratio space produces much more sensible results than if we did it
+on the raw compositional data. The logratio approach makes a lot of
+intuitive sense, because even though our ternary dataset comprises
+three variables, the very fact that we can plot a ternary diagram on a
+two-dimensional sheet of paper or computer screen tells us that there
+really are only two dimensions worth of information in the data, and
+the bivariate logratio space does much more justice to this
+information content than the ternary diagram does.
+
+The logratio approach can easily be generalised from three to more
+components. Consider, for example, a four component system. Such a
+system no longer resides within a ternary diagram. It sits within an
+odd space of tetrahedral shape. We can liberate the data from that
+tetrahedral space by mapping it to a three dimensional Euclidean
+space, using again a logratio transformation.
+
+After performing the statistical analysis on the transformed data, we
+can then map the results again back to our tetrahedron if we like.
+
+---
+
+Let us now move on to more sophisticated statistical techniques,
+beginning with principal component analysis.  Let's first illustrate
+this concept, again, using a simple toy example that is similar to the
+toy example that we used in the session on unsupervised learning
+techniques.
+
+Consider a trivariate dataset X, where we've got three variables A, B
+and C, and we've got three samples 1, 2 and 3. This is a compositional
+dataset where the columns for each row add up to 100% and can be
+plotted on a ternary diagram. Here I have multiplied the third
+component C with 3 in order to avoid an unsightly overlap between the
+two labels of samples two and three, which have very similar
+compositions.
+
+---
+
+Unfortunately we cannot directly apply principal component analysis to
+compositional data. For example, the first step in the principal
+component analysis involves the calculation of an arithmetic
+mean. However, earlier in this session we saw that the arithmetic mean
+of compositional data can produce nonsensical results.
+
+---
+
+Although the additive logratio transformation solves the closure
+problem, it is not suitable for principal component analysis because
+the axes of alr-coordinate spaces are not orthogonal to each other.
+
+There are six different ways to form logratios in the ternary data
+space. These six logratios define three coordinate axes that intersect
+each other at 60 degree angles. As a consequence, distances in
+additive logratio space depend on the choice of logratios.
+
+For example, calculate the distance between the alr-coordinates of
+samples 2 and 3, first using b as a common denominator, and then using
+c as a common denominator. The first distance yields a value of 1.74,
+whereas the second distance is 2.46.
+
+---
+
+The fact that distances are not unequivocally defined in alr-space
+spells trouble for principal component analysi.  Recall the
+equivalence of PCA and classical multidimensional scaling, which was
+discussed in the session on unsupervised learning. MDS is based on
+dissimilarity matrices, and so if distances are not well defined, then
+neither are the MDS configuration and, hence, the principal
+components.
+
+---
+
+This issue can be solved by using a different type of logratio
+transformation, the so-called centred logratio transformation, in
+which we take the logarithm of the ratio of each component divided by
+the geometric mean of all the components for each sample. For our
+example, this centred logratio transformation maps our original data,
+not from a 3 x 3 to a 3 x 2 matrix, but to a another 3 by 3
+matrix. However, again, our data are allowed to take on any value from
+minus infinity to plus infinity. So we have again liberated our data
+from the confines of the ternary data space.
+
+---
+
+Subjecting the centred logratio transformed data to the same eigen
+decomposition that was used in the toy example for the unsupervised
+learning session, we can see that even though there are three
+principal components instead of two, the scores of the third principal
+component are all zero. This means that all the information is
+contained in the first two principal components, and we can safely
+ignore the third one.
+
+---
+
+The compositional biplot of the toy data using the centred logratio
+transformation tells us that sample 1 is enriched in component B
+relative to samples 2 and 3. This is consistent with our ternary
+diagram, in which sample 1 is located in the corner of component B,
+whereas samples 2 and 3 are richer and component A and are plotting
+closer to that corner of the ternary diagram.
+
+The difference between samples 2 and 3 is due to a small difference in
+component C, which is also consistent with our observations in the
+ternary diagram.
+
+---
+
+Let's move away from the simple toy example and have a look at a more
+realistic geological example. Here is a table of 10 major oxide
+compositions of 16 different samples of dune sand from the Namib Sand
+Sea in Southwest Africa.
+
+We cannot plot this multivariate dataset on a single two-dimensional
+diagram. Principal component analysis is therefore the method of
+choice, to project the data onto a two-dimensional subspace, hopefully
+see some structure in the data, and perhaps infer the effect of the
+different compositions on the different samples.
+
+Unfortunately, we cannot directly apply principal components analysis
+to these compositional data. For example, the first step in the
+principal component matrix decomposition is the calculation of an
+arithmetic mean. However, earlier in the session, I've shown that the
+arithmetic mean of compositional data can produce nonsensical
+results.
+
+That, of course, is why we have to use the logratio transformation
+-the log ratio approach- which solves this issue and allows us to
+apply principal component analysis to a dataset like this.
+
+---
+
+And here are the results of this analysis shown as a compositional
+bplot, with the samples shown in grey and the components shown in
+white. Samples that plot close together, such as N1 and N14 have
+similar compositions, and samples that plot far apart like N5 and N12
+have different compositions. The arrows indicate that sample N8 is
+enriched in Mn relative to sample T8.
+
+The arrows for magnesium and calcium plot in the same direction,
+suggesting that these two oxide concentrations are proportional to
+each other. The arrow for K plots in the opposite direction,
+suggesting that this oxide is anticorrelated with both Mg and Ca.
+
+---
+
+The so-called links between Ti, Fe, Mn, Mg and Ca are all
+collinear. This tells us that the subcomposition defined by these
+oxides forms a one-dimensional pattern. Consequently, the logratio of
+Mn to Mg is strongly correlated with the logratio of Ti to Ca.
+
+---
+
+In contrast with this, the link between K and Ca is perpendicular to
+that between Ti and phosphorus. This means that the corresponding
+subcompositions are independent. Consequently, the logratio of
+phosphorus to Ti is uncorrelated with the logratio of K to Ca.
+
+---
+
+To summarise what we've seen so far, we can safely use summary
+statistics such as the mean and standard deviation, as well as
+unsupervised learning techniques, such as PCA, to compositional data
+after performing a logratio transformation. Exactly the same procedure
+can be applied to supervised learning techniques, such as linear
+discriminant analysis.
+
+Let's illustrate this with an example from igneous petrology. This
+ternary diagram contains over 500 igneous rock compositions from
+Iceland and the Cascade Mountains on a ternary A-F-M diagram where A
+stands for the alkaline metals sodium plus potassium, F stands for
+iron oxide and M stands for magnesium oxide.
+
+The black dots define a Fenner trend marking the tholeitic suite of
+igneous rocks from Iceland. The white dots find a Bowen trend marking
+the calc-alkaline suite of rocks from the Cascades.
+
+---
+
+Subjecting the data to an additive logratio transformation liberates
+the data from the confines of the ternary diagram and maps them to a
+Euclidean dataspace in which logratios are free to take any value from
+minus infinity to plus infinity. In this space, the logratios of M/F
+and A/F for the tholeitic and calc-alkaline suites are clustered into
+two distinct clouds of roughly equal size that have all the hallmarks
+of bivariate normal distributions with shared covariance matrix.
+Thus, the transformed data seem well-suited for linear discriminant
+analysis.
+
+---
+
+Applying linear discriminant analysis to the AFM data and visualising
+the results in both logratio space and on the ternary diagram,
+produces a linear decision boundary in logratio space and a curved
+decision boundary in the ternary diagram, which effectively separates
+the tholeitic and calc-alkaline rocks.
+
+================
+Directional data
+================

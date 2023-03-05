@@ -58,9 +58,9 @@ Visualising the data on a scatter plot:
   \captionof{figure}{Isochron plot for the Rb--Sr data.  The scatter
     plot of eight \textsuperscript{87}Rb/\textsuperscript{86}Sr- and
     \textsuperscript{87}Sr/\textsuperscript{86}Sr-ratios forms an
-    array of points along a line whose slope marks the initial
+    array of points along a line whose intercept marks the initial
     \textsuperscript{87}Sr/\textsuperscript{86}Sr-composition, and
-    whose intercept is a function of the age ($t =
+    whose slope is a function of the age ($t =
     \ln[1+\beta_1]/\lambda$). The linear trend is not perfect due to
     analytical uncertainty, which has dispersed the data.  }
   \label{fig:Rb-Sr}
@@ -240,7 +240,7 @@ misfit of the line through the data as the sum of the squared
 residuals:
 
 \begin{equation}
-ss \equiv \sum_{i=1}^{n} \epsilon_i^2 = \sum_{i=1}^{n} (\beta_0 + \beta_1 x_i - y_i)^2
+ss \equiv \sum_{i=1}^{n} \epsilon_i^2 = \sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i)^2
 \label{eq:ss}
 \end{equation}
 
@@ -254,8 +254,8 @@ $\beta_1=0.03$:
     $y_i$ & 0.745 & 0.803 & 0.823 & 0.737 & 0.720 & 0.793 & 0.789 & 0.807 \\ \hline
     $\beta_0 + \beta_1 x_i$ & 0.687 & 0.8142 & 0.873 & 0.7023 &
     0.6573 & 0.8145 & 0.7776 & 0.8484 \\
-    $\epsilon_i$ & -0.058 & 0.0112 & 0.05 & -0.0347 & -0.0627 &
-    0.0215 & -0.0114 & 0.0414
+    $\epsilon_i$ & 0.058 & -0.0112 & -0.05 & 0.0347 & 0.0627 &
+    -0.0215 & 0.0114 & -0.0414
   \end{tabular}
   \captionof{table}{The same data as Table~\ref{tab:Rb-Sr}. $y_i$ are
     the observed and $\beta_0 + \beta_1 x_i$ the \emph{fitted} values
@@ -282,8 +282,8 @@ w.r.t. $\beta_0$ and $\beta_1$ and setting them to zero:
 
 \begin{equation}
 \begin{cases}
-    \frac{\partial ss}{\partial\beta_0} = 2 \sum(\beta_0 + \beta_1 x_i - y_i) = 0\\
-    \frac{\partial ss}{\partial\beta_1} = 2 \sum(\beta_0 + \beta_1 x_i - y_i) x_i = 0
+    \frac{\partial ss}{\partial\beta_0} = 2 \sum(y_i - \beta_0 - \beta_1 x_i) = 0\\
+    \frac{\partial ss}{\partial\beta_1} = 2 \sum(y_i - \beta_0 - \beta_1 x_i) x_i = 0
 \end{cases}
 \end{equation}
 
