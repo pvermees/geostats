@@ -5672,3 +5672,533 @@ the tholeitic and calc-alkaline rocks.
 ================
 Directional data
 ================
+
+Strike and dip; azimuth and elevation; latitude and longitude are all
+examples of directional data, which are ubiquitous in the Earth
+sciences. Just like the compositional data that were discussed in the
+previous session, also the statistical analysis of directional data is
+fraught with dangers. We cannot just blindly apply conventional
+statistical techniques (which assume normality) and use them to
+analyse directional data.
+
+---
+
+Consider, for example, this data set of 30 orientations of glacial
+striations from Madagascar. These values span a range from 0 to 360
+degrees where zero is, in fact, equal to 360 degrees. We can plot
+these data on a circle. That shows that the values are roughly centred
+around zero but they exhibit significant scatter from the northwest at
+276 degrees to the northeast at 79 degrees.
+
+---
+
+Computing the arithmetic mean value of these angles by taking their
+sum and dividing that sum by 30 yields a value of 189.2 degrees, which
+is shown as an arrow on our circle plot. Even though the individual
+striations are all pointing towards the north, the arithmetic mean is
+pointing in exactly the opposite direction towards the south, which is
+clearly a nonsensical results.
+
+---
+
+The problem is that directional data are wrapped around a circle, so
+the difference between a one degree angle and a 359 degree angle is
+not 358 degrees, but only two degrees. So the usual rules of
+arithmetic do not apply to angular measurements. Better results for
+the difference between two angles 'theta' and 'phi' are obtained using
+a rearranged version of this basic triggered trigonometric identity.
+If you plug the angles off 359 and a 1 degree into this formula, you
+get the correct difference between the two angles of two degrees.
+
+---
+
+For the same reason, the arithmetic mean of a 1 degree angle and a 359
+degree angle is 180 degrees, which is the opposite of what it should
+be. It should be zero degrees. A more sensible definition of the mean
+direction is again obtained using trigonometry, by taking the vector
+sum of all the component directions.
+
+So if we have here, for example, 1,2,3,4 angular measurements theta_i
+(where i goes from 1 to 4) and theta is measured relative to the
+horizontal line, then the vector sum of the four angles is shown as
+this fat long white line. Its direction theta-bar is a more suitable
+average of these directional measurements than the arithmetic mean.
+
+---
+
+Applying this formula to our data set of 30 glacial striation
+measurements yields a vector mean direction of 357.6 degrees, which is
+pointing towards the North, a much better results than the arithmetic
+mean, which was pointing towards the South.
+
+---
+
+Dividing the length of the vector sum (which is shown as a dashed
+white line on this slide) by the number of measurements (which is four
+in this case) yields this thick white arrow whose length R-bar is a
+measure of angular concentration.
+
+---
+
+R-bar increases with decreasing angular dispersion and vice versa. So
+if the angular measurements are dispersed around the circle then R-bar
+is small. If the angular measurements all point more or less in the
+same direction, than R-bar is large. It takes on values between 0
+(which indicates uniformly distributed angular measurement) and 1
+(which is the extreme case, in which all the angular measurements
+point in the same direction).
+
+---
+
+Alternatively, we could also create a dispersion (rather than
+concentration) parameter by using R-bar to define the circular
+standard deviation. Unlike R-bar the circular standard deviation does
+not range from 0 to 1, but from zero to infinity, where large values
+represent samples that are dispersed, and small values for the
+circular standard deviation reflect samples who's measurements are
+highly concentrated.
+
+---
+
+The normal distribution is not appropriate for directional data, for
+the same reason why it did not apply to compositional data. The tails
+of the normal distribution go from minus infinity to plus infinity and
+does not fit within the constraints data space of angles. The von
+Mises distribution, which is shown here, does not suffer from this
+problem.
+
+Like the normal distribution, also the von Mises distribution is
+controlled by two parameters: a location parameter mu (which basically
+represents the mean angle) and a concentration parameter kappa (which
+serves a similar purpose to, but is not identical to the concentration
+parameter R-bar that was introduced as a summary statistic in the
+previous slides).
+
+Here are shown four examples of von Mises distributions (with
+different values for the mean mu and the concentration parameter
+kappa) wrapped around a circle that is shown in grey. The probability
+density is proportional to the distance from this circle to the white
+line. We can see that mu controls the angular location of the bulge,
+whose width is controlled by the concentration parameter kappa, which
+ranges from zero to infinity.
+
+Given some data, mu is easy to estimate using the vector sum
+methodology that I introduced earlier. Kappa is not easy to estimate,
+but R-bar is, as I explained in the previous slides.
+
+---
+
+We can then use a lookup table to convert the values of R-bar (which
+go from 0 to 1) to values of kappa (which go from zero to
+infinity).
+
+---
+
+Applying this routine to the glacial striation measurements yields an
+R-bar value of 0.78, which can be converted using the lookup table to
+a kappa value of 2.8. If we then combine this value with our vector
+mean of 357.6 degrees, then we can evaluate the probability density of
+the von Mises distribution for this data set. And that is shown here,
+not wrapped around the circle before but stretched out along a linear
+interval from minus pi (so from minus 108 degrees), to plus pi (to plus
+180 degrees from north).
+
+---
+
+The principles of directional statistics can be generalised from the
+one dimensional circle to a two dimensional spherical surface in three
+dimensional space. The coordinates of data in this space can be
+expressed either as a latitude and longitude; strike and dip; or dip
+and azimuth; and they can be converted to three-dimensional Cartesian
+coordinates (X,Y,Z) using these trigonometric expressions.
+
+---
+
+Spherical data can be visualised on a two-dimensional surface by
+stereographic map projection, using either a Wulff equal angle or a
+Schmidt equal area stereonet, where the Wulff net is commonly used in
+structural geology and the Schmidt net is more popular in
+crystallography.
+
+In a geographical context, a stereo yet is the view that you get if
+you look through a semi-sphere with north being on top and the
+latitudinal lines shown a dashed small circles, the longitudal lines
+as dashed great circles. The solid circles on these two stereonets
+mark 10 degree cones at 10 degree and 90 degree dips and azimuths of
+0, 90, 180 and 270 degrees.
+
+As the name suggests, the Wulff equal angle net preserves the shape of
+these circles, whereas the Schmidt equal area net preserves their
+size.
+
+---
+
+And here, the Wulff and Schmidt net are used to visualise or display
+the African continent. The Wulff net shows Africa in its right shape
+on the Schmidt net shows its right size. Importantly, no
+two-dimensional projection can achieve both of these goals at the same
+time.
+
+---
+
+Besides visualising geographical coordinates, stereonets can also be
+used (and are in fact more frequently used) to display azimuth and dip
+measurements. For example, in structural geology, we can measure the
+azimuth and the dip of slickensides on a fault plane, or in
+palaeomagnetic studies, we can measure the declination on inclination
+of the remnant magnetic field that is recorded in ancient sedimentary
+beds or in igneous rocks.
+
+So here is a data set of 10 palaeomagnetic measurements. In this case,
+we use a Schmidt net to show here the first measurement by rotating
+the Schmidt net by 47.9 degrees and then going down 10 -> 20 -> 28.6
+degrees to visualise this first measurement.  Repeating that for all
+10 measurements gives a cloud of data which can then be used for plate
+tectonic reconstructions.
+
+---
+
+And finally, we can also visualise strike and dip measurements on a
+stereonet, as is shown here for a data set of 10 fault planes, where
+the circular segments mark the intersection of these fault planes with
+the bottom half of a sphere, shown in equal area projection; and these
+white circles mark the intersection of the poles of these planes which
+are perpendicular lines to the fault planes that also intersect
+the stereo net surface.
+
+---
+
+Averaging spherical data is done in essentially the same way as was
+used for directional data. So we take the vector sum of all our
+measurements. We first convert them to Cartesian coordinates (X,Y,Z)
+on the sphere using these trigonometric expressions. Then we average
+the Xs, the Ys and the Zs and we map them back to latitude, longitude,
+strike, dip or dip and azimuth measurements using these inverse
+trigonometry expressions.
+
+---
+
+And this slide applies this method to our palaeomagnetic data and to
+the structural data, where the vector mean is shown as a white square
+and a white circle here, whith the data shown in grey. You can see
+that these vector means nicely capture the central part of these data
+clouds.
+
+---
+
+It is important to make a distinction between directions such as
+'north' or 'east' and orientations such as 'north–south' and
+'east-west'. The glacial striations that we discussed earlier are a
+clear example of directional data: on average, the striations point
+towards the north, suggesting a southerly ice source. In contrast,
+consider a dataset of 20 pebble orientations on a beach, which are
+aligned in a NE–SW direction. Half of the measurements were recorded
+as northeasterly and the other half as southwesterly. Both of angles
+are equivalent. The white circle marks the vector mean, which points
+in an unrepresentative northwesterly direction.
+
+---
+
+A better way to average orientational data is to maximise the moment
+of inertia. Suppose that the circle is a ring, and that the tick marks
+have a physical weight attached to them. If we were to spin this ring
+around the y-axis, the it would wobble significantly. The wobble can
+be eliminated by changing the spin axis to the direction that
+minimises the moment of inertia of the spinning ring. This orientation
+is more representative for the pebble orientations. Note that the
+perpendicular direction, which maximises the moment of inertia, also
+allows the ring to spin without wobbling. But it, of course, does not
+represent a good average orientation.
+
+---
+
+The moment of inertia can be minimised by calculating the Cartesian
+coordinates of the angular data (marked here as x and y, which are
+given by the cosines and sines of the orientations, respectively), and
+calculating their covariance matrix.
+
+Subjecting the covariance matrix to an eigendecomposition (which is
+the same procedure that is used in Principal Component Analysis)
+yields two eigenvalues and eigenvectors.
+
+The first eigenvector defines a direction theta-bar of
+atan(-0.64/-0.77) = 0.70 = 40 degrees. It accounts for 98.9% of the
+data variance, as indicated by the first eigenvalue.
+
+---
+
+The same procedure can be used to average orientational data on a
+sphere. For example, consider a structural dataset for a subhorizontal
+bed. Suppose that some measured surfaces dip gently to the north and
+others gently to the south.
+
+Calculating the vector mean yields a nonsensical (subvertical!)
+result. This is shown as a black line and filled square. The large
+open square marks the direction that minimises the moment of inertia
+of the poles. This is a much more sensible orientational average.
+
+================
+Directional data
+================
+
+The spatial dimension is of crucial importance to the Earth
+sciences. Geostatistics is a branch of statistics that explicitly
+deals with this type of data and aims at explicitly modelling spatial
+relationships between data points. Originally developed in the context
+of mining geology, the field of geostatistics has applications in
+petroleum geology, in environmental sciences, in oceanography,
+hydrology, pathology, ecology, epidemiology and many more disciplines.
+
+---
+
+In this session, we will use an environmental dataset to introduce
+some fundamental geostatistical concepts. So here is a table with the
+locations and zinc concentrations of 155 samples of topsoil, which
+were collected in a floodplain of the River Meuse near the village of
+Stein in the Netherlands. X and Y are the easting and northing in
+metres, using the Dutch topographical map coordinate system. The
+column labelled 'Zn' contains zinc concentrations in parts per million,
+measured in composite samples of a 15 by 15 metre area for each
+location.
+
+---
+
+And here is that same dataset shown in map view. So each of these 155
+points represents a sample, and the colours (the grey scales) mark the
+not the zinc concentration, but the logarithm of the zinc
+concentrations, which suppresses the extreme positive outliers and
+produces a less skewed distribution of values.
+
+Now, consider the position marked by this question mark, where no
+measurements were taken. The question that the field of geostatistics
+then addresses is: "can we use the surrounding data to estimate the
+zinc concentration at this new location", or equivalently "can we
+estimate the logarithm of the zinc concentrations of the surrounding
+data to estimate the values in between the measurements"?
+
+---
+
+We will solve this problem by developing an algorithm that implements
+Waldo Tobler's so-called First Law of Geography, which states that
+everything is related to everything else, but near things are more
+related than distant things.
+
+For example, if you are in a hilly landscape, then you will find that
+your altitude is very likely to be similar to points that are located
+within a few metres of your current horizontal position and less
+likely to be similar to the elevation of points that are thousands of
+kilometres away from you.
+
+---
+
+So in the first step of our spatial interpolation algorithm, I will
+begin by quantifying the spatial correlation between the data, by
+first measuring the inter-sample distances between the 155 samples. So
+that produces a Euclidean distance map that is very similar to the
+distance matrices that we use for multidimensional scaling.
+
+Here I am only showing the upper triangle in this matrix because the
+lower triangle contains exactly the same values. The values in this
+matrix are positive numbers that have units of metres.
+
+---
+
+Next, we compute the differences between the zinc concentrations or
+the logarithm of the zinc concentrations for all the samples,
+producing another 155 x 155 matrix, which contains, for example, here,
+the difference of the logarithm of the zinc concentrations of sample 8
+and sample 2, of sample 10 and sample 5, etc.
+
+This is also a symmetric matrix. So here I only show the lower parts
+because the upper part is exactly the same.
+
+---
+
+We can then merge these two triangle matrices into one big table,
+where we've got the Euclidean distances in metres above the diagonal
+and the log contrasts of the zinc concentrations below the
+diagonal.
+
+And then we can select all the pairs of samples that are located
+within a distance of 150 metres or less. And these sample pairs are
+boxed both above the diagonal and below the diagonal. We can then use
+the log contrasts of these proximal samples to quantify how closely
+correlated with each other they are.
+
+---
+
+We can do this using the so-called semivariance which, as the name
+suggests, follows a similar definition to that of the variance. So
+we've got the sum of the squared differences between not a sample and
+its mean, but between two samples. The pairs of samples that are
+located within a distance h of each other. Where h, in this case, is
+150 metres or less, n(h) is the number of pairs that are within that
+proximity of each other.
+
+For the 155 sample dataset, there are 66 pairs of samples that are
+within 150 metres from each other. Only nine of these pairs are shown
+in the slide due to space constraints, but the sum of the squared
+values of all these boxes normalised to two times the number of box
+values (so 2 x 66) equals 0.1, which is the semivariance for distances
+of up to 150 metres.
+
+---
+
+Next, we repeat this calculation by increasing h from 0-150 to 150-300
+metres. There are 530 pairs of samples that are within that range of
+distances from each other. They are boxed in the upper right triangle
+of this matrix.
+
+The corresponding log contrasts are also boxed below the diagonal. If
+we take the sum of the squares of these 530 log contrast and we
+normalised that to two times the number of pairs, then we get a
+semivariance of 0.28, which is greater than the semivariance for the
+interval from 0-150 metres.
+
+And that really quantifies Tobler's First Law of Geography, which
+tells us that proximal samples are more strongly correlated (have less
+variability) than distant samples.
+
+---
+
+Continuing these calculations for progressively increasing values of
+the lag h produces a so-called empirical semivariogram. The
+semivariance is low at first and then gradually rises with increasing
+lag before levelling off to a plateau. Because the semivariance is
+inversely proportional to the degree of spatial correlation, the
+semivariogram tells us that there is relatively little variability
+amongst samples that are located close together and more variability
+amongst samples that are far apart. In other words, the semivariogram
+formalises Tobler's First Law of Geography.
+
+---
+
+Now that we have quantified the degree of spatial variability or,
+equivalently, the degree of spatial correlation, the next step in our
+spatial interpolation exercise is to parameterise the
+semivariogram. There are several equations to do this, such as the
+spherical, exponential and Gaussian equations. Each of these formulas
+give us the semivariance gamma as a function of the lag h and three
+parameters C_n, C_s and C_r, which correspond to the nugget, the sill
+and the range.
+
+---
+
+This diagram illustrates the range, sill and nugget for a spherical
+semivariogram model, but the same three parameters also control the
+shape of the exponential and the Gaussian models. As the name
+suggests, the range quantifies the distance within which samples are
+most strongly correlated with each other and within which the most
+valuable information can be gleaned for the purpose of
+interpolation.
+
+The sill quantifies the long range background variability of the
+dataset, and the nugget quantifies the excess variability at a lag of
+zero. Now you might think that at a distance of zero, there shouldn't
+be any variability. However, in most real datasets, a nugget does
+exist and this may be caused either by the analytical uncertainty or,
+in the case of the Meuse dataset, it likely reflects the fact that the
+zinc concentration measurements were averaged over a 15 by 15 metre
+area, and the variability within these 15 by 50 metre plots is not
+captured by the semivariogram.
+
+---
+
+So now that we have quantified and parameterised the spatial
+correlation within our dataset, we can now finally move on to the
+actual spatial interpolation itself. We will do so using a method
+called kriging interpolation, which is so named after the South
+African mining geologist Dani Gerhardus Kriege, who laid the
+foundations for the method in his master's thesis.
+
+Given n measurements of some quantity z that is measured at locations
+xi and yi, where i goes from 1 to n, kriging interpolation allows us
+to estimate the parameter value at a new location (x_0, y_0) by simply
+taking the weighted mean of all the measurements where the weights are
+a function of the semivariances between all the different samples and
+the estimated semivariances at the new location, using a semivariogram
+model between each of our measured locations and the new location.
+
+---
+
+So, for example, if we go to our location at an Easting of 179850
+metres and a Northing of 331650 metres, and we fit a spherical
+semivariogram model to the data sets, then we get a nugget of 0.35, a
+sill of 0.64 and a range of 892 metres.
+
+---
+
+Then we can use this model to estimate the semivariances between the
+new location and all the measured locations, as well as the
+semivariances between all the different measurements in our
+dataset.
+
+If you plug all those values into this equation, then you get the
+weights which add up to one. Multiplying each of these weights with
+the measurements gives us a value of 5.01, which is our estimate for
+the logarithm of the zinc concentration at the new location.
+
+Exponentiating this value gives us an actual zinc concentration of 150
+parts per million. Now you may wonder what this lambda number is over
+here. This is the so-called Lagrange multiplier. It's a mathematical
+trick that is used to solve constrained optimisation problems. You
+don't need to worry about the implementation details of this.
+
+It basically allows us to enforce a unit sum for all the 155
+weights. We don't need this lambda value to estimate the zinc
+concentration at our new location, but we will use it to calculate the
+uncertainty for that estimate.
+
+So that's the application of kriging interpolation to a single
+location. We can repeat this exercise for multiple locations. We can
+repeat it for an entire grid of locations, and we can contour that
+grid, which is shown on the next slide.
+
+---
+
+On this slide, we see that areas where there are measurements of low
+zinc concentrations are surrounded by contour values that are
+reflecting low zinc concentrations, and high zinc concentration
+measurements are also surrounded by contours of high zinc
+concentrations. So Tobler's First Law of Geography seems to be
+honoured in this contour map.
+
+I have only contoured the area in the immediate vicinity of the actual
+measurements because kriging is an interpolation method. It is not
+well-suited for extrapolation.
+
+---
+
+Then, as promised, we could also estimate the uncertainty, the
+variance of the kriging estimate for the new location as a weighted
+average of the semivariances between each of the measurements in our
+dataset and the new location, plus that mysterious Lagrange
+multiplier. Applying that to our location at 179850 and 331650 gives
+us an estimated variance of 0.22.
+
+So this is the estimated variance of the logarithm of the zinc
+concentration at location (x_0, y0_0). Now if we go back to our
+session on error propagation, the variance of a logarithmic quantity
+equals the square of the coefficient of variation (which is the
+standard error divided by the value).
+
+So what that tells us is that the standard error (so the square root
+of the variance) of the logarithm of the zinc concentration should be
+equal to the relative uncertainty of the zinc concentration, where the
+zinc concentration is expressed in ppm.
+
+For (x_0,y_0), the variance is 0.22. The quare root of that is
+0.47. So that tells us that the relative uncertainty for the zinc
+concentration estimate at this location is 47%.  And again, we can
+repeat this exercise not for just one location, but for the whole grid
+of locations that we can contour.
+
+---
+
+The results of that are shown over here. So we've got the coefficient
+of variation, the relative uncertainty of the zinc concentrations for
+the entire field area. You can see that the uncertainty estimates are
+the lowest at the actual sample locations. You can see them as these
+bright stars here, and then the uncertainties increase near the edges
+of the area where we don't have data and in which kriging has to
+extrapolate, which is something that it is not very good at.
