@@ -350,10 +350,12 @@ pendulum <- function(startpos=c(-2,2),startvel=c(0,0),
         }
     }
     if (plot){
+        xlim <- range(c(pos[,1],src[,1]))
+        ylim <- range(c(pos[,2],src[,2]))
         oldpar <- graphics::par(no.readonly = TRUE)
         on.exit(graphics::par(oldpar))
         graphics::par(mar=rep(0,4))
-        graphics::plot(c(-2,2),c(-2,2),type='n',bty='n',
+        graphics::plot(xlim,ylim,type='n',bty='n',
                        ann=FALSE,xaxt='n',yaxt='n')
         graphics::lines(pos[1:i,])
         graphics::points(src,pch=21,bg='white',cex=2.5,lwd=2)
