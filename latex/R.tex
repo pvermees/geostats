@@ -1346,39 +1346,37 @@ r <- cor(x=rbsr$RbSr,y=rbsr$SrSr)
 [1] 0.9697158
 \end{console}
 
-\item Test the statistical significance of the correlation coefficient
-  using Equation~\ref{eq:tr}:
+\item Compute the t-statistic for the correlation coefficient using
+  Equation~\ref{eq:tr}:
 
 \begin{script}
 n <- nrow(rbsr)
 tstat <- r*sqrt(n-2)/sqrt(1-r^2)
-p <- pt(q=tstat,df=n-2)
 \end{script}
 
-\noindent which gives:
+\noindent Query the value at the console and compare it to the
+rejection region for a two-sided t-test:
 
 \begin{console}
-> p
-[1] 0.9999956
+> tstat
+[1] 13.86085
+> qt(c(0.025,0.975),df=n-2)
+[1] -2.446912  2.446912
 \end{console}
 
-Hence the p-value for $H_0: \beta_0=0$ vs. $H_{\!A}: \beta_0\neq{0}$
-is:
-
-\begin{console}
-> 2*(1-p)
-[1] 8.779983e-06
-\end{console}
-
-Thus $H_0$ is rejected and the linear trend is
-real. Alternatively, we can also perform the correlation test using
-\texttt{R}'s \texttt{cor.test()} function:
+\noindent The observed value for the t-statistic falls in the
+rejection region ($13.86085 > 2.446912$). Thus $H_0$ is rejected and
+the linear trend is real. Alternatively, we can also perform the
+correlation test using \texttt{R}'s \texttt{cor.test()} function:
 
 \begin{console}
 > h <- cor.test(x=rbsr$RbSr,y=rbsr$SrSr)
 > h$p.value
 [1] 8.779983e-06
 \end{console}
+
+\noindent which is less than $\alpha=0.05$, again leading to the
+rejection of $H_0$.
 
 \item Having demonstrated the statistical significance of the
   correlation, we can now fit a line to the data using the method of

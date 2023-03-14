@@ -932,7 +932,7 @@ reflect different ecosystems.
 \begin{script}
 n <- length(catchments$pH)       # sample size
 mu <- mean(catchments$pH)        # arithmetic mean
-se <- sd(pH)/sqrt(n)             # standard error of the mean 
+se <- sd(catchments$pH)/sqrt(n)  # standard error of the mean 
 tfact <- qt(p=0.025,df=n-1)      # t(df,alpha/2)
 ci <- mu + c(tfact*se,-tfact*se) # confidence interval
 \end{script}
@@ -941,7 +941,7 @@ ci <- mu + c(tfact*se,-tfact*se) # confidence interval
 
 \begin{console}
 > ci
-[1] 4.671497 5.298503
+[1] 4.688442 5.311558
 \end{console}
 
 \item Comparing the t-test and Wilcoxon test:
@@ -1030,8 +1030,8 @@ Fitting a straight line through the data, and showing on a scatter
 plot:
 
 \begin{script}
-fit <- lm(Volume~Girth,data=trees)
-plot(Volume~Girth,data=trees)
+fit <- lm(Girth~Volume,data=trees)
+plot(Girth~Volume,data=trees)
 abline(fit)
 \end{script}
 
@@ -1039,18 +1039,18 @@ Note how the \texttt{plot} function also accepts formula
 notation. This is equivalent to:
 
 \begin{script}[firstnumber=2]
-plot(x=trees$Girth,y=trees$Volume,xlab='Girth',ylab='Volume')
+plot(x=trees$Volume,y=trees$Girth,xlab='Volume',ylab='Girth')
 \end{script}
   
 The slope and intercept are:
 
 \begin{console}
 > fit$coef
-(Intercept)       Girth 
- -36.943459    5.065856 
+(Intercept)      Volume 
+  7.6778570   0.1846321 
 \end{console}
 
-Hence Volume = 5.065856 - 36.943459 $\times$ Girth.
+Hence Girth = 7.6778570 + 0.1846321 $\times$ Volume.
 
 \item Predicting the world population for the year 2020:
 
@@ -1168,7 +1168,7 @@ been under-counted in this dataset.
 Counting the number of $4\times{4}$ and $8\times{8}$ boxes:
 
 \begin{console}
-> boxcount(fractures,size=8)
+> boxcount(fractures,size=4)
 [1] 1456
 > boxcount(fractures,size=8)
 [1] 662
