@@ -357,9 +357,9 @@ to a constant sum ($a_i+b_i+c_i=100\%$ for $1\leq{i}\leq{3}$):
 \begin{equation}
   X =
   \bbordermatrix{ & a & b & c \cr
-   1 & 0.034 & 99.88 & 0.091 \cr
-   2 & 69.45 & 25.55 & 5.01 \cr
-   3 & 72.44 & 26.65 & 0.92
+   1 & 0.03 & 99.88 & 0.09 \cr
+   2 & 69.45 & 25.55 & 5.00 \cr
+   3 & 72.44 & 26.64 & 0.92
   }
   \label{eq:Xcomp}
 \end{equation}
@@ -404,22 +404,22 @@ denominator ($d[2,3]_c$):
     \sqrt{
       \left(
       \ln\!\left[\frac{69.45}{25.55}\right]-
-      \ln\!\left[\frac{72.44}{26.65}\right]
+      \ln\!\left[\frac{72.44}{26.64}\right]
       \right)^2 +
       \left(
-      \ln\!\left[\frac{5.01}{25.55}\right]-
-      \ln\!\left[\frac{0.92}{26.65}\right]
+      \ln\!\left[\frac{5.00}{25.55}\right]-
+      \ln\!\left[\frac{0.92}{26.64}\right]
       \right)^2
     } = 1.74\\
     & \neq 
     \sqrt{
       \left(
-      \ln\!\left[\frac{69.45}{5.01}\right]-
+      \ln\!\left[\frac{69.45}{5.00}\right]-
       \ln\!\left[\frac{72.44}{0.92}\right]
       \right)^2 +
       \left(
-      \ln\!\left[\frac{25.55}{5.01}\right]-
-      \ln\!\left[\frac{26.65}{0.92}\right]
+      \ln\!\left[\frac{25.55}{5.00}\right]-
+      \ln\!\left[\frac{26.64}{0.92}\right]
       \right)^2
     } = 2.46 = d[2,3]_c
   \end{split}
@@ -459,7 +459,6 @@ trivariate dataset:
   }
   \label{eq:Xc}
 \end{equation}
-
 
 \noindent where $g$ stands for the geometric mean of each row. Note
 that each of the rows of $X_c$ adds up to zero. Thanks to the symmetry
@@ -507,10 +506,7 @@ Note that, even though this yields three principal components instead
 two, the scores of the third component in matrix $P$ are all zero.
 Therefore, all the information is contained in the first two
 components\footnote{The covariance matrix of $X_c$ is singular and
-therefore the third eigenvalue is zero as well.}. Also note that the
-first two principal components of the compositional dataset are
-identical to those of the PCA example shown in
-Equation~\ref{eq:P}. This is, of course, intentional:
+therefore the third eigenvalue is zero as well.}.
 
 \noindent\begin{minipage}[t][][b]{.32\textwidth}
 \includegraphics[width=\textwidth]{../figures/clrPCA.pdf}\medskip

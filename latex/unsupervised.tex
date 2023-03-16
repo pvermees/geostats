@@ -23,10 +23,11 @@ in Section~\ref{sec:MDS}. To explain the mathematical mechanism behind
 PCA, let us begin with a simple toy example.  Consider the following
 bivariate ($a$ and $b$) dataset of three (1, 2 and 3) samples:
 \begin{equation}
-  X = \bbordermatrix{ & a & b \cr
-    1 & -1 & 7 \cr
-    2 & 3 & 2 \cr
-    3 & 4 & 3
+  X = \bbordermatrix{
+    ~ & a  & b \cr
+    1 & 0  & 9 \cr
+    2 & 17 & 0 \cr
+    3 & 19 & 6
   }
   \label{eq:X}
 \end{equation}
@@ -67,15 +68,15 @@ decomposition.}
       \right]
     \left[
       \begin{array}{cc}
-        2 & 4
+        12 & 5
       \end{array}
       \right]
     +
     \left[
       \begin{array}{cc}
-        -3 & 3 \\
-        1 & -2 \\
-        2 & -1
+        -12 &  4 \cr
+          5 & -5 \cr
+          7 &  1
       \end{array}
       \right]
     \label{eq:XMY}
@@ -86,8 +87,8 @@ decomposition.}
     \Sigma =
     \left[
       \begin{array}{cc}
-        7.0 & -6.5 \\
-        -6.5 & 7.0
+        109 & -33 \\
+        -33 &  21
       \end{array}
       \right]
   \end{equation}
@@ -99,20 +100,20 @@ decomposition.}
     \Sigma = Q \Lambda Q^{-1} =
     \left[
       \begin{array}{cc}
-        0.71 & 0.71 \\
-        -0.71 & 0.71
+         0.95 & 0.32 \\
+        -0.32 & 0.95
       \end{array}
       \right]
     \left[
       \begin{array}{cc}
-        13.5 & 0 \\
-        0 & 0.5
+        120 & 0 \\
+        0 & 10
       \end{array}
       \right]
     \left[
       \begin{array}{cc}
-        0.71 & -0.71 \\
-        0.71 & 0.71
+        0.95 & -0.32 \\
+        0.32 & 0.95
       \end{array}
       \right]
     \label{eq:eigen}
@@ -129,9 +130,9 @@ decomposition.}
     P = Y Q = 
     \left[
       \begin{array}{cc}
-        -4.24 & 0 \\
-        2.12 & -0.71 \\
-        2.12 & 0.71
+        -12.6 &  0 \\
+          6.3 & -3.2 \\
+          6.3 &  3.2
       \end{array}
       \right]
     \label{eq:P}
@@ -145,14 +146,14 @@ Figure~\ref{fig:PCA2D1}).  It separates sample 1 from samples~2 and
 3. Projecting the data onto this direction yields a new set of
 numbers, corresponding to the first column of $P$ (PC1 in
 Figure~\ref{fig:PCA2D2}). The variance of these new coordinates is
-13.5, i.e. the first eigenvalue of $\Lambda$. The second column of $Q$
+120, i.e. the first eigenvalue of $\Lambda$. The second column of $Q$
 defines a direction that is orthogonal (perpendicular) to that defined
 by the first column (direction of the line labelled PC2 in
 Figure~\ref{fig:PCA2D1}). This direction accounts for the remaining
 variance of the dataset, separating samples 2 and 3. Projecting the
 three samples on the second principal direction yields a second set of
 principal components, corresponding to the second column of $P$ (PC2
-in Figure~\ref{fig:PCA2D2}). The variance of these numbers is 0.5,
+in Figure~\ref{fig:PCA2D2}). The variance of these numbers is 10,
 i.e. the second eigenvalue of $\Lambda$.
 
 \noindent\begin{minipage}[t][][b]{.27\textwidth}
@@ -163,8 +164,8 @@ i.e. the second eigenvalue of $\Lambda$.
     Figure~\ref{fig:PCA2Ddata}. The data $X$ are shown as numbers, $M$
     as a square, and $1_{2,1}M \pm Q \sqrt{\Lambda}$ as a cross. The
     first principal direction (running from the upper left to the
-    lower right) has been stretched by a factor of $\sqrt{13.5/0.5} =
-    5.2$ w.r.t the second principal direction, which runs
+    lower right) has been stretched by a factor of $\sqrt{120/10} =
+    3.5$ w.r.t the second principal direction, which runs
     perpendicular to it.\medskip}
   \label{fig:PCA2D1}
 \end{minipage}
@@ -185,32 +186,34 @@ simplification of the data:
 
 Using the eigenvalues $\Lambda$ in Equation~\ref{eq:eigen}, it can be
 shown that the first principal component (PC1) captures
-$13.5/(13.5+0.5)=96\%$ of the variance in the dataset, and the second
-principal component (PC2) accounts for the remaining
-$0.5/(13.5+0.5)=4\%$ of the variance. So relatively little information
-is lost by discarding PC2. Then PC1 tells us that, to a first
-approximation, sample~1 is very different from samples~2 and 3, which
-are identical to each other. PC2 captures the remaining information,
-which shows that samples~2 and 3 are, in fact, not exactly
-identical. In the second principal direction, sample~1 falls in
-between samples $2$ and $3$.\medskip
+$120/(120+10)=92\%$ of the variance in the dataset, and the second
+principal component (PC2) accounts for the remaining $10/(120+10)=8\%$
+of the variance. So relatively little information is lost by
+discarding PC2. Then PC1 tells us that, to a first approximation,
+sample~1 is very different from samples~2 and 3, which are identical
+to each other. PC2 captures the remaining information, which shows
+that samples~2 and 3 are, in fact, not exactly identical. In the
+second principal component, sample~1 falls in between samples $2$ and
+$3$.\medskip
 
 The scores $P$ and loadings $Q$ contain information about the samples
 (1, 2 and 3) and the variables ($a$ and $b$), respectively.  We can
 graphically combine all this information in a \textbf{biplot}:
 
-\noindent\begin{minipage}[t][][b]{.25\textwidth}
+\noindent\begin{minipage}[t][][b]{.3\textwidth}
   \includegraphics[width=\textwidth]{../figures/PCA2D3.pdf}\medskip
 \end{minipage}
-\begin{minipage}[t][][t]{.75\textwidth}
+\begin{minipage}[t][][t]{.7\textwidth}
   \captionof{figure}{A biplot of both principal components along with
     the loadings of the two variables shown as arrows. The first
     principal component shows that the most important difference is
-    that between sample~1 (which is rich in $b$ and poor in $a$) and
-    samples 2 and 3 (which are poor in $b$ and rich in $a$). The
-    second principal component captures the remaining variance, with
-    sample~3 begin slightly richer in $a$ and $b$ than
-    sample~2.\medskip}
+    that between samples 2 and 3 (which are rich in $a$) and sample~1
+    (which is poor in $a$). The second principal component captures
+    the remaining variance, with samples~1 and 3 being richer in $b$
+    than sample~2.  The bottom-left and top-right axes represent the
+    scores and loadings, respectively, after shrinking the former and
+    expanding the latter by a factor of $\sqrt{n\Lambda}$, where $n=3$
+    is the number of samples.\medskip}
   \label{fig:PCA2D3}
 \end{minipage}
 
@@ -296,10 +299,11 @@ dataset of Equation~\ref{eq:X}. Using the Euclidean distance
 
 \noindent we can populate a ${3}\times{3}$ table of distances:
 \begin{equation}
-  d = \bbordermatrix{ & 1 & 2 & 3 \cr
-    1 & 0 & 6.4 & 6.4 \cr
-    2 & 6.4 & 0 & 1.4 \cr
-    3 & 6.4 & 1.4 & 0
+  d = \bbordermatrix{
+    ~ & 1    & 2    & 3 \cr
+    1 & 0    & 19.2 & 19.2 \cr
+    2 & 19.2 & 0    & 6.3 \cr
+    3 & 19.2 & 6.3  & 0
   }
   \label{eq:d}
 \end{equation}
@@ -320,10 +324,11 @@ Table~\ref{eq:d} has the following properties:
 Given a table of this form, MDS reconstructs the original set of plot
 coordinates:
 \begin{equation}
-  m = \bbordermatrix{ & x & y \cr
-    1 & 4.24 & 0 \cr
-    2 & -2.12 & -0.71 \cr
-    3 & -2.12 & 0.71 
+  m = \bbordermatrix{
+    ~ & x    & y \cr
+    1 & 12.6 &  0 \cr
+    2 & -6.3 & -3.2 \cr
+    3 & -6.3 &  3.2 
   }
   \label{eq:m}
 \end{equation}

@@ -2934,59 +2934,56 @@ dev.off()
 
 cairo(file='../../figures/PCA2Ddata.pdf',width=2.2,height=2.2)
 pars()
-X <- matrix(c(-1,3,4,7,2,3),nrow=3,ncol=2)
+X <- rbind(c(0,9),c(17,0),c(19,6))
 colnames(X) <- c('a','b')
-plot(X,type='n',xlim=c(-1.2,4.2),ylim=c(1.8,7.2))
+plot(X,type='n',asp=1)
 text(X,labels=1:3)
 dev.off()
 
 PCA2D <- function(X,fig=1){
-    pc <- princomp(X)
+    pc <- prcomp(X)
     # calculate the end-points of two lines marking the principal components (PC):
     CL <- matrix(NA,4,2) # initialise the matrix of coordinates
-    CL[1:2,] <- matrix(1,2,1) %*% pc$center + diag(pc$sdev) %*% t(pc$loadings)
-    CL[3:4,] <- matrix(1,2,1) %*% pc$center - diag(pc$sdev) %*% t(pc$loadings)
+    CL[1:2,] <- matrix(1,2,1) %*% pc$center + diag(pc$sdev) %*% t(pc$rotation)
+    CL[3:4,] <- matrix(1,2,1) %*% pc$center - diag(pc$sdev) %*% t(pc$rotation)
     if (fig==1){ # initialise the 1st panel:
         rx <- range(X[,'a'],CL[,1]) # range of x-values
         ry <- range(X[,'b'],CL[,2]) # range of y-values
-        plot(rx,ry,type='n',asp=1,xlab='a',ylab='b',
-             xlim=c(-1.2,4.8),ylim=c(1.2,7.2))
+        plot(rx,ry,type='n',asp=1,xlab='a',ylab='b')
         text(X,labels=1:3)
         # draw the line marking the 1st PC:
         lines(CL[c(1,3),])
-        text(CL[3,1],CL[3,2],labels='PC1',pos=4)
+        text(3,10,labels='PC1')
         # draw the line marking the 2nd PC:
         lines(CL[c(2,4),])
-        text(CL[2,1],CL[2,2],labels='PC2',pos=4)
+        text(CL[2,1],CL[2,2],labels='PC2',pos=3,adj=0)
         # add the centre point as a white square:
         points(t(pc$center),pch=22,bg='white')
     }
     if (fig==2){ # initialise the 2nd panel:
-        plot(range(pc$scores),c(1,3.5),type='n',bty='n',
+        plot(range(pc$x),c(1,3.5),type='n',bty='n',
              xaxt='n',yaxt='n',xlab='',ylab='',ylim=c(1,3.5))
         Axis(side=1)
         # plot the 1st PC scores as a 1D configuration:
-        lines(pc$scores[,1],rep(2,3))
-        points(pc$scores[,1],rep(2,3),pch=21,bg='white')
-        text(pc$scores[,1],rep(2,3),labels=1:3,pos=c(1,1,3))
-        text(min(pc$scores[,1]),2,labels='PC1',pos=2,xpd=NA)
+        lines(pc$x[,1],rep(2,3))
+        points(pc$x[,1],rep(2,3),pch=21,bg='white')
+        text(pc$x[,1],rep(2,3),labels=1:3,pos=c(1,1,3))
+        text(min(pc$x[,1]),2,labels='PC1',pos=2,xpd=NA)
         # plot the 2nd PC scores as a 1D configuration:
-        lines(pc$scores[,2],rep(3,3))
-        points(pc$scores[,2],rep(3,3),pch=21,bg='white')
-        text(pc$scores[,2],rep(3,3),labels=1:3,pos=1)
-        text(min(pc$scores[,2]),3,labels='PC2',pos=2)
+        lines(pc$x[,2],rep(3,3))
+        points(pc$x[,2],rep(3,3),pch=21,bg='white')
+        text(pc$x[,2],rep(3,3),labels=1:3,pos=1)
+        text(min(pc$x[,2]),3,labels='PC2',pos=2)
     }
     if (fig==3){ # plot both PCA scores and the loadings in the 3rd panel:
-        biplot(pc,col='black')
+        biplot(pc,col=c('gray50','black'))
     }
     if (fig==4){ # plot the weights of the PCs in the 4th panel:
         w <- pc$sdev^2
-        names(w) <- colnames(pc$scores)
+        names(w) <- colnames(pc$x)
         barplot(w)
     }
 }
-
-pc <- prcomp(X)
 
 cairo(file='../../figures/PCA2D1.pdf',width=2.5,height=2.5)
 pars()
@@ -2998,7 +2995,7 @@ pars(mar=c(1.5,1.6,0.5,0.25))
 PCA2D(X=X,fig=2)
 dev.off()
 
-cairo(file='../../figures/PCA2D3.pdf',width=2.5,height=2.5)
+cairo(file='../../figures/PCA2D3.pdf',width=2.75,height=2.75)
 pars(mar=c(2.4,2.3,1.5,1.5))
 PCA2D(X=X,fig=3)
 dev.off()
@@ -3408,9 +3405,9 @@ pred <- predict(ldiris)
 ld <- construct_DA(pred$x,AFFINITY=iris[,'Species'],
                    quadratic=FALSE,plot=TRUE,
                    xlab='LD1',ylab='LD2')
-text(-3,2.7,'virginica',pos=2,col='gray50',srt=85)
-text(0.4,2.7,'versicolor',pos=2,col='gray50',srt=90)
-text(4,2.7,'setosa',pos=2,col='gray50',srt=95)
+text(-3,-2.7,'virginica',pos=2,col='gray50',srt=-85)
+text(0.4,-2.7,'versicolor',pos=2,col='gray50',srt=-90)
+text(4,-2.7,'setosa',pos=2,col='gray50',srt=-95)
 points(pred$x,pch=pch)
 dev.off()
 
@@ -3420,9 +3417,9 @@ pred <- predict(ldiris)
 ld <- construct_DA(pred$x,AFFINITY=iris[,'Species'],
                    quadratic=FALSE,plot=TRUE,
                    xlab='LD1',ylab='LD2')
-text(-3,2.7,'virginica',pos=2,col='gray50',srt=85)
-text(0.4,2.7,'versicolor',pos=2,col='gray50',srt=90)
-text(4,2.7,'setosa',pos=2,col='gray50',srt=95)
+text(-3,-2.7,'virginica',pos=2,col='gray50',srt=-85)
+text(0.4,-2.7,'versicolor',pos=2,col='gray50',srt=-90)
+text(4,-2.7,'setosa',pos=2,col='gray50',srt=-95)
 newflower <- data.frame(Sepal.Length=6.0,Sepal.Width=3.0,
                         Petal.Length=5.0,Petal.Width=1.5)
 pred <- predict(ldiris,newdata=newflower)
@@ -3881,9 +3878,17 @@ Xc <- cbind(log(xyz[,'a']/g),log(xyz[,'b']/g),log(xyz[,'c']/g))
 colnames(Xc) <- c('','','')
 pc <- prcomp(Xc)
 biplot(pc,arrow.len=0.08,asp=0.9,col=c('gray50','black'))
-text(x=0,y=-1,labels='c',col='black',cex=1.1)
+text(x=0,y=-1.5,labels='c',col='black',cex=1.1)
 text(x=-4,y=0,labels='b',col='black',cex=1.1)
 text(x=4,y=0,labels='a',col='black',cex=1.1)
+dev.off()
+
+cairo(file='../../figures/majorPCA.pdf',width=4,height=4)
+pars(mar=c(2.5,2.3,1.8,1.8))
+Major <- read.csv(file="Major.csv",header=TRUE,row.names=1)
+cMajor <- log(Major) - rowMeans(log(Major)) %*% matrix(1,1,ncol(Major))
+pc <- prcomp(cMajor)
+biplot(pc,asp=1.1,col=c('gray50','black'))
 dev.off()
 
 cairo(file='../../figures/majorPCA.pdf',width=4,height=4)
