@@ -3891,14 +3891,6 @@ pc <- prcomp(cMajor)
 biplot(pc,asp=1.1,col=c('gray50','black'))
 dev.off()
 
-cairo(file='../../figures/majorPCA.pdf',width=4,height=4)
-pars(mar=c(2.5,2.3,1.8,1.8))
-Major <- read.csv(file="Major.csv",header=TRUE,row.names=1)
-cMajor <- log(Major) - rowMeans(log(Major)) %*% matrix(1,1,ncol(Major))
-pc <- prcomp(cMajor)
-biplot(pc,asp=1.1,col=c('gray50','black'))
-dev.off()
-
 cairo(file='../../figures/links.pdf',width=6.5,height=2)
 pars(mfrow=c(1,3),mgp=c(1.4,1,0),mar=c(2.5,2.75,0,0.5))
 boxplot(cbind(log(Major$CaO)-log(Major$MgO),
@@ -4047,7 +4039,7 @@ data(test,package='geostats')
 lrdat <- clr(test[,-1])
 pc <- prcomp(lrdat)
 biplot(pc,col=c('grey60','black'),xlabs=test[,1],
-       xlim=c(-0.31,0.2),ylim=c(-0.15,0.37))
+       xlim=c(-0.31,0.2),ylim=c(-0.15,0.37),cex=0.9)
 dev.off()
 
 striations <- c(44,51,79,65,27,31,4,355,22,352,287,
