@@ -1526,8 +1526,9 @@ ternary(arithmetic.mean,add=TRUE,type='p',pch=21,bg='white')
 Adding the logratio mean as a white filled square:
 
 \begin{script}[firstnumber=5]
-logratio.mean <- exp(colMeans(log(alkali)))
-ternary(logratio.mean,add=TRUE,type='p',pch=22,bg='white')
+logratio.mean <- colMeans(alr(alkali))
+compositional.mean <- alr(logratio.mean,inverse=TRUE)
+ternary(compositional.mean,add=TRUE,type='p',pch=22,bg='white')
 \end{script}
 
 \item PCA is an unsupervised learning technique. So we don't need to
@@ -1555,11 +1556,11 @@ biplot(pc,col=c('grey50','black'),xlabs=aff)
     poor in CaO; MORBs are rich in MgO and TiO\textsubscript{2}; and
     IABs are rich in MnO and poor in TiO\textsubscript{2}.
     K\textsubscript{2}O and CaO are anti-correlated, and so are
-    TiO\textsubscript{2} and MnO. The variability in MnO/CaO is
-    independent of the variability in TiO\textsubscript{2}/MnO.  The
-    `outliers' on the ternary diagram of
-    exercise~\ref{it:sol-ternary-test} are OIBs that are particularly
-    poor in CaO.}
+    TiO\textsubscript{2} and MnO. The variability in
+    MnO/TiO\textsubscript{2} is independent of the variability in
+    MgO/K\textsubscript{2}O.  The `outliers' on the ternary diagram
+    of exercise~\ref{it:sol-ternary-test} are OIBs that are
+    particularly poor in CaO.}
   \label{fig:testPCA}
 \end{minipage}
 
