@@ -228,17 +228,11 @@ coord2angle <- function(x,y,z=0,option=0,degrees=FALSE){
     if (option==0){
         out <- atan2(y,x)
     } else if (option==1){
-        out <- cbind(atan(y/x),
-                     asin(z))
-        out[x<0,1] <- out[x<0,1] - pi
+        out <- cbind(atan2(y,x),asin(z))
     } else if (option==2){
-        out <- cbind(atan(-x/y),
-                     asin(z))
-        out[y<0,1] <- out[y<0,1] - pi
+        out <- cbind(atan2(-x,y),asin(z))
     } else {
-        out <- cbind(atan(-x/z),
-                     asin(y))
-        out[z>0,1] <- out[z>0,1] - pi
+        out <- cbind(atan2(x,z),asin(y))
     }
     if (degrees) return(out*180/pi)
     else return(out)
