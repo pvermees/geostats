@@ -57,7 +57,7 @@ between two angles $\theta$ and $\phi$ are obtained using the
 following trigonometric relationship:
 \begin{equation}
   \theta - \phi = \arcsin\left( \sin[\theta] \cos[\phi] -
-                                \cos[\theta] \sin[\phi] \right)
+                              \cos[\theta] \sin[\phi] \right)
   \label{eq:anglediff}
 \end{equation}
 
@@ -70,9 +70,19 @@ angles, then the resultant direction is obtained by summing the
 horizontal and vertical components of unit vectors pointing in these
 directions:
 \begin{equation}
-  \overline{\theta} = \arctan\left(\frac{\sum_{i=1}^{n}
-    \sin[\theta_i]}{\sum_{i=1}^{n}\cos[\theta_i]} \right)
+  \overline{\theta} = \mbox{arctan2}\left(
+  \sum_{i=1}^{n}\sin[\theta_i],\sum_{i=1}^{n}\cos[\theta_i]
+  \right)
   \label{eq:averagedirection}
+\end{equation}
+
+\noindent where
+\begin{equation}
+  \mbox{arctan2}(y,x) = 
+  \begin{cases}
+    \arctan(y/x) & \mbox{~if~} x>0 \mbox{~and} \\
+    \arctan(y/x) \pm \pi & \mbox{~if~} x<0
+  \end{cases}
 \end{equation}
 
 Applying this formula to the glacial striation data:
@@ -291,7 +301,7 @@ stereographic projection proceeds as follows:
   \left\{
   \begin{split}
     \phi & = \arccos\left(\sqrt{{x^2+y^2+(z-1)^2}}/{2}\right) \\
-    \theta & = \arctan\left({x}/{y}\right)
+    \theta & = \mbox{arctan2}\left({x},{y}\right)
   \end{split}
   \right.
 \end{equation}
@@ -401,7 +411,7 @@ Then the average latitude and longitude are given by:
 \begin{equation}
   \left\{
   \begin{split}
-  \bar{L} & = \arctan\left(-\bar{x}/\bar{z}\right)\\
+  \bar{L} & = \mbox{arctan2}\left(-\bar{x},\bar{z}\right)\\
   \bar{l} & = \arcsin\left(\bar{y}\right)
   \end{split}
   \right.
@@ -411,7 +421,7 @@ Then the average latitude and longitude are given by:
 \begin{equation}
   \left\{
   \begin{split}
-    \bar{S} & = \arctan\left(-\bar{x}/\bar{y}\right)\\
+    \bar{S} & = \mbox{arctan2}\left(-\bar{x},\bar{y}\right)\\
     \bar{D} & = \arcsin\left(\bar{z}\right)
   \end{split}
   \right.
@@ -421,7 +431,7 @@ Then the average latitude and longitude are given by:
 \begin{equation}
   \left\{
   \begin{split}
-    \bar{D} & = \arctan\left(\bar{y}/\bar{x}\right)\\
+    \bar{D} & = \mbox{arctan2}\left(\bar{y},\bar{x}\right)\\
     \bar{A} & = \arcsin\left(\bar{z}\right)
   \end{split}
   \right.
@@ -472,7 +482,7 @@ distinct angles. This can produce nonsensical results:
     NE--SW direction. Half of the measurements were recorded as
     northeasterly and the other half as southwesterly. Both of angles
     are equivalent. The white circle marks the vector mean, which
-    points in a northwesterly direction.\medskip}
+    points in a southeasterly direction.\medskip}
   \label{fig:pebbles}
 \end{minipage}
 
