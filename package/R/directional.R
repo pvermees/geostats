@@ -226,7 +226,7 @@ angle2coord <- function(trd,plg=0,option=0,degrees=FALSE){
 
 coord2angle <- function(x,y,z=0,option=0,degrees=FALSE){
     if (option==0){
-        out <- atan(y/x)
+        out <- atan2(y,x)
     } else if (option==1){
         out <- cbind(atan(y/x),
                      asin(z))
