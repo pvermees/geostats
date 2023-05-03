@@ -7,7 +7,6 @@ $\lambda=1.42\times{10}^{-5}$~Myr\textsuperscript{-1}.
 \textsuperscript{86}Sr is a second isotope of Sr that does not have a
 radioactive parent. Together these three nuclides form the basis of a
 geochronometer:
-
 \begin{equation}
   \left[\frac{{}^{87}Sr}{{}^{86}Sr}\right] =
   \left[\frac{{}^{87}Sr}{{}^{86}Sr}\right]_\circ +
@@ -35,7 +34,6 @@ $x=\{x_1,\ldots,x_n\}$ is also known as the \textbf{independent
   variable} and $y=\{y_1,\ldots,y_n\}$ as the \textbf{dependent
   variable}. The following table shows an example of eight Rb--Sr
 compositions from the same rock:
-
 \begin{center}
   \begin{tabular}{c|cccccccc}
     $i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\ \hline
@@ -238,7 +236,6 @@ is the methods of least squares.
 As the name suggests, the least squares criterion quantifies the
 misfit of the line through the data as the sum of the squared
 residuals:
-
 \begin{equation}
 ss \equiv \sum_{i=1}^{n} \epsilon_i^2 = \sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i)^2
 \label{eq:ss}
@@ -279,7 +276,6 @@ Instead of minimising $ss$ by iterating over all possible values of
 $\beta_0$ and $\beta_1$, we can find the optimal solution directly by
 taking the partial derivatives of Equation~\ref{eq:ss}
 w.r.t. $\beta_0$ and $\beta_1$ and setting them to zero:
-
 \begin{equation}
 \begin{cases}
     \frac{\partial ss}{\partial\beta_0} = 2 \sum(y_i - \beta_0 - \beta_1 x_i) = 0\\
@@ -288,7 +284,6 @@ w.r.t. $\beta_0$ and $\beta_1$ and setting them to zero:
 \end{equation}
 
 Solving this system of equations, it can be shown that:
-
 \begin{equation}
 \begin{cases}
   \hat{\beta}_0 = \left(\sum x_i^2 \sum y_i - \sum x_i \sum x_iy_i\right) /
@@ -340,7 +335,6 @@ the linear regression problem (Equation~\ref{eq:y=a+bx+e}):
 
 Let us assume that the residuals ($\epsilon_i$) are normally
 distributed \emph{with zero mean}:
-
 \begin{equation}
   f(\epsilon_i|\beta_0,\beta_1,\sigma) = \frac{1}{\sigma\sqrt{2\pi}}
   \exp\!\left[-\frac{\epsilon_i^2}{2\sigma^2}\right] \mbox{,~where~}
@@ -352,7 +346,6 @@ In that case, we can estimate $\beta_0$ and $\beta_1$ by maximising
 the (log-)likelihood, in exactly the same fashion as the maximum
 likelihood estimation algorithm of Section~\ref{sec:normalparameters}
 and Equation~\ref{eq:Lnorm}
-
 \begin{equation}
   \mathcal{L}(\beta_0,\beta_1,\sigma|\{x_1,y_1\},\ldots,\{x_n,y_n\}) =
   \prod\limits_{i=1}^{n}\frac{1}{\sigma\sqrt{2\pi}}
@@ -362,7 +355,6 @@ and Equation~\ref{eq:Lnorm}
 
 Minimising Equation \ref{eq:ss} is equivalent to maximising Equation
 \ref{eq:Lregression}:
-
 \begin{equation}
 \begin{split}
 \underset{\beta_0,\beta_1}{\max}\left[\prod_{i=1}^n \mathcal{L}\right] = &
@@ -378,7 +370,6 @@ produce exactly the same result, and that linear regression works best
 when the residuals are normally distributed. Error propagation of the
 estimated regression coefficients ($\hat{\beta}_0$, $\hat{\beta}_1$)
 proceeds as in Section~\ref{sec:FisherInformation}:
-
 \begin{equation}
   \begin{split}
     \Sigma_{\hat{\beta}} & = 
@@ -398,20 +389,19 @@ proceeds as in Section~\ref{sec:FisherInformation}:
         \frac{\partial^2{\mathcal{LL}}}{\partial{\beta_1^2}}
       \end{array}
       \right]^{-1} \\
-    & = -\frac{1}{\sigma^2}
+    & = -\left(\frac{1}{\sigma^2}
     \left[
       \begin{array}{@{}cc@{}}
         n & \sum_{i=1}^{n}x_i \\
         \sum_{i=1}^{n}x_i & \sum_{i=1}^{n}x_i^2
       \end{array}
-      \right]^{-1} \\
+      \right]\right)^{-1} \\
     & =
+    \frac{\sigma^2}{\sum_{i=1}^{n}(x_i^2-\bar{x}^2)}
     \left[
       \begin{array}{@{}cc@{}}
-        \frac{\sigma^2\sum_{i=1}^{n}x_i^2}{n\sum_{i=1}^{n}(x_i^2-\bar{x}^2)} &
-        -\frac{\sigma^2\bar{x}}{\sum_{i=1}^{n}(x_i^2-\bar{x}^2)} \\
-        -\frac{\sigma^2\bar{x}}{\sum_{i=1}^{n}(x_i^2-\bar{x}^2)} &
-        \frac{\sigma^2}{\sum_{i=1}^{n}(x_i^2-\bar{x}^2)}
+        \sum_{i=1}^{n}x_i^2/n & -\bar{x} \\
+        -\bar{x} & 1
       \end{array}
       \right]
   \end{split}
@@ -421,7 +411,6 @@ proceeds as in Section~\ref{sec:FisherInformation}:
 Equation~\ref{eq:sigmabeta} uses the standard deviation of the data
 around the linear fit ($\sigma$). This parameter is generally unknown
 and must be estimated from the data:
-
 \begin{equation}
   \hat{\sigma} = \sqrt{\sum\limits_{i=1}^{n}
     \frac{(\hat{\beta}_0+\hat{\beta}_1x_i-y_i)^2}{n-2}}
@@ -438,7 +427,6 @@ Equation~\ref{eq:sigmabeta} can be used to construct a
 \textbf{confidence interval} for the regression coefficients. The
 procedure for doing this is analogous to the construction of
 confidence intervals around the mean (Equation~\ref{eq:tci}):
-
 \begin{equation}
   \beta_0 \in \left\{\hat{\beta}_0 \pm t_{df,\alpha/2}~s[\hat{\beta}_0]\right\}
   \mbox{~and~}
@@ -450,7 +438,6 @@ confidence intervals around the mean (Equation~\ref{eq:tci}):
   envelope} around the best fit line by observing that
 $y=\beta_0+\beta_1x$ matches the equation for a sum, and applying the
 corresponding error propagation formula (Equation~\ref{eq:addition}):
-
 \begin{equation}
   y \in \left\{\hat{\beta}_0 + \hat{\beta}_1 x \pm t_{df,\alpha/2}
   \sqrt{s[\hat{\beta}_0]^2 + s[\hat{\beta}_1]^2 x^2 +
@@ -576,7 +563,6 @@ possible to predict the expected correlation coefficient (or `null
 correlation') associated with the spurious effect. In the general case
 of four samples $w$, $x$, $y$ and $z$, the \textbf{ratio correlation}
 of $w/y$ and $x/z$ is given by:
-
 \begin{equation}
   \noindent \rho_{\frac{w}{y},\frac{x}{z}} \approx
   \frac{\rho_{w,x}\left[\frac{\sigma_w}{\mu_w}\right]
@@ -604,7 +590,6 @@ of $w/y$ and $x/z$ is given by:
 Substituting $z$ for $y$ and $y$ for $w$ in
 Equation~\ref{eq:spurious}, and considering that $\rho_{z,z}=1$, we
 can show that:
-
 \begin{equation}
   \noindent \rho_{\frac{y}{z},\frac{x}{z}} \approx
   \frac{\rho_{y,x}\left[\frac{\sigma_y}{\mu_y}\right]
@@ -630,7 +615,6 @@ can show that:
 
 Similarly, substituting $w$ for $z$, and setting $y=1$ and
 $\sigma_y=0$ in Equation~\ref{eq:spurious}:
-
 \begin{equation}
   \noindent \rho_{z,\frac{x}{z}} \approx
   \frac{\rho_{z,x}\left[\frac{\sigma_z}{\mu_z}\right]
@@ -651,7 +635,6 @@ For the example of Figure~\ref{fig:spurious}, where
 $\rho_{x,y}=\rho_{x,z}=\rho_{y,z}=0$, the expected \textbf{null
   correlation} for $x/z$ and $y/z$ is obtained from
 Equation~\ref{eq:spuriousxzyz}:
-
 \begin{equation}
   \noindent \rho_{\frac{y}{z},\frac{x}{z}} \approx
   \frac{
@@ -677,7 +660,6 @@ Equation~\ref{eq:spuriousxzyz}:
 correlation coefficient of Figure~\ref{fig:spurious}d. Similarly, the
 null correlation for $x/z$ and $z$ is obtained from
 Equation~\ref{eq:spuriouszxz}:
-
 \begin{equation*}
   \noindent \rho_{z,\frac{x}{z}} \approx
   \frac{
