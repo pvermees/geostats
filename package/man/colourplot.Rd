@@ -26,6 +26,9 @@ colourplot(
   axes = TRUE,
   frame.plot = axes,
   extra,
+  xlim,
+  ylim,
+  zlim,
   ...
 )
 }
@@ -85,6 +88,12 @@ in \code{plot.default}.}
 
 \item{extra}{(optional) extra intructions to be carried out in the
 main plot window, such as text annotations.}
+
+\item{xlim}{x-axis limits (optional)}
+
+\item{ylim}{y-axis limits (optional)}
+
+\item{zlim}{z-axis limits (optional)}
 
 \item{...}{additional graphical parameters}
 }
