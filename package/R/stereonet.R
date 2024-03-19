@@ -58,8 +58,6 @@ stereonet <- function(trd,plg,coneAngle=rep(10,length(trd)),
                       degrees=FALSE,show.grid=TRUE,grid.col='grey50',
                       tl=0.05,type='p',labels=1:length(trd),
                       pch=21,bg=c('black','white'),lty=c(1,2),...){
-    ##:ess-bp-start::browser@nil:##
-browser(expr=is.null(.ESSBP.[["@3@"]]));##:ess-bp-end:##
     if (!add){
         stereonet.setup(wulff=wulff,show.grid=show.grid,
                         grid.col=grid.col,tl=tl,...)
