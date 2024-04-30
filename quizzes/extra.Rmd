@@ -10,10 +10,9 @@ output:
 ```{r setup, include = FALSE}
 library(bookdown)
 graphics.off()
-setwd('~/Documents/Programming/R/geostats/quizzes')
 solution <- TRUE
 results <- TRUE
-multi <- TRUE
+multi <- FALSE
 knitr::opts_chunk$set(echo=solution,include=results)
 knitr::opts_knit$set(global.device=FALSE)
 knitr::opts_chunk$set(fig.pos="H",out.extra="")
@@ -179,7 +178,7 @@ Figure:
 1. How many measurements are there in this dataset?
 
    \ifsol{\itshape
-   There are 16 ticks in the rug plot. However, this includes some
+   There are 15 ticks in the rug plot. However, this includes some
    duplicate values. A better way to count the observation is to use
    the steps in the ECDF. There are 13 single steps, one double step (at 9),
    and one triple step (at 10). Thus, the dataset contains 18 values.
@@ -218,7 +217,7 @@ pencil on paper).  Does it identify any outliers?
    \ifsol{\itshape
    By hand, you would first draw a box from $-5$ to 10, with a line at 9.
    Then, whiskers would extend from this box until $-20$ and $+20$. The
-   value of 40 is an outlier, because $40-9=31>1.5\times$IQR$=22.5$.
+   value of 40 is an outlier, because $40-11=29>1.5\times$IQR$=24$.
 
    Using \texttt{R}:
    }\fi
