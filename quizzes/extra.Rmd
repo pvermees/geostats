@@ -377,9 +377,9 @@ function for the number of failures up to the $r$^th^ success?
    \]
    The number of ways to shuffle these outcomes is $\binom{k+r}{k}$. However,
    the last outcome must be a success and cannot be shuffled. Therefore, the
-   number of shuffled outcomes is $\binom{k+r-1}{k}$. Therefore, the
+   number of shuffled outcomes is $\binom{k+r-1}{k}$, and the
    probability of $k$ failures up to the $r$\textsuperscript{th} success is
-   \[\binom{k+r-1}{k}(1-p)^k p^{r-1} p - \binom{k+r-1}{k}(1-p)^k p^r\]
+   \[\binom{k+r-1}{k}(1-p)^k p^{r-1} p = \binom{k+r-1}{k}(1-p)^k p^r\]
    This is the PMF of the so-called negative binomial distribution
    (see Equation 7.1 of the notes).
    }\fi
