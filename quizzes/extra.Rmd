@@ -12,7 +12,7 @@ library(bookdown)
 graphics.off()
 solution <- TRUE
 results <- TRUE
-multi <- FALSE
+multi <- TRUE
 knitr::opts_chunk$set(echo=solution,include=results)
 knitr::opts_knit$set(global.device=FALSE)
 knitr::opts_chunk$set(fig.pos="H",out.extra="")
