@@ -994,7 +994,7 @@ ex/unnamed-chunk-41-1.pdf  used on input line 2079.
 1.pdf> </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-
 41-1.pdf>]
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-43-1.pd
-f, id=600, 476.78125pt x 436.63126pt>
+f, id=571, 476.78125pt x 436.63126pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-43
 -1.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-43-
@@ -1003,7 +1003,7 @@ Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
 ex/unnamed-chunk-43-1.pdf  used on input line 2117.
 (pdftex.def)             Requested size: 222.37756pt x 203.65103pt.
 </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-43-2.pd
-f, id=601, 473.77pt x 400.49625pt>
+f, id=572, 473.77pt x 400.49625pt>
 File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-43
 -2.pdf Graphic file (type pdf)
 <use /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-43-
@@ -1011,17 +1011,17 @@ File: /home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-43
 Package pdftex.def Info: /home/pvermees/Desktop/GEOL0061/extra_files/figure-lat
 ex/unnamed-chunk-43-2.pdf  used on input line 2128.
 (pdftex.def)             Requested size: 222.37553pt x 187.9827pt.
-[40
+[39
 
  </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-43-1.p
 df> </home/pvermees/Desktop/GEOL0061/extra_files/figure-latex/unnamed-chunk-43-
-2.pdf>] [41] (./extra.aux) ) 
+2.pdf>] [40] (./extra.aux) ) 
 Here is how much of TeX's memory you used:
- 14742 strings out of 478287
- 251372 string characters out of 5849288
- 575627 words of memory out of 5000000
- 32334 multiletter control sequences out of 15000+600000
- 537186 words of font info for 161 fonts, out of 8000000 for 9000
+ 14716 strings out of 478287
+ 249250 string characters out of 5849289
+ 575628 words of memory out of 5000000
+ 32310 multiletter control sequences out of 15000+600000
+ 537316 words of font info for 162 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  74i,8n,77p,1034b,487s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/us
@@ -1041,8 +1041,8 @@ fb></usr/share/texmf/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/t
 ype1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtti10.pfb>
 Output written on extra.pdf (41 pages, 1235849 bytes).
 PDF statistics:
- 810 PDF objects out of 1000 (max. 8388607)
- 609 compressed objects within 7 object streams
- 147 named destinations out of 1000 (max. 500000)
- 35157 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 781 PDF objects out of 1000 (max. 8388607)
+ 591 compressed objects within 6 object streams
+ 146 named destinations out of 1000 (max. 500000)
+ 35142 words of extra memory for PDF output out of 35830 (max. 10000000)
 

@@ -10,7 +10,6 @@ output:
 ```{r setup, include = FALSE}
 library(bookdown)
 graphics.off()
-setwd('~/Documents/Programming/R/geostats/quizzes')
 solution <- TRUE
 results <- TRUE
 multi <- TRUE
@@ -179,7 +178,7 @@ Figure:
 1. How many measurements are there in this dataset?
 
    \ifsol{\itshape
-   There are 16 ticks in the rug plot. However, this includes some
+   There are 15 ticks in the rug plot. However, this includes some
    duplicate values. A better way to count the observation is to use
    the steps in the ECDF. There are 13 single steps, one double step (at 9),
    and one triple step (at 10). Thus, the dataset contains 18 values.
@@ -218,7 +217,7 @@ pencil on paper).  Does it identify any outliers?
    \ifsol{\itshape
    By hand, you would first draw a box from $-5$ to 10, with a line at 9.
    Then, whiskers would extend from this box until $-20$ and $+20$. The
-   value of 40 is an outlier, because $40-9=31>1.5\times$IQR$=22.5$.
+   value of 40 is an outlier, because $40-11=29>1.5\times$IQR$=24$.
 
    Using \texttt{R}:
    }\fi
@@ -378,9 +377,9 @@ function for the number of failures up to the $r$^th^ success?
    \]
    The number of ways to shuffle these outcomes is $\binom{k+r}{k}$. However,
    the last outcome must be a success and cannot be shuffled. Therefore, the
-   number of shuffled outcomes is $\binom{k+r-1}{k}$. Therefore, the
+   number of shuffled outcomes is $\binom{k+r-1}{k}$, and the
    probability of $k$ failures up to the $r$\textsuperscript{th} success is
-   \[\binom{k+r-1}{k}(1-p)^k p^{r-1} p - \binom{k+r-1}{k}(1-p)^k p^r\]
+   \[\binom{k+r-1}{k}(1-p)^k p^{r-1} p = \binom{k+r-1}{k}(1-p)^k p^r\]
    This is the PMF of the so-called negative binomial distribution
    (see Equation 7.1 of the notes).
    }\fi

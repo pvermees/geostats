@@ -1,4 +1,4 @@
-idir <- "~/Documents/Programming/R/geostats/quizzes/"
+idir <- "~/git/geostats/quizzes/"
 odir <- "~/Desktop/GEOL0061/"
 rmarkdown::render(input=paste0(idir,"extra.Rmd"),
                   output_file=paste0(odir,"extra.pdf"))
