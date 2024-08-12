@@ -133,3 +133,4 @@
 \contentsline {section}{\numberline {19.14}Compositional data}{220}{section.19.14}%
 \contentsline {section}{\numberline {19.15}Directional data}{222}{section.19.15}%
 \contentsline {section}{\numberline {19.16}Spatial data}{224}{section.19.16}%
+\contentsline {chapter}{\numberline {20}Tables}{227}{chapter.20}%

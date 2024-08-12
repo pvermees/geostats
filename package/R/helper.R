@@ -80,6 +80,9 @@ inside <- function(pts,pol){
 #'     in \code{plot.default}.
 #' @param extra (optional) extra intructions to be carried out in the
 #'     main plot window, such as text annotations.
+#' @param xlim x-axis limits (optional)
+#' @param ylim y-axis limits (optional)
+#' @param zlim z-axis limits (optional)
 #' @param ... additional graphical parameters
 #' @return no return value
 #' @import grDevices
@@ -93,7 +96,8 @@ inside <- function(pts,pol){
 colourplot <- function (x, y, z, X, Y, Z, nlevels=20, colspec=hcl.colors,
                         pch = 21, cex = 1, plot.title, plot.axes, key.title,
                         key.axes, asp = NA, xaxs = "i", yaxs = "i",
-                        las = 1, axes = TRUE, frame.plot = axes, extra, ...) {
+                        las = 1, axes = TRUE, frame.plot = axes, extra,
+                        xlim, ylim, zlim, ...) {
     cnts <- !(missing(x)|missing(y)|missing(z))
     pnts <- !(missing(X)|missing(Y)|missing(Z))
     if (cnts){
@@ -115,9 +119,9 @@ colourplot <- function (x, y, z, X, Y, Z, nlevels=20, colspec=hcl.colors,
     if (!pnts & !cnts){
         stop('Both x,y,z and X,Y,Z are missing.')
     }
-    xlim <- range(xX,finite=TRUE)
-    ylim <- range(yY,finite=TRUE)
-    zlim <- range(zZ,finite=TRUE)
+    if (missing(xlim)) xlim <- range(xX,finite=TRUE)
+    if (missing(ylim)) ylim <- range(yY,finite=TRUE)
+    if (missing(zlim)) zlim <- range(zZ,finite=TRUE)
     # add a bit of padding
     dx <- diff(xlim)
     dy <- diff(ylim)

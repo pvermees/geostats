@@ -179,7 +179,7 @@ stereonet.point <- function(trd,plg,wulff=TRUE,option=1,
         y <- rbind(yp[-n],yp[-1])
         graphics::matlines(x,y,lty=lty[above+1][-n],col=col,...)
     } else if (type=='p'){
-        graphics::points(xp,yp,bg=bg[above+1],pch=pch,...)
+        graphics::points(xp,yp,bg=bg[above+1],pch=pch,col=col,...)
     } else if (type=='t'){
         graphics::text(xp,yp,labels=labels,col=bg[above+1],...)
     }
