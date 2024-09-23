@@ -2402,7 +2402,6 @@ hist(log(quakes$mag),breaks=20,main='',col='white',
      xlab='ln[magnitude]',xpd=NA,ylim=c(0,12500))
 dev.off()
 
-library(sf)
 # from https://rspatial.org/raster/cases/2-coastline.html
 uk <- sf::st_as_sf(readRDS('gadm36_GBR_0_sp.rds'))
 prj <- paste0("+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 ",
@@ -2412,8 +2411,8 @@ duk <- sf::st_cast(guk, "POLYGON")
 a <- sf::st_area(duk)
 i <- which.max(a)
 b <- duk[i,]
-vertices <- sf::st_cast(b,'POINT')
-measure_with_ruler <- function(vertices, length) {
+v <- sf::st_coordinates(b)[,c('X','Y')]
+measure_with_ruler <- function(vertices, len) {
     nr <- nrow(vertices)
     # we start at the first point
     pts <- 1
@@ -2426,10 +2425,10 @@ measure_with_ruler <- function(vertices, length) {
         j[j > nr] <- j[j > nr] - nr
         gg <- vertices[j,]
         # compute distances
-        pd <- as.numeric(sf::st_distance(gg[1,],gg))
+        pd <- sqrt(rowSums(sweep(gg,2,gg[1,])^2))
         # get the first point that is past the end of the ruler
         # this is precise enough for our high resolution coastline
-        i <- which(pd > length)[1]
+        i <- which(pd > len)[1]
         if (is.na(i)) {
             stop('Ruler is longer than the maximum distance found')
         }
@@ -2438,7 +2437,6 @@ measure_with_ruler <- function(vertices, length) {
         # stop if past the last point
         if (newpt >= nr) break
         pts <- c(pts, newpt)
-        print(pts)
     }
     # add the last (incomplete) stick.
     pts <- c(pts, 1)
@@ -2448,7 +2446,7 @@ measure_with_ruler <- function(vertices, length) {
 y <- list()
 rulers <- c(10,20,50,100,200) # km
 for (i in 1:length(rulers)) {
-    y[[i]] <- measure_with_ruler(vertices, rulers[i]*1000)
+    y[[i]] <- measure_with_ruler(v, rulers[i]*1000)
 }
 nrulers <- sapply(y, nrow)
 L <- nrulers * rulers
@@ -2469,7 +2467,7 @@ y <- list()
 logrulers <- seq(from=log(5),to=log(150),length.out=10)
 rulers <- exp(logrulers)
 for (i in 1:length(rulers)) {
-    y[[i]] <- measure_with_ruler(b, rulers[i]*1000)
+    y[[i]] <- measure_with_ruler(v, rulers[i]*1000)
 }
 nrulers <- sapply(y, nrow)
 L <- nrulers * rulers
