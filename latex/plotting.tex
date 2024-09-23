@@ -284,8 +284,9 @@ function is:
 \end{equation}
 
 \noindent where $x_i$ is the $i$\textsuperscript{th} measurement (out
-of $n$), $h$ is the `bandwidth' of the kernel density estimator, and
-$K(u)$ is the `kernel' function. For the rectangular kernel:
+of $n$), $h$ is the `bandwidth' of the kernel density estimator ($h=1$
+in Figure~\ref{fig:rectangles}), and $K(u)$ is the `kernel'
+function. For the rectangular kernel:
 
 \begin{equation}
   K(u) = 1/2 \mbox{~if~}|u| \leq 1, \mbox{~and~} K(u) = 0 \mbox{~otherwise}
@@ -452,7 +453,7 @@ interval with the inverse logit transformation:
   \captionof{figure}{a) KDE of the vegetation data, after applying a
     logistic transformation.  Note the two horizonal axes.  The top
     axis marks the transformed values on a linear scale that extends
-    from $-\infty$ to $+\infty$. The bottom axis is labeled by the
+    from $-\infty$ to $+\infty$. The bottom axis is labelled by the
     actual vegetation values on a non-linear scale that extends from 0
     to 100\%. b) The same distribution mapped back to the 0 -- 100\%
     interval.\medskip}
@@ -506,7 +507,7 @@ discussed in detail in Section~\ref{sec:PCA}.
 Both histograms and kernel density estimates require the selection of
 a `smoothing parameter'. For the histogram, this is the bin width; for
 the KDE, it is the bandwidth ($h$ in Equation~\ref{eq:KDE}). Despite
-the existence of rules thumbs to automatically choose an appropriate
+the existence of rules of thumb to automatically choose an appropriate
 value for the smoothing parameter, there nevertheless is a level of
 arbitrariness associated with them. The empirical cumulative
 distribution function (ECDF) is an alternative data visualisation
@@ -541,9 +542,9 @@ do not require smoothing, they do not spill over into physically
 impossible values for the Ca/Mg and vegetation data. The ECDF is
 completely determined by the raw data.\medskip
 
-The visual interpetation of ECDFs is different from that of histograms
-or KDEs. Whereas different clusters of values stand out as `peaks' in
-a histogram or KDE, they are marked by steep segments of the ECDF. For
-example, the two peaks in the KDE of the geyser data
+The visual interpretation of ECDFs is different from that of
+histograms or KDEs. Whereas different clusters of values stand out as
+`peaks' in a histogram or KDE, they are marked by steep segments of
+the ECDF. For example, the two peaks in the KDE of the geyser data
 (Figure~\ref{fig:KDE2D}) correspond to two steps in the ECDF
 (Figure~\ref{fig:ECDFs}.d).

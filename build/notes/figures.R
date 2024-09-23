@@ -1,10 +1,10 @@
 rm(list=ls())
 graphics.off()
 
-setwd('~/Documents/Programming/R/geostats/build/notes/')
+setwd('~/git/geostats/build/notes/')
 source('helper.R')
 
-install.packages('~/Documents/Programming/R/geostats/package',
+install.packages('~/git/geostats/package',
                  repos=NULL,type='source')
 library(geostats)
 
@@ -1970,7 +1970,7 @@ d <- rep(0,2*nD)
 P <- 0*D
 p <- rep(0,2*nD)
 for (i in 1:nD){
-    P[i] <- .Call(stats:::C_pSmirnov2x, D[i],n.x=n.x,n.y=n.y)
+    P[i] <- stats::psmirnov(D[i],sizes=c(n.x, n.y))
     p[2*i+c(-1,0)] <- P[i]
     d[2*i+c(-1,0)] <- D[i]
 }
@@ -2373,7 +2373,7 @@ abline(fit,lty=2)
 abline(a=10,b=1,lty=3)
 points(x,y,pch=21,bg='black')
 points(X,Y,pch=22,bg='white')
-xy <- IsoplotR:::get.york.xy(tab,a=yfit$a[1],b=yfit$b[1])
+xy <- IsoplotR:::get_york_xy(tab,a=yfit$a[1],b=yfit$b[1])
 points(xy,pch=21,bg='white')
 lines(rep(x[3],2),c(y[3],100),lty=2,col='gray50')
 lines(rep(xy[3,1],2),c(xy[3,2],100),lty=2,col='gray50')
@@ -2403,12 +2403,11 @@ hist(log(quakes$mag),breaks=20,main='',col='white',
 dev.off()
 
 # from https://rspatial.org/raster/cases/2-coastline.html
-library(raster)
-uk <- readRDS('gadm36_GBR_0_sp.rds')
+uk <- terra::readRDS('gadm36_GBR_0_sp.rds')
 prj <- paste0("+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 ",
               "+x_0=400000 +y_0=-100000 +ellps=airy +datum=OSGB36 +units=m")
-guk <- spTransform(uk, CRS(prj))
-duk <- disaggregate(guk)
+guk <- sp::spTransform(uk, sp::CRS(prj))
+duk <- sp::disaggregate(guk)
 a <- raster::area(duk)
 i <- which.max(a)
 b <- duk[i,]
@@ -4229,7 +4228,7 @@ dev.off()
 
 cairo(file='../../figures/Africa.pdf',width=7,height=3.5)
 pars(mfrow=c(1,2),mar=rep(1,4))
-Africa <- read.csv('~/Documents/Programming/R/geostats/build/notes/Africa.csv',
+Africa <- read.csv('~/git/geostats/build/notes/Africa.csv',
                    header=TRUE)
 geostats::stereonet(trd=Africa$lon,plg=Africa$lat,option=3,
                     degrees=TRUE,wulff=TRUE,type='l',lty=1.5)
