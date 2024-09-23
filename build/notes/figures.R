@@ -2402,22 +2402,19 @@ hist(log(quakes$mag),breaks=20,main='',col='white',
      xlab='ln[magnitude]',xpd=NA,ylim=c(0,12500))
 dev.off()
 
+library(sf)
 # from https://rspatial.org/raster/cases/2-coastline.html
-uk <- terra::readRDS('gadm36_GBR_0_sp.rds')
+uk <- sf::st_as_sf(readRDS('gadm36_GBR_0_sp.rds'))
 prj <- paste0("+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 ",
               "+x_0=400000 +y_0=-100000 +ellps=airy +datum=OSGB36 +units=m")
-guk <- sp::spTransform(uk, sp::CRS(prj))
-duk <- sp::disaggregate(guk)
-a <- raster::area(duk)
+guk <- sf::st_transform(uk, sf::st_crs(prj))
+duk <- sf::st_cast(guk, "POLYGON")
+a <- sf::st_area(duk)
 i <- which.max(a)
 b <- duk[i,]
-measure_with_ruler <- function(pols, length, lonlat=FALSE) {
-    # some sanity checking
-    stopifnot(inherits(pols, 'SpatialPolygons'))
-    stopifnot(length(pols) == 1)
-    # get the coordinates of the polygon
-    g <- geom(pols)[, c('x', 'y')]
-    nr <- nrow(g)
+vertices <- sf::st_cast(b,'POINT')
+measure_with_ruler <- function(vertices, length) {
+    nr <- nrow(vertices)
     # we start at the first point
     pts <- 1
     newpt <- 1
@@ -2427,9 +2424,9 @@ measure_with_ruler <- function(pols, length, lonlat=FALSE) {
         # order the points
         j <- p:(p+nr-1)
         j[j > nr] <- j[j > nr] - nr
-        gg <- g[j,]
+        gg <- vertices[j,]
         # compute distances
-        pd <- pointDistance(gg[1,], gg, lonlat)
+        pd <- as.numeric(sf::st_distance(gg[1,],gg))
         # get the first point that is past the end of the ruler
         # this is precise enough for our high resolution coastline
         i <- which(pd > length)[1]
@@ -2441,16 +2438,17 @@ measure_with_ruler <- function(pols, length, lonlat=FALSE) {
         # stop if past the last point
         if (newpt >= nr) break
         pts <- c(pts, newpt)
+        print(pts)
     }
     # add the last (incomplete) stick.
     pts <- c(pts, 1)
     # return the locations
-    g[pts, ]
+    vertices[pts, ]
 }
 y <- list()
 rulers <- c(10,20,50,100,200) # km
 for (i in 1:length(rulers)) {
-    y[[i]] <- measure_with_ruler(b, rulers[i]*1000)
+    y[[i]] <- measure_with_ruler(vertices, rulers[i]*1000)
 }
 nrulers <- sapply(y, nrow)
 L <- nrulers * rulers
