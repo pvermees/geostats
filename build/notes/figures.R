@@ -1,10 +1,10 @@
 rm(list=ls())
 graphics.off()
 
-setwd('~/Documents/Programming/R/geostats/build/notes/')
+setwd('~/git/geostats/build/notes/')
 source('helper.R')
 
-install.packages('~/Documents/Programming/R/geostats/package',
+install.packages('~/git/geostats/package',
                  repos=NULL,type='source')
 library(geostats)
 
@@ -633,6 +633,8 @@ binomcdf(nn=5,kk=2,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
          xlim=c(-1,6),add=TRUE,plotp=FALSE,plotk=FALSE)
 b <- pbinom(qbinom(0.05,5,2/3)-1,5,2/5)
 lines(c(-1,6),rep(b,2),lty=2)
+arrows(x0=6,x1=6,y0=b,y1=1,length=0.05,angle=45,code=3)
+text(x=6,y=(1+b)/2,labels=expression(beta),pos=2)
 axis(side=1,at=0:5); mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
 axis(side=2)
 mtext('P(k)',side=2,cex=0.8,line=1.5)
@@ -643,6 +645,8 @@ binomcdf(nn=5,kk=2,H0=2/3,Ha=1/5,nsides=1,showax=FALSE,
          xlim=c(-1,6),add=TRUE,plotp=FALSE,plotk=FALSE)
 b <- pbinom(qbinom(0.05,5,2/3)-1,5,1/5)
 lines(c(-1,6),rep(b,2),lty=2)
+arrows(x0=6,x1=6,y0=b,y1=1,length=0.05,angle=45,code=3)
+text(x=6,y=(1+b)/2,labels=expression(beta),pos=2)
 axis(side=1,at=0:5)
 mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
 legend('topleft',legend='e)',bty='n',cex=1.2,adj=c(2,1))
@@ -652,6 +656,8 @@ binomcdf(nn=5,kk=2,H0=2/3,Ha=0,nsides=1,plotk=FALSE,
          showax=FALSE,xlim=c(-1,6),plotp=FALSE,add=TRUE)
 b <- pbinom(qbinom(0.05,5,2/3)-1,5,0)
 lines(c(-1,16),rep(b,2),lty=2)
+usr = par('usr')
+text(x=5.5,y=1,labels=expression(paste(beta,'=0')),pos=1)
 axis(side=1,at=0:5)
 mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
 legend('topleft',legend='f)',bty='n',cex=1.2,adj=c(2,1))
@@ -689,6 +695,8 @@ binomcdf(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
          xlim=c(-1,6),add=TRUE,plotp=FALSE,plotk=FALSE)
 b <- pbinom(qbinom(0.05,5,2/3)-1,5,2/5)
+arrows(x0=6,x1=6,y0=b,y1=1,length=0.05,angle=45,code=3)
+text(x=6,y=(1+b)/2,labels=expression(beta),pos=2)
 lines(c(-1,6),rep(b,2),lty=2)
 axis(side=1,at=0:5); mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
 axis(side=2)
@@ -699,6 +707,8 @@ binomcdf(nn=15,kk=6,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
 binomcdf(nn=15,kk=6,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
          xlim=c(-1,16),add=TRUE,plotp=FALSE,plotk=FALSE)
 b <- pbinom(qbinom(0.05,15,2/3)-1,15,2/5)
+arrows(x0=16,x1=16,y0=b,y1=1,length=0.05,angle=45,code=3)
+text(x=16,y=(1+b)/2,labels=expression(beta),pos=2)
 lines(c(-1,16),rep(b,2),lty=2)
 axis(side=1,at=seq(from=0,to=15,by=5))
 mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
@@ -709,6 +719,8 @@ binomcdf(nn=30,kk=12,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
          xlim=c(-1,31),add=TRUE,plotp=FALSE,plotk=FALSE)
 b <- pbinom(qbinom(0.05,30,2/3)-1,30,2/5)
 lines(c(-1,31),rep(b,2),lty=2)
+arrows(x0=31,x1=31,y0=b,y1=1,length=0.05,angle=45,code=3)
+text(x=30.5,y=0.99*(1+b)/2,labels=expression(beta),pos=2)
 axis(side=1,at=seq(from=0,to=30,by=5))
 mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
 legend('topleft',legend='f)',bty='n',cex=1.2,adj=c(2,0))
@@ -1024,7 +1036,7 @@ layout(m,widths=c(0.05,0.22,0.02,0.22,0.02,0.22,0.02,0.22),
        heights=c(0.05,0.39,0.05,0.39,0.12))
 plot.new()
 for (i in 1:length(lambda)){
-    M <- qpois(0.99999,lambda[i])
+    M <- qpois(0.99999,lambda[4]) # change 4 to i for auto-scaling
     poishist(0:M,H0=lambda[i],plotk=FALSE,rej.col='white',
              showax=TRUE,xlim=c(-1,M)+0.5,xlab='',xaxt='n',yaxt='n')
     axis(side=2,pos=-(M/50))
@@ -1032,7 +1044,7 @@ for (i in 1:length(lambda)){
     legend('topright',legend=labels[[i]],bty='n',cex=1.2)
 }
 for (i in 1:length(lambda)){
-    M <- qpois(0.99999,lambda[i])
+    M <- qpois(0.99999,lambda[4]) # change 4 to i for auto-scaling
     poiscdf(0:M,H0=lambda[i],plotk=FALSE,plotp=FALSE,
             plota=FALSE,showax=FALSE,nsides=0,xlim=c(-1,M))
     if (i==1) {
@@ -1400,13 +1412,16 @@ plot2dnorm <- function(xym,covmat,...){
     z <- norm2d(x=xygrid[,1],y=xygrid[,2],xym=xym,covmat=covmat)
     contour(x=x,y=y,z=matrix(z,nt,nt),labcex=0.8,xlab='X',
             asp=1,bty='n',drawlabels=FALSE,nlevels=6,...)
-    lines(c(-1,1),rep(m,2))
-    sxlab <- bquote(sigma[x]*'='*.(sqrt(covmat[1,1])))
+    sx <- sqrt(covmat[1,1])
+    sy <- sqrt(covmat[2,2])
+    sxy <- covmat[1,2]
+    lines(c(-sx,sx),rep(m,2))
+    sxlab <- bquote(sigma[x]*'='*.(sx))
     text(xym[1],m,labels=sxlab,pos=3,offset=0.1)
-    lines(rep(m,2),c(-1,1))
-    sylab <- bquote(sigma[y]*'='*.(sqrt(covmat[2,2])))
+    lines(rep(m,2),c(-sy,sy))
+    sylab <- bquote(sigma[y]*'='*.(sy))
     text(m,xym[2],labels=sylab,pos=4,offset=0.1)
-    sxylab <- bquote(sigma[x*','*y]*'='*.(covmat[1,2]))
+    sxylab <- bquote(sigma[x*','*y]*'='*.(sxy))
     legend('topleft',legend=sxylab,bty='n')
 }
 
@@ -1970,7 +1985,7 @@ d <- rep(0,2*nD)
 P <- 0*D
 p <- rep(0,2*nD)
 for (i in 1:nD){
-    P[i] <- .Call(stats:::C_pSmirnov2x, D[i],n.x=n.x,n.y=n.y)
+    P[i] <- stats::psmirnov(D[i],sizes=c(n.x, n.y))
     p[2*i+c(-1,0)] <- P[i]
     d[2*i+c(-1,0)] <- D[i]
 }
@@ -2373,7 +2388,7 @@ abline(fit,lty=2)
 abline(a=10,b=1,lty=3)
 points(x,y,pch=21,bg='black')
 points(X,Y,pch=22,bg='white')
-xy <- IsoplotR:::get.york.xy(tab,a=yfit$a[1],b=yfit$b[1])
+xy <- IsoplotR:::get_york_xy(tab,a=yfit$a[1],b=yfit$b[1])
 points(xy,pch=21,bg='white')
 lines(rep(x[3],2),c(y[3],100),lty=2,col='gray50')
 lines(rep(xy[3,1],2),c(xy[3,2],100),lty=2,col='gray50')
@@ -2403,22 +2418,17 @@ hist(log(quakes$mag),breaks=20,main='',col='white',
 dev.off()
 
 # from https://rspatial.org/raster/cases/2-coastline.html
-library(raster)
-uk <- readRDS('gadm36_GBR_0_sp.rds')
+uk <- sf::st_as_sf(readRDS('gadm36_GBR_0_sp.rds'))
 prj <- paste0("+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 ",
               "+x_0=400000 +y_0=-100000 +ellps=airy +datum=OSGB36 +units=m")
-guk <- spTransform(uk, CRS(prj))
-duk <- disaggregate(guk)
-a <- raster::area(duk)
+guk <- sf::st_transform(uk, sf::st_crs(prj))
+duk <- sf::st_cast(guk, "POLYGON")
+a <- sf::st_area(duk)
 i <- which.max(a)
 b <- duk[i,]
-measure_with_ruler <- function(pols, length, lonlat=FALSE) {
-    # some sanity checking
-    stopifnot(inherits(pols, 'SpatialPolygons'))
-    stopifnot(length(pols) == 1)
-    # get the coordinates of the polygon
-    g <- geom(pols)[, c('x', 'y')]
-    nr <- nrow(g)
+v <- sf::st_coordinates(b)[,c('X','Y')]
+measure_with_ruler <- function(vertices, len) {
+    nr <- nrow(vertices)
     # we start at the first point
     pts <- 1
     newpt <- 1
@@ -2428,12 +2438,12 @@ measure_with_ruler <- function(pols, length, lonlat=FALSE) {
         # order the points
         j <- p:(p+nr-1)
         j[j > nr] <- j[j > nr] - nr
-        gg <- g[j,]
+        gg <- vertices[j,]
         # compute distances
-        pd <- pointDistance(gg[1,], gg, lonlat)
+        pd <- sqrt(rowSums(sweep(gg,2,gg[1,])^2))
         # get the first point that is past the end of the ruler
         # this is precise enough for our high resolution coastline
-        i <- which(pd > length)[1]
+        i <- which(pd > len)[1]
         if (is.na(i)) {
             stop('Ruler is longer than the maximum distance found')
         }
@@ -2446,12 +2456,12 @@ measure_with_ruler <- function(pols, length, lonlat=FALSE) {
     # add the last (incomplete) stick.
     pts <- c(pts, 1)
     # return the locations
-    g[pts, ]
+    vertices[pts, ]
 }
 y <- list()
 rulers <- c(10,20,50,100,200) # km
 for (i in 1:length(rulers)) {
-    y[[i]] <- measure_with_ruler(b, rulers[i]*1000)
+    y[[i]] <- measure_with_ruler(v, rulers[i]*1000)
 }
 nrulers <- sapply(y, nrow)
 L <- nrulers * rulers
@@ -2472,7 +2482,7 @@ y <- list()
 logrulers <- seq(from=log(5),to=log(150),length.out=10)
 rulers <- exp(logrulers)
 for (i in 1:length(rulers)) {
-    y[[i]] <- measure_with_ruler(b, rulers[i]*1000)
+    y[[i]] <- measure_with_ruler(v, rulers[i]*1000)
 }
 nrulers <- sapply(y, nrow)
 L <- nrulers * rulers
@@ -2781,7 +2791,7 @@ cantorlines <- function(n,Y){
 
 cairo(file='../../figures/cantor.pdf',width=4,height=1.5)
 pars(mar=c(0,0.5,0.1,0))
-plot(c(0,1),y=c(0,1),type='n',bty='n',ann=FALSE,xaxt='n',yaxt='n',xpd=NA)
+plot(c(0,1),y=c(0,1.01),type='n',bty='n',ann=FALSE,xaxt='n',yaxt='n',xpd=NA)
 cantorlines(n=0,Y=1.00)
 cantorlines(n=1,Y=0.75)
 cantorlines(n=2,Y=0.50)
@@ -4229,7 +4239,7 @@ dev.off()
 
 cairo(file='../../figures/Africa.pdf',width=7,height=3.5)
 pars(mfrow=c(1,2),mar=rep(1,4))
-Africa <- read.csv('~/Documents/Programming/R/geostats/build/notes/Africa.csv',
+Africa <- read.csv('~/git/geostats/build/notes/Africa.csv',
                    header=TRUE)
 geostats::stereonet(trd=Africa$lon,plg=Africa$lat,option=3,
                     degrees=TRUE,wulff=TRUE,type='l',lty=1.5)

@@ -8,7 +8,7 @@ distributions that are relevant to Earth scientists:
 
 \begin{itemize}
 
-\item{\bf the negative binomial distribution} models the number of
+\item{\bf The negative binomial distribution} models the number of
   successes (or failures) in a sequence of Bernoulli trials before a
   specified number of failures (or successes) occurs. For example, it
   describes the number of dry holes $x$ that are drilled before $r$
@@ -17,7 +17,7 @@ distributions that are relevant to Earth scientists:
     P(x|r,p) = \binom{r+x-1}{x} (1-p)^x p^r
   \end{equation}
 
-\item{\bf the multinomial distribution} is an extension of the
+\item{\bf The multinomial distribution} is an extension of the
   binomial distribution where more than two outcomes are possible. For
   example, it describes the point counts of multiple minerals in a
   thin section. Let $p_1,p_2,\ldots,p_m$ be the relative proportions
@@ -35,7 +35,7 @@ distributions that are relevant to Earth scientists:
   \textbf{multivariate} probability distribution, which describes
   multi-dimensional datasets.
 
-\item{\bf the uniform distribution} is the simplest example of a
+\item{\bf The uniform distribution} is the simplest example of a
   \textbf{continuous distribution}. For any number $x$ between the
   minimum $a$ and maximum $b$:
   \begin{equation}
@@ -52,14 +52,15 @@ distributions that are relevant to Earth scientists:
   (PDF). Whereas PMFs are represented by the letter $P$, we use the
   letter $f$ to represent PDFs.  This is because the probability of
   observing any particular value $x$ is actually zero. For continuous
-  variables, probabilities require integration between two values. For
-  example:
+  variables, calculating probabilities requires integration between
+  two values. For example:
   \begin{equation}
     P({c}\leq{x}\leq{d}) = \int\limits_{c}^{d} f(x|a,b) dx
   \end{equation}
 
   The cumulative density function (CDF) of a continuous variable is
-  also obtained by integration rather than summation:
+  also obtained by integration rather than summation. For the uniform
+  distribution:
   \begin{equation}
     P(X\leq{x}) =
     \begin{cases}
@@ -126,7 +127,7 @@ durations:
   \captionof{figure}{Collect $n=3$ randomly chosen events from the
     geyser eruption dataset and add their durations together. Repeat
     $N=500$ times to create a third dataset.  The KDE of this
-    distributions has four visible modes, including peaks at 6
+    distribution has four visible modes, including peaks at 6
     ($=3\times{2}$), 8.5 ($=2\times{2}+4.5$), 11 ($=2+2\times{4.5}$)
     and 13.5 ($=3\times{4.5}$) minutes. }
   \label{fig:CLTfaithful3}
@@ -162,9 +163,9 @@ guaranteed \textit{regardless of the distribution of the original
 
 The Gaussian distribution is known as the normal distribution because
 it naturally arises from \emph{additive processes}, which are very
-common in nature. It is easy to create normally distributed
-distributions in a laboratory environment. There even exists a machine
-that generates normally distributed numbers:
+common in nature. It is easy to create normally distributed values in
+a laboratory environment. There even exists a machine that generates
+normally distributed numbers:
 
 \noindent\begin{minipage}[t][][b]{.55\textwidth}
   \includegraphics[width=\textwidth]{../figures/galtonsbeanmachine.pdf}\medskip
@@ -184,7 +185,7 @@ that generates normally distributed numbers:
 
 Additive processes are very common in physics. For example, when a
 drop of ink disperses in a volume of water, the ink molecules spread
-by bouncing off the water molecules.  This \emph{Brownian motion}
+by colliding with the water molecules.  This \emph{Brownian motion}
 creates a Gaussian distribution, in which most ink molecules remain
 near the original location ($\mu$), with wide tails in other
 directions.
@@ -205,7 +206,7 @@ one's own distributions. Here are four examples of such creations in
 two-dimensional data space:\medskip
 
 \noindent\includegraphics[width=\textwidth]{../figures/pop2d.pdf}
-\begingroup \captionof{figure}{Four synthetic, bivariate, continuous
+\begingroup \captionof{figure}{Four synthetic bivariate continuous
   distributions, defined by black areas and lines. White areas are
   excluded from the distributions.\medskip}
 \label{fig:pop2d}
@@ -295,10 +296,10 @@ The univariate normal distribution is completely controlled by two
 parameters:
 
 \begin{enumerate}
-\item the \textbf{mean} $\mu$ controls the \textbf{location} of the
+\item The \textbf{mean} $\mu$ controls the \textbf{location} of the
   distribution.  Because the normal distribution is unimodal and
   symmetric, the mean also equals the median and the mode.
-\item the \textbf{standard deviation} $\sigma$ quantifies the
+\item The \textbf{standard deviation} $\sigma$ quantifies the
   \textbf{dispersion} of the distribution.
 \end{enumerate}
 
@@ -325,7 +326,7 @@ normal PDF is contained within an interval of $\mu\pm{1.96}\sigma$.
 
 \begin{enumerate}
   \setcounter{enumi}{2}
-\item the \textbf{covariance} $\sigma_{x,y}$ controls the degree of
+\item The \textbf{covariance} $\sigma_{x,y}$ controls the degree of
   \textbf{correlation} between two variables ($x,y$) in a bivariate
   normal distribution.
 \end{enumerate}
@@ -337,7 +338,7 @@ normal PDF is contained within an interval of $\mu\pm{1.96}\sigma$.
 \label{fig:cov}
 \endgroup
 
-The 1$\sigma$ \emph{area} around the mean of a bivariate normal
+The 1$\sigma$ contour around the mean of a bivariate normal
 distribution only covers 39\% of the probability instead of $68\%$ for
 the univariate normal distribution, and the 2$\sigma$ interval covers
 86\% of the probability instead of the 95\% of the univariate

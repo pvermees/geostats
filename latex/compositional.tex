@@ -208,8 +208,8 @@ calculate the standard deviation of the A--CN--K values:
 \end{split}
 \]
 
-\noindent then we would expect $\sim$95\% of the data to fall into a
-`2-sigma' interval around the mean
+If the assumption of normality holds, then we would expect $\sim$95\%
+of the data to fall into a `2-sigma' interval around the mean
 (Section~\ref{sec:normalproperties}):
 \[
 \begin{split}
@@ -228,9 +228,10 @@ impossible negative values. Visualising these limits as a 2-sigma
 \includegraphics[width=\textwidth]{../figures/ACNKnaive.pdf}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.6\textwidth}
-  \captionof{figure}{The polygon represents a `95\% confidence region'
-    for the arithmetic mean of Figure~\ref{fig:ACNKarithmeticmean}. It
-    is obtained by 1) calculating the standard deviations of the
+  \captionof{figure}{The polygon represents a `2-sigma confidence
+    region' for the arithmetic mean of
+    Figure~\ref{fig:ACNKarithmeticmean}. It is obtained by 1)
+    calculating the standard deviations of the
     Al\textsubscript{2}O\textsubscript{3}, (CaO +
     Na\textsubscript{2}O) and K\textsubscript{2}O concentrations using
     Equation~\ref{eq:stdev}; 2) multiplying these values by two; and
@@ -247,7 +248,7 @@ is true for more advanced statistical operations that are based on the
 normal distribution. This includes linear regression
 (Section~\ref{sec:MLregression}), principal component analysis
 (Section~\ref{sec:PCA}) and discriminant analysis
-(Section~\ref{sec:LDA}). These problems had long been known to
+(Section~\ref{sec:LDA}). These problems have long been known to
 geologists, but a comprehensive solution was not found until the
 1980s, by Scottish statistician John Aitchison.\medskip
 
@@ -265,8 +266,8 @@ to two transformed variables $v$ and $w$:
 \end{equation}
 
 After performing the statistical analysis of interest (e.g.,
-calculating the mean or constructing a 95\% confidence region) on the
-transformed data, the results can then be mapped back to compositional
+calculating the mean or constructing a confidence region) on the
+transformed data, the results can be mapped back to compositional
 space with the inverse logratio transformation. For the ternary case:
 \begin{equation}
   x = \frac{\exp[v]}{\exp[v] + \exp[w] + 1} \mbox{,~}
@@ -283,7 +284,7 @@ Applying this method to the A--CN--K dataset:\medskip
   compositional space to an $(n-1)$-dimensional Euclidean space. For
   the A--CN--K data, it maps the data from a ternary diagram ($n=3$)
   to a bivariate ($n-1=2$) dataspace using Equation~\ref{eq:alr}. In
-  this transformed space, it is safe to calculate the arithmetic mean
+  this transformed space, it is safe to calculate arithmetic means
   (square) and confidence regions (ellipse). After completion of these
   calculations, the result can be mapped back to the ternary diagram
   using the inverse logratio transformation
@@ -291,7 +292,7 @@ Applying this method to the A--CN--K dataset:\medskip
 \label{fig:alr}\endgroup
 
 For the A--CN--K example, the transformed logratio mean plots inside
-the heart of the data cloud. The 2-sigma confidence ellipse of the
+the heart of the data cloud. The 95\% confidence ellipse of the
 logratios maps to a curved confidence region that entirely stays
 within the ternary diagram and closely hugs the data. These results
 are a lot more meaningful than the arithmetic mean and 2-sigma
@@ -425,14 +426,13 @@ denominator ($d[2,3]_c$):
   \end{split}
 \end{equation*}
 
-The fact that distances are not unequivocally defined in alr-space
-spells trouble for PCA. Recall the equivalence of PCA and classical
-MDS, which was discussed in Section~\ref{sec:MDS}. MDS is based on
-dissimilarity matrices, and so if distances are not well defined, then
-neither are the MDS configuration and, hence, the principal
-components. This issue can be solved by using a different type of
-logratio transformation, the \textbf{centred logratio transformation}
-(clr):
+The fact that distances are not uniquely defined in alr-space spells
+trouble for PCA. Recall the equivalence of PCA and classical MDS,
+which was discussed in Section~\ref{sec:MDS}. MDS is based on distance
+matrices, and so if dissimilarities are not well defined, then neither
+are the MDS configuration and, hence, the principal components. This
+issue can be solved by using a different type of logratio
+transformation, the \textbf{centred logratio transformation} (clr):
 \begin{equation}
   u_i = \ln\!\left[\frac{x_i}{g_i}\right] \mbox{,~}
   v_i = \ln\!\left[\frac{y_i}{g_i}\right] \mbox{,~and~}
@@ -506,7 +506,7 @@ Note that, even though this yields three principal components instead
 two, the scores of the third component in matrix $P$ are all zero.
 Therefore, all the information is contained in the first two
 components\footnote{The covariance matrix of $X_c$ is singular and
-therefore the third eigenvalue is zero as well.}.
+therefore its third eigenvalue is zero as well.}.
 
 \noindent\begin{minipage}[t][][b]{.32\textwidth}
 \includegraphics[width=\textwidth]{../figures/clrPCA.pdf}\medskip
@@ -530,9 +530,9 @@ Table~\ref{tab:Major}:
 \begin{minipage}[t][][t]{.6\textwidth}
   \captionof{figure}{Compositional biplot of the major element
     concentration data of Table~\ref{tab:Major}, with the samples
-    shown in grey and the vector loadings in black. Samples that plot
-    close together (such as N1 and N14) are compositionally similar,
-    whereas samples that plot far apart (such as N8 and T8) are
+    shown in grey and the components in black. Samples that plot close
+    together (such as N1 and N14) are compositionally similar, whereas
+    samples that plot far apart (such as N8 and T8) are
     compositionally different. One should be careful not to interpret
     the individual rays of compositional biplots. For example, one
     cannot safely conclude that N8 is enriched in MnO relative to
@@ -570,19 +570,19 @@ suggesting that the corresponding subcompositions are independent:
 
 Although the alr and clr transformations act in slightly different
 ways, they both achieve the same effect, namely to `liberate' the
-compositional data from the confines of the simplex and map it to a
-Euclidean space in which values are free to take any value from
-$-\infty$ to $+\infty$. Logratio transformations allow compositional
-data to be analysed by a host of standard statistical techniques,
-including not only PCA, but also clustering and discriminant analysis.
+compositional data from the confines of the simplex to a Euclidean
+space in which values are free to take any value from $-\infty$ to
+$+\infty$. Logratio transformations allow compositional data to be
+analysed by a host of standard statistical techniques, including not
+only PCA, but also clustering and discriminant analysis.
 
 \section{LDA of compositional data}
 \label{sec:compositionalLDA}
 
-Section~\ref{sec:compositionalPCA} showed how we can safely apply
-unsupervised learning techniques such as PCA to compositional data
+Section~\ref{sec:compositionalPCA} showed how unsupervised learning
+techniques such as PCA can be safely applied to compositional data
 after performing a logratio transformation. Exactly the same procedure
-can be applied to supervised learning techniques such as LDA. We will
+can be used for supervised learning techniques such as LDA. We will
 illustrate this with an example from igneous petrology:
 
 \noindent\begin{minipage}[t][][b]{.35\textwidth}
@@ -590,12 +590,13 @@ illustrate this with an example from igneous petrology:
 \end{minipage}
 \begin{minipage}[t][][t]{.65\textwidth}
   \captionof{figure}{A dataset of igneous rock compositions from
-    Iceland and the Cascades Mountains on a ternary A--F--M diagram
+    Iceland and the Cascade Mountains on a ternary A--F--M diagram
     (where A = Na\textsubscript{2}O+K\textsubscript{2}O, F =
     Fe\textsubscript{2}O\textsubscript{3}+FeO and M = MgO). The white
     dots define a `Fenner' trend marking the tholeiitic suite of
     igneous rocks from Iceland. The black dots define a `Bowen' trend,
-    marking the calc-alkaline suite of rocks from the Cascades.\medskip}
+    marking the calc-alkaline suite of rocks from the
+    Cascades.\medskip}
   \label{fig:AFM}
 \end{minipage}
 
@@ -654,7 +655,7 @@ $M$ present in the magma:
 
 \noindent where $t$ is time and $\lambda_x$ is a decay constant (for
 $x \in \{A, F, M\}$). The same mathematical formulation can be used to
-describe the settlement of sediment from a suspension, or the decay of
+describe the settling of sediment from a suspension, or the decay of
 radioactive isotopes.  The solution to Equation~\ref{eq:decay} is a
 set of exponential functions:
 \begin{equation}

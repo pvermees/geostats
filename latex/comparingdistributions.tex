@@ -3,7 +3,7 @@
 
 The previous chapters have introduced a plethora of parametric
 distributions that allow us to test hypotheses and assess the
-precision of experimental results. However these inferences are only
+precision of experimental results. However, these inferences are only
 as strong as the assumptions on which they are based.  For example,
 Chapter~\ref{ch:binomial} used a binomial distribution to assess the
 occurrence of gold in a prospecting area, assuming that the gold was
@@ -94,7 +94,7 @@ one sample with another. For example:
 \label{sec:t}
 
 The Q-Q plot in Figure~\ref{fig:qqfaithful12} compared two samples
-that were normally distributed with different means.  However it may
+that were normally distributed with different means.  However, it may
 not be clear if the difference between the means is statistically
 significant or not. Before we address this problem, let us first look
 at a related but slightly simpler problem. Consider the density of 5
@@ -110,7 +110,7 @@ gold coins as an example:
 
 The density of pure gold is 19.30~g/cm\textsuperscript{3}. We might
 ask ourselves the question if the five coins are made of pure gold, or
-if they consist of an allow that mixes gold with a less dense metal?
+if they consist of an alloy that mixes gold with a less dense metal?
 To answer this question, we assume that the sample mean $\bar{x}$
 follows a normal distribution with mean $\mu$ and standard deviation
 $\sigma/\sqrt{n}$ (following the same derivation as
@@ -130,13 +130,13 @@ replace Equation~\ref{eq:z} with a new parameter
   \label{eq:t}
 \end{equation}
 
-However $t$ does not follow a normal distribution but a
+However, $t$ does not follow a normal distribution but a
 \textbf{Student t-distribution} with $(n-1)$ \textbf{degrees of
   freedom} where the $(n-1)$ plays a similar role as the Bessel
 correction of Section~\ref{sec:normalparameters}. It accounts for the
 `double use' of the data to estimate both the mean and the standard
 deviation of the data. The t-distribution forms the basis of a
-statistical test that follows the same sequence of steps as in
+statistical test that follows the same sequence of steps as used in
 Sections~\ref{sec:binomH} and \ref{sec:poishyp}.
 
 \begin{enumerate}
@@ -226,12 +226,11 @@ is a graphical representation of this test:
   \label{fig:1samplettest}
 \end{minipage}
 
-The comparison between the mean of a sample (coin densities) and a
+The comparison between the mean of a sample (of coin densities) and a
 particular value (19.30~g/cm\textsuperscript{3}) is called a
 \textbf{one sample t-test}. If we want to compare the mean densities
-of two samples, then that would require a \textbf{two sample
-  t-test}. For example, consider the following two collections of
-coins:
+of two samples, then this requires a \textbf{two sample t-test}. For
+example, consider the following two collections of coins:
 
 \begin{center}
 \begin{tabular}{c|ccccc}
@@ -364,16 +363,16 @@ the sample is large enough, its mean will nearly always be
 `significantly' different than that of another sample. Suppose that we
 were to average the densities of not five but five millions coins,
 then it would be extremely unlikely for the mean to be exactly 19.30
-g/cm\textsuperscript{3}. With a sample size of five million the power
+g/cm\textsuperscript{3}. With a sample size of five million, the power
 of the t-test would be such that even trace amounts of a lighter
 contaminant would have a detectable effect on the density.\medskip
 
-Instead of asking ourselves whether the coins have the same density as
-gold, it is more useful to know what the mean density actually is, and
-to construct a confidence interval for it. We could then use this
-information to learn something about the composition of the gold
-coins. To construct a confidence interval for the mean, we follow a
-similar procedure as laid out in Sections~\ref{sec:binomCI} and
+Instead of asking ourselves whether the coins have exactly the same
+density as pure gold, it is more useful to know what the mean density
+actually is, and to construct a confidence interval for it. We could
+then use this information to learn something about the composition of
+the coins. To construct a confidence interval for the mean, we follow
+a similar procedure as laid out in Sections~\ref{sec:binomCI} and
 \ref{sec:poisCI}. Let us use the first set of coins as an example, and
 recall that the one sample t-statistic is defined as
 (Equation~\ref{eq:t1}):
@@ -418,15 +417,15 @@ Hence
 \end{equation}
 
 For the gold coin example of Section~\ref{sec:t}, $\bar{x}=19.164$,
-$s[x]=0.0948$, $df=4$ and $t_{4,0.025}=-2.776$. Hence the 95\%
+$s[x]=0.0948$, $df=4$ and $t_{4,0.025}=-2.776$. Hence, the 95\%
 confidence interval for $\mu$ is
 $19.16\pm{0.12}$~g/cm\textsuperscript{3}. Note that this interval does
 \emph{not} overlap with the density of pure gold
 (19.30~g/cm\textsuperscript{3}), confirming again that the coins are
 not made of pure gold. However, the upper limit of the 95\% confidence
 interval is 19.28~g/cm\textsuperscript{3}, which is not far off the
-19.30~g/cm\textsuperscript{3} value. Therefore it is possible that the
-amount of light contaminant is minor.\medskip
+19.30~g/cm\textsuperscript{3} value. Therefore, it is possible that
+the amount of light contaminant is minor.\medskip
 
 With increasing sample size, the t-distribution converges towards the
 normal distribution:
@@ -440,8 +439,8 @@ normal distribution:
     (low $df$), the t-distribution has long tails towards low and high
     values. With increasing sample size, the tails become shorter and
     the t-distribution sharper. When $df>30$, the t-distribution is
-    indistinguishable from a standard normal distribution with $\mu=0$
-    and $\sigma=1$.}
+    almost indistinguishable from a standard normal distribution with
+    $\mu=0$ and $\sigma=1$.}
   \label{fig:tdof}
 \end{minipage}
 
@@ -474,9 +473,10 @@ Equation~\ref{eq:tci} simplifies to approximately
   \captionof{figure}{The grey and black lines mark the PDFs (a) and
     CDFs (b) of two normal distributions whose means (vertical dotted
     lines) are offset by 2 standard errors from the sample average
-    (vertical dashed line).  They mark a 95\% confidence interval for
-    $\mu$. However this simple procedure only works if sample size is
-    large enough for the Central Limit Theorem to apply.}
+    (vertical dashed line).  They mark a $\sim$95\% confidence
+    interval for $\mu$. However this simple procedure only works if
+    sample size is large enough for the Central Limit Theorem to
+    apply.}
   \label{fig:normconf}
 \end{minipage}
 
@@ -491,10 +491,10 @@ interval (i.e., Equation~\ref{eq:tci}).
 Comparing the means of two datasets is one way to assess their
 (dis)similarity. But as we have seen in Chapter~\ref{ch:plotting} and
 Figure~\ref{fig:anscombe}, summary statistics like the mean do not
-always capture the data adequately. The $\chi^2$ (chi-square) test is
-an alternative approach, which uses a histogram to compare the
-\emph{shape} of a sample distribution with a theoretical distribution,
-or with another sample distribution.\medskip
+always capture the data adequately. An alternative approach is to
+compare the \emph{shape} of a sample distribution with a theoretical
+distribution, or with another sample distribution, using a $\chi^2$
+(chi-square) test.\medskip
 
 To illustrate this method, let us go back to example~1 of
 Chapter~\ref{ch:poisson}. Figure~\ref{fig:declusteredquakesperyear}
@@ -535,8 +535,8 @@ $\lambda=5.43$ (Equation~\ref{eq:poispmf}):
 \end{center}
 
 \noindent where $N=100$ years. In order for the $\chi^2$-test to work,
-the bins should contain at least 5 items. We can fulfil these
-requirements by \emph{pooling} the smallest bins.
+the bins should contain at least 5 items. We can fulfil this
+requirement by \emph{pooling} the smallest bins.
 
 \begin{center}
   \begin{tabular}{r|c@{\gap}c@{\gap}c@{\gap}
@@ -610,11 +610,12 @@ Applying the $\chi^2$-test to the earthquake data:
 \item We will use an $\alpha = 0.05$ confidence level.
 
 \item We are only interested in the upper tail of the null
-  distribution, because this indicates sample distributions that are
+  distribution, because it represents sample distributions that are
   very dissimilar from the theoretical distribution. The lower tail of
   the distribution groups samples that are very similar to the
-  predicted distribution (see Section~\ref{sec:cherrypicking} for
-  further discussion). Marking the rejection region in bold:
+  predicted distribution and therefore compatible with the null
+  hypothesis (see Section~\ref{sec:cherrypicking} for further
+  discussion). Marking the rejection region in bold:
   
   \begin{center}
     \begin{tabular}{c|c@{\gap}c@{\gap}c@{\gap}c@{\gap}
@@ -865,7 +866,7 @@ grains of sand by image recognition:
 \end{center}
 
 At first glance, the two samples look very similar in composition. But
-let's carry out a two-sample $\chi^2$-test to be sure.
+let us carry out a two-sample $\chi^2$-test to be sure.
 
 \begin{enumerate}
 \item  Formulate two hypotheses:
@@ -982,8 +983,8 @@ the case of the $\chi^2$-distribution, the effect size is defined as:
   \label{eq:effectsize}
 \end{equation}
 
-\noindent where $o_i=O_i/N$ and $e_i=E_i/N$ with
-$N=\sum_{i}^{n}O_i=\sum_{i}^{n}E_i$.  Effect sizes can be small,
+\noindent where $o_i \equiv O_i/N$ and $e_i \equiv E_i/N$ with $N
+\equiv \sum_{i}^{n}O_i = \sum_{i}^{n}E_i$.  Effect sizes can be small,
 medium or large:
 
 \begin{center}
@@ -1078,8 +1079,8 @@ the values to be randomly shuffled and evenly distributed on either
 side of the median. However if the two samples follow different
 distributions, then their values will be unevenly distributed.  The
 test statistic is given by the sum of the ranks of the smallest
-sample. In our case, sample $A$ contains 5 and sample $B$ 4 items.
-Thus we calculate sum of the ranks of sample $B$:
+sample. In our case, sample $A$ contains 5 and sample $B$ 4 items.  We
+therefore calculate the sum of the ranks of sample $B$:
 \[
 W = 3 + 6 + 8 + 9 = 26
 \]
@@ -1217,15 +1218,15 @@ example of table~\ref{tab:2setcoins}:
     for comparison of two samples containing 5 and 4 items,
     respectively.  The two-sided rejection region is marked in black.
     The observed value ($W=26$) is shown as a vertical dashed line.
-    It plots outside the rejection region, leaving open the
-    possibility that the two samples might have come from the same
+    It plots outside the rejection region, leaving the possibility
+    open that the two samples might have come from the same
     distribution.}
   \label{fig:wilcox}
 \end{minipage}
 
 The \textbf{Kolmogorov-Smirnov test} is a non-parametric alternative
-to the $\chi^2$-test that does not require binning. Given two sets of
-numbers:
+to the $\chi^2$-test for continuous variables that does not require
+binning. Given two sets of numbers:
 \[
 x = \{x_1,x_2,\ldots,x_n\} \mbox{~and~} y = \{y_1,y_2,\ldots,y_m\}
 \]
@@ -1268,17 +1269,17 @@ The hypothesis test then proceeds as always:
 \begin{enumerate}
 \item  Formulate two hypotheses:
 
-  $H_0$ (\textbf{null hypothesis}):
-  samples 1 and 2 were drawn from the same distribution
+  $H_0$ (\textbf{null hypothesis}): samples 1 and 2 were drawn from
+  the same distribution ($D = 0$).
 
-  $H_{\!A}$ (\textbf{alternative hypothesis}):
-  samples 1 and 2 were drawn from different distributions
+  $H_{\!A}$ (\textbf{alternative hypothesis}): samples 1 and 2 were
+  drawn from different distributions ($D > 0$).
   
 \item The test statistic is $D=0.30$ (see Figure~\ref{fig:KS}).
 
-\item Under $H_0$, the Kolmogorov-Smirnov statistic can be
-  compared to a look-up table similar to the one that was used for the
-  Wilcoxon test. Tabulating some key quantiles:\medskip
+\item Under $H_0$, the Kolmogorov-Smirnov statistic can be compared to
+  a similar look-up table as the one that was used for the Wilcoxon
+  test. Tabulating some key quantiles:\medskip
 
   \begin{tabular}{c|c@{\gap}c@{\gap}c@{\gap}c@{\gap}
       c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
@@ -1294,7 +1295,10 @@ The hypothesis test then proceeds as always:
   
 \item The confidence level $\alpha = 0.05$.
 
-\item Marking the one-sided rejection region in bold:\medskip
+\item Just as for the $\chi^2$-test, we are only interested in the
+  upper tail of the null distribution, because only high values of the
+  test statistic are incompatible with $H_0$. Marking the one-sided
+  rejection region in bold:\medskip
 
   \begin{tabular}{c|c@{\gap}c@{\gap}c@{\gap}c@{\gap}
       c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
@@ -1338,7 +1342,7 @@ mean and standard deviation:
 \end{minipage}
 \begin{minipage}[t][][t]{.65\textwidth}
   \captionof{figure}{Kolmogorov-Smirnov statistic for the comparison
-    of a sample with the normal distribution with the same mean and
+    of a sample with a normal distribution that has the same mean and
     standard deviation. In this case $D=0.27$, which can be compared
     with a lookup table for a \textit{one sample} Kolmogorov-Smirnov
     test. The outcome of this test (which is not elaborated in these

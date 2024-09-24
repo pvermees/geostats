@@ -49,7 +49,7 @@
 \contentsline {section}{\numberline {9.8}Non-parametric tests}{85}{section.9.8}%
 \contentsline {chapter}{\numberline {10}Regression}{91}{chapter.10}%
 \contentsline {section}{\numberline {10.1}The correlation coefficient}{92}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Least Squares}{93}{section.10.2}%
+\contentsline {section}{\numberline {10.2}Least Squares}{94}{section.10.2}%
 \contentsline {section}{\numberline {10.3}Maximum Likelihood}{95}{section.10.3}%
 \contentsline {section}{\numberline {10.4}Common mistakes}{97}{section.10.4}%
 \contentsline {section}{\numberline {10.5}Weighted regression}{99}{section.10.5}%
