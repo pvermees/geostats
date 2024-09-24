@@ -633,6 +633,8 @@ binomcdf(nn=5,kk=2,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
          xlim=c(-1,6),add=TRUE,plotp=FALSE,plotk=FALSE)
 b <- pbinom(qbinom(0.05,5,2/3)-1,5,2/5)
 lines(c(-1,6),rep(b,2),lty=2)
+arrows(x0=6,x1=6,y0=b,y1=1,length=0.05,angle=45,code=3)
+text(x=6,y=(1+b)/2,labels=expression(beta),pos=2)
 axis(side=1,at=0:5); mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
 axis(side=2)
 mtext('P(k)',side=2,cex=0.8,line=1.5)
@@ -643,6 +645,8 @@ binomcdf(nn=5,kk=2,H0=2/3,Ha=1/5,nsides=1,showax=FALSE,
          xlim=c(-1,6),add=TRUE,plotp=FALSE,plotk=FALSE)
 b <- pbinom(qbinom(0.05,5,2/3)-1,5,1/5)
 lines(c(-1,6),rep(b,2),lty=2)
+arrows(x0=6,x1=6,y0=b,y1=1,length=0.05,angle=45,code=3)
+text(x=6,y=(1+b)/2,labels=expression(beta),pos=2)
 axis(side=1,at=0:5)
 mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
 legend('topleft',legend='e)',bty='n',cex=1.2,adj=c(2,1))
@@ -652,6 +656,8 @@ binomcdf(nn=5,kk=2,H0=2/3,Ha=0,nsides=1,plotk=FALSE,
          showax=FALSE,xlim=c(-1,6),plotp=FALSE,add=TRUE)
 b <- pbinom(qbinom(0.05,5,2/3)-1,5,0)
 lines(c(-1,16),rep(b,2),lty=2)
+usr = par('usr')
+text(x=5.5,y=1,labels=expression(paste(beta,'=0')),pos=1)
 axis(side=1,at=0:5)
 mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
 legend('topleft',legend='f)',bty='n',cex=1.2,adj=c(2,1))
@@ -689,6 +695,8 @@ binomcdf(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
          xlim=c(-1,6),add=TRUE,plotp=FALSE,plotk=FALSE)
 b <- pbinom(qbinom(0.05,5,2/3)-1,5,2/5)
+arrows(x0=6,x1=6,y0=b,y1=1,length=0.05,angle=45,code=3)
+text(x=6,y=(1+b)/2,labels=expression(beta),pos=2)
 lines(c(-1,6),rep(b,2),lty=2)
 axis(side=1,at=0:5); mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
 axis(side=2)
@@ -699,6 +707,8 @@ binomcdf(nn=15,kk=6,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
 binomcdf(nn=15,kk=6,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
          xlim=c(-1,16),add=TRUE,plotp=FALSE,plotk=FALSE)
 b <- pbinom(qbinom(0.05,15,2/3)-1,15,2/5)
+arrows(x0=16,x1=16,y0=b,y1=1,length=0.05,angle=45,code=3)
+text(x=16,y=(1+b)/2,labels=expression(beta),pos=2)
 lines(c(-1,16),rep(b,2),lty=2)
 axis(side=1,at=seq(from=0,to=15,by=5))
 mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
@@ -709,6 +719,8 @@ binomcdf(nn=30,kk=12,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
          xlim=c(-1,31),add=TRUE,plotp=FALSE,plotk=FALSE)
 b <- pbinom(qbinom(0.05,30,2/3)-1,30,2/5)
 lines(c(-1,31),rep(b,2),lty=2)
+arrows(x0=31,x1=31,y0=b,y1=1,length=0.05,angle=45,code=3)
+text(x=30.5,y=0.99*(1+b)/2,labels=expression(beta),pos=2)
 axis(side=1,at=seq(from=0,to=30,by=5))
 mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
 legend('topleft',legend='f)',bty='n',cex=1.2,adj=c(2,0))
@@ -1024,7 +1036,7 @@ layout(m,widths=c(0.05,0.22,0.02,0.22,0.02,0.22,0.02,0.22),
        heights=c(0.05,0.39,0.05,0.39,0.12))
 plot.new()
 for (i in 1:length(lambda)){
-    M <- qpois(0.99999,lambda[i])
+    M <- qpois(0.99999,lambda[4]) # change 4 to i for auto-scaling
     poishist(0:M,H0=lambda[i],plotk=FALSE,rej.col='white',
              showax=TRUE,xlim=c(-1,M)+0.5,xlab='',xaxt='n',yaxt='n')
     axis(side=2,pos=-(M/50))
@@ -1032,7 +1044,7 @@ for (i in 1:length(lambda)){
     legend('topright',legend=labels[[i]],bty='n',cex=1.2)
 }
 for (i in 1:length(lambda)){
-    M <- qpois(0.99999,lambda[i])
+    M <- qpois(0.99999,lambda[4]) # change 4 to i for auto-scaling
     poiscdf(0:M,H0=lambda[i],plotk=FALSE,plotp=FALSE,
             plota=FALSE,showax=FALSE,nsides=0,xlim=c(-1,M))
     if (i==1) {
@@ -1400,13 +1412,16 @@ plot2dnorm <- function(xym,covmat,...){
     z <- norm2d(x=xygrid[,1],y=xygrid[,2],xym=xym,covmat=covmat)
     contour(x=x,y=y,z=matrix(z,nt,nt),labcex=0.8,xlab='X',
             asp=1,bty='n',drawlabels=FALSE,nlevels=6,...)
-    lines(c(-1,1),rep(m,2))
-    sxlab <- bquote(sigma[x]*'='*.(sqrt(covmat[1,1])))
+    sx <- sqrt(covmat[1,1])
+    sy <- sqrt(covmat[2,2])
+    sxy <- covmat[1,2]
+    lines(c(-sx,sx),rep(m,2))
+    sxlab <- bquote(sigma[x]*'='*.(sx))
     text(xym[1],m,labels=sxlab,pos=3,offset=0.1)
-    lines(rep(m,2),c(-1,1))
-    sylab <- bquote(sigma[y]*'='*.(sqrt(covmat[2,2])))
+    lines(rep(m,2),c(-sy,sy))
+    sylab <- bquote(sigma[y]*'='*.(sy))
     text(m,xym[2],labels=sylab,pos=4,offset=0.1)
-    sxylab <- bquote(sigma[x*','*y]*'='*.(covmat[1,2]))
+    sxylab <- bquote(sigma[x*','*y]*'='*.(sxy))
     legend('topleft',legend=sxylab,bty='n')
 }
 
@@ -2776,7 +2791,7 @@ cantorlines <- function(n,Y){
 
 cairo(file='../../figures/cantor.pdf',width=4,height=1.5)
 pars(mar=c(0,0.5,0.1,0))
-plot(c(0,1),y=c(0,1),type='n',bty='n',ann=FALSE,xaxt='n',yaxt='n',xpd=NA)
+plot(c(0,1),y=c(0,1.01),type='n',bty='n',ann=FALSE,xaxt='n',yaxt='n',xpd=NA)
 cantorlines(n=0,Y=1.00)
 cantorlines(n=1,Y=0.75)
 cantorlines(n=2,Y=0.50)
