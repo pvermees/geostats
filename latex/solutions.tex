@@ -292,7 +292,7 @@ You should get ten broadly similar looking box plots.
 
 \begin{enumerate}
   
-\item An IGSN consists of two parts. The first part consists of up to
+\item An IGSN consists of two parts. The first part consists of one to
   five letters.  There 26 possible one-letter combinations, $26^2$
   possible two-letter combinations etc. Therefore, the total number of
   lab identifiers is $\sum_{i=1}^526^i=12,356,630$. The second part
@@ -448,7 +448,7 @@ is~4.
 \end{console}
 
 So the rejection region is $R=\{0,\ldots,17,33,\ldots,50\}$, which
-does not include the observed outcome of 32 male
+does not include the observed outcome of 32 female
 fossils. Equivalently, using the \texttt{binom.test} function:
   
 \begin{console}
@@ -670,56 +670,27 @@ approximately 0.95:
 
 Results will vary slightly due to the randomness of \texttt{rpois}.
 
-\item The probability that someone has an IQ of less than 90 is
+\item Using Table~\ref{tab:normal}, the 98.5-percentile of a standard
+  normal distribution is 2.17. To reduce the tail that falls below
+  750\,ml to less than 1.5\%, we must raise the mean by $2.17\times{2}
+  = 4.34$ml, so that $\mu = 754.34$\,ml. Using \texttt{R}:
 
 \begin{console}
-> pnorm(q=90,mean=100,sd=15)
-[1] 0.2524925
+> qnorm(p=0.985,mu=750,sd=2)
+[1] 754.3402
 \end{console}
-
-The probability that someone has an IQ of more than 120 is
-
-\begin{console}
-> pnorm(q=120,mean=100,sd=15,lower.tail=FALSE)
-[1] 0.09121122
-\end{console}
-
-The probability that two such people are paired up is the product
-of these two values, which is 2.3\%.
   
-\item The probability that the height of an American male exceeds
-  72 inches is
+\item According to Table~\ref{tab:normal}, the 90-percentile of the
+  women's distribution is $160 + 1.28 \times 7.7 = 169.856$\,cm.  This
+  is $(175-169.856)/7.7 \approx 0.67$ standard deviations below the
+  average height of the men. This corresponds to the 25-percentile of
+  the men's distribution. Using \texttt{R}:
 
 \begin{console}
-> pnorm(q=72,mean=69.3,sd=2.8,lower.tail=FALSE)
-[1] 0.1674514
+> q90women <- qnorm(p=0.9,mean=160,sd=7.7)
+> pnorm(q=q90women,mean=175,sd=7.7)
+[1] 0.2525457
 \end{console}
-
-The probability that an American female is more than 72 inches tall is
-
-\begin{console}
-> pnorm(q=72,mean=64,sd=2.8,lower.tail=FALSE)
-[1] 0.002137367
-\end{console}
-
-Assuming that the American population consists of 50\% men and 50\%
-women, the total percentage of Americans taller than 72 inches is the
-mean of these two values, i.e. 8.5\%. The 90 percentile for men is
-
-\begin{console}
-> p90 <- qnorm(p=0.9,mean=69.3,sd=2.8)
-> p90
-[1] 72.88834
-\end{console}
-
-The fraction of women who exceed this height is
-
-\begin{console}
-> pnorm(q=p90,mean=64,sd=2.8,lower.tail=FALSE)
-[1] 0.0007507106
-\end{console}
-
-\noindent which is 0.075\%.
 
 \item Here we need to evaluate the bivariate normal likelihood
   (equation~\ref{eq:2dgauss}). Unfortunately, this function is not
@@ -900,6 +871,73 @@ Running this script in \texttt{R} yields
 \section{Comparing distributions}
 \label{sec:sol-comparingdistributions}
 
+\item
+  
+\begin{enumerate}
+\item Carrying out a one-sided t-test:
+  \[H_0: \mu = 750.0\]
+  \[H_a: \mu > 750.0\]
+  Compute a one-sided t-statistic:
+  \[\bar{x} = \frac{750.1 + 750.4 + 749.9 + 750.3 + 750.3}{5} = 750.2\]
+  \[s[x] = \sqrt{\frac{(-0.1)^2 + 0.2^2 + (-0.3)^2 + 0.1^2 + 0.1^2}{5-1}} = 0.2\]
+  \[t = \frac{750.2-750.0}{0.2/\sqrt{5}} = 2.236\]
+  $t$ was drawn from a t-distribution with 4 degrees of freedom,
+  with $\alpha = 0.05$. Using Table~\ref{tab:t}, the rejection
+  region: $R = \{t>2.13\}$. $2.236 \in R$, therefore, $H_0$ is
+  rejected and we conclude that the mean volume exceeds 750\,ml.
+
+\item Switching to a two-sided t-test:
+  \[H_0: \mu = 750.0\]
+  \[H_a: \mu \neq 750.0\]
+  The t-statistic is the same as before ($t = 2.236$). However,
+  the two-sided rejection region is $R = \{t<-2.78,t>2.78\}$.
+  $2.236 \notin R$, therefore, $H_0$ is not rejected and the mean
+  volume may yet equal 750\,ml.
+  
+\item Using Equation~\ref{eq:tci} and the t-statistic:
+  \[
+  \mu \in \bar{x} \pm t_{df,\alpha/2}\frac{s[x]}{\sqrt{n}}
+  \]
+  \[
+  \mu \in
+  \left\{ 750.2 \pm 2.78 \frac{0.2}{\sqrt{5}} \right\} =
+  \left\{ 750.2 \pm 0.25 \right\}
+  \]
+  This interval overlaps with $\mu=750.0$, reflecting the
+  conclusion drawn from the two-sided hypothesis test of
+  Exercise~\ref{sec:ex-comparingdistributions}.\ref{it:wine-t}.\ref{it:two-sided}.
+
+\end{enumerate}
+
+Repeating the same exercise using \texttt{R}:
+
+\begin{console}
+> wine <- c(750.1,750.4,749.9,750.3,750.3)
+> t.test(wine,mu=750,alternative='greater')$p.value
+[1] 0.04450467
+> t.test(wine,mu=750)$p.value
+[1] 0.08900934
+> t.test(wine)$conf.int
+[1] 749.9517 750.4483
+\end{console}
+
+Bonus note: it is also possible to construct a \emph{one-sided} confidence interval:
+\[
+\mu \in \biggl[\bar{x} + t_{df,\alpha}\frac{s[x]}{\sqrt{n}}, \infty\biggr)
+\]
+\[
+\mu \in
+\biggl[750.2 - 2.13 \frac{0.2}{\sqrt{5}}, \infty \biggr) =
+  \biggl[750.01, \infty\biggr)
+\]
+\noindent which does not overlap with 750.0 and is, therefore,
+compatible with the outcome of the one-sided hypothesis test. In
+\texttt{R}:
+\begin{console}
+> t.test(wine,alternative='greater')$conf.int
+[1] 750.0093      Inf
+\end{console}
+
 \begin{enumerate}
 
 \item This exercise is most concisely solved using \texttt{R}'s
@@ -927,22 +965,53 @@ function). Probing the outcome of these calculations:
 Hence there is insufficient evidence to prove that the two samples
 reflect different ecosystems.
 
-\item Using Equation~\ref{eq:tci}:
+\item First, we take the mean of the data:
 
-\begin{script}
-n <- length(catchments$pH)       # sample size
-mu <- mean(catchments$pH)        # arithmetic mean
-se <- sd(catchments$pH)/sqrt(n)  # standard error of the mean 
-tfact <- qt(p=0.025,df=n-1)      # t(df,alpha/2)
-ci <- mu + c(tfact*se,-tfact*se) # confidence interval
-\end{script}
+  \[
+  \bar{x} = \frac{20 + 28 + 16 + 12 + 24}{5} = 20
+  \]
+  This gives us the expected count for each bin.  Next, we carry out a
+  hypothesis test:
 
-\noindent which produces
+  $H_0$: the bin counts follow a uniform distribution
+  
+  $H_a$: the bin counts do not follow a uniform distribution
+
+  The test statistic is calculated using Equation~\ref{eq:chi2} of the notes:
+  \[
+  \chi^2 = \frac{(20-20)^2}{20} + \frac{(28-20)^2}{20} + \frac{(16-20)^2}{20} +
+  \frac{(12-20)^2}{20} + \frac{(24-20)^2}{20} = 8
+  \]
+  \noindent Under $H_0$, $\chi^2$ follows a Chi-square distribution
+  with 4 degrees of freedom. Using $\alpha=0.05$ and
+  Table~\ref{tab:chi2} the rejection region for $\chi^2$ is
+  \[
+  R = \left\{\chi^2>9.49\right\}
+  \]
+  \noindent$\chi^2 \notin R$, therefore $H_0$ is not rejected and we
+  cannot rule out the possibility that the data were drawn from a
+  uniform distribution. Using \texttt{R}:
 
 \begin{console}
-> ci
-[1] 4.688442 5.311558
+> chisq.test(x=c(20,28,16,12,24))
+...
+X-squared = 8, df = 4, p-value = 0.09158
 \end{console}
+
+\item We are comparing the following hypotheses:
+
+  $H_0$: the two distributions have the same median
+    
+  $H_a$: the two distributions have different medians
+
+  The test statistic is the Wilcoxon rank-sum.  The dataset contains
+  $n_1=7$ natural and $n_2=8$ synthetic diamonds.  The sum of the
+  ranks for the natural diamonds is $w = 1 + 3 + 4 + 8 + 9 + 10 + 11 =
+  46$.  This is a two-sided test, so we must evaluate the null
+  distribution at $\alpha=0.025$.  Using Table~\ref{tab:wilcox}, the
+  rejection region is $R=\{w\leq{38}\}$ $46\notin{R}$, and we can
+  therefore not reject the null hypothesis. There is no discernable
+  quality difference between the two diamond varieties.
 
 \item Comparing the t-test and Wilcoxon test:
 

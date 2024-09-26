@@ -56,8 +56,9 @@ apply to angular measurements. Better results for the difference
 between two angles $\theta$ and $\phi$ are obtained using the
 following trigonometric relationship:
 \begin{equation}
-  \theta - \phi = \arcsin\left( \sin[\theta] \cos[\phi] -
-                              \cos[\theta] \sin[\phi] \right)
+  d[\theta,\phi] =
+  \arcsin\left( \sin[\theta] \cos[\phi] -
+  \cos[\theta] \sin[\phi] \right)
   \label{eq:anglediff}
 \end{equation}
 
@@ -121,7 +122,7 @@ black arrow in Figure~\ref{fig:vectorsum}.
   \label{fig:vectorsum}
 \end{minipage}
 
-This arrow shortens with increasing scatter and so $\bar{R}$ is not
+This arrow shortens with increasing scatter and so $\bar{R}$ is not a
 dispersion parameter like the standard deviation, but a
 \textit{concentration parameter}. To create a dispersion parameter, we
 can use $\bar{R}$ to define the \textbf{circular standard deviation}:
@@ -148,7 +149,7 @@ distributed around the circle, then $\bar{R} = 0$ and $s_c = \infty$.
 \section{Circular distributions}
 \label{sec:circular-distributions}
 
-The normal distribution is inappropriate for directional data for the
+The normal distribution is inappropriate for directional data, for the
 same reason why it was inappropriate for compositional data: its tails
 go from $-\infty$ to $+\infty$ and do not fit within the constrained
 data space of the angles. The \textbf{von Mises distribution} does not
@@ -324,8 +325,7 @@ Stereonets can be used to visualise
 \end{minipage}
 
 \item palaeomagnetic data, such as the following dataset of 10
-  palaeomagnetic declination (= azimuth) and inclination (= dip)
-  measurements:
+  declination (= azimuth) and inclination (= dip) measurements:
 
 \begin{tabular}{c|cccccccccc}
 declination & 47.9 & 46.3 & 44.7 & 50.9 & 56.4 & 42.6 & 44.9 & 41.5 & 47.9 & 39.6 \\
@@ -468,11 +468,11 @@ a beach:
 \end{tabular}
 \end{center}
 
-In contrast with the striations, there are not one but two ways to
-measure the pebble orientations. For example, an angle of 45$^\circ$
-degrees is equivalent to an angle of 225$^\circ$. However, the vector
-mean (Equation~\ref{eq:averagedirection}) assumes that they are
-distinct angles. This can produce nonsensical results:
+Unlike the striations, there are not one but two ways to measure the
+pebble orientations. For example, an angle of 45$^\circ$ degrees is
+equivalent to an angle of 225$^\circ$. However, the vector mean
+(Equation~\ref{eq:averagedirection}) assumes that they are distinct
+angles. This can produce nonsensical results:
 
 \noindent\begin{minipage}[t][][b]{.25\textwidth}
 \includegraphics[width=\textwidth]{../figures/pebbles.pdf}\medskip

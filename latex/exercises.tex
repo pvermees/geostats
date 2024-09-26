@@ -89,11 +89,11 @@
   
 \item The International Geo Sample Number (IGSN) is an alphanumeric
   code that is used to identify geological rock specimens in the
-  scientific literature. It consists of up to five letters to identify
-  the owner of the sample, followed by four characters (letters or
-  numbers) to identify the sample itself. Examples are PVERM1234 and
-  UCL001B. How many samples can each owner register? How many possible
-  IGSNs are there in total?
+  scientific literature. It consists of one to five letters to
+  identify the owner of the sample, followed by four characters
+  (letters or numbers) to identify the sample itself. Examples are
+  PVERM1234 and UCL001B. How many samples can each owner register? How
+  many possible IGSNs are there in total?
 
 \item 20 students are taking part in a mapping exercise. How many ways
   are there to divide them into 4 distinct groups of 5?
@@ -187,19 +187,24 @@
   deviation of this synthetic dataset. What percentage of the values
   falls within two standard deviations from the mean?
   
-\item IQ scores follow a normal distribution with a mean of 100 and a
-  standard deviation of 15. Suppose that a randomly selected pair of
-  people takes part in a blind date. What is the chance that the blind
-  date matches a person with an IQ of more than 120 with a person
-  whose IQ is less than 90?
+\item The \includegraphics[height=0.7em]{../figures/e.pdf}-symbol on
+  packaging guarantees consumers that they receive at least the amount
+  of product that they paid for. For example,
+  0.75\,L\,\includegraphics[height=0.7em]{../figures/e.pdf} means that
+  at most 1.5\% of the containers with this label are allowed to
+  contain less that 0.75\,L of fluid.  Suppose that the amount of wine
+  that is dispensed by a bottle filling machine follows a normal
+  distribution with a standard deviation of 2\,ml.  On average, by how
+  much do we have to overfill the bottles to ensure that our wine
+  receives the \includegraphics[height=0.7em]{../figures/e.pdf}-label?
+  Work the solution out by hand using Table~\ref{tab:normal}.
   
-\item The height of American males approximately follows a normal
-  distribution with a mean of 69.3 inches and a standard deviation of
-  2.8 inches.  The height of American females follows a normal
-  distribution with a mean of 64 inches and a standard deviation of
-  2.8 inches. What percentage of the American population is more than
-  6 foot (=72 inches) tall? What percentage of American women are
-  taller than 90 percent of American men?
+\item The height of men follows a normal distribution with a mean of
+  175\,cm and a standard deviation of 7.7\,cm. The height of women
+  follows a normal distribution with a mean of 160\,cm and the same
+  standard deviation. Using Table~\ref{tab:normal}, determine the
+  approximate percentage of men who are shorter than the tallest 10\%
+  of women.
 
 \item Consider two bivariate normal distributions with mean vectors
   $\mu_X$ and $\mu_Y$, and covariance matrices $\Sigma_X$ and
@@ -333,6 +338,24 @@ $\lambda/\lambda_e$ = 9.3284.  Calculate the age and its standard error.
 
 \begin{enumerate}
 
+\item\label{it:wine-t} We have measured the contents of five randomly
+  selected bottles of wine:
+  \[
+  750.1, 750.4, 749.9, 750.3, 750.3
+  \]
+
+  \begin{enumerate}
+    \item\label{it:one-sided} Can we conclude, at a 95\% confidence
+      level, that the mean volume exceeds 750\,ml?
+    \item\label{it:two-sided} Can we conclude that the mean volume is
+      \emph{different} than 750\,ml?
+    \item Compute a 95\% confidence interval for the mean volume of
+      the wine bottles.
+  \end{enumerate}
+
+  Work the solutions out by hand using Table~\ref{tab:t} and check the
+  results with \texttt{R}.
+
 \item \texttt{geostats} contains a dataset with foraminifera counts
   for two surface sediments (A and B) from the Atlantic Ocean:
 
@@ -347,10 +370,26 @@ B    20      15          35         30       40        20        18
 Is there sufficient evidence that the two samples represent different
 ecosystems, i.e. that the proportions of the different species in both
 samples is significantly different?
+  
+\item Using Table~\ref{tab:chi2}, test if the following histogram is
+  consistent with a uniform distribution:
+    \begin{tabular}{c|ccccc}
+      count & 20 & 28 & 16 & 12 & 24 \\
+      bin  & 0-20 & 20-40 & 40-60 & 60-80 & 80-100
+    \end{tabular}
 
-\item Compute a 95\% confidence interval for the mean of the
-  \texttt{pH} data in the \texttt{catchments} dataset.
+\item A gemologist has ranked 15 diamonds in order of increasing
+  value. The diamonds belong to two different categories: synthetic
+  (`S') and natural (`N'):
+    \begin{tabular}{@{}r@{~~}|r@{~~}r@{~~}r@{~~}r@{~~}r@{~~}r@{~~}r@{~~}r@{~~}r@{~~}r@{~~}r@{~~}r@{~~}r@{~~}r@{~~}r@{}}
+      rank & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\ \hline
+      variety & N & S & N & N & S & S & S & N & N & N & N & S & S & S & S
+    \end{tabular}
 
+  Use Table~\ref{tab:wilcox}, is there a statistically significant
+  difference in tastiness between the two diamond varieties at a 95\%
+  confidence level?
+    
 \item Compare the following two samples, first with a t-test, then
   with a Wilcoxon test:
 \begin{center}
