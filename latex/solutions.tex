@@ -692,6 +692,17 @@ Results will vary slightly due to the randomness of \texttt{rpois}.
 [1] 0.2525457
 \end{console}
 
+\item The mean and variance of the Poisson distribution are both equal
+  to $\lambda$.  Provided that $\lambda$ is reasonably big (and a
+  value of 64 meets this requirement), we can approximate this
+  distribution with a normal distribution with mean and variance
+  $\lambda$. The expected value of this distribution is 64 and its
+  standard deviation is 8. An outcome of $k=62$ is 0.25 standard
+  deviations below the mean. Using Table~\ref{tab:normal}, the
+  probability of observing a value of up to 0.25 standard deviations
+  below the mean is 40\%. The exact value (given by
+  \texttt{ppois(61,lambda=64)}) is 38.5\%.
+
 \item Here we need to evaluate the bivariate normal likelihood
   (equation~\ref{eq:2dgauss}). Unfortunately, this function is not
   part of base \texttt{R} so we need to implement it ourselves:
@@ -974,7 +985,7 @@ reflect different ecosystems.
   hypothesis test:
 
   $H_0$: the bin counts follow a uniform distribution
-  
+
   $H_a$: the bin counts do not follow a uniform distribution
 
   The test statistic is calculated using Equation~\ref{eq:chi2} of the notes:
@@ -999,19 +1010,47 @@ X-squared = 8, df = 4, p-value = 0.09158
 \end{console}
 
 \item We are comparing the following hypotheses:
-
+  
   $H_0$: the two distributions have the same median
-    
+  
   $H_a$: the two distributions have different medians
-
+  
   The test statistic is the Wilcoxon rank-sum.  The dataset contains
   $n_1=7$ natural and $n_2=8$ synthetic diamonds.  The sum of the
   ranks for the natural diamonds is $w = 1 + 3 + 4 + 8 + 9 + 10 + 11 =
   46$.  This is a two-sided test, so we must evaluate the null
   distribution at $\alpha=0.025$.  Using Table~\ref{tab:wilcox}, the
-  rejection region is $R=\{w\leq{38}\}$ $46\notin{R}$, and we can
-  therefore not reject the null hypothesis. There is no discernable
-  quality difference between the two diamond varieties.
+  rejection region is $R=\{w<{41}\}$. $46\notin{R}$, so we cannot
+  reject the null hypothesis. There is no discernable quality
+  difference between the two diamond varieties. Using \texttt{R}:
+
+\begin{console}
+> diamonds <- c('N','S','N','N','S','S','S','N',
+                'N','N','N','S','S','S','S','S')
+> wilcox.test(x=which('N'==diamonds),
+              y=which('S'==diamonds))
+...
+> W = 18, p-value = 0.1738
+\end{console}
+
+Note that the test statistic (\texttt{W = 18}) does \emph{not} equal
+the manually calculated value ($w = 46$). This discrepancy is
+explained in the documentation:
+
+\begin{console}
+> ?wilcox.test
+...
+The literature is not unanimous about the definitions of the
+Wilcoxon rank sum and Mann-Whitney tests.  The two most common
+definitions correspond to the sum of the ranks of the first sample
+with the minimum value (m(m+1)/2 for a first sample of size m)
+subtracted or not: R subtracts.  It seems Wilcoxon's original
+paper used the unadjusted sum of the ranks but subsequent tables
+subtracted the minimum.
+\end{console}
+
+For the diamond example, $m=7$, so that $18 + m(m+2)/2 = 46$, which
+equals the manually calculated rank-sum.
 
 \item Comparing the t-test and Wilcoxon test:
 
