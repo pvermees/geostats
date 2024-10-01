@@ -221,7 +221,7 @@ rug(faithful[,'eruptions'],side=2)
 mtext('Density',side=1,line=1.5)
 dev.off()
 
-cairo(file='../../figures/ecdfs.pdf',width=8,height=2)
+cairo(file='../../figures/ECDFs.pdf',width=8,height=2)
 pars(mfrow=c(1,4))
 plot(ecdf(pH),main='',verticals=TRUE,pch=NA,
      xlab='pH',ylab='F(pH)')
@@ -247,7 +247,6 @@ cairo(file='../../figures/pHlocation.pdf',width=4.5,height=4.5)
 pars(mar=rep(0,4))
 m <- rbind(c(1,2,3),c(1,4,3),c(1,5,3),c(1,6,3))
 layout(m,widths=c(0.1,0.88,0.02),heights=c(0.1,0.4,0.4,0.1))
-layout.show(6)
 plot.new()
 plot.new()
 plot.new()
@@ -284,7 +283,6 @@ cairo(file='../../figures/CaMglocation.pdf',width=4.5,height=4.5)
 pars(mar=rep(0,4))
 m <- rbind(c(1,2,3),c(1,4,3),c(1,5,3),c(1,6,3))
 layout(m,widths=c(0.1,0.88,0.02),heights=c(0.1,0.4,0.4,0.1))
-layout.show(6)
 plot.new()
 plot.new()
 plot.new()
@@ -322,7 +320,6 @@ cairo(file='../../figures/vegetationlocation.pdf',width=4.5,height=4.5)
 pars(mar=rep(0,4))
 m <- rbind(c(1,2,3),c(1,4,3),c(1,5,3),c(1,6,3))
 layout(m,widths=c(0.1,0.88,0.02),heights=c(0.1,0.4,0.4,0.1))
-layout.show(6)
 plot.new()
 plot.new()
 plot.new()
@@ -2514,6 +2511,34 @@ pars(mgp=c(1.2,0.5,0))
 geostats::gutenberg(quakes$mag,pch=21,bg='white')
 dev.off()
 
+raster2dat <- function(fname){
+    mat <- dat <- tiff::readTIFF(fname)
+    if (length(dim(dat))>2) mat <- dat <- dat[,,1]
+    mat[dat<.5] <- 1
+    mat[dat>=.5] <- 0
+    t(apply(mat, 2, rev))
+}
+
+FinlandImg <- raster2dat('Finland.tif')
+png(file='../../figures/Finland.png',type='cairo',
+    family="serif",pointsize=25,width=6,height=6,res=150,units='in')
+par(mar=c(2,2,0.1,0.1))
+image(FinlandImg,xaxt='n',yaxt='n',ann=FALSE,col=c('white','black'))
+xm <- 26.5
+xM <- 30.2
+ym <- 61.2
+yM <- 64.8
+xlab <- 27:30
+xscale <- 1/(xM-xm)
+xat <- (xlab-xm)*xscale
+axis(side=1,at=xat,labels=xlab)
+ylab <- 62:64
+yscale <- 1/(yM-ym)
+yat <- (ylab-ym)*yscale
+axis(side=2,at=yat,labels=ylab)
+box()
+dev.off()
+
 cairo(file='../../figures/Finland.pdf',width=3,height=3)
 pars()
 Finland <- read.csv('Finland.csv',header=TRUE)
@@ -2561,13 +2586,6 @@ if (FALSE){
          ylab='',xaxt='n',yaxt='n')
 }
 
-raster2dat <- function(fname){
-    mat <- dat <- tiff::readTIFF(fname)
-    if (length(dim(dat))>2) mat <- dat <- dat[,,1]
-    mat[dat<.5] <- 1
-    mat[dat>=.5] <- 0
-    t(apply(mat, 2, rev))
-}
 count_boxes <- function(mat,boxside,nticks){
     mat4plot <- mat
     nboxes <- nticks^2
@@ -4492,6 +4510,8 @@ geostats::colourplot(x=xi,y=yi,z=exp(zsph-zexp),colspec=grey.colors,
                      extra={points(X,Y,pch=21,cex=0.7,bg='white')},
                      key.title=title(expression(Zn[sph]/Zn[exp]),cex.main=1))
 dev.off()
+
+file.copy('e.pdf','../../figures/e.pdf')
 
 cairo(file='../../slides/binom10HT.pdf',width=4,height=4)
 bpdf <- dbinom(0:3,size=3,p=0.5)
