@@ -9,4 +9,4 @@ rm *.toc
 pdflatex ./geostats.tex
 pdflatex ./geostats.tex
 pdflatex ./geostats.tex
-make4ht -d .. ./geostats.tex
+make4ht ./geostats.tex

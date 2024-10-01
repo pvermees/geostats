@@ -2522,7 +2522,7 @@ raster2dat <- function(fname){
 FinlandImg <- raster2dat('Finland.tif')
 png(file='../../figures/Finland.png',type='cairo',
     family="serif",pointsize=25,width=6,height=6,res=150,units='in')
-par(mar=c(2,2,0.1,0.1))
+par(mar=c(1.5,1.5,0.1,0.1),mgp=c(1,0.5,0))
 image(FinlandImg,xaxt='n',yaxt='n',ann=FALSE,col=c('white','black'))
 xm <- 26.5
 xM <- 30.2
