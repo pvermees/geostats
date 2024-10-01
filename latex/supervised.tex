@@ -46,20 +46,20 @@ This posterior probability can be calculated using Bayes' Theorem
   P(G|X) \propto P(X|G)P(G)
 \end{equation}
 
-where $P(X|G)$ is the \textbf{likelihood} of the data in a given
-class, and $P(G)$ the \textbf{prior probability} of the class, which
-we will assume to be uniform; i.e., $P(G=1)=P(G=2)=\ldots=P(G=K)=1/K$.
-Therefore, plugging Equation~\ref{eq:bayesTheorem} into
-Equation~\ref{eq:bayesRule} reduces Bayes' Rule to a comparison of
-likelihoods.  We now make the simplifying assumption of multivariate
-normality:
+\noindent where $P(X|G)$ is the \textbf{likelihood} of the data in a
+given class and $P(G)$ the \textbf{prior probability} of the class,
+which we will assume to be uniform; i.e.,
+$P(G=1)=P(G=2)=\ldots=P(G=K)=1/K$.  Therefore, plugging
+Equation~\ref{eq:bayesTheorem} into Equation~\ref{eq:bayesRule}
+reduces Bayes' Rule to a comparison of likelihoods.  We now make the
+simplifying assumption of multivariate normality:
 \begin{equation}
   \label{eq:multiNorm}
   P(X=x|G=k) = \frac{\exp \left[ -\frac{1}{2}(x-\mu_k)^T\Sigma_k^{-1}(x-\mu_k) \right]}{\sqrt{(2\pi)^N|\Sigma_k|}}
 \end{equation}
 
-Where $\mu_k$ and $\Sigma_k$ are the mean and covariance of the
-$k$\textsuperscript{th} class and $(x-\mu_k)^T$ indicates the
+\noindent where $\mu_k$ and $\Sigma_k$ are the mean and covariance of
+the $k$\textsuperscript{th} class and $(x-\mu_k)^T$ indicates the
 transpose of the matrix ($x-\mu_k$).  Using
 Equation~\ref{eq:multiNorm} and taking logarithms,
 Equation~\ref{eq:bayesRule} becomes:
@@ -79,12 +79,12 @@ a simple bivariate dataset comprising three classes:\\
   synthetic data: a) the bivariate training data comprise three
   classes that are marked by crosses, circles and triangles,
   respectively; b) fitting three bivariate normal distributions to the
-  data c) produces curved decision boundaries between the three
+  data produces c) curved decision boundaries between the three
   distributions.\\}
 \label{fig:QDA}\endgroup
 
 If we have a new sample of unknown affinity, then we can simply plot
-its $x-y$ composition on Figure~\ref{fig:QDA}.c) and classify it in
+its $(x,y)$-composition on Figure~\ref{fig:QDA}.c) and classify it in
 one of the three groups depending on the decision boundaries.\\
 
 Usually, $\mu_k$ and $\Sigma_k$ are not known, and must be estimated
@@ -101,7 +101,7 @@ This is the basis of \textbf{linear discriminant analysis} (LDA),
 which has some desirable properties.  Because
 Equation~\ref{eq:linRule} is linear in $x$, the decision boundaries
 between the different classes are straight lines. Figure~\ref{fig:LDA}
-illustrates this with a second bivariate dataset:\\
+illustrates this phenomenon with a second bivariate dataset:\\
 
 \noindent\includegraphics[width=\linewidth]{../figures/LDA.pdf}
 \begingroup \captionof{figure}{Linear discriminant analysis of a
@@ -134,12 +134,12 @@ distributions:\\
 
 Applying LDA to the four-dimensional iris dataset produces four linear
 discriminant functions that maximise the \textit{between class}
-variance $S_b$ relative to the \textit{within class} variance $S_w$,
-where $S_b$ is the variance of the class means of $Z$, and $S_w$ is
-the pooled variance about the means. Like the first two principal
-components of Figure~\ref{fig:USArrests} and the first two MDS
-dimensions of Figure~\ref{fig:eurodist}, also the first two linear
-discriminant function of Figure~\ref{fig:LDAiris} achieve a dimension
+variance (i.e., the variance of the class means) relative to the
+\textit{within class} variance (i.e., the pooled variance of the
+groups about their means). Like the first two principal components of
+Figure~\ref{fig:USArrests} and the first two MDS dimensions of
+Figure~\ref{fig:eurodist}, also the first two linear discriminant
+function of Figure~\ref{fig:LDAiris} achieve a dimension
 reduction. But whereas PCA and MDS aim to visualise the total
 variability of the dataset, LDA aims to highlight the pre-defined
 clusters within the dataset:
@@ -151,15 +151,13 @@ clusters within the dataset:
   \captionof{figure}{The first two linear discriminants of the
     four-dimensional iris data represent a two-dimensional projection
     of these data that maximises the differences between the three
-    different species of flowers contained in them. They are defined
-    as\\
-    LD1 = 0.83 $\times$ (sepal length - 5.84) + 1.53 $\times$
-    (sepal width - 3.06) - 2.20 $\times$ (petal length - 3.76) - 2.81
-    $\times$ (petal width - 1.20); and\\
-    LD2 = 0.024 $\times$ (sepal
-    length - 5.85) + 2.16 $\times$ (sepal width - 3.06) - 0.93
-    $\times$ (petal length - 3.76) + 2.84 $\times$ (petal width -
-    1.20).\\}
+    different species of flowers. They are defined as\\
+    LD1 = 0.83 $\times$ (sepal length - 5.84) + 1.53 $\times$ (sepal width -
+    3.06) - 2.20 $\times$ (petal length - 3.76) - 2.81 $\times$ (petal
+    width - 1.20); and\\
+    LD2 = 0.024 $\times$ (sepal length - 5.85) +
+    2.16 $\times$ (sepal width - 3.06) - 0.93 $\times$ (petal length -
+    3.76) + 2.84 $\times$ (petal width - 1.20).\\}
   \label{fig:LDAiris}
 \end{minipage}
 
@@ -202,16 +200,16 @@ In conclusion, there is an 81\% chance that the new flower is
 
 Discriminant analysis is a \textit{parametric} learning algorithm,
 which assumes that the different classes in a dataset are grouped in
-multivariate normal clusters (Figures~\ref{fig:QDA}.b) and
-\ref{fig:LDA}.b)). Here is an example of a dataset for which this
+multivariate normal clusters (Figures~\ref{fig:QDA}.b and
+\ref{fig:LDA}.b). Here is an example of a dataset for which this
 assumption is invalid:
 
 \noindent\begin{minipage}[t][][b]{.35\textwidth}
 \includegraphics[width=\textwidth]{../figures/CARTdata.pdf}\\
 \end{minipage}
 \begin{minipage}[t][][t]{.65\textwidth}
-  \captionof{figure}{Synthetic dataset of bivariate data that belong
-    to two classes. The black circles are split into two data
+  \captionof{figure}{Synthetic dataset of bivariate measurements that
+    belong to two classes. The black circles are split into two data
     clouds. The white circles form a `c'-shape surrounding one of the
     modes of the black population. Discriminant analysis is unable to
     deal with this situation.\\}
@@ -220,11 +218,11 @@ assumption is invalid:
 
 Decision trees are a \textit{nonparametric} learning algorithm that is
 better able to handle complex multimodal datasets like this. It uses
-\textbf{recursive binary partitions} to describe the data, using a
-recursive algorithm that approximates the data by a piecewise constant
-function. The first step of this algorithm exhaustively searches all
-the possible split points $s$ ($-\infty < s < \infty$) and variables
-($x$ and $y$ in our example) to minimise the \textbf{impurity} $Q$:
+\textbf{recursive binary partitions} to describe the data, with a
+piecewise constant function. The first step of the algorithm
+exhaustively searches all the possible split points $s$ ($-\infty < s
+< \infty$) and variables ($x$ and $y$ in our example) to minimise the
+\textbf{impurity} $Q$:
 
 \begin{equation}
   Q = p_{\circ} (1-p_{\circ}) + p_{\bullet} (1-p_{\bullet})
@@ -285,7 +283,7 @@ perfectly describes the training data.  In other words, it has zero
 \textbf{bias}.  However, for the purpose of prediction, this tree is
 not optimal, because it overfits the training data, causing high
 \textbf{variance}. One way to estimate the misclassification rate is
-by using a separate set of test data whose affinities ($\circ$ or
+to use a separate set of test data whose affinities ($\circ$ or
 $\bullet$) are known, but which were not used to train the decision
 tree. Another method is \textbf{cross validation}. This method works
 as follows:
@@ -310,17 +308,17 @@ largest possible tree, and can be found by `pruning' it. Define the
   cp_{\alpha}(T) = \sum_{m=1}^{|T|} N_m Q_m + \alpha|T|
 \end{equation}
 
-with $|T|$ the number of terminal nodes in the tree $T$, $N_m$ the
-number of observations in the $m$\textsuperscript{th} terminal node;
-$Q_m$ the impurity of the $m$\textsuperscript{th} node, defined by
-Equation~\ref{eq:Q}; and $\alpha$ a tuning parameter.  For a given
-$\alpha \geq 0$, it is possible to find the subtree $T_{\alpha}
-\subset T_0$ that minimises $cp_{\alpha}(T)$ over all possible
-subtrees of the largest possible tree $T_0$:
+\noindent where $|T|$ is the number of terminal nodes in the tree $T$,
+$N_m$ the number of observations in the $m$\textsuperscript{th}
+terminal node; $Q_m$ the impurity of the $m$\textsuperscript{th} node,
+defined by Equation~\ref{eq:Q}; and $\alpha$ a tuning parameter.  For
+a given $\alpha \geq 0$, it is possible to find the subtree
+$T_{\alpha} \subset T_0$ that minimises $cp_{\alpha}(T)$ over all
+possible subtrees of the largest possible tree $T_0$:
 
 \begin{equation}
   \label{eq:Ta}
-  T_{\alpha} = \underset{T \subset T_\circ}{\min} cp_{\alpha}(T)
+  T_{\alpha} = \underset{T \subset T_0}{\min} cp_{\alpha}(T)
 \end{equation}
 
 Repeating this procedure for a range of values $0 \leq \alpha <
@@ -347,7 +345,7 @@ bivariate example dataset:
   \label{fig:cvCART}
 \end{minipage}
 
-For the bivariate example, this procedure produces a tree with four
+For the bivariate example, this procedure generates a tree with four
 splits and five terminal nodes:
 
 \noindent\begin{minipage}[t][][b]{.7\textwidth}

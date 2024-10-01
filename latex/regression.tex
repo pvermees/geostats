@@ -34,6 +34,7 @@ $x=\{x_1,\ldots,x_n\}$ is also known as the \textbf{independent
   variable} and $y=\{y_1,\ldots,y_n\}$ as the \textbf{dependent
   variable}. The following table shows an example of eight Rb--Sr
 compositions from the same rock:
+
 \begin{center}
   \begin{tabular}{c|cccccccc}
     $i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\ \hline
@@ -72,7 +73,8 @@ a slightly modified version of Equation~\ref{eq:y=a+bx}:
 \end{equation}
 
 \noindent where $\epsilon_i$ is the \textbf{residual} noise around the
-best fit line.\\
+best fit line which, in this situation, is attributed to the dependent
+variable only.\\
 
 The linear trend seems quite strong in the Rb--Sr example, but this
 may not always be the case. The \textbf{correlation coefficient} is a
@@ -133,8 +135,8 @@ evaluation is possible by the fact that
 
 \noindent follows a t-distribution with $n-2$ degrees of freedom. Thus
 we can formally test whether the apparent correlation between the
-\textsuperscript{87}Rb/\textsuperscript{86}Sr- and
-\textsuperscript{87}Sr/\textsuperscript{86}Sr-ratios in
+\textsuperscript{87}Sr/\textsuperscript{86}Sr- and
+\textsuperscript{87}Rb/\textsuperscript{86}Sr-ratios in
 Figure~\ref{fig:Rb-Sr} is statistically significant. Plugging the data
 of Table~\ref{tab:Rb-Sr} into Equation~\ref{eq:r} yields a correlation
 coefficient of $r = 0.985$.  This seems high enough but let's subject
@@ -170,12 +172,12 @@ it to a hypothesis test anyway:
   \]
 
 \item Tabulating some key quantiles for $t$ under $H_0$:
-
+  
   \begin{center}
     \begin{tabular}{c|c@{\gap}c@{\gap}c@{\gap}c@{\gap}
         c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
-      $t$ & -3.10 & -2.40 & -1.90 & -1.40 & -0.72 &
-      0 & 0.72 & 1.40 & 1.90 & 2.40 & 3.10 & \emph{13.98}\\
+      $t$ & -3.14 & -2.45 & -1.94 & -1.44 & -0.72 &
+      0 & 0.72 & 1.44 & 1.94 & 2.45 & 3.14 & \emph{13.98}\\
       $P(t<T)$ & 0.01 & 0.025 & 0.05 & 0.1 & 0.25 &
       0.5 & 0.75 & 0.9 & 0.95 & 0.975 & 0.99 & \emph{0.9999958}\\
       $P(t>T)$ & 0.99 & 0.975 & 0.95 & 0.9 & 0.75 & 0.5 &
@@ -192,9 +194,9 @@ it to a hypothesis test anyway:
   \begin{center}
     \begin{tabular}{c|c@{\gap}c@{\gap}c@{\gap}c@{\gap}
         c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
-      $t$ & \textbf{-3.10} & \textbf{-2.40} & -1.90 & -1.40 & -0.72 &
-      0 & 0.72 & 1.40 & 1.90 & \textbf{2.40} &
-      \textbf{3.10} & \textbf{\emph{13.98}}\\
+      $t$ & \textbf{-3.14} & \textbf{-2.45} & -1.94 & -1.44 & -0.72 &
+      0 & 0.72 & 1.44 & 1.94 & \textbf{2.44} &
+      \textbf{3.14} & \textbf{\emph{13.98}}\\
       $P(t<T)$ & \textbf{0.01} & \textbf{0.025} & 0.05 & 0.1 & 0.25 &
       0.5 & 0.75 & 0.9 & 0.95 & 0.975 & 0.99 & \emph{0.9999958}\\
       $P(t>T)$ & 0.99 & 0.975 & 0.95 & 0.9 & 0.75 & 0.5 &
@@ -228,7 +230,7 @@ Now that we have convinced ourselves that the correlation is
 significant, we can try to fit a line through the data. In order to
 find the best possible fit, we first need to define what we need with
 `best'. There are many ways to do this, but the most common of these
-is the methods of least squares.
+is the method of least squares.
 
 \section{Least Squares}
 \label{sec:leastsquares}
@@ -261,20 +263,20 @@ $\beta_1=0.03$:
 \end{center}
 
 Plugging the $\epsilon_i$-values into Equation~\ref{eq:ss} yields a
-sum of squares $ss=0.013$. Evaluating some other values:
+sum of squares $ss=0.013$. Evaluating some other values:\medskip
 
 \noindent\includegraphics[width=\textwidth]{../figures/tryRbSr.pdf}
 \begingroup \captionof{figure}{Three guesses for the intercept
   ($\beta_0$) and slope ($\beta_1$) of the Rb--Sr isochron data of
   Figure~\ref{fig:Rb-Sr}.  Dashed lines mark the residuals. The lines
   in panels a) and b) are too steep and too shallow,
-  respectively. Consequently, the sum of their squared residuals
-  ($ss$) is non-zero. Panel c) shows a better fit and a lower sum of
-  squares.\\} \endgroup
+  respectively. Consequently, the sums of their squared residuals
+  ($ss$) are relatively large. Panel c) shows a better fit and a
+  smaller sum of squares.\medskip} \endgroup
 
 Instead of minimising $ss$ by iterating over all possible values of
-$\beta_0$ and $\beta_1$, we can find the optimal solution directly by
-taking the partial derivatives of Equation~\ref{eq:ss}
+$\beta_0$ and $\beta_1$, we can also find the optimal solution
+directly by taking the partial derivatives of Equation~\ref{eq:ss}
 w.r.t. $\beta_0$ and $\beta_1$ and setting them to zero:
 \begin{equation}
 \begin{cases}
@@ -283,7 +285,7 @@ w.r.t. $\beta_0$ and $\beta_1$ and setting them to zero:
 \end{cases}
 \end{equation}
 
-Solving this system of equations, it can be shown that:
+By solving this system of equations, it can be shown that:
 \begin{equation}
 \begin{cases}
   \hat{\beta}_0 = \left(\sum x_i^2 \sum y_i - \sum x_i \sum x_iy_i\right) /
@@ -298,7 +300,7 @@ For the Rb--Sr data:
 
 \begin{center}
   \begin{tabular}{c|cccccccc|c}
-    $i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & $\sum_{i-1}^{8}$ \\ \hline
+    $i$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & $\sum_{i=1}^{8}$ \\ \hline
     $x_i$ & 2.90 & 7.14 & 9.10 & 3.41 & 1.91 & 7.15 & 5.92 & 8.28 & 45.81 \\
     $y_i$ & 0.745 & 0.803 & 0.823 & 0.737 & 0.720 &
     0.793 & 0.789 & 0.807 & 6.217\\ \hline
@@ -322,13 +324,13 @@ For the Rb--Sr data:
 \section{Maximum Likelihood}
 \label{sec:MLregression}
 
-Least squares regression is just one way to determine the fit
-parameters of a straight line.  The method of maximum likelihood
+Least squares regression is one way to determine the fit parameters of
+a straight line.  The method of maximum likelihood
 (Sections~\ref{sec:binompar}, \ref{sec:poispar},
-\ref{sec:normalparameters} and \ref{sec:FisherInformation}) is an
-alternative way. This section will show that these two approaches
-produce exactly the same results. Recall the general formulation of
-the linear regression problem (Equation~\ref{eq:y=a+bx+e}):
+\ref{sec:normalparameters} and \ref{sec:FisherInformation}) is
+another. This section will show that these two approaches produce
+exactly the same results. Recall the general formulation of the linear
+regression problem (Equation~\ref{eq:y=a+bx+e}):
 \begin{equation*}
   y_i = \beta_0 + \beta_1~x_i + \epsilon_i
 \end{equation*}
@@ -463,7 +465,7 @@ $y$ for the full range of $x$-values:
 \end{minipage}
 
 Recall that the standard error of the mean decreases with increasing
-sample size (section~\ref{sec:stderr}). Exactly the same phenomenon
+sample size (Section~\ref{sec:stderr}). Exactly the same phenomenon
 applies to the standard errors of the regression parameters
 (Equation~\ref{eq:sigmabeta}) and, hence, to the width of the
 confidence envelope. In order to assess the likely range of
@@ -507,19 +509,19 @@ Three mistakes are commonly made in regression analysis:
   exhibit a statistically significant correlation.
 
 \noindent\begin{minipage}[t][][b]{\linewidth}
-  \includegraphics[width=\textwidth]{../figures/regression-p-hacking.pdf}
-  \captionof{figure}{18 scatter plots of random uniform bivariate
-    data, with indication of the coefficient of determination ($r^2$)
-    and the p-value for correlation. The one `significant' result
-    (p-value = 0.00063) is a Type-I error.}
+\includegraphics[width=\textwidth]{../figures/regression-p-hacking.pdf}
+\captionof{figure}{18 scatter plots of bivariate random uniform data,
+  with indication of the coefficient of determination ($r^2$) and the
+  p-value for correlation. The one `significant' result (p-value =
+  0.00063) is a Type-I error.}
   \label{fig:regression-p-hacking}
 \end{minipage}
 
 \item{\bf outliers}: High values for the correlation coefficient ($r$)
   and coefficient of determination ($r^2$) are often taken as evidence
-  for correlation. However these statistics are sensitive to extreme
+  for correlation. However, these statistics are sensitive to extreme
   values.  A single outlier can have a disproportionally large effect,
-  suggesting a correlation where there is none.
+  suggesting a significant correlation where there is none.
 
 \noindent\begin{minipage}[t][][b]{.3\linewidth}
   \includegraphics[width=\textwidth]{../figures/regression-outlier.pdf}
@@ -538,7 +540,7 @@ Three mistakes are commonly made in regression analysis:
 
 \item{\bf Spurious correlation}: Let $x$, $y$ and $z$ be three
   \emph{independent} random datasets of 50 numbers.  Then the
-  bivariate scatter plots of $x$ vs. $y$, $x$ vs. $z$ and $y$ vs. $z$
+  bivariate scatter plots of $y$ vs. $x$, $z$ vs. $x$ and $z$ vs. $y$
   do not exhibit any discernable correlation. However, plotting $y/z$
   vs. $x/z$, or $z$ vs. $x/z$ produces strong correlations:
 
@@ -557,12 +559,16 @@ Three mistakes are commonly made in regression analysis:
 The data clouds in panels d) and e) of Figure~\ref{fig:spurious} are
 strongly correlated even though $x$, $y$, $z$ are uncorrelated.  This
 correlation arises because $z$ appears in both axes.  This phenomenon
-was first described by Karl Pearson of the eponymous correlation
-coefficient ($r$, Equation~\ref{eq:r}), who also showed that it is
-possible to predict the expected correlation coefficient (or `null
-correlation') associated with the spurious effect. In the general case
-of four samples $w$, $x$, $y$ and $z$, the \textbf{ratio correlation}
-of $w/y$ and $x/z$ is given by:
+was first described by Karl Pearson\footnote{Pearson, K.,
+1897. Mathematical contributions to the theory of evolution.—on a form
+of spurious correlation which may arise when indices are used in the
+measurement of organs. Proceedings of the Royal Society of London,
+60(359--367), pp.489--498.} of the eponymous correlation coefficient
+($r$, Equation~\ref{eq:r}), who also showed that it is possible to
+predict the expected correlation coefficient (or `null correlation')
+associated with the spurious effect. In the general case of four
+samples $w$, $x$, $y$ and $z$, the \textbf{ratio correlation} of $w/y$
+and $x/z$ is given by:
 \begin{equation}
   \noindent \rho_{\frac{w}{y},\frac{x}{z}} \approx
   \frac{\rho_{w,x}\left[\frac{\sigma_w}{\mu_w}\right]
@@ -677,9 +683,9 @@ Figure~\ref{fig:spurious}e.  It is important to be aware of the ratio
 correlation phenomenon because scatter plots of ratios are commonplace
 in geology. Two examples are the
 \textsuperscript{87}Rb/\textsuperscript{86}Sr --
-\textsuperscript{87}Sr/\textsuperscript{86}Sr data from the beginning
-of this chapter, and the Zr-Zr/Y tectonic discrimination diagrams of
-igneous geochemistry.
+\textsuperscript{87}Sr/\textsuperscript{86}Sr isochron plot from the
+beginning of this chapter, and the Zr--Zr/Y tectonic discrimination
+diagram of igneous geochemistry.
  
 \end{enumerate}
 
@@ -699,10 +705,11 @@ Consider, for example, the case of (Rb--Sr) isochron regression.  It
 is based on \textsuperscript{87}Rb/\textsuperscript{86}Sr and
 \textsuperscript{87}Sr/\textsuperscript{86}Sr isotope measurements
 that are obtained by mass spectrometry. The uncertainties of these
-measurements may vary significantly between aliquots. And due to the
-spurious correlation issue of Section~\ref{sec:regression-caveats}.3,
-these uncertainties may also be correlated. To illustrate the effect
-of these complications, consider a simple three-point example:
+measurements are known and may vary significantly between
+aliquots. Due to the spurious correlation issue of
+Section~\ref{sec:regression-caveats}.3, these uncertainties may also
+be correlated. To illustrate the effect of these complications,
+consider a simple three-point example:
 
 \begin{center}
 \begin{tabular}{c|cc|ccccc}
@@ -729,12 +736,12 @@ Figures~\ref{fig:norm2dmarginal} and \ref{fig:cov}):
 \begin{minipage}[t][][t]{.65\textwidth}
   \captionof{figure}{Synthetic data of Table~\ref{tab:york}. The white
     squares are the true population values ($X$ and $Y$) of three
-    aliquots . The black squares are three measurements ($x$ and
+    aliquots. The black squares are three measurements ($x$ and
     $y$). The ellipses represent 95\% confidence regions for bivariate
     normal distributions with means $x$ and $y$, and (co)variances
-    $s[x]$, $s[y]$ and $s[x,y]$. The true values fall on a line with
-    intercept $\beta_0=10$ and slope $\beta_1=1$ (dotted line).  The
-    unweighted least squares fit (dashed line) has an intercept of
+    $s[x]^2$, $s[y]^2$ and $s[x,y]$. The true values fall on a line
+    with intercept $\beta_0=10$ and slope $\beta_1=1$ (dotted line).
+    The unweighted least squares fit (dashed line) has an intercept of
     $\beta_0=1.9$ and slope $\beta_1=1.63$. This poor result is
     entirely due to the third data point, whose disproportionally
     large uncertainties are not properly accounted for by the ordinary

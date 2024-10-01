@@ -8,9 +8,9 @@ absence of an estimate of precision. Taken at face value, the dates
 imply that the meteorite impact took place 1 million years after the
 mass extinction, which rules out a causal relationship between the two
 events. However, if the analytical uncertainty of the age estimates is
-significantly greater than 1 Myr, then such of a causal relationship
-remains plausible. There are two aspects of analytical uncertainty that
-need to be considered:
+significantly greater than 1 Myr, then such a causal relationship
+remains plausible. There are two aspects of analytical uncertainty
+that need to be considered:
 
 \begin{itemize}
   \item{\bf accuracy} is the closeness of a statistical estimate to
@@ -40,8 +40,8 @@ following sections.
 \section{Error propagation}
 \label{sec:linearerrorprop}
 
-Suppose that physical quantity ($z$) is calculated as a function ($g$)
-of some measurements ($x$):
+Suppose that a physical quantity ($z$) is calculated as a function
+($g$) of some measurements ($x$):
 \begin{equation}
 z = g(x)
 \label{eq:zgx}
@@ -53,7 +53,7 @@ standard deviation $s[x]$. Then these values can be used to estimate
 $s[z]$, the standard deviation of the calculated value $z$.  If the
 function $g$ is (approximately) linear in the vicinity of $\bar{x}$,
 then small deviations $(\bar{x}-x_i)$ of the measured parameter $x_i$
-from the mean value $\bar{x}$ are proporational to small deviations
+from the mean value $\bar{x}$ are proportional to small deviations
 $(\bar{z}-z_i)$ of the estimated quantity $z$ from the mean value
 $\bar{z}=g(\overline{x})$.\medskip
 
@@ -170,10 +170,11 @@ s[x,y] & s[y]^2
 \label{eq:errorprop2dmatrix}
 \end{equation}
 
-where the innermost matrix is known as the \emph{variance-covariance}
-matrix and the outermost matrix (and its transpose) as the
-\emph{Jacobian matrix}. The advantage of the matrix formulation is
-that it can easily be scaled up to three or more dimensions.
+\noindent where the innermost matrix is known as the
+\emph{variance-covariance} matrix and the outermost matrix (and its
+transpose) as the \emph{Jacobian matrix}. The advantage of the matrix
+formulation is that it can easily be scaled up to three or more
+dimensions.
 
 \noindent\begin{minipage}[t][][b]{.55\textwidth}
   \includegraphics[width=\textwidth]{../figures/errorprop3d.pdf}\medskip
@@ -201,7 +202,7 @@ following notation:
 
 \begin{itemize}
 \item{$a, b, c, \ldots$} are constants, i.e. values that are known
-  without uncertainty ($s[a]=s[b]=s[c]=0$);
+  without uncertainty ($s[a]=s[b]=s[c]=\ldots=0$);
 \item{$x$ and $y$} are measurements whose uncertainties ($s[x]$ and
   $s[y]$) were estimated from replicates;
 \item{$z = g(x,y)$} is the estimated quantity.
@@ -405,18 +406,18 @@ y^b$, where $a=1/2$ and $b=3$.
   Equations~\ref{eq:addition}--\ref{eq:power} using the \textbf{chain
     rule}. For example, consider the following equation:
   \begin{equation}
-    d = d_\circ + v_\circ t + g t^2
+    d = d_0 + v_0 t + g t^2
     \label{eq:newtons2nd}
   \end{equation}
 
   \noindent which describes the distance $d$ travelled by an object as a
-  function of time $t$, where $d_\circ$ is the position at $t=0$,
-  $v_\circ$ is the velocity at $t=0$, and $g$ is the acceleration.
+  function of time $t$, where $d_0$ is the position at $t=0$,
+  $v_0$ is the velocity at $t=0$, and $g$ is the acceleration.
   Although Equation~\ref{eq:newtons2nd} does not directly fit into any
   of the formulations that we have derived thus far, it is easy to
   define two new functions that do. Let
   \begin{equation}
-    x \equiv d_\circ + v_\circ t
+    x \equiv d_0 + v_0 t
     \label{eq:xvt}
   \end{equation}
 
@@ -432,11 +433,11 @@ y^b$, where $a=1/2$ and $b=3$.
   z = a + bx + cy
   \]
 
-  \noindent where $a \equiv d_\circ$, $b \equiv v_\circ$, $x \equiv t$,
+  \noindent where $a \equiv d_0$, $b \equiv v_0$, $x \equiv t$,
   $c \equiv 0$ and $y$ is undefined. Then uncertainty propagation of
   Equation~\ref{eq:xvt} using Equation~\ref{eq:addition} gives:
   \begin{equation}
-    s[x]^2 = \left(v_\circ s[t]\right)^2
+    s[x]^2 = \left(v_0 s[t]\right)^2
     \label{eq:sx}
   \end{equation}
 
@@ -470,19 +471,19 @@ y^b$, where $a=1/2$ and $b=3$.
   Substituting Equation~\ref{eq:sx} for $s[x]^2$ and
   Equation~\ref{eq:sy} for $s[y]^2$:
   \[
-  s[d]^2 = \left(v_\circ s[t]\right)^2 + \left(2 g t s[t]\right)^2
+  s[d]^2 = \left(v_0 s[t]\right)^2 + \left(2 g t s[t]\right)^2
   \]
 
   \noindent which leads to the following expression for the
   uncertainty of $d$:
   \begin{equation}
-    s[d] = \sqrt{\left(v_\circ s[t]\right)^2 + \left(2 g t s[t]\right)^2}
-    = s[t] \sqrt{v_\circ^2 + \left(2 g t\right)^2}
+    s[d] = \sqrt{\left(v_0 s[t]\right)^2 + \left(2 g t s[t]\right)^2}
+    = s[t] \sqrt{v_0^2 + \left(2 g t\right)^2}
     \label{eq:sdnewton}
   \end{equation}
 
-  To illustrate the use of this formula, suppose that $d_\circ=0$~m,
-  $v_\circ=10$~m/s and $g=9.81$~m/s\textsuperscript{2}.  Further
+  To illustrate the use of this formula, suppose that $d_0=0$~m,
+  $v_0=10$~m/s and $g=9.81$~m/s\textsuperscript{2}.  Further
   suppose that we measure the time $t$ with a watch that has a
   1/10\textsuperscript{th} of a second precision\footnote{Here
     precision refers not to the magnitude of normally distributed
@@ -663,7 +664,7 @@ get:
   \label{eq:poisvar}
 \end{equation}
 
-Thus we have proven that the variance of a Poisson variable equals its
+Thus we have proved that the variance of a Poisson variable equals its
 mean, which was already shown empirically in
 Chapter~\ref{ch:poisson}.\medskip
 

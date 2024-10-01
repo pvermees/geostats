@@ -49,7 +49,7 @@
 \contentsline {section}{\numberline {9.8}Non-parametric tests}{85}{section.9.8}%
 \contentsline {chapter}{\numberline {10}Regression}{91}{chapter.10}%
 \contentsline {section}{\numberline {10.1}The correlation coefficient}{92}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Least Squares}{93}{section.10.2}%
+\contentsline {section}{\numberline {10.2}Least Squares}{94}{section.10.2}%
 \contentsline {section}{\numberline {10.3}Maximum Likelihood}{95}{section.10.3}%
 \contentsline {section}{\numberline {10.4}Common mistakes}{97}{section.10.4}%
 \contentsline {section}{\numberline {10.5}Weighted regression}{99}{section.10.5}%
@@ -112,7 +112,7 @@
 \contentsline {section}{\numberline {18.10}Regression}{195}{section.18.10}%
 \contentsline {section}{\numberline {18.11}Fractals and chaos}{196}{section.18.11}%
 \contentsline {section}{\numberline {18.12}Unsupervised learning}{196}{section.18.12}%
-\contentsline {section}{\numberline {18.13}Supervised learning}{196}{section.18.13}%
+\contentsline {section}{\numberline {18.13}Supervised learning}{197}{section.18.13}%
 \contentsline {section}{\numberline {18.14}Compositional data}{197}{section.18.14}%
 \contentsline {section}{\numberline {18.15}Directional data}{197}{section.18.15}%
 \contentsline {section}{\numberline {18.16}Spatial data}{198}{section.18.16}%
@@ -126,11 +126,11 @@
 \contentsline {section}{\numberline {19.7}The normal distribution}{208}{section.19.7}%
 \contentsline {section}{\numberline {19.8}Error propagation}{210}{section.19.8}%
 \contentsline {section}{\numberline {19.9}Comparing distributions}{212}{section.19.9}%
-\contentsline {section}{\numberline {19.10}Regression}{214}{section.19.10}%
-\contentsline {section}{\numberline {19.11}Fractals and chaos}{215}{section.19.11}%
-\contentsline {section}{\numberline {19.12}Unsupervised learning}{217}{section.19.12}%
-\contentsline {section}{\numberline {19.13}Supervised learning}{219}{section.19.13}%
-\contentsline {section}{\numberline {19.14}Compositional data}{220}{section.19.14}%
-\contentsline {section}{\numberline {19.15}Directional data}{222}{section.19.15}%
-\contentsline {section}{\numberline {19.16}Spatial data}{224}{section.19.16}%
-\contentsline {chapter}{\numberline {20}Tables}{227}{chapter.20}%
+\contentsline {section}{\numberline {19.10}Regression}{215}{section.19.10}%
+\contentsline {section}{\numberline {19.11}Fractals and chaos}{217}{section.19.11}%
+\contentsline {section}{\numberline {19.12}Unsupervised learning}{219}{section.19.12}%
+\contentsline {section}{\numberline {19.13}Supervised learning}{220}{section.19.13}%
+\contentsline {section}{\numberline {19.14}Compositional data}{222}{section.19.14}%
+\contentsline {section}{\numberline {19.15}Directional data}{224}{section.19.15}%
+\contentsline {section}{\numberline {19.16}Spatial data}{225}{section.19.16}%
+\contentsline {chapter}{\numberline {20}Tables}{229}{chapter.20}%

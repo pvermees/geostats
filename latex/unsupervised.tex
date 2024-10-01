@@ -51,9 +51,7 @@ further away:
 Imagine that you live in a one-dimensional world and cannot see the
 spatial distribution of the three points represented by $X$. Then PCA
 allows us to visualise the two-dimensional data as a one-dimensional
-array of numbers. PCA involves the following steps\footnote{An
-alternative way to find principal components is via singular value
-decomposition.}
+array of numbers. PCA involves the following steps
 \begin{enumerate}
 \item Decompose $X$ into a mean vector $M$ and a \emph{centred} data
   matrix $Y$:
@@ -93,9 +91,9 @@ decomposition.}
       \right]
   \end{equation}
 
-\item Subject $\Sigma$ to an
-  \emph{eigendecomposition}, i.e. rewrite it as the product of three
-  matrices:
+\item Subject $\Sigma$ to an \emph{eigendecomposition}\footnote{An
+alternative way to find principal components is via singular value
+decomposition.}, i.e. rewrite it as the product of three matrices:
   \begin{equation}
     \Sigma = Q \Lambda Q^{-1} =
     \left[
@@ -153,7 +151,7 @@ Figure~\ref{fig:PCA2D1}). This direction accounts for the remaining
 variance of the dataset, separating samples 2 and 3. Projecting the
 three samples on the second principal direction yields a second set of
 principal components, corresponding to the second column of $P$ (PC2
-in Figure~\ref{fig:PCA2D2}). The variance of these numbers is 10,
+in Figure~\ref{fig:PCA2D1}). The variance of these numbers is 10,
 i.e. the second eigenvalue of $\Lambda$.
 
 \noindent\begin{minipage}[t][][b]{.27\textwidth}
@@ -164,9 +162,9 @@ i.e. the second eigenvalue of $\Lambda$.
     Figure~\ref{fig:PCA2Ddata}. The data $X$ are shown as numbers, $M$
     as a square, and $1_{2,1}M \pm Q \sqrt{\Lambda}$ as a cross. The
     first principal direction (running from the upper left to the
-    lower right) has been stretched by a factor of $\sqrt{120/10} =
-    3.5$ w.r.t the second principal direction, which runs
-    perpendicular to it.\medskip}
+    lower right) has been stretched by a factor of
+    $\sqrt{\Lambda_2/\Lambda_1} = 3.5$ w.r.t the second principal
+    direction, which runs perpendicular to it.\medskip}
   \label{fig:PCA2D1}
 \end{minipage}
 
@@ -224,7 +222,7 @@ built-in datasets:
 
 \begingroup
 \noindent\begin{minipage}[t][][b]{.55\textwidth}
-\begin{tabular}{l|cccc}
+\begin{tabular}{l|c@{~~}c@{~~}c@{~~}c@{~}}
       & Murder & Assault & Rape & UrbanPop \\ \hline
 Alabama    &  13.2  & 236  & 21.2 & 58 \\
 Alaska     &  10.0  & 263  & 44.5 & 48 \\
@@ -259,12 +257,12 @@ biplot:
 \end{minipage}
 \begin{minipage}[t][][t]{.5\textwidth}
   \captionof{figure}{ PCA biplot of American crime statistics.  The
-    grey labels mark the different states, whilst the black vectors
+    grey labels mark the different states, whereas the black vectors
     mark the crimes and the percentage of the population that lives in
     urban areas. States that have a lot of crime plot on the left hand
     side of the diagram, states with little crime plot towards the
-    right.  Heavily urbanised states plot at the bottom of the
-    diagram, rural states plot near the top.\medskip}
+    right.  Heavily urbanised states plot at the top of the
+    diagram, rural states plot near the bottom.\medskip}
   \label{fig:USArrests}
 \end{minipage}
 
@@ -289,9 +287,9 @@ correlated in the United States.
 Multidimensional Scaling (MDS) is a multivariate \textbf{ordination}
 technique that is similar in many ways to PCA. MDS aims to extract two
 (or higher) dimensional `maps' from tables of pairwise distances
-between objects. Let us illustrate the method with the same synthetic
+between objects. Let us illustrate the method with the synthetic
 dataset of Equation~\ref{eq:X}. Using the Euclidean distance
-($d[i,j]$, where $1\leq{i,j}\leq{3}$):
+($d[i,j]$, where $1\leq\{i,j\}\leq{3}$):
 \begin{equation}
   d[i,j] = \sqrt{(a[i]-a[j])^2 + (b[i]-b[j])^2}
   \label{eq:euclidean}
@@ -312,13 +310,13 @@ Table~\ref{eq:d} has the following properties:
 
 \begin{enumerate}
 \item{\bf symmetry}: $d[i,j]=d[j,i]$; for example, the distance from
-  sample~1 to 3 equals the distance from samples~3 and 1.
+  sample~1 to 3 equals the distance from sample~3 to 1.
 \item{\bf non-negativity}: $d[i,j]\geq{0}$ and $d[i,j]=0$ if $i=j$;
   for example, the distance between sample 2 and itself is zero.
 \item{\bf triangle inequality}: $d[i,j]+d[j,k]\geq{d[i,k]}$; for
-  example, the sum of the distance from sample~1 to 2 and the
-  distance from sample~1 to 3 is 6.4 + 6.4 = 12.8~km, which is
-  greater than the distance from sample~2 to 3 (1.4).
+  example, the sum of the distance from sample~2 to 1 and the distance
+  from sample~2 to 3 is 19.2 + 6.3 = 25.5~km, which is greater than
+  the distance from sample~1 to 3 (19.2).
 \end{enumerate}
 
 Given a table of this form, MDS reconstructs the original set of plot
@@ -370,10 +368,10 @@ output:
     that are close together in the real world plot close together on
     the MDS configuration. And cities (such as Stockholm and Athens)
     that are far apart in the real world plot on opposite ends of the
-    MDS configuration. But whilst the MDS configuration preserves the
+    MDS configuration. Whilst the MDS configuration preserves the
     distances, it does not preserve the orientation of the cities. In
     this figure, the y-axis has been flipped, and the city locations
-    are rotated $\sim 15^\circ$ in a clockwise sense compared to the
+    are rotated $\sim$$15^\circ$ in a clockwise sense compared to the
     real map of Europe.\medskip}
   \label{fig:eurodist}
 \end{minipage}
@@ -409,7 +407,7 @@ quantified as the \textbf{Stress}:
 \end{equation}
 
 \noindent where $d[i,j]$ is the input distance between objects $i$ and
-$j$ (for example the Euclidean distance of Equation~\ref{eq:d}),
+$j$ (e.g., the Euclidean distance of Equation~\ref{eq:d}),
 $\delta[i,j]$ is the fitted distance measured on the MDS
 configuration, and $f$ is a monotonic transformation that essentially
 maps $d[i,j]$ to the same scale as $\delta[i,j]$.  The European city
@@ -446,6 +444,7 @@ Section~\ref{sec:nonparametric}. Figure~\ref{fig:KS} showed that we
 can express the `dissimilarity' between two U--Pb age spectra using
 the Kolmogorov-Smirnov (K-S) statistic. Repeating this exercise for a
 collection of 13 samples yields a $13\times{13}$ matrix of K-S values:
+
 \begin{equation}
   d = 
   \bbordermatrix{  & 1 & 2 & 3 & 4 & \boxed{5} &
@@ -470,8 +469,8 @@ collection of 13 samples yields a $13\times{13}$ matrix of K-S values:
 \noindent where the K-S values have been multiplied with 100 to remove
 the decimal points. Square boxes mark the two samples shown in
 Figure~\ref{fig:KS}. Equation~\ref{eq:DZd} is a symmetric matrix
-containing positive values and a zero diagonal. Thus it fulfils all
-the requirements for MDS analysis:
+containing positive values and a zero diagonal. It fulfils the
+requirements for MDS analysis:
 
 \noindent\begin{minipage}[t][][b]{.4\textwidth}
   \includegraphics[width=\textwidth]{../figures/DZmds.pdf}\medskip
@@ -481,8 +480,8 @@ the requirements for MDS analysis:
     data.  Samples that have similar age distributions (such as `Y'
     and `T') are characterised by low K-S statistics (e.g.,
     $d[Y,T]=0.07$) and plot close together. Samples that have greatly
-    differing age distributions (such as `Y' and `8') are
-    characterised by high K-S statistics (e.g., $d[Y,5]=0.62$) and
+    differing age distributions (such as `L' and `8') are
+    characterised by high K-S statistics (e.g., $d[L,8]=0.63$) and
     plot far apart on the MDS map.\medskip}
   \label{fig:DZmds}
 \end{minipage}
@@ -546,9 +545,9 @@ The k-means algorithm then proceeds as follows:
       symbols in Figure~\ref{fig:kmeans3}. The black symbols are the
       average $\{x,y\}$-positions of all the samples within each
       cluster. These are different than the previous values shown in
-      Figure~\ref{fig:kmeans2}. The new values form the centroid of the
-      clusters that will be used in the next iteration of the k-means
-      algorithm.}
+      Figure~\ref{fig:kmeans2}. The new values form the centroids of
+      the clusters that will be used in the next iteration of the
+      k-means algorithm.}
     \label{fig:kmeans4}
   \end{minipage}
   
@@ -579,7 +578,7 @@ we do know the correct answer.  One dataset that is particularly
 useful for this purpose was first introduced to statistics by
 R.A. Fisher. The dataset contains the measurements in centimetres of
 the sepal length and width, plus the petal length and width of 50
-flowers from each of 3 species of iris:
+flowers from 3 species of iris:
 
 \noindent\begin{minipage}[t][][b]{.6\textwidth}
   \includegraphics[width=\textwidth]{../figures/Iris.pdf}\medskip
@@ -601,11 +600,11 @@ flowers from each of 3 species of iris:
   \label{fig:Iris}
 \end{minipage}
 
-For the iris dataset, we already know which species each of the 150
-flowers belongs to. We can then ignore this information and apply the
-k-means algorithm to the four dimensional measurements.  Afterwards,
-we can compare the resulting classification to the true species and
-visualise them on a $3\times{3}$ contingency table:
+We already know which iris species each of the 150 flowers belongs
+to. For the sake of illustration, we can ignore this information and
+apply the k-means algorithm to the four dimensional measurements.
+Afterwards, we can compare the resulting classification to the true
+species and visualise them on a $3\times{3}$ contingency table:
 
 \begin{center}
   \begin{tabular}{c|ccc}
@@ -640,7 +639,7 @@ how to choose this number, although exercise~\ref{it:ex-withinss} of
 Chapter~\ref{sec:ex-unsupervised} explores a method to help pick an
 optimal number of clusters.  Hierarchical clustering is an alternative
 approach that builds a hierarchy from the bottom-up, and does not
-require us to specify the number of groups beforehand. Let us again
+require the number of groups to be specified beforehand. Let us again
 use a simple 2-dimensional example to introduce the method:
 
 \noindent\begin{minipage}[t][][b]{.25\textwidth}

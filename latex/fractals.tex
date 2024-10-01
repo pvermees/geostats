@@ -44,9 +44,9 @@ works for the earthquake data:\medskip
 The logarithmic transformation has not reduced the skewness of the
 data. This means that the earthquake magnitudes do not follow a
 lognormal distribution. And it also means that logarithms cannot fix
-the discrepancy between the mean and the median. In fact the
+the discrepancy between the mean and the median. It turns out that the
 distribution of earthquake magnitudes \emph{does not have a
-  well-defined mean or median}. This phenomenon is very common in
+well-defined mean or median}. This phenomenon is very common in
 geology.
 
 \section{Power law distributions}
@@ -54,7 +54,7 @@ geology.
 
 In our attempt to remove the skewness of the earthquake magnitude
 data, we ignored the fact that earthquake magnitudes are already a
-logarithmic quantity, which can take negative values. In fact we will
+logarithmic quantity, which can take negative values. In fact, we will
 see that most seismic events have negative magnitudes!  So instead of
 taking the logarithm of the earthquake magnitudes, let us take the
 logarithm of the frequencies:
@@ -134,10 +134,10 @@ example, in hydrology:
   \captionof{figure}{A map of central Finland (axis labels mark
     latitude and longitude), with water marked in black and land
     marked in white. Finland is also known as ``the land of a thousand
-    lakes''. But in fact there are far more than 1000 lakes in
+    lakes''. But in reality there are far more than 1000 lakes in
     Finland.  The small area shown in this figure already contains
     2327 of them. Most of these lakes are small, but there are also a
-    few big ones that cover an area of more than
+    few big ones that cover areas of more than
     1000~km\textsuperscript{2}.}
   \label{fig:Finland}
 \end{minipage}
@@ -235,7 +235,7 @@ counting the number of boxes needed to cover the entire coast:\medskip
 Instead of plotting the number of line segments against their size, we
 plot the number of boxes against their size (width). This produces a
 linear trend that has a different intercept than
-Figure~\ref{fig:Britainboxes}, but a similar slope:\medskip
+Figure~\ref{fig:fractaldimbritain}, but a similar slope:\medskip
 
 \noindent\begin{minipage}[t][][b]{.3\textwidth}
   \includegraphics[width=\textwidth]{../figures/Britainboxcounts.pdf}\medskip
@@ -358,7 +358,7 @@ Plotting the results on a frequency-magnitude log-log plot:
     the size of those boxes.  The best fitting line has a slope of
     $-1.26$, which is similar to the slope of the box-counting results
     for the British coastline (Figure~\ref{fig:Britainboxcounts}).
-    Box sizes are expressed in arbitrary units (pixels).}
+    Box sizes are expressed in arbitrary units (pixel widths).}
   \label{fig:kochboxcounts}
 \end{minipage}
 
@@ -536,7 +536,7 @@ initial values:
   \includegraphics[width=\textwidth]{../figures/3magnets.png}\medskip
 \end{minipage}
 \begin{minipage}[t][][t]{.6\textwidth}
-  \captionof{figure}{This intricate picture colour codes the initial
+  \captionof{figure}{This intricate picture paints the initial
     positions of the magnetic pendulum experiment according to its
     outcomes. White, grey and black pixels in this $512\times{512}$
     image mark initial positions that resulted in a final position at
@@ -546,13 +546,13 @@ initial values:
     exhibiting the same level of complexity regardless of scale. The
     pattern is determinisitic in the sense that the same grid of
     initial conditions produces exactly the same pattern. But it is
-    chaotic because even tiny changes in the initial positions or
+    chaotic because even tiny changes in the initial position or
     velocity may produce completely different patterns.  }
   \label{fig:3magnets}
 \end{minipage}
 
 The strong sensitivity of the outcome on the initial conditions of the
-magnetic pendulum experiments is the hallmark of \textbf{deterministic
+magnetic pendulum experiment is the hallmark of \textbf{deterministic
   chaos}. It is the phenomenon whereby ``the present determines the
 future, but the approximate present does not approximately determine
 the future''.\medskip
@@ -576,7 +576,7 @@ Chaos theory originates from the work of atmospheric scientist Edward
 Lorenz. Lorenz formulated a simplified mathematical model for
 atmospheric convection, based on three \emph{nonlinear} equations.
 Like the three magnets of the pendulum example, the interactions
-between the three Lorenz equations produced outcomes that were
+between the three Lorenz equations produce outcomes that were
 extremely sensitive to the initial conditions. Lorenz called this the
 \textbf{butterfly effect}.\medskip
 
