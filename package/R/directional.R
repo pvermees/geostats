@@ -252,7 +252,7 @@ coord2angle <- function(x,y,z=0,option=0,degrees=FALSE){
 #'     formula:
 #'
 #' \eqn{\kappa =
-#'     \frac{\bar{R}(p+1-\bar{R}^2)}{1-\bar{R}^2}
+#'     \frac{\bar{R}(p-\bar{R}^2)}{1-\bar{R}^2}
 #' }
 #'
 #' where \eqn{p} marks the number of parameters in the data space (1
@@ -268,5 +268,5 @@ coord2angle <- function(x,y,z=0,option=0,degrees=FALSE){
 #' Rbar2kappa(Rbar(striations,degrees=TRUE))
 #' @export
 Rbar2kappa <- function(R,p=1){
-    R*(p+1-R^2)/(1-R^2)
+    R*(p-R^2)/(1-R^2)
 }
