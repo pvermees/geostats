@@ -34,24 +34,15 @@ than 180 figures, which were all created in R.
 
 We will cover the material in these notes over the course of 20
 sessions, which will run on Tuesdays from 11 to 1, and on Fridays from
-4 to 6. All 20 sessions will follow essentially the same
-format. First, I will provide some theoretical background. Second, you
-will answer some short quiz questions on Moodle. Your answers to these
-quizzes will not count towards your final mark. Third, you will follow
-one of the tutorials of Chapter 17 in the notes to familiarse yourself
-with the R functions that you need to tackle the exercises that will
-be solved in the fourth part of each session.
-
-On the Moodle page you will also find some additional
-exercises. Although no new material is introduced in these exercises,
-completing them will deepen your understanding of the course material.
+4 to 6. Each of the 20 sessions will consist of two parts, covering
+theory and practical applications, respectively.
 
 The R practicals will be done in a programming environment called
 RStudio. Both R and RStudio are free and work in any operating system,
-including Windows, Mac OS and Linux. They have been installed on the
-cluster computers. Alternatively, or additionally, you can also use
-your own computer. Installation instructions are provided on the
-Moodle page.
+including Windows, Mac OS and Linux. You will need to install them on
+your laptop. Installation instructions are provided on the
+Moodle page. If you do not have a laptop, then you can borrow one
+from the library.
 
 The assessment of this module consists of two parts. 30% of the marks
 will be awarded to two pieces of R-based coursework that will be set
@@ -61,9 +52,9 @@ to complete these pieces of coursework independently.
 
 The remaining 70% of the marks will be reserved for the final exam,
 which will take place in the third term. This will be three hour,
-in-person, pen-on-paper, open-book exam. It consist of 13 questions,
-which must all be answered. You may bring your lecture notes to the
-exam, including any annotations that you may have made in them.
+in-person, pen-on-paper, open-book exam. It consist of approximately
+a dozen questions, which must all be answered. You may bring your lecture 
+notes to the exam, including any annotations that you may have made in them.
 
 Please use the Moodle forums or drop me an email at any time during
 this term if you have any questions, I will try to answer your
