@@ -1,9 +1,8 @@
 graphics.off()
 
-setwd('~/Documents/Programming/R/geostats/quizzes/')
+setwd('~/git/geostats/quizzes/')
 
-install.packages('~/Documents/Programming/R/geostats/package',
-                 repos=NULL,type='source')
+install.packages('~/git/geostats/package',repos=NULL,type='source')
 
 library(geostats)
 
@@ -311,6 +310,7 @@ stereonet(trd=30,plg=10,degrees=TRUE,wulff=TRUE,
 legend('topleft',legend='b)',bty='n',adj=c(2,0))
 dev.off()
 
+png(filename='meuse.png',width=600,height=600,pointsize=14)
 data('meuse',package='geostats')
 colourplot(X=meuse$x,Y=meuse$y,Z=log(meuse$zinc),
            plot.title=title(main='Meuse',xlab='Easting',ylab='Northing'),
@@ -321,3 +321,4 @@ points(179450,331700,pch=21,bg='white',cex=4)
 text(179450,331700,'b',cex=2)
 points(179500,332500,pch=21,bg='white',cex=4)
 text(179500,332500,'c',cex=2)
+dev.off()
