@@ -128,7 +128,7 @@ cairo(file='../../figures/pHrectKDE.pdf',width=3,height=3)
 pars()
 dens <- density(pH,kernel='rectangular',n=2^13)
 plot(dens,main='',xlab='pH',zero.line=FALSE)
-rug(pH,col=col)
+rug(pH)
 dev.off()
 
 cairo(file='../../figures/gaussKDE.pdf',width=3,height=3)
