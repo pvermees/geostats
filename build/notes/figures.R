@@ -83,30 +83,52 @@ rug(pH)
 legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(1,-1),xpd=TRUE)
 dev.off()
 
-cairo(file='../../figures/rectKDE.pdf',width=3,height=3)
-pars()
+cairo(file='../../figures/rectKDE.pdf',width=5,height=2.5)
+par(mfrow=c(1,3),mar=c(3,0.5,0.5,0.5),mgp=c(2,1,0))
 dat <- c(-0.5,0.3,0.6)
-col <- c('gray40','grey60','gray80')
 bw <- 1
-dens <- density(dat,kernel='rectangular',n=2^13,bw=bw/sqrt(3))
-X <- dens$x
-Y <- 3*dens$y/max(dens$y)
-plot(X,Y,main='',type='n',yaxt='n',ylab='Frequency')
-axis(side=2,at=0:3)
-for (i in 1:length(dat)){
-    x <- dat[i] + c(-1,-1,1,1)*bw
-    y <- c(0,1,1,0)
-    lines(x,y,lty=2,col=col[i])
-}
-lines(X,Y)
-rug(dat,col=col)
+x <- c(-2,rep(dat[1]-bw,2),rep(dat[1]+bw,2),2)
+y <- c(0,0,1,1,0,0)/6
+plot(x=x,y=y,type='n',ylim=c(0,0.5),bty='n',xlab='x',ylab=NA,yaxt='n')
+polygon(x,y,border=NA,col='grey75')
+arrows(x0=dat[1],x1=dat[1]+bw,y0=1/12,y1=1/12,length=0.05,xpd=NA,code=3)
+text('h',x=dat[1]+bw/2,y=1/12,pos=3)
+lines(x,y)
+rug(dat[1],lwd=2)
+text(x=dat[1],y=0,labels=expression('x'[1]),pos=3,offset=0)
+arrows(x0=1.75,x1=2.75,y0=0.25,y1=0.25,length=0.1,xpd=NA)
+x <- c(-2,sort(rep(c(dat[1:2]-bw,dat[1:2]+bw),2)),2)
+y <- c(0,0,1,1,2,2,1,1,0,0)/6
+plot(x=x,y=y,type='n',ylim=c(0,0.5),bty='n',xlab='x',ylab=NA,yaxt='n')
+polygon(x=dat[2]+bw*c(-1,-1,1,1),
+        y=c(0,1,1,0)/6,border=NA,col='grey75')
+lines(x=x,y=y)
+rug(dat[1],lwd=1)
+rug(dat[2],lwd=2)
+text(x=dat[2],y=0,labels=expression('x'[2]),pos=3,offset=0)
+arrows(x0=1.75,x1=2.75,y0=0.25,y1=0.25,length=0.1,xpd=NA)
+x <- c(-2,sort(rep(c(dat-bw,dat+bw),2)),2)
+y <- c(0,0,1,1,2,2,3,3,2,2,1,1,0,0)/6
+plot(x=x,y=y,type='n',ylim=c(0,0.5),bty='n',xlab='x',ylab=NA,yaxt='n')
+polygon(x=dat[3]+bw*c(-1,-1,1,1),
+        y=c(0,1,1,0)/6,border=NA,col='grey75')
+lines(x=x,y=y)
+rug(dat[1:2],lwd=1)
+rug(dat[3],lwd=2)
+text(x=dat[3],y=0,labels=expression('x'[3]),pos=3,offset=0)
+dev.off()
+
+cairo(file='../../figures/rectKDE4slide.pdf',width=3,height=3)
+pars()
+plot(x=x,y=y,type='l',ylim=c(0,0.5),ylab='Density')
+rug(dat)
 dev.off()
 
 cairo(file='../../figures/pHrectKDE.pdf',width=3,height=3)
 pars()
 dens <- density(pH,kernel='rectangular',n=2^13)
 plot(dens,main='',xlab='pH',zero.line=FALSE)
-rug(pH)
+rug(pH,col=col)
 dev.off()
 
 cairo(file='../../figures/gaussKDE.pdf',width=3,height=3)
@@ -117,9 +139,9 @@ plot(dens,main='',xlab='X',zero.line=FALSE)
 x <- dens$x
 for (i in 1:length(dat)){
     y <- dnorm(x,dat[i],bw)/3
-    lines(x,y,lty=2,col=col[i])
+    lines(x,y,lty=2,col='grey50')
 }
-rug(dat,col=col)
+rug(dat)
 dev.off()
 
 cairo(file='../../figures/pHgaussKDE.pdf',width=3,height=3)

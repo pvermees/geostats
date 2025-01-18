@@ -262,15 +262,16 @@ ordinary histogram that is constructed as follows:
 \item Place a rectangular `box' on top of each measurement.
 \item Stack the boxes to create one connected line.
 \end{enumerate}
-\noindent\begin{minipage}[t][][b]{.3\textwidth}
+\noindent\begin{minipage}[t][][b]{.6\textwidth}
   \includegraphics[width=\textwidth]{../figures/rectKDE.pdf}\medskip
 \end{minipage}
-\begin{minipage}[t][][t]{.7\textwidth}
-  \captionof{figure}{The rug plot along the bottom axis represents
-    three data points. The grey dashed lines mark rectangular boxes
-    (`kernels') that are centred around each of these data points. The
-    black step function is obtained by taking the sum of these
-    boxes. This procedure removes the need to choose bin locations.}
+\begin{minipage}[t][][t]{.4\textwidth}
+  \captionof{figure}{Construction of a stacked histogram of three data
+    points, shown as a rug plot along the bottom axis. The rectangular
+    `kernels' (with bandwidth $h$) shown in grey are centred around
+    each of these data points. The black step function is obtained by
+    taking the sum of these boxes. This procedure removes the need to
+    choose bin locations.}
   \label{fig:rectangles}
 \end{minipage}
 
