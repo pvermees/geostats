@@ -18,63 +18,112 @@ cairo <- function(file,width,height,family="serif",pointsize=13,...){
 options(warn=0)
 
 # PDFs and CDFs for quizzes:
-plotpdf <- function(x,d){
-    plot(x,d,type='l',bty='n',ann=FALSE,axes=FALSE)
-    Axis(side=1,at=c(0,0.5,1))
+plotpdf <- function(x,d,nr=500,bw="nrd0",xlim=c(0,1)){
+    Xd <- rdata(x,d,nr)
+    dens <- density(Xd$X,bw=bw)
+    xlim[1] <- min(xlim[1],dens$x[1])
+    xlim[2] <- max(xlim[2],tail(dens$x,1))
+    plot(x=c(dens$x[1],x[1],x,tail(x,1),tail(dens$x,1)),
+         y=c(0,0,Xd$dscaled,0,0),type='l',col='grey50',lwd=3,
+         bty='n',xlab='x',ylab='Density',
+         xlim=xlim,ylim=c(0,max(dens$y,Xd$dscaled)))
+    lines(dens$x,dens$y)
+    rug(Xd$X)
 }
-plotcdf <- function(x,d){
+plotcdf <- function(x,d,nr=500){
+    Xd <- rdata(x,d,nr)
     dx <- diff(x)
     foo <- cumsum(d*c(dx[1],dx))
     cdf <- foo/tail(foo,n=1)
-    plot(x,cdf,type='l',bty='n',ann=FALSE,axes=FALSE)
-    Axis(side=1,at=c(0,0.5,1))
+    plot(x,cdf,type='l',bty='n',xlab='x',ylab='P(x<X)',col='grey50',lwd=3)
+    plot(ecdf(Xd$X),verticals=TRUE,pch=NA,add=TRUE,main='')
+    rug(Xd$X)
+}
+rdata <- function(x,d,nr){
+    if (length(unique(d))==2){ # delta function
+        ud <- unique(d)[2]
+        i <- which(d==ud)[1]
+        X <- rep(x[i],nr)
+        dscaled <- 20*d/max(d)
+    } else {
+        dx <- c(x[2]-x[1],diff(x))
+        area <- sum(d*dx)
+        dscaled <- d/area
+        cdf <- cumsum(dx*dscaled)
+        set.seed(1)
+        y <- runif(nr)
+        dat <- approx(x=c(0,cdf,1),y=c(x[1],x,tail(x,1)),xout=y)
+        X <- dat$y
+    }
+    list(X=X,dscaled=dscaled)
 }
 quiz1question <- function(qn=1){
     dx <- 1e-4
-    x <- list()
-    pd <- list()
+    pd <- x <- bw <- list()
     x[[1]] <- seq(from=0,to=1,length.out=100)
     pd[[1]] <- rep(1/100,100)
+    bw[[1]] <- "nrd0"
     x[[2]] <- c(seq(from=0,to=0.5-dx,length.out=50),
                 0.5,
                 seq(from=0.5+dx,to=1,length.out=50))
-    foo <- c(rep(0,50),1,rep(0,50))
-    pd[[2]] <- foo/sum(foo)
-    set.seed(1)
+    pd[[2]] <- c(rep(0,50),1,rep(0,50))
+    bw[[2]] <- 0.02
     x[[3]] <- seq(from=0,to=1,length.out=100)
     pd[[3]] <- 0.3*dnorm(x[[3]],mean=0.3,sd=0.05) +
         0.7* dnorm(x[[3]],mean=0.7,sd=0.05)
+    bw[[3]] <- "nrd0"
     x[[4]] <- x[[3]]
     pd[[4]] <- 0.7*dnorm(x[[3]],mean=0.3,sd=0.05) +
         0.3* dnorm(x[[3]],mean=0.7,sd=0.05)
+    bw[[4]] <- "nrd0"
     x[[5]] <- seq(from=0,to=1,length.out=100)
     pd[[5]] <- x[[5]]/sum(x[[5]])
-    pars(mfrow=c(6,2),mar=c(2,1,0.5,0.5))
-    plotpdf(x[[qn]],pd[[qn]])
-    legend('topleft',legend='1)',bty='n',adj=c(3,-1),xpd=NA,cex=1.2)
-    plotcdf(x[[3]],pd[[3]])
-    legend('topleft',legend='a)',bty='n',adj=c(3,-1),xpd=NA,cex=1.2)
-    plot.new()
-    plotcdf(x[[1]],pd[[1]])
-    legend('topleft',legend='b)',bty='n',adj=c(3,-1),xpd=NA,cex=1.2)
-    plot.new()
-    plotcdf(x[[5]],pd[[5]])
-    legend('topleft',legend='c)',bty='n',adj=c(3,-1),xpd=NA,cex=1.2)
-    plot.new()
-    plotcdf(x[[2]],pd[[2]])
-    legend('topleft',legend='d)',bty='n',adj=c(3,-1),xpd=NA,cex=1.2)
-    plot.new()
-    plotcdf(x[[4]],pd[[4]])
-    legend('topleft',legend='e)',bty='n',adj=c(3,-1),xpd=NA,cex=1.2)
-    plot.new()
-    plot(x=c(0,1),y=c(1,1),type='l',bty='n',ann=FALSE,axes=FALSE)
-    Axis(side=1,at=c(0,0.5,1))
-    legend('topleft',legend='f)',bty='n',adj=c(3,-1),xpd=NA,cex=1.2)
+    bw[[5]] <- "nrd0"
+    if (TRUE){ # Moodle
+        pars(mfrow=c(5,2),mar=c(3,3,0.5,1))
+        plotpdf(x[[qn]],pd[[qn]],bw=bw[[qn]],xlim=c(0,1))
+        legend('topleft',legend='1)',bty='n',adj=c(1,0),xpd=NA,cex=1.2)
+        plotcdf(x[[3]],pd[[3]])
+        legend('topleft',legend='a)',bty='n',adj=c(1,0),xpd=NA,cex=1.2)
+        plot.new()
+        plotcdf(x[[1]],pd[[1]])
+        legend('topleft',legend='b)',bty='n',adj=c(1,0),xpd=NA,cex=1.2)
+        plot.new()
+        plotcdf(x[[5]],pd[[5]])
+        legend('topleft',legend='c)',bty='n',adj=c(1,0),xpd=NA,cex=1.2)
+        plot.new()
+        plotcdf(x[[2]],pd[[2]])
+        legend('topleft',legend='d)',bty='n',adj=c(1,0),xpd=NA,cex=1.2)
+        plot.new()
+        plotcdf(x[[4]],pd[[4]])
+        legend('topleft',legend='e)',bty='n',adj=c(1,0),xpd=NA,cex=1.2)
+    } else { # Slides
+        pars(mfrow=c(3,3),mar=c(3,3,0.5,1))
+        plotpdf(x[[qn]],pd[[qn]],bw=bw[[qn]],xlim=c(0,1))
+        legend('topleft',legend='1)',bty='n',adj=c(1,0),xpd=NA,cex=1.2)
+        plotcdf(x[[3]],pd[[3]])
+        legend('topleft',legend='a)',bty='n',adj=c(1,0),xpd=NA,cex=1.2)
+        plotcdf(x[[1]],pd[[1]])
+        legend('topleft',legend='b)',bty='n',adj=c(1,0),xpd=NA,cex=1.2)
+        plot.new()
+        plotcdf(x[[5]],pd[[5]])
+        legend('topleft',legend='c)',bty='n',adj=c(1,0),xpd=NA,cex=1.2)
+        plotcdf(x[[2]],pd[[2]])
+        legend('topleft',legend='d)',bty='n',adj=c(1,0),xpd=NA,cex=1.2)
+        plot.new()
+        plotcdf(x[[4]],pd[[4]])
+        legend('topleft',legend='e)',bty='n',adj=c(1,0),xpd=NA,cex=1.2)
+        plot.new()
+    }
 }
 
 for (i in 1:5){
     fn <- paste0('q1q',i,'.png')
-    png(filename=fn,width=400,height=800,pointsize=14)
+    if (TRUE){ # Moodle
+        png(filename=fn,width=500,height=800,pointsize=14)
+    } else { # Slides
+        png(filename=fn,width=1400,height=1000,pointsize=24)
+    }
     quiz1question(qn=i)
     dev.off()
 }
