@@ -8,15 +8,6 @@ install.packages('~/git/geostats/package',
                  repos=NULL,type='source')
 library(geostats)
 
-pars <- function(mar=c(2.5,2.3,0.5,0.25),mgp=c(1.5,0.5,0),mfrow=c(1,1)){
-    par(list(mar=mar,mgp=mgp,mfrow=mfrow))
-}
-
-cairo <- function(file,width,height,family="serif",pointsize=13,...){
-    cairo_pdf(file=file,width=width,height=height,
-              family=family,pointsize=pointsize,...)
-}
-
 options(warn=0)
 
 pH <- catchments$pH

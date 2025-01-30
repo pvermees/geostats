@@ -1,3 +1,12 @@
+pars <- function(mar=c(2.5,2.3,0.5,0.25),mgp=c(1.5,0.5,0),mfrow=c(1,1)){
+    par(list(mar=mar,mgp=mgp,mfrow=mfrow))
+}
+
+cairo <- function(file,width,height,family="serif",pointsize=13,...){
+    cairo_pdf(file=file,width=width,height=height,
+              family=family,pointsize=pointsize,...)
+}
+
 # returns a table with the number of earthquakes in the USGS
 # catalog ('qdat') whose magnitude exceeds 'mag'
 countQuakes <- function(qdat,mag){
@@ -184,3 +193,86 @@ points.circ <- function(angles,degrees=FALSE,...){
     points(sin(rads),cos(rads),...)    
 }
 
+binomhist <- function(nn,kk,H0,Ha=H0,nsides=1,rej.col='black',
+                      na.col=NA, showax=TRUE,plotk=TRUE,
+                      xlab='k = # gold discoveries',ylab='P(k)',...){
+    alpha <- 0.05
+    prob <- dbinom(x=0:nn,size=nn,prob=Ha)
+    names(prob) <- 0:nn
+    if (nsides==-1){
+        lrej <- 0
+        urej <- nn-qbinom(p=0.95,size=nn,prob=H0)
+    } else if (nsides==1){
+        lrej <- qbinom(p=0.05,size=nn,prob=H0)
+        urej <- 0
+    } else {
+        lrej <- qbinom(p=0.025,size=nn,prob=H0)
+        urej <- nn-qbinom(p=0.975,size=nn,prob=H0)
+    }
+    nacc <- nn+1-lrej-urej
+    if (showax){
+        barplot(prob,col=c(rep(rej.col,lrej),rep(na.col,nacc),rep(rej.col,urej)),
+                xlab=xlab,ylab=ylab,space=0,...)
+    } else {
+        barplot(prob,col=c(rep(rej.col,lrej),rep(na.col,nacc),rep(rej.col,urej)),
+                space=0,xlab='',ylab='',xaxt='n',yaxt='n',...)
+    }
+    if (plotk) lines(rep(kk,2)+0.5,c(0,1),lty=2)
+    invisible(prob)
+}
+
+binomcdf <- function(nn,kk,H0,Ha=H0,nsides=1,showax=TRUE,add=FALSE,
+                     plotk=TRUE,plota=TRUE,plotp=TRUE,dist='binomial',
+                     xlab='x = # gold discoveries',ylab='F(x)',...){
+    X <- -1:(nn+1)
+    P <- pbinom(q=X,size=nn,prob=Ha)
+    if (add){
+        lines(X,P,type='s',...)
+    } else if (showax){
+        plot(X,P,type='s',xlab=xlab,ylab=ylab,bty='n',xaxt='n',...)
+        axis(side=1,at=c(0:nn))
+    } else {
+        plot(X,P,type='s',xlab='',ylab='',bty='n',xaxt='n',yaxt='n',...)
+    }
+    if (!add){
+        if (plota){
+            if (nsides%in%c(-1,1)){
+                if (nsides==1){
+                    lines(c(-1,nn+1),rep(0.05,2),lty=3)
+                } else {
+                    lines(c(-1,nn+1),rep(0.95,2),lty=3)
+                }
+                if (plotp){
+                    pval <- pbinom(kk,nn,H0)
+                    lines(c(-1,nn+1),rep(pval,2),lty=2)
+                } else {
+                    foo <- 1
+                }
+            } else {
+                lines(c(-1,nn+1),rep(0.025,2),lty=3)
+                lines(c(-1,nn+1),rep(0.975,2),lty=3)
+                if (plotp){
+                    pval <- pbinom(kk,nn,H0)
+                    lines(c(-1,nn+1),rep(pval,2),lty=2)
+                } else {
+                    foo <- 1
+                }
+            }
+        }
+        if (nsides%in%c(-1,1)){
+            if (nsides==1){
+                lrej <- qbinom(0.05,nn,H0)
+            } else {
+                lrej <- qbinom(0.95,nn,H0)
+            }
+            urej <- 0
+            lines(rep(lrej,2),c(0,1),lty=3)
+        } else if (nsides==2){
+            lrej <- qbinom(0.025,nn,H0)
+            urej <- nn-qbinom(0.975,nn,H0)
+            lines(rep(lrej,2),c(0,1),lty=3)
+            lines(rep(nn-urej,2),c(0,1),lty=3)
+        }
+        if (plotk) lines(rep(kk,2),c(0,1),lty=2)
+    }
+}
