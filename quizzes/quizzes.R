@@ -1,6 +1,7 @@
 graphics.off()
 
 setwd('~/git/geostats/quizzes/')
+source('../build/notes/helper.R')
 
 install.packages('~/git/geostats/package',repos=NULL,type='source')
 
@@ -169,6 +170,30 @@ if (FALSE){
     colnames(out) <- qq
     rownames(out) <- signif(pp,3)
 }
+
+png(filename='dinosaurs2sided.png',width=1000,height=500)
+pars(mfrow=c(1,2))
+binomhist(nn=50,kk=18,H0=0.5,nsides=2,xlab='x = # male dinosaurs')
+legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,0))
+binomcdf(nn=50,kk=18,H0=0.5,nsides=2,xlab='x = # male dinosaurs')
+legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(2,0))
+dev.off()
+
+png(filename='dinosaursless.png',width=1000,height=500)
+pars(mfrow=c(1,2))
+binomhist(nn=50,kk=18,H0=0.5,nsides=1,xlab='x = # male dinosaurs')
+legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,0))
+binomcdf(nn=50,kk=18,H0=0.5,nsides=1,xlab='x = # male dinosaurs')
+legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(2,0))
+dev.off()
+
+png(filename='dinosaursmore.png',width=1000,height=500)
+pars(mfrow=c(1,2))
+binomhist(nn=50,kk=32,H0=0.5,nsides=-1,xlab='x = # female dinosaurs')
+legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,0))
+binomcdf(nn=50,kk=32,H0=0.5,nsides=-1,xlab='x = # female dinosaurs')
+legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(2,0))
+dev.off()
 
 png(filename='ci.png',width=400,height=400,pointsize=14)
 pars(mar=c(3,3,0,0))
