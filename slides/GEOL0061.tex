@@ -276,6 +276,20 @@ with \(n=100\) and parameter values \(p\) given as row names:\\
 What  is the  95\%  confidence interval  for \(p\)  if  the number  of\\
 successes is \(k=60\) out of \(n=100\)?
 
+\vspace{1cm}
+
 \end{minipage}
+
+
+\begin{align*}
+  \mbox{P(wrong decision)} = & 1 - \left(1 - \frac{1}{7\times{10}^7}\right)^{1\times{10}^7} \\
+  = & 1 - \exp\!\left(1\times{10}^7 \ln\!\left(1 - \frac{1}{7\times{10}^7}\right)\right) \\
+  = & 1 - \exp\!\left(-\frac{1\times{10}^7}{7\times{10}^7}\right) \\
+  = & 1 - \exp(-1/7) = 0.13 \\
+\end{align*}
+
+\[
+\frac{\mbox{P(double SIDS)}}{\mbox{P(double homicide)}} = 9:1
+\]
 
 \end{document}
