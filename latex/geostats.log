@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.8.26)  26 JAN 2025 21:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.8.26)  10 FEB 2025 21:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -5996,133 +5996,135 @@ Chapter 19.
 [199
 
 ] [200] [201] [202] [203] [204] [205] [206] [207] [208] [209]
-Overfull \hbox (23.66835pt too wide) in paragraph at lines 773--779
+Overfull \hbox (23.66835pt too wide) in paragraph at lines 793--799
 \OT1/cmr/m/n/10.95 where $\OML/cmm/m/it/10.95 z$ \OT1/cmr/m/n/10.95 is den-sity
 , $\OML/cmm/m/it/10.95 x$ \OT1/cmr/m/n/10.95 is mass and $\OML/cmm/m/it/10.95 y
 $ \OT1/cmr/m/n/10.95 is vol-ume. Thus $\OML/cmm/m/it/10.95 s\OT1/cmr/m/n/10.95 
 [[](\OML/cmm/m/it/10.95 A\OT1/cmr/m/n/10.95 )] = [][] =
  []
 
-
-Overfull \hbox (19.49991pt too wide) detected at line 811
+[210]
+Overfull \hbox (19.49991pt too wide) detected at line 831
 []
  []
 
 
-Overfull \hbox (27.37506pt too wide) detected at line 811
+Overfull \hbox (27.37506pt too wide) detected at line 831
 []
  []
 
-[210] [211] [212] [213] [214] [215] [216] [217] [218] [219]
+[211] [212] [213] [214] [215] [216] [217] [218] [219]
 <../figures/PCAiris.pdf, id=5071, 216.81pt x 216.81pt>
 File: ../figures/PCAiris.pdf Graphic file (type pdf)
 <use ../figures/PCAiris.pdf>
-Package pdftex.def Info: ../figures/PCAiris.pdf  used on input line 1435.
+Package pdftex.def Info: ../figures/PCAiris.pdf  used on input line 1455.
 (pdftex.def)             Requested size: 149.75677pt x 149.76447pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1447.
+(caption)                particular \caption on input line 1467.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 1434--1450
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 1454--1470
 [] [] 
  []
 
-[220 <../figures/PCAiris.pdf>]
-<../figures/elbow.pdf, id=5091, 216.81pt x 216.81pt>
+[220]
+<../figures/elbow.pdf, id=5081, 216.81pt x 216.81pt>
 File: ../figures/elbow.pdf Graphic file (type pdf)
 <use ../figures/elbow.pdf>
-Package pdftex.def Info: ../figures/elbow.pdf  used on input line 1478.
+Package pdftex.def Info: ../figures/elbow.pdf  used on input line 1498.
 (pdftex.def)             Requested size: 149.75677pt x 149.76447pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1484.
+(caption)                particular \caption on input line 1504.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 1477--1487
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 1497--1507
 [] [] 
  []
 
-<../figures/DZtree.pdf, id=5092, 216.81pt x 144.54pt>
+[221 <../figures/PCAiris.pdf> <../figures/elbow.pdf
+
+pdfTeX warning: pdflatex (file ../figures/elbow.pdf): PDF inclusion: multiple p
+dfs with page group included in a single page
+>]
+<../figures/DZtree.pdf, id=5107, 216.81pt x 144.54pt>
 File: ../figures/DZtree.pdf Graphic file (type pdf)
 <use ../figures/DZtree.pdf>
-Package pdftex.def Info: ../figures/DZtree.pdf  used on input line 1499.
+Package pdftex.def Info: ../figures/DZtree.pdf  used on input line 1519.
 (pdftex.def)             Requested size: 149.75677pt x 99.84296pt.
 
+
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1506.
+(caption)                particular \caption on input line 1526.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 1498--1509
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 1518--1529
 [] [] 
  []
 
-[221 <../figures/elbow.pdf> <../figures/DZtree.pdf
-
-pdfTeX warning: pdflatex (file ../figures/DZtree.pdf): PDF inclusion: multiple 
-pdfs with page group included in a single page
->] [222] [223]
-<../figures/testPCA.pdf, id=5144, 289.08pt x 289.08pt>
+[222 <../figures/DZtree.pdf>] [223] [224]
+<../figures/testPCA.pdf, id=5150, 289.08pt x 289.08pt>
 File: ../figures/testPCA.pdf Graphic file (type pdf)
 <use ../figures/testPCA.pdf>
-Package pdftex.def Info: ../figures/testPCA.pdf  used on input line 1721.
+Package pdftex.def Info: ../figures/testPCA.pdf  used on input line 1741.
 (pdftex.def)             Requested size: 213.93452pt x 213.93349pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1734.
+(caption)                particular \caption on input line 1754.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43333pt too wide) in paragraph at lines 1720--1737
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 1740--1757
 [] [] 
  []
 
-[224 <../figures/testPCA.pdf>] [225] [226]
-<../figures/hills.pdf, id=5181, 505.89pt x 144.54pt>
+[225 <../figures/testPCA.pdf>] [226]
+<../figures/hills.pdf, id=5179, 505.89pt x 144.54pt>
 File: ../figures/hills.pdf Graphic file (type pdf)
 <use ../figures/hills.pdf>
-Package pdftex.def Info: ../figures/hills.pdf  used on input line 1901.
+Package pdftex.def Info: ../figures/hills.pdf  used on input line 1921.
 (pdftex.def)             Requested size: 427.86905pt x 122.25084pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1905.
+(caption)                particular \caption on input line 1925.
 See the caption package documentation for explanation.
 
-[227 <../figures/hills.pdf>]
-<../figures/sphvsexp.pdf, id=5213, 361.35pt x 289.08pt>
+[227] [228 <../figures/hills.pdf>]
+<../figures/sphvsexp.pdf, id=5219, 361.35pt x 289.08pt>
 File: ../figures/sphvsexp.pdf Graphic file (type pdf)
 <use ../figures/sphvsexp.pdf>
-Package pdftex.def Info: ../figures/sphvsexp.pdf  used on input line 1971.
+Package pdftex.def Info: ../figures/sphvsexp.pdf  used on input line 1991.
 (pdftex.def)             Requested size: 256.72403pt x 205.38055pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1981.
+(caption)                particular \caption on input line 2001.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 1970--1983
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 1990--2003
 [] [] 
  []
 
-) (./tables.tex [228 <../figures/sphvsexp.pdf>]
-Chapter 20.
-) [229
+) (./tables.tex [229 <../figures/sphvsexp.pdf>] [230
 
-] [230] [231] (./geostats.aux)
+]
+Chapter 20.
+) [231] [232] [233] (./geostats.aux)
 Package rerunfilecheck Info: File `geostats.out' has not changed.
 (rerunfilecheck)             Checksum: 54D3535C865570BED1E7390F39A2A559;20584.
  ) 
 Here is how much of TeX's memory you used:
- 27943 strings out of 478287
- 505459 string characters out of 5849289
+ 27945 strings out of 478287
+ 505475 string characters out of 5849289
  1074262 words of memory out of 5000000
  44233 multiletter control sequences out of 15000+600000
  483630 words of font info for 79 fonts, out of 8000000 for 9000
@@ -6156,10 +6158,10 @@ cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on geostats.pdf (231 pages, 3649429 bytes).
+Output written on geostats.pdf (233 pages, 3650656 bytes).
 PDF statistics:
- 5635 PDF objects out of 6186 (max. 8388607)
- 4554 compressed objects within 46 object streams
- 1231 named destinations out of 1440 (max. 500000)
+ 5643 PDF objects out of 6186 (max. 8388607)
+ 4560 compressed objects within 46 object streams
+ 1233 named destinations out of 1440 (max. 500000)
  2066 words of extra memory for PDF output out of 10000 (max. 10000000)
 

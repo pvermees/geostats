@@ -123,14 +123,14 @@
 \contentsline {section}{\numberline {19.4}Probability}{203}{section.19.4}%
 \contentsline {section}{\numberline {19.5}The binomial distribution}{205}{section.19.5}%
 \contentsline {section}{\numberline {19.6}The Poisson distribution}{207}{section.19.6}%
-\contentsline {section}{\numberline {19.7}The normal distribution}{208}{section.19.7}%
+\contentsline {section}{\numberline {19.7}The normal distribution}{209}{section.19.7}%
 \contentsline {section}{\numberline {19.8}Error propagation}{210}{section.19.8}%
 \contentsline {section}{\numberline {19.9}Comparing distributions}{212}{section.19.9}%
-\contentsline {section}{\numberline {19.10}Regression}{216}{section.19.10}%
-\contentsline {section}{\numberline {19.11}Fractals and chaos}{218}{section.19.11}%
+\contentsline {section}{\numberline {19.10}Regression}{217}{section.19.10}%
+\contentsline {section}{\numberline {19.11}Fractals and chaos}{219}{section.19.11}%
 \contentsline {section}{\numberline {19.12}Unsupervised learning}{220}{section.19.12}%
-\contentsline {section}{\numberline {19.13}Supervised learning}{221}{section.19.13}%
+\contentsline {section}{\numberline {19.13}Supervised learning}{222}{section.19.13}%
 \contentsline {section}{\numberline {19.14}Compositional data}{223}{section.19.14}%
 \contentsline {section}{\numberline {19.15}Directional data}{225}{section.19.15}%
-\contentsline {section}{\numberline {19.16}Spatial data}{226}{section.19.16}%
-\contentsline {chapter}{\numberline {20}Tables}{229}{chapter.20}%
+\contentsline {section}{\numberline {19.16}Spatial data}{227}{section.19.16}%
+\contentsline {chapter}{\numberline {20}Tables}{231}{chapter.20}%

@@ -256,5 +256,118 @@ at a 95\% confidence level?\medskip
 Can the null hypothesis be rejected?
 \end{minipage}
 
+\vspace{1cm}
+
+\noindent\begin{minipage}{\linewidth}
+
+Here are some key quantiles (column names) of a binomial distribution\\
+with \(n=100\) and parameter values \(p\) given as row names:\\
+
+\( \begin{array}{c|cccccccccc}
+  ~ & 0.01 & 0.025 & 0.05 & 0.1 & 0.5 & 0.9 & 0.95 & 0.975 & 0.99 \\ \hline
+  0.466 & 35 & 37 & 38 & 40 & 47 & 53 & 55 & 56 & 58 \\
+  0.497 & 38 & 40 & 42 & 43 & 50 & 56 & 58 & 60 & 61 \\
+  0.513 & 40 & 42 & 43 & 45 & 51 & 58 & 59 & 61 & 63 \\
+  0.682 & 57 & 59 & 60 & 62 & 68 & 74 & 76 & 77 & 79 \\
+  0.697 & 59 & 60 & 62 & 64 & 70 & 76 & 77 & 78 & 80 \\
+  0.724 & 62 & 63 & 65 & 67 & 72 & 78 & 80 & 81 & 82 \\
+\end{array} \)\medskip
+
+What  is the  95\%  confidence interval  for \(p\)  if  the number  of\\
+successes is \(k=60\) out of \(n=100\)?
+
+\vspace{1cm}
+
+\end{minipage}
+
+\begin{align*}
+  \mbox{P(wrong decision)} = & 1 - \left(1 - \frac{1}{7\times{10}^7}\right)^{1\times{10}^7} \\
+  = & 1 - \exp\!\left(1\times{10}^7 \ln\!\left(1 - \frac{1}{7\times{10}^7}\right)\right) \\
+  = & 1 - \exp\!\left(-\frac{1\times{10}^7}{7\times{10}^7}\right) \\
+  = & 1 - \exp(-1/7) = 0.13 \\
+\end{align*}
+
+\[
+\frac{\mbox{P(double SIDS)}}{\mbox{P(double homicide)}} = \frac{21700 \times 123}{1300 \times 228} = \frac{9}{1}
+\]
+
+\vspace{1cm}
+
+\noindent\begin{minipage}{\linewidth}
+
+Consider the following two rock specimens:\medskip
+
+\(
+\begin{array}{ccccc}
+  \mbox{specimen} & \mbox{mass (g)} & \sigma(\mbox{mass}) &
+  \mbox{volume}(\mbox{cm}^3) & \sigma(\mbox{volume}) \\ \hline
+  A & 105 & 2 & 36 & 0.15\\ B & 30 & 2.5 & 10 & 0.4
+\end{array}
+\)
+
+\begin{enumerate}
+\item Compute the densities of rocks \(A\) and \(B\).
+\item Propagate their respective uncertainties.
+\item Construct approximate 95\% confidence intervals for the two densities.
+\item Is there a significant difference in density between samples \(A\) and \(B\)?
+\end{enumerate}
+
+\end{minipage}
+
+\vspace{1cm}
+
+\noindent\begin{minipage}{.55\linewidth}
+
+Sand may contain a variety of minerals with different densities. For
+example, zircon has a density of \(4.85\pm0.10\)\,g/cm3 (1\(\sigma\)),
+whereas quartz has a density of
+\(2.65\pm0.05\)\,g/cm3 (1\(\sigma\)). The settling velocity of sand
+grains in water depends on two factors: density and grain size. Dense
+grains settle more quickly than light ones, and large grains settle
+more quickly than small ones. When a balance is reached between these
+two factors, small zircons settle at the same rate as large quartz
+grains. This results in a size shift (\(SS\)) between zircon and
+quartz in beach and river sands:
+\begin{equation*}
+SS = \frac{1}{0.69}\ln\left(\frac{\rho_z-1}{\rho_q-1}\right)
+\end{equation*}
+
+where \(\rho_z\) is the density of zircon, \(\rho_q\) is the density
+of quartz, and \(SS \equiv \log_2(D_z/D_q)\) where \(D_z\) is the
+diameter of zircon grains and \(D_q\) is the diameter of quartz
+grains). Calculate \(SS\) and propagate its uncertainty.
+
+\end{minipage}
+
+\vspace{1cm}
+
+\noindent\begin{minipage}{.5\linewidth}
+
+We measured the following $^{40}$K and $^{40}$Ar concentrations:
+
+\begin{equation*}
+  \begin{array}{c|cccccc}
+    ^{40}\mbox{K} (\times{10}^{-10} \mbox{mol/g}) & 2,093 & 2,105 & 2,055 & 2,099 & 2,030 & ~ \\
+    ^{40}\mbox{Ar} (\times{10}^{-10} \mbox{mol/g}) & 6.015 & 6.010 & 6.030 & 6.005 & 6.020 & 6.018
+  \end{array}
+\end{equation*}
+
+\begin{enumerate}
+\item Calculate the mean 40K and 40Ar concentrations.
+\item Calculate the standard error of these means.
+\item Estimate the 40Ar/40K-ratio and its standard error.
+\item The age equation for the 40K-40Ar method is as follows:
+
+  \( t = \frac{1}{\lambda} \ln\left[ 1 + \frac{\lambda}{\lambda_e} \left(\frac{^{40}Ar }{^{40}K}\right) \right] \)
+
+  with
+
+  \(\lambda = 5.543 \times 10^{-4} \mbox{Myr}^{-1}\) and \(\lambda/\lambda_e\) = 9.3284.
+
+  Calculate the age and its standard error.
+
+\end{enumerate}
+
+\end{minipage}
 
 \end{document}

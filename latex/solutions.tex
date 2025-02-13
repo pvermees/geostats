@@ -609,7 +609,7 @@ The probability that it contains 41 to 60 fission tracks is:
   $H_0: \lambda=2$\\
   $H_{\!A}: \lambda<2$
 
-In \texttt{R}:
+  In \texttt{R}:
 
 \begin{console}
 > h <- poisson.test(x=12,T=10,r=2,alternative='less')
@@ -618,7 +618,27 @@ In \texttt{R}:
 \end{console}
 
 $H_0$ is rejected on a 95\% confidence level, and so it would be
-best to cease operations and abandon the mining site.
+best to cease operations and abandon the mining site. Instead of
+using the number of diamonds per tonne to define $\lambda$, we
+can also use the number of diamonds per 10 tonnes:
+
+  $H_0: \lambda=20$\\
+  $H_{\!A}: \lambda<20$
+
+\begin{console}
+> qpois(p=0.05,lambda=20)
+[1] 13 
+\end{console}
+
+$k = 12 \in R = \{0,\ldots,12\}$, leading to the rejection of
+$H_0$. Equivalently:
+
+\begin{console}
+> poisson.test(x=12,T=1,r=20,alternative='less')$p.value
+[1] 0.03901199
+\end{console}
+
+\noindent which is the same result as before.
 
 \item To construct a 95\% confidence interval, we again use
   \texttt{poisson.test}, but have no need to formulate a null
