@@ -291,4 +291,83 @@ successes is \(k=60\) out of \(n=100\)?
 \frac{\mbox{P(double SIDS)}}{\mbox{P(double homicide)}} = \frac{21700 \times 123}{1300 \times 228} = \frac{9}{1}
 \]
 
+\vspace{1cm}
+
+\noindent\begin{minipage}{\linewidth}
+
+Consider the following two rock specimens:\medskip
+
+\(
+\begin{array}{ccccc}
+  \mbox{specimen} & \mbox{mass (g)} & \sigma(\mbox{mass}) &
+  \mbox{volume}(\mbox{cm}^3) & \sigma(\mbox{volume}) \\ \hline
+  A & 105 & 2 & 36 & 0.15\\ B & 30 & 2.5 & 10 & 0.4
+\end{array}
+\)
+
+\begin{enumerate}
+\item Compute the densities of rocks \(A\) and \(B\).
+\item Propagate their respective uncertainties.
+\item Construct approximate 95\% confidence intervals for the two densities.
+\item Is there a significant difference in density between samples \(A\) and \(B\)?
+\end{enumerate}
+
+\end{minipage}
+
+\vspace{1cm}
+
+\noindent\begin{minipage}{.55\linewidth}
+
+Sand may contain a variety of minerals with different densities. For
+example, zircon has a density of \(4.85\pm0.10\)\,g/cm3 (1\(\sigma\)),
+whereas quartz has a density of
+\(2.65\pm0.05\)\,g/cm3 (1\(\sigma\)). The settling velocity of sand
+grains in water depends on two factors: density and grain size. Dense
+grains settle more quickly than light ones, and large grains settle
+more quickly than small ones. When a balance is reached between these
+two factors, small zircons settle at the same rate as large quartz
+grains. This results in a size shift (\(SS\)) between zircon and
+quartz in beach and river sands:
+\begin{equation*}
+SS = \frac{1}{0.69}\ln\left(\frac{\rho_z-1}{\rho_q-1}\right)
+\end{equation*}
+
+where \(\rho_z\) is the density of zircon, \(\rho_q\) is the density
+of quartz, and \(SS \equiv \log_2(D_z/D_q)\) where \(D_z\) is the
+diameter of zircon grains and \(D_q\) is the diameter of quartz
+grains). Calculate \(SS\) and propagate its uncertainty.
+
+\end{minipage}
+
+\vspace{1cm}
+
+\noindent\begin{minipage}{.5\linewidth}
+
+We measured the following $^{40}$K and $^{40}$Ar concentrations:
+
+\begin{equation*}
+  \begin{array}{c|cccccc}
+    ^{40}\mbox{K} (\times{10}^{-10} \mbox{mol/g}) & 2,093 & 2,105 & 2,055 & 2,099 & 2,030 & ~ \\
+    ^{40}\mbox{Ar} (\times{10}^{-10} \mbox{mol/g}) & 6.015 & 6.010 & 6.030 & 6.005 & 6.020 & 6.018
+  \end{array}
+\end{equation*}
+
+\begin{enumerate}
+\item Calculate the mean 40K and 40Ar concentrations.
+\item Calculate the standard error of these means.
+\item Estimate the 40Ar/40K-ratio and its standard error.
+\item The age equation for the 40K-40Ar method is as follows:
+
+  \( t = \frac{1}{\lambda} \ln\left[ 1 + \frac{\lambda}{\lambda_e} \left(\frac{^{40}Ar }{^{40}K}\right) \right] \)
+
+  with
+
+  \(\lambda = 5.543 \times 10^{-4} \mbox{Myr}^{-1}\) and \(\lambda/\lambda_e\) = 9.3284.
+
+  Calculate the age and its standard error.
+
+\end{enumerate}
+
+\end{minipage}
+
 \end{document}
