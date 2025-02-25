@@ -2,6 +2,7 @@
 
 \usepackage[a4paper,margin=1in,landscape]{geometry}
 \usepackage{amsmath}
+\usepackage{graphicx}
 \usepackage[misc]{ifsym}
 
 \renewcommand{\labelitemi}{--}
@@ -353,10 +354,10 @@ We measured the following $^{40}$K and $^{40}$Ar concentrations:
 \end{equation*}
 
 \begin{enumerate}
-\item Calculate the mean 40K and 40Ar concentrations.
+\item Calculate the mean $^{40}$K and $^{40}$Ar concentrations.
 \item Calculate the standard error of these means.
-\item Estimate the 40Ar/40K-ratio and its standard error.
-\item The age equation for the 40K-40Ar method is as follows:
+\item Estimate the $^{40}$Ar/$^{40}$K-ratio and its standard error.
+\item The age equation for the $^{40}$K--$^{40}$Ar method is as follows:
 
   \( t = \frac{1}{\lambda} \ln\left[ 1 + \frac{\lambda}{\lambda_e} \left(\frac{^{40}Ar }{^{40}K}\right) \right] \)
 
@@ -368,6 +369,51 @@ We measured the following $^{40}$K and $^{40}$Ar concentrations:
 
 \end{enumerate}
 
+\end{minipage}
+
+\vspace{1cm}
+
+\begin{minipage}{16cm}
+Given the following 4-sample dataset:\medskip
+
+$x = \{-\sqrt{2},-\sqrt{2},0,2\sqrt{2}\}$\medskip
+
+and using Table~20.2 of the notes, can you reject the null hypothesis:\medskip
+
+$H_\circ: \mu = 2$\medskip
+
+vs the alternative hypothesis\medskip
+
+$H_a: \mu \neq 2$?
+
+\end{minipage}
+
+\vspace{1cm}
+
+\begin{minipage}{16cm}
+Consider the following two samples:\medskip
+
+$x_1 = \{-\sqrt{2},-\sqrt{2},0,2\sqrt{2}\}$\medskip
+
+$x_2 = \{1-\sqrt{2},1-\sqrt{2},1,1+2\sqrt{2}\}$\medskip
+
+Do the two samples have the same mean?
+\end{minipage}
+
+\vspace{1cm}
+
+\begin{minipage}{15cm}
+Using R, and given a dataset comprising the following four values:
+
+\[x=\{-\sqrt{2},-\sqrt{2},0,2\sqrt{2}\}\]
+
+calculate the p-value of the t-test comparing the null hypothesis:
+
+\[H_\circ: \mu = 2\]
+
+with the alternative hypothesis:
+
+\[ H_a: \mu < 2 \]
 \end{minipage}
 
 \end{document}

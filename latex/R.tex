@@ -626,34 +626,29 @@ fraction of pH values that are less than 4.5:
 \end{console}
 
 \item\label{it:mode} \texttt{R} does not come with a function to
-  calculate the mode\footnote{There does exist a \texttt{mode}
-  function but it does something different.\label{fn:mode}} so we have
-  to write our own.  For categorical data, the mode is the most
-  frequently occurring value. Using the stratigraphic age data of
-  Figure~\ref{fig:discrete}.b as an example:
+  calculate the mode. However, the \texttt{geostats} package comes to
+  the rescue by providing the \texttt{Mode} function\footnote{Note the
+  uppercase `\texttt{M}' in \texttt{Mode}, which aims to avoid the
+  conflict with the \texttt{mode} function, which does something
+  different. \texttt{R} is case sensitive.}. For categorical data, the
+  mode is the most frequently occurring value. Using the stratigraphic
+  age data of Figure~\ref{fig:discrete}.b as an example:
 
-\begin{script}
-agetab <- table(catchments$age)
-mod <- which.max(agetab)
-\end{script}
+\begin{console}
+> Mode(catchments$age,categorical=TRUE)
+[1] "Mesozoic"
+\end{console}
 
-\noindent where \texttt{which.max} returns the index and/or name of
-the maximum value. For continuous variables, in which there are no
-duplicate values, we use a KDE to determine the mode:
+For continuous variables, in which there are no duplicate values, we
+use a KDE to determine the mode:
 
-\begin{script}
-dens <- density(catchments$pH)
-mod <- dens$x[which.max(dens$y)]
-\end{script}
+\begin{console}
+> Mode(catchments$pH,categorical=FALSE)
+[1] 5.372393
+\end{console}
 
-A more sophisticated implementation is included in a \texttt{geostats}
-function called \texttt{Mode}\footnote{Note the uppercase `\texttt{M}'
-in \texttt{Mode}, which aims to avoid the conflict with the
-\texttt{mode} function mentioned in footnote~\ref{fn:mode}. \texttt{R}
-is case sensitive.}.\medskip
-
-The skewness is not implemented in \texttt{R} either. But it is easy to
-write a function for that as well, based on Equation~\ref{eq:skew}:
+Skewness is not implemented in base \texttt{R} either. But it is easy
+to write a function for it, based on Equation~\ref{eq:skew}:
 
 \begin{script}
 skew <- function(x){
