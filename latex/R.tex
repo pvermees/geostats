@@ -1164,7 +1164,7 @@ qqline(dat)
 
 \begin{script}
 gold1 <- c(19.09,19.17,19.31,19.07,19.18)
-h <- t.test(gold1,mu=19.30,alternative='less')
+h <- t.test(x=gold1,mu=19.30,alternative='less')
 \end{script}
 
 The p-value of this test is
@@ -1190,20 +1190,20 @@ null hypothesis.
 
 \begin{script}[firstnumber=2]
 gold2 <- c(19.30,19.33,19.15,19.32)
-h <- t.test(gold1,gold2)
+h <- t.test(x=gold1,y=gold2,var.equal=TRUE)
 \end{script}
 
 Inspecting the p-value and two-sided 95\% confidence interval:
 
 \begin{console}
 > h$p.value
-[1] 0.1064068
+[1] 0.1099177
 > h$conf.int
-[1] -0.25285536  0.03085536
+[1] -0.25441458  0.03241458
 \end{console}
 
-We cannot reject $H_0: \mu_1=\mu_2$ because $0.1064068>0.05$, and
-because $\{-0.25285536\leq{0}\leq{0.03085536}\}$.
+We cannot reject $H_0: \mu_1=\mu_2$ because $0.1099177>0.05$, and
+because $\{-0.25441458\leq{0}\leq{0.03241458}\}$.
 
 \item To carry out the $\chi^2$-test of Section~\ref{sec:chi2}, we
   first calculate the declustered earthquake frequencies.
