@@ -1205,71 +1205,39 @@ Inspecting the p-value and two-sided 95\% confidence interval:
 We cannot reject $H_0: \mu_1=\mu_2$ because $0.1099177>0.05$, and
 because $\{-0.25441458\leq{0}\leq{0.03241458}\}$.
 
-\item To carry out the $\chi^2$-test of Section~\ref{sec:chi2}, we
-  first calculate the declustered earthquake frequencies.
+\item To carry out the $\chi^2$-test of Section~\ref{sec:contingency},
+  we simply supply a contingency table of petrographic observations to
+  the \texttt{chisq.test()} function:
 
 \begin{script}
-quakesperyear <- countQuakes(declustered,minmag=5.0,from=1917,to=2016)
-obs <- table(quakesperyear)
+petrography <- rbind(sampleA=c(Q=10,P=5,A=6,L=20),
+                     sampleB=c(Q=25,P=12,A=10,L=35))
+h <- chisq.test(x=petrography)
 \end{script}
 
-Printing the table of earthquake counts per year at the console
+\noindent where \texttt{rbind} binds the two named rows together into
+one matrix. Querying the results of the test at the console:
 
 \begin{console}
-> obs
- 1  2  3  4  5  6  7  8  9 10 11 12 
- 3  8 13 17 13 14 13  5  8  3  1  2 
+> h
+	Pearson's Chi-squared test
+
+data:  petrography
+X-squared = 0.82706, df = 3, p-value = 0.843
 \end{console}
 
-The corresponding predicted probabilities are obtained using a Poisson
-distribution with parameter given by the mean of the earthquake
-counts:
-
-\begin{script}[firstnumber=3]
-lam <- mean(quakesperyear)
-# expected probabilities:
-p <- c(ppois(q=1,lambda=lam),                   # lower tail
-       dpois(x=2:11,lambda=lam),                # central segment
-       ppois(q=11,lambda=lam,lower.tail=FALSE)) # upper tail
-names(p) <- c('<2',2:11,'>11')
-\end{script}
-
-\noindent which produces the following set of expected counts:
-
-\begin{script}[firstnumber=9]
-pred <- p*length(quakesperyear)       
-\end{script}
+$0.843>0.05$, hence $H_0$ is not rejected. Note that the
+$\chi^2$-statistic is not exactly the same as value that was
+calculated by hand in Section~\ref{sec:contingency}. This is due to
+rounding errors of the expected counts ($E_i$ in
+Equation~\ref{eq:chi2}). Here are the exact values:
 
 \begin{console}
-> signif(pred,2)
-  <2    2    3    4    5    6    7    8     9   10   11  >11 
- 2.8  6.5 12.0 16.0 17.0 16.0 12.0  8.2  4.96  2.7  1.3  0.4
+> h$expected
+               Q         P         A        L
+sampleA 11.66667  5.666667  5.333333 18.33333
+sampleB 23.33333 11.333333 10.666667 36.66667
 \end{console}
-
-There are five bins with fewer than 5 items. In order for the
-$\chi^2$-approximation to be valid, we must merge some of the
-categories:
-
-\begin{script}[firstnumber=10]
-O <- c(sum(obs[1:2]),obs[3:8],sum(obs[9:12]))
-E <- c(sum(pred[1:2]),pred[3:8],sum(pred[9:12]))
-\end{script}
-
-Calculating the $\chi^2$-statistic and p-value:
-
-\begin{script}[firstnumber=12]
-X2 <- sum((O-E)^2/E)
-pval <- pchisq(X2,df=length(E)-2,lower.tail=FALSE)
-\end{script}
-
-\begin{console}
-> X2
-[1] 4.697049
-> pval
-[1] 0.5832134
-\end{console}
-
-$0.5832134>0.05$, hence $H_0$ is not rejected.
 
 \item Comparing the two collections of gold coins from
   item~\ref{it:2sided2samplettest} above but this time using a
@@ -1538,9 +1506,6 @@ X <- rbind(c(-1,7),c(3,2),c(4,3))
 colnames(X) <- c('a','b')
 PCA2D(X)
 \end{script}
-
-\noindent where \texttt{rbind} binds three rows together into one
-matrix.
 
 \item Verifying the equivalence of PCA and classical MDS:
 
