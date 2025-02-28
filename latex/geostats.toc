@@ -93,12 +93,12 @@
 \contentsline {section}{\numberline {17.8}Error propagation}{174}{section.17.8}%
 \contentsline {section}{\numberline {17.9}Comparing distributions}{176}{section.17.9}%
 \contentsline {section}{\numberline {17.10}Regression}{178}{section.17.10}%
-\contentsline {section}{\numberline {17.11}Fractals and chaos}{181}{section.17.11}%
+\contentsline {section}{\numberline {17.11}Fractals and chaos}{180}{section.17.11}%
 \contentsline {section}{\numberline {17.12}Unsupervised learning}{181}{section.17.12}%
 \contentsline {section}{\numberline {17.13}Supervised learning}{183}{section.17.13}%
-\contentsline {section}{\numberline {17.14}Compositional data}{185}{section.17.14}%
-\contentsline {section}{\numberline {17.15}Directional data}{186}{section.17.15}%
-\contentsline {section}{\numberline {17.16}Spatial data}{188}{section.17.16}%
+\contentsline {section}{\numberline {17.14}Compositional data}{184}{section.17.14}%
+\contentsline {section}{\numberline {17.15}Directional data}{185}{section.17.15}%
+\contentsline {section}{\numberline {17.16}Spatial data}{187}{section.17.16}%
 \contentsline {chapter}{\numberline {18}Exercises}{189}{chapter.18}%
 \contentsline {section}{\numberline {18.1}The basics}{189}{section.18.1}%
 \contentsline {section}{\numberline {18.2}Plotting data}{189}{section.18.2}%
