@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.8.26)  28 FEB 2025 08:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.8.26)  3 MAR 2025 20:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -6014,7 +6014,7 @@ Overfull \hbox (27.37506pt too wide) detected at line 831
  []
 
 [209] [210] [211] [212] [213] [214] [215] [216]
-<../figures/PCAiris.pdf, id=5050, 216.81pt x 216.81pt>
+<../figures/PCAiris.pdf, id=5051, 216.81pt x 216.81pt>
 File: ../figures/PCAiris.pdf Graphic file (type pdf)
 <use ../figures/PCAiris.pdf>
 Package pdftex.def Info: ../figures/PCAiris.pdf  used on input line 1391.
@@ -6031,7 +6031,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 1390--1406
  []
 
 [217]
-<../figures/elbow.pdf, id=5061, 216.81pt x 216.81pt>
+<../figures/elbow.pdf, id=5062, 216.81pt x 216.81pt>
 File: ../figures/elbow.pdf Graphic file (type pdf)
 <use ../figures/elbow.pdf>
 Package pdftex.def Info: ../figures/elbow.pdf  used on input line 1434.
@@ -6052,7 +6052,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 1433--1443
 pdfTeX warning: pdflatex (file ../figures/elbow.pdf): PDF inclusion: multiple p
 dfs with page group included in a single page
 >]
-<../figures/DZtree.pdf, id=5086, 216.81pt x 144.54pt>
+<../figures/DZtree.pdf, id=5087, 216.81pt x 144.54pt>
 File: ../figures/DZtree.pdf Graphic file (type pdf)
 <use ../figures/DZtree.pdf>
 Package pdftex.def Info: ../figures/DZtree.pdf  used on input line 1455.
@@ -6069,7 +6069,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 1454--1465
  []
 
 [219 <../figures/DZtree.pdf>] [220] [221]
-<../figures/testPCA.pdf, id=5129, 289.08pt x 289.08pt>
+<../figures/testPCA.pdf, id=5130, 289.08pt x 289.08pt>
 File: ../figures/testPCA.pdf Graphic file (type pdf)
 <use ../figures/testPCA.pdf>
 Package pdftex.def Info: ../figures/testPCA.pdf  used on input line 1677.
@@ -6086,7 +6086,7 @@ Overfull \hbox (2.43333pt too wide) in paragraph at lines 1676--1693
  []
 
 [222 <../figures/testPCA.pdf>] [223]
-<../figures/hills.pdf, id=5159, 505.89pt x 144.54pt>
+<../figures/hills.pdf, id=5160, 505.89pt x 144.54pt>
 File: ../figures/hills.pdf Graphic file (type pdf)
 <use ../figures/hills.pdf>
 Package pdftex.def Info: ../figures/hills.pdf  used on input line 1857.
@@ -6098,7 +6098,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [224] [225 <../figures/hills.pdf>]
-<../figures/sphvsexp.pdf, id=5198, 361.35pt x 289.08pt>
+<../figures/sphvsexp.pdf, id=5199, 361.35pt x 289.08pt>
 File: ../figures/sphvsexp.pdf Graphic file (type pdf)
 <use ../figures/sphvsexp.pdf>
 Package pdftex.def Info: ../figures/sphvsexp.pdf  used on input line 1927.
@@ -6125,7 +6125,7 @@ Package rerunfilecheck Info: File `geostats.out' has not changed.
 Here is how much of TeX's memory you used:
  27937 strings out of 478287
  505406 string characters out of 5849289
- 1074233 words of memory out of 5000000
+ 1074234 words of memory out of 5000000
  44232 multiletter control sequences out of 15000+600000
  483630 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -6158,7 +6158,7 @@ cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on geostats.pdf (229 pages, 3644842 bytes).
+Output written on geostats.pdf (229 pages, 3644851 bytes).
 PDF statistics:
  5618 PDF objects out of 6186 (max. 8388607)
  4539 compressed objects within 46 object streams
