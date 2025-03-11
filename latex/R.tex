@@ -665,9 +665,9 @@ skew <- function(x){
 
 \item A box plot for the Ca/Mg data:
 
-\begin{console}
+\begin{script}
 boxplot(catchments$CaMg)
-\end{console}
+\end{script}
 
 \end{enumerate}
 
@@ -1289,16 +1289,16 @@ $4.500822\times{10}^{-5}\ll{0.05}$ and hence $H_0$ is clearly rejected.
   \texttt{rbsr}.  Plot the columns \texttt{RbSr} and \texttt{SrSr} of
   this dataset as a scatter plot:
 
-\begin{console}
+\begin{script}
 plot(x=rbsr$RbSr,y=rbsr$SrSr)
-\end{console}
+\end{script}
 
 Calculate the correlation coefficient of \texttt{RbSr} and
 \texttt{SrSr}:
 
-\begin{console}
+\begin{script}[firstnumber=2]
 r <- cor(x=rbsr$RbSr,y=rbsr$SrSr)
-\end{console}
+\end{script}
 
 \noindent which yields:
 
@@ -1312,7 +1312,7 @@ r <- cor(x=rbsr$RbSr,y=rbsr$SrSr)
 \item Compute the t-statistic for the correlation coefficient using
   Equation~\ref{eq:tr}:
 
-\begin{script}
+\begin{script}[firstnumber=3]
 n <- nrow(rbsr)
 tstat <- r*sqrt(n-2)/sqrt(1-r^2)
 \end{script}
@@ -1345,7 +1345,7 @@ rejection of $H_0$.
   correlation, we can now fit a line to the data using the method of
   least squares:
 
-\begin{script}
+\begin{script}[firstnumber=2]
 fit <- lm(SrSr ~ RbSr, data=rbsr)
 \end{script}
 
@@ -1388,13 +1388,13 @@ Equivalently:
 
 \item Add the best fit line to the existing scatter plot:
 
-\begin{script}[firstnumber=2]
+\begin{script}[firstnumber=3]
 abline(fit)
 \end{script}
 
 Construct a 95\% confidence envelope for the linear fit:
 
-\begin{script}[firstnumber=3]
+\begin{script}[firstnumber=4]
 x <- seq(from=min(rbsr$RbSr),to=max(rbsr$RbSr),length.out=20)
 pred <- predict(fit,newdata=data.frame(RbSr=x),
                 interval="confidence",level=0.95)
@@ -1404,7 +1404,7 @@ matlines(x,pred,lty=1,col='black')
 \noindent where \texttt{matlines} simultaneously plots multiple lines.
 Adding a prediction interval to the existing plot:
 
-\begin{script}[firstnumber=7]
+\begin{script}[firstnumber=8]
 pred <- predict(fit,newdata=data.frame(RbSr=x),
                 interval="prediction",level=0.95)
 matlines(x,pred,lty=2,col='black')
@@ -1432,9 +1432,9 @@ Section~\ref{sec:weightedregression} is not trivial in base
 \texttt{R}. Fortunately, the \texttt{geostats} package comes to the
 rescue:
 
-\begin{console}
+\begin{script}
 yfit <- york(dat=rbsr)
-\end{console}
+\end{script}
 
 The name of the weighted least squares regression refers to
 geophysicist Derek York, who developed an early version of the
@@ -1465,9 +1465,9 @@ lines(x=sf$size,y=exp(predict(fit)))
 \item Create a Gutenberg-Richter plot for the recent earthquake data
   (Figure~\ref{fig:gutenberg}):
 
-\begin{console}
+\begin{script}
 gutenberg(earthquakes$mag)
-\end{console}
+\end{script}
 
 \noindent where \texttt{gutenberg()} is a \texttt{geostats} function
 that is similar to the Finnish lake code of step~\ref{it:finland}. You
