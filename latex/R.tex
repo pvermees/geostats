@@ -1502,8 +1502,7 @@ of 1.2.
   Figures~\ref{fig:PCA2D1}--\ref{fig:PCA2D3}:
 
 \begin{script}
-X <- rbind(c(-1,7),c(3,2),c(4,3))
-colnames(X) <- c('a','b')
+X <- cbind(a=c(0,17,19),b=c(9,0,6))
 PCA2D(X)
 \end{script}
 
