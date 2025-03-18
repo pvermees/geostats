@@ -9,6 +9,23 @@
 \newcommand{\tgap}{\hspace{1pt}}
 \newcommand{\gap}{\hspace{4pt}}
 
+\makeatletter
+\def\bbordermatrix#1{\begingroup \m@th
+  \@tempdima 4.75\p@
+  \setbox\z@\vbox{%
+    \def\cr{\crcr\noalign{\kern2\p@\global\let\cr\endline}}%
+    \ialign{$##$\hfil\kern2\p@\kern\@tempdima&\thinspace\hfil$##$\hfil
+      &&\quad\hfil$##$\hfil\crcr
+      \omit\strut\hfil\crcr\noalign{\kern-\baselineskip}%
+      #1\crcr\omit\strut\cr}}%
+  \setbox\tw@\vbox{\unvcopy\z@\global\setbox\@ne\lastbox}%
+  \setbox\tw@\hbox{\unhbox\@ne\unskip\global\setbox\@ne\lastbox}%
+  \setbox\tw@\hbox{$\kern\wd\@ne\kern-\@tempdima\left[\kern-\wd\@ne
+    \global\setbox\@ne\vbox{\box\@ne\kern2\p@}%
+    \vcenter{\kern-\ht\@ne\unvbox\z@\kern-\baselineskip}\,\right]$}%
+  \null\;\vbox{\kern\ht\@ne\box\tw@}\endgroup}
+\makeatother
+
 \begin{document}
 
 \section*{Slides}
@@ -535,5 +552,128 @@ following distance matrix?
 \includegraphics[width=\linewidth]{unsupervised-hclust.pdf}
 
 \end{minipage}
+
+\begin{equation*}
+  X = \bbordermatrix{
+  ~ &    a &   b \cr
+  1 & -0.6 & 3.0 \cr
+  2 & -0.4 & 3.5 \cr
+  3 &  4.4 & 1.0 \cr
+  4 &  4.6 & 1.5 \cr
+  5 & -1.0 & 2.0 \cr
+  6 & -0.8 & 2.5 \cr
+  7 &  4.0 & 0.0 \cr
+  8 &  4.2 & 0.5
+  }
+\end{equation*}
+
+\begin{equation*}
+  X = 1_{8,1} M + P\,Q^{-1} =
+  \left[
+    \begin{array}{c}
+      1 \cr
+      1 \cr
+      1 \cr
+      1 \cr
+      1 \cr
+      1 \cr
+      1 \cr
+      1 \cr
+    \end{array}
+    \right]
+  \left[
+    \begin{array}{cc}
+      1.80 & 1.75 
+    \end{array}
+    \right]
+  +
+  \left[
+    \begin{array}{cc}
+      -2.7 & 0.27 \cr
+      -2.7 & 0.81 \cr
+      2.7 & 0.27 \cr
+      2.7 & 0.81 \cr
+      -2.7 & -0.81 \cr
+      -2.7 & -0.27 \cr
+      2.7 & -0.81 \cr
+      2.7 & -0.27 \cr
+    \end{array}
+    \right]
+  \left[
+    \begin{array}{cc}
+      0.93 & 0.37 \cr
+      -0.37 & 0.93
+      \end{array}
+    \right]^{-1}
+\end{equation*}
+
+\begin{equation*}
+  X = \bbordermatrix{
+  ~ &    a &   b & \mbox{group} \cr
+  1 & -0.6 & 3.0 & 1 \cr
+  2 & -0.4 & 3.5 & 1 \cr
+  3 &  4.4 & 1.0 & 1 \cr
+  4 &  4.6 & 1.5 & 1 \cr
+  5 & -1.0 & 2.0 & 2 \cr
+  6 & -0.8 & 2.5 & 2 \cr
+  7 &  4.0 & 0.0 & 2 \cr
+  8 &  4.2 & 0.5 & 2
+  }
+\end{equation*}
+
+\begin{align*}
+  \mu_1 & = [2.00 ~ 2.25] \\
+  \mu_2 & = [1.60 ~ 1.25] \\
+  \mu & = [1.80 ~ 1.75] \\
+  \Sigma_w & =
+  \left[
+    \begin{array}{@{}cc@{}}
+    50.08  & -19.8 \cr
+    -19.80 &  8.5
+    \end{array}
+    \right]\\
+  \Sigma_b & =
+  \left[
+    \begin{array}{@{}cc@{}}
+    0.32 & 0.8 \cr
+    0.80 & 2.0
+    \end{array}
+    \right]\\
+  \Sigma_w^{-1}\,\Sigma_b & = Q \, \Lambda \, Q^{-1} \\
+  ~ & = \left[
+    \begin{array}{@{}cc@{}}
+      0.37 & -0.93 \\
+      0.93 & 0.37
+    \end{array}
+    \right]
+  \left[
+    \begin{array}{@{}cc@{}}
+      4 & 0 \\
+      0 & 0
+    \end{array}
+    \right]
+  \left[
+    \begin{array}{@{}cc@{}}
+      0.37 & 0.93 \\
+      -0.93 & 0.37
+    \end{array}
+    \right]
+\end{align*}
+
+\begin{equation*}
+  \bbordermatrix{
+  ~ & \mbox{PC1} & \mbox{PC2} \cr
+  a & 0.93 & 0.37 \cr
+  b & -0.37 & 0.93 \cr
+  }
+\end{equation*}
+
+\begin{equation*}
+  \bbordermatrix{
+  ~ & \mbox{LD1} & \mbox{LD2} \cr
+  a & 0.37 & -0.93 \cr
+  b & 0.93 & 0.37
+  }
+\end{equation*}
 
 \end{document}
