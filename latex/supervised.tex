@@ -109,34 +109,134 @@ illustrates this phenomenon with a second bivariate dataset:\\
   the same three classes as Figure~\ref{fig:QDA}; b) fitting three
   bivariate normal distributions to the data with the same covariance
   matrix c) produces linear decision boundaries between the three
-  distributions.\\}
+  distributions.\medskip}
 \label{fig:LDA}
 \endgroup
 
-LDA can also be used to reduce the dimensionality of a dataset, in a
+LDA can also be used to reduce the dimensionality of datasets in a
 similar way to PCA. Recall that, in Section~\ref{sec:PCA}, we used a
 simple toy example to show how PCA can be used to project a
 two-dimensional dataset onto a one dimensional line. We can use the
 same approach to illustrate how LDA can achieve the same effect with a
-different aim. Consider a mixed dataset of two bivariate normal
-distributions:\\
+different aim. Consider a mixed dataset of two bivariate samples, $X$
+and $Y$:
+\begin{equation}
+  X = \bbordermatrix{
+    ~ &  a & b \cr
+    1 & -5 & 3 \cr
+    2 & -3 & 5 \cr
+    3 &  0 & 0
+  }
+  \mbox{~and~}
+  Y = \bbordermatrix{
+    ~ &  a &  b \cr
+    1 & 20 &  0 \cr
+    2 & 23 & -5 \cr
+    3 & 25 & -3
+  }
+  \label{eq:XY}
+\end{equation}
 
-\noindent\includegraphics[width=\linewidth]{../figures/PCAvsLDA.pdf}
-\begingroup \captionof{figure}{a) an equal mixture of two bivariate
-  normal datasets; b) PCA extracts the major axis of the best fitting
-  error ellipse to the merged dataset as the first principal
-  component; c) LDA fits two error ellipses to the data and extracts a
-  function (the first linear discriminant) that maximises the distance
-  between them. In this example, this produces a line that is
-  perpendicular to the first principal component.\\}
-\label{fig:PCAvsLDA}
-\endgroup
+Calculate the means of $X$ and $Y$:
+\begin{equation}
+  \bar{X} 
+  \bbordermatrix{
+    ~ & a & b \cr
+    = & -2.67 & 2.67
+  }
+  \mbox{~and~}
+  \bar{Y}
+  \bbordermatrix{
+    ~ & a & b \cr
+    = & 22.67 & -2.67
+  }
+\end{equation}
 
+\noindent and the \emph{within-group} covariance matrix:
+\begin{equation}
+  \Sigma_w = \frac{\Sigma_{X1} + \Sigma_{X2} + \ldots + \Sigma_{Y3}}{6-2}
+\end{equation}
+
+\noindent where
+\begin{equation}
+  \Sigma_{X1} =
+  \left[
+  \begin{array}{@{}cc@{}}
+    (-5+2.67)^2 & (-5+2.67)(3-2.67) \cr
+    (-5+2.67)(3-2.67) & (3-2.67)^2
+  \end{array}
+  \right],
+\end{equation}
+
+\begin{equation}
+  \Sigma_{Y3} =
+  \left[
+  \begin{array}{@{}cc@{}}
+    (25-22.67)^2 & (25-2.67)(-3+2.67) \cr
+    (25-22.67)(-3+2.67) & (-3+2.67)^2
+  \end{array}
+  \right]
+\end{equation}
+
+\noindent and so forth, resulting in:
+\begin{equation}
+  \Sigma_w =   \left[
+  \begin{array}{@{}cc@{}}
+    25.33 & -17.33 \cr
+    -17.33 & 25.33
+  \end{array}
+  \right]  
+\end{equation}
+
+The first linear discriminant is obtained by minimising the
+within-group (co)variance relative to the difference between the group
+means:
+\begin{equation}
+  \mbox{LD1} =
+  \Sigma_w^{-1} \left(\bar{Y}-\bar{X}\right) 
+  \bbordermatrix{
+   ~ & a & b \cr
+   = & 6.44 & 3.56
+  }
+  \label{eq:LD1}
+\end{equation}
+
+\texttt{R}'s \texttt{lda()} function
+(Section~\ref{sec:R-supervised}.\ref{it:LDA}) normalises the linear
+discriminants as follows:
+\begin{equation}
+  \mbox{LD1'} = \frac{\mbox{LD1}}{\sqrt{\mbox{LD1}^T\,\Sigma_w\,\mbox{LD1}}}
+  \bbordermatrix{
+    ~ & a & b \cr
+    = & 0.54 & 0.30
+  }
+  \label{eq:LD1'}
+\end{equation}
+
+The outcome of these calculations is shown in
+Figure~\ref{fig:PCAvsLDA}, alongside the results of a PCA analysis for
+the same dataset.
+
+\noindent\begin{minipage}[t][][b]{.55\textwidth}
+  \noindent\includegraphics[width=\linewidth]{../figures/PCAvsLDA.pdf}\\
+\end{minipage}
+\begin{minipage}[t][][t]{.45\textwidth}
+  \captionof{figure}{(i) The bivariate toy dataset of
+    Equation~\ref{eq:XY} with indication of the first linear
+    dicriminant function (LD1) and the first (PC1) and second (PC2)
+    principal components. LDA uses the groupings ($X$ and $Y$), PCA
+    ignores them. (ii) Projecting the data onto the directions defined
+    by LD1, PC1 and PC2 produces three one-dimensional views of the
+    toy data. LD1 is the direction that maximises the between-group
+    variance (i.e. the variance of the group means) relative to the
+    within-group variance (i.e., the pooled variance of the groups
+    about their means). In contrast, PC1 maximises the overal
+    variance.}
+  \label{fig:PCAvsLDA}
+\end{minipage}
+  
 Applying LDA to the four-dimensional iris dataset produces four linear
-discriminant functions that maximise the \textit{between class}
-variance (i.e., the variance of the class means) relative to the
-\textit{within class} variance (i.e., the pooled variance of the
-groups about their means). Like the first two principal components of
+discriminant functions. Like the first two principal components of
 Figure~\ref{fig:USArrests} and the first two MDS dimensions of
 Figure~\ref{fig:eurodist}, also the first two linear discriminant
 function of Figure~\ref{fig:LDAiris} achieve a dimension

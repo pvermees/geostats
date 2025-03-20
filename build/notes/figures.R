@@ -3403,38 +3403,63 @@ legend('topleft',legend='c)',bty='n',adj=c(2,0),cex=1.2)
 ell <- get.ellipse(mu=m1,a=0.02,b=0.02,theta=0)
 dev.off()
 
-cairo(file='../../figures/PCAvsLDA.pdf',width=7.5,height=2.5)
-pars(mfrow=c(1,3))
-set.seed(3)
-n <- 100
-m1 <- c(-0.5,0.5)
-m2 <- c(0.5,-0.5)
-s <- rbind(c(1,0.95),c(0.95,1))
-groups <- c(rep(1,n),rep(3,n))
-xy1 <- MASS::mvrnorm(n=n,mu=m1,Sigma=s)
-xy2 <- MASS::mvrnorm(n=n,mu=m2,Sigma=s)
-xy <- rbind(xy1,xy2)
-# panel 1
-plot(xy,pch=groups,asp=1,xlab='x',ylab='y',ylim=c(-3,3))
-legend('topleft',legend='a)',bty='n',adj=c(2,0),cex=1.2)
-# panel 2
-plot(xy,pch=groups,asp=1,col='gray50',xlab='x',ylab='y',ylim=c(-3,3))
-legend('topleft',legend='b)',bty='n',adj=c(2,0),cex=1.2)
-mu <- colMeans(xy)
-Sigma <- cov(xy)
-ell <- IsoplotR::ellipse(x=mu[1],y=mu[2],covmat=Sigma)
-polygon(ell,border='black',col=NULL)
-pc <- princomp(xy)
-lines(rbind(10*pc$loadings[,1],-10*pc$loadings[,1]))
-# panel 3
-plot(xy,pch=groups,asp=1,col='gray50',xlab='x',ylab='y',ylim=c(-3,3))
-legend('topleft',legend='c)',bty='n',adj=c(2,1),cex=1.2)
-ell1 <- IsoplotR::ellipse(x=m1[1],y=m1[2],covmat=s)
-polygon(ell1,border='black',col=NULL)
-ell2 <- IsoplotR::ellipse(x=m2[1],y=m2[2],covmat=s)
-polygon(ell2,border='black',col=NULL)
-ld <- lda(groups ~ xy[,1] + xy[,2])
-lines(cbind(unlist(2*ld$scaling),-unlist(2*ld$scaling)))
+cairo(file='../../figures/PCAvsLDA.pdf',width=5,height=5)
+pars(mgp=c(2,1,0),mar=c(3,3,0.3,2),mfrow=c(2,1))
+data <- data.frame(a=c(-5,-3,0,20,23,25),
+                   b=c(3,5,0,0,-5,-3),
+                   group=factor(rep(c('X','Y'),each=3)))
+X <- data$group == "X"
+Y <- data$group == "Y"
+mu1 <- colMeans(data[X,1:2])
+mu2 <- colMeans(data[Y,1:2])
+D1 <- as.matrix(sweep(data[X,1:2], 2, mu1, "-"))
+D2 <- as.matrix(sweep(data[Y,1:2], 2, mu2, "-"))
+S1 <- t(D1) %*% D1
+S2 <- t(D2) %*% D2
+Sw <- S1 + S2
+within_cov <- Sw/(nrow(data)-length(levels(data$group)))
+scaling <- solve(within_cov,mu2-mu1)
+normfact <- sqrt(as.numeric(t(scaling) %*% within_cov %*% scaling))
+ld_manual <- scaling / normfact
+ld_MASS <- lda(group ~ a + b, data = data)
+plot(b ~ a,data=data,type='n',bty='n',asp=1)
+legend('topright',legend='(i)',bty='n',cex=1.25)
+text(x=data[,'a'],y=data[,'b'],labels=paste0(data$group,1:3))
+mu <- colMeans(data[,1:2])
+lines(x=mu[1]+c(0,scaling[1]),y=mu[2]+c(0,scaling[2]))
+text(x=mu[1]+scaling[1],y=mu[2]+scaling[2],labels = "LD1", pos = 4)
+# PCA2D
+pc <- stats::princomp(data[,-3])
+pc1 <- pc$center + pc$sdev[1] %*% pc$loadings[,'Comp.1']
+pc2 <- pc$center + pc$sdev[2] %*% pc$loadings[,'Comp.2']
+lines(x=c(mu[1],pc1[1]),y=c(mu[2],pc1[2]))#,col='grey50')
+lines(x=c(mu[1],pc2[1]),y=c(mu[2],pc2[2]))#,col='grey50')
+text(x=pc1[1],y=pc1[2],labels="PC1",pos=3)#,col='grey50')
+text(x=pc2[1],y=pc2[2],labels="PC2",pos=3)#,col='grey50')
+# plot projections
+par(mar=c(1,2,1,2))
+pc1 <- pc$scores[,1]
+pc2 <- pc$scores[,2]
+ld1 <- as.numeric(predict(ld_MASS)$x)
+xlim <- range(c(pc1,pc2,ld1))
+plot(x=xlim,y=c(-1,1.5),type='n',bty='n',
+     axes=FALSE,xaxt='n',yaxt='n',ann=FALSE)
+legend('topright',legend='(ii)',bty='n',cex=1.25)
+lines(x=pc1,y=rep(-1,length(pc1)))
+lines(x=pc2,y=rep(0,length(pc2)))
+lines(x=ld1,y=rep(1,length(ld1)))
+text(x=pc1,y=rep(-1,length(pc1)),
+     labels=paste0(data$group,1:3),
+     xpd=NA,pos=c(1,3,1))
+text(x=max(pc1),y=-1,labels='PC1',pos=4,xpd=NA)
+text(x=pc2,y=rep(0,length(pc2)),
+     labels=paste0(data$group,1:3),
+     xpd=NA,pos=c(1,1,1,3,3,3))
+text(x=max(pc2),y=0,labels='PC2',pos=4,xpd=NA)
+text(x=ld1,y=rep(1,length(ld1)),
+     labels=paste0(data$group,1:3),
+     xpd=NA,pos=c(1,3,1))
+text(x=max(ld1),y=1,labels='LD1',pos=4,xpd=NA)
 dev.off()
 
 cairo(file='../../figures/LDAiris.pdf',width=4,height=4)
