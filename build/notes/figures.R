@@ -3429,7 +3429,7 @@ text(x=data[,'a'],y=data[,'b'],labels=paste0(data$group,1:3))
 mu <- colMeans(data[,1:2])
 lines(x=mu[1]+c(0,scaling[1]),y=mu[2]+c(0,scaling[2]),col='grey50')
 text(x=mu[1]+scaling[1],y=mu[2]+scaling[2],
-     labels = "LD1", pos = 4, col='grey50')
+     labels = "LD", pos = 4, col='grey50')
 # PCA2D
 col <- 'grey50'
 pc <- stats::princomp(data[,-3])
@@ -3462,7 +3462,7 @@ text(x=max(pc2),y=0,labels='PC2',pos=4,xpd=NA,col=col)
 text(x=ld1,y=rep(1,length(ld1)),
      labels=paste0(data$group,1:3),
      xpd=NA,pos=c(1,1,3,3,1,1))
-text(x=max(ld1),y=1,labels='LD1',pos=4,xpd=NA,col=col)
+text(x=max(ld1),y=1,labels='LD',pos=4,xpd=NA,col=col)
 dev.off()
 
 cairo(file='../../figures/LDAiris.pdf',width=4,height=4)
