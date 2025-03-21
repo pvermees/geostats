@@ -9,23 +9,6 @@
 \newcommand{\tgap}{\hspace{1pt}}
 \newcommand{\gap}{\hspace{4pt}}
 
-\makeatletter
-\def\bbordermatrix#1{\begingroup \m@th
-  \@tempdima 4.75\p@
-  \setbox\z@\vbox{%
-    \def\cr{\crcr\noalign{\kern2\p@\global\let\cr\endline}}%
-    \ialign{$##$\hfil\kern2\p@\kern\@tempdima&\thinspace\hfil$##$\hfil
-      &&\quad\hfil$##$\hfil\crcr
-      \omit\strut\hfil\crcr\noalign{\kern-\baselineskip}%
-      #1\crcr\omit\strut\cr}}%
-  \setbox\tw@\vbox{\unvcopy\z@\global\setbox\@ne\lastbox}%
-  \setbox\tw@\hbox{\unhbox\@ne\unskip\global\setbox\@ne\lastbox}%
-  \setbox\tw@\hbox{$\kern\wd\@ne\kern-\@tempdima\left[\kern-\wd\@ne
-    \global\setbox\@ne\vbox{\box\@ne\kern2\p@}%
-    \vcenter{\kern-\ht\@ne\unvbox\z@\kern-\baselineskip}\,\right]$}%
-  \null\;\vbox{\kern\ht\@ne\box\tw@}\endgroup}
-\makeatother
-
 \begin{document}
 
 \section*{Slides}
@@ -600,21 +583,22 @@ What is the compositional average of the three samples?
 
 \vspace{1cm}
 
-\begin{minipage}{10cm}
+\begin{minipage}{12cm}
 
 Consider the following 5-sample dataset:
 
-\[ \begin{array}{c|cccc}
-  & \mbox{Ca} & \mbox{Mg} & \mbox{Fe} \\ \hline
-  1 & 51 & 12 & 37 \\
-  2 & 15 & 75 & 9 \\
-  3 & 44 & 47 & 10 \\
-  4 & 26 & 2 & 71 \\
-  5 & 51 & 6 & 42
+\[
+\begin{array}{c|cccc}
+  ~ & \mbox{Ca} & \mbox{Sr} & \mbox{Fe} & \mbox{Mg} \\ \hline
+  1 & 6.0 & 0.30 & 13.0 & 1.1 \\
+  2 & 6.7 & 0.35 & 12 & 0.50 \\
+  3 & 9.9 & 0.81 & 8.5 & 0.77 \\
+  4 & 11 & 0.31 & 5.5 & 3.3 \\
+  5 & 13 & 1.1 & 4.2 & 2.1
 \end{array}
 \]
 
-Assess whether, on a compositional biplot, Mg and Fe are
+Assess whether, on a compositional biplot, Ca/Sr and Fe/Mg are ...
 
 \begin{enumerate}
 \item independent

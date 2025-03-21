@@ -270,9 +270,9 @@ calculating the mean or constructing a confidence region) on the
 transformed data, the results can be mapped back to compositional
 space with the inverse logratio transformation. For the ternary case:
 \begin{equation}
-  x = \frac{\exp[u]}{\exp[u] + \exp[v] + 1} \mbox{,~}
-  y = \frac{\exp[v]}{\exp[u] + \exp[v] + 1} \mbox{,~}
-  z = \frac{1}{\exp[u] + \exp[v] + 1}
+  x = \frac{e^u}{e^u + e^v + 1} \mbox{,~}
+  y = \frac{e^v}{e^u + e^v + 1} \mbox{~and~}
+  z = \frac{1}{e^u + e^v + 1}
   \label{eq:inverse-logratio-transformation}
 \end{equation}
 
@@ -434,17 +434,23 @@ are the MDS configuration and, hence, the principal components. This
 issue can be solved by using a different type of logratio
 transformation, the \textbf{centred logratio transformation} (clr):
 \begin{equation}
-  u_i = \ln\!\left[\frac{x_i}{g_i}\right] \mbox{,~}
-  v_i = \ln\!\left[\frac{y_i}{g_i}\right] \mbox{,~and~}
-  w_i = \ln\!\left[\frac{z_i}{g_i}\right]
+  u = \ln\!\left[\frac{x}{g(x,y,z)}\right] \mbox{,~}
+  v = \ln\!\left[\frac{y}{g(x,y,z)}\right] \mbox{~and~}
+  w = \ln\!\left[\frac{z}{g(x,y,z)}\right]
   \label{eq:clr}
 \end{equation}
 
-\noindent where $g_i$ is the geometric mean of the
-$i$\textsuperscript{th} sample:
+\noindent where $g(x,y,z)$ is the geometric mean of the composition:
 \[
-g_i = \exp\!\left[\frac{\ln[x_i]+\ln[y_i]+\ln[z_i]}{3}\right]
+g(x,y,z) = \exp\!\left[\frac{\ln[x]+\ln[y]+\ln[z]}{3}\right]
 \]
+
+The inverse clr-transformation is defined as follows:
+\begin{equation}
+    x = \frac{e^u}{e^u+e^v+e^w} \mbox{,~}
+    y = \frac{e^v}{e^u+e^v+e^w} \mbox{~and~}
+    z = \frac{e^w}{e^u+e^v+e^w}
+\end{equation}
 
 Unlike alr-coordinate axes, clr-coordinate axes are orthogonal and
 unequivocally define a set of well behaved distances. Applying the
