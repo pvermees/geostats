@@ -123,32 +123,32 @@ and $Y$:
 \begin{equation}
   X = \bbordermatrix{
     ~ &  a & b \cr
-    1 & -5 & 3 \cr
-    2 & -3 & 5 \cr
-    3 &  0 & 0
+    1 &  3 & 0 \cr
+    2 &  0 & 2 \cr
+    3 &  9 & 19
   }
   \mbox{~and~}
   Y = \bbordermatrix{
     ~ &  a &  b \cr
-    1 & 20 &  0 \cr
-    2 & 23 & -5 \cr
-    3 & 25 & -3
+    1 & 60 & 19 \cr
+    2 & 69 & 36 \cr
+    3 & 66 & 38
   }
   \label{eq:XY}
 \end{equation}
 
-Calculate the means of $X$ and $Y$:
+Calculate the means of $X$ and $Y$
 \begin{equation}
   \bar{X} 
   \bbordermatrix{
     ~ & a & b \cr
-    = & -2.67 & 2.67
+    = & 4 & 7
   }
   \mbox{~and~}
   \bar{Y}
   \bbordermatrix{
-    ~ & a & b \cr
-    = & 22.67 & -2.67
+    ~ &  a &  b \cr
+    = & 65 & 31
   }
 \end{equation}
 
@@ -159,75 +159,131 @@ Calculate the means of $X$ and $Y$:
 
 \noindent where
 \begin{equation}
-  \Sigma_{X1} =
+  \begin{align}
+  \Sigma_{X1} & =
   \left[
-  \begin{array}{@{}cc@{}}
-    (-5+2.67)^2 & (-5+2.67)(3-2.67) \cr
-    (-5+2.67)(3-2.67) & (3-2.67)^2
+  \begin{array}{@{}c@{}c@{}}
+    (3-4)^2 & (3-4)(0-7) \cr
+    (3-4)(0-7) & (0-7)^2
   \end{array}
-  \right],
+  \right], \\
+  \Sigma_{X2} & =
+  \left[
+  \begin{array}{@{}c@{}c@{}}
+    (0-4)^2 & (0-4)(2-7) \cr
+    (0-4)(2-7) & (2-7)^2
+  \end{array}
+  \right], \ldots \\
+  \Sigma_{Y3} & =
+  \left[
+  \begin{array}{@{}c@{}c@{}}
+    (66-65)^2 & (66-65)(38-31) \cr
+    (66-65)(38-31) & (38-31)^2
+  \end{array}
+  \right].
+  \end{align}
 \end{equation}
 
-\begin{equation}
-  \Sigma_{Y3} =
-  \left[
-  \begin{array}{@{}cc@{}}
-    (25-22.67)^2 & (25-2.67)(-3+2.67) \cr
-    (25-22.67)(-3+2.67) & (-3+2.67)^2
-  \end{array}
-  \right]
-\end{equation}
-
-\noindent and so forth, resulting in:
+\noindent so that:
 \begin{equation}
   \Sigma_w =   \left[
   \begin{array}{@{}cc@{}}
-    25.33 & -17.33 \cr
-    -17.33 & 25.33
+    84 & 174 \cr
+    174 & 436
   \end{array}
   \right]  
 \end{equation}
 
-The first linear discriminant is obtained by minimising the
+The linear discriminant function is obtained by minimising the
 within-group (co)variance relative to the difference between the group
 means:
 \begin{equation}
-  \mbox{LD1} =
-  \Sigma_w^{-1} \left(\bar{Y}-\bar{X}\right) 
+  \mbox{LD} = \Sigma_w^{-1} \left(\bar{Y}-\bar{X}\right)
   \bbordermatrix{
-   ~ & a & b \cr
-   = & 6.44 & 3.56
-  }
-  \label{eq:LD1}
+    ~ & a & b \cr
+    = & 14.1 & -5.42 }
+  \label{eq:LD}
 \end{equation}
 
 \texttt{R}'s \texttt{lda()} function
 (Section~\ref{sec:R-supervised}.\ref{it:LDA}) normalises the linear
-discriminants as follows:
+discriminant function as follows:
 \begin{equation}
-  \mbox{LD1'} = \frac{\mbox{LD1}}{\sqrt{\mbox{LD1}^T\,\Sigma_w\,\mbox{LD1}}}
+  \mbox{LD}' = \frac{\mbox{LD1}}{\sqrt{\mbox{LD1}^T\,\Sigma_w\,\mbox{LD1}}}
   \bbordermatrix{
     ~ & a & b \cr
-    = & 0.54 & 0.30
+    = & 0.52 & -0.20
   }
   \label{eq:LD1'}
 \end{equation}
 
-The outcome of these calculations is shown in
-Figure~\ref{fig:PCAvsLDA}, alongside the results of a PCA analysis for
-the same dataset.
+The projected coordinates for the two samples then become:
+\begin{equation}
+  \left[
+  \begin{array}{c}
+    X1 \\
+    X2 \\
+    X3 \\
+    Y1 \\
+    Y2 \\
+    Y3 
+  \end{array}
+  \right] \rightarrow 0.52
+  \left(
+    \left[
+      \begin{array}{c}
+        3 \\
+        0 \\
+        9 \\
+        60 \\
+        69 \\
+        66
+      \end{array}
+      \right]
+    - \bar{a}
+    \right)
+    - 0.2
+    \left(
+    \left[
+      \begin{array}{c}
+        0  \\
+        2  \\
+        19 \\
+        19 \\
+        36 \\
+        38
+      \end{array}
+      \right] - \bar{b}
+    \right)
+    =
+    \left[
+      \begin{array}{c}
+        -12.65  \\
+        -14.61  \\
+        -13.32 \\
+        13.32 \\
+        14.61 \\
+        12.65
+      \end{array}
+      \right]    
+\end{equation}
+
+\noindent where $\bar{a} (= 34.5)$ and $\bar{b} (= 19.0)$ are the
+column means of the pooled data. The outcome of these calculations are
+shown graphically in Figure~\ref{fig:PCAvsLDA}, alongside the results
+of a PCA analysis for the same dataset.
 
 \noindent\begin{minipage}[t][][b]{.55\textwidth}
   \noindent\includegraphics[width=\linewidth]{../figures/PCAvsLDA.pdf}\\
 \end{minipage}
 \begin{minipage}[t][][t]{.45\textwidth}
   \captionof{figure}{(i) The bivariate toy dataset of
-    Equation~\ref{eq:XY} with indication of the first linear
-    dicriminant function (LD1) and the first (PC1) and second (PC2)
-    principal components. LDA uses the groupings ($X$ and $Y$), PCA
-    ignores them. (ii) Projecting the data onto the directions defined
-    by LD1, PC1 and PC2 produces three one-dimensional views of the
-    toy data. LD1 is the direction that maximises the between-group
+    Equation~\ref{eq:XY} with indication of the linear dicriminant
+    function (LD) and the first (PC1) and second (PC2) principal
+    components. LDA uses the groupings ($X$ and $Y$), PCA ignores
+    them. (ii) Projecting the data onto the directions defined by LD,
+    PC1 and PC2 produces three one-dimensional views of the toy
+    data. LD is the direction that maximises the between-group
     variance (i.e. the variance of the group means) relative to the
     within-group variance (i.e., the pooled variance of the groups
     about their means). In contrast, PC1 maximises the overal
@@ -235,27 +291,26 @@ the same dataset.
   \label{fig:PCAvsLDA}
 \end{minipage}
   
-Applying LDA to the four-dimensional iris dataset produces four linear
-discriminant functions. Like the first two principal components of
+Applying LDA to the four-dimensional iris dataset produces two linear
+discriminant functions ($K-1$, where $K=3$ is the number of
+classes/species).  Like the first two principal components of
 Figure~\ref{fig:USArrests} and the first two MDS dimensions of
-Figure~\ref{fig:eurodist}, also the first two linear discriminant
-function of Figure~\ref{fig:LDAiris} achieve a dimension
-reduction. But whereas PCA and MDS aim to visualise the total
-variability of the dataset, LDA aims to highlight the pre-defined
-clusters within the dataset:
+Figure~\ref{fig:eurodist}, also the two linear discriminant functions
+of Figure~\ref{fig:LDAiris} achieve a dimension reduction. But whereas
+PCA and MDS aim to visualise the total variability of the dataset, LDA
+aims to highlight the pre-defined clusters within the dataset:
 
 \noindent\begin{minipage}[t][][b]{.35\textwidth}
   \includegraphics[width=\textwidth]{../figures/LDAiris.pdf}\\
 \end{minipage}
 \begin{minipage}[t][][t]{.65\textwidth}
-  \captionof{figure}{The first two linear discriminants of the
+  \captionof{figure}{The two linear discriminants of the
     four-dimensional iris data represent a two-dimensional projection
     of these data that maximises the differences between the three
-    different species of flowers. They are defined as\\
-    LD1 = 0.83 $\times$ (sepal length - 5.84) + 1.53 $\times$ (sepal width -
+    different species of flowers. They are defined as\\ LD1 = 0.83
+    $\times$ (sepal length - 5.84) + 1.53 $\times$ (sepal width -
     3.06) - 2.20 $\times$ (petal length - 3.76) - 2.81 $\times$ (petal
-    width - 1.20); and\\
-    LD2 = 0.024 $\times$ (sepal length - 5.84) +
+    width - 1.20); and\\ LD2 = 0.024 $\times$ (sepal length - 5.84) +
     2.16 $\times$ (sepal width - 3.06) - 0.93 $\times$ (petal length -
     3.76) + 2.84 $\times$ (petal width - 1.20).\\}
   \label{fig:LDAiris}

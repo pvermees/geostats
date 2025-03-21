@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.8.26)  20 MAR 2025 22:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.8.26)  21 MAR 2025 12:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -5024,64 +5024,83 @@ See the caption package documentation for explanation.
 pdfTeX warning: pdflatex (file ../figures/LDA.pdf): PDF inclusion: multiple pdf
 s with page group included in a single page
 >]
-<../figures/PCAvsLDA.pdf, id=3538, 361.35pt x 361.35pt>
-File: ../figures/PCAvsLDA.pdf Graphic file (type pdf)
-<use ../figures/PCAvsLDA.pdf>
-Package pdftex.def Info: ../figures/PCAvsLDA.pdf  used on input line 221.
-(pdftex.def)             Requested size: 250.38564pt x 250.38489pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 221--222
+! Package amsmath Error: Erroneous nesting of equation structures;
+(amsmath)                trying to recover with `aligned'.
 
- []
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 234.
-See the caption package documentation for explanation.
-
-
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 220--237
-[] [] 
- []
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.184   \end{align}
+                   
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 [125]
-<../figures/LDAiris.pdf, id=3558, 289.08pt x 289.08pt>
-File: ../figures/LDAiris.pdf Graphic file (type pdf)
-<use ../figures/LDAiris.pdf>
-Package pdftex.def Info: ../figures/LDAiris.pdf  used on input line 248.
-(pdftex.def)             Requested size: 159.33821pt x 159.33855pt.
+<../figures/PCAvsLDA.pdf, id=3551, 361.35pt x 361.35pt>
+File: ../figures/PCAvsLDA.pdf Graphic file (type pdf)
+<use ../figures/PCAvsLDA.pdf>
+Package pdftex.def Info: ../figures/PCAvsLDA.pdf  used on input line 277.
+(pdftex.def)             Requested size: 250.38564pt x 250.38489pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 248--249
+Underfull \hbox (badness 10000) in paragraph at lines 277--278
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 260.
+(caption)                particular \caption on input line 290.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 247--263
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 276--293
 [] [] 
  []
 
-<../figures/LDAnewiris.pdf, id=3559, 289.08pt x 289.08pt>
-File: ../figures/LDAnewiris.pdf Graphic file (type pdf)
-<use ../figures/LDAnewiris.pdf>
-Package pdftex.def Info: ../figures/LDAnewiris.pdf  used on input line 269.
+<../figures/LDAiris.pdf, id=3557, 289.08pt x 289.08pt>
+File: ../figures/LDAiris.pdf Graphic file (type pdf)
+<use ../figures/LDAiris.pdf>
+Package pdftex.def Info: ../figures/LDAiris.pdf  used on input line 304.
 (pdftex.def)             Requested size: 159.33821pt x 159.33855pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 269--270
+Underfull \hbox (badness 10000) in paragraph at lines 304--305
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 279.
+(caption)                particular \caption on input line 315.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 268--282
+Underfull \hbox (badness 1314) in paragraph at lines 315--315
+[]\OT1/cmr/m/n/10.95 Figure 13.4: |[]The two lin-ear dis-crim-i-nants of the fo
+ur-
+ []
+
+
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 303--318
+[] [] 
+ []
+
+<../figures/LDAnewiris.pdf, id=3558, 289.08pt x 289.08pt>
+File: ../figures/LDAnewiris.pdf Graphic file (type pdf)
+<use ../figures/LDAnewiris.pdf>
+Package pdftex.def Info: ../figures/LDAnewiris.pdf  used on input line 324.
+(pdftex.def)             Requested size: 159.33821pt x 159.33855pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 324--325
+
+ []
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 334.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 323--337
 [] [] 
  []
 
@@ -5093,25 +5112,25 @@ pdfTeX warning: pdflatex (file ../figures/LDAiris.pdf): PDF inclusion: multiple
 <../figures/CARTdata.pdf, id=3587, 252.945pt x 252.945pt>
 File: ../figures/CARTdata.pdf Graphic file (type pdf)
 <use ../figures/CARTdata.pdf>
-Package pdftex.def Info: ../figures/CARTdata.pdf  used on input line 308.
+Package pdftex.def Info: ../figures/CARTdata.pdf  used on input line 363.
 (pdftex.def)             Requested size: 159.33821pt x 159.34074pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 308--309
+Underfull \hbox (badness 10000) in paragraph at lines 363--364
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 315.
+(caption)                particular \caption on input line 370.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 307--318
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 362--373
 [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 332--338
+Underfull \hbox (badness 10000) in paragraph at lines 387--393
 
  []
 
@@ -5123,41 +5142,41 @@ e pdfs with page group included in a single page
 <../figures/Qtries.pdf, id=3613, 758.835pt x 252.945pt>
 File: ../figures/Qtries.pdf Graphic file (type pdf)
 <use ../figures/Qtries.pdf>
-Package pdftex.def Info: ../figures/Qtries.pdf  used on input line 339.
+Package pdftex.def Info: ../figures/Qtries.pdf  used on input line 394.
 (pdftex.def)             Requested size: 455.24411pt x 151.74887pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 342.
+(caption)                particular \caption on input line 397.
 See the caption package documentation for explanation.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 346--352
+Underfull \hbox (badness 10000) in paragraph at lines 401--407
 
  []
 
 <../figures/Q2.pdf, id=3616, 505.89pt x 252.945pt>
 File: ../figures/Q2.pdf Graphic file (type pdf)
 <use ../figures/Q2.pdf>
-Package pdftex.def Info: ../figures/Q2.pdf  used on input line 354.
+Package pdftex.def Info: ../figures/Q2.pdf  used on input line 409.
 (pdftex.def)             Requested size: 318.66948pt x 159.33688pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 354--355
+Underfull \hbox (badness 10000) in paragraph at lines 409--410
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 362.
+(caption)                particular \caption on input line 417.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 353--365
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 408--420
 [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 366--369
+Underfull \hbox (badness 10000) in paragraph at lines 421--424
 
  []
 
@@ -5165,20 +5184,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 366--369
 File: ../figures/overfittedCARTscatter.pdf Graphic file (type pdf)
 <use ../figures/overfittedCARTscatter.pdf>
 Package pdftex.def Info: ../figures/overfittedCARTscatter.pdf  used on input li
-ne 371.
+ne 426.
 (pdftex.def)             Requested size: 318.66948pt x 159.33688pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 371--372
+Underfull \hbox (badness 10000) in paragraph at lines 426--427
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 377.
+(caption)                particular \caption on input line 432.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 370--380
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 425--435
 [] [] 
  []
 
@@ -5190,20 +5209,20 @@ pdfTeX warning: pdflatex (file ../figures/Q2.pdf): PDF inclusion: multiple pdfs
 <../figures/cvCART.pdf, id=3653, 216.81pt x 216.81pt>
 File: ../figures/cvCART.pdf Graphic file (type pdf)
 <use ../figures/cvCART.pdf>
-Package pdftex.def Info: ../figures/cvCART.pdf  used on input line 433.
+Package pdftex.def Info: ../figures/cvCART.pdf  used on input line 488.
 (pdftex.def)             Requested size: 136.57462pt x 136.58109pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 433--434
+Underfull \hbox (badness 10000) in paragraph at lines 488--489
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 444.
+(caption)                particular \caption on input line 499.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 432--447
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 487--502
 [] [] 
  []
 
@@ -5211,45 +5230,45 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 432--447
 <../figures/optimalCART.pdf, id=3675, 505.89pt x 252.945pt>
 File: ../figures/optimalCART.pdf Graphic file (type pdf)
 <use ../figures/optimalCART.pdf>
-Package pdftex.def Info: ../figures/optimalCART.pdf  used on input line 452.
+Package pdftex.def Info: ../figures/optimalCART.pdf  used on input line 507.
 (pdftex.def)             Requested size: 318.66948pt x 159.33688pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 452--453
+Underfull \hbox (badness 10000) in paragraph at lines 507--508
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 457.
+(caption)                particular \caption on input line 512.
 See the caption package documentation for explanation.
 
 
-Underfull \hbox (badness 1043) in paragraph at lines 457--457
+Underfull \hbox (badness 1043) in paragraph at lines 512--512
 \OT1/cmr/m/n/10.95 tree for the bi-vari-ate test
  []
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 451--460
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 506--515
 [] [] 
  []
 
 <../figures/irisCART.pdf, id=3677, 194.7275pt x 194.7275pt>
 File: ../figures/irisCART.pdf Graphic file (type pdf)
 <use ../figures/irisCART.pdf>
-Package pdftex.def Info: ../figures/irisCART.pdf  used on input line 467.
+Package pdftex.def Info: ../figures/irisCART.pdf  used on input line 522.
 (pdftex.def)             Requested size: 136.57462pt x 136.57869pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 467--468
+Underfull \hbox (badness 10000) in paragraph at lines 522--523
 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 474.
+(caption)                particular \caption on input line 529.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 466--477
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 521--532
 [] [] 
  []
 
@@ -6126,16 +6145,13 @@ Chapter 20.
 ) [227
 
 ] [228] [229] (./geostats.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `geostats.out' has not changed.
 (rerunfilecheck)             Checksum: 54D3535C865570BED1E7390F39A2A559;20584.
  ) 
 Here is how much of TeX's memory you used:
  27947 strings out of 478287
- 505545 string characters out of 5849289
- 1074372 words of memory out of 5000000
+ 505544 string characters out of 5849289
+ 1074363 words of memory out of 5000000
  44234 multiletter control sequences out of 15000+600000
  483630 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -6168,7 +6184,7 @@ cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on geostats.pdf (229 pages, 3632902 bytes).
+Output written on geostats.pdf (229 pages, 3634516 bytes).
 PDF statistics:
  5633 PDF objects out of 6186 (max. 8388607)
  4553 compressed objects within 46 object streams

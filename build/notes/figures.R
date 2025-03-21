@@ -3404,9 +3404,10 @@ ell <- get.ellipse(mu=m1,a=0.02,b=0.02,theta=0)
 dev.off()
 
 cairo(file='../../figures/PCAvsLDA.pdf',width=5,height=5)
-pars(mgp=c(2,1,0),mar=c(3,3,0.3,2),mfrow=c(2,1))
-data <- data.frame(a=c(-5,-3,0,20,23,25),
-                   b=c(3,5,0,0,-5,-3),
+pars(mgp=c(2,1,0),mar=c(3,3,0.3,2))
+layout(rbind(1,2),height=c(3,2))
+data <- data.frame(a=c(3,0,9,60,69,66),
+                   b=c(0,2,19,19,36,38),
                    group=factor(rep(c('X','Y'),each=3)))
 X <- data$group == "X"
 Y <- data$group == "Y"
@@ -3423,19 +3424,21 @@ normfact <- sqrt(as.numeric(t(scaling) %*% within_cov %*% scaling))
 ld_manual <- scaling / normfact
 ld_MASS <- lda(group ~ a + b, data = data)
 plot(b ~ a,data=data,type='n',bty='n',asp=1)
-legend('topright',legend='(i)',bty='n',cex=1.25)
+legend('topleft',legend='(i)',bty='n',cex=1.25)
 text(x=data[,'a'],y=data[,'b'],labels=paste0(data$group,1:3))
 mu <- colMeans(data[,1:2])
-lines(x=mu[1]+c(0,scaling[1]),y=mu[2]+c(0,scaling[2]))
-text(x=mu[1]+scaling[1],y=mu[2]+scaling[2],labels = "LD1", pos = 4)
+lines(x=mu[1]+c(0,scaling[1]),y=mu[2]+c(0,scaling[2]),col='grey50')
+text(x=mu[1]+scaling[1],y=mu[2]+scaling[2],
+     labels = "LD1", pos = 4, col='grey50')
 # PCA2D
+col <- 'grey50'
 pc <- stats::princomp(data[,-3])
 pc1 <- pc$center + pc$sdev[1] %*% pc$loadings[,'Comp.1']
 pc2 <- pc$center + pc$sdev[2] %*% pc$loadings[,'Comp.2']
-lines(x=c(mu[1],pc1[1]),y=c(mu[2],pc1[2]))#,col='grey50')
-lines(x=c(mu[1],pc2[1]),y=c(mu[2],pc2[2]))#,col='grey50')
-text(x=pc1[1],y=pc1[2],labels="PC1",pos=3)#,col='grey50')
-text(x=pc2[1],y=pc2[2],labels="PC2",pos=3)#,col='grey50')
+lines(x=c(mu[1],pc1[1]),y=c(mu[2],pc1[2]),col=col)
+lines(x=c(mu[1],pc2[1]),y=c(mu[2],pc2[2]),col=col)
+text(x=pc1[1],y=pc1[2],labels="PC1",pos=1,col=col)
+text(x=pc2[1],y=pc2[2],labels="PC2",pos=1,col=col)
 # plot projections
 par(mar=c(1,2,1,2))
 pc1 <- pc$scores[,1]
@@ -3444,22 +3447,22 @@ ld1 <- as.numeric(predict(ld_MASS)$x)
 xlim <- range(c(pc1,pc2,ld1))
 plot(x=xlim,y=c(-1,1.5),type='n',bty='n',
      axes=FALSE,xaxt='n',yaxt='n',ann=FALSE)
-legend('topright',legend='(ii)',bty='n',cex=1.25)
-lines(x=pc1,y=rep(-1,length(pc1)))
-lines(x=pc2,y=rep(0,length(pc2)))
-lines(x=ld1,y=rep(1,length(ld1)))
+legend('topleft',legend='(ii)',bty='n',cex=1.25)
+lines(x=pc1,y=rep(-1,length(pc1)),col=col)
+lines(x=pc2,y=rep(0,length(pc2)),col=col)
+lines(x=ld1,y=rep(1,length(ld1)),col=col)
 text(x=pc1,y=rep(-1,length(pc1)),
      labels=paste0(data$group,1:3),
-     xpd=NA,pos=c(1,3,1))
-text(x=max(pc1),y=-1,labels='PC1',pos=4,xpd=NA)
+     xpd=NA,pos=c(3,1,1,1,1,3))
+text(x=max(pc1),y=-1,labels='PC1',pos=4,xpd=NA,col=col)
 text(x=pc2,y=rep(0,length(pc2)),
      labels=paste0(data$group,1:3),
-     xpd=NA,pos=c(1,1,1,3,3,3))
-text(x=max(pc2),y=0,labels='PC2',pos=4,xpd=NA)
+     xpd=NA,pos=c(1,3,1,3,1,3))
+text(x=max(pc2),y=0,labels='PC2',pos=4,xpd=NA,col=col)
 text(x=ld1,y=rep(1,length(ld1)),
      labels=paste0(data$group,1:3),
-     xpd=NA,pos=c(1,3,1))
-text(x=max(ld1),y=1,labels='LD1',pos=4,xpd=NA)
+     xpd=NA,pos=c(1,1,3,3,1,1))
+text(x=max(ld1),y=1,labels='LD1',pos=4,xpd=NA,col=col)
 dev.off()
 
 cairo(file='../../figures/LDAiris.pdf',width=4,height=4)
