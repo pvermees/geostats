@@ -258,9 +258,9 @@ Section~\ref{sec:ratios}. The trick is to map the $n$-dimensional
 composition to an $(n-1)$-dimensional Euclidean space by means of an
 \textbf{additive logratio transformation} (alr). For example, in the
 ternary case, we can map the compositional variables $x$, $y$ and $z$
-to two transformed variables $v$ and $w$:
+to two transformed variables $u$ and $v$:
 \begin{equation}
-  v = \ln\!\left[\frac{x}{z}\right] \mbox{,~} w =
+  u = \ln\!\left[\frac{x}{z}\right] \mbox{,~} v =
   \ln\!\left[\frac{y}{z}\right]
   \label{eq:alr}
 \end{equation}
@@ -270,9 +270,9 @@ calculating the mean or constructing a confidence region) on the
 transformed data, the results can be mapped back to compositional
 space with the inverse logratio transformation. For the ternary case:
 \begin{equation}
-  x = \frac{\exp[v]}{\exp[v] + \exp[w] + 1} \mbox{,~}
-  y = \frac{\exp[w]}{\exp[v] + \exp[w] + 1} \mbox{,~}
-  z = \frac{1}{\exp[v] + \exp[w] + 1}
+  x = \frac{\exp[u]}{\exp[u] + \exp[v] + 1} \mbox{,~}
+  y = \frac{\exp[v]}{\exp[u] + \exp[v] + 1} \mbox{,~}
+  z = \frac{1}{\exp[u] + \exp[v] + 1}
   \label{eq:inverse-logratio-transformation}
 \end{equation}
 

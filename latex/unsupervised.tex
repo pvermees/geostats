@@ -95,7 +95,7 @@ array of numbers. PCA involves the following steps
 alternative way to find principal components is via singular value
 decomposition.}, i.e. rewrite it as the product of three matrices:
   \begin{equation}
-    \Sigma = Q \Lambda Q^{-1} =
+    \Sigma = Q \, \Lambda \, Q^{-1} =
     \left[
       \begin{array}{cc}
          0.95 & 0.32 \\
@@ -125,7 +125,7 @@ decomposition.}, i.e. rewrite it as the product of three matrices:
 \item Define the \emph{principal components} ($P$) or \emph{scores}
   as:
   \begin{equation}
-    P = Y Q = 
+    P = Y \, Q = 
     \left[
       \begin{array}{cc}
         -12.6 &  0 \\
@@ -140,7 +140,7 @@ decomposition.}, i.e. rewrite it as the product of three matrices:
 
 The first column of $Q$ defines the direction of maximum variance of
 the bivariate dataset $X$ (direction of the line labelled PC1 in
-Figure~\ref{fig:PCA2D1}).  It separates sample 1 from samples~2 and
+Figure~\ref{fig:PCA2D1}).  It separates sample~1 from samples~2 and
 3. Projecting the data onto this direction yields a new set of
 numbers, corresponding to the first column of $P$ (PC1 in
 Figure~\ref{fig:PCA2D2}). The variance of these new coordinates is
@@ -148,7 +148,7 @@ Figure~\ref{fig:PCA2D2}). The variance of these new coordinates is
 defines a direction that is orthogonal (perpendicular) to that defined
 by the first column (direction of the line labelled PC2 in
 Figure~\ref{fig:PCA2D1}). This direction accounts for the remaining
-variance of the dataset, separating samples 2 and 3. Projecting the
+variance of the dataset, separating samples~2 and 3. Projecting the
 three samples on the second principal direction yields a second set of
 principal components, corresponding to the second column of $P$ (PC2
 in Figure~\ref{fig:PCA2D1}). The variance of these numbers is 10,
@@ -312,7 +312,7 @@ Table~\ref{eq:d} has the following properties:
 \item{\bf symmetry}: $d[i,j]=d[j,i]$; for example, the distance from
   sample~1 to 3 equals the distance from sample~3 to 1.
 \item{\bf non-negativity}: $d[i,j]\geq{0}$ and $d[i,j]=0$ if $i=j$;
-  for example, the distance between sample 2 and itself is zero.
+  for example, the distance between sample~2 and itself is zero.
 \item{\bf triangle inequality}: $d[i,j]+d[j,k]\geq{d[i,k]}$; for
   example, the sum of the distance from sample~2 to 1 and the distance
   from sample~2 to 3 is 19.2 + 6.3 = 25.5~km, which is greater than

@@ -308,12 +308,12 @@ biplot(pc,xlabs=dat$channel,xlim=c(-0.5,0.7))
 dev.off()
 
 set.seed(5)
-#png(filename='unsupervised-hclust.png',
-#    width=250,height=750,pointsize=14)
-#pars(mfrow=c(4,1))
-pdf(file='../slides/unsupervised-hclust.pdf',
-    width=6,height=6)
-pars(mfrow=c(2,2))
+png(filename='unsupervised-hclust.png',
+    width=250,height=750,pointsize=14)
+pars(mfrow=c(4,1))
+#pdf(file='../slides/unsupervised-hclust.pdf',
+#    width=6,height=6)
+#pars(mfrow=c(2,2))
 labs <- c('(a)','(b)','(c)','(d)')
 xy <- list()
 d <- list()

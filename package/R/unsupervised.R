@@ -2,12 +2,18 @@
 #' @description Produces a 4-panel summary plot for two dimensional
 #'     PCA for didactical purposes.
 #' @param X a matrix with two columns
+#' @param pos1 the positions of the text labels for the first
+#'     principal component in the second panel
+#' @param pos2 the positions of the text labels for the second
+#'     principal component in the second panel
 #' @examples
-#' X <- rbind(c(-1,7),c(3,2),c(4,3))
-#' colnames(X) <- c('a','b')
+#' X <- cbind(a=c(0.0,1.7,1.9),b=c(0.9,0.0,0.6))
 #' PCA2D(X)
 #' @export
-PCA2D <- function(X){
+PCA2D <- function(X,
+                  pos1=rep(c(1,3),ceiling(nrow(X)/2))[1:nrow(X)],
+                  pos2=rep(c(1,1,3,3),ceiling(nrow(X)/4))[1:nrow(X)]){
+    nr <- nrow(X)
     oldpar <- graphics::par(no.readonly = TRUE)
     on.exit(graphics::par(oldpar))
     pc <- stats::princomp(X)
@@ -21,8 +27,8 @@ PCA2D <- function(X){
     rx <- range(X[,'a'],CL[,1]) # range of x-values
     ry <- range(X[,'b'],CL[,2]) # range of y-values
     graphics::plot(rx,ry,type='n',asp=1,xlab='a',ylab='b')
-    graphics::mtext('i',side=3,line=-1,adj=0.99)
-    graphics::text(X,labels=1:3)
+    graphics::legend('topright',legend='i',bty='n')
+    graphics::text(X,labels=1:nr)
     # draw the line marking the 1st PC:
     graphics::lines(CL[c(1,3),])
     graphics::text(CL[3,1],CL[3,2],labels='PC1',pos=4)
@@ -34,26 +40,26 @@ PCA2D <- function(X){
     # initialise the 2nd panel:
     graphics::plot(range(pc$scores),c(1,4),type='n',bty='n',
                    xaxt='n',yaxt='n',xlab='',ylab='')
-    graphics::mtext('ii',side=3,line=-1,adj=0.99)
+    graphics::legend('topright',legend='ii',bty='n')
     graphics::Axis(side=1)
     # plot the 1st PC scores as a 1D configuration:
-    graphics::lines(pc$scores[,1],rep(2,3))
-    graphics::points(pc$scores[,1],rep(2,3))
-    graphics::text(pc$scores[,1],rep(2,3),labels=1:3,pos=c(1,1,3))
+    graphics::lines(pc$scores[,1],rep(2,nr))
+    graphics::points(pc$scores[,1],rep(2,nr))
+    graphics::text(pc$scores[,1],rep(2,nr),labels=1:nr,pos=pos1)
     graphics::text(min(pc$scores[,1]),2,labels='PC1',pos=2)
     # plot the 2nd PC scores as a 1D configuration:
-    graphics::lines(pc$scores[,2],rep(3,3))
-    graphics::points(pc$scores[,2],rep(3,3))
-    graphics::text(pc$scores[,2],rep(3,3),labels=1:3,pos=1)
+    graphics::lines(pc$scores[,2],rep(3,nr))
+    graphics::points(pc$scores[,2],rep(3,nr))
+    graphics::text(pc$scores[,2],rep(3,nr),labels=1:nr,pos=pos2)
     graphics::text(min(pc$scores[,2]),3,labels='PC2',pos=2)
     # plot both PCA scores and the loadings in the 3rd panel:
     stats::biplot(pc)
-    graphics::mtext('iii',side=3,line=-1,adj=0.99)
+    graphics::legend('topright',legend='iii',bty='n')
     # plot the weights of the PCs in the 4th panel:
     w <- pc$sdev^2
     names(w) <- colnames(pc$scores)
     graphics::barplot(w)
-    graphics::mtext('iv',side=3,line=-1,adj=0.99)
+    graphics::legend('topright',legend='iv',bty='n')
 }
 
 #' @title Kolmogorov-Smirnov distance matrix
