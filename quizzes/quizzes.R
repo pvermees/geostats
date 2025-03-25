@@ -353,13 +353,11 @@ if (FALSE){
 png(filename='compositional-biplot.png',
     width=400,height=400,pointsize=14)
 pars(mar=c(3,3,2,2))
-set.seed(4)
-lrcomp <- MASS::mvrnorm(5,mu=c(0,0,0),Sigma=rbind(c(2,1,2),c(1,3,1),c(2,1,5)))
-comp <- round(100*clr(lrcomp,inverse=TRUE))
-lrcomp2 <- clr(comp)
-colnames(lrcomp2) <- c('Ca','Mg','Fe')
-pc <- prcomp(lrcomp2)
-biplot(pc)
+dat <- data.frame(Ca=c(6.0,6.7,9.9,11,13),
+                  Sr=c(0.30,0.35,0.81,0.31,1.1),
+                  Fe=c(13,12,8.5,5.5,4.2),
+                  Mg=c(1.1,0.50,0.77,3.3,2.1))
+biplot(prcomp(clr(dat)))
 dev.off()
 
 png(filename='wulff.png',

@@ -4653,6 +4653,47 @@ lines(x,y)
 text(x[4],y[4],labels=expression(bar(theta)),font=5,pos=4,offset=0.1)
 dev.off()
 
+cairo(file='../../slides/atan2.pdf',width=4,height=4)
+pars(mar=c(0.5,0.5,1,1.5))
+theta1 <- seq(from=0,to=atan2(1,1),length.out=20)
+x1 <- 0.9*cos(theta1)
+y1 <- 0.9*sin(theta1)
+theta2 <- seq(from=0,to=atan2(1,-1),length.out=100)
+x2 <- 1.1*cos(theta2)
+y2 <- 1.1*sin(theta2)
+theta3 <- seq(from=0,to=atan(-1),length.out=100)
+x3 <- 1.0*cos(theta3)
+y3 <- 1.0*sin(theta3)
+plot(c(-cos(pi/4),1.1),c(-sin(pi/4),1.1),type='n',bty='n',
+     axes=FALSE,xaxt='n',yaxt='n',ann=FALSE,asp=1)
+lines(c(0,1.1),rep(0,2))
+lines(c(0,cos(pi/4)),c(0,sin(pi/4)))
+lines(c(0,-cos(pi/4)),c(0,sin(pi/4)))
+lines(x1,y1)
+lines(x2,y2,xpd=NA)
+lines(x3,y3,xpd=NA)
+text(cos(pi/4),sin(pi/4),labels='(x,y)',pos=2)
+arrows(x0=tail(x1,2)[1],x1=tail(x1,2)[2],
+       y0=tail(y1,2)[1],y1=tail(y1,2)[2],
+       angle=30,code=2,length=0.2)
+arrows(x0=tail(x2,2)[1],x1=tail(x2,2)[2],
+       y0=tail(y2,2)[1],y1=tail(y2,2)[2],
+       angle=30,code=2,length=0.2)
+arrows(x0=tail(x3,2)[1],x1=tail(x3,2)[2],
+       y0=tail(y3,2)[1],y1=tail(y3,2)[2],
+       angle=30,code=2,length=0.2)
+text(1.1,0,labels='0',pos=4,xpd=NA)
+text(-cos(pi/4),sin(pi/4),labels='(-x,y)',pos=4)
+text(cos(pi/8)*0.68,sin(pi/8)*0.65,labels='atan(y/x)',pos=3,xpd=NA)
+text(cos(pi/8)*0.68,sin(pi/8)*0.65,labels='= atan2(y,x)',pos=1,xpd=NA)
+text(x3[50]*0.75,y3[50]*0.75,labels='atan(y/(-x))',pos=3,xpd=NA)
+text(x3[50]*0.75,y3[50]*0.75,labels='=atan(-y/x)',pos=1,xpd=NA)
+text(x2[50]*1.2,y2[50]*1.2,labels='atan2(y,-x)',pos=1,xpd=NA)
+points(1,0,pch=21,cex=1.0,bg='black')
+points(cos(pi/4),sin(pi/4),pch=21,cex=1.0,bg='black')
+points(-cos(pi/4),sin(pi/4),pch=21,cex=1.0,bg='black')
+dev.off()
+
 cairo(file='../../slides/Rbar.pdf',width=2.5,height=2.5)
 pars(mar=rep(0,4))
 plot(x=c(-1,1),y=c(-1,1),type='n',axes=FALSE,ann=FALSE,bty='n',asp=1)
