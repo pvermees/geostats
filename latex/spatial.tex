@@ -143,7 +143,7 @@ $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ \\
 We can then use the boxed values below the diagonal to define the
 sample \textbf{semivariance} as:
 \begin{equation}
-\gamma[h] = \sum\limits_{k}^{n(h)}\frac{(z_{i[k]}-z_{j[k]})^2}{2 n(h)}
+\gamma[h] = \sum\limits_{k}^{n(h)}\frac{(z_{i[k]}-z_{j[k]})^2}{2\,n(h)}
 \end{equation}
 
 \noindent where $n(h)$ is the number of sample pairs that fall within
@@ -294,7 +294,7 @@ Master's thesis.  Given the best analytical fit to the semivariogram,
 the kriging algorithm interpolates the data between the measurements
 as follows:
 \begin{equation}
-z(x_\circ,y_\circ) = \sum\limits_{i=1}^n w_i z(x_i,y_i)
+z(x_\circ,y_\circ) = \sum\limits_{i=1}^n w_i \, z(x_i,y_i)
 \label{eq:kriging}
 \end{equation}
 
@@ -435,7 +435,7 @@ entire sampling area:
 
 The uncertainty (variance) of the kriging estimate is given by
 \begin{equation}
-  s^2(x_\circ,y_\circ) = \lambda + \sum\limits_{i=1}^n \gamma[h_{i,\circ}] w_i
+  s^2(x_\circ,y_\circ) = \lambda + \sum\limits_{i=1}^n \gamma[h_{i,\circ}] \, w_i
   \label{eq:kriginvar}
 \end{equation}
 
