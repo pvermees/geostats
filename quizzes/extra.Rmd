@@ -12,7 +12,7 @@ library(bookdown)
 graphics.off()
 solution <- TRUE
 results <- TRUE
-multi <- TRUE
+multi <- FALSE
 knitr::opts_chunk$set(echo=solution,include=results)
 knitr::opts_knit$set(global.device=FALSE)
 knitr::opts_chunk$set(fig.pos="H",out.extra="")
@@ -593,7 +593,7 @@ its nearest neighbour for a Poisson process in the plane?
    to this point be $X$. Then the probability that this distance
    falls inside a circle of radius $r$ is given by
    \[
-   P(X\leq{r}) = 1 - P(X>r) = 1-\exp[-\lambda\pi{r}^2]
+   F(X\leq{r}) = 1 - P(X>r) = 1-\exp[-\lambda\pi{r}^2]
    \]
    By definition, the probability density is given by
    \[
