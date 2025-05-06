@@ -10,8 +10,8 @@ output:
 ```{r setup, include = FALSE}
 library(bookdown)
 graphics.off()
-solution <- FALSE
-results <- FALSE
+solution <- TRUE
+results <- TRUE
 multi <- FALSE
 knitr::opts_chunk$set(echo=solution,include=results)
 knitr::opts_knit$set(global.device=FALSE)
@@ -524,8 +524,8 @@ with parameter $\lambda=2$ per hour.
       \]
       \[
       \Rightarrow 1-\exp(-\lambda') < 0.5 \Rightarrow
-      \lambda{t/60} > -\ln(0.5) = 0.069
-       \Rightarrow t > \frac{0.069\times{60}}{2} = 20.8
+      \lambda{t/60} > -\ln(0.5) = 0.69
+       \Rightarrow t > \frac{0.69\times{60}}{2} = 20.8
       \]
       Answer: Diane's shower can last at most 20.8 minutes.
       }\fi
@@ -830,7 +830,7 @@ propagation from 2 to 3 dimensions].
    \begin{array}{@{}cc@{}}
    1 & 0 \\
    0 & 1 \\
-   1 & -1
+   -1 & 1
    \end{array}
    \right]
    \left[
@@ -841,8 +841,8 @@ propagation from 2 to 3 dimensions].
    \right]
    \left[
    \begin{array}{@{}ccc@{}}
-   1 & 0 & 1 \\
-   0 & 1 & -1
+   1 & 0 & -1 \\
+   0 & 1 & 1
    \end{array}
    \right]
    \]
