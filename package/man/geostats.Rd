@@ -3,7 +3,6 @@
 \docType{package}
 \name{geostats}
 \alias{geostats}
-\alias{_PACKAGE}
 \alias{geostats-package}
 \title{library(geostats)}
 \description{

@@ -25,7 +25,6 @@ colourplot(
   las = 1,
   axes = TRUE,
   frame.plot = axes,
-  extra,
   xlim,
   ylim,
   zlim,
@@ -85,9 +84,6 @@ use horizontal labelling.}
 
 \item{frame.plot}{logicals indicating if a box should be drawn, as
 in \code{plot.default}.}
-
-\item{extra}{(optional) extra intructions to be carried out in the
-main plot window, such as text annotations.}
 
 \item{xlim}{x-axis limits (optional)}
 

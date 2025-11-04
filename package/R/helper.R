@@ -78,8 +78,6 @@ inside <- function(pts,pol){
 #' @param axes logicals indicating if axes should be drawn.
 #' @param frame.plot logicals indicating if a box should be drawn, as
 #'     in \code{plot.default}.
-#' @param extra (optional) extra intructions to be carried out in the
-#'     main plot window, such as text annotations.
 #' @param xlim x-axis limits (optional)
 #' @param ylim y-axis limits (optional)
 #' @param zlim z-axis limits (optional)
@@ -96,10 +94,11 @@ inside <- function(pts,pol){
 colourplot <- function (x, y, z, X, Y, Z, nlevels=20, colspec=hcl.colors,
                         pch = 21, cex = 1, plot.title, plot.axes, key.title,
                         key.axes, asp = NA, xaxs = "i", yaxs = "i",
-                        las = 1, axes = TRUE, frame.plot = axes, extra,
+                        las = 1, axes = TRUE, frame.plot = axes, 
                         xlim, ylim, zlim, ...) {
     cnts <- !(missing(x)|missing(y)|missing(z))
-    pnts <- !(missing(X)|missing(Y)|missing(Z))
+    pnts <- !(missing(X)|missing(Y))
+    if (missing(Z)) Z <- NULL
     if (cnts){
         xX <- x
         yY <- y
@@ -132,12 +131,13 @@ colourplot <- function (x, y, z, X, Y, Z, nlevels=20, colspec=hcl.colors,
     levels <- seq(from=zlim[1],to=zlim[2],length.out=nlevels)
     dl <- diff(zlim)
     levcol <- colspec(nlevels)
-    if (pnts){
+    if (pnts & length(Z)>1){
         ci <- ceiling(nlevels*(Z-levels[1])/dl)
         ptscol <- levcol[ci]
+    } else {
+        ptscol <- 'white'
     }
-    mar.orig <- (par.orig <- par(c("mar", "las", "mfrow")))$mar
-    on.exit(par(par.orig))
+    mar.orig <- par("mar")
     w <- (3 + mar.orig[2L]) * par("csi") * 2.54
     layout(matrix(c(2, 1), ncol = 2L), widths = c(1, lcm(w)))
     par(las = las)
@@ -166,9 +166,6 @@ colourplot <- function (x, y, z, X, Y, Z, nlevels=20, colspec=hcl.colors,
     }
     if (pnts){
         points(X, Y, pch=pch, cex=cex, bg=ptscol)
-    }
-    if (!missing(extra)){
-        extra
     }
     if (missing(plot.axes)) {
         if (axes) {

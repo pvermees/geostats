@@ -4,17 +4,26 @@
 \alias{PCA2D}
 \title{Principal Component Analysis of 2D data}
 \usage{
-PCA2D(X)
+PCA2D(
+  X,
+  pos1 = rep(c(1, 3), ceiling(nrow(X)/2))[1:nrow(X)],
+  pos2 = rep(c(1, 1, 3, 3), ceiling(nrow(X)/4))[1:nrow(X)]
+)
 }
 \arguments{
 \item{X}{a matrix with two columns}
+
+\item{pos1}{the positions of the text labels for the first
+principal component in the second panel}
+
+\item{pos2}{the positions of the text labels for the second
+principal component in the second panel}
 }
 \description{
 Produces a 4-panel summary plot for two dimensional
     PCA for didactical purposes.
 }
 \examples{
-X <- rbind(c(-1,7),c(3,2),c(4,3))
-colnames(X) <- c('a','b')
+X <- cbind(a=c(0.0,1.7,1.9),b=c(0.9,0.0,0.6))
 PCA2D(X)
 }

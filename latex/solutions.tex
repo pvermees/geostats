@@ -1900,28 +1900,28 @@ sphmodel <- semivariogram(x=X,y=Y,z=Z,plot=FALSE,model='spherical')
 expmodel <- semivariogram(x=X,y=Y,z=Z,plot=FALSE,model='exponential')
 \end{script}
 
-Estimating the log[Zn] values along an $x-y$ grids for both models:
+Estimating the log[Zn] values along an $(x,y)$-grid:
 
 \begin{script}[firstnumber=6]
 xi <- seq(from=min(X),to=max(X),length.out=50)
 yi <- seq(from=min(Y),to=max(Y),length.out=50)
 zsph <- kriging(x=X,y=Y,z=Z,xi=xi,yi=yi,grid=TRUE,svm=sphmodel)
 zexp <- kriging(x=X,y=Y,z=Z,xi=xi,yi=yi,grid=TRUE,svm=expmodel)
-colourplot(x=xi,y=yi,z=zsph-zexp,colspec=grey.colors)
+colourplot(x=xi,y=yi,z=zsph,plot.title=title('spherical'))
+colourplot(x=xi,y=yi,z=zexp,plot.title=title('exponential'))
 \end{script}
 
 The largest disagreements are found in sparsely sampled parts of the
-map. To show the sample locations as white circles, use the
-\texttt{colourplot}'s optional \texttt{extra} argument:
+map:
 
 \begin{script}[firstnumber=10]
-colourplot(x=xi,y=yi,z=exp(zsph-zexp),colspec=grey.colors,
-           extra={points(X,Y,pch=21,bg='white')})
+colourplot(X=X,Y=Y,x=xi,y=yi,z=exp(zsph-zexp),colspec=grey.colors,
+           key.title=title(expression('Zn'[sph]*'/Zn'[exp]),xpd=NA))
 \end{script}
 
-\noindent which also exponentiates the log-contrasts to yield the
-ratio of the Zn-concentation estimate using the spherical and
-exponential semivariogram models.
+\noindent which exponentiates the log-contrasts to yield the ratio of
+the Zn-concentations estimated using the spherical and exponential
+semivariogram models.
 
 \noindent\begin{minipage}[t][][b]{.6\linewidth}
 \includegraphics[width=\textwidth]{../figures/sphvsexp.pdf}
