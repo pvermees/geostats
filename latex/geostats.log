@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.9.27)  9 NOV 2025 19:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.9.27)  28 NOV 2025 10:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2369,24 +2369,24 @@ Package: fancyvrb 2024/01/20 4.5c verbatim text (tvz,hv)
 ) (./geostats.aux)
 \openout1 = `geostats.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -2422,7 +2422,7 @@ LaTeX Font Info:    ... okay on input line 64.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 64.
+Package hyperref Info: Link coloring ON on input line 54.
 (./geostats.out) (./geostats.out)
 \@outlinefile=\write5
 \openout5 = `geostats.out'.
@@ -2920,12 +2920,12 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 )
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 295--100
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 295--90
 [] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 295--100
+Underfull \hbox (badness 10000) in paragraph at lines 295--90
 
  []
 
@@ -4060,12 +4060,12 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 )
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 1340--112
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 1340--102
 [] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1340--112
+Underfull \hbox (badness 10000) in paragraph at lines 1340--102
 
  []
 
@@ -4315,12 +4315,12 @@ Underfull \hbox (badness 1337) in paragraph at lines 803--803
  []
 
 )
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 792--114
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 792--104
 [] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 792--114
+Underfull \hbox (badness 10000) in paragraph at lines 792--104
 
  []
 
@@ -6407,7 +6407,7 @@ Chapter 18.
 ]
 
 [190]
-<../figures/e.pdf, id=4760, 22.05498pt x 19.84949pt>
+<../figures/e.pdf, id=4759, 22.05498pt x 19.84949pt>
 File: ../figures/e.pdf Graphic file (type pdf)
 <use ../figures/e.pdf>
 Package pdftex.def Info: ../figures/e.pdf  used on input line 190.
@@ -6502,7 +6502,7 @@ Overfull \hbox (27.37506pt too wide) detected at line 831
 [215]
 
 [216]
-<../figures/PCAiris.pdf, id=5069, 216.81pt x 216.81pt>
+<../figures/PCAiris.pdf, id=5068, 216.81pt x 216.81pt>
 File: ../figures/PCAiris.pdf Graphic file (type pdf)
 <use ../figures/PCAiris.pdf>
 Package pdftex.def Info: ../figures/PCAiris.pdf  used on input line 1391.
@@ -6521,7 +6521,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 1390--1406
 
 
 [217]
-<../figures/elbow.pdf, id=5080, 216.81pt x 216.81pt>
+<../figures/elbow.pdf, id=5079, 216.81pt x 216.81pt>
 File: ../figures/elbow.pdf Graphic file (type pdf)
 <use ../figures/elbow.pdf>
 Package pdftex.def Info: ../figures/elbow.pdf  used on input line 1434.
@@ -6544,7 +6544,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 1433--1443
 pdfTeX warning: pdflatex (file ../figures/elbow.pdf): PDF inclusion: multiple p
 dfs with page group included in a single page
 >]
-<../figures/DZtree.pdf, id=5106, 216.81pt x 144.54pt>
+<../figures/DZtree.pdf, id=5105, 216.81pt x 144.54pt>
 File: ../figures/DZtree.pdf Graphic file (type pdf)
 <use ../figures/DZtree.pdf>
 Package pdftex.def Info: ../figures/DZtree.pdf  used on input line 1455.
@@ -6567,7 +6567,7 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 1454--1465
 [220]
 
 [221]
-<../figures/testPCA.pdf, id=5148, 289.08pt x 289.08pt>
+<../figures/testPCA.pdf, id=5147, 289.08pt x 289.08pt>
 File: ../figures/testPCA.pdf Graphic file (type pdf)
 <use ../figures/testPCA.pdf>
 Package pdftex.def Info: ../figures/testPCA.pdf  used on input line 1677.
@@ -6588,7 +6588,7 @@ Overfull \hbox (2.43333pt too wide) in paragraph at lines 1676--1693
 [222 <../figures/testPCA.pdf>]
 
 [223]
-<../figures/hills.pdf, id=5178, 505.89pt x 144.54pt>
+<../figures/hills.pdf, id=5177, 505.89pt x 144.54pt>
 File: ../figures/hills.pdf Graphic file (type pdf)
 <use ../figures/hills.pdf>
 Package pdftex.def Info: ../figures/hills.pdf  used on input line 1857.
@@ -6604,7 +6604,7 @@ See the caption package documentation for explanation.
 [224]
 
 [225 <../figures/hills.pdf>]
-<../figures/sphvsexp.pdf, id=5218, 361.35pt x 289.08pt>
+<../figures/sphvsexp.pdf, id=5217, 361.35pt x 289.08pt>
 File: ../figures/sphvsexp.pdf Graphic file (type pdf)
 <use ../figures/sphvsexp.pdf>
 Package pdftex.def Info: ../figures/sphvsexp.pdf  used on input line 1927.
@@ -6641,10 +6641,10 @@ Package rerunfilecheck Info: File `geostats.out' has not changed.
 (rerunfilecheck)             Checksum: 54D3535C865570BED1E7390F39A2A559;20584.
  ) 
 Here is how much of TeX's memory you used:
- 28515 strings out of 473197
- 517269 string characters out of 5718605
- 1194341 words of memory out of 5000000
- 50050 multiletter control sequences out of 15000+600000
+ 28514 strings out of 473197
+ 517263 string characters out of 5718605
+ 1194117 words of memory out of 5000000
+ 50049 multiletter control sequences out of 15000+600000
  573208 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,26n,101p,1082b,914s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -6663,24 +6663,23 @@ msfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmsltt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on geostats.pdf (229 pages, 3648102 bytes).
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsltt10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
+10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on geostats.pdf (229 pages, 3634954 bytes).
 PDF statistics:
- 5642 PDF objects out of 6186 (max. 8388607)
- 4560 compressed objects within 46 object streams
+ 5637 PDF objects out of 6186 (max. 8388607)
+ 4557 compressed objects within 46 object streams
  1237 named destinations out of 1440 (max. 500000)
  2066 words of extra memory for PDF output out of 10000 (max. 10000000)
 
