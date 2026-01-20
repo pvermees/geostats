@@ -88,8 +88,9 @@ dev.off()
 pdf(file='explain_PDF_CDF.pdf',width=8,height=4)
 ptile <- 0.4
 pars(mar=c(2.5,2.5,0.6,0.25),mgp=c(1.5,0.5,0),mfrow=c(1,2))
-plot(x=c(0.5,1,1,2,2,2.5),y=c(0,0,1,1,0,0),
-     type='l',lwd=2,xlab='x',ylab='p',bty='n')
+xx <- c(0.5,1,1,2,2,2.5)
+yy <- c(0,0,1,1,0,0)
+plot(x=xx,y=yy,type='l',lwd=2,xlab='x',ylab='p',bty='n')
 polygon(x=c(0,0,ptile,ptile),y=c(0,1,1,0),density=10)
 plot(x=c(0.5,1,2,2.5),y=c(0,0,1,1),
      type='l',lwd=2,bty='n',xlab='x',ylab='Fn(x)')
@@ -105,6 +106,7 @@ for (i in 1:(nr*nc)){
     dens <- density(x)
     plot(dens$x,dens$y,type='l',bty='n',
          xlab='x',ylab='KDE(x)',bw=0.1)
+    lines(x=xx,y=yy,col='grey',lwd=2)
     rug(x)
 }
 dev.off()
@@ -118,6 +120,7 @@ for (i in 1:(nr*nc)){
     dens <- density(x)
     plot(dens$x,dens$y,type='l',bty='n',
          xlab='x',ylab='KDE(x)',bw=0.01,xpd=NA)
+    lines(x=xx,y=yy,col='grey',lwd=2)
     rug(x)
 }
 dev.off()
