@@ -470,28 +470,38 @@ plot(X,P,type='s',xlab='x = # gold discoveries',
 axis(side=1,at=c(0:nn))
 dev.off()
 
+rejection <- function(nn,kk,H0,nsides=1,alpha=0.05){
+    if (nsides==-1){
+        lrej <- 0
+        urej <- qbinom(1-alpha,nn,H0)
+    } else if (nsides==1){
+        lrej <- qbinom(alpha,nn,H0)
+        urej <- 0
+    } else {
+        lrej <- qbinom(alpha/2,nn,H0)
+        urej <- nn-qbinom(1-alpha/2,nn,H0)
+    }
+    c(lrej,urej)
+}
+
 binomhist <- function(nn,kk,H0,Ha=H0,nsides=1,rej.col='black',
                       na.col=NA, showax=TRUE,plotk=TRUE,
                       xlab='k = # gold discoveries',ylab='P(k)',...){
-    alpha <- 0.05
     prob <- dbinom(0:nn,nn,Ha)
     names(prob) <- 0:nn
-    if (nsides==-1){
-        lrej <- 0
-        urej <- qbinom(0.95,nn,H0)
-    } else if (nsides==1){
-        lrej <- qbinom(0.05,nn,H0)
-        urej <- 0
-    } else {
-        lrej <- qbinom(0.025,nn,H0)
-        urej <- nn-qbinom(0.975,nn,H0)
-    }
+    R <- rejection(nn=nn,kk=kk,H0=H0,nsides=nsides,alpha=0.05)
+    lrej <- R[1]
+    urej <- R[2]
     nacc <- nn+1-lrej-urej
     if (showax){
-        barplot(prob,col=c(rep(rej.col,lrej),rep(na.col,nacc),rep(rej.col,urej)),
+        barplot(prob,col=c(rep(rej.col,lrej),
+                           rep(na.col,nacc),
+                           rep(rej.col,urej)),
                 xlab=xlab,ylab=ylab,space=0,...)
     } else {
-        barplot(prob,col=c(rep(rej.col,lrej),rep(na.col,nacc),rep(rej.col,urej)),
+        barplot(prob,col=c(rep(rej.col,lrej),
+                           rep(na.col,nacc),
+                           rep(rej.col,urej)),
                 space=0,xlab='',ylab='',xaxt='n',yaxt='n',...)
     }
     if (plotk) lines(rep(kk,2)+0.5,c(0,1),lty=2)
@@ -606,21 +616,32 @@ legend('topleft',legend='d)',bty='n',cex=1.2,adj=c(2,1))
 plot.new()
 dev.off()
 
+mirrorbar <- function(nn,kk,H0,Ha=H0,nsides=1,
+                      rej.col='black',na.col=NA,plotk=TRUE,
+                      xlab='k = # gold discoveries',ylab='P(k)',...){
+    R <- rejection(nn=nn,kk=kk,H0=H0,nsides=nsides,alpha=0.05)
+    lrej <- R[1]
+    urej <- R[2]
+    nacc <- nn+1-lrej-urej
+    ba <- dbinom(0:nn,nn,Ha)
+    b0 <- dbinom(0:nn,nn,H0)
+    ylim <- range(c(ba,-b0))
+    col <- c(rep(rej.col,lrej),rep(na.col,nacc),rep(rej.col,urej))
+    barplot(ba,ylim=ylim,yaxt="n",xlab=xlab,ylab=ylab,names.arg=0:nn,col=col)
+    barplot(-b0,add=TRUE,axes=FALSE,col=col)
+    at_ticks <- pretty(ylim)
+    labels <- abs(at_ticks)
+    axis(2,at=at_ticks,labels=labels)
+    abline(h=0)
+    if (plotk) lines(x=rep(kk+0.5,2),y=ylim,lty=2)
+}
+
 cairo(file='../../figures/binompower1.pdf',width=8,height=3.8)
 pars(mar=rep(0,4))
 m <- rbind(c(1,10,10,10),c(1,2,3,4),c(1,8,8,8),c(1,5,6,7),c(1,9,9,9))
 layout(m,widths=c(0.05,0.33,0.33,0.33),
        heights=c(0.02,0.42,0.04,0.42,0.1))
 plot.new()
-binomhist(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
-          xlim=c(-0.5,6.5),ylim=c(0,1),border='white',
-          rej.col='gray70',na.col='gray70',plotk=FALSE)
-binomhist(nn=5,kk=2,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
-          xlim=c(-0.5,6.5),na.col='white',add=TRUE,plotk=FALSE)
-axis(side=2); mtext('P(k)',side=2,cex=0.8,line=1.5)
-legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,0))
-mtext(text='p=2/5',col='black',at=2,line=-1,cex=0.8,adj=0)
-mtext(text='p=2/3',col='grey60',at=4,line=-1,cex=0.8)
 binomhist(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
           xlim=c(-0.5,6.5),ylim=c(0,1),border='white',
           rej.col='gray70',na.col='gray70',plotk=FALSE)
