@@ -617,8 +617,8 @@ plot.new()
 dev.off()
 
 mirrorbar <- function(nn,kk,H0,Ha=H0,nsides=1,scale=FALSE,
-                      top.border='black',bottom.border='grey50',rej.col='black',
-                      na.col=NA,showax=FALSE,plotk=TRUE,ylab='P(k)',...){
+                      top.border='black',bottom.border='grey50',
+                      showax=FALSE,plotk=TRUE,ylab='P(k)',...){
     R <- rejection(nn=nn,kk=kk,H0=H0,nsides=nsides,alpha=0.05)
     lrej <- R[1]
     urej <- R[2]
@@ -642,10 +642,11 @@ mirrorbar <- function(nn,kk,H0,Ha=H0,nsides=1,scale=FALSE,
         ylim <- range(1.1*ticks)
     }
     labels <- abs(ticks)
-    col <- c(rep(rej.col,lrej),rep(na.col,nacc),rep(rej.col,urej))
+    bottom.col <- c(rep(bottom.border,lrej),rep(NA,nacc),rep(bottom.border,urej))
     barplot(-bottom_scaled,yaxt='n',ylim=ylim,axes=FALSE,
-            col=col,space=0,border=bottom.border,xpd=NA,...)
-    barplot(top_scaled,add=TRUE,yaxt='n',col=col,space=0,border=top.border,xpd=NA)
+            col=bottom.col,space=0,border=bottom.border,xpd=NA,...)
+    top.col <- c(rep(top.border,lrej),rep(NA,nacc),rep(top.border,urej))
+    barplot(top_scaled,add=TRUE,yaxt='n',col=top.col,space=0,border=top.border,xpd=NA)
     if (showax){
         axis(2,at=at_ticks,labels=labels)
         mtext(text=ylab,side=2,line=par('mgp')[1],cex=0.8)
