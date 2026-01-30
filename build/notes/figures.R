@@ -616,23 +616,40 @@ legend('topleft',legend='d)',bty='n',cex=1.2,adj=c(2,1))
 plot.new()
 dev.off()
 
-mirrorbar <- function(nn,kk,H0,Ha=H0,nsides=1,
-                      rej.col='black',na.col=NA,plotk=TRUE,
-                      xlab='k = # gold discoveries',ylab='P(k)',...){
+mirrorbar <- function(nn,kk,H0,Ha=H0,nsides=1,scale=FALSE,
+                      top.border='black',bottom.border='grey50',rej.col='black',
+                      na.col=NA,showax=FALSE,plotk=TRUE,ylab='P(k)',...){
     R <- rejection(nn=nn,kk=kk,H0=H0,nsides=nsides,alpha=0.05)
     lrej <- R[1]
     urej <- R[2]
     nacc <- nn+1-lrej-urej
     ba <- dbinom(0:nn,nn,Ha)
     b0 <- dbinom(0:nn,nn,H0)
-    ylim <- range(c(ba,-b0))
+    if (scale){
+        top_scaled <- ba/max(ba)
+        bottom_scaled <- b0/max(b0)
+    } else {
+        top_scaled <- ba
+        bottom_scaled <- b0
+    }
+    ticks <- pretty(c(-b0,ba))
+    bottom <- ticks<0
+    if (scale){
+        at_ticks <- c(ticks[bottom]/max(b0),ticks[!bottom]/max(ba))
+        ylim <- c(-1,1)
+    } else {
+        at_ticks <- ticks
+        ylim <- range(1.1*ticks)
+    }
+    labels <- abs(ticks)
     col <- c(rep(rej.col,lrej),rep(na.col,nacc),rep(rej.col,urej))
-    barplot(ba,ylim=ylim,yaxt="n",xlab=xlab,ylab=ylab,names.arg=0:nn,col=col)
-    barplot(-b0,add=TRUE,axes=FALSE,col=col)
-    at_ticks <- pretty(ylim)
-    labels <- abs(at_ticks)
-    axis(2,at=at_ticks,labels=labels)
-    abline(h=0)
+    barplot(-bottom_scaled,yaxt='n',ylim=ylim,axes=FALSE,
+            col=col,space=0,border=bottom.border,xpd=NA,...)
+    barplot(top_scaled,add=TRUE,yaxt='n',col=col,space=0,border=top.border,xpd=NA)
+    if (showax){
+        axis(2,at=at_ticks,labels=labels)
+        mtext(text=ylab,side=2,line=par('mgp')[1],cex=0.8)
+    }
     if (plotk) lines(x=rep(kk+0.5,2),y=ylim,lty=2)
 }
 
@@ -642,24 +659,20 @@ m <- rbind(c(1,10,10,10),c(1,2,3,4),c(1,8,8,8),c(1,5,6,7),c(1,9,9,9))
 layout(m,widths=c(0.05,0.33,0.33,0.33),
        heights=c(0.02,0.42,0.04,0.42,0.1))
 plot.new()
-binomhist(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
-          xlim=c(-0.5,6.5),ylim=c(0,1),border='white',
-          rej.col='gray70',na.col='gray70',plotk=FALSE)
-binomhist(nn=5,kk=2,H0=2/3,Ha=1/5,nsides=1,showax=FALSE,
-          xlim=c(-0.5,6.5),na.col='white',add=TRUE,plotk=FALSE)
+mirrorbar(nn=5,kk=2,H0=2/3,Ha=2/5,scale=TRUE,showax=TRUE,ylab='P(k)',plotk=FALSE,xlim=c(-0.5,6.5))
+legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,0))
+legend('topright',legend='p=2/5',bty='n',text.col='black',cex=1.0,inset = c(0.1, 0))
+legend('bottomright',legend='p=2/3',bty='n',text.col='grey50',cex=1.0,inset = c(0.1, 0))
+mirrorbar(nn=5,kk=2,H0=2/3,Ha=1/5,scale=TRUE,showax=TRUE,ylab=NULL,plotk=FALSE,xlim=c(-0.5,6.5))
 legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(2,0))
-mtext(text='p=1/5',col='black',at=1,line=-1,cex=0.8,adj=0)
-mtext(text='p=2/3',col='grey60',at=4,line=-1,cex=0.8)
-binomhist(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
-          xlim=c(-0.5,6.5),ylim=c(0,1),border='white',
-          rej.col='gray70',na.col='gray70',plotk=FALSE)
-binomhist(nn=5,kk=2,H0=2/3,Ha=0,nsides=1,showax=FALSE,
-          xlim=c(-0.5,6.5),na.col='white',add=TRUE,plotk=FALSE)
+legend('topright',legend='p=1/5',bty='n',text.col='black',cex=1.0,inset = c(0.1, 0))
+legend('bottomright',legend='p=2/3',bty='n',text.col='grey50',cex=1.0,inset = c(0.1, 0))
+mirrorbar(nn=5,kk=2,H0=2/3,Ha=0,scale=TRUE,showax=TRUE,ylab=NULL,plotk=FALSE,xlim=c(-0.5,6.5))
 legend('topleft',legend='c)',bty='n',cex=1.2,adj=c(2,0))
-mtext(text='p=0',col='black',at=1.5,line=-1,cex=0.8)
-mtext(text='p=2/3',col='grey60',at=4,line=-1,cex=0.8)
+legend('topright',legend='p=0',bty='n',text.col='black',cex=1.0,inset = c(0.1, 0))
+legend('bottomright',legend='p=2/3',bty='n',text.col='grey50',cex=1.0,inset = c(0.1, 0))
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
-         xlim=c(-1,6),col='grey60',plotp=FALSE,plotk=FALSE)
+         xlim=c(-1,6),col='grey50',plotp=FALSE,plotk=FALSE)
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
          xlim=c(-1,6),add=TRUE,plotp=FALSE,plotk=FALSE)
 b <- pbinom(qbinom(0.05,5,2/3)-1,5,2/5)
@@ -671,7 +684,7 @@ axis(side=2)
 mtext('P(k)',side=2,cex=0.8,line=1.5)
 legend('topleft',legend='d)',bty='n',cex=1.2,adj=c(2,1))
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
-         xlim=c(-1,6),col='grey60',plotp=FALSE,plotk=FALSE)
+         xlim=c(-1,6),col='grey50',plotp=FALSE,plotk=FALSE)
 binomcdf(nn=5,kk=2,H0=2/3,Ha=1/5,nsides=1,showax=FALSE,
          xlim=c(-1,6),add=TRUE,plotp=FALSE,plotk=FALSE)
 b <- pbinom(qbinom(0.05,5,2/3)-1,5,1/5)
@@ -682,7 +695,7 @@ axis(side=1,at=0:5)
 mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
 legend('topleft',legend='e)',bty='n',cex=1.2,adj=c(2,1))
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
-         xlim=c(-1,6),col='grey60',plotp=FALSE,plotk=FALSE)
+         xlim=c(-1,6),col='grey50',plotp=FALSE,plotk=FALSE)
 binomcdf(nn=5,kk=2,H0=2/3,Ha=0,nsides=1,plotk=FALSE,
          showax=FALSE,xlim=c(-1,6),plotp=FALSE,add=TRUE)
 b <- pbinom(qbinom(0.05,5,2/3)-1,5,0)
@@ -702,25 +715,15 @@ m <- rbind(c(1,2,3,4),c(1,8,8,8),c(1,5,6,7),c(1,9,9,9))
 layout(m,widths=c(0.05,0.33,0.33,0.33),
        heights=c(0.43,0.04,0.43,0.1))
 plot.new()
-binomhist(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
-          xlim=c(-0.5,6.5),border='white',rej.col='gray70',
-          na.col='gray70',ylim=c(0,0.35),plotk=FALSE)
-binomhist(nn=5,kk=2,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
-          xlim=c(-0.5,6.5),na.col='white',add=TRUE,plotk=FALSE)
-axis(side=2); mtext('P(k)',side=2,cex=0.8,line=1.5)
-legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(0.5,0))
-binomhist(nn=15,kk=6,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
-          xlim=c(-0.5,16.5),border='white',
-          rej.col='gray70',na.col='gray70',plotk=FALSE)
-binomhist(nn=15,kk=6,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
-          xlim=c(-0.5,16.5),na.col='white',add=TRUE,plotk=FALSE)
-legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(0.5,0))
-binomhist(nn=30,kk=12,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
-          xlim=c(-0.5,31.5),border='white',
-          rej.col='gray70',na.col='gray70',plotk=FALSE)
-binomhist(nn=30,kk=12,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
-          xlim=c(-0.5,31.5),na.col='white',add=TRUE,plotk=FALSE)
-legend('topleft',legend='c)',bty='n',cex=1.2,adj=c(0.5,0))
+mirrorbar(nn=5,kk=2,H0=2/3,Ha=2/5,showax=TRUE,ylab='P(k)',plotk=FALSE,xlim=c(-0.5,6.5))
+legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,0))
+legend('topright',legend='n=5',bty='n',text.col='black',cex=1.0,inset = c(0.1, 0))
+mirrorbar(nn=15,kk=6,H0=2/3,Ha=2/5,showax=TRUE,ylab='',plotk=FALSE,xlim=c(-0.5,16.5))
+legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(2,0))
+legend('topright',legend='n=15',bty='n',text.col='black',cex=1.0,inset = c(0.1, 0))
+mirrorbar(nn=30,kk=12,H0=2/3,Ha=2/5,showax=TRUE,ylab='',plotk=FALSE,xlim=c(-0.5,30.5))
+legend('topleft',legend='c)',bty='n',cex=1.2,adj=c(2,0))
+legend('topright',legend='n=30',bty='n',text.col='black',cex=1.0,inset = c(0.1, 0))
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
          xlim=c(-1,6),col='grey60',plotp=FALSE,plotk=FALSE)
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
@@ -751,7 +754,7 @@ binomcdf(nn=30,kk=12,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
 b <- pbinom(qbinom(0.05,30,2/3)-1,30,2/5)
 lines(c(-1,31),rep(b,2),lty=2)
 arrows(x0=31,x1=31,y0=b,y1=1,length=0.05,angle=45,code=3)
-text(x=30.5,y=0.99*(1+b)/2,labels=expression(beta),pos=2)
+text(x=30.5,y=0.97*(1+b)/2,labels=expression(beta),pos=2)
 axis(side=1,at=seq(from=0,to=30,by=5))
 mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
 legend('topleft',legend='f)',bty='n',cex=1.2,adj=c(2,0))
