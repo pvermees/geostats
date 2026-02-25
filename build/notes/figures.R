@@ -470,28 +470,38 @@ plot(X,P,type='s',xlab='x = # gold discoveries',
 axis(side=1,at=c(0:nn))
 dev.off()
 
+rejection <- function(nn,kk,H0,nsides=1,alpha=0.05){
+    if (nsides==-1){
+        lrej <- 0
+        urej <- qbinom(1-alpha,nn,H0)
+    } else if (nsides==1){
+        lrej <- qbinom(alpha,nn,H0)
+        urej <- 0
+    } else {
+        lrej <- qbinom(alpha/2,nn,H0)
+        urej <- nn-qbinom(1-alpha/2,nn,H0)
+    }
+    c(lrej,urej)
+}
+
 binomhist <- function(nn,kk,H0,Ha=H0,nsides=1,rej.col='black',
                       na.col=NA, showax=TRUE,plotk=TRUE,
                       xlab='k = # gold discoveries',ylab='P(k)',...){
-    alpha <- 0.05
     prob <- dbinom(0:nn,nn,Ha)
     names(prob) <- 0:nn
-    if (nsides==-1){
-        lrej <- 0
-        urej <- qbinom(0.95,nn,H0)
-    } else if (nsides==1){
-        lrej <- qbinom(0.05,nn,H0)
-        urej <- 0
-    } else {
-        lrej <- qbinom(0.025,nn,H0)
-        urej <- nn-qbinom(0.975,nn,H0)
-    }
+    R <- rejection(nn=nn,kk=kk,H0=H0,nsides=nsides,alpha=0.05)
+    lrej <- R[1]
+    urej <- R[2]
     nacc <- nn+1-lrej-urej
     if (showax){
-        barplot(prob,col=c(rep(rej.col,lrej),rep(na.col,nacc),rep(rej.col,urej)),
+        barplot(prob,col=c(rep(rej.col,lrej),
+                           rep(na.col,nacc),
+                           rep(rej.col,urej)),
                 xlab=xlab,ylab=ylab,space=0,...)
     } else {
-        barplot(prob,col=c(rep(rej.col,lrej),rep(na.col,nacc),rep(rej.col,urej)),
+        barplot(prob,col=c(rep(rej.col,lrej),
+                           rep(na.col,nacc),
+                           rep(rej.col,urej)),
                 space=0,xlab='',ylab='',xaxt='n',yaxt='n',...)
     }
     if (plotk) lines(rep(kk,2)+0.5,c(0,1),lty=2)
@@ -606,39 +616,64 @@ legend('topleft',legend='d)',bty='n',cex=1.2,adj=c(2,1))
 plot.new()
 dev.off()
 
+mirrorbar <- function(nn,kk,H0,Ha=H0,nsides=1,scale=FALSE,
+                      top.border='black',bottom.border='grey50',
+                      showax=FALSE,plotk=TRUE,ylab='P(k)',...){
+    R <- rejection(nn=nn,kk=kk,H0=H0,nsides=nsides,alpha=0.05)
+    lrej <- R[1]
+    urej <- R[2]
+    nacc <- nn+1-lrej-urej
+    ba <- dbinom(0:nn,nn,Ha)
+    b0 <- dbinom(0:nn,nn,H0)
+    if (scale){
+        top_scaled <- ba/max(ba)
+        bottom_scaled <- b0/max(b0)
+    } else {
+        top_scaled <- ba
+        bottom_scaled <- b0
+    }
+    ticks <- pretty(c(-b0,ba))
+    bottom <- ticks<0
+    if (scale){
+        at_ticks <- c(ticks[bottom]/max(b0),ticks[!bottom]/max(ba))
+        ylim <- c(-1,1)
+    } else {
+        at_ticks <- ticks
+        ylim <- range(1.1*ticks)
+    }
+    labels <- abs(ticks)
+    bottom.col <- c(rep(bottom.border,lrej),rep(NA,nacc),rep(bottom.border,urej))
+    barplot(-bottom_scaled,yaxt='n',ylim=ylim,axes=FALSE,
+            col=bottom.col,space=0,border=bottom.border,xpd=NA,...)
+    top.col <- c(rep(top.border,lrej),rep(NA,nacc),rep(top.border,urej))
+    barplot(top_scaled,add=TRUE,yaxt='n',col=top.col,space=0,border=top.border,xpd=NA)
+    if (showax){
+        axis(2,at=at_ticks,labels=labels)
+        mtext(text=ylab,side=2,line=par('mgp')[1],cex=0.8)
+    }
+    if (plotk) lines(x=rep(kk+0.5,2),y=ylim,lty=2)
+}
+
 cairo(file='../../figures/binompower1.pdf',width=8,height=3.8)
 pars(mar=rep(0,4))
 m <- rbind(c(1,10,10,10),c(1,2,3,4),c(1,8,8,8),c(1,5,6,7),c(1,9,9,9))
 layout(m,widths=c(0.05,0.33,0.33,0.33),
        heights=c(0.02,0.42,0.04,0.42,0.1))
 plot.new()
-binomhist(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
-          xlim=c(-0.5,6.5),ylim=c(0,1),border='white',
-          rej.col='gray70',na.col='gray70',plotk=FALSE)
-binomhist(nn=5,kk=2,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
-          xlim=c(-0.5,6.5),na.col='white',add=TRUE,plotk=FALSE)
-axis(side=2); mtext('P(k)',side=2,cex=0.8,line=1.5)
+mirrorbar(nn=5,kk=2,H0=2/3,Ha=2/5,scale=TRUE,showax=TRUE,ylab='P(k)',plotk=FALSE,xlim=c(-0.5,6.5))
 legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,0))
-mtext(text='p=2/5',col='black',at=2,line=-1,cex=0.8,adj=0)
-mtext(text='p=2/3',col='grey60',at=4,line=-1,cex=0.8)
-binomhist(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
-          xlim=c(-0.5,6.5),ylim=c(0,1),border='white',
-          rej.col='gray70',na.col='gray70',plotk=FALSE)
-binomhist(nn=5,kk=2,H0=2/3,Ha=1/5,nsides=1,showax=FALSE,
-          xlim=c(-0.5,6.5),na.col='white',add=TRUE,plotk=FALSE)
+legend('topright',legend='p=2/5',bty='n',text.col='black',cex=1.0,inset = c(0.1, 0))
+legend('bottomright',legend='p=2/3',bty='n',text.col='grey50',cex=1.0,inset = c(0.1, 0))
+mirrorbar(nn=5,kk=2,H0=2/3,Ha=1/5,scale=TRUE,showax=TRUE,ylab=NULL,plotk=FALSE,xlim=c(-0.5,6.5))
 legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(2,0))
-mtext(text='p=1/5',col='black',at=1,line=-1,cex=0.8,adj=0)
-mtext(text='p=2/3',col='grey60',at=4,line=-1,cex=0.8)
-binomhist(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
-          xlim=c(-0.5,6.5),ylim=c(0,1),border='white',
-          rej.col='gray70',na.col='gray70',plotk=FALSE)
-binomhist(nn=5,kk=2,H0=2/3,Ha=0,nsides=1,showax=FALSE,
-          xlim=c(-0.5,6.5),na.col='white',add=TRUE,plotk=FALSE)
+legend('topright',legend='p=1/5',bty='n',text.col='black',cex=1.0,inset = c(0.1, 0))
+legend('bottomright',legend='p=2/3',bty='n',text.col='grey50',cex=1.0,inset = c(0.1, 0))
+mirrorbar(nn=5,kk=2,H0=2/3,Ha=0,scale=TRUE,showax=TRUE,ylab=NULL,plotk=FALSE,xlim=c(-0.5,6.5))
 legend('topleft',legend='c)',bty='n',cex=1.2,adj=c(2,0))
-mtext(text='p=0',col='black',at=1.5,line=-1,cex=0.8)
-mtext(text='p=2/3',col='grey60',at=4,line=-1,cex=0.8)
+legend('topright',legend='p=0',bty='n',text.col='black',cex=1.0,inset = c(0.1, 0))
+legend('bottomright',legend='p=2/3',bty='n',text.col='grey50',cex=1.0,inset = c(0.1, 0))
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
-         xlim=c(-1,6),col='grey60',plotp=FALSE,plotk=FALSE)
+         xlim=c(-1,6),col='grey50',plotp=FALSE,plotk=FALSE)
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
          xlim=c(-1,6),add=TRUE,plotp=FALSE,plotk=FALSE)
 b <- pbinom(qbinom(0.05,5,2/3)-1,5,2/5)
@@ -650,7 +685,7 @@ axis(side=2)
 mtext('P(k)',side=2,cex=0.8,line=1.5)
 legend('topleft',legend='d)',bty='n',cex=1.2,adj=c(2,1))
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
-         xlim=c(-1,6),col='grey60',plotp=FALSE,plotk=FALSE)
+         xlim=c(-1,6),col='grey50',plotp=FALSE,plotk=FALSE)
 binomcdf(nn=5,kk=2,H0=2/3,Ha=1/5,nsides=1,showax=FALSE,
          xlim=c(-1,6),add=TRUE,plotp=FALSE,plotk=FALSE)
 b <- pbinom(qbinom(0.05,5,2/3)-1,5,1/5)
@@ -661,7 +696,7 @@ axis(side=1,at=0:5)
 mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
 legend('topleft',legend='e)',bty='n',cex=1.2,adj=c(2,1))
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
-         xlim=c(-1,6),col='grey60',plotp=FALSE,plotk=FALSE)
+         xlim=c(-1,6),col='grey50',plotp=FALSE,plotk=FALSE)
 binomcdf(nn=5,kk=2,H0=2/3,Ha=0,nsides=1,plotk=FALSE,
          showax=FALSE,xlim=c(-1,6),plotp=FALSE,add=TRUE)
 b <- pbinom(qbinom(0.05,5,2/3)-1,5,0)
@@ -681,25 +716,15 @@ m <- rbind(c(1,2,3,4),c(1,8,8,8),c(1,5,6,7),c(1,9,9,9))
 layout(m,widths=c(0.05,0.33,0.33,0.33),
        heights=c(0.43,0.04,0.43,0.1))
 plot.new()
-binomhist(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
-          xlim=c(-0.5,6.5),border='white',rej.col='gray70',
-          na.col='gray70',ylim=c(0,0.35),plotk=FALSE)
-binomhist(nn=5,kk=2,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
-          xlim=c(-0.5,6.5),na.col='white',add=TRUE,plotk=FALSE)
-axis(side=2); mtext('P(k)',side=2,cex=0.8,line=1.5)
-legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(0.5,0))
-binomhist(nn=15,kk=6,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
-          xlim=c(-0.5,16.5),border='white',
-          rej.col='gray70',na.col='gray70',plotk=FALSE)
-binomhist(nn=15,kk=6,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
-          xlim=c(-0.5,16.5),na.col='white',add=TRUE,plotk=FALSE)
-legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(0.5,0))
-binomhist(nn=30,kk=12,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
-          xlim=c(-0.5,31.5),border='white',
-          rej.col='gray70',na.col='gray70',plotk=FALSE)
-binomhist(nn=30,kk=12,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
-          xlim=c(-0.5,31.5),na.col='white',add=TRUE,plotk=FALSE)
-legend('topleft',legend='c)',bty='n',cex=1.2,adj=c(0.5,0))
+mirrorbar(nn=5,kk=2,H0=2/3,Ha=2/5,showax=TRUE,ylab='P(k)',plotk=FALSE,xlim=c(-0.5,6.5))
+legend('topleft',legend='a)',bty='n',cex=1.2,adj=c(2,0))
+legend('topright',legend='n=5',bty='n',text.col='black',cex=1.0,inset = c(0.1, 0))
+mirrorbar(nn=15,kk=6,H0=2/3,Ha=2/5,showax=TRUE,ylab='',plotk=FALSE,xlim=c(-0.5,16.5))
+legend('topleft',legend='b)',bty='n',cex=1.2,adj=c(2,0))
+legend('topright',legend='n=15',bty='n',text.col='black',cex=1.0,inset = c(0.1, 0))
+mirrorbar(nn=30,kk=12,H0=2/3,Ha=2/5,showax=TRUE,ylab='',plotk=FALSE,xlim=c(-0.5,30.5))
+legend('topleft',legend='c)',bty='n',cex=1.2,adj=c(2,0))
+legend('topright',legend='n=30',bty='n',text.col='black',cex=1.0,inset = c(0.1, 0))
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/3,nsides=1,showax=FALSE,
          xlim=c(-1,6),col='grey60',plotp=FALSE,plotk=FALSE)
 binomcdf(nn=5,kk=2,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
@@ -730,7 +755,7 @@ binomcdf(nn=30,kk=12,H0=2/3,Ha=2/5,nsides=1,showax=FALSE,
 b <- pbinom(qbinom(0.05,30,2/3)-1,30,2/5)
 lines(c(-1,31),rep(b,2),lty=2)
 arrows(x0=31,x1=31,y0=b,y1=1,length=0.05,angle=45,code=3)
-text(x=30.5,y=0.99*(1+b)/2,labels=expression(beta),pos=2)
+text(x=30.5,y=0.97*(1+b)/2,labels=expression(beta),pos=2)
 axis(side=1,at=seq(from=0,to=30,by=5))
 mtext('# gold discoveries',side=1,cex=0.8,line=1.5)
 legend('topleft',legend='f)',bty='n',cex=1.2,adj=c(2,0))
@@ -1617,31 +1642,85 @@ text(txy2$x+0.005,txy2$y+0.01,labels=expression(s[y]),pos=3,srt=-20)
 text(txy3$x,txy3$y-0.01,labels=expression(s[z]),pos=4,offset=0.1,srt=-20)
 dev.off()
 
-if (FALSE){ # Q-Q plot of earthquake data
-    nvals <- length(unique(nquakes))
-    qqplot(qpois(ppoints(nvals),lambda=mean(nquakes)),
-           nquakes)
-    qqline(nquakes,
-           distribution = function(probs) { qpois(probs, lambda=lambda) },
-           col = "red",
-           lwd = 0.5)
+QQexplainer <- function(){
+    layout(matrix(c(1, 2, 0, 3), 2, 2, byrow = TRUE), 
+           widths = c(1, 1), heights = c(1, 1))
+    data <- faithful$eruptions
+    sorted_data <- sort(data)
+    probs <- seq(from=0.1,to=0.9,by=0.1)
+    nd <- length(data)
+    # --- 1. Rotated ECDF (Top Left) ---
+    par(mar=c(0, 3, 1, 0)) # No right or bottom margin
+    plot((1:nd-0.5)/nd, sorted_data, type = "s", 
+         xlim = c(1, 0), xlab = "", ylab = "Eruption Duration (min)",
+         main = "", axes = FALSE, lwd=2,
+         xaxs = "i", yaxs = "i", xpd = NA)
+    text(x=0.85,y=par('usr')[4]*0.975+0.025*par('usr')[3],
+         labels="a)",bty='n',xpd=NA,srt=90,cex=1.1)
+    axis(1)
+    axis(2,xpd=NA)
+    matlines(x=rbind(probs,probs),
+             y=rbind(min(data),quantile(data,probs)),
+             lty=3,col='black')
+    matlines(x=rbind(probs,0),
+             y=rbind(quantile(data,probs),quantile(data,probs)),
+             lty=3,col='black')
+    # --- 2. Q-Q Plot (Top Right) ---
+    par(mar = c(0, 0, 1, 2), mgp=c(2,1,0)) # No left or bottom margin
+    qqnorm(data,xlab = "", ylab = "",
+           axes = FALSE, pch = 20, main="",
+           xaxs = "i", yaxs = "i", xpd=NA)
+    legend('topleft',legend="b)",bty='n',adj=c(0,-0.5),xpd=NA)
+    matlines(x=rbind(-3,qnorm(probs)),
+             y=rbind(quantile(data,probs),quantile(data,probs)),
+             lty=3,col='black')
+    matlines(x=rbind(qnorm(probs),qnorm(probs)),
+             y=rbind(min(data),quantile(data,probs)),
+             lty=3,col='black')
+    # --- 3. Normal CDF (Bottom Right) ---
+    par(mar = c(3, 0, 0, 2), mgp=c(2,1,0)) # No top margin
+    x_range <- seq(from=qnorm(1/nd/2), to=qnorm(1-1/nd/2), length.out = 100)
+    plot(x_range, pnorm(x_range), type = "l", 
+         xlab = "Theoretical Quantiles", ylab = "",
+         axes = FALSE, lwd=2, xpd = NA,
+         ylim=c(0,1), xaxs = "i", yaxs = "i")
+    legend('topleft',legend="c)",bty='n')
+    axis(1)
+    axis(4)
+    matlines(x=rbind(qnorm(probs),3),
+             y=rbind(probs,probs),
+             lty=3,col='black')
+    matlines(x=rbind(qnorm(probs),
+                     qnorm(probs)),
+             y=rbind(probs,1),
+             lty=3,col='black')
 }
 
-qqfaithful <- function(n,fname){
-    cairo(file=fname,width=3,height=2.5)
-    pars()
+cairo(file='../../figures/qqexplainer.pdf',width=4,height=4)
+pars(mgp=c(2,1,0))
+QQexplainer()
+dev.off()
+
+qqfaithful <- function(n){
     if (n==1) clt <- faithful[,'eruptions']
     else clt <- CLT(n,dat=faithful[,'eruptions'],plot=FALSE)
     qqnorm(clt,main='',cex=0.8)
     qqline(clt)
-    dev.off()
 }
-qqfaithful(n=1,'../../figures/qqfaithful1.pdf')
-qqfaithful(n=2,'../../figures/qqfaithful2.pdf')
-qqfaithful(n=3,'../../figures/qqfaithful3.pdf')
-qqfaithful(n=10,'../../figures/qqfaithful10.pdf')
 
-cairo(file='../../figures/qqfaithful12.pdf',width=3,height=2.5)
+cairo(file=,'../../figures/qqfaithful.pdf',width=4,height=4)
+pars(mfrow=c(2,2))
+qqfaithful(n=1)
+legend('topleft',legend='a)',bty='n',adj=c(1.5,0))
+qqfaithful(n=2)
+legend('topleft',legend='b)',bty='n',adj=c(1.5,0))
+qqfaithful(n=3)
+legend('topleft',legend='c)',bty='n',adj=c(1.5,0))
+qqfaithful(n=10)
+legend('topleft',legend='d)',bty='n',adj=c(1.5,0))
+dev.off()
+
+cairo(file='../../figures/qqfaithful12.pdf',width=2.5,height=2.5)
 pars(mar=c(2.5,2.5,0.5,0.25))
 xy1 <- plotSums(n=100,ns=200,pop=1,plot=FALSE)
 xy2 <- plotSums(n=100,ns=200,pop=2,plot=FALSE)
@@ -1980,6 +2059,38 @@ text(1000,cdf1(1000),pos=1,labels='dune',offset=1,col='gray50')
 text(1000,cdf2(1000),pos=3,labels='river')
 dev.off()
 
+# translated from C by Gemini
+psmirnov2x <- function(x, m, n) {
+  if (m > n) {
+    temp <- n
+    n <- m
+    m <- temp
+  }
+  md <- as.numeric(m)
+  nd <- as.numeric(n)
+  q <- (0.5 + floor(x * md * nd - 1e-7)) / (md * nd)
+  u <- numeric(n + 1)
+  for (j in 0:n) {
+    u[j + 1] <- if ((j / nd) > q) 0 else 1
+  }
+  for (i in 1:m) {
+    w <- i / (i + n)
+    if ((i / md) > q) {
+      u[1] <- 0
+    } else {
+      u[1] <- w * u[1]
+    }
+    for (j in 1:n) {
+      if (abs(i / md - j / nd) > q) {
+        u[j + 1] <- 0
+      } else {
+        u[j + 1] <- w * u[j + 1] + u[j]
+      }
+    }
+  }
+  return(u[n + 1])
+}
+
 cairo(file='../../figures/KSdens.pdf',width=6,height=3)
 pars(mfrow=c(1,2))
 n.x <- length(samp1)
@@ -1995,7 +2106,7 @@ d <- rep(0,2*nD)
 P <- 0*D
 p <- rep(0,2*nD)
 for (i in 1:nD){
-    P[i] <- stats::psmirnov(D[i],sizes=c(n.x, n.y))
+    P[i] <- psmirnov2x(D[i],n.x,n.y)
     p[2*i+c(-1,0)] <- P[i]
     d[2*i+c(-1,0)] <- D[i]
 }

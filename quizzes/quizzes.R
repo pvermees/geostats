@@ -58,6 +58,73 @@ rdata <- function(x,d,nr){
     }
     list(X=X,dscaled=dscaled)
 }
+
+# question 1 intro
+pdf(file='explain_PMA_CDF.pdf',width=8,height=4)
+pdiscrete <- c(0.2,0.6,0.2)
+nd <- length(pdiscrete)
+pars(mar=c(2.5,2.5,0.6,0.25),mfrow=c(1,2))
+barplot(pdiscrete,density=c(10,10,0),col='black',
+        names.arg=1:nd,xlab='x',ylab='p')
+plot(0:(nd+1),c(0,cumsum(pdiscrete),1),type='s',
+     bty='n',xlab='x',ylab='Fn(x)',axes=FALSE)
+axis(side=1,at=1:nd); axis(side=2)
+lines(x=c(0,2,2),
+      y=c(rep(sum(pdiscrete[1:2]),2),0),
+      lty=2)
+dev.off()
+
+pdf(file='3x3_grid_of_PMAs.pdf',width=8,height=8)
+set.seed(2)
+nr <- nc <- 3
+ns <- 20
+pars(mfrow=c(nr,nc))
+for (i in 1:(nr*nc)){
+    x <- sample(1:nd,size=ns,prob=pdiscrete,replace=TRUE)
+    barplot(table(x),col='white')
+}
+dev.off()
+
+pdf(file='explain_PDF_CDF.pdf',width=8,height=4)
+ptile <- 0.4
+pars(mar=c(2.5,2.5,0.6,0.25),mgp=c(1.5,0.5,0),mfrow=c(1,2))
+xx <- c(0.5,1,1,2,2,2.5)
+yy <- c(0,0,1,1,0,0)
+plot(x=xx,y=yy,type='l',lwd=2,xlab='x',ylab='p',bty='n')
+polygon(x=c(0,0,ptile,ptile),y=c(0,1,1,0),density=10)
+plot(x=c(0.5,1,2,2.5),y=c(0,0,1,1),
+     type='l',lwd=2,bty='n',xlab='x',ylab='Fn(x)')
+lines(x=c(-0.5,ptile,ptile),y=c(ptile,ptile,0),lty=2)
+dev.off()
+
+pdf(file='3x3_grid_of_KDEs_n=20.pdf',width=8,height=8)
+nr <- nc <- 3
+ns <- 20
+pars(mar=c(2.5,2.5,0.6,0.25),mfrow=c(nr,nc))
+for (i in 1:(nr*nc)){
+    x <- runif(ns,min=1,max=2)
+    dens <- density(x)
+    plot(dens$x,dens$y,type='l',bty='n',
+         xlab='x',ylab='KDE(x)',bw=0.1)
+    lines(x=xx,y=yy,col='grey',lwd=2)
+    rug(x)
+}
+dev.off()
+
+pdf(file='3x3_grid_of_KDEs_n=1000.pdf',width=8,height=8)
+nr <- nc <- 3
+ns <- 1000
+pars(mar=c(2.5,2.5,0.6,0.25),mfrow=c(nr,nc))
+for (i in 1:(nr*nc)){
+    x <- runif(ns,min=1,max=2)
+    dens <- density(x)
+    plot(dens$x,dens$y,type='l',bty='n',
+         xlab='x',ylab='KDE(x)',bw=0.01,xpd=NA)
+    lines(x=xx,y=yy,col='grey',lwd=2)
+    rug(x)
+}
+dev.off()
+
 quiz1question <- function(qn=1){
     dx <- 1e-4
     pd <- x <- bw <- list()
@@ -80,6 +147,10 @@ quiz1question <- function(qn=1){
     x[[5]] <- seq(from=0,to=1,length.out=100)
     pd[[5]] <- x[[5]]/sum(x[[5]])
     bw[[5]] <- "nrd0"
+    # extra: reverse of x[[5]]
+    x[[6]] <- seq(from=0,to=1,length.out=100)
+    pd[[6]] <- rev(x[[1]])/sum(x[[1]])
+    bw[[6]] <- "nrd0"
     if (TRUE){ # Moodle
         pars(mfrow=c(5,2),mar=c(3,3,0.5,1))
         plotpdf(x[[qn]],pd[[qn]],bw=bw[[qn]],xlim=c(0,1))

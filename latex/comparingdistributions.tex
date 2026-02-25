@@ -22,63 +22,54 @@ method for comparing two probability distributions by plotting their
 quantiles against each other. Q-Q plots set out the quantiles of a
 sample against those of a theoretical distribution, or against the
 quantiles of another sample. For example, comparing the Old Faithful
-eruption duration dataset (Figure~\ref{fig:CLTfaithful1}) to a normal
-distribution:
+eruption duration dataset to a normal distribution:
 
-\noindent\begin{minipage}[t][][b]{.3\textwidth}
-  \includegraphics[width=\textwidth]{../figures/qqfaithful1.pdf}\medskip
+\noindent\begin{minipage}[t][][b]{.55\textwidth}
+  \includegraphics[width=\textwidth]{../figures/qqexplainer.pdf}\medskip
 \end{minipage}
-\begin{minipage}[t][][t]{.7\textwidth}
-  \captionof{figure}{Quantile-quantile (Q-Q) plot of Old Faithful
-    eruption durations. The horizontal axis marks the theoretical
-    quantiles of a normal distribution with the same mean and standard
-    deviation as the data. The vertical axis marks the quantiles of
-    the actual data. If the two distributions being compared are
+\begin{minipage}[t][][t]{.45\textwidth}
+  \captionof{figure}{Construction of a Q-Q plot. a) is the ECDF of the
+    Old Faithful eruption durations, rotated 90 degrees
+    counterclockwise; b) is the actual Q-Q plot comparing the eruption
+    durations with a normal distribution; c) is the CDF of a standard
+    normal distribution.  If the two distributions being compared are
     similar, the points in the Q-Q plot will approximately lie on the
     line y = x. Otherwise they will not. In this example the
     distribution of eruption durations clearly does not follow a
-    normal distribution.}
-  \label{fig:qqfaithful1}
+    normal distribution.\medskip}
+  \label{fig:qqexplainer}
 \end{minipage}
 
-\noindent\begin{minipage}[t][][b]{.3\textwidth}
-  \includegraphics[width=\textwidth]{../figures/qqfaithful2.pdf}\medskip
-\end{minipage}
-\begin{minipage}[t][][t]{.7\textwidth}
-  \captionof{figure}{Q-Q plot of the dataset of 500 sums of $n = 2$
-    randomly selected eruption durations shown in
-    Figure~\ref{fig:CLTfaithful2}. The resulting trimodal distribution
-    plots closer to the 1:1 line than the original dataset of
-    Figure~\ref{fig:qqfaithful1} but is still far from normal.}
-  \label{fig:qqfaithful2}
-\end{minipage}
+We can use the Q-Q plot to illustrate the effect of the Central Limit
+Theorem (Figure~\ref{fig:CLTfaithful1}):
 
-\noindent\begin{minipage}[t][][b]{.3\textwidth}
-  \includegraphics[width=\textwidth]{../figures/qqfaithful10.pdf}\medskip
+\noindent\begin{minipage}[t][][b]{.6\textwidth}
+  \includegraphics[width=\textwidth]{../figures/qqfaithful.pdf}\medskip
 \end{minipage}
-\begin{minipage}[t][][t]{.7\textwidth}
-  \captionof{figure}{Q-Q plot of the dataset of 500 sums of $n = 10$
-    randomly selected eruption durations shown in
-    Figure~\ref{fig:CLTfaithful10}. The data plot very close to the
-    1:1 line, visually confirming that they follow a normal
-    distribution.  The sample distribution only deviates from the
-    theoretical distribution at the most extreme quantiles. This
-    indicates that the sample distribution has heavier tails than the
-    normal distribution. This phenomenon will be discussed further in
-    the next section. Increasing $n$ further would remove this effect
-    near the tails and bring the sample distribution even closer to
-    the normal distribution.}
-  \label{fig:qqfaithful10}
+\begin{minipage}[t][][t]{.4\textwidth}
+  \captionof{figure}{Q-Q plots of a) the original Old Faithful
+    eruption durations; and 500 sums of b) $n = 2$; c) $n = 10$; and
+    d) $n = 10$ randomly selected eruption durations. Increasing $n$
+    brings the Q-Q plot ever closer to the 1:1 line, visually
+    confirming the emergence of a normal distribution.  The sample
+    distribution for $n = 10$ only deviates from the theoretical
+    distribution at the most extreme quantiles. This indicates that
+    the sample distribution has heavier tails than the normal
+    distribution. This phenomenon will be discussed further in the
+    next section. Increasing $n$ further would remove this effect near
+    the tails and bring the sample distribution even closer to the
+    normal distribution.\medskip}
+  \label{fig:qqfaithful}
 \end{minipage}
 
 Q-Q plots cannot only be used to compare sample distributions with
 theoretically predicted parametric distributions, but also to compare
 one sample with another. For example:
 
-\noindent\begin{minipage}[t][][b]{.3\textwidth}
+\noindent\begin{minipage}[t][][b]{.4\textwidth}
   \includegraphics[width=\textwidth]{../figures/qqfaithful12.pdf}\medskip
 \end{minipage}
-\begin{minipage}[t][][t]{.7\textwidth}
+\begin{minipage}[t][][t]{.6\textwidth}
   \captionof{figure}{ Q-Q plot comparing datasets
     $x_1=\mbox{sum}(X_1)$ and $x_2=\mbox{sum}(X_2)$ of
     Figure~\ref{fig:rand2sum}. Even though the two datasets have
@@ -1000,7 +991,7 @@ For the framework mineral counts,
   \begin{tabular}{rr|cccc}
     & lithology & quartz & plagioclase & alkali feldspar & lithics  \\
     \cline{2-6}
-    $o$ = & sample A & 0.1400 & 0.06835 & 0.06495 & 0.2268 \\
+    $o =$ & sample A & 0.1400 & 0.06835 & 0.06495 & 0.2268 \\
     & sample B & 0.1396 & 0.07007 & 0.06609 & 0.2242
   \end{tabular}
 \end{center}
@@ -1011,7 +1002,7 @@ For the framework mineral counts,
   \begin{tabular}{rr|cccc}
     & lithology & quartz & plagioclase & alkali feldspar & lithics  \\
     \cline{2-6}
-    $e$ = & sample A & 0.1398 & 0.06922 & 0.06553 & 0.2255 \\
+    $e = $ & sample A & 0.1398 & 0.06922 & 0.06553 & 0.2255 \\
     & sample B & 0.1398 & 0.06920 & 0.06551 & 0.2255
   \end{tabular}
 \end{center}
