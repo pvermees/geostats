@@ -149,7 +149,7 @@ quiz1question <- function(qn=1){
     bw[[5]] <- "nrd0"
     # extra: reverse of x[[5]]
     x[[6]] <- seq(from=0,to=1,length.out=100)
-    pd[[6]] <- rev(x[[1]])/sum(x[[1]])
+    pd[[6]] <- rev(x[[6]])/sum(x[[6]])
     bw[[6]] <- "nrd0"
     if (TRUE){ # Moodle
         pars(mfrow=c(5,2),mar=c(3,3,0.5,1))
