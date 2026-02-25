@@ -1643,7 +1643,6 @@ text(txy3$x,txy3$y-0.01,labels=expression(s[z]),pos=4,offset=0.1,srt=-20)
 dev.off()
 
 QQexplainer <- function(){
-    cairo(file='../../figures/qqexplainer.pdf',width=3,height=3)
     layout(matrix(c(1, 2, 0, 3), 2, 2, byrow = TRUE), 
            widths = c(1, 1), heights = c(1, 1))
     data <- faithful$eruptions
@@ -1651,66 +1650,77 @@ QQexplainer <- function(){
     probs <- seq(from=0.1,to=0.9,by=0.1)
     nd <- length(data)
     # --- 1. Rotated ECDF (Top Left) ---
-    par(mar = c(0, 4, 1, 0)) # No right or bottom margin
+    par(mar=c(0, 3, 1, 0)) # No right or bottom margin
     plot((1:nd-0.5)/nd, sorted_data, type = "s", 
          xlim = c(1, 0), xlab = "", ylab = "Eruption Duration (min)",
          main = "", axes = FALSE, lwd=2,
-         xaxs = "i", yaxs = "i")
-    axis(2)
+         xaxs = "i", yaxs = "i", xpd = NA)
+    text(x=0.85,y=par('usr')[4]*0.975+0.025*par('usr')[3],
+         labels="a)",bty='n',xpd=NA,srt=90,cex=1.1)
     axis(1)
+    axis(2,xpd=NA)
     matlines(x=rbind(probs,probs),
              y=rbind(min(data),quantile(data,probs)),
-             lty=1,col='grey50')
+             lty=3,col='black')
     matlines(x=rbind(probs,0),
              y=rbind(quantile(data,probs),quantile(data,probs)),
-             lty=1,col='grey50')
+             lty=3,col='black')
     # --- 2. Q-Q Plot (Top Right) ---
-    par(mar = c(0, 0, 1, 2)) # No left or bottom margin
+    par(mar = c(0, 0, 1, 2), mgp=c(2,1,0)) # No left or bottom margin
     qqnorm(data,xlab = "", ylab = "",
            axes = FALSE, pch = 20, main="",
-           xaxs = "i", yaxs = "i")
+           xaxs = "i", yaxs = "i", xpd=NA)
+    legend('topleft',legend="b)",bty='n',adj=c(0,-0.5),xpd=NA)
     matlines(x=rbind(-3,qnorm(probs)),
              y=rbind(quantile(data,probs),quantile(data,probs)),
-             lty=1,col='grey50')
+             lty=3,col='black')
     matlines(x=rbind(qnorm(probs),qnorm(probs)),
              y=rbind(min(data),quantile(data,probs)),
-             lty=1,col='grey50')
+             lty=3,col='black')
     # --- 3. Normal CDF (Bottom Right) ---
-    par(mar = c(4, 0, 0, 2)) # No top margin
+    par(mar = c(3, 0, 0, 2), mgp=c(2,1,0)) # No top margin
     x_range <- seq(from=qnorm(1/nd/2), to=qnorm(1-1/nd/2), length.out = 100)
     plot(x_range, pnorm(x_range), type = "l", 
          xlab = "Theoretical Quantiles", ylab = "",
-         axes = FALSE, lwd=2,
+         axes = FALSE, lwd=2, xpd = NA,
          ylim=c(0,1), xaxs = "i", yaxs = "i")
+    legend('topleft',legend="c)",bty='n')
     axis(1)
     axis(4)
     matlines(x=rbind(qnorm(probs),3),
              y=rbind(probs,probs),
-             lty=1,col='grey50')
+             lty=3,col='black')
     matlines(x=rbind(qnorm(probs),
                      qnorm(probs)),
              y=rbind(probs,1),
-             lty=1,col='grey50')
-    dev.off()
+             lty=3,col='black')
 }
 
+cairo(file='../../figures/qqexplainer.pdf',width=4,height=4)
+pars(mgp=c(2,1,0))
 QQexplainer()
+dev.off()
 
-qqfaithful <- function(n,fname){
-    cairo(file=fname,width=3,height=2.5)
-    pars()
+qqfaithful <- function(n){
     if (n==1) clt <- faithful[,'eruptions']
     else clt <- CLT(n,dat=faithful[,'eruptions'],plot=FALSE)
     qqnorm(clt,main='',cex=0.8)
     qqline(clt)
-    dev.off()
 }
-qqfaithful(n=1,'../../figures/qqfaithful1.pdf')
-qqfaithful(n=2,'../../figures/qqfaithful2.pdf')
-qqfaithful(n=3,'../../figures/qqfaithful3.pdf')
-qqfaithful(n=10,'../../figures/qqfaithful10.pdf')
 
-cairo(file='../../figures/qqfaithful12.pdf',width=3,height=2.5)
+cairo(file=,'../../figures/qqfaithful.pdf',width=4,height=4)
+pars(mfrow=c(2,2))
+qqfaithful(n=1)
+legend('topleft',legend='a)',bty='n',adj=c(1.5,0))
+qqfaithful(n=2)
+legend('topleft',legend='b)',bty='n',adj=c(1.5,0))
+qqfaithful(n=3)
+legend('topleft',legend='c)',bty='n',adj=c(1.5,0))
+qqfaithful(n=10)
+legend('topleft',legend='d)',bty='n',adj=c(1.5,0))
+dev.off()
+
+cairo(file='../../figures/qqfaithful12.pdf',width=2.5,height=2.5)
 pars(mar=c(2.5,2.5,0.5,0.25))
 xy1 <- plotSums(n=100,ns=200,pop=1,plot=FALSE)
 xy2 <- plotSums(n=100,ns=200,pop=2,plot=FALSE)
