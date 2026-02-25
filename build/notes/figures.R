@@ -1642,14 +1642,54 @@ text(txy2$x+0.005,txy2$y+0.01,labels=expression(s[y]),pos=3,srt=-20)
 text(txy3$x,txy3$y-0.01,labels=expression(s[z]),pos=4,offset=0.1,srt=-20)
 dev.off()
 
-if (FALSE){ # Q-Q plot of earthquake data
-    nvals <- length(unique(nquakes))
-    qqplot(qpois(ppoints(nvals),lambda=mean(nquakes)),
-           nquakes)
-    qqline(nquakes,
-           distribution = function(probs) { qpois(probs, lambda=lambda) },
-           col = "red",
-           lwd = 0.5)
+QQexplainer <- function(){
+    layout(matrix(c(1, 2, 0, 3), 2, 2, byrow = TRUE), 
+           widths = c(1, 1), heights = c(1, 1))
+    data <- faithful$eruptions
+    sorted_data <- sort(data)
+    probs <- seq(from=0.1,to=0.9,by=0.1)
+    nd <- length(data)
+    # --- 1. Rotated ECDF (Top Left) ---
+    par(mar = c(0, 4, 1, 0)) # No right or bottom margin
+    plot((1:nd-0.5)/nd, sorted_data, type = "s", 
+         xlim = c(1, 0), xlab = "", ylab = "Eruption Duration (min)",
+         main = "", axes = FALSE, lwd=2,
+         xaxs = "i", yaxs = "i")
+    axis(2)
+    axis(1)
+    matlines(x=rbind(probs,probs),
+             y=rbind(min(data),quantile(data,probs)),
+             lty=1,col='grey50')
+    matlines(x=rbind(probs,0),
+             y=rbind(quantile(data,probs),quantile(data,probs)),
+             lty=1,col='grey50')
+    # --- 2. Q-Q Plot (Top Right) ---
+    par(mar = c(0, 0, 1, 2)) # No left or bottom margin
+    qqnorm(data,xlab = "", ylab = "",
+           axes = FALSE, pch = 20, main="",
+           xaxs = "i", yaxs = "i")
+    matlines(x=rbind(-3,qnorm(probs)),
+             y=rbind(quantile(data,probs),quantile(data,probs)),
+             lty=1,col='grey50')
+    matlines(x=rbind(qnorm(probs),qnorm(probs)),
+             y=rbind(min(data),quantile(data,probs)),
+             lty=1,col='grey50')
+    # --- 3. Normal CDF (Bottom Right) ---
+    par(mar = c(4, 0, 0, 2)) # No top margin
+    x_range <- seq(from=qnorm(1/nd/2), to=qnorm(1-1/nd/2), length.out = 100)
+    plot(x_range, pnorm(x_range), type = "l", 
+         xlab = "Theoretical Quantiles", ylab = "",
+         axes = FALSE, lwd=2,
+         ylim=c(0,1), xaxs = "i", yaxs = "i")
+    axis(1)
+    axis(4)
+    matlines(x=rbind(qnorm(probs),3),
+             y=rbind(probs,probs),
+             lty=1,col='grey50')
+    matlines(x=rbind(qnorm(probs),
+                     qnorm(probs)),
+             y=rbind(probs,1),
+             lty=1,col='grey50')
 }
 
 qqfaithful <- function(n,fname){
