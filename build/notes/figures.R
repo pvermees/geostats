@@ -1643,6 +1643,7 @@ text(txy3$x,txy3$y-0.01,labels=expression(s[z]),pos=4,offset=0.1,srt=-20)
 dev.off()
 
 QQexplainer <- function(){
+    cairo(file='../../figures/qqexplainer.pdf',width=3,height=3)
     layout(matrix(c(1, 2, 0, 3), 2, 2, byrow = TRUE), 
            widths = c(1, 1), heights = c(1, 1))
     data <- faithful$eruptions
@@ -1690,7 +1691,10 @@ QQexplainer <- function(){
                      qnorm(probs)),
              y=rbind(probs,1),
              lty=1,col='grey50')
+    dev.off()
 }
+
+QQexplainer()
 
 qqfaithful <- function(n,fname){
     cairo(file=fname,width=3,height=2.5)
@@ -2045,6 +2049,38 @@ text(1000,cdf1(1000),pos=1,labels='dune',offset=1,col='gray50')
 text(1000,cdf2(1000),pos=3,labels='river')
 dev.off()
 
+# translated from C by Gemini
+psmirnov2x <- function(x, m, n) {
+  if (m > n) {
+    temp <- n
+    n <- m
+    m <- temp
+  }
+  md <- as.numeric(m)
+  nd <- as.numeric(n)
+  q <- (0.5 + floor(x * md * nd - 1e-7)) / (md * nd)
+  u <- numeric(n + 1)
+  for (j in 0:n) {
+    u[j + 1] <- if ((j / nd) > q) 0 else 1
+  }
+  for (i in 1:m) {
+    w <- i / (i + n)
+    if ((i / md) > q) {
+      u[1] <- 0
+    } else {
+      u[1] <- w * u[1]
+    }
+    for (j in 1:n) {
+      if (abs(i / md - j / nd) > q) {
+        u[j + 1] <- 0
+      } else {
+        u[j + 1] <- w * u[j + 1] + u[j]
+      }
+    }
+  }
+  return(u[n + 1])
+}
+
 cairo(file='../../figures/KSdens.pdf',width=6,height=3)
 pars(mfrow=c(1,2))
 n.x <- length(samp1)
@@ -2060,7 +2096,7 @@ d <- rep(0,2*nD)
 P <- 0*D
 p <- rep(0,2*nD)
 for (i in 1:nD){
-    P[i] <- stats::psmirnov(D[i],sizes=c(n.x, n.y))
+    P[i] <- psmirnov2x(D[i],n.x,n.y)
     p[2*i+c(-1,0)] <- P[i]
     d[2*i+c(-1,0)] <- D[i]
 }
