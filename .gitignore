@@ -10,3 +10,7 @@
 # Output files from R CMD check
 *.Rcheck/
 **/*.Rcheck/
+
+# LaTeX log files
+*.log
+*.aux
