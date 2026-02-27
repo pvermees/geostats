@@ -515,13 +515,13 @@ using the probability mass function of the Poisson distribution with
 $\lambda=5.43$ (Equation~\ref{eq:poispmf}):
 
 \begin{center}
-  \begin{tabular}{r|c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}
-      c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c}
+  \begin{tabular}{@{\gap}r@{\gap}|@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}
+      c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}c@{\gap}}
     earthquakes/year ($k$) &
-    0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+    0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & $>12$ \\
     $N\times{P}(k|\lambda=5.43)$ &
     0.438 & 2.38 & 6.46 & 11.7 & 15.9 & 17.2 & 15.6 & 12.1 &
-    8.22 & 4.96 & 2.69 & 1.33 & 0.601
+    8.22 & 4.96 & 2.69 & 1.33 & 0.601 & 0.401
   \end{tabular}
 \end{center}
 
@@ -615,7 +615,7 @@ Applying the $\chi^2$-test to the earthquake data:
       5.35 & 7.84 & 10.6 & \textbf{12.6} &
       \textbf{14.4} & \textbf{16.8} \\ \hline
       $P(X\geq{\chi^2})$ & 0.99 & 0.975 & 0.95 & 0.9 & 0.75 &
-      \textit{0.743} & 0.5 & 0.25 & 0.1 & \textbf{0.05} &
+      \textit{0.583} & 0.5 & 0.25 & 0.1 & \textbf{0.05} &
       \textbf{0.025} & \textbf{0.01}
     \end{tabular}
   \end{center}
