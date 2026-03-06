@@ -1,6 +1,46 @@
 \chapter{Tables}
 \label{ch:tables}
 
+Before the advent of modern computers, statistical hypothesis testing
+was performed by hand using lookup tables. Although these tables are
+no longer required for the routine practice of data science, it is
+nevertheless useful to be familiar with them, as they provide deeper
+insight into the mechanisms of hypothesis testing and a greater
+appreciation for the symmetry of some statistical distributions. This
+chapter presents five tables containing key quantiles of the normal,
+t, chi-squared, and Wilcoxon distributions. The first three are
+parametric distributions whose cumulative densities can be calculated
+analytically:
+\begin{description}
+\item Normal distribution (Table~\ref{tab:normal}):
+  \begin{equation}
+    p = \int_{-\infty}^{q} \dfrac{1}{\sqrt{2\,\pi}\,\sigma}
+      \exp\left[-\dfrac{(x-\mu)^2}{2\,\sigma^2}\right] dx
+  \end{equation}
+\item t-distribution (Table~\ref{tab:t}):
+  \begin{equation}
+    p = \int_{-\infty}^{q} 
+    \dfrac{\Gamma\!\left(\frac{df+1}{2}\right)}
+          {\sqrt{df\pi}\,\Gamma\!\left(\frac{df}{2}\right)}
+          \left(1 + \frac{x^2}{df}\right)^{-\frac{df+1}{2}} dx
+  \end{equation}
+\item Chi-squared distribution (Table~\ref{tab:chi2}):
+  \begin{equation}
+    p = \int_0^{q} 
+    \frac{1}{2^{\frac{df}{2}}\,\Gamma\!\left(\frac{df}{2}\right)}
+    x^{\frac{df}{2}-1} e^{-\frac{x}{2}} dx
+  \end{equation}
+\end{description}
+
+\noindent where $\Gamma(\ast)$ is the `gamma function':
+  \begin{equation}
+    \Gamma(y) = \int_0^{\infty} x^{y-1}\,e^{-x}\,dx
+  \end{equation}
+
+The non-parametric Wilcoxon distribution (Tables~\ref{tab:w0.025} and
+\ref{tab:w0.05}) was obtained by exhaustive combinatorial enumeration,
+as discussed in Section~\ref{sec:nonparametric}.
+
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrrrrrrrrrr}
