@@ -1523,11 +1523,11 @@ This script produces the same output as the first panel of
   same output but use different algebraic
   algorithms\footnote{\texttt{prcomp} uses singular value
   decomposition, whereas \texttt{princomp} uses an eigen
-  decomposition.}. Applying \texttt{prcomp} to the US arrests data to
-  produce the biplot shown in Figure~\ref{fig:USArrests}:
+  decomposition.}. Applying \texttt{princomp} to the US arrests data
+  to produce the biplot shown in Figure~\ref{fig:USArrests}:
 
 \begin{script}
-pc <- prcomp(USArrests,scale=TRUE)
+pc <- prcomp(USArrests,scale.=TRUE)
 biplot(pc)
 \end{script}
 

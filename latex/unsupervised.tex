@@ -247,10 +247,12 @@ Wyoming    & 6.8 & 161 & 15.6 & 60
 \end{minipage}
 \endgroup\medskip
 
-Applying PCA to Table~\ref{tab:USArrests} yields four principal
-components, the first two of which represent 62\% and 25\% of the
-total variance, respectively.  Visualising the PCA results as a
-biplot:
+Before applying PCA to Table~\ref{tab:USArrests}, it is useful to
+scale the variables to have the same variance. This ensures that they
+are given equal weight in the analysis. Applying PCA to the scaled
+data yields four principal components, the first two of which
+represent 62\% and 25\% of the total variance, respectively.
+Visualising the PCA results as a biplot:
 
 \noindent\begin{minipage}[t][][b]{.5\textwidth}
   \includegraphics[width=\textwidth]{../figures/USArrests.pdf}\medskip
