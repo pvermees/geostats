@@ -221,7 +221,7 @@ like a matrix:
 Read data from a \texttt{.csv} file:
 
 \begin{console}
-> myframe2 <- read.csv(file='timescale.csv',header=TRUE)
+> myframe2 <- read.csv(file='timescale.csv')
 \end{console}
 
 Type \texttt{myframe2} at the command prompt to verify that the
@@ -1676,7 +1676,7 @@ flower is \textit{versicolor}, and a 24\% chance that it is
 
 \begin{script}
 library(rpart)
-tree <- rpart(Species ~ ., data=iris, method="class")
+tree <- rpart(Species ~ ., data=iris)
 plot(tree)
 text(tree)
 \end{script}
@@ -1699,7 +1699,7 @@ step~\ref{it:LDA}, the class probabilities are:
 \noindent which leads to the following classification:
 
 \begin{console}
-> predict(object=tree,newdata=newflower,type='class')
+> predict(object=tree,newdata=newflower)
          1 
 versicolor 
 \end{console}

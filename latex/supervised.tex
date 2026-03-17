@@ -116,10 +116,10 @@ illustrates this phenomenon with a second bivariate dataset:\\
 LDA can also be used to reduce the dimensionality of datasets in a
 similar way to PCA. Recall that, in Section~\ref{sec:PCA}, we used a
 simple toy example to show how PCA can be used to project a
-two-dimensional dataset onto a one dimensional line. We can use the
-same approach to illustrate how LDA can achieve the same effect with a
-different aim. Consider a mixed dataset of two bivariate samples, $X$
-and $Y$:
+two-dimensional dataset onto a one dimensional line. We can use
+another a toy example to illustrate how LDA can achieve the same
+effect with a different aim. Consider a mixed dataset of two bivariate
+samples, $X$ and $Y$:
 \begin{equation}
   X = \bbordermatrix{
     ~ &  a & b \cr
@@ -192,9 +192,9 @@ Calculate the means of $X$ and $Y$
   \right]  
 \end{equation}
 
-The linear discriminant function is obtained by minimising the
-within-group (co)variance relative to the difference between the group
-means:
+The linear discriminant function is obtained by maximising the
+difference between the group means relative to the within-group
+(co)variance:
 \begin{equation}
   \mbox{LD} = \Sigma_w^{-1} \left(\bar{Y}-\bar{X}\right)
   \bbordermatrix{
@@ -207,7 +207,7 @@ means:
 (Section~\ref{sec:R-supervised}.\ref{it:LDA}) normalises the linear
 discriminant function as follows:
 \begin{equation}
-  \mbox{LD}' = \frac{\mbox{LD1}}{\sqrt{\mbox{LD1}^T\,\Sigma_w\,\mbox{LD1}}}
+  \mbox{LD}' = \frac{\mbox{LD}}{\sqrt{\mbox{LD}^T\,\Sigma_w\,\mbox{LD}}}
   \bbordermatrix{
     ~ & a & b \cr
     = & 0.52 & -0.20
